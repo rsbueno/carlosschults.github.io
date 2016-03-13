@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 13 Mar 2016 00:14:40 -0300</pubDate>
-    <lastBuildDate>Sun, 13 Mar 2016 00:14:40 -0300</lastBuildDate>
+    <pubDate>Sun, 13 Mar 2016 00:38:35 -0300</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2016 00:38:35 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
     
@@ -112,7 +112,7 @@ Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.&
 
 &lt;p&gt;Talvez você tenha se surpreendido em ver String listada como um tipo de referência. Afinal de contas, ela parece se comportar como um tipo de valor. Bom, a razão para isso é que a string é um tipo &lt;strong&gt;imutável&lt;/strong&gt;. Como eu disse antes, não vou falar sobre isso hoje, mas em breve teremos um post inteiro sobre System.String.&lt;/p&gt;
 
-&lt;p&gt;Bom, por hoje é só. Espero que tenham gostado do post, e eu adoraria ter o feedback de vocês. Eu me expressei claramente? Eu disse algo um pouco impreciso - ou mesmo totalmente errado? Deixe um comentário aqui embaixo ou envie um email para &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#064;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#115;&amp;#099;&amp;#104;&amp;#117;&amp;#108;&amp;#116;&amp;#115;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#064;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#115;&amp;#099;&amp;#104;&amp;#117;&amp;#108;&amp;#116;&amp;#115;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Bom, por hoje é só. Espero que tenham gostado do post, e eu adoraria ter o feedback de vocês. Eu me expressei claramente? Eu disse algo um pouco impreciso - ou mesmo totalmente errado? Deixe um comentário aqui embaixo ou &lt;a href=&quot;http://twitter.com/carlosschults&quot;&gt;me chame no twitter&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;referncias-em-ingls&quot;&gt;Referências (em inglês):&lt;/h2&gt;
 
