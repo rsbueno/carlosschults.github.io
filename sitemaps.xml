@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+      <url>
+        <loc>/en/value-reference-types-in-csharp/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/value-reference-types-in-csharp/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/tipos-valor-referencia-em-csharp/" />
+        
+        <lastmod>2016-01-30T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/tipos-valor-referencia-em-csharp/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/value-reference-types-in-csharp/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/tipos-valor-referencia-em-csharp/" />
+        
+        <lastmod>2016-01-30T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/share-what-you-learn/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/share-what-you-learn/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/compartilhe-o-que-voce-aprende/" />
+        
+        <lastmod>2015-08-25T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/compartilhe-o-que-voce-aprende/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/share-what-you-learn/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/compartilhe-o-que-voce-aprende/" />
+        
+        <lastmod>2015-08-25T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+  
+    
+      <url>
+        <loc>/about/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/about/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/sobre/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/feed.xml</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/feed.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/css/main.css" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/rss.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/css/main.css</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/feed.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/css/main.css" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/rss.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/rss.xml</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/feed.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/css/main.css" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/rss.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/sitemaps.xml</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/feed.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/css/main.css" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/rss.xml" />
+        
+          <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/sobre/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/about/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/sobre/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/blog/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/blog/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/compartilhar/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/compartilhar/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/primeiro%20post/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/primeiro%20post/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/primeiro%20post/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/blogging/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/blogging/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/blogging/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/sharing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/sharing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/sharing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/first%20post/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/first%20post/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/first%20post/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/c%23/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/c%23/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/c%23/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/iniciantes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/iniciantes/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/iniciantes/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/oop/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/oop/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/oop/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/tipagem/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tipagem/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tipagem/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/beginners/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/beginners/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/beginners/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/type%20system/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/type%20system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/type%20system/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/blog/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/blog/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/compartilhar/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/compartilhar/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/primeiro%20post/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/primeiro%20post/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/primeiro%20post/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/blogging/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/blogging/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/blogging/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/sharing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/sharing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/sharing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/first%20post/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/first%20post/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/first%20post/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/c%23/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/c%23/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/c%23/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/iniciantes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/iniciantes/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/iniciantes/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/oop/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/oop/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/oop/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/tipagem/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tipagem/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tipagem/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/beginners/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/beginners/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/beginners/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/type%20system/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/type%20system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/type%20system/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+  </urlset>

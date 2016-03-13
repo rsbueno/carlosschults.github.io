@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>carlos schults / blog</title>
+    <description>Articles on software development, databases and several tech related subjects.</description>
+    <link>http://carlosschults.net/</link>
+    <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 13 Mar 2016 00:14:40 -0300</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2016 00:14:40 -0300</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+    
+      <item>
+        <title>Value and reference types in C#</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161644/value-reference-types-1038x437_tutiht.png&quot; alt=&quot;&quot; /&gt;
+This is my first “real” post here on my blog, and I decided to talk about value types and reference types. This is somewhat of a basic subject, in the sense that it is something that you should already know if you write C# code for a living.But at the same time, it can be a little non-intuitive if you’re not an experienced developer.
+&lt;!--more--&gt;
+I’ll try to make this as simple and short as possible, so I won’t talk about string immutability, boxing, unboxing, and some other things with fancy names.
+I’ll write about those in the future, but for today let’s focus on the basics.&lt;/p&gt;
+
+&lt;p&gt;So, take a look at the following piece of code.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The value of x is {x}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Outputs &quot;The value of x is 10&quot;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;The value of y is {y}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Outputs&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;The value of y is 11&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;No surprises here, cause this is the exact behaviour you’d expect.&lt;br /&gt;
+Now, suppose we have a class like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Person&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Profession&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profession&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Profession&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profession&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello! My name is {Name} and I&#39;m a {Profession}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, you do this:&lt;code&gt; &lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;   
+    &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Mary&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;programmer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;    
+    &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// outputs &quot;Hello! My name is Mary and I&#39;m a programmer&quot;
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;person2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;John&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;person2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Profession&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;musician&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
+    &lt;span class=&quot;n&quot;&gt;person2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// outputs &quot;Hello! My name is John and I&#39;m a musician &quot;  
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;   &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outputs&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello! My name is John and I&#39;m a musician &quot;&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now is the time when beginners sometimes get confused. “This doesn’t make sense”, they say. “I’ve changed the value of one of the variables, and the other also changed.”&lt;/p&gt;
+
+&lt;p&gt;Well, that is the wrong way to look at it. As it turns out,&lt;strong&gt;you didn’t really change the value of the variable&lt;/strong&gt;, in this case. And that’s the point.&lt;/p&gt;
+
+&lt;p&gt;Remember the first example? Let’s take a look at it again, this time step by step:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;The figure show a sample of C# soure code, in which a variable is being declared and assigned the value 10&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161625/fig1_czxki5.png&quot; style=&quot;height:158px; width:250px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We declare the first variable and assign the value 10 to it. Now, somewhere inside the computer’s memory, there is a “box” labeled “x” which holds the value 10.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;img alt=&quot;The image show a sample of C# code, in which a variable y is being declared, and the value of x is assigned to it.&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161628/fig2_m1gxsd.png&quot; style=&quot;height:179px; width:250px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We declare the second variable and assign the value of the first variable to it. Notice that the value is copied from x to y. Now we have two boxes, one labeled x, the other labeled y, and both of them hold the value 10.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;img alt=&quot;The image show a sample of C# code, in which a variable y gets incremented by 1.&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161625/fig3_esck9i.png&quot; style=&quot;height:172px; width:250px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, we increment the value of the variable y by 1. Notice that the value of x remained unchanged. Of course, because &lt;strong&gt;they have nothing to do with each other! &lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;On the other hand, something very different happens when you’re dealing with reference types. To understand that, let’s review the second example, step by step:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;img alt=&quot;The image show a sample of C# code, in which a variable is assigned a new instance of the Person class&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161628/fig4_kxmmuk.png&quot; style=&quot;height:257px; width:600px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;First, we create a variable called person and assign to it a new instance of the Person class. Now, somewhere inside the computer’s memory, we have a box called “person”. Notice, however, that our variable person stores &lt;strong&gt;a reference that points to the instance of Person, instead of storing the instance itself!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;#&quot;&gt;&lt;img alt=&quot;The image show a sample of C# code, in which a variable person2 is created and receives the value of the variable person.&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161623/fig5_aznix0.png&quot; style=&quot;height:340px; width:600px&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In the second step, we create a variable called person2 and assign the value of the variable person to it. As in the previous example, the value from one variable is copied to the other. In this case, &lt;strong&gt;the value that is copied is the reference that points to the instance&lt;/strong&gt;. So now we have two variables whose values are references that point to the same instance of Person.&lt;/p&gt;
+
+&lt;p&gt;Now, of course when you change the object’s data (e.g. alter the person’s name and/or profession), it seems that the two variables were altered. In fact, the variables’s values remain exactly the same: what was really changed was the object to which they point to.&lt;/p&gt;
+
+&lt;p&gt;So, we could summarize that way: value types store data. When you assign the value of a value type variable to another, what gets copied is the data itself (like an integer, for example).&lt;br /&gt;
+This is similar to when you copy a file from one folder and paste it somewhere else. You made a copy, but from now on, they are independent files and have nothing to do with each other.&lt;/p&gt;
+
+&lt;p&gt;Reference types store a reference, that points to the data, which lives somewhere else in the machine’s memory. When you assign the value of a reference type variable to another, what gets copied is the reference.It can be useful to think of them as shortcuts to files. If you have one or more shortcuts that point to a particular file, when you make changes in the original file, those changes will be visible through the shortcuts. Because they’re just that, shortcuts.&lt;/p&gt;
+
+&lt;h2 id=&quot;which-types-are-value-types&quot;&gt;Which types are value types?&lt;/h2&gt;
+
+&lt;p&gt;According to MSDN, the value types are:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;All numeric data types&lt;/li&gt;
+  &lt;li&gt;Boolean, Char, and Date&lt;/li&gt;
+  &lt;li&gt;All structures&lt;/li&gt;
+  &lt;li&gt;Enumerations&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;which-types-are-reference-types&quot;&gt;Which types are reference types?&lt;/h2&gt;
+
+&lt;p&gt;Again, acording to MSDN:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;String&lt;/li&gt;
+  &lt;li&gt;All arrays&lt;/li&gt;
+  &lt;li&gt;Classes&lt;/li&gt;
+  &lt;li&gt;Delegates&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;wait-a-minute-string-is-a-reference-type&quot;&gt;Wait a minute! String is a reference type?!&lt;/h2&gt;
+
+&lt;p&gt;Maybe you’re surprised to see String listed as a reference type. After all, it seems to behave as a value type. 
+Well, the reason for this is because String is an &lt;strong&gt;immutable type&lt;/strong&gt;. As I said, I won’t talk about this today, but soon we’ll have a post all about System.String.&lt;/p&gt;
+
+&lt;p&gt;OK, that’s it for today. I hope you guys enjoyed this post, and I’d love to hear your feedback.Have I expressed myself clearly enough? Have I said something innacurate - or even flat-out wrong?
+Let me know in the comments, or send an email to &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#064;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#115;&amp;#099;&amp;#104;&amp;#117;&amp;#108;&amp;#116;&amp;#115;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#064;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#115;&amp;#099;&amp;#104;&amp;#117;&amp;#108;&amp;#116;&amp;#115;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jonskeet.uk/csharp/references.html&quot;&gt;http://jonskeet.uk/csharp/references.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 30 Jan 2016 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/value-reference-types-in-csharp/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/value-reference-types-in-csharp/</guid>
+        
+        <category>c#</category>
+        
+        <category>beginners</category>
+        
+        <category>oop</category>
+        
+        <category>type system</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Share what you learn</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1440517439/share1038x437_mshqwf.jpg&quot; alt=&quot;&quot; /&gt;
+Share what you learn. Write a blog post. Answer a question on Stack Overflow. Open-source your code. Create content! In our industry, this advice shows up very often, in all colours and shapes. And rightly so, I’d say. How many hours have you saved thanks to someone else’s post on their blog? Or to a well-crafted answer on Stack Overflow?&lt;/p&gt;
+
+&lt;p&gt;How many times an open-source tool/library/whatever spared you from having to code it’s functionality from scratch? If I had to guess the answer to these questions, I’d say: a lot. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.akitaonrails.com/2014/08/29/milesimo-1000-post-no-blog#.VdzH9peC7lc&quot;&gt;Brazilian developer Rafael Rosa Fu talks about some of the benefits of content creation on this post&lt;/a&gt;, originally written in Portuguese:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Learning - in order to fix new skills you must practice them, when we write about what we learn we are reinforcing and expanding our knowledge by being “forced” to explain it in a way that other people can  understand&lt;/li&gt;
+    &lt;li&gt;Memory - I don’t know about you, but my memory is not that great, and I’m sure I’m no exception here. Write about that complex concept or write down the recipe to a sporadic procedure and when you need to remember it just open your blog, or even google it and you’re going to find your own words to remind you.&lt;/li&gt;
+    &lt;li&gt;Portfolio - specially useful to those who are starting their careers, blog posts are useful as part of a knowledge portfolio that can be found by a prospective employer or used as reference during an interview, acting as a complement to career time,  besides being an excellent starting point to a conversation.  […]&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Jeff Atwood (co-founder of Stack Overflow and Discourse) even said that starting his blog “was the the most important thing I’ve ever done in my entire career.” So, it seems reasonable that we if encourage more and more people to share their knowledge and experiences, the whole community wins, right?&lt;/p&gt;
+
+&lt;p&gt;In this 2012 Smashing Magazine post, Louis Lazaris gives advice on how to start publishing: just publish what you learn, don’t be afraid of making mistakes, welcome your reader’s collaborations.&lt;/p&gt;
+
+&lt;p&gt;It sounds easy, doesn’t it?&lt;/p&gt;
+
+&lt;h2 id=&quot;when-doubt-arrives&quot;&gt;When Doubt Arrives&lt;/h2&gt;
+
+&lt;p&gt;I had a lot of self-doubt before starting this blog. I mean, how could it be any different? All those established bloggers, they have years or even decades of experience. They give talks in several countries. They are published authors, they host podcasts, they created successful companies, or maybe a piece of technology used by millions.\r\n\r\nIn short, they have a very impressive “About Me” page. Heck, some of them may even have an wikipedia article about themselves! They’re the rockstars.&lt;/p&gt;
+
+&lt;p&gt;What about me? I’m just a dude, a couple years out of college, trying to learn and make my career. Do I really have something valuable to offer? Will I be able to really help somebody? Or I’ll be just adding to the noise?&lt;/p&gt;
+
+&lt;p&gt;I think these are all important questions. The web is a ridiculously big place. You could share content for years, or maybe even your whole life, without being noticed and without receiving any feedback.&lt;/p&gt;
+
+&lt;p&gt;Every now and then when I google something, I land on some blog with a cool design and very well written posts. I start to browse the posts, and I notice that most of them (sometimes, all of them) have no comments. Sometimes, I also notice that the last post is from 2 or 3 years ago. They gave up.&lt;/p&gt;
+
+&lt;p&gt;While this is sad and quite disencouraging, it’s just a fact of life. Maybe your blog will reach a large audience, maybe it will not.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-i-created-this-blog-after-all&quot;&gt;Why I created this blog, after all?&lt;/h2&gt;
+
+&lt;p&gt;Maybe the previous section has given you the impression that I am skeptical about the benefits of creating content. And maybe I am, just a little bit. But I’m not going to let that stop me. I believe in the importance of giving back to the community.&lt;/p&gt;
+
+&lt;p&gt;Remember that stackoverflow answer that saved your job? Well, guess what: somebody took the time to write that answer, for free, and posted it online, for free, for the whole internet to see, forever. Isn’t that amazing? I think part of the beauty of our profession is that there are so many people willing to share knowledge for free. To sacrifice their own free time in order to build something. Miracles like GitHub, StackOverflow, Wikipedia, are only possible thanks to those people. And I want to be a part of that.&lt;/p&gt;
+
+&lt;p&gt;Sure, you could argue that these people are moved by their own selfish reasons. Yeah, they probably are, but the point is: at the end of the day, it doesn’t really matter. Results matter. If the user JaneDoe123 wrote that answer on StackOverflow just to earn a few points of reputation, that’s fine by me! I just want to have my problem solved.&lt;/p&gt;
+
+&lt;p&gt;So, that’s it. To use a torrent metaphor, I’m tired of being only a leecher. It’s time to seed a little bit.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Aug 2015 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/share-what-you-learn/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/share-what-you-learn/</guid>
+        
+        <category>blogging</category>
+        
+        <category>sharing</category>
+        
+        <category>first post</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>carlos schults / blog</title>
+    <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
+    <link>http://carlosschults.net/</link>
+    <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 13 Mar 2016 00:14:40 -0300</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2016 00:14:40 -0300</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+    
+      <item>
+        <title>Tipos de valor e referência em C#</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161644/value-reference-types-1038x437_tutiht.png&quot; alt=&quot;&quot; /&gt;
+Este é o meu primeiro post pra valer aqui no meu blog, e eu decidi escrever sobre tipos de valor e tipos de referência em C#. Isso é um assunto relativamente básico, no sentido de que é algo que você já deveria entender caso você programe em C# profissionalmente. Mas ao mesmo tempo, é algo que pode ser um pouco contra-intuitivo caso você não seja um desenvolvedor experiente.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Eu vou tentar deixar o post o mais simples e curto possível, então não vou falar hoje sobre imutabilidade de string, &lt;em&gt;boxing&lt;/em&gt;, &lt;em&gt;unboxing&lt;/em&gt;, e outras coisas com nomes chiques.
+Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.&lt;/p&gt;
+
+&lt;p&gt;Então, dê uma olhada no código a seguir:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;O valor de x é {x}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Imprime &quot;O valor de x é 10&quot;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;O valor de y é {y}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imprime&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;O valor de y é 11&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Nenhuma surpresa até aqui, esse é exatamente o comportamento que você esperaria. Agora, imagine que nós temos uma classe assim:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pessoa&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Nome&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Profissao&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profissao&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Nome&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Profissao&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profissao&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Oi! Meu nome é {Nome} e eu sou {Profissao}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Agora, faça o seguinte:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Maria&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;programadora&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;    
+&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// imprime &quot;Oi! Meu nome é Maria e eu sou programadora&quot;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pessoa2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pessoa2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Nome&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;João&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Profissao&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;músico&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
+&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// imprime &quot;Oi! Meu nome é João e eu sou músico&quot;  
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imprime&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oi! Meu nome é João e eu sou músico&quot;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Esse é o momento no qual iniciantes costumam ficar confusos. “Isso não faz sentido”, eles dizem. “Eu mudei o valor de uma das variáveis, e a outra também mudou.” Bem, essa é a maneira errada de enxergar o que aconteceu. Na verdade, você &lt;strong&gt;não&lt;/strong&gt; mudou o valor da varíavel, e esse é o ponto.&lt;/p&gt;
+
+&lt;p&gt;Lembra do primeiro exemplo? Vamos dar uma olhada nele novamente, dessa vez passo-a-passo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código C# no qual a variável é criada e lhe é atribuído o valor 10&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161625/fig1_czxki5.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nós declaramos a primeira variável e atribuímos o valor 10 a ela. Agora, em algum lugar dentro da memória do computador, existe uma “caixa” com o nome de x, e dentro dessa caixa tem o valor 10.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código C# no qual a variável y é criada e recebe o valor da variável x&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165139/fig2_de8azi.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nós declaramos a segunda variável e atribuímos a ela o valor da primeira variável. Note que o valor é copiado de x para y. Agora nós temos duas caixas, uma chamada x e a outra y, e ambas guardam o valor 10.&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código em C# no qual o valor da variável y é incrementado em 1&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165134/fig3_sdjbze.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finalmente, nós incrementamos o valor da variável y em 1. Note que o valor de x permanece inalterado. Claro, por que eles realmente não tem nada a ver um com outro! Por outro lado, algo bem diferente acontece quando você está lidando com tipos de referência. Para entender isso, vamos repassar o segundo exemplo, também passo-a-passo:&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código C# no qual a variável pessoa é criada e recebe uma nova instância da classe Pessoa&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165141/fig4_xivrng.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Primeiramente, nós criamos uma variável chamada pessoa e atribuímos a ela uma nova instância da classe Pessoa. Agora, em algum lugar na memória do computador vive uma caixa chamada “pessoa”. Note, porém que nossa variável pessoa guarda &lt;strong&gt;uma referência que aponta para a instância da classe Pessoa, ao invés de guardar a própria instância!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img alt=&quot;A figura mostra a criação da variável pessoa2, que logo em seguida recebe o valor da variável pessoa&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165138/fig5_i21mgj.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;No segundo passo, criamos a variável “pessoa2” e atribuímos a ela o valor da variável “pessoa.” Assim como no exemplo anterior, o valor de uma variável é copiado para a outra. Nesse caso, &lt;strong&gt;o valor que é copiado é a referência que aponta para a instância de pessoa&lt;/strong&gt;. Então agora nós temos duas variáveis cujos valores são referências que apontam para a mesma instância da classe Pessoa.&lt;/p&gt;
+
+&lt;p&gt;Agora, é claro que quando você mudar os dados do objeto (por exemplo, mudar o nome e/ou profissão da pessoa) parece que as duas variáveis foram alteradas. Na verdade, os valores das variáveis continuam exatamente o mesmo: o que foi realmente alterado é o objeto para o qual elas apontam.&lt;/p&gt;
+
+&lt;p&gt;Então, podemos resumir da seguinte forma: tipos de valor armazenam dados. Quando você atribuir o valor de uma variável a outra, o que é copiado são os próprios dados (como um número inteiro, por exemplo). Isso é parecido com quando você copia um arquivo de uma pasta em seu computador e cola em outro lugar. Você fez uma cópia, mas de agora em diante eles são arquivos independentes e não têm nada a ver um com o outro.&lt;/p&gt;
+
+&lt;p&gt;Tipos de referência armazenam uma referência, que apontam para os dados, que vivem em algum outro lugar na memória do computador. Quando você atribui o valor de uma variável de referência para outra, o que é copiado é a referência. Pode ser útil pensar nas referências como atalhos para arquivos. Se você tem um ou mais atalhos que apontam para um arquivo em particular no seu HD, quando você fizer alterações no arquivo, tais alterações serão visíveis quando você acessar o arquivo pelo atalho. Pois eles não passam disso, atalhos.&lt;/p&gt;
+
+&lt;h2 id=&quot;quais-tipos-so-tipos-de-valor&quot;&gt;Quais tipos são tipos de valor?&lt;/h2&gt;
+
+&lt;p&gt;De acordo com o MSDN, os tipos de valor são:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Todos os tipos númericos&lt;/li&gt;
+  &lt;li&gt;Boolean, Char, e Date&lt;/li&gt;
+  &lt;li&gt;Todas as estruturas&lt;/li&gt;
+  &lt;li&gt;Enumerações&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;quais-tipos-so-tipos-de-referncia&quot;&gt;Quais tipos são tipos de referência?&lt;/h2&gt;
+
+&lt;p&gt;Novamente, de acordo com o MSDN:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;String&lt;/li&gt;
+  &lt;li&gt;Todos os arrays&lt;/li&gt;
+  &lt;li&gt;Classes&lt;/li&gt;
+  &lt;li&gt;Delegates&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;espera-um-pouco-string--um-tipo-de-referncia&quot;&gt;Espera um pouco! String é um tipo de referência?!&lt;/h2&gt;
+
+&lt;p&gt;Talvez você tenha se surpreendido em ver String listada como um tipo de referência. Afinal de contas, ela parece se comportar como um tipo de valor. Bom, a razão para isso é que a string é um tipo &lt;strong&gt;imutável&lt;/strong&gt;. Como eu disse antes, não vou falar sobre isso hoje, mas em breve teremos um post inteiro sobre System.String.&lt;/p&gt;
+
+&lt;p&gt;Bom, por hoje é só. Espero que tenham gostado do post, e eu adoraria ter o feedback de vocês. Eu me expressei claramente? Eu disse algo um pouco impreciso - ou mesmo totalmente errado? Deixe um comentário aqui embaixo ou envie um email para &lt;a href=&quot;&amp;#109;&amp;#097;&amp;#105;&amp;#108;&amp;#116;&amp;#111;:&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#064;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#115;&amp;#099;&amp;#104;&amp;#117;&amp;#108;&amp;#116;&amp;#115;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&quot;&gt;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#064;&amp;#099;&amp;#097;&amp;#114;&amp;#108;&amp;#111;&amp;#115;&amp;#115;&amp;#099;&amp;#104;&amp;#117;&amp;#108;&amp;#116;&amp;#115;&amp;#046;&amp;#110;&amp;#101;&amp;#116;&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;referncias-em-ingls&quot;&gt;Referências (em inglês):&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://jonskeet.uk/csharp/references.html&quot;&gt;http://jonskeet.uk/csharp/references.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sat, 30 Jan 2016 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/</guid>
+        
+        <category>c#</category>
+        
+        <category>iniciantes</category>
+        
+        <category>oop</category>
+        
+        <category>tipagem</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Compartilhe o que você aprende</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1440517439/share1038x437_mshqwf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Compartilhe o que você sabe. Escreva um blog. Responda uma pergunta no Stack Overflow. Abra a fonte do seu código. Cria conteúdo! Na nossa área, esse conselho aparece com muita frequência, em diversas formas .&lt;/p&gt;
+
+&lt;p&gt;E com razão, eu diria. Quantas horas de trabalho você já poupou graças a um post em algum blog? Ou a uma resposta bem feita no Stack Overflow?
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Quantas vezes uma biblioteca/ferramenta/app open-source salvou você de ter que codificar aquela funcionalidade do zero? Se eu fosse adivinhar a resposta pra cada uma dessas perguntas, provavelmente diria: muitas.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.akitaonrails.com/2014/08/29/milesimo-1000-post-no-blog#.Vd0nh5eC7lc&quot;&gt;O desenvolvedor Rafael Rosa Fu falou um pouco sobre alguns dos benefícios da criação de conteúdo&lt;/a&gt; em um post no site do Fabio Akita:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Aprendizado. praticar novas habilidades é importante para fixá-las, ao escrever sobre o que aprendemos estamos reforçando e expandindo nosso conhecimento ao sermos “forçados” a explicá-lo de forma que possa ser consumido por outras pessoas.&lt;/li&gt;
+    &lt;li&gt;Memória - não sei você, mas minha memória é igual a de um peixinho dourado, e tenho certeza que não sou exceção. Escreva sobre aquele conceito complicado ou deixe a receita para o procedimento esporádico e quando precisar se lembrar dele abra seu blog ou procure no Google e vai encontrar suas próprias palavras para lembrá-lo.&lt;/li&gt;
+    &lt;li&gt;Portfólio - especialmente útil para quem está começando na carreira, blog posts são úteis como parte de um portfólio de conhecimento que pode ser encontrado por um possível empregador ou usado como referência durante uma entrevista, agindo como um complemento ao tempo de carreira, além de ser um bom gancho para conversas durante entevistas. […]&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Jeff Atwood (co-foundador do Stack Overflow e do Discourse) diss que iniciar seu blog “foi a coisa mais importante que já fiz em toda a minha carreira”. Então, parece razoável dizer que se nós encorajarmos mais e mais pessoas a compartilhar seus conhecimentos e experiências, toda a comunidade ganha, certo?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.smashingmagazine.com/2012/03/publish-what-you-learn/&quot;&gt;Nesse artigo publicado em 2012 pela Smashing Magazine, Louis Lazaris dá conselhos sobre como começar a publicar&lt;/a&gt;: publique as coisas que você aprende, não tenha medo de cometer erros, esteja aberto à colaboração de seus leitores.&lt;/p&gt;
+
+&lt;p&gt;Parece fácil, não é?&lt;/p&gt;
+
+&lt;h2 id=&quot;quando-a-dvida-chega&quot;&gt;Quando a dúvida chega&lt;/h2&gt;
+
+&lt;p&gt;Eu tive bastante receio antes de começar esse blog. Eu quero dizer, como poderia ser de outra forma? Todos esses blogueiros bem estabelecidos, eles têm anos ou mesmo décadas de experiência. Eles palestram em vários países. Eles lançam livros, têm podcasts, eles criaram empresas bem-sucedidas ou talvez até alguma tecnologia usada por milhões de pessoas. Resumindo, eles têm uma página “Sobre Mim” bem impressionante. Caramba, alguns deles já têm até mesmo artigo na wikipédia sobre eles. &lt;strong&gt;Esses são os rockstars&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;E eu? Eu sou só um cara, dois anos depois de terminar a faculdade, tentando aprender e desenvolver minha carreia. Será que eu realmente tenho alguma coisa de valor para oferecer? Será que vou ser capaz de ajudar alguém? Ou vou ser só mais um, aumentando ainda mais o ruído da internet?&lt;/p&gt;
+
+&lt;p&gt;Eu penso que todas essas são questões relevantes. A web é um lugar ridiculamente enorme. Você poderia compartilhar conteúdo por anos, talvez sua vida toda, sem ser notado, sem receber nenhum feedback.&lt;/p&gt;
+
+&lt;p&gt;De vez em quando eu faço uma pesquisa no Google sobre algum assunto e acabo caindo em um blog com um design bacana e posts muito bem escritos. Eu começo a olhar os posts, e noto que a maioria deles (às vezes, todos eles) não tem nenhum comentário. Às vezes, também reparo que o último post foi escrito há dois ou três anos. Eles desistiram.&lt;/p&gt;
+
+&lt;p&gt;E apesar disso ser triste e desencorajador, não deixa de ser apenas um fato da vida. Talvez seu blog vai atingir uma grande audiência, talvez não.&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-eu-criei-esse-blog-afinal-de-contas&quot;&gt;Por que eu criei esse blog, afinal de contas?&lt;/h2&gt;
+
+&lt;p&gt;Talvez a seção anterior tenha lhe dado a impressão de que eu sou cético com relação aos benefícios da criação de conteúdo. E talvez eu realmente seja, um pouco. Mas eu não vou deixar que isso me impeça. Eu acredito na importância de contribuir com a comunidade.&lt;/p&gt;
+
+&lt;p&gt;Se lembra daquela resposta no Stack Overflow que salvou seu emprego? Então, adivinha: alguém “perdeu” o tempo para escrever aquela resposta, de graça, e para postá-la na internet, de graça, pra que toda a internet veja, pra sempre. Isso não é incrível? Eu penso que parte da beleza da nossa profissão é o fato de que há tantas pessoas dispostas a compartilhar conhecimento de graça. A sacrificar seu tempo livre para conseguir construir alguma coisa. Milagres como GitHub, Stack Overflow, Wikipédia, só se tornam possíveis graças a essas pessoas. E eu quero ser parte disso.&lt;/p&gt;
+
+&lt;p&gt;Claro, você poderia argumentar que essas pessoas fazem esse tipo de coisa movidas pelos seus próprios motivos egoistas. É, talvez sim, mas o ponto é: no fim das contas, isso não importa nem um pouco.
+Resultados importam. Se a usuária MariaDaSilva escreveu aquela resposta no Stack Overflow só pra ganhar alguns pontinhos de reputação, por mim está ótimo. Eu quero apenas a resolução do meu problema.&lt;/p&gt;
+
+&lt;p&gt;Então é isso. Para usar uma metáfora do mundo dos torrents, eu cansei de ser apenas um parasita. É hora de semear também.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 25 Aug 2015 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/compartilhe-o-que-voce-aprende/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/compartilhe-o-que-voce-aprende/</guid>
+        
+        <category>blog</category>
+        
+        <category>compartilhar</category>
+        
+        <category>primeiro post</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
