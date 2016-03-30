@@ -3,6 +3,18 @@
   
     
       <url>
+        <loc>/pt/programar-portugues-ou-ingles/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/programar-portugues-ou-ingles/" />
+        
+        <lastmod>2016-03-29T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/resenha-livro-programador-pragmatico/</loc>
         
         
@@ -416,6 +428,32 @@
   
     
       <url>
+        <loc>/tag_ptbr/boas%20praticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20praticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20praticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/ingles/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -617,6 +655,32 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20ageis/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20ageis/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/boas%20praticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20praticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20praticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/ingles/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
         <changefreq>weekly</changefreq>
       </url>
