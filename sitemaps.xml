@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/en/unit-testing-for-beginners-part1/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/unit-testing-for-beginners-part1/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/testes-unitarios-iniciantes-parte1" />
+        
+        <lastmod>2016-04-09T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/testes-unitarios-iniciantes-parte1</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/unit-testing-for-beginners-part1/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/testes-unitarios-iniciantes-parte1" />
+        
+        <lastmod>2016-04-09T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/programar-portugues-ou-ingles/</loc>
         
         
@@ -415,25 +443,12 @@
   
     
       <url>
-        <loc>/tag_ptbr/metodologias%20ageis/</loc>
+        <loc>/tag_ptbr/metodologias%20%C3%A1geis/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20ageis/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20ageis/" />
-        
-        <changefreq>weekly</changefreq>
-      </url>
-    
-  
-    
-      <url>
-        <loc>/tag_ptbr/boas%20praticas/</loc>
-        
-        
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20praticas/" />
-        
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20praticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20%C3%A1geis/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -441,12 +456,103 @@
   
     
       <url>
-        <loc>/tag_ptbr/ingles/</loc>
+        <loc>/tag_ptbr/boas%20pr%C3%A1ticas/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/ingl%C3%AAs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/testes%20de%20software/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20de%20software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20de%20software/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/testes%20unit%C3%A1rios/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20unit%C3%A1rios/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20unit%C3%A1rios/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/testes%20automatizados/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20automatizados/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20automatizados/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/software%20testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software%20testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software%20testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/unit%20testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/unit%20testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/unit%20testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/automated%20tests/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated%20tests/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated%20tests/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -649,25 +755,12 @@
   
     
       <url>
-        <loc>/tag/metodologias%20ageis/</loc>
+        <loc>/tag/metodologias%20%C3%A1geis/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20ageis/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20ageis/" />
-        
-        <changefreq>weekly</changefreq>
-      </url>
-    
-  
-    
-      <url>
-        <loc>/tag/boas%20praticas/</loc>
-        
-        
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20praticas/" />
-        
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20praticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20%C3%A1geis/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -675,12 +768,103 @@
   
     
       <url>
-        <loc>/tag/ingles/</loc>
+        <loc>/tag/boas%20pr%C3%A1ticas/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/ingl%C3%AAs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/testes%20de%20software/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20de%20software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20de%20software/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/testes%20unit%C3%A1rios/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20unit%C3%A1rios/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20unit%C3%A1rios/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/testes%20automatizados/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20automatizados/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20automatizados/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/software%20testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software%20testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software%20testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/unit%20testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/unit%20testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/unit%20testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/automated%20tests/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated%20tests/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated%20tests/" />
         
         <changefreq>weekly</changefreq>
       </url>

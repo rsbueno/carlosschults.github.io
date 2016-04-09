@@ -5,10 +5,158 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 29 Mar 2016 21:09:19 -0300</pubDate>
-    <lastBuildDate>Tue, 29 Mar 2016 21:09:19 -0300</lastBuildDate>
+    <pubDate>Sat, 09 Apr 2016 16:44:37 -0300</pubDate>
+    <lastBuildDate>Sat, 09 Apr 2016 16:44:37 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Testes unitários para iniciantes - Parte 1</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você já deve ter trabalhado em um sistema assim: incrivelmente complexo, com uma base de código gigantesca, mal documentada, cheia de gambiarras, acoplamentos desnecessários, com arquitetura confusa, especificações inexistentes, onde era quase considerado um milagre que o software chegasse a funcionar. Talvez eu tenha acabado de descrever seu projeto atual!
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Nesse tipo de projeto, é comum que os desenvolvedores fiquem com receio de mexer no código, pois sabem que, inevitavelmente, algo vai quebrar. E provavelmente, o erro só vai ser descoberto em produção.&lt;/p&gt;
+
+&lt;p&gt;Agora, imagine se a aplicação fosse completamente protegida por um sistema de alarmes. Cada vez que uma &lt;em&gt;feature&lt;/em&gt; parasse de funcionar, o alarme dispararia. Os desenvolvedores seriam imediatamente notificados, e alguém resolveria o problema o mais rápido possível.&lt;/p&gt;
+
+&lt;p&gt;Imagine ainda que esse sistema de alarmes fosse composto por centenas de sistemas menores. Cada um desses subsistemas seria responsável por “vigiar” uma parte bem pequena e específica da sua aplicação. E para que o sistema de alarmes funcionasse bem, os subsistemas deveriam ser totalmente independentes uns dos outros.&lt;/p&gt;
+
+&lt;p&gt;A adoção de um sistema desse tipo traria muitos benefícios. Logo de cara, o medo de mexer no código iria embora. A refatoração se tornaria mais fácil e frequente, e, como consequência, a qualidade do código aumentaria.&lt;/p&gt;
+
+&lt;p&gt;O próprio processo de desenvolvimento seria simplificado. O sistema de alarmes reduziria drasticamente a necessidade dos lentos testes manuais, agilizando a entrega da aplicação para os usuários.&lt;/p&gt;
+
+&lt;p&gt;Por fim, a necessidade de independência entre os subsistemas incentivaria a diminuição do acoplamento entre as partes da aplicação.&lt;/p&gt;
+
+&lt;p&gt;Parece bom demais para ser verdade? Pois saiba que não é. Esse sistema de alarmes é o benefício que você ganha ao implementar uma &lt;strong&gt;suíte de testes unitários&lt;/strong&gt; em sua aplicação.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-so-testes-unitrios&quot;&gt;O que são testes unitários&lt;/h2&gt;
+
+&lt;p&gt;Vamos ver a definição da Wikipédia:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In computer programming, unit testing is a software testing method by which individual units of source code, […] are tested to determine whether they are fit for use. Intuitively, one can view a unit as the smallest testable part of an application.  […]
+ Unit tests are typically written and run by software developers to ensure that code meets its design and behaves as intended.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:
+&amp;gt; Em programação de computadores, teste unitário é um método de teste de software pelo qual unidades individuais de código fonte […] são testadas para determinar se são adequadas para o uso. Intuitivamente, pode-se considerar uma unidade como a menor parte testável de uma aplicação. […]
+ Testes unitários são tipicamente escritos e executados por desenvolvedores para garantir que o código está de acordo com o projeto e se comporta da maneira desejada.&lt;/p&gt;
+
+&lt;p&gt;A primeira coisa que chama a atenção é que os testes unitários &lt;strong&gt;não têm o propósito de testar o sistema como um todo&lt;/strong&gt;. Pelo contrário, eles testam pequenas partes do software - as tais das unidades. E o que é uma unidade? Existem diversos pontos de vista conflitantes sobre isso, diversas “escolas de pensamento”. Mas é seguro dizer que, no contexto de programação orientada a objeto, a maioria das pessoas considera unidade como sendo uma &lt;strong&gt;classe&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Logo a seguir, nós vemos que os testes unitários são tipicamente escritos e executados por programadores. Isso é interessante por dois motivos: primeiro, contradiz uma ideia antiga de que programadores não são bons testadores de software (vou voltar nesse ponto depois). E mais importante do que isso, ele deixa claro a principal característica dos testes unitários: eles são &lt;strong&gt;automatizados&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tenha em mente que existem diversos tipos de testes automatizados, mas aqui estamos tratando apenas de testes unitários (os quais, de acordo com diversos autores, tais como &lt;a href=&quot;http://martinfowler.com/bliki/TestPyramid.html&quot;&gt;Martin Fowler&lt;/a&gt;, são os que trazem mais benefícios para uma aplicação).&lt;/p&gt;
+
+&lt;p&gt;Na prática, os testes unitários consistem de classes contendo métodos que testam partes pequenas e isoladas do sistema. Essas classes são criadas com o auxílio de um framework de testes (como o JUnit no Java, ou o NUnit ou o Microsoft Test no .Net). Esses testes podem então ser executados pela linha de comando, pela sua IDE ou mesmo por um serviço de build automatizado.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1460211309/teste00_bnsbfl.png&quot; alt=&quot;Exemplo de método de teste em C#&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Após a execução dos testes, você obtém um retorno imediato sobre quais testes passaram e quais falharam, acompanhado do tempo de execução de cada um dos testes.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979476/teste01_ciglca.png&quot; alt=&quot;Janela exibindo resultados da execução de testes unitários&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Com base nesse feedback, você decide o melhor curso de ação. Idealmente, um teste que falha deveria ser sinal de erro no código. O código de produção deveria então ser ajustado para que o teste volte a passar.&lt;/p&gt;
+
+&lt;h2 id=&quot;benefcios-dos-testes-unitrios&quot;&gt;Benefícios dos testes unitários&lt;/h2&gt;
+
+&lt;p&gt;No começo do post, ao usar a metáfora do sistema de alarmes, eu falei de alguns dos benefícios que os testes unitários trazem, como por exemplo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;incentivo à refatoração;&lt;/li&gt;
+  &lt;li&gt;incentivo à evolução da arquitetura do sistema;&lt;/li&gt;
+  &lt;li&gt;simplificação e agilidade na entrega do produto aos usuários;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Outro benefício que vale a pena citar é que os testes também servem como &lt;strong&gt;documentação do código&lt;/strong&gt;. Pense bem: para cada classe de produção no seu sistema, existem diversos métodos de teste que exercitam e exemplificam todos os usos possíveis dessa classe. Uma boa suíte de testes poderia ajudar um recém-chegado ao time adquirir familiaridade com a base de código em pouco tempo.&lt;/p&gt;
+
+&lt;p&gt;Ou seja: documentação viva, executável, sempre atualizada, e que nunca mente.&lt;/p&gt;
+
+&lt;p&gt;Não podemos deixar de mencionar também que uma boa suíte de testes unitários também ajuda a prevenir a regressão de bugs. É uma ótima prática criar um novo teste toda vez que um bug for encontrado. Assim, caso alguma alteração futura faça com que o bug retorne (“regresse”), o teste vai indicar isso.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, um dos maiores benefícios da automação de testes que eu não vejo sendo alardeado por aí é a redução de custos - talvez por ser um fator mais de negócios do que técnico. Digamos que antes de cada release a sua equipe faça um teste completo na aplicação, com quatro testadores, trabalhando 8 horas por dia, durante duas semanas. Basta fazer uma simples multiplicação e você verá que &lt;strong&gt;testes manuais custam caro.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pior ainda: eles custam caro duas vezes. Primeiro, há o custo dos testes em si, que você pode calcular com a fórmula &lt;em&gt;valor da hora de trabalho dos testadores x nº de testadores x horas gastas em teste.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Além disso, há o &lt;a href=&quot;https://pt.wikipedia.org/wiki/Custo_de_oportunidade&quot;&gt;custo de oportunidade&lt;/a&gt;: quando profissionais precisam desempenhar testes manuais que poderiam ser automatizados, eles estão deixando de desempenhar atividades criativas/intelectuais que teriam potencial de trazer ganhos muito maiores para a empresa.&lt;/p&gt;
+
+&lt;h2 id=&quot;equvocos-comuns&quot;&gt;Equívocos comuns&lt;/h2&gt;
+
+&lt;p&gt;Nessa seção, vou tentar esclarecer alguns dos mitos e equívocos que existem a respeito de testes unitários.&lt;/p&gt;
+
+&lt;h3 id=&quot;programadores-no-deveriam-escrever-testes-pois-geralmente-so-maus-testadores&quot;&gt;Programadores não deveriam escrever testes, pois geralmente são maus testadores&lt;/h3&gt;
+
+&lt;p&gt;Existe uma ideia bastante difundida de que programadores não deveriam testar seu próprio código. O raciocínio é que eles, inconscientemente, evitariam usar a aplicação de uma maneira que a faria quebrar. E por experiência própria, eu digo que isso de fato acontece. Já perdi a conta de quantas vezes algum colega encontrou bugs em uma aplicação que eu fiz após &lt;strong&gt;segundos&lt;/strong&gt; de uso, sendo que eu já havia passado muito mais tempo que isso testando e sem conseguir fazer falhar.&lt;/p&gt;
+
+&lt;p&gt;O ponto a salientar aqui é: &lt;strong&gt;há testes e testes&lt;/strong&gt;. Geralmente, quando pessoas dizem que programadores não deveriam testar, elas estão se referindo a testes de sistema, também chamados testes ponta a ponta. Tais testes têm o propósito de testar o sistema como um todo, o que, como já vimos, não é o objetivo dos testes unitários.&lt;/p&gt;
+
+&lt;p&gt;Muitas vezes o que ocorre é simplesmente falta de informação: a pessoa talvez desconheça a natureza e propósito dos testes unitários, e os toma por testes de ponta a ponta.&lt;/p&gt;
+
+&lt;h3 id=&quot;escrever-testes-unitrios--uma-perda-de-tempo--o-mesmo-que-programar-duas-vezes&quot;&gt;Escrever testes unitários é uma perda de tempo; é o mesmo que programar duas vezes&lt;/h3&gt;
+
+&lt;p&gt;Ao tentar “vender” testes unitários para a gerência na sua empresa, uma boa estratégia é apelar para a redução de custos, como visto anteriormente. Mas…e os desenvolvedores? Como convencê-los a gastar mais tempo escrevendo código de teste além do código de produção?&lt;/p&gt;
+
+&lt;p&gt;Dizer que os testes unitários são perda de tempo é uma justificativa comum apresentada por desenvolvedores que não querem escrever testes. E é uma justificativa aparentemente legítima. Afinal, nossos prazos são apertadíssimos, como podemos arrumar tempo para ficar escrevendo casos de teste?&lt;/p&gt;
+
+&lt;p&gt;O que essas pessoas falham em perceber é que &lt;em&gt;elas já testam o próprio código constantemente, mesmo que não chamem por esse nome.&lt;/em&gt; É bem provável que seu workflow de desenvolvimento seja bem parecido com isso:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Escreve um pouco de código&lt;/li&gt;
+  &lt;li&gt;Compila&lt;/li&gt;
+  &lt;li&gt;Executa a aplicação, testa a funcionalidade
+    &lt;ul&gt;
+      &lt;li&gt;Se funcionou, começa a escrever a próxima funcionalidade&lt;/li&gt;
+      &lt;li&gt;Se não funcionou, passa um tempo debugando até encontrar e corrigir o erro&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Repita&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O que estamos propondo é simplesmente trocar o ciclo “escreve código de produção -&amp;gt; compila -&amp;gt; testa -&amp;gt; debuga -&amp;gt; repete” pelo ciclo “escreve código de produção -&amp;gt; escreve código de testes -&amp;gt; executa testes -&amp;gt; corrige código de produção se necessário”.&lt;/p&gt;
+
+&lt;p&gt;É até possível argumentar que os ciclos são praticamente os mesmos. Mas a grande vantagem dos testes unitários é que, uma vez escritos, eles estão automatizados para o resto da vida do projeto. Você “perde tempo” só uma vez. Você investe tempo e esforço no começo, para criar os testes, e colhe os benefícios por tempo indefinido.&lt;/p&gt;
+
+&lt;h3 id=&quot;testes-unitrios-substituem-todos-os-testes-manuais&quot;&gt;Testes unitários substituem todos os testes manuais&lt;/h3&gt;
+
+&lt;p&gt;Testes unitários não são os únicos tipos de testes que trazem benefícios a um projeto. Também podemos utilizar outros tipos de testes automatizados como &lt;strong&gt;testes de integração&lt;/strong&gt; e &lt;strong&gt;testes de aceitação&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1460217453/testing_triangle-300x233_nzq8kx.jpg&quot; alt=&quot;Triângulo dos testes, mostrando a razão ideal entre os diversos tipos de teste de software&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso não significa que testes manuais devem ser extintos. Pelo contrário, eles continuam tendo um papel importante no processo de controle de qualidade. De preferência, os testes manuais devem se concentrar nas áreas que não podem ser automatizadas, como testes de usabilidade.&lt;/p&gt;
+
+&lt;p&gt;Dentro de um contexto de metodologias ágeis, é essencial que o Product Owner/Cliente/Pessoa de Negócios valide e aceite as histórias antes delas serem incluídas em uma release.&lt;/p&gt;
+
+&lt;p&gt;Testes manuais exploratórios, que não seguem um roteiro definido, costumam ser valiosos na detecção de certos tipos de bugs. Os casos de testes automatizados tendem a focar no “Happy Path”, ou seja, o cenário no qual deu tudo certo, as unidades foram usadas exatamente do jeito que o codificador pensou e projetou. Na vida real, é muito comum que os usuários utilizem a aplicação de maneiras…como dizer?…“criativas”. Então,colocar o software sob stress, utilizando-o de maneiras diferentes e inesperadas, podem acabar revelando bugs que de outra forma permaneceriam ocultos.&lt;/p&gt;
+
+&lt;p&gt;É claro que, uma vez que o bug tenha sido revelado pelo teste manual, deve-se imediatamente escrever um teste automatizado que o exponha. Assim, na eventualidade do bug regredir, ele será facilmente detectado.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Testes unitários - e automação de testes, no geral - são um tema gigantesco. Há muitos livros sobre esse tema, bem como teses de mestrado. Há conferências anuais em diversos países apenas sobre teste de software. Então, é claro que seria impossível que eu, com uma mera postagem no meu blog, fizesse jus a esse tema.&lt;/p&gt;
+
+&lt;p&gt;Mas eu espero, sinceramente, ter feito uma boa introdução aos testes unitários e esclarecido um pouco das dúvidas que os iniciantes geralmente têm. Qualquer dúvida, sugestão ou crítica, a área de comentário é de vocês.&lt;/p&gt;
+
+&lt;p&gt;Este post é o início de uma série dedicada ao tema dos testes.
+No próximo artigo, começaremos a colocar a mão na massa: vou mostrar a vocês como criar seus primeiros testes!&lt;/p&gt;
+
+&lt;p&gt;Até lá!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 09 Apr 2016 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1</guid>
+        
+        <category>testes de software</category>
+        
+        <category>testes unitários</category>
+        
+        <category>metodologias ágeis</category>
+        
+        <category>testes automatizados</category>
+        
+        
+      </item>
     
       <item>
         <title>Programar em português ou inglês? That&#39;s the question!</title>
@@ -68,8 +216,11 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
 
 &lt;p&gt;O &lt;a href=&quot;http://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html&quot;&gt;Tiago Albineli Motta, do blog “Programando Sem Cafeína”&lt;/a&gt;, traz um argumento bem interessante: de que o uso de idiomas diferentes prejudica a comunicação entre cliente e a equipe de desenvolvimento, principalmente quando o domínio do negócio é bastante específico. Para justificar, ele cita o exemplo de quando trabalhava em uma empresa que estava desenvolvimento um sistema para um laboratório geológico. Como os funcionários do laboratório usavam termos em português e a equipe de desenvolvimento em inglês, havia ruídos na comunicação.&lt;/p&gt;
 
-&lt;p&gt;Destaco um trecho interessante abaixo (destaque meu):
-&amp;gt; Eis então a pergunta: Será que um código que mistura termos em inglês e português causa mais problemas que os ruídos na comunicação com o cliente? Pode-se alegar que o código nem será mostrado ao usuário, &lt;strong&gt;mas na hora em que o desenvolvedor precisa se comunicar com o cliente, na mente dele ele não está trabalhando com amostras, ele está trabalhando com samples.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Destaco um trecho interessante abaixo (destaque meu):&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Eis então a pergunta: Será que um código que mistura termos em inglês e português causa mais problemas que os ruídos na comunicação com o cliente? Pode-se alegar que o código nem será mostrado ao usuário, &lt;strong&gt;mas na hora em que o desenvolvedor precisa se comunicar com o cliente, na mente dele ele não está trabalhando com amostras, ele está trabalhando com samples.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Ainda no tema do domínio, poderíamos imaginar o desenvolvimento de uma aplicação que se integra com a famigerada Nota Fiscal Eletrônica. Como o xml da nota já vem com os campos todos em português, utilizar nomes de variáveis em inglês poderia adicionar um esforço cognitivo desnecessário.&lt;/p&gt;
 
@@ -142,9 +293,9 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
         <link>http://carlosschults.net/pt/programar-portugues-ou-ingles/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/programar-portugues-ou-ingles/</guid>
         
-        <category>boas praticas</category>
+        <category>boas práticas</category>
         
-        <category>ingles</category>
+        <category>inglês</category>
         
         
       </item>
@@ -186,7 +337,7 @@ proporciona um ritmo agradável. Ele também possui um ótimo senso de humor. N�
         
         <category>livros</category>
         
-        <category>metodologias ageis</category>
+        <category>metodologias ágeis</category>
         
         
       </item>
