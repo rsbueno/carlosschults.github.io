@@ -141,6 +141,19 @@
   
     
       <url>
+        <loc>/busca/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/busca/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/search/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/feed.xml</loc>
         
         
@@ -211,6 +224,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/rss.xml" />
         
           <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/search/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/busca/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/search/" />
         
         <changefreq>weekly</changefreq>
       </url>
