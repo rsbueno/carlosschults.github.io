@@ -3,6 +3,18 @@
   
     
       <url>
+        <loc>/pt/traducao-fases-estabilizacao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/traducao-fases-estabilizacao/" />
+        
+        <lastmod>2016-05-02T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/unit-testing-for-beginners-part1/</loc>
         
         
@@ -586,6 +598,32 @@
   
     
       <url>
+        <loc>/tag_ptbr/tradu%C3%A7%C3%B5es/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tradu%C3%A7%C3%B5es/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tradu%C3%A7%C3%B5es/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/integra%C3%A7%C3%A3o%20cont%C3%ADnua/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/integra%C3%A7%C3%A3o%20cont%C3%ADnua/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/integra%C3%A7%C3%A3o%20cont%C3%ADnua/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -891,6 +929,32 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated%20tests/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/automated%20tests/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/tradu%C3%A7%C3%B5es/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tradu%C3%A7%C3%B5es/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tradu%C3%A7%C3%B5es/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/integra%C3%A7%C3%A3o%20cont%C3%ADnua/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/integra%C3%A7%C3%A3o%20cont%C3%ADnua/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/integra%C3%A7%C3%A3o%20cont%C3%ADnua/" />
         
         <changefreq>weekly</changefreq>
       </url>
