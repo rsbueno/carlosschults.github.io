@@ -5,10 +5,145 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 May 2016 18:31:30 -0300</pubDate>
-    <lastBuildDate>Mon, 02 May 2016 18:31:30 -0300</lastBuildDate>
+    <pubDate>Sun, 22 May 2016 18:58:06 -0300</pubDate>
+    <lastBuildDate>Sun, 22 May 2016 18:58:06 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Ten tips to help you choose good names</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1462225938/baby-name-min_nosetz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;There are only two hard things in Computer Science: cache invalidation and naming things.&lt;/p&gt;
+
+  &lt;p&gt;Phil Karlton&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Do you want to write great code? Clean, understandable, human-readable code? Well, there are several skills you need to acquire. But I’d say #1 on the list is “Picking Good Names”.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Choosing great names for your classes, methods, variables and the like is essential. Wisely chosen names often are the difference between good and awful code.&lt;/p&gt;
+
+&lt;p&gt;But what exactly is a good name?  Even though there are some generally accepted guidelines, I’m afraid there isn’t a real consensus. (As it is with a lot of topics in our field, I’d say).&lt;/p&gt;
+
+&lt;p&gt;So, today I’m going to talk about naming conventions and principles that I try to use whenever I’m coding. It’s a mix of what I learned in college, studying by my own and working as a professional developer. It’s been useful to me, so I hope it’s going to be useful to you as well.&lt;/p&gt;
+
+&lt;p&gt;Some of the tips I’m going show you here today come from the book “Clean Code”, by Robert C. Martin (Uncle Bob). It’s one of my favorite programming books, and I’ll write a review on it sometime soon. Stay tuned!&lt;/p&gt;
+
+&lt;h2 id=&quot;use-self-explanatory-names&quot;&gt;0. Use self-explanatory names&lt;/h2&gt;
+
+&lt;p&gt;What your variable/class/whatever does? How it’s supposed to be used? Choose a name that answers these questions.&lt;/p&gt;
+
+&lt;p&gt;Some people have the misguided notion that shorter names are always better. I can’t understand this. Are they trying to save keystrokes or something?&lt;/p&gt;
+
+&lt;p&gt;Let’s say you’re browsing a code base and you see some code like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;until&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deadline&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You could argue that this code is fine. The variable’s meaning is perfectly expressed in the comment. Great, but remember that the variable will probably be used in other points, away from the declaration and the comment.&lt;/p&gt;
+
+&lt;p&gt;So…why not just drop the comment and use the comment’s text as the variable’s name?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;daysUntilDealine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;use-abbreviations-only-when-theyre-widely-known&quot;&gt;1. Use abbreviations only when they’re widely known&lt;/h2&gt;
+
+&lt;p&gt;It would be crazy to name a variable “ServiceUniformResourceLocator” instead of “ServiceUrl”. Every developer knows what a Url is. The same thing with Ftp, UI, IO, and so on. So, it’s ok to use abbreviations to name things, but only if they are widely known and used. It would be counterproductive not to do so.&lt;/p&gt;
+
+&lt;p&gt;By the way. When I say “widely known”, I don’t necessarily mean &lt;em&gt;worldwide known&lt;/em&gt;. Of course you can use abbreviations that are common in your business domain. It is considered a best practice to program as close as possible to the customer’s language. So, if your fellow developers and the business people are comfortable with the abbreviations, there’s no problem at all in using them.&lt;/p&gt;
+
+&lt;h2 id=&quot;choose-clarity-over-brevity&quot;&gt;2. Choose clarity over brevity&lt;/h2&gt;
+
+&lt;p&gt;This is somewhat related to the first point. All else being equal, shorter names are better. But one day you’ll have to choose between clarity and brevity. When that day comes, always pick clarity. Six months down the road, when you have to revisit that code, you’re going to thank yourself.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-widely-accepted-conventions-most-of-the-time&quot;&gt;3. Use widely accepted conventions (most of the time)&lt;/h2&gt;
+
+&lt;p&gt;There are very few points in the book “Clean Code” that I disagree with. One of them is Uncle Bob’s recommendation to not start interface names with a capital “I”.  He argues that this practice is reminiscent of Hungarian notation, and thus should die. Even though I understand why he thinks like this, I’m still starting my interface names with an “I”.&lt;/p&gt;
+
+&lt;p&gt;Why? One simple reason: starting interface names with an “I” is a very widespread and accepted convention in the .Net community. When you go against an established convention, you risk alienating developers who are used to that convention, like potential new team members or open-source projects contributors.&lt;/p&gt;
+
+&lt;p&gt;I think you should abandon a widely accepted convention only when the benefit of doing so greatly outweighs the costs. And I don’t think that’s the case here.&lt;/p&gt;
+
+&lt;h2 id=&quot;dont-use-hungarian-notation&quot;&gt;4. Don’t use Hungarian notation&lt;/h2&gt;
+
+&lt;p&gt;Maybe you’ve heard about Hungarian Notation, maybe you haven’t. But I bet you’ve seen it, or even used it yourself, even if the name doesn’t ring a bell immediately.&lt;/p&gt;
+
+&lt;p&gt;So, what is this Hungarian thing? Our friend Wikipedia comes to our rescue:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Hungarian notation is an identifier naming convention in computer programming, in which the name of a variable 
+ or function indicates its type or intended use.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Hungarian_notation&quot;&gt;Wikipedia: Hungarian Notation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, in a nutshell, Hungarian notation is encoding the type of the variable in its name. So, if I have an int variable meant to store the age of a student, I’d call it &lt;code class=&quot;highlighter-rouge&quot;&gt;iStudentAge&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;intStudentAge&lt;/code&gt;. Similarly, a string variable supposed to store a product’s description would be called &lt;code class=&quot;highlighter-rouge&quot;&gt;sProductDescription&lt;/code&gt;, or even &lt;code class=&quot;highlighter-rouge&quot;&gt;strProductDescription&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;And why is this bad? Here are a few reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First of all, it’s useless. If your variable has a self-explaining name (see item #0), it will give you a decent clue about its type. If you spot a variable called &lt;code class=&quot;highlighter-rouge&quot;&gt;productName&lt;/code&gt;, would you think it’s a floating-point number? Besides, most modern IDEs can tell you not only the variable’s type, but also if it’s a local variable,instance member or a method parameter, and even how many times it’s been referenced.&lt;/li&gt;
+  &lt;li&gt;It can be misleading. People make mistakes, and it’s perfectly possible to change the variable’s type but forget to also change its name to reflect the new type. So now you have a variable prefixed with “int” but it’s actually a long.&lt;/li&gt;
+  &lt;li&gt;It makes the names more difficult to pronounce, and this may complicate discussion about the code and the architecture of your application.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;stick-to-the-languageframeworkprojects-coding-style&quot;&gt;5. Stick to the language/framework/project’s coding style&lt;/h2&gt;
+
+&lt;p&gt;Most C# developers tend to use CamelCase to name local variables, instance variables and methods parameters, as in &lt;code class=&quot;highlighter-rouge&quot;&gt;productName&lt;/code&gt;. In Ruby, for instance, the recommended style is &lt;code class=&quot;highlighter-rouge&quot;&gt;snake_case&lt;/code&gt;, as in &lt;code class=&quot;highlighter-rouge&quot;&gt;product_name&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Development frameworks and open-source projects might have their own guidelines and standards as well.&lt;/p&gt;
+
+&lt;p&gt;It would be pointless to fight against established standards, due to a matter of taste and preference. If you’re writing Ruby code, write the way the Ruby community expects. The same with Java, C#, PHP, what have you.&lt;/p&gt;
+
+&lt;p&gt;It’s like they say: “When in Rome, do as the Romans do”.&lt;/p&gt;
+
+&lt;h2 id=&quot;method-names-should-start-with-a-verb&quot;&gt;6. Method names should start with a verb&lt;/h2&gt;
+
+&lt;p&gt;This one is really short. Methods are usually actions that an object can perform. As such, their names should start with a verb that indicates the action to be performed, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;PrintReport()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;DrawShape(IShape shape)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;class-names-should-be-nouns&quot;&gt;7. Class names should be nouns&lt;/h2&gt;
+
+&lt;p&gt;Likewise, class names should be nouns, like &lt;code class=&quot;highlighter-rouge&quot;&gt;Product&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt;. Avoid using the words like &lt;code class=&quot;highlighter-rouge&quot;&gt;Manager&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Data&lt;/code&gt;, because they add little or no value.&lt;/p&gt;
+
+&lt;h2 id=&quot;property-names-should-be-nouns-or-adjective-phrases-c-specific&quot;&gt;8. Property names should be nouns or adjective phrases (C# specific)&lt;/h2&gt;
+
+&lt;p&gt;Properties should be names with nouns, noun phrases or adjectives. When naming boolean properties, you may add the prefixes &lt;code class=&quot;highlighter-rouge&quot;&gt;Can&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Is&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Has&lt;/code&gt;, when doing so provides value to the caller.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-pronounceablesearchable-names&quot;&gt;9. Use pronounceable/searchable names&lt;/h2&gt;
+
+&lt;p&gt;Work hard to choose names that are pronounceable. When you pick a name that is hard or impossible to pronounce, you discourage discussion about your code, which is never a good thing.&lt;/p&gt;
+
+&lt;p&gt;Likewise, try to avoid names with a single letter. Among other reasons, they may give you a very hard time when you have to search for them! They make good names only for loop control variables or in lambda expressions. But even then, only when the scope is super short.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Choosing names is really hard. A name should express purpose, intention, meaning. It doesn’t necessarily need to be clever – but there are certain tricky situations that will require a little bit of cleverness.&lt;/p&gt;
+
+&lt;p&gt;A name should clearly express the purpose of the entity being named. But there are a lot of things that are very complex by their own nature, and it’s not so easy to come up with a perfect name for a very complex concept.&lt;/p&gt;
+
+&lt;p&gt;Sometimes, the difficulty you experience while choosing a name is a symptom of another problem, like a messy   architecture, for instance. If you can’t decide between five options when naming a class, maybe the class is violating the Single Responsibility Principle (it’s trying to do more than one thing).&lt;/p&gt;
+
+&lt;p&gt;On the other hand, if you feel like calling a dozen classes the same thing…maybe they belong together as a single class.&lt;/p&gt;
+
+&lt;p&gt;Choosing names is ultimately about communication. And I think that’s why it’s such a hard task. Because we, developers, are not necessarily famous for our communication skills.&lt;/p&gt;
+
+&lt;p&gt;In “Clean Code”, at the end of the chapter about choosing good names, Uncle Bob writes:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The hardest thing about choosing good names is that it requires good descriptive skills and a shared cultural background. This is a teaching issue rather than a technical, business, or management issue. As a result, many people in this field do not do it very well.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Don’t be like most people in our field. Do the hard work and learn how to name things. You’ll thank yourself in the future.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 May 2016 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/how-to-choose-good-names/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/how-to-choose-good-names/</guid>
+        
+        <category>best practices</category>
+        
+        
+      </item>
     
       <item>
         <title>Unit testing for beginners - Part 1</title>

@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/en/how-to-choose-good-names/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/how-to-choose-good-names/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/como-escolher-bons-nomes/" />
+        
+        <lastmod>2016-05-22T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/como-escolher-bons-nomes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/how-to-choose-good-names/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/como-escolher-bons-nomes/" />
+        
+        <lastmod>2016-05-22T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/traducao-fases-estabilizacao/</loc>
         
         
@@ -624,6 +652,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/best%20practices/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -955,6 +996,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/integra%C3%A7%C3%A3o%20cont%C3%ADnua/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/integra%C3%A7%C3%A3o%20cont%C3%ADnua/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/best%20practices/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
         
         <changefreq>weekly</changefreq>
       </url>

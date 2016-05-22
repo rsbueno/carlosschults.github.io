@@ -5,10 +5,148 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 02 May 2016 18:31:30 -0300</pubDate>
-    <lastBuildDate>Mon, 02 May 2016 18:31:30 -0300</lastBuildDate>
+    <pubDate>Sun, 22 May 2016 18:58:06 -0300</pubDate>
+    <lastBuildDate>Sun, 22 May 2016 18:58:06 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Dez dicas para lhe ajudar a escolher bons nomes</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1462225938/baby-name-min_nosetz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Só existem duas coisas difíceis em Ciência da Computação: invalidação de cache e escolher nomes das coisas.&lt;/p&gt;
+
+  &lt;p&gt;Phil Karlton&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Você quer escrever um código muito bom? Código limpo, entendível, legível? Existem várias habilidades que você precisa adquirir. Mas eu diria que no topo da lista está “Escolher bons nomes”.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Escolher ótimos nomes para suas classes, métodos, variáveis e demais coisas do tipo é essencial. Um nome bem escolhido muitas vezes é a diferença entre código bom e horrível.&lt;/p&gt;
+
+&lt;p&gt;Mas o que é exatamente um bom nome? Apesar de existirem algumas diretrizes bem aceitas, eu devo dizer que não existe exatamente um consenso. (E é assim com muitos tópicos em nossa área, eu diria).&lt;/p&gt;
+
+&lt;p&gt;Então, hoje eu vou falar sobre algumas convenções e princípios que eu uso quando estou codificando. É meio que uma mistura do que eu aprendi na faculdade, estudando por conta própria e trabalhando como um desenvolvedor profissional. Essas convenções e princípios têm sido úteis para mim, então eu espero que sejam úteis para você também.&lt;/p&gt;
+
+&lt;p&gt;Algumas das dicas que vou mostrar vêm do livro “Código Limpo”, escrito por Robert C. Martin (mais conhecido com Uncle Bob). É um dos meus livros de programação favoritos, e eu escreverei uma resenha dele em breve. Fique ligado!&lt;/p&gt;
+
+&lt;h2 id=&quot;use-nomes-auto-explicativos&quot;&gt;0. Use nomes auto-explicativos&lt;/h2&gt;
+
+&lt;p&gt;O quê sua variável/classe/sei-lá-o-quê faz? Como ela deve ser usada? Escolha um nome que responda a essas perguntas.&lt;/p&gt;
+
+&lt;p&gt;Algumas pessoas têm essa ideia esquisita de que nomes mais curtos são sempre melhores. Eu não entendo isso. Elas estão tentando economizar o teclado ou algo assim?&lt;/p&gt;
+
+&lt;p&gt;Digamos que ao ler um código você se depara com isso:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dias&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;para&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fim&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prazo&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Você poderia argumentar que o código está bom assim. O significado da variável está perfeitamento expresso no comentário. Ótimo, mas lembre-se que a variável vai provavelmente ser utilizada em outros pontos, longe da declaração e do comentário.&lt;/p&gt;
+
+&lt;p&gt;Então…não seria melhor se livrar do comentário e usar o texto do comentário como o nome da variável?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diasParaFimDoPrazo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;use-abreviaes-apenas-quando-elas-so-amplamente-conhecidas&quot;&gt;1. Use abreviações apenas quando elas são amplamente conhecidas&lt;/h2&gt;
+
+&lt;p&gt;Seria loucura nomear uma variável “UniformeResourceLocatorServico” em vez de “UrlServico”. Qualquer desenvolvedor sabe o que uma url é. A mesma coisa com Ftp, UI, IO, e por aí vai. Ou seja, tudo bem usar abreviações nos seus nomes, mas só quando elas são bem conhecidas. Seria contra-produtivo não fazer assim.&lt;/p&gt;
+
+&lt;p&gt;A propósito. Quando eu digo “amplamente conhecidas”, não estou querendo dizer conhecidas no mundo todo, ou mesmo no país todo. É claro que você pode e deve usar abreviações que são comuns no domínio do seu negócio. Em geral é considerado uma boa prática codificar o mais próximo possível da linguagem do cliente. Então, se os outros desenvolvedores e as pessoas de negócio se sentem confortáveis usando as abreviações, não tem problema nenhum utilizá-las.&lt;/p&gt;
+
+&lt;h2 id=&quot;escolha-clareza-ao-invs-de-brevidade&quot;&gt;2. Escolha clareza ao invés de brevidade&lt;/h2&gt;
+
+&lt;p&gt;Isso é parecido com o primeiro ponto. Todo o resto se mantendo igual, nomes mais curtos são melhores. Mas um dia você terá que escolher entre clareza e brevidade. Quando esse dia chegar, escolha a clareza. Seis meses depois, quando você tiver que revisitar aquele código, você vai agradecer a si mesmo.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-convenes-amplamente-aceitas-na-maior-parte-do-tempo&quot;&gt;3. Use convenções amplamente aceitas (na maior parte do tempo&lt;/h2&gt;
+
+&lt;p&gt;Existem poucos pontos no livro “Código Limpo” com os quais eu não concordo. Um deles é a recomendação do Uncle Bob para não começar nomes de interfaces com uma letra “I” maiúscula. Ele argumenta que essa prática é um resquício da Notação Húngara e portanto deveria desaparecer. Mesmo eu entendendo a porque ele pensa dessa forma, vou continuar a nomear minhas interfaces com um “I” no começo.&lt;/p&gt;
+
+&lt;p&gt;Por que? A razão é muito simples: essa é uma convenção bem aceita e utilizada na comunidade .Net. Quando você vai contra uma convenção estabelecida, você corre o risco de alienar desenvolvedores que estão acostumados com essa convenção, como potenciais novos membros da equipe ou contribuidores de projetos open-source.&lt;/p&gt;
+
+&lt;p&gt;A minha opinião é que se deve abandonar uma convenção extremamente bem aceita apenas quando os benefícios de fazer isso são muito maiores que os custos. E eu não acredito que esse seja o caso aqui.&lt;/p&gt;
+
+&lt;h2 id=&quot;no-use-notao-hngara&quot;&gt;4. Não use notação húngara&lt;/h2&gt;
+
+&lt;p&gt;Talvez você tenha ouvido falar de notação húngara, talvez não. Mas eu aposto que você já viu, ou talvez já tenha até mesmo usado, mesmo que o nome não seja familiar.&lt;/p&gt;
+
+&lt;p&gt;Então, o que é essa notação? Nossa amiga Wikipédia veio dar uma mãozinha aqui:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Notação húngara é uma convenção de nomeação de identificadores em programação de computadores, na qual o nome de uma variável ou função indica seu tipo ou uso pretendido.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Hungarian_notation&quot;&gt;Wikipedia: Hungarian Notation, em tradução livre&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em resumo, notação húngara é colocar o tipo da variável no seu nome. Se eu tenho uma variável do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;, que vou usar pra guardar a idade de um estudante, eu poderia nomeá-la  &lt;code class=&quot;highlighter-rouge&quot;&gt;iIdadeEstudante&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;intIdadeEstudante&lt;/code&gt;. Do mesmo modo, uma variável string que armaze a descrição de um produto poderia ser chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;sDescricaoProduto&lt;/code&gt;, ou até mesmo &lt;code class=&quot;highlighter-rouge&quot;&gt;strDescricaoProduto&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;E por que isso é ruim? Aqui estão algumas razões:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Primeiro, é inútil. Se a sua variável tem um nome auto-explicativo (veja item #0), ela já vai te dar uma boa noção do seu tipo. Se você acha uma variável chamada “nomeProduto”, você acharia que ela é um número de ponto flutuante? Além disso, a maioria das IDEs modernas conseguem te mostrar não apenas o tipo da variável, mas também se ela é uma variável local, membro de instância ou parâmetro de método, e até quantas vezes ele foi referenciada no código da aplicação.&lt;/li&gt;
+  &lt;li&gt;Pode causar confusões. Pessoas cometem erros, e é perfeitamente possível mudar o tipo da variável e esquecer de mudar o nome. Então agora você tem uma variável que o nome começa com “int”, mas ela é na verdade um &lt;code class=&quot;highlighter-rouge&quot;&gt;long&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Faz com que os nomes fiquem mais difíceis de pronunciar, e isso pode dificultar discussões sobre o código e a arquitetura da sua aplicação.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;respeite-o-estilo-de-codificao-da-linguagem-framework-ou-projeto&quot;&gt;5. Respeite o estilo de codificação da linguagem, framework, ou projeto&lt;/h2&gt;
+
+&lt;p&gt;Desenvolvedores C# tendem a utilizar &lt;code class=&quot;highlighter-rouge&quot;&gt;CamelCase&lt;/code&gt; para nomear variáveis locais, membros de instância e parâmetros de métodos, como em &lt;code class=&quot;highlighter-rouge&quot;&gt;nomeProduto&lt;/code&gt;. Já em Ruby o estilo recomendado é o &lt;code class=&quot;highlighter-rouge&quot;&gt;snake_case&lt;/code&gt;. A mesma variável ficaria: &lt;code class=&quot;highlighter-rouge&quot;&gt;nome_produto&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Frameworks, bibliotecas e projetos open-source podem ter suas próprias diretrizes e padrões também.&lt;/p&gt;
+
+&lt;p&gt;Seria bobagem lutar contra padrões estabelecidos, por causa do seu próprio gosto e preferência. Se você está desenvolvendo em Ruby, escreva da maneira que a comunidade Ruby espera. O mesmo vale pra Java, C#, PHP, qualquer linguagem/ecossistema.&lt;/p&gt;
+
+&lt;p&gt;É como diz o ditado: “Quando estiver em Roma, faça como os romanos”.&lt;/p&gt;
+
+&lt;h2 id=&quot;nomes-de-mtodos-devem-comear-com-um-verbo&quot;&gt;6. Nomes de métodos devem começar com um verbo&lt;/h2&gt;
+
+&lt;p&gt;Essa dica é bem curta. Métodos são geralmente ações que um objeto pode realizar. Assim, seus nomes deveriam começar com um verbo que indica qual é essa ação, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;ImprimirRelatorio()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ExibirPoligono(IPoligono poligono)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;nomes-de-classes-devem-ser-substantivos&quot;&gt;7. Nomes de classes devem ser substantivos&lt;/h2&gt;
+
+&lt;p&gt;Da mesma forma, nomes de classes deveriam ser substantivos, como &lt;code class=&quot;highlighter-rouge&quot;&gt;Produto&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Cliente&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Estudante&lt;/code&gt;, e assim por diante. Tente evitar termos genéricos como &lt;code class=&quot;highlighter-rouge&quot;&gt;Manager&lt;/code&gt;, porque eles não adicionam nenhum valor.&lt;/p&gt;
+
+&lt;h2 id=&quot;nomes-de-propriedades-devem-ser-substantivos-adjetivos-ou-frases-adjetivas&quot;&gt;8. Nomes de propriedades devem ser substantivos, adjetivos ou frases adjetivas&lt;/h2&gt;
+
+&lt;p&gt;Propriedades devem ser nomeadas com substantivos (&lt;code class=&quot;highlighter-rouge&quot;&gt;Nome&lt;/code&gt;), frases adjetivas ou adjetivos (como no caso de propriedades do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;Boolean&lt;/code&gt;, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;Finalizado&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;EstaFinalizado&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Ainda com relação a propriedades booleanas, você pode usar os prefixos &lt;code class=&quot;highlighter-rouge&quot;&gt;Is&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Can&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;Get&lt;/code&gt;, caso isso facilite o entendimento da propriedade.&lt;/p&gt;
+
+&lt;p&gt;Abrindo um parênteses. Aqui entramos mais uma vez &lt;a href=&quot;(http://carlosschults.net/pt/programar-portugues-ou-ingles/)&quot;&gt;naquela velha discussão sobre português x inglês&lt;/a&gt;. Muita gente vai dizer que misturar português e inglês como em &lt;code class=&quot;highlighter-rouge&quot;&gt;IsValido&lt;/code&gt; é algo horrível e que jamais deveria ser feito. Outros vão argumentar que o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;Is&lt;/code&gt; é um idioma facilmente reconhecível por qualquer programador e que tentar aportuguesá-lo como em &lt;code class=&quot;highlighter-rouge&quot;&gt;EValido&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;EhValido&lt;/code&gt; é bem pior. É uma discussão que dá pano pra manga. &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;Clique aqui para saber minha opinião a respeito.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;use-nomes-pronunciveis-e-passveis-de-busca&quot;&gt;9. Use nomes pronunciáveis e passíveis de busca&lt;/h2&gt;
+
+&lt;p&gt;Se esforce para escolher nomes que são pronunciáveis. Quando você escolhe um nome que é difícil ou impossível de ser pronunciado, você desencoraja a discussão sobre o código, o que nunca é uma boa coisa.&lt;/p&gt;
+
+&lt;p&gt;Do mesmo jeito, evite nomes com uma letra só. Entre outras razões, você vai sofrer bastante quando tiver que fazer uma busca por eles! Nomes de uma letra só são bons apenas para variáveis de controle em laços de repetição e em expressões lambda. E ainda assim, só quando o escopo é bem curto.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Escolher nomes não é uma tarefa fácil. Um nome precisa expressar propósito, intenção, significado. Ele não precisa ser necessariamente “esperto”, mas tem situações na qual um pouco de esperteza vai ser necessário.&lt;/p&gt;
+
+&lt;p&gt;Um nome deveria expressar claramente o propósito da entidade nomeada. Mas existem coisas que são muito complexas por sua própria natureza, o que torna difícil encontrar um nome que expressa seu propósito de forma simples e clara.&lt;/p&gt;
+
+&lt;p&gt;Às vezes, a dificuldade que você tem ao escolher um nome é sintomas de outro problema, tal como uma arquitetura ruim. Se você não consegue se decidir entre cinco possíveis nomes para uma classe, talvez ela esteja violando o Princípio da Responsabilidade Única (ela está tentando fazer mais de uma coisa).&lt;/p&gt;
+
+&lt;p&gt;Por outro lado, se você se sente inclinado a nomear uma dúzia de classes com o mesmo nome…talvez elas deveriam ser uma classe só.&lt;/p&gt;
+
+&lt;p&gt;No fim das contas, escolha de nomes tem a ver com comunicação. E eu acho que é por isso que é uma tarefa tão difícil. Convenhamos: nós, desenvolvedores de software, não somos famosos por nossas habilidades de comunicação.&lt;/p&gt;
+
+&lt;p&gt;Em “Código Limpo”, no final do capítulo sobre escolher bons nomes, Uncle Bob fala:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O mais difícil sobre escolher bons nomes é a necessidade de se possuir boas habilidades de descrição e um histórico cultural compartilhado. Essa é uma questão de aprender, e não técnica, gerencial ou empresarial. Como consequência, muitas pessoas nessa área não aprendem essa tarefa muito bem.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Não seja igual a maioria das pessoas na nossa área. Trabalhe dure para aprender a criar bons nomes. Você vai se agradecer no futuro.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 22 May 2016 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/como-escolher-bons-nomes/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/como-escolher-bons-nomes/</guid>
+        
+        <category>boas práticas</category>
+        
+        
+      </item>
     
       <item>
         <title>Fases de Estabilização</title>
@@ -140,9 +278,12 @@ A tecnologia é interessante; mas perigosa. NUNCA “confie no carro”!&lt;/p&g
  Unit tests are typically written and run by software developers to ensure that code meets its design and behaves as intended.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Em tradução livre:
-&amp;gt; Em programação de computadores, teste unitário é um método de teste de software pelo qual unidades individuais de código fonte […] são testadas para determinar se são adequadas para o uso. Intuitivamente, pode-se considerar uma unidade como a menor parte testável de uma aplicação. […]
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Em programação de computadores, teste unitário é um método de teste de software pelo qual unidades individuais de código fonte […] são testadas para determinar se são adequadas para o uso. Intuitivamente, pode-se considerar uma unidade como a menor parte testável de uma aplicação. […]
  Testes unitários são tipicamente escritos e executados por desenvolvedores para garantir que o código está de acordo com o projeto e se comporta da maneira desejada.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;A primeira coisa que chama a atenção é que os testes unitários &lt;strong&gt;não têm o propósito de testar o sistema como um todo&lt;/strong&gt;. Pelo contrário, eles testam pequenas partes do software - as tais das unidades. E o que é uma unidade? Existem diversos pontos de vista conflitantes sobre isso, diversas “escolas de pensamento”. Mas é seguro dizer que, no contexto de programação orientada a objeto, a maioria das pessoas considera unidade como sendo uma &lt;strong&gt;classe&lt;/strong&gt;.&lt;/p&gt;
 
