@@ -5,10 +5,99 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 May 2016 19:06:09 -0300</pubDate>
-    <lastBuildDate>Sun, 22 May 2016 19:06:09 -0300</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2016 15:59:07 -0300</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2016 15:59:07 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Value and reference types in C#, Part 2 - Why can&#39;t a DateTime be null?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;“Why is not allowed to assign &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; to a DateTime?” Again and again, this question keeps showing up on StackOverflow and similar sites. Different phrasing, maybe a different type &lt;a href=&quot;http://stackoverflow.com/questions/6191339/why-type-int-is-never-equal-to-null&quot;&gt;(“Why type “int” is never equal to ‘null’?”)&lt;/a&gt;, but the same question, in essence. Which is only natural, considering that probably thousands of developers join the field every year.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;The short answer is: because DateTime/int/float/whatever is a &lt;strong&gt;value type&lt;/strong&gt;, and value types can never be &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;. Only reference types can be &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;That’s great but…why???&lt;/p&gt;
+
+&lt;p&gt;I mean, at some point, the C# designers had to make that call. They deliberately decided that &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; can’t be assigned to a value type. Is there something intrinsic to value types that prevent them from being &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;? Maybe it has something to do with the stack and the heap?&lt;/p&gt;
+
+&lt;p&gt;Well, I think before we try to answer those questions, it’d be helpful to get a step back and think about other question.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-exactly-is-null&quot;&gt;What exactly is ‘null’?&lt;/h2&gt;
+
+&lt;p&gt;You probably think of &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; as a way to represent a missing piece of information. Something that is unknown, absent or irrelevant. Maybe a piece of information that isn’t where it’s supposed to be &lt;em&gt;yet&lt;/em&gt;, but it might be in the future.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;In the previous post about reference and value types&lt;/a&gt;, we learned that a variable of a reference type &lt;strong&gt;contains a reference that points to an instance of that type&lt;/strong&gt;. But when &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; is assigned to the variable, what does the variable contain? Nothing?&lt;/p&gt;
+
+&lt;p&gt;Not exactly. Even though &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; basically means nothing, this “nothing” has to be represented in some way in the machine’s memory.&lt;/p&gt;
+
+&lt;p&gt;In C#, the &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; keyword represents a &lt;strong&gt;null reference&lt;/strong&gt;, which is a reference that doesn’t point to any object. 
+In practice, the &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; value is represented as all zero bits.&lt;/p&gt;
+
+&lt;p&gt;Of course, this is just an implementation detail. It could be implemented in different ways, so this isn’t really relevant for us. What you need to understand is, you need something to represent nothing. You need some kind of special value that means “this value is missing” or “this value is unknown”.&lt;/p&gt;
+
+&lt;p&gt;Once you understand this, it becomes easier to see what the problem is with value types.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-would-you-represent-null-for-a-value-type&quot;&gt;How would you represent null for a value type?&lt;/h2&gt;
+
+&lt;p&gt;To understand why would be complicated to represent &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; using a value type, you must bear in mind that value types usually have a range of possible values that they’re able to represent.&lt;/p&gt;
+
+&lt;p&gt;It’s easier to get this with an example. So, consider the &lt;a href=&quot;https://msdn.microsoft.com/pt-br/library/system.byte%28v=vs.110%29.aspx&quot;&gt;byte&lt;/a&gt; value type.&lt;/p&gt;
+
+&lt;p&gt;This type can represent one byte of possible values. Since 2^8 = 256, it can represent 256 values. It is also unsigned, meaning it can only represent values greater than or equals to zero. Thus, the range of possible values that the byte type can represent is &lt;strong&gt;0 to 255.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;00000000 =&amp;gt; 0
+00000001 =&amp;gt; 1
+00000010 =&amp;gt; 2
+    .        .
+    .        .
+    .        .
+11111111 =&amp;gt; 255
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now comes the tricky part. If the C# language designers wanted the byte type to be nullable, they’d have to pick a value from the range and elect it as the &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; value. Let’s imagine they picked zero as the &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; value for &lt;code class=&quot;highlighter-rouge&quot;&gt;byte&lt;/code&gt;. If that was the case, &lt;strong&gt;we wouldn’t be able to use zero as a valid value never again!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;That’s the whole point: for value types to be nullable, it is necessary to sacrifice one of the possible values of the range to represent the &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; value.&lt;/p&gt;
+
+&lt;p&gt;Jon Skeet, author of C# In Depth, puts it better than me:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You’ve got to be able to store the values 0-255 in that variable; otherwise it’s useless for reading arbitrary binary data. With the 256 normal values
+and one &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; value, you’d have to cope with a total of 257 values, and there’s no way of squeezing that many values into a single byte.&lt;/p&gt;
+
+  &lt;p&gt;The designers could’ve decided that every value type would have an extra flag bit somewhere determining whether a value was &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; or contained real data, but the memory usage implications 
+are horrible, not to mention the fact that you’d have to check the flag every time you wanted the use the value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, there is nothing &lt;strong&gt;in principle&lt;/strong&gt; that prevents value types from being &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;. It’d just be so complicated that  the C# designers considered that the benefits of doing so don’t outweigh the costs.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-i-really-wantneed-a-nullable-value-type-what-can-i-do&quot;&gt;But I really want/need a nullable value type. What can I do?&lt;/h2&gt;
+
+&lt;p&gt;You now hopefully understand the complications involved in representing &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; for a value type, and why the C# developers decided against it. But, what if you really need to do this? One common scenario is when you’re fetching data from a relational database. What should you do?&lt;/p&gt;
+
+&lt;p&gt;Well, thankfully, there’s an easy solution. Even though “normal” value types can’t be &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, C# 2 introduced the Nullable&lt;t&gt; structure, which allows you to assign `null` to pretty much anything.&lt;/t&gt;&lt;/p&gt;
+
+&lt;p&gt;I’ll talk about nullable types in the next article. As a bonus, you’ll learn a bit about another nice feature called &lt;em&gt;generics&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Jun 2016 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/value-reference-types-in-csharp-part-2/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/value-reference-types-in-csharp-part-2/</guid>
+        
+        <category>csharp</category>
+        
+        <category>beginners</category>
+        
+        <category>oop</category>
+        
+        <category>type system</category>
+        
+        
+      </item>
     
       <item>
         <title>Ten tips to help you choose good names</title>
@@ -332,8 +421,9 @@ Pragmatic Philosophy” is really ingrained in your way of thinking, you’ll be
     
       <item>
         <title>Value and reference types in C#</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161644/value-reference-types-1038x437_tutiht.png&quot; alt=&quot;&quot; /&gt;
-This is my first “real” post here on my blog, and I decided to talk about value types and reference types. This is somewhat of a basic subject, in the sense that it is something that you should already know if you write C# code for a living.But at the same time, it can be a little non-intuitive if you’re not an experienced developer.
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is my first “real” post here on my blog, and I decided to talk about value types and reference types. This is somewhat of a basic subject, in the sense that it is something that you should already know if you write C# code for a living.But at the same time, it can be a little non-intuitive if you’re not an experienced developer.
 &lt;!--more--&gt;
 I’ll try to make this as simple and short as possible, so I won’t talk about string immutability, boxing, unboxing, and some other things with fancy names.
 I’ll write about those in the future, but for today let’s focus on the basics.&lt;/p&gt;
@@ -453,7 +543,7 @@ Let me know in the comments, or &lt;a href=&quot;http://twitter.com/carlosschult
         <link>http://carlosschults.net/en/value-reference-types-in-csharp/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/value-reference-types-in-csharp/</guid>
         
-        <category>c#</category>
+        <category>csharp</category>
         
         <category>beginners</category>
         

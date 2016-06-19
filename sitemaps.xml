@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/en/value-reference-types-in-csharp-part-2/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/value-reference-types-in-csharp-part-2/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/tipos-valor-referencia-em-csharp-parte-2/" />
+        
+        <lastmod>2016-06-19T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/tipos-valor-referencia-em-csharp-parte-2/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/value-reference-types-in-csharp-part-2/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/tipos-valor-referencia-em-csharp-parte-2/" />
+        
+        <lastmod>2016-06-19T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/how-to-choose-good-names/</loc>
         
         
@@ -392,12 +420,12 @@
   
     
       <url>
-        <loc>/tag_ptbr/c%23/</loc>
+        <loc>/tag_ptbr/csharp/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/c%23/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/csharp/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/c%23/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/csharp/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -418,12 +446,12 @@
   
     
       <url>
-        <loc>/tag_ptbr/oop/</loc>
+        <loc>/tag_ptbr/orientacao-a-objetos/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/oop/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/orientacao-a-objetos/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/oop/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/orientacao-a-objetos/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -450,6 +478,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/beginners/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/beginners/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/oop/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/oop/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/oop/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -743,12 +784,12 @@
   
     
       <url>
-        <loc>/tag/c%23/</loc>
+        <loc>/tag/csharp/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/c%23/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/csharp/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/c%23/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/csharp/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -769,12 +810,12 @@
   
     
       <url>
-        <loc>/tag/oop/</loc>
+        <loc>/tag/orientacao-a-objetos/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/oop/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/orientacao-a-objetos/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/oop/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/orientacao-a-objetos/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -801,6 +842,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/beginners/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/beginners/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/oop/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/oop/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/oop/" />
         
         <changefreq>weekly</changefreq>
       </url>

@@ -5,10 +5,108 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 22 May 2016 19:06:09 -0300</pubDate>
-    <lastBuildDate>Sun, 22 May 2016 19:06:09 -0300</lastBuildDate>
+    <pubDate>Sun, 19 Jun 2016 15:59:07 -0300</pubDate>
+    <lastBuildDate>Sun, 19 Jun 2016 15:59:07 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Tipos de valor e referência em C#, Parte 2 - Por que DateTime não pode ser nulo?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;“Por que uma variável DateTime não pode receber &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;?” Esta é uma pergunta que vive aparecendo no &lt;em&gt;StackOverflow&lt;/em&gt; e site similares. Às vezes escrita de modo um pouco diferente, às vezes com um tipo diferente, mas no fundo é a mesma dúvida. O que é natural, se você considerar que provavelmente milhares de pessoas entram na área a cada ano.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;A resposta curta é: porque DateTime/int/float/etc é um &lt;strong&gt;tipo de valor&lt;/strong&gt;, e tipos de valor não podem nunca receber &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;. Apenas tipos de referência podem.&lt;/p&gt;
+
+&lt;p&gt;Legal, mas…por quê?&lt;/p&gt;
+
+&lt;p&gt;Em algum momento os projetistas do C# tiveram que tomar essa decisão. Eles deliberadamente decidiram que tipos de valor não poderiam receber &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;. Será que tem alguma coisa que naturalmente impede isso? Talvez tenha algo a ver com a pilha e a heap?&lt;/p&gt;
+
+&lt;p&gt;Eu acho que antes de tentarmos responder essas questões, seria interessar voltar um passo e pensar um pouco sobre outra questão.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-exatamente--null&quot;&gt;O que exatamente é null?&lt;/h2&gt;
+
+&lt;p&gt;Você provavelmente pensa em &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; como uma maneira de representar uma informação que está faltando. Algo desconhecido, ausente ou irrelevante. Talvez um dado que não está onde deveria &lt;em&gt;ainda&lt;/em&gt;, mas talvez esteja no futuro.&lt;/p&gt;
+
+&lt;p&gt;Lembra do meu &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;post anterior sobre tipos de valor e referência&lt;/a&gt;? Nele nós vimos que uma variável de um tipo de referência &lt;strong&gt;contém uma referência que aponta para uma instância daquele tipo específico&lt;/strong&gt;. Mas quando a variável recebe &lt;em&gt;null&lt;/em&gt;, seu conteúdo passa a ser o quê? Nada?&lt;/p&gt;
+
+&lt;p&gt;Não exatamente. Ainda que &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; essencialmente signifique nada, esse “nada” precisa ser representado de alguma forma na memória do computador.&lt;/p&gt;
+
+&lt;p&gt;No C#, a palavra reservada &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; representa uma &lt;strong&gt;referência nula&lt;/strong&gt;, que é uma referência que não aponta para nenhum objeto. Na prática, essa referência é representada como um número (de 32 ou 64 bits, dependendo do sistema operacional) com todos os bits zerados.&lt;/p&gt;
+
+&lt;p&gt;É claro, tudo isso são detalhes de implementação. Isso poderia ter sido implementado de maneiras diferentes, ou seja, não é tão relevante assim pra gente agora. O que você realmente precisa entender é que você &lt;strong&gt;precisa de algo para representar nada&lt;/strong&gt;. É necessário algum tipo de valor especial que significa “esse valor está faltando” ou “esse valor é desconhecido”.&lt;/p&gt;
+
+&lt;p&gt;Quando você entende isso, fica mais fácil enxergar qual é o problema com tipos de valor.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-voc-representaria-null-para-um-tipo-de-valor&quot;&gt;Como você representaria null para um tipo de valor?&lt;/h2&gt;
+
+&lt;p&gt;Para entender qual é a dificuldade em fazer um tipo de valor ser nulo, você precisa considerar que tipos de valor geralmente têm um intervalo de valores possíveis que eles são capazes de representar.&lt;/p&gt;
+
+&lt;p&gt;É mais fácil de entender isso com um exemplo. Então, considere o tipo de valor &lt;a href=&quot;https://msdn.microsoft.com/pt-br/library/system.byte(v=vs.110).aspx&quot;&gt;byte&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Esse tipo representa um número inteiro sem sinal de 8 bits. Como 2 elevado a 8 é 256, é possível representar 256 valores. Como é um tipo “sem sinal”, ele só pode representar valores maiores ou igual a zero. Portanto, o range de valores possíveis para esse tipo é &lt;strong&gt;de 0 a 255&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;00000000 =&amp;gt; 0
+00000001 =&amp;gt; 1
+00000010 =&amp;gt; 2
+    .        .
+    .        .
+    .        .
+11111111 =&amp;gt; 255
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Agora vem a parte complicada. Se os projetistas do C# quisessem que o tipo byte fosse nulável, eles teriam que escolher um dos valores desse intervalo para elegê-lo como o valor nulo. Imagine que eles tivessem escolhido o zero. Nesse caso, &lt;strong&gt;nós nunca poderíamos usar o zero como um valor válido novamente!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Esse é todo o problema: para que um tipo de valor seja nulável, seria necessário sacrificar um dos possíveis valores do intervalo para representar o valor nulo.&lt;/p&gt;
+
+&lt;p&gt;Jon Skeet, autor do livro C# In Depth, é capaz de explicar bem melhor do que eu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;You’ve got to be able to store the values 0-255 in that variable; otherwise it’s useless for reading arbitrary binary data. With the 256 normal values
+and one null value, you’d have to cope with a total of 257 values, and there’s no way of squeezing that many values into a single byte.&lt;/p&gt;
+
+  &lt;p&gt;The designers could’ve decided that every value type would have an extra flag bit somewhere determining whether a value was null or contained real data, but the memory usage implications 
+are horrible, not to mention the fact that you’d have to check the flag every time you wanted the use the value.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Você precisa ser capaz de armazenar os valores de 0 a 255 naquela variável; do contrário esse tipo seria inútil para ler dados binários arbitrários. Com os 256 valores normais e um valor nulo, você teria que lidar com um total de 257 valores, e não tem jeito de espremer tudo isso em um único byte.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Os projetistas poderiam ter decidido que todo tipo de valor teria um bit extra em algum lugar determinando se um valor é nulo ou contém dados reais, mas as implicações de uso de memória são horríveis, sem falar que você teria que checar esse bit toda vez que quisesse usar o valor.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Então, não há nada &lt;strong&gt;em princípio&lt;/strong&gt; que impede que tipos de valor recebem nulo. É que seria tão complicado que os projetistas da linguagem decidiram que os benefícios de fazer isso não superam os custos.&lt;/p&gt;
+
+&lt;h2 id=&quot;mas-eu-realmente-preciso-de-um-tipo-de-valor-nulvel-e-agora&quot;&gt;Mas eu realmente preciso de um tipo de valor nulável. E agora?&lt;/h2&gt;
+
+&lt;p&gt;Agora você entende as complicações envolvidas em representar &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; para um tipo de valor, e porque os projetistas do C# decidiram contra permitir isso. Mas, e se você realmente precisa fazer isso? Um cenário comum é quando você busca dados de um banco de dados relacional. O que é possível ser feito?&lt;/p&gt;
+
+&lt;p&gt;Felizmente há uma solução fácil. Ainda que tipos de valor “normais” não são nuláveis, a versão 2 do C# introduziu a estrutura &lt;code class=&quot;highlighter-rouge&quot;&gt;Nullable&amp;lt;T&amp;gt;&lt;/code&gt;, que permite atribuir &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; a praticamente qualquer coisa.&lt;/p&gt;
+
+&lt;p&gt;Falarei sobre isso no próximo artigo da série. Como bônus, você vai aprender um pouco sobre outra feature interessante chamada *generics**.&lt;/p&gt;
+
+&lt;p&gt;Até lá!&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Jun 2016 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/tipos-valor-referencia-em-csharp-parte-2/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/tipos-valor-referencia-em-csharp-parte-2/</guid>
+        
+        <category>csharp</category>
+        
+        <category>iniciantes</category>
+        
+        <category>orientacao-a-objetos</category>
+        
+        <category>tipagem</category>
+        
+        
+      </item>
     
       <item>
         <title>Dez dicas para lhe ajudar a escolher bons nomes</title>
@@ -585,8 +683,9 @@ proporciona um ritmo agradável. Ele também possui um ótimo senso de humor. N�
     
       <item>
         <title>Tipos de valor e referência em C#</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161644/value-reference-types-1038x437_tutiht.png&quot; alt=&quot;&quot; /&gt;
-Este é o meu primeiro post pra valer aqui no meu blog, e eu decidi escrever sobre tipos de valor e tipos de referência em C#. Isso é um assunto relativamente básico, no sentido de que é algo que você já deveria entender caso você programe em C# profissionalmente. Mas ao mesmo tempo, é algo que pode ser um pouco contra-intuitivo caso você não seja um desenvolvedor experiente.
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Este é o meu primeiro post pra valer aqui no meu blog, e eu decidi escrever sobre tipos de valor e tipos de referência em C#. Isso é um assunto relativamente básico, no sentido de que é algo que você já deveria entender caso você programe em C# profissionalmente. Mas ao mesmo tempo, é algo que pode ser um pouco contra-intuitivo caso você não seja um desenvolvedor experiente.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;Eu vou tentar deixar o post o mais simples e curto possível, então não vou falar hoje sobre imutabilidade de string, &lt;em&gt;boxing&lt;/em&gt;, &lt;em&gt;unboxing&lt;/em&gt;, e outras coisas com nomes chiques.
@@ -698,11 +797,11 @@ Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.&
         <link>http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/</guid>
         
-        <category>c#</category>
+        <category>csharp</category>
         
         <category>iniciantes</category>
         
-        <category>oop</category>
+        <category>orientacao-a-objetos</category>
         
         <category>tipagem</category>
         
