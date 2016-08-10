@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/resenha-livro-soft-skills/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/resenha-livro-soft-skills/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/book-review-soft-skills/" />
+        
+        <lastmod>2016-08-09T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/book-review-soft-skills/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/resenha-livro-soft-skills/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/book-review-soft-skills/" />
+        
+        <lastmod>2016-08-09T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/value-reference-types-in-csharp-part-2/</loc>
         
         

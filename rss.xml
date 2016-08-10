@@ -5,10 +5,113 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Jun 2016 16:21:43 -0300</pubDate>
-    <lastBuildDate>Sun, 19 Jun 2016 16:21:43 -0300</lastBuildDate>
+    <pubDate>Tue, 09 Aug 2016 21:42:04 -0300</pubDate>
+    <lastBuildDate>Tue, 09 Aug 2016 21:42:04 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Resenha de Livro: Soft Skills</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1469301144/soft-skills-1038-437-min_u6ucwf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Que tal um livro de desenvolvimento de software que não é sobre software?
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Vários meses se passaram desde que eu &lt;a href=&quot;http://carlosschults.net/pt/resenha-livro-programador-pragmatico/&quot;&gt;publiquei minha resenha do livro “O Programador Pragmático”, de Andy Hunt e Dave Thomas&lt;/a&gt;. Ou seja, já está mais do que na hora de outro review.&lt;/p&gt;
+
+&lt;p&gt;O livro de hoje é &lt;em&gt;Soft Skills: The software developer’s life manual&lt;/em&gt;, por John Sonmez. Até onde eu sei, não foi traduzido ainda para o português. Se eu estiver errado, me corrijam aí nos comentários.&lt;/p&gt;
+
+&lt;p&gt;John Sonmez é um desenvolvedor de software mais conhecido por seu blog &lt;em&gt;Simple Programmer&lt;/em&gt; e seu canal no youtube. Nessas plataformas, ele cria e publica conteúdo em uma variedade de tópicos, como finanças, negociação, técnicas de aprendizado, exercícios físicos, empreendedorismo, e por aí vai.&lt;/p&gt;
+
+&lt;p&gt;Pense algo do tipo “auto-ajuda para desenvolvedores de software”, mas sem a conotação negativa que auto-ajuda geralmente tem.&lt;/p&gt;
+
+&lt;h2 id=&quot;certo-mas-e-o-livro&quot;&gt;Certo, mas e o livro?&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Soft Skills: The software developer’s life manual&lt;/em&gt; foi publicado no final de 2014, e contém prefácios de &lt;a href=&quot;http://www.hanselman.com/&quot;&gt;Scott Hanselman&lt;/a&gt; e &lt;a href=&quot;https://twitter.com/unclebobmartin&quot;&gt;Robert C. Martin&lt;/a&gt;, o famoso “Uncle Bob”.&lt;/p&gt;
+
+&lt;p&gt;As its name suggests, this book doesn’t cover any tech-related topics, at least not in a direct way. It is divided into seven sections: Career, Marketing Yourself, Learning, Productivity, Financial, Fitness, Spirit. Each section is meant to cover a specific area of a software developer’s life, and is divided into several short chapters.&lt;/p&gt;
+
+&lt;p&gt;Como o nome sugere, o livro não cobre assuntos técnicos, pelo menos não diretamente. Ele é dividido em sete seções: Carreira, Marketing Pessoal, Aprendizado, Produtividade, Finanças, Fitness, Espírito. Cada seção por sua vez é divida em vários capítulos curtos.&lt;/p&gt;
+
+&lt;p&gt;O livro em si é até grande - a edição que eu possuo tem 470 páginas. Levei um bom tempo pra terminar, embora eu admito que li o livro em um ritmo mais lento do que de costume.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-good&quot;&gt;The Good&lt;/h2&gt;
+
+&lt;p&gt;O livro é escrito em um estilo bem fácil de entender e seguir. Mesmo lendo no original em inglês, não tive nenhuma dificuldade em acompanhar.&lt;/p&gt;
+
+&lt;p&gt;Os capítulos são curtos, o que para mim é uma boa coisa. Geralmente eu não disponho de um intervalo grande de tempo para ler. O que eu consigo são vários intervalos pequenos ao longo do dia. Então é ótimo quando os capítulos são curtos o bastante para caber nesses intervalos. Eu não tenho muita certeza do porquê, mas acho estranho deixar um capítulo sem terminar, então eu fico um pouco incomodado se começo a ler um capítulo sabendo que provavelmente não conseguirei terminá-lo na mesma sessão.&lt;/p&gt;
+
+&lt;p&gt;Cada capítulo de &lt;em&gt;Soft Skills&lt;/em&gt; termina com uma “chamada à ação”. John lhe convida a fazer um pequeno exercício para ajudá-lo a tirar o maior proveito do conteúdo, e descobrir a melhor forma de aplicá-lo em sua vida. Não se assuste com a palavra “exercício”. Os desafios propostos são todos muito fáceis de seguir e geralmente envolvem um pouco de reflexão e depois alguma escrita. Eu geralmente sou o tipo de pessoa que iria chamar isso de “bobagem de autoajuda”. Mas o que eu descobrir ao ler este livro é que isso pode ser realmente eficaz.&lt;/p&gt;
+
+&lt;p&gt;A questão é: você pode pensar que sabe o que quer fazer com a sua carreira e com a sua vida. Mas quando você se força a parar por alguns minutos e realmente pensar sobre isso e escrever em um pedaço de papel…você pode se surpreender com o quão pouco você realmente sabe sobre suas metas, suas forças, suas fraquezas, e o que você pretende realizar na vida.&lt;/p&gt;
+
+&lt;p&gt;Isso é particularmente verdadeiro no começo da sua carreira. Nossa área é gigantesca. Quando você é recém-graduado, jovem e sem experiência, só a quantidade de opções disponíveis já é suficiente para lhe deixar sobrecarregado. É melhor arrumar emprego em uma start-up ou uma empresa grande? Talvez ser freelancer? Ruby on Rails ou Node.ks? Tantas dúvidas!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Soft Skills&lt;/em&gt; oferece alguma ajuda aqui. A primeira seção do livro sobre, entre outras coisas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;opções de emprego (freelancer x empregado x empreendedor);&lt;/li&gt;
+  &lt;li&gt;tipos de especialidades para desenvolvedores;&lt;/li&gt;
+  &lt;li&gt;tipos de empresas para se trabalhar;&lt;/li&gt;
+  &lt;li&gt;conselhos para trabalhar remotamente.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Seção 4 (Produtividade) é talvez a minha favorita. A verdade é essa: se me deixar por conta própria, eu não sou lá tão produtivo. Shame on me!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1470788220/shame_mivvrv.gif&quot; alt=&quot;Entendedores entenderão.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Eu venho brigando com a procrastinação desde a faculdade. Já tentei vários aplicativos de lista de tarefas e técnicas de produtividade. Eu leio &lt;a href=&quot;https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity-ebook/dp/B000WH7PKY#navbar&quot;&gt;Getting Things Done&lt;/a&gt; todo ano. Eu leio &lt;a href=&quot;http://lifehacker.com/&quot;&gt;Lifehacker&lt;/a&gt; quase que diariamente. Eu inclusive ouço um &lt;a href=&quot;https://www.relay.fm/cortex&quot;&gt;podcast cujo principal tema é trabalho e produtividade&lt;/a&gt;. E mesmo assim, eu não sou tão produtivo como eu gostaria de ser, apesar de que tenho feito algum progresso.&lt;/p&gt;
+
+&lt;p&gt;Aqueles dentre vocês que compartilham dessa característica vão provavelmente encontrar algum valor em &lt;em&gt;Soft Skills&lt;/em&gt;. John cobre bastante coisa aqui, incluindo a formação de hábitos, a importância de se ter uma rotina, e quais são os maiores desperdícios de tempo que você deveria tentar eliminar da sua vida. Ele também fala sobre a 
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Pomodoro_Technique&quot;&gt;Técnica Pomodor&lt;/a&gt; e demonstra seu sistema de produtividade pessoal. Ele fala até sobre &lt;em&gt;burnout&lt;/em&gt;, o que pode ser um grande problema na nossa área e você definitivamente deve estar preparado(a) para lidar com isso durante sua carreira.&lt;/p&gt;
+
+&lt;p&gt;Uma crítica comum que o livro recebe - e algumas pessoas estendem essa crítica ao restante do trabalho de John - é que ele é muito voltado para o marketing. É uma afirmação até justa, eu diria. Mas eu não penso que isso é necessariamente uma coisa ruim.&lt;/p&gt;
+
+&lt;p&gt;Alguns anos atrás, na faculdade, eu assisti uma palestra na qual o palestrante disse algo do tipo: “não adianta nada você ser o melhor programador do mundo se ninguém sabe disso”.&lt;/p&gt;
+
+&lt;p&gt;Para muitos desenvolvedores, a palavra marketing tem uma conotação muito negativa. Também pudera, todos estamos cansados de ver táticas de marketing manipulativas e sem escrúpulo.
+O que precisa ser entendido aqui é que marketing é algo que nós todos fazemos, o tempo todo, mesmo que você não chame por esse nome. O que é uma entrevista de emprego, senão uma venda?&lt;/p&gt;
+
+&lt;p&gt;Já que marketing é algo que todos fazemos, vale a pena fazê-lo correta e deliberadamente. Aqui é o ponto forte do livro, na minha opinião. Ele oferece conselhos sobe como tratar sua carreira como um negócio e seu nome como uma marca. Ele também explica o que uma marca é, qual seu propósito, seus componentes, e como você pode &lt;strong&gt;criar e estabelecer sua marca pessoal gerando valor para outras pessoas&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;As seções 3 e 6 (&lt;em&gt;Aprendizado&lt;/em&gt; e &lt;em&gt;Fitness&lt;/em&gt;, respectivamente) também merecem menção honrosa, mas não as cobrirei em detalhe para não ficar muito extenso. Vai ler o livro! :D&lt;/p&gt;
+
+&lt;h2 id=&quot;the-bad&quot;&gt;The Bad&lt;/h2&gt;
+
+&lt;p&gt;Agora, vamos ver o que não é tão bom assim.&lt;/p&gt;
+
+&lt;p&gt;Alguns dos capítulos são muito, muito curtos. Sim, eu sei que poucos parágrafos atrás eu estava elogiando a brevidade dos capítulos. Por que estou falando o contrário agora?&lt;/p&gt;
+
+&lt;p&gt;Eu não me importo com um capítulo curto caso ele me dê algum valor. Na verdade, como eu disse antes, eu prefiro muito mais um capítulo curto a um maior, desde que ambos forneçam igual valor.&lt;/p&gt;
+
+&lt;p&gt;Mas alguns capítulos fornecem pouquíssimo valor. Eles poderiam tranquilamente ser um parágrafo em outra seção.&lt;/p&gt;
+
+&lt;p&gt;Por exemplo. Capítulo 18, “Não seja religioso sobre tecnologia”, tem três páginas, nas quais John nos diz para que não nos apegarmos exageradamente a linguagens de programação, frameworks, sistemas operacionais e etc. Ótimo conselho, concordo totalmente. Quantas horas já foram desperdiçadas na internet, em debates idiotas como “tabs x espaços”? Provavelmente bem mais do que gostaríamos de saber. Mas essa mensagem seria facilmente resumida em um parágrafo em outro capítulo.&lt;/p&gt;
+
+&lt;p&gt;O livro também sofre do problema oposto. Alguns assuntos provavelmente se beneficiariam de um pouco mais de profundidade. No capítulo 25, “Escrevendo livros e artigos para atrair seguidores”, John diz que para conseguir publicar um livro por meios tradicionais, você deveria escrever uma proposta, para tentar vender o livro para a editora. Mas ele para por aí, &lt;strong&gt;sem mostrar um exemplo de como tal proposta seria&lt;/strong&gt;, o que seria extremamente valioso para os potenciais autores em sua audiência.&lt;/p&gt;
+
+&lt;p&gt;Algumas das dicas do livro são…esquisitas. Eu particularmente não gostei do conselho de John para contratar um escritor de currículo profissional. Na nossa área, hoje em dia, currículos são pouca coisa mais que mera formalidade. Contanto que seu currículo não seja horrível (ie.e contém erros de grafia e gramática, está estruturado de uma maneira estranha, não contém informações essenciais, etc) provavelmente vai ficar tudo bem. Existem fatores muito mais importantes que seu potencial empregador vai levar em consideração.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-ugly&quot;&gt;The Ugly&lt;/h2&gt;
+
+&lt;p&gt;A maioria dos livros de software tem a capa feia ou estranha, e &lt;strong&gt;&lt;em&gt;Soft Skills&lt;/em&gt;&lt;/strong&gt; não é exceção. Mas quem liga? Eu só queria &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Good,_the_Bad_and_the_Ugly&quot;&gt;fazer essa referência mesmo :P&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Soft Skills: The software developer’s life manual&lt;/em&gt; foi uma leitura divertida. John oferece algumas ótimas dicas, especialmente no que diz respeito a aprendizado, carreira e produtividade.&lt;/p&gt;
+
+&lt;p&gt;Existem alguns contras, claro, como eu já disso. Algumas das dicas simplesmente não fazem sentido pra mim. Eu entendo que elas provavelmente funcionaram para o autor, entretanto.&lt;/p&gt;
+
+&lt;p&gt;Minha abordagem com esse tipo de livro é: guarde o que for valioso, ignore o resto. E eu posso tranquilamente dizer que encontrei uma boa quantidade de conteúdo valioso em &lt;em&gt;Soft Skills&lt;/em&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 09 Aug 2016 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/resenha-livro-soft-skills/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/resenha-livro-soft-skills/</guid>
+        
+        <category>livros</category>
+        
+        
+      </item>
     
       <item>
         <title>Tipos de valor e referência em C#, Parte 2 - Por que DateTime não pode ser nulo?</title>
