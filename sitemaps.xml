@@ -3,6 +3,18 @@
   
     
       <url>
+        <loc>/en/are-private-methods-a-code-smell/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/are-private-methods-a-code-smell/" />
+        
+        <lastmod>2017-01-29T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/resenha-livro-soft-skills/</loc>
         
         
@@ -734,6 +746,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/code%20smell/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1091,6 +1116,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/code%20smell/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
         
         <changefreq>weekly</changefreq>
       </url>
