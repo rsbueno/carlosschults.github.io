@@ -5,10 +5,251 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 Jan 2017 13:05:19 -0200</pubDate>
-    <lastBuildDate>Sun, 29 Jan 2017 13:05:19 -0200</lastBuildDate>
+    <pubDate>Sun, 29 Jan 2017 13:37:51 -0200</pubDate>
+    <lastBuildDate>Sun, 29 Jan 2017 13:37:51 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Métodos privados são um &#39;Code Smell&#39;?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Algumas pessoas acham que métodos privados devem ser evitados. Será que elas estão certas?
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Há uns dois meses, &lt;a href=&quot;https://twitter.com/mdbs99&quot;&gt;Marcos Douglas&lt;/a&gt; publicou um post &lt;a href=&quot;http://objectpascalprogramming.com/posts/menos-e-mais/&quot;&gt;sobre como o uso de regras e restrições pode melhorar seu código&lt;/a&gt;. Essa &lt;a href=&quot;https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db#.rptqu89ec&quot;&gt;premissa&lt;/a&gt; costuma aparecer &lt;a href=&quot;http://blog.ploeh.dk/2015/04/13/less-is-more-language-features/&quot;&gt;de novo&lt;/a&gt; e &lt;a href=&quot;https://robots.thoughtbot.com/sandi-metz-rules-for-developers&quot;&gt;de novo&lt;/a&gt; pela web, e eu concordo totalmente com ela.&lt;/p&gt;
+
+&lt;p&gt;Marcos mostra várias orientações úteis, tais como o número ideal de argumentos em um método, o número ideal de métodos, em uma classe, e assim por diante. O artigo é muito bom, e eu recomendo a todos vocês que o &lt;a href=&quot;https://gist.github.com/carlosschults/5f4ba7cfb2453977c8d11424b2926686&quot;&gt;leiam &lt;/a&gt;, mas ele não é o foco do meu post hoje.&lt;/p&gt;
+
+&lt;p&gt;Hoje, o que eu realmente quero falar é de um assunto que surgiu na área de comentários do artigo do Marcos: que diversas pessoas consideram métodos privados como um &lt;a href=&quot;http://www.pedromendes.com.br/2013/11/04/code-smells/&quot;&gt;&lt;em&gt;Code Smell&lt;/em&gt; (algo como “mau-cheiro de código”)&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Como eu nunca tinha ouvido ou lido nada nesse sentido antes, fiquei bastante surpreso e decidi pesquisar mais.&lt;/p&gt;
+
+&lt;h2 id=&quot;qual-seria-o-problema-de-mtodos-privados&quot;&gt;Qual seria o problema de métodos privados?&lt;/h2&gt;
+
+&lt;p&gt;Para começar, vamos tentar entender por qual razão métodos privados seriam um problema.&lt;/p&gt;
+
+&lt;p&gt;One common argument is that private methods violate the Single Responsibility Principle. The SRP states that each class should do only one thing. If you’re tempted to create private methods, the argument follows, that’s a sign that your class is doing too much.&lt;/p&gt;
+
+&lt;p&gt;Um argumento comum é que métodos privados violam o &lt;em&gt;Princípio da Responsabilidade Única&lt;/em&gt; (ou SRP, do inglês &lt;em&gt;Single Responsibility Principle&lt;/em&gt;).&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Private helper methods indicate classes are doing too many things. Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.&lt;/p&gt;
+
+  &lt;p&gt;Kent R Spillner, em &lt;a href=&quot;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&quot;&gt;Private Methods are a Code Smell&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Métodos auxiliares privados indicam que as classes estão fazendo coisas demais. Mover métodos auxiliares privados para classes diferentes, incluindo criar novas classes se necessário, divide as responsabilidades originais em múltiplas classes, levando à projetos mais simples e melhores.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Aqui temos uma opinião bem parecida:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Private methods are not inherently bad, but they are a sign that you might be missing out on an opportunity to make a useful abstraction. If you have a private method that calls another private method, then there is almost certainly an area of responsibility that remains unidentified.&lt;/p&gt;
+
+  &lt;p&gt;John McDowall, em &lt;a href=&quot;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&quot;&gt;Break. It. Up! – Private Method Access Modifiers as Code Smells&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Métodos privados não são inerentemente ruins, mas eles são um sinal de que você talvez esteja perdendo uma oportunidade de criar uma abstração útil. Se você tem um método privado que chama outro método privado, então é quase certeza que há uma outra área de responsabilidade que permanece não identificada.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Outro argumento é que métodos privados dificultam o uso de testes unitários:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Make it public!&lt;/p&gt;
+
+  &lt;p&gt;[…]This is probably the simplest way to overcome the problem of untestability.[…] There’s a reason for that:  testability is a perfectly good reason to make something public.  And you should test most of your code.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Jason M Baker, em &lt;a href=&quot;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&quot;&gt;Enemies of Test Driven Development part I: encapsulation&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Torne [o método privado] público!&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[…]Essa é provavelmente a maneira mais simples de resolver o problema da não-testabilidade[…] Existe uma razão para isso: testabilidade é uma razão perfeitamente boa para tornar algo público. E você deveria testar a maior parte do seu código.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Finalmente, pessoas também argumentam que métodos privados desempenham um papel importante no problema de “bagunçar” o estado interno dos objetos, o que pode lhe causar grandes problemas.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Functional programming teaches that state (in the form of member variables) is evil, because it makes your code more complex and harder to test.&lt;/p&gt;
+
+  &lt;p&gt;Ryan Ginstrom, em &lt;a href=&quot;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&quot;&gt;Three reasons to avoid private class members&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Programação funcional ensina que estado (na forma de variáveis de instância) é maligno, porque ele torna seu código mais complexo e mais difícil de ser testado.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Eu acabei de mostrar alguns dos argumentos comuns contra a criação de métodos privados, então agora é hora de mostrar a opinião nesse assunto.&lt;/p&gt;
+
+&lt;h2 id=&quot;mtodos-privados-no-so-necessariamente-violaes-do-srp&quot;&gt;Métodos privados &lt;em&gt;não&lt;/em&gt; são necessariamente violações do SRP&lt;/h2&gt;
+
+&lt;p&gt;O primeiro argumento apresentando afirma que métodos privados violam o Princípio da Responsabilidade Única.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Private helper methods indicate classes are doing too many things.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Eu não penso que esse seja o caso. Pelo menos, não sempre. Isso depende do que exatamente o método privado faz.&lt;/p&gt;
+
+&lt;p&gt;Você provavelmente não deveria adicionar um método chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;ValidarEnderecoDeEmail&lt;/code&gt; à sua classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Cliente&lt;/code&gt;, sendo o método privado ou não. Afinal de contas, um cliente não é a única entidade que pode ter um endereço de e-mail. Ao invés disso, crie uma classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Email&lt;/code&gt; e coloque todas as validações pertinentes nela.&lt;/p&gt;
+
+&lt;p&gt;Por outro lado, digamos que você esteja criando um método &lt;code class=&quot;highlighter-rouge&quot;&gt;Ordenar&lt;/code&gt; em uma estrutura de dados customizada. Nesse caso, faria todo o sentido manter o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Ordenar&lt;/code&gt; público, e ter alguns métodos privados auxiliares, como &lt;code class=&quot;highlighter-rouge&quot;&gt;CompararItens&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Trocar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Meu principal problema com esse argumento não é que classes pequenas são geralmente melhores que as grandes, o que eu concordo.&lt;/p&gt;
+
+&lt;p&gt;Meu problema é que eu não concordo que criar novas classes e métodos públicos &lt;strong&gt;apenas para evitar métodos privados&lt;/strong&gt; vai &lt;strong&gt;automaticamente&lt;/strong&gt; gerar “designs mais simples e melhores”. É claro que &lt;em&gt;pode&lt;/em&gt; gerar; mas pode gerar projetos priores também. Cada situação é única.&lt;/p&gt;
+
+&lt;h2 id=&quot;eu-no-compro-testabilidade-como-um-fim-em-si-mesmo&quot;&gt;Eu não compro testabilidade como um fim em si mesmo&lt;/h2&gt;
+
+&lt;p&gt;Eu gosto muito de testes unitários (e testes automatizados de uma maneira geral). Eu ajudei evangelizar testes unitários no meu trabalho, e atualmente eu supervisiono o time que está adicionando testes unitários e de integração em nosso &lt;em&gt;codebase&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;E uma das primeiras perguntas que as pessoas fazem quando estão aprendendo sobre testes unitários é: &lt;em&gt;Como eu faço para testar métodos privados?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;unicorn_dies.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Minha resposta geralmente é: &lt;strong&gt;você não deveria precisar&lt;/strong&gt;. Na minha opinião, não é muito produtivo colocar um esforço excessivo em testar métodos privados: como eles são chamados pelos públicos, eles vão ser exercitados pela sua suíte de testes de qualquer forma.&lt;/p&gt;
+
+&lt;p&gt;O objetivo de um teste unitário deveria ser testar e documentar uma “unidade” (uma classe) por meio de usar sua API pública. O que nos leva ao próximo ponto.&lt;/p&gt;
+
+&lt;h1 id=&quot;sua-api-pblica-deve-ser-estvel-ou-encapsulamento-importa&quot;&gt;Sua API pública deve ser estável (ou “Encapsulamento importa”)&lt;/h1&gt;
+
+&lt;p&gt;API significa &lt;em&gt;Application Programming Interface&lt;/em&gt;, ou Interface de Programação de Aplicações, em tradução livre. 
+Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no conjunto das classes e métodos públicos que você expõe aos consumidores.&lt;/p&gt;
+
+&lt;p&gt;A API age como um tipo de contrato entre você e os consumidores do seu código. É um acordo. Se você alterar o acordo, a outra parte não vai ficar muito feliz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;deal.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sua API pública deveria ter o máximo de estabilidade possível. Isso é particularmente importante quando você está criando um &lt;em&gt;web service&lt;/em&gt;, uma biblioteca, ou qualquer tipo de ferramenta na qual terceiros dependem.&lt;/p&gt;
+
+&lt;p&gt;A propósito, esses “terceiros” não necessariamente precisar estar distante geograficamente de você. É bem comum em empresas, médias para cima, que vários times dependam de código disponibilizado por outros. O que aconteceria se cada equipe fizesse alterações drásticas em suas APIs constantemente? Caos.&lt;/p&gt;
+
+&lt;p&gt;A partir do momento que você expõe um método publicamente, você tem a responsabilidade de mantê-lo funcionando e honrando seu contrato; do contrário, você corre o risco de causar quebra de retrocompatibilidade nos seus clientes!&lt;/p&gt;
+
+&lt;p&gt;Um bom uso de métodos privados pode ajudar a manter um encapsulamento correto no seu design.&lt;/p&gt;
+
+&lt;p&gt;Aqui temos mais uma citação de Kent R Spillner:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Sometimes, private methods are created just to give pieces of functionality more descriptive names. Although descriptive names are desirable, creating private methods to provide descriptive names for things is still a smell. Moving these methods to collaborators and making them public creates opportunities for future reuse without reducing the clarity of the original code.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Às vezes, métodos privados são criados apenas para dar nomes mais descritivos a pequenos trechos de funcionalidade. Embora nomes descritivos são desejáveis, criar métodos privados para dar nomes descritivos a coisas ainda é um &lt;em&gt;smell&lt;/em&gt;. Mover esses métodos para colaboradores e torná-los públicos cria oportunidades para reuso futuro sem reduzir a claridade do código original.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Esse é um dos pontos com os quais eu discordo mais veementemente. Eu frequentemente crio métodos privados pela exata razão que Kent critica aqui, ou seja, dar nomes descritivos a certos trechos de código, um hábito eu adquiri após ler o livro &lt;em&gt;Código Limpo&lt;/em&gt;, de Robert C. Martin.&lt;/p&gt;
+
+&lt;p&gt;Kent defende que o jeito correto de lidar com isso seria mover esses métodos para novas classes e torná-los públicos.&lt;/p&gt;
+
+&lt;p&gt;Mas se eu fizer isso, eu adiciono um novo método à API público da minha aplicação! Agora eu tenho um método a mais para documentar, testar e manter, mesmo que jamais tenha intencionado que esse método fizesse parte da API.&lt;/p&gt;
+
+&lt;p&gt;Aqui temos uma definição para modificadores de acesso que na minha opinião acerta em cheio:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;public - this method is part of the published API and will not change within major versions of the class&lt;/p&gt;
+
+  &lt;p&gt;[…]&lt;/p&gt;
+
+  &lt;p&gt;private - this method was refactored out of a well tested public or protected method for reasons of clarity or internal re-use. This method may absolutely change, even in patch releases, and should not be relied upon to even exist.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;público - este método é parte da API publicada e não vai mudar dentro de versões principais da classe.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;[…]&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;privado - este método foi criado na refatoração de um método público ou protegido bem testado, por razões de claridade ou reuso interno. Este método com certeza pode ser alterado, mesmo em releases de correção, e ninguém deveria depender da existência dele.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Eu concordo com essa definição. Portanto, em minha visão.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Métodos privados não são necessariamente uma coisa ruim a ser evitada a todo custo.&lt;/li&gt;
+  &lt;li&gt;A prática de tornar métodos privados em públicos não leva automaticamente a um design melhor; ela pode também gerar uma API desnecessariamente inflada, encapsulamento enfraquecido, e maior trabalho para manutenção.&lt;/li&gt;
+  &lt;li&gt;Testabilidade é um objetivo nobre, mas precisa ser buscado de maneira pragmática. Métodos públicos bem testados e bem documentados deveriam ser suficientes, na maioria dos casos.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mtodos-privados-podem-ser-bons-ou-ruins-aprenda-a-separ-o-joio-do-trigo&quot;&gt;Métodos privados podem ser bons ou ruins; aprenda a separ o joio do trigo&lt;/h2&gt;
+
+&lt;p&gt;Tudo isso dito, eu também acho que existem casos nos quais métodos privados são usados de uma maneira errada. Toda ferramenta pode ser abusada. Existem alguns sinais para os quais você precisa ficar alerta:&lt;/p&gt;
+
+&lt;p&gt;Se um método privado está em um &lt;strong&gt;nível de abstração diferente&lt;/strong&gt; que os públicos em uma classe, é um sinal de que ele pertence em outra classe. Leitura e escrita em arquivo está um nível de abstração bem mais baixo que o cálculo do pagamento mensal de um empregado, por exemplo.&lt;/p&gt;
+
+&lt;p&gt;Quando um método privado é tão complexo que você realmente queria poder testá-lo…é sinal de que ele provavelmente deveria ser público. (Antes que você corra para os comentários para apontar minha aparente contradição, eu não estou dizendo que &lt;strong&gt;todos&lt;/strong&gt; os métodos privados deveriam virar públicos para serem testáveis…apenas aqueles que ultrapassam um determinado limiar de complexidade).&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;pt&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/pablogl&quot;&gt;@pablogl&lt;/a&gt; i only test public methods. if a private method is complex enough to need testing, it generally needs its own object.&lt;/p&gt;&amp;mdash; Kent Beck (@KentBeck) &lt;a href=&quot;https://twitter.com/KentBeck/status/3579860805&quot;&gt;27 de agosto de 2009&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;E quando um método privado contém código duplicado, do tipo, copiado e colado de outra classe? Livre-se da duplicação na hora!&lt;/p&gt;
+
+&lt;p&gt;Então, esse é o ponto: duas das três dicas que acabo de mostrar são meio subjetivas. Em algum ponto, você tem que fazer algumas escolhas. Quão complexo é complexo o suficiente para um método privado precisar de testes unitários? Como distinguir níveis de abstrações diferentes?&lt;/p&gt;
+
+&lt;p&gt;A melhor dica que eu posso oferecer é: &lt;strong&gt;Duas cabeças pensam melhor que uma&lt;/strong&gt;. Sempre faça com que outra pessoa olhe e examine seu código antes de ser commitado. Programação em par e/ou revisão de código são ótimas técnicas, não apenas para melhorar o projeto e encontrar bugs, mas principalmente para espalhar conhecimento por uma equipe. Não só conhecimento técnico, mas conhecimento do domínio também, e isso pode fazer toda a diferença na hora de tomar as decisões difíceis.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Embora métodos privados podem ser usados em maneiras ruins, eu penso que seria prematuro automaticamente rotulá-los como uma coisa ruim a ser evitada.&lt;/p&gt;
+
+&lt;p&gt;Me parece que algumas das pessoas que afirmam estar argumentando contra métodos privados &lt;strong&gt;estão na verdade argumento contra problemas que são ortogonais a métodos privados&lt;/strong&gt;; você pode violar a SRP com ou sem métodos privados; você pode causar problemas com estado interno mutável com ou sem métodos privados, e assim por diante.&lt;/p&gt;
+
+&lt;p&gt;Desenvolver software é uma arte, cheia de &lt;em&gt;trade-offs&lt;/em&gt; e incerteza. E ainda que “regras de ouro” possam ser úteis, elas não devem ser seguidas cegamente.&lt;/p&gt;
+
+&lt;p&gt;Este post ficou muito mais longo do que eu planejei. Agradeço caso tenha chegado até aqui. Até a próxima!&lt;/p&gt;
+
+&lt;h2 id=&quot;veja-tambm&quot;&gt;Veja também&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented&quot;&gt;http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&quot;&gt;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&quot;&gt;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&quot;&gt;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct&quot;&gt;https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&quot;&gt;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://rc3.org/2010/01/26/the-argument-against-private-methods/&quot;&gt;http://rc3.org/2010/01/26/the-argument-against-private-methods/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html&quot;&gt;http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 29 Jan 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/metodos-privados-code-smell/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/metodos-privados-code-smell/</guid>
+        
+        <category>code smell</category>
+        
+        <category>boas práticas</category>
+        
+        <category>orientacao-a-objetos</category>
+        
+        
+      </item>
     
       <item>
         <title>Resenha de Livro: Soft Skills</title>

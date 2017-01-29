@@ -3,8 +3,24 @@
   
     
       <url>
+        <loc>/pt/metodos-privados-code-smell/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/metodos-privados-code-smell/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/are-private-methods-a-code-smell/" />
+        
+        <lastmod>2017-01-29T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/are-private-methods-a-code-smell/</loc>
         
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/metodos-privados-code-smell/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/en/are-private-methods-a-code-smell/" />
         
