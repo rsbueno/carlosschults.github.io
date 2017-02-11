@@ -113,9 +113,7 @@
 
 <p>Para começar, vamos tentar entender por qual razão métodos privados seriam um problema.</p>
 
-<p>One common argument is that private methods violate the Single Responsibility Principle. The SRP states that each class should do only one thing. If you’re tempted to create private methods, the argument follows, that’s a sign that your class is doing too much.</p>
-
-<p>Um argumento comum é que métodos privados violam o <em>Princípio da Responsabilidade Única</em> (ou SRP, do inglês <em>Single Responsibility Principle</em>).</p>
+<p>Um argumento comum é que métodos privados violam o <em>Princípio da Responsabilidade Única</em> (ou SRP, do inglês <em>Single Responsibility Principle</em>). A SRP diz que cada classe deveria fazer uma coisa só. Se você está tentado a criar métodos privados, o argumento diz, é um sinal que a sua classe está fazendo coisas demais.</p>
 
 <blockquote>
   <p>Private helper methods indicate classes are doing too many things. Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.</p>
@@ -209,7 +207,7 @@
 
 <p>E uma das primeiras perguntas que as pessoas fazem quando estão aprendendo sobre testes unitários é: <em>Como eu faço para testar métodos privados?</em></p>
 
-<p><img src="unicorn_dies.jpg" alt="" /></p>
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1485701114/unicorn_dies-min_epffty.jpg" alt="" /></p>
 
 <p>Minha resposta geralmente é: <strong>você não deveria precisar</strong>. Na minha opinião, não é muito produtivo colocar um esforço excessivo em testar métodos privados: como eles são chamados pelos públicos, eles vão ser exercitados pela sua suíte de testes de qualquer forma.</p>
 
@@ -222,7 +220,7 @@ Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no 
 
 <p>A API age como um tipo de contrato entre você e os consumidores do seu código. É um acordo. Se você alterar o acordo, a outra parte não vai ficar muito feliz.</p>
 
-<p><img src="deal.jpg" alt="" /></p>
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1485701325/deal-min_th2zxm.jpg" alt="" /></p>
 
 <p>Sua API pública deveria ter o máximo de estabilidade possível. Isso é particularmente importante quando você está criando um <em>web service</em>, uma biblioteca, ou qualquer tipo de ferramenta na qual terceiros dependem.</p>
 
