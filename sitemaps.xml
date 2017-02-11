@@ -3,6 +3,18 @@
   
     
       <url>
+        <loc>/pt/blogs-desenvolvimento-portugues/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/blogs-desenvolvimento-portugues/" />
+        
+        <lastmod>2017-02-11T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/metodos-privados-code-smell/</loc>
         
         
@@ -775,6 +787,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/recomendacoes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/recomendacoes/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/recomendacoes/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1145,6 +1170,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/recomendacoes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/recomendacoes/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/recomendacoes/" />
         
         <changefreq>weekly</changefreq>
       </url>

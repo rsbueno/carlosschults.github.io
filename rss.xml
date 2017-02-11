@@ -5,10 +5,84 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 Jan 2017 13:37:51 -0200</pubDate>
-    <lastBuildDate>Sun, 29 Jan 2017 13:37:51 -0200</lastBuildDate>
+    <pubDate>Sat, 11 Feb 2017 17:12:30 -0200</pubDate>
+    <lastBuildDate>Sat, 11 Feb 2017 17:12:30 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Blogs em portugês sobre desenvolvimento de software que você deveria seguir!</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1486838693/capa-min_gdaepw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para o bem ou para o mal, o idioma da tecnologia é o inglês. Mas isso não significa que não existe conteúdo de qualidade sendo produzido na nossa língua.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;O inglês é a língua franca da tecnologia, como eu já &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;disse quando expus minha opinião sobre a controvérsia de se programar em inglês ou português.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Além das oportunidades que saber inglês pode lhe trazer, eu acredito que o maior benefício que você consegue é ter acesso a muita informação de qualidade.&lt;/p&gt;
+
+&lt;p&gt;Porém, isso não quer dizer que não exista informação de qualidade sendo publicada na nossa língua. Seguem agora três blogs que você já deveria estar acompanhando:&lt;/p&gt;
+
+&lt;h2 id=&quot;object-pascal-programming&quot;&gt;Object Pascal Programming&lt;/h2&gt;
+
+&lt;p&gt;Vamos começar a lista com o &lt;a href=&quot;http://objectpascalprogramming.com/&quot;&gt;Object Pascal Programming&lt;/a&gt;, blog do &lt;a href=&quot;https://github.com/mdbs99/&quot;&gt;Marcos Douglas Santos&lt;/a&gt;, o qual eu citei no meu &lt;a href=&quot;carlosschults.net/pt/metodos-privados-code-smell/&quot;&gt;último post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Conheci esse site há cerca de dois meses, por acaso, e desde então tenho lido todos os artigos, que são publicados assiduamente toda semana.&lt;/p&gt;
+
+&lt;p&gt;Talvez vocês estejam se perguntando o que há de tão interessante em um blog de Object Pascal para um programador C#? Aí é que está: não se deixem enganar pelo título. Marcos escreve sobre conceitos e boas práticas da orientação a objetos, de uma forma que é aplicável para a maioria da linguagens que seguem esse paradigma.&lt;/p&gt;
+
+&lt;p&gt;Quando há exemplos de código, esses são escritos em Object Pascal, mas são simples e claros o bastante para que você consiga seguir, independente de ter ou não experiência com essa linguagem.&lt;/p&gt;
+
+&lt;p&gt;Além da qualidade dos artigos em si, é importante citar ótimo trabalho que Marcos tem feito em fomentar uma comunidade em torno do blog, com o uso de redes sociais, chat e lista de e-mail.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://objectpascalprogramming.com/&quot;&gt;Recomendadíssimo&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;robson-castillo&quot;&gt;Robson Castillo&lt;/h2&gt;
+
+&lt;p&gt;O &lt;a href=&quot;https://twitter.com/nosborcastilho&quot;&gt;Robson&lt;/a&gt; publica em seu &lt;a href=&quot;https://robsoncastilho.com.br/&quot;&gt;blog&lt;/a&gt; desde 2010, e aborda uma gama bem diversa de assuntos.&lt;/p&gt;
+
+&lt;p&gt;Ele já escreveu sobre tecnologias específicas, como tutoriais de ASP.NET MVC, passando por assuntos mais “&lt;em&gt;high level&lt;/em&gt;” como arquitetura de software, Design Patterns e boas práticas de codificação, sem esquecer das metodologias ágeis e gerenciamento de carreira.&lt;/p&gt;
+
+&lt;p&gt;Uma área muito bacana neste blog é a &lt;a href=&quot;https://robsoncastilho.com.br/livros-indicados/&quot;&gt;página de leituras recomendadas&lt;/a&gt;. Apesar da avalanche de informação disponível na Web, eu acredito que livros ainda têm um lugar importante no aprendizado de desenvolvedores, e vejo que Robson compartilha da minha visão.&lt;/p&gt;
+
+&lt;p&gt;Embora existam alguns posts que são específicos a .Net e C#, a grande maioria não é. Então, independente de qual seja a linguagem que você usa, pode ir sem medo que você vai encontrar conteúdo de qualidade no blog do Robson.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://robsoncastilho.com.br/&quot;&gt;Não deixe de conferir&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;elemar-jr&quot;&gt;Elemar Jr&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/elemarjr&quot;&gt;Elemar Jr&lt;/a&gt; é um nome bastante conhecido na comunidade .NET. Assim como Robson, ele &lt;a href=&quot;http://elemarjr.com/pt/home/&quot;&gt;publica em seu blog desde 2010&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Elemar é conhecido por ser incrivelmente prolífico, escrevendo sobre um número impressionante de tópicos. Existe um certo viés para C#, mas ele também aborda diversas outras linguagens, tecnologias e técnicas, como C++, F#, Haskell, HTML, Javascript, testes automatizados, arquitetura, e muito mais.&lt;/p&gt;
+
+&lt;p&gt;Um aspecto interessante do blog do Elemar é que ele não para no conteúdo técnico, explorando também tópicos como filosofia, política, psicologia, economia, entre outros, o que eu acho valiosíssimo. Nós, desenvolvedores, às vezes só conversamos com outros desenvolvedores, sobre desenvolvimento, e isso não é saudável.&lt;/p&gt;
+
+&lt;p&gt;Nos reconectar com o mundo ao nosso redor é necessário para uma vida equilibrada. E no lado profissional, nos envolver com as humanidades também melhora a nossa visão do negócio e de como o código que escrevemos é apenas um meio para gerar valor para nossos clientes e nossas empresas.&lt;/p&gt;
+
+&lt;p&gt;Recentemente, Elemar &lt;a href=&quot;http://elemarjr.com/pt/2016/04/17/por-que-comecei-a-blogar-em-ingles/&quot;&gt;começou a blogar também em inglês&lt;/a&gt;, o que é uma iniciativa com a qual eu naturalmente &lt;a href=&quot;http://carlosschults.net&quot;&gt;concordo&lt;/a&gt; ;)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://elemarjr.com/pt/home/&quot;&gt;Boa leitura&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Você deve estar se perguntando porque mantive o número de blogs recomendados baixo. Um dos motivos é que, com esses três blogs, você já tem leitura de sobra para muito tempo (isso se formos considerar apenas os artigos já publicados. É claro que os blogs estão na ativa, então mais posts continuarão vindo).&lt;/p&gt;
+
+&lt;p&gt;O segundo - e mais importante - motivo é que sou &lt;em&gt;bastante exigente com o que leio&lt;/em&gt;. Não gosto de perder tempo com textos pessimamente escritos, com argumentos sem embasamento, ou com títulos sensacionalistas apenas para ganhar cliques.&lt;/p&gt;
+
+&lt;p&gt;Evidentemente, nenhum dos três blogs acima tem essas características. Você ter a certeza que os blogs recomendados nesse post oferecem um conteúdo de alta qualidade, capaz de aumentar seu conhecimento e trazer benefícios para a sua carreira.&lt;/p&gt;
+
+&lt;p&gt;E você, tem algum blog que gostaria de recomendar? Compartilhe com a gente nos comentários.&lt;/p&gt;
+
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 11 Feb 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/blogs-desenvolvimento-portugues/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/blogs-desenvolvimento-portugues/</guid>
+        
+        <category>recomendacoes</category>
+        
+        
+      </item>
     
       <item>
         <title>Métodos privados são um &#39;Code Smell&#39;?</title>
@@ -1148,69 +1222,6 @@ Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.&
         <category>orientacao-a-objetos</category>
         
         <category>tipagem</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Compartilhe o que você aprende</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1440517439/share1038x437_mshqwf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Compartilhe o que você sabe. Escreva um blog. Responda uma pergunta no Stack Overflow. Abra a fonte do seu código. Cria conteúdo! Na nossa área, esse conselho aparece com muita frequência, em diversas formas .&lt;/p&gt;
-
-&lt;p&gt;E com razão, eu diria. Quantas horas de trabalho você já poupou graças a um post em algum blog? Ou a uma resposta bem feita no Stack Overflow?
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Quantas vezes uma biblioteca/ferramenta/app open-source salvou você de ter que codificar aquela funcionalidade do zero? Se eu fosse adivinhar a resposta pra cada uma dessas perguntas, provavelmente diria: muitas.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.akitaonrails.com/2014/08/29/milesimo-1000-post-no-blog#.Vd0nh5eC7lc&quot;&gt;O desenvolvedor Rafael Rosa Fu falou um pouco sobre alguns dos benefícios da criação de conteúdo&lt;/a&gt; em um post no site do Fabio Akita:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Aprendizado. praticar novas habilidades é importante para fixá-las, ao escrever sobre o que aprendemos estamos reforçando e expandindo nosso conhecimento ao sermos “forçados” a explicá-lo de forma que possa ser consumido por outras pessoas.&lt;/li&gt;
-    &lt;li&gt;Memória - não sei você, mas minha memória é igual a de um peixinho dourado, e tenho certeza que não sou exceção. Escreva sobre aquele conceito complicado ou deixe a receita para o procedimento esporádico e quando precisar se lembrar dele abra seu blog ou procure no Google e vai encontrar suas próprias palavras para lembrá-lo.&lt;/li&gt;
-    &lt;li&gt;Portfólio - especialmente útil para quem está começando na carreira, blog posts são úteis como parte de um portfólio de conhecimento que pode ser encontrado por um possível empregador ou usado como referência durante uma entrevista, agindo como um complemento ao tempo de carreira, além de ser um bom gancho para conversas durante entevistas. […]&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Jeff Atwood (co-foundador do Stack Overflow e do Discourse) diss que iniciar seu blog “foi a coisa mais importante que já fiz em toda a minha carreira”. Então, parece razoável dizer que se nós encorajarmos mais e mais pessoas a compartilhar seus conhecimentos e experiências, toda a comunidade ganha, certo?&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.smashingmagazine.com/2012/03/publish-what-you-learn/&quot;&gt;Nesse artigo publicado em 2012 pela Smashing Magazine, Louis Lazaris dá conselhos sobre como começar a publicar&lt;/a&gt;: publique as coisas que você aprende, não tenha medo de cometer erros, esteja aberto à colaboração de seus leitores.&lt;/p&gt;
-
-&lt;p&gt;Parece fácil, não é?&lt;/p&gt;
-
-&lt;h2 id=&quot;quando-a-dvida-chega&quot;&gt;Quando a dúvida chega&lt;/h2&gt;
-
-&lt;p&gt;Eu tive bastante receio antes de começar esse blog. Eu quero dizer, como poderia ser de outra forma? Todos esses blogueiros bem estabelecidos, eles têm anos ou mesmo décadas de experiência. Eles palestram em vários países. Eles lançam livros, têm podcasts, eles criaram empresas bem-sucedidas ou talvez até alguma tecnologia usada por milhões de pessoas. Resumindo, eles têm uma página “Sobre Mim” bem impressionante. Caramba, alguns deles já têm até mesmo artigo na wikipédia sobre eles. &lt;strong&gt;Esses são os rockstars&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;E eu? Eu sou só um cara, dois anos depois de terminar a faculdade, tentando aprender e desenvolver minha carreia. Será que eu realmente tenho alguma coisa de valor para oferecer? Será que vou ser capaz de ajudar alguém? Ou vou ser só mais um, aumentando ainda mais o ruído da internet?&lt;/p&gt;
-
-&lt;p&gt;Eu penso que todas essas são questões relevantes. A web é um lugar ridiculamente enorme. Você poderia compartilhar conteúdo por anos, talvez sua vida toda, sem ser notado, sem receber nenhum feedback.&lt;/p&gt;
-
-&lt;p&gt;De vez em quando eu faço uma pesquisa no Google sobre algum assunto e acabo caindo em um blog com um design bacana e posts muito bem escritos. Eu começo a olhar os posts, e noto que a maioria deles (às vezes, todos eles) não tem nenhum comentário. Às vezes, também reparo que o último post foi escrito há dois ou três anos. Eles desistiram.&lt;/p&gt;
-
-&lt;p&gt;E apesar disso ser triste e desencorajador, não deixa de ser apenas um fato da vida. Talvez seu blog vai atingir uma grande audiência, talvez não.&lt;/p&gt;
-
-&lt;h2 id=&quot;por-que-eu-criei-esse-blog-afinal-de-contas&quot;&gt;Por que eu criei esse blog, afinal de contas?&lt;/h2&gt;
-
-&lt;p&gt;Talvez a seção anterior tenha lhe dado a impressão de que eu sou cético com relação aos benefícios da criação de conteúdo. E talvez eu realmente seja, um pouco. Mas eu não vou deixar que isso me impeça. Eu acredito na importância de contribuir com a comunidade.&lt;/p&gt;
-
-&lt;p&gt;Se lembra daquela resposta no Stack Overflow que salvou seu emprego? Então, adivinha: alguém “perdeu” o tempo para escrever aquela resposta, de graça, e para postá-la na internet, de graça, pra que toda a internet veja, pra sempre. Isso não é incrível? Eu penso que parte da beleza da nossa profissão é o fato de que há tantas pessoas dispostas a compartilhar conhecimento de graça. A sacrificar seu tempo livre para conseguir construir alguma coisa. Milagres como GitHub, Stack Overflow, Wikipédia, só se tornam possíveis graças a essas pessoas. E eu quero ser parte disso.&lt;/p&gt;
-
-&lt;p&gt;Claro, você poderia argumentar que essas pessoas fazem esse tipo de coisa movidas pelos seus próprios motivos egoistas. É, talvez sim, mas o ponto é: no fim das contas, isso não importa nem um pouco.
-Resultados importam. Se a usuária MariaDaSilva escreveu aquela resposta no Stack Overflow só pra ganhar alguns pontinhos de reputação, por mim está ótimo. Eu quero apenas a resolução do meu problema.&lt;/p&gt;
-
-&lt;p&gt;Então é isso. Para usar uma metáfora do mundo dos torrents, eu cansei de ser apenas um parasita. É hora de semear também.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 25 Aug 2015 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/compartilhe-o-que-voce-aprende/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/compartilhe-o-que-voce-aprende/</guid>
-        
-        <category>blog</category>
-        
-        <category>compartilhar</category>
-        
-        <category>primeiro post</category>
         
         
       </item>
