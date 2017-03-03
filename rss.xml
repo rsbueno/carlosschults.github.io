@@ -5,10 +5,140 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 28 Feb 2017 17:04:46 -0300</pubDate>
-    <lastBuildDate>Tue, 28 Feb 2017 17:04:46 -0300</lastBuildDate>
+    <pubDate>Thu, 02 Mar 2017 22:30:26 -0300</pubDate>
+    <lastBuildDate>Thu, 02 Mar 2017 22:30:26 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Aprenda quais tipos de comentários devem ser evitados</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Alerat de Spoiler: Você deveria evitar a maioria.
+&amp;lt;! - more -&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;“Comentar ou não comentar”. Essa é uma questão que gera debates acalorados. Algumas pessoas dizem que comentários são indispensáveis. Outros defendem que comentários apenas mostram a incapacidade do desenvolvedor de se expressar claramente no código. Quem está certo?&lt;/p&gt;
+
+&lt;p&gt;Na época da faculdade, eu considerava comentários indispensáveis na hora de programar. Do contrário, como você poderia entender o que código deveria fazer?&lt;/p&gt;
+
+&lt;p&gt;Depois de me formar e encontrar um emprego, as coisas começaram a mudar. Eu comecei a ser exposto à &lt;em&gt;código real&lt;/em&gt;. Eu estava lendo livros, artigos e blog posts escritos por pessoas influentes da área.&lt;/p&gt;
+
+&lt;p&gt;Todas essas experiências moldaram a minha visão atual.&lt;/p&gt;
+
+&lt;h2 id=&quot;os-perigos-da-documentao-ruim&quot;&gt;Os perigos da documentação ruim&lt;/h2&gt;
+
+&lt;p&gt;Comentários são apenas outra forma de documentação. E não se engane: documentação é uma coisa boa - &lt;em&gt;quando feita corretamente e na quantidade certa&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Infelizmente, é feita errada frequentemente!&lt;/p&gt;
+
+&lt;p&gt;Muitos tipos de documentação podem ser problemáticas. É muito comum que a documentação perca sincronia com o que está documentando, o que é bem pior que não ter documentação nenhuma para começar.&lt;/p&gt;
+
+&lt;p&gt;Esse é um dos problemas dos quais comentários sofrem, mas está longe de ser o único.&lt;/p&gt;
+
+&lt;h3 id=&quot;cdigo-comentado&quot;&gt;Código comentado&lt;/h3&gt;
+
+&lt;p&gt;Vamos começar com o problema mais óbvio de todos, que é código comentado. Alguns desenvolvedores, durante uma correção de bug por exemplo, decidem comentar o código que está errado, em vez de removê-lo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Não faça isso!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Código comentado não traz benefício para ninguém. É apenas desperdício. Confie no seu sistema de controle de versão. Ele vai lembrar das alterações feitas caso seja necessário revertê-las no futuro.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-changelog&quot;&gt;Comentários ‘Changelog’&lt;/h3&gt;
+
+&lt;p&gt;Esta categoria de comentários ruins é parecida com a anterior, no sentido de ser causada por uma falta de confiança no sistema de controle de versões.&lt;/p&gt;
+
+&lt;p&gt;O que eu quero dizer por comentários changelog? Comentários que servem apenas para listar as alterações feitas a um arquivo.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3889e4d4b337c6adc94af354ec574d9a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Comentários desse tipo estão apenas fazendo o mesmo trabalho que seu controle de versão, mas de uma maneira desajeitada e propensa ao erro.&lt;/p&gt;
+
+&lt;p&gt;Não escreve comentários como esses. Use [git] (https://git-scm.com/) e seja feliz.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-redundantes&quot;&gt;Comentários redundantes&lt;/h3&gt;
+
+&lt;p&gt;Esse tipo de comentário ruim é muito fácil de detectar e corrigir. Considere o código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/cc821bc3c00137e5fad68f1fe7d65490.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Eu acho que todos podemos concordar que esses comentários são inúteis. O código é perfeitamente claro sem eles, portanto, devem ser removidos.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-delimitando-fim-de-blocos&quot;&gt;Comentários delimitando fim de blocos&lt;/h3&gt;
+
+&lt;p&gt;Você provavelmente já viu algum código assim antes:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/0c6e461ec278db804f52d64ade458bf4.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Algumas pessoas escrevem comentários assim para não perderem o controle das chaves.&lt;/p&gt;
+
+&lt;p&gt;Se você precisa de comentários por essa razão, isso é indicativo de que seu método é muito longo e você tem muitos níveis de indentação.&lt;/p&gt;
+
+&lt;p&gt;Lembre-se do Princípio da Responsabilidade Única: cada método deve fazer apenas uma coisa. Divida o seu método em métodos menores e a necessidade desse tipo de comentários desaparece.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-que-delimitam-sees-dentro-de-um-mtodo&quot;&gt;Comentários que delimitam seções dentro de um método&lt;/h3&gt;
+
+&lt;p&gt;Esse é parecido com o anterior. Se você tem diversas seções dentro de um método, cada uma delas com um comentário explicativo em cima, então você provavelmente está violando o Princípio da Responsabilidade Única.&lt;/p&gt;
+
+&lt;p&gt;Extraia cada trecho para seu próprio método, usando o texto do comentário como o nome do novo método, e então remova os comentários.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-desatualizados&quot;&gt;Comentários desatualizados.&lt;/h3&gt;
+
+&lt;p&gt;Um cenário comum:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob escreve algumas linhas de código. Ele decide que o código não está claro o suficiente e adiciona alguns comentários para tornar a sua intenção mais clara.&lt;/li&gt;
+  &lt;li&gt;Passam-se algumas semanas. Alguém descobre um bug no código de Bob. Mas ele está de férias, então Alice é encarregada de corrigir o bug.&lt;/li&gt;
+  &lt;li&gt;Alice corrige o código em alguns minutos e comita suas alterações. Mas ela esquece de alterar os comentários para refletir as mudanças que ela fez no código.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O que nós temos agora? Comentários mentirosos!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Documentação que espalha mentiras é pior que não ter documentação alguma.&lt;/strong&gt; É uma fonte de confusão para os desenvolvedores, e terreno fértil para bugs. Quando você ver um comentário desatualizado, não pense duas vezes: remova-o imediatamente, ou corrija-o. Mas na maioria das vezes você não deveria manter o comentário. Veja o próximo tópico para descobrir o porquê.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-criados-devido--falta-de-expressividade-no-cdigo&quot;&gt;Comentários criados devido à falta de expressividade no código&lt;/h3&gt;
+
+&lt;p&gt;Considere o código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/ec7db3ebadccded768f97933c88e704f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Talvez você não considere o comentário no trecho acima tão ruim. Tudo bem, não é tão ruim. Mas pense na oportunidade perdida de extrair um método ou propriedade útil:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/b102a4f5c11ba7b1639410dcbb87830f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;No novo código, nós extraímos o conceito de ser elegível para doar sangue para uma nova propriedade. As regras para elegibilidade para doação de sangue estão agora consolidadas em um único local; se elas mudarem algum dia, a quantidade de trabalho necessária para atualizá-las será mínima.&lt;/p&gt;
+
+&lt;p&gt;E nós ainda ganhamos o benefício adicional da legibilidade: a nova instrução &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; lê quase como linguagem natural.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Como vimos, há diversos tipos de comentários ruins com os quais você deve ficar alerta. Eles geralmente são sinais de que há algo errado no seu código. Talvez seus métodos são muito longos.Talvez &lt;a href=&quot;http://carlosschults.net/pt/como-escolher-bons-nomes/&quot;&gt;você não escolheu bons nomes para suas variáveis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Toda vez que você sentir a necessidade de escrever um comentário, pare e tente pensar em maneiras de melhorar o seu código para tornar o comentário desnecessário.&lt;/p&gt;
+
+&lt;p&gt;Nem todos os comentários são ruins. Em um post futuro, vou falar sobre os tipos de comentários que são úteis.&lt;/p&gt;
+
+&lt;p&gt;Até mais!&lt;/p&gt;
+
+&lt;p&gt;##Ler mais (todos os links em inglês)&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode&quot;&gt;Apologies In Code, por Robert C. Martin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.codeproject.com/tips/467657/write-comments-that-matter&quot;&gt;Write comments that matter, por Sander Rossel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@kentcdodds/please-don-t-commit-commented-out-code-53d0b5b26d5f#.yex54k2sg&quot;&gt;Please, don’t commit commented out code, por Kent C. Dodds&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 02 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/tipos-de-comentarios-a-evitar/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/tipos-de-comentarios-a-evitar/</guid>
+        
+        <category>code smell</category>
+        
+        <category>BoasPraticas</category>
+        
+        <category>iniciantes</category>
+        
+        
+      </item>
     
       <item>
         <title>Blogs em português sobre desenvolvimento de software que você deveria seguir!</title>
@@ -1095,133 +1225,6 @@ proporciona um ritmo agradável. Ele também possui um ótimo senso de humor. N�
         <category>livros</category>
         
         <category>metodologias ágeis</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Tipos de valor e referência em C#</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Este é o meu primeiro post pra valer aqui no meu blog, e eu decidi escrever sobre tipos de valor e tipos de referência em C#. Isso é um assunto relativamente básico, no sentido de que é algo que você já deveria entender caso você programe em C# profissionalmente. Mas ao mesmo tempo, é algo que pode ser um pouco contra-intuitivo caso você não seja um desenvolvedor experiente.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Eu vou tentar deixar o post o mais simples e curto possível, então não vou falar hoje sobre imutabilidade de string, &lt;em&gt;boxing&lt;/em&gt;, &lt;em&gt;unboxing&lt;/em&gt;, e outras coisas com nomes chiques.
-Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.&lt;/p&gt;
-
-&lt;p&gt;Então, dê uma olhada no código a seguir:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;O valor de x é {x}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;//Imprime &quot;O valor de x é 10&quot;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;O valor de y é {y}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Imprime&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;O valor de y é 11&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Nenhuma surpresa até aqui, esse é exatamente o comportamento que você esperaria. Agora, imagine que nós temos uma classe assim:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Pessoa&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Nome&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Profissao&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profissao&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Nome&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Profissao&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;profissao&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Oi! Meu nome é {Nome} e eu sou {Profissao}&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Agora, faça o seguinte:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Maria&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;programadora&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;    
-&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// imprime &quot;Oi! Meu nome é Maria e eu sou programadora&quot;
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pessoa2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pessoa2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Nome&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;João&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Profissao&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;músico&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;    
-&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// imprime &quot;Oi! Meu nome é João e eu sou músico&quot;  
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pessoa&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;DizerOi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imprime&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Oi! Meu nome é João e eu sou músico&quot;&lt;/span&gt;  &lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Esse é o momento no qual iniciantes costumam ficar confusos. “Isso não faz sentido”, eles dizem. “Eu mudei o valor de uma das variáveis, e a outra também mudou.” Bem, essa é a maneira errada de enxergar o que aconteceu. Na verdade, você &lt;strong&gt;não&lt;/strong&gt; mudou o valor da varíavel, e esse é o ponto.&lt;/p&gt;
-
-&lt;p&gt;Lembra do primeiro exemplo? Vamos dar uma olhada nele novamente, dessa vez passo-a-passo:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código C# no qual a variável é criada e lhe é atribuído o valor 10&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161625/fig1_czxki5.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nós declaramos a primeira variável e atribuímos o valor 10 a ela. Agora, em algum lugar dentro da memória do computador, existe uma “caixa” com o nome de x, e dentro dessa caixa tem o valor 10.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código C# no qual a variável y é criada e recebe o valor da variável x&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165139/fig2_de8azi.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Nós declaramos a segunda variável e atribuímos a ela o valor da primeira variável. Note que o valor é copiado de x para y. Agora nós temos duas caixas, uma chamada x e a outra y, e ambas guardam o valor 10.&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código em C# no qual o valor da variável y é incrementado em 1&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165134/fig3_sdjbze.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Finalmente, nós incrementamos o valor da variável y em 1. Note que o valor de x permanece inalterado. Claro, por que eles realmente não tem nada a ver um com outro! Por outro lado, algo bem diferente acontece quando você está lidando com tipos de referência. Para entender isso, vamos repassar o segundo exemplo, também passo-a-passo:&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;A figura mostra um trecho de código C# no qual a variável pessoa é criada e recebe uma nova instância da classe Pessoa&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165141/fig4_xivrng.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Primeiramente, nós criamos uma variável chamada pessoa e atribuímos a ela uma nova instância da classe Pessoa. Agora, em algum lugar na memória do computador vive uma caixa chamada “pessoa”. Note, porém que nossa variável pessoa guarda &lt;strong&gt;uma referência que aponta para a instância da classe Pessoa, ao invés de guardar a própria instância!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img alt=&quot;A figura mostra a criação da variável pessoa2, que logo em seguida recebe o valor da variável pessoa&quot; src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165138/fig5_i21mgj.png&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;No segundo passo, criamos a variável “pessoa2” e atribuímos a ela o valor da variável “pessoa.” Assim como no exemplo anterior, o valor de uma variável é copiado para a outra. Nesse caso, &lt;strong&gt;o valor que é copiado é a referência que aponta para a instância de pessoa&lt;/strong&gt;. Então agora nós temos duas variáveis cujos valores são referências que apontam para a mesma instância da classe Pessoa.&lt;/p&gt;
-
-&lt;p&gt;Agora, é claro que quando você mudar os dados do objeto (por exemplo, mudar o nome e/ou profissão da pessoa) parece que as duas variáveis foram alteradas. Na verdade, os valores das variáveis continuam exatamente o mesmo: o que foi realmente alterado é o objeto para o qual elas apontam.&lt;/p&gt;
-
-&lt;p&gt;Então, podemos resumir da seguinte forma: tipos de valor armazenam dados. Quando você atribuir o valor de uma variável a outra, o que é copiado são os próprios dados (como um número inteiro, por exemplo). Isso é parecido com quando você copia um arquivo de uma pasta em seu computador e cola em outro lugar. Você fez uma cópia, mas de agora em diante eles são arquivos independentes e não têm nada a ver um com o outro.&lt;/p&gt;
-
-&lt;p&gt;Tipos de referência armazenam uma referência, que apontam para os dados, que vivem em algum outro lugar na memória do computador. Quando você atribui o valor de uma variável de referência para outra, o que é copiado é a referência. Pode ser útil pensar nas referências como atalhos para arquivos. Se você tem um ou mais atalhos que apontam para um arquivo em particular no seu HD, quando você fizer alterações no arquivo, tais alterações serão visíveis quando você acessar o arquivo pelo atalho. Pois eles não passam disso, atalhos.&lt;/p&gt;
-
-&lt;h2 id=&quot;quais-tipos-so-tipos-de-valor&quot;&gt;Quais tipos são tipos de valor?&lt;/h2&gt;
-
-&lt;p&gt;De acordo com o MSDN, os tipos de valor são:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Todos os tipos númericos&lt;/li&gt;
-  &lt;li&gt;Boolean, Char, e Date&lt;/li&gt;
-  &lt;li&gt;Todas as estruturas&lt;/li&gt;
-  &lt;li&gt;Enumerações&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;quais-tipos-so-tipos-de-referncia&quot;&gt;Quais tipos são tipos de referência?&lt;/h2&gt;
-
-&lt;p&gt;Novamente, de acordo com o MSDN:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;String&lt;/li&gt;
-  &lt;li&gt;Todos os arrays&lt;/li&gt;
-  &lt;li&gt;Classes&lt;/li&gt;
-  &lt;li&gt;Delegates&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;espera-um-pouco-string--um-tipo-de-referncia&quot;&gt;Espera um pouco! String é um tipo de referência?!&lt;/h2&gt;
-
-&lt;p&gt;Talvez você tenha se surpreendido em ver String listada como um tipo de referência. Afinal de contas, ela parece se comportar como um tipo de valor. Bom, a razão para isso é que a string é um tipo &lt;strong&gt;imutável&lt;/strong&gt;. Como eu disse antes, não vou falar sobre isso hoje, mas em breve teremos um post inteiro sobre System.String.&lt;/p&gt;
-
-&lt;p&gt;Bom, por hoje é só. Espero que tenham gostado do post, e eu adoraria ter o feedback de vocês. Eu me expressei claramente? Eu disse algo um pouco impreciso - ou mesmo totalmente errado? Deixe um comentário aqui embaixo ou &lt;a href=&quot;http://twitter.com/carlosschults&quot;&gt;me chame no twitter&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;referncias-em-ingls&quot;&gt;Referências (em inglês):&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://jonskeet.uk/csharp/references.html&quot;&gt;http://jonskeet.uk/csharp/references.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx&quot;&gt;https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sat, 30 Jan 2016 00:00:00 -0200</pubDate>
-        <link>http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/</guid>
-        
-        <category>csharp</category>
-        
-        <category>iniciantes</category>
-        
-        <category>orientacao-a-objetos</category>
-        
-        <category>tipagem</category>
         
         
       </item>

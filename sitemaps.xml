@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/en/types-of-comments-to-avoid/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/types-of-comments-to-avoid/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/tipos-de-comentarios-a-evitar/" />
+        
+        <lastmod>2017-03-02T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/tipos-de-comentarios-a-evitar/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/types-of-comments-to-avoid/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/tipos-de-comentarios-a-evitar/" />
+        
+        <lastmod>2017-03-02T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/blogs-desenvolvimento-portugues/</loc>
         
         
@@ -800,6 +828,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/BoasPraticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/BoasPraticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/BoasPraticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1183,6 +1224,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/recomendacoes/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/recomendacoes/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/BoasPraticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/BoasPraticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/BoasPraticas/" />
         
         <changefreq>weekly</changefreq>
       </url>

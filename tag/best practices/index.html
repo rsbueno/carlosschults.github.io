@@ -82,6 +82,139 @@
   
   
   
+   <span class="post-meta">Mar 2, 2017</span>
+    <h2>
+          <a class="post-link" href="/en/types-of-comments-to-avoid/">Learn which types of comments should be avoided</a>
+    </h2>
+    <div class="post-content">
+    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg" alt="" /></p>
+
+<p>Spoiler Alert: You should avoid most of them.
+&lt;! - more -&gt;</p>
+
+<p>“To comment or not to comment”. This is a question that tends to spark heated debate. Some people say that comments are an indispensable tool. Others argue that the comments show the developer’s inability to express himself clearly in the code. Who’s right?</p>
+
+<p>When I was in college, I considered the comments indispensable when writing code. Otherwise, how could you understand what the code should do?</p>
+
+<p>After getting my degree and finding a job, things started to change. I was being exposed to * real code *; I was reading books, articles and blog posts written by influential people in our industry.</p>
+
+<p>These experiences shaped my current vision.</p>
+
+<h2 id="the-dangers-of-bad-documentation">The dangers of bad documentation</h2>
+
+<p>Comments are just another form of documentation. And make no mistake: documentation is a good thing - <em>when done correctly and in the right amount</em>.</p>
+
+<p>Unfortunately, it is so often done wrong!</p>
+
+<p>Many types of documentation can be problematic. It is very common for the documentation to lose synchronization with what it is documenting, which is worse than not having any documentation in the first place.</p>
+
+<p>This is one of the problems that comments suffer from, but it is far from being the only one.</p>
+
+<h3 id="commented-out-code">Commented-out Code</h3>
+
+<p>Let’s start with the most obvious one, which is commented-out code. Some developers, when fixing a bug, for example, choose to comment the offending code out, rather than delete it.</p>
+
+<p><strong>Don’t do this!</strong></p>
+
+<p>Commented-out code does no good to anyone. It’s just waste. Rely on your version control system. It will remember the changes you made if you needed to revert them in the future.</p>
+
+<h3 id="changelog-comments">‘Changelog’ Comments</h3>
+
+<p>This category of bad comments is similar to the previous category, which is caused by a lack of trust in your version control system.</p>
+
+<p>What do I mean by “Changelog” comments? Comments that just list the changes made to a file:</p>
+
+<script src="https://gist.github.com/carlosschults/61ffc0459edf71302af6a8140a0e225c.js"></script>
+
+<p>Comments like this are just doing the same work as your VCS already does, but in a clumsy and error-prone way.</p>
+
+<p>Do not write these types of comments. Use [git] (https://git-scm.com/) and be happy.</p>
+
+<h3 id="redundant-comments">Redundant Comments</h3>
+
+<p>This type of bad comment is very easy to detect and very easy to fix. Consider the following code:</p>
+
+<script src="https://gist.github.com/carlosschults/d22bf34fcd542e605a31476c46cfb315.js"></script>
+
+<p>I think we can all agree that these comments are useless. The code is perfectly clear without them, therefore, they should be removed.</p>
+
+<h3 id="comments-at-the-end-of-blocks">Comments at the end of blocks</h3>
+
+<p>You’ve probably seen code like this before:</p>
+
+<script src="https://gist.github.com/carlosschults/2d54e29662cd1b35d3c0807138b9e989.js"></script>
+
+<p>Some people write them so they do not lose control of the brackets.</p>
+
+<p>If you need a comment for this reason, that indicates that your method is too long and you have too many levels of indentation.</p>
+
+<p>Remember the Principle of Single Responsibility: each method should do only one thing. Divide your method into small ones and the need for such comments disappears.</p>
+
+<h3 id="comments-that-delimit-sections-inside-methods">Comments that delimit sections inside methods</h3>
+
+<p>This one is similar to the previous one. If you have several sections inside a method, each one of them with an explaining comment on top, then you’re probably violating the Single Responsibility Principle.</p>
+
+<p>Remove each section to its own method, use the comment text as the name for the new method, and then delete the comments.</p>
+
+<h3 id="out-of-date-comments">Out of date comments</h3>
+
+<p>Here’s a common scenario:</p>
+
+<ul>
+  <li>Bob writes some lines of code. He thinks the code isn’t clear enough and adds some comments to express its intent.</li>
+  <li>Fast forward some weeks. It turns out that the code Bob wrote had a bug. He is on vacation, though, so Alice is made responsible for fixing the bug.</li>
+  <li>Alice fixes the code in a few minutes and checks in her changes. But she forgets to update the comments to reflect the changes she’s made in the code.</li>
+</ul>
+
+<p>Now what you get? Comments that lie!</p>
+
+<p><strong>Documentation that spread lies is worse than no documentation at all.</strong> It’s a source of confusion for developers, and a fertile ground for bugs. When you spot an out-of-date comment, don’t think twice: delete it right away, or rewrite it to be accurate. But most of the time you shouldn’t keep the comment. See next topic for why.</p>
+
+<h3 id="comments-created-due-to-lack-of-expressiveness-in-the-code">Comments created due to lack of expressiveness in the code</h3>
+
+<p>Consider the following code:</p>
+
+<script src="https://gist.github.com/carlosschults/0530c4bf5884eb0fc46e63e71908b44d.js"></script>
+
+<p>Maybe you don’t consider the comment in the sample above to be bad. It is not that terrible, sure. But think of the missed opportunity to extract a useful method or property:</p>
+
+<script src="https://gist.github.com/carlosschults/c914168d48e8d5d567ed79c0d612eafb.js"></script>
+
+<p>In the new code, we’ve extracted the concept of being eligible for blood donation in a new property. The rules for blood donation eligibility are now consolidated in a single place; should they ever change, the amount of work required to update them will be minimal.</p>
+
+<p>And we get the nice collateral benefit of readability: the new if statement reads almost like natural language.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>As we’ve seen, there are several types of bad comments you should be weary of. They are often signs that there may be something wrong with your code. Maybe your methods are too long. Maybe <a href="http://carlosschults.net/en/how-to-choose-good-names/">you didn’t pick good names for your variables</a>.</p>
+
+<p>Every time you feel the need to write a comment, stop and try to think about ways in which you could improve your code to render the comment unnecessary.</p>
+
+<p>Not all comments are bad, though. In a future post, I’ll write about situations in which comments can be valuable.</p>
+
+<p>See you later!</p>
+
+<p>##Read More</p>
+
+<ul>
+  <li><a href="http://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode">Apologies In Code, by Robert C. Martin</a></li>
+  <li><a href="https://www.codeproject.com/tips/467657/write-comments-that-matter">Write comments that matter, by Sander Rossel</a></li>
+  <li><a href="https://medium.com/@kentcdodds/please-don-t-commit-commented-out-code-53d0b5b26d5f#.yex54k2sg">Please, don’t commit commented out code, by Kent C. Dodds</a></li>
+</ul>
+
+    <a href="/en/types-of-comments-to-avoid/">read more...</a>
+   </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
    <span class="post-meta">Jan 29, 2017</span>
     <h2>
           <a class="post-link" href="/en/are-private-methods-a-code-smell/">Are private methods a code smell?</a>
