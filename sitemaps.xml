@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/funcionalidades-csharp-6/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp-6/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-6-features/" />
+        
+        <lastmod>2017-03-06T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/csharp-6-features/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp-6/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-6-features/" />
+        
+        <lastmod>2017-03-06T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/types-of-comments-to-avoid/</loc>
         
         
