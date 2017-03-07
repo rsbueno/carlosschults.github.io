@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Mar 2017 21:15:08 -0300</pubDate>
-    <lastBuildDate>Mon, 06 Mar 2017 21:15:08 -0300</lastBuildDate>
+    <pubDate>Mon, 06 Mar 2017 21:24:26 -0300</pubDate>
+    <lastBuildDate>Mon, 06 Mar 2017 21:24:26 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
     
@@ -21,7 +21,7 @@
 
 &lt;p&gt;Mas então eu percebi que, mesmo já fazendo cerca de dois anos desde o lançamento do C# 6, alguns desenvolvedores ainda não se sentem confortáveis o suficiente com as funcionalidades da versão, de maneira a não incorporá-las em seu código.&lt;/p&gt;
 
-&lt;p&gt;Assim, eu decidi voltar um pouco e escrever sobre as funcionalidades do C# 6 no lugar disso. Não todas, mas aquelas que podem fazer seu código ficar mais limpo e expressivo, e que são simples o suficiente para você já sair usando!&lt;/p&gt;
+&lt;p&gt;Assim, eu decidi voltar um pouco e escrever sobre as funcionalidades do C# 6 no lugar disso. Não todas, mas aquelas que podem tornar seu código mais limpo e expressivo, e que são simples o suficiente para você já sair usando!&lt;/p&gt;
 
 &lt;h2 id=&quot;interpolao-de-string&quot;&gt;Interpolação de String&lt;/h2&gt;
 
@@ -95,7 +95,7 @@
 
 &lt;p&gt;Você pode pensar que algumas das funcionalidades não fazem tanta diferença, na prática. Eu discordo. C# é frequentemente acusado de ser muito verboso. Existem situações nas quais você precisa escrever uma quantidade razoável de código para fazer algo que em Ruby ou Python poderia ser feito em uma linha.&lt;/p&gt;
 
-&lt;p&gt;E isso é normal. Um pouco (a maioria) da já mencionada verbosidade é vem do fato de C# ser uma linguagem estaticamente tipada, e eu digo: &lt;strong&gt;sou feliz por isso&lt;/strong&gt;. Eu não consigo contar a quantidade de vezes que o compilador meu salvou, pegando meus erros idiotas.&lt;/p&gt;
+&lt;p&gt;E isso é normal. Um pouco (a maioria) da já mencionada verbosidade vem do fato de C# ser uma linguagem estaticamente tipada, e eu digo: &lt;strong&gt;sou feliz por isso&lt;/strong&gt;. Eu não consigo contar a quantidade de vezes que o compilador me salvou, pegando meus erros idiotas.&lt;/p&gt;
 
 &lt;p&gt;Se um pouco de verbosidade é o preço que tenho que pagar por isso, que seja.&lt;/p&gt;
 
