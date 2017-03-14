@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/funcionalidades-csharp-7/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp-7/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-7-features/" />
+        
+        <lastmod>2017-03-13T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/csharp-7-features/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp-7/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-7-features/" />
+        
+        <lastmod>2017-03-13T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/funcionalidades-csharp-6/</loc>
         
         

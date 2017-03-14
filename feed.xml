@@ -5,10 +5,111 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Mar 2017 21:24:26 -0300</pubDate>
-    <lastBuildDate>Mon, 06 Mar 2017 21:24:26 -0300</lastBuildDate>
+    <pubDate>Mon, 13 Mar 2017 23:10:12 -0300</pubDate>
+    <lastBuildDate>Mon, 13 Mar 2017 23:10:12 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>C# 7 Features Worth Knowing - Part 1</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C# 7 is finally among us. Time to check out some of its features.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;In my &lt;a href=&quot;http://carlosschults.net/en/csharp-6-features/&quot;&gt;last post&lt;/a&gt; I’ve written about some of the more interesting (for me, at least) features of C# 6. Visual Studio 2017 and C# 7 were officially released the following day, so I guess now it’s the perfect time for us to discuss the new version of the language.&lt;/p&gt;
+
+&lt;p&gt;I think it’s fair to say that the seventh version of C# continues the trend started by its predecessor. Instead of adding radically new capabilities to the language, the design team again chose to include features meant to make your code cleaner and more concise.&lt;/p&gt;
+
+&lt;p&gt;In this version, they “expanded” certain features that made their debut in C# 6. It seems that the previous version acted as a kind of rehearsal for some features; now that the design team knows that those features were well accepted, they can take them to their next level.&lt;/p&gt;
+
+&lt;p&gt;So, without further ado, let’s begin.&lt;/p&gt;
+
+&lt;h2 id=&quot;digit-separators-and-binary-literals&quot;&gt;Digit separators and binary literals&lt;/h2&gt;
+
+&lt;p&gt;Take a look at the code bellow:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/00e899d0f7611e3ca3b54f109f58619b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;What are those underscores for? &lt;strong&gt;Readability&lt;/strong&gt;, that’s what.&lt;/p&gt;
+
+&lt;p&gt;Large numbers can become quite hard to read. To address this issue, C# 7 lets you to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; as a digit separator.&lt;/p&gt;
+
+&lt;p&gt;The separators make no difference on the value. You can place them wherever you like in the number, and in any quantity.&lt;/p&gt;
+
+&lt;p&gt;And in case you’re wondering, you’re not restricted to using them with integers only; they also work with the other numeric types as well.&lt;/p&gt;
+
+&lt;p&gt;The new version of C# also introduces binary literals, as seen in the third line of the example shown above. If you need to write a binary value, just put &lt;code class=&quot;highlighter-rouge&quot;&gt;0b&lt;/code&gt; at the beginning of the number, and that’s it!&lt;/p&gt;
+
+&lt;h2 id=&quot;out-variables&quot;&gt;Out variables&lt;/h2&gt;
+
+&lt;p&gt;In previous versions of C#, working with &lt;em&gt;out&lt;/em&gt; variables has been somewhat inconvenient. You’d have to split their declaration and usage into two steps.&lt;/p&gt;
+
+&lt;p&gt;Now, C# 7 allows you to declare the variable at the argument list:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/fbd60b4e31a09c1e0a4f19b431b10320.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Some important things to bear in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Even though I’ve explicitly written the type name in the declaration, this is not always required. I could have used &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; and it would’ve worked just the same.&lt;/li&gt;
+  &lt;li&gt;You may think that the declared variable will go out of scope after we leave the &lt;code class=&quot;highlighter-rouge&quot;&gt;if/else&lt;/code&gt; block. That is &lt;strong&gt;not&lt;/strong&gt; the case. The variable continues to be accessible until going out of its normal scope.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a23411376a6610e0e9081674faf1b0a5.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;more-expression-bodied-members&quot;&gt;(More) Expression-bodied members&lt;/h2&gt;
+
+&lt;p&gt;At the beginning of this post, I said that C# 7 expands some of its predecessor’s features, remember? Well, this is one of those cases.&lt;/p&gt;
+
+&lt;p&gt;In the last post, we’ve seen that &lt;a href=&quot;http://carlosschults.net/en/csharp-6-features/#expression-bodied-methods-and-properties&quot;&gt;C# 6 brought us Expression-bodied members&lt;/a&gt;, which is a nice and shorter way of writing members of the class, using the lambda expression syntax.&lt;/p&gt;
+
+&lt;p&gt;However, you could only use this feature with &lt;strong&gt;methods, read-only properties and indexers&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;C# 7 changes the game. Now you can use expression-bodied constructors, destructors, and writable properties.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/50512925b89eb8ee590190793846a724.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;throw-expressions&quot;&gt;throw Expressions&lt;/h2&gt;
+
+&lt;p&gt;This one is very simple. Consider the following code:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/8f89e4fff3cf3e6302bc8325d4df5617.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;That is 9 lines of code for just an assignment. And most of those lines are not performing the assignment itself; they’re just a guard clause. Of course, they’re important, but they tend to pollute your code. What if there was a better way?&lt;/p&gt;
+
+&lt;p&gt;Now there is.&lt;/p&gt;
+
+&lt;p&gt;In the previous versions of C#, &lt;code class=&quot;highlighter-rouge&quot;&gt;throw&lt;/code&gt; was a statement. Now, it is an &lt;strong&gt;expression&lt;/strong&gt;, which allows us to throw exceptions in places like the second hand of the Null Coalescing Operator and in conditional expressions.&lt;/p&gt;
+
+&lt;p&gt;Using a &lt;em&gt;throw expression&lt;/em&gt;, the example shown above becomes as simple as this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a10cfa584d08fda2d3497075926d073d.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Of course, there’s nothing stopping us from turning the constructor into an expression-bodied member:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/02548a3f2d735468518e6c00eea385a8.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this post, we’ve seen some of the new features from the seventh version of C#. This was just the fist part. More parts will come, in which I intend to cover all (or at least most) of the new features.&lt;/p&gt;
+
+&lt;p&gt;As I’ve said earlier, C# 7 kind of continues the path started by C# 6. The design team didn’t just include crazy new features just for the sake of it; instead, they carefully selected the ones that would help all of us to improve the quality of our code.&lt;/p&gt;
+
+&lt;p&gt;That being said, I do consider that this version is a little bit…less shy - for lack of a better word - than its predecessor. Some of the features that I didn’t talk about today show that the language is being pushed to interesting new directions, and I think there is a very exciting ride ahead of us.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading, and stay tuned for part 2!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 13 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/csharp-7-features/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/csharp-7-features/</guid>
+        
+        <category>csharp</category>
+        
+        <category>beginners</category>
+        
+        
+      </item>
     
       <item>
         <title>It&#39;s about time you start using these C# 6 features</title>
@@ -1082,65 +1183,6 @@ Let me know in the comments, or &lt;a href=&quot;http://twitter.com/carlosschult
         <category>oop</category>
         
         <category>type system</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Share what you learn</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1440517439/share1038x437_mshqwf.jpg&quot; alt=&quot;&quot; /&gt;
-Share what you learn. Write a blog post. Answer a question on Stack Overflow. Open-source your code. Create content! In our industry, this advice shows up very often, in all colours and shapes. And rightly so, I’d say. How many hours have you saved thanks to someone else’s post on their blog? Or to a well-crafted answer on Stack Overflow?&lt;/p&gt;
-
-&lt;p&gt;How many times an open-source tool/library/whatever spared you from having to code it’s functionality from scratch? If I had to guess the answer to these questions, I’d say: a lot. 
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.akitaonrails.com/2014/08/29/milesimo-1000-post-no-blog#.VdzH9peC7lc&quot;&gt;Brazilian developer Rafael Rosa Fu talks about some of the benefits of content creation on this post&lt;/a&gt;, originally written in Portuguese:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;Learning - in order to fix new skills you must practice them, when we write about what we learn we are reinforcing and expanding our knowledge by being “forced” to explain it in a way that other people can  understand&lt;/li&gt;
-    &lt;li&gt;Memory - I don’t know about you, but my memory is not that great, and I’m sure I’m no exception here. Write about that complex concept or write down the recipe to a sporadic procedure and when you need to remember it just open your blog, or even google it and you’re going to find your own words to remind you.&lt;/li&gt;
-    &lt;li&gt;Portfolio - specially useful to those who are starting their careers, blog posts are useful as part of a knowledge portfolio that can be found by a prospective employer or used as reference during an interview, acting as a complement to career time,  besides being an excellent starting point to a conversation.  […]&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Jeff Atwood (co-founder of Stack Overflow and Discourse) even said that starting his blog “was the the most important thing I’ve ever done in my entire career.” So, it seems reasonable that we if encourage more and more people to share their knowledge and experiences, the whole community wins, right?&lt;/p&gt;
-
-&lt;p&gt;In this 2012 Smashing Magazine post, Louis Lazaris gives advice on how to start publishing: just publish what you learn, don’t be afraid of making mistakes, welcome your reader’s collaborations.&lt;/p&gt;
-
-&lt;p&gt;It sounds easy, doesn’t it?&lt;/p&gt;
-
-&lt;h2 id=&quot;when-doubt-arrives&quot;&gt;When Doubt Arrives&lt;/h2&gt;
-
-&lt;p&gt;I had a lot of self-doubt before starting this blog. I mean, how could it be any different? All those established bloggers, they have years or even decades of experience. They give talks in several countries. They are published authors, they host podcasts, they created successful companies, or maybe a piece of technology used by millions.\r\n\r\nIn short, they have a very impressive “About Me” page. Heck, some of them may even have an wikipedia article about themselves! They’re the rockstars.&lt;/p&gt;
-
-&lt;p&gt;What about me? I’m just a dude, a couple years out of college, trying to learn and make my career. Do I really have something valuable to offer? Will I be able to really help somebody? Or I’ll be just adding to the noise?&lt;/p&gt;
-
-&lt;p&gt;I think these are all important questions. The web is a ridiculously big place. You could share content for years, or maybe even your whole life, without being noticed and without receiving any feedback.&lt;/p&gt;
-
-&lt;p&gt;Every now and then when I google something, I land on some blog with a cool design and very well written posts. I start to browse the posts, and I notice that most of them (sometimes, all of them) have no comments. Sometimes, I also notice that the last post is from 2 or 3 years ago. They gave up.&lt;/p&gt;
-
-&lt;p&gt;While this is sad and quite disencouraging, it’s just a fact of life. Maybe your blog will reach a large audience, maybe it will not.&lt;/p&gt;
-
-&lt;h2 id=&quot;why-i-created-this-blog-after-all&quot;&gt;Why I created this blog, after all?&lt;/h2&gt;
-
-&lt;p&gt;Maybe the previous section has given you the impression that I am skeptical about the benefits of creating content. And maybe I am, just a little bit. But I’m not going to let that stop me. I believe in the importance of giving back to the community.&lt;/p&gt;
-
-&lt;p&gt;Remember that stackoverflow answer that saved your job? Well, guess what: somebody took the time to write that answer, for free, and posted it online, for free, for the whole internet to see, forever. Isn’t that amazing? I think part of the beauty of our profession is that there are so many people willing to share knowledge for free. To sacrifice their own free time in order to build something. Miracles like GitHub, StackOverflow, Wikipedia, are only possible thanks to those people. And I want to be a part of that.&lt;/p&gt;
-
-&lt;p&gt;Sure, you could argue that these people are moved by their own selfish reasons. Yeah, they probably are, but the point is: at the end of the day, it doesn’t really matter. Results matter. If the user JaneDoe123 wrote that answer on StackOverflow just to earn a few points of reputation, that’s fine by me! I just want to have my problem solved.&lt;/p&gt;
-
-&lt;p&gt;So, that’s it. To use a torrent metaphor, I’m tired of being only a leecher. It’s time to seed a little bit.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 25 Aug 2015 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/share-what-you-learn/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/share-what-you-learn/</guid>
-        
-        <category>blogging</category>
-        
-        <category>sharing</category>
-        
-        <category>first post</category>
         
         
       </item>
