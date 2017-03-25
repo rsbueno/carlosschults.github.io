@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Mar 2017 17:17:29 -0300</pubDate>
-    <lastBuildDate>Sat, 25 Mar 2017 17:17:29 -0300</lastBuildDate>
+    <pubDate>Sat, 25 Mar 2017 17:27:16 -0300</pubDate>
+    <lastBuildDate>Sat, 25 Mar 2017 17:27:16 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
     
@@ -89,7 +89,7 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
 
 &lt;p&gt;Se você chegou até aqui, eu tenho boas notícias: esta é provavelmente a parte mais importante. A escolha de bons nomes é sabidamente um dos maiores problemas no desenvolvimento de software. Ferramentas de build provavelmente não vão causar nenhuma melhora aqui, e a razão é que computadores não podem realmente saber o raciocínio que houve por trás de uma solução.&lt;/p&gt;
 
-&lt;p&gt;**Você precisa documentar o porquê. Nomes de variáveis e funções relevantes e contextuais são uma ótima maneira de se fazer isso. **Nomes que transmitem propósito podem até reduzir a necessidade de documentação.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Você precisa documentar o porquê. Nomes de variáveis e funções relevantes e contextuais são uma ótima maneira de se fazer isso.&lt;/strong&gt; Nomes que transmitem propósito podem até reduzir a necessidade de documentação.&lt;/p&gt;
 
 &lt;p&gt;O uso de prefixos em nomes é uma boa maneira de adicionar sentido a eles. É uma prática que costumava ser popular, e eu penso que o mau uso foi o motivo dela não continuar a ser usada. Sistemas de prefixos como  &lt;a href=&quot;http://www.joelonsoftware.com/articles/Wrong.html&quot;&gt;notação húngara&lt;/a&gt; inicialmente tinham a intenção de adicionar sentido, mas com o tempo eles acabaram sendo usado em maneiras menos contextuais, tais como para adicionar informação de tipo.&lt;/p&gt;
 
