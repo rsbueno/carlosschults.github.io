@@ -3,6 +3,18 @@
   
     
       <url>
+        <loc>/pt/escrevendo-codigo-bom/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/escrevendo-codigo-bom/" />
+        
+        <lastmod>2017-03-25T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/funcionalidades-csharp-7/</loc>
         
         
@@ -897,6 +909,32 @@
   
     
       <url>
+        <loc>/tag_ptbr/traducoes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/traducoes/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/traducoes/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/boas-praticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1293,6 +1331,32 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/BoasPraticas/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/BoasPraticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/traducoes/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/traducoes/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/traducoes/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/boas-praticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
         <changefreq>weekly</changefreq>
       </url>

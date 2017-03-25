@@ -5,10 +5,116 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 13 Mar 2017 23:10:12 -0300</pubDate>
-    <lastBuildDate>Mon, 13 Mar 2017 23:10:12 -0300</lastBuildDate>
+    <pubDate>Sat, 25 Mar 2017 17:10:34 -0300</pubDate>
+    <lastBuildDate>Sat, 25 Mar 2017 17:10:34 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Escrevendo código bom: como reduzir a carga cognitiva do seu código</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490471059/escrevendo-codigo-bom-1038x437_e4oy0i.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;: O artigo a seguir foi originalmente escrito por &lt;a href=&quot;https://chrismm.com/&quot;&gt;Christian Maioli M.&lt;/a&gt;, que gentilmente me autorizou a fazer esta tradução. Caso seja do seu interesse, &lt;a href=&quot;https://chrismm.com/blog/writing-good-code-reduce-the-cognitive-load/&quot;&gt;confira o artigo original&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Baixo número de bugs, boa performance, facilidade de modificação. Código bem feito gera alto impacto, e talvez seja a maior razão por trás da existência do famoso desenvolvedor “10x”. E ainda assim, apesar de sua importância, código bom escapa a novos novos desenvolvedores. A literatura nessa área geralmente consistente de coleções de dicas desconexas. Como um novo desenvolvedor vai simplesmente memorizar isso tudo?  “&lt;a href=&quot;https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=as_li_ss_tl?ie=UTF8&amp;amp;linkCode=ll1&amp;amp;tag=chrimaiospo06-20&amp;amp;linkId=6aabd46b91da513d86257af2c05b6585&quot;&gt;Code Complete&lt;/a&gt;“, o maior expoente nesta matéria, é um livro de 960 páginas!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Eu acredito que é possível construir um framework mental simples que pode ser usado com qualquer linguagem ou biblioteca e que vai resultar em código de boa qualidade por padrão.&lt;/strong&gt; Há cinco conceitos principais sobre os quais vou falar aqui. Basta mantê-los em mente e escrever código de boa qualidade será moleza.&lt;/p&gt;
+
+&lt;p&gt;Update: Mia Li fez a gentileza de disponibilizar uma tradução deste artigo para o Chinês &lt;a href=&quot;http://www.inside.com.tw/2016/07/05/writing-good-code-how-to-reduce-the-cognitive-load-of-your-code&quot;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;mantenha-suas-peculiaridades-pessoais-de-fora&quot;&gt;Mantenha suas peculiaridades pessoais de fora&lt;/h2&gt;
+
+&lt;p&gt;Você lê um artigo que explode a sua mente com truques novos. Agora você vai escrever código “esperto” e todos os seus colegas ficarão impressionados.&lt;/p&gt;
+
+&lt;p&gt;O problema é que as pessoas só querem corrigir seus bugs e ir em frente. Seu truquezinho esperto é, com frequência, pouco mais que uma distração. Como eu falei em “&lt;a href=&quot;https://chrismm.com/blog/applying-neuroscience-to-software-development/&quot;&gt;Applying neuroscience to software development&lt;/a&gt;“, quando as pessoas têm que digerir  seu código, as “pilhas mentais” enchem depressa e se torna difícil fazer progresso.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_0_fzqyo8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;Não personalize seu trabalho em maneiras que irão precisar de explicações. 
+
+Tradução do comentário: Isso era útil na linguagem C para evitar escrever acidentalmente &quot;variable = null&quot;. Atualmente, isso apenas confundiria a maioria das pessoas, com pouco benefício.&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Não codifique “do seu jeito”. Apenas siga a padronização de código. Este tipo de coisa é um problema já resolvido. Torne seu código previsível e fácil de ler codificando da maneira que as pessoas esperam.&lt;/p&gt;
+
+&lt;h2 id=&quot;dividir-para-conquistar&quot;&gt;Dividir para conquistar&lt;/h2&gt;
+
+&lt;p&gt;Código complexo frequentemente pode ser clarificado por meio da modularização, e existem mais maneiras de se fazer isso do que apenas criando mais funções. Gravar o resultado de longas condicionais em uma variável ou duas é uma grande maneira de modularizar sem o overhead de chamar uma função. Isso irá inclusive lhe permitir compô-las em condicionais maiores, ou reutilizar o resultado em algum outro lugar.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A abordagem ao se dividir um problema deve ser tornar cada seção o mais focada possível, afetando apenas estado local, sem misturar com assuntos irrelevantes, e se possível sem nenhum efeito colateral.&lt;/strong&gt; Linguagens de programação e bibliotecas muitas vezes têm seus próprios problemas, e abstraí-los pode ajudar a fazer com que seu código cuide apenas dos assuntos dele. O &lt;a href=&quot;http://code.tutsplus.com/tutorials/solid-part-1-the-single-responsibility-principle--net-36074&quot;&gt;Princípio da Responsabilidade Única&lt;/a&gt; é outro exemplo de como código focado e localizado resulta em bom design.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_1_rfmnyv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;Eu gosto de utilizar variáveis para compartimentar lógica.
+Tradução do comentário: Isso pode ser uma boa maneira para modularizar sem o peso excessivo de chamadas de funções&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;TDD, além de trazer seus próprios benefícios quando feito corretamente, tem feitos com que as pessoas apliquem certos princípios que anteriormente não eram tão populares. Código sem estado era desprezado como lento e desnecessário (ver: maior parte de código antigo em C/C++), e agora todos estão falando sobre funções puras. Mesmo que você não use TDD, você deveria aprender seus princípios. Trabalhar sob novos paradigmas transformará você em um desenvolvedor resiliente.&lt;/p&gt;
+
+&lt;h2 id=&quot;torne-seu-cdigo-discreto-e-processvel&quot;&gt;Torne seu código discreto e processável&lt;/h2&gt;
+
+&lt;p&gt;Seu computador e suas ferramentas podem sofrer tanto quanto você para lidar com seu código, e existe alguma correlação entre o número de pré-processadores e mutações você precisa aplicar e o quão bagunçado o seu código é.&lt;/p&gt;
+
+&lt;p&gt;Vamos deixar de lado os possíveis benefícios destas ferramentas de build adicional por um momento. A probabilidade é de que elas requerem que você use linguagens de domínio específica como templates customizados, ou estruturas de dados dinâmicas e complexas como hash tables. A sua IDE provavelmente não será boa em lidar com tais coisas, e a localização de trechos relevantes do código se tornará mais difícil.&lt;/p&gt;
+
+&lt;p&gt;Evite usar extensões de linguagens e bibliotecas que não trabalham bem com sua IDE. O impacto que eles terão na sua produtividade bate de longe o pequeno benefício de uma configuração mais fácil ou a economia de algumas poucas teclas com uma sintaxe mais concisa.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_2_pn1dp4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+O uso de Service Locator é um exemplo de design que resulta em integração ruim com a maioria das IDEs.
+Tradução do comentário: Uso de string mágicas fará com que seja impossível para sua IDE acompanhar seu código.
+&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Outra maneira de manter a parte “integrada” da sua IDE relevante é evitar código mágico. A maioria das linguagens disponibilizam maneiras para que você escreva código mais dinâmico. Abusar tais features utilizando strings mágicas, índices de arrays mágicos e funcionalidades de templates customizados irá resultar em uma base de código mais desconectada. Geralmente qualquer feature que apenas um humano sabe o significado vai levar você para essa caminho, e é uma estrada difícil de se escapar, porque se a sua IDE não entende o código, quaisquer funcionalidades de refatoração que possua serão inúteis quando você quiser mudar para uma arquitetura mais estática.&lt;/p&gt;
+
+&lt;h2 id=&quot;torne-seu-cdigo-legvel&quot;&gt;Torne seu código legível&lt;/h2&gt;
+
+&lt;p&gt;Trabalhe no sentido de ter uma arquitetura previsível. Seus colegas de time terão mais facilidade em localizar as coisas, e isso vai reduzir bastante o tempo necessário para concluir as tarefas. &lt;strong&gt;Assim que vocês estiverem de acordo sobre uma estrutura arquitetural geral para seu projeto, torne óbvia a localização dos principais elementos.&lt;/strong&gt; Usa MVC? Coloque models, views e controllers em suas próprias pastas, não três níveis abaixo ou espalhados em vários lugares.&lt;/p&gt;
+
+&lt;p&gt;Eu falei sobre modularização. Também é possível existir modularização em excesso, o que geralmente torna seu código mais difícil de localizar. Sua IDE pode oferecer alguma ajuda, mas às vezes você estará dividido entre fazer com que sua IDE ignore uma pasta de biblioteca ou outro terceiro devido a ela conter muito código irrelevante, ou mantê-la indexada e lidar com o problema manualmente. É um beco sem saída. Tente utilizar menos bibliotecas escolhendo aquelas que resolvem tantas necessidades quantas forem possível.&lt;/p&gt;
+
+&lt;p&gt;Bibliotecas e ferramentas também podem ser uma barreira a novos desenvolvedores. Eu recentemente fiz um projeto usando EcmaScript 7 (babel), apenas para depois perceber que nosso desenvolvedor júnior estava tendo problemas para entender o que tudo aquilo significava.  Uma penalidade pesada para a produtividade do time. Eu subestimei o potencial daquilo de sobrecarregar uma pessoa que está só começando. Não use ferramentas que ainda são difíceis demais de aprender. Espere por uma época melhor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_3_vdvcrz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;figcaption&gt;Código real de um makefile que escrevi. Desenvolvedores juniores não conseguem lidar com o uso excessivo de novas ferramentas.&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id=&quot;torne-seu-cdigo-fcil-de-digerir&quot;&gt;Torne seu código fácil de digerir&lt;/h2&gt;
+
+&lt;p&gt;Se você chegou até aqui, eu tenho boas notícias: esta é provavelmente a parte mais importante. A escolha de bons nomes é sabidamente um dos maiores problemas no desenvolvimento de software. Ferramentas de build provavelmente não vão causar nenhuma melhora aqui, e a razão é que computadores não podem realmente saber o raciocínio que houve por trás de uma solução.&lt;/p&gt;
+
+&lt;p&gt;**Você precisa documentar o porquê. Nomes de variáveis e funções relevantes e contextuais são uma ótima maneira de se fazer isso. **Nomes que transmitem propósito podem até reduzir a necessidade de documentação.&lt;/p&gt;
+
+&lt;p&gt;O uso de prefixos em nomes é uma boa maneira de adicionar sentido a eles. É uma prática que costumava ser popular, e eu penso que o mau uso foi o motivo dela não continuar a ser usada. Sistemas de prefixos como  &lt;a href=&quot;http://www.joelonsoftware.com/articles/Wrong.html&quot;&gt;notação húngara&lt;/a&gt; inicialmente tinham a intenção de adicionar sentido, mas com o tempo eles acabaram sendo usado em maneiras menos contextuais, tais como para adicionar informação de tipo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_4_x8oly3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;figcaption&gt;Interfaces fluentes tem sido abusadas frequentemente em tempos recentes.&lt;/figcaption&gt;
+&lt;p&gt;Tradução do comentário: Use nomes que transmitam propósito, não tome vantagem da linguagem apenas para parecer inteligente&lt;/p&gt;
+
+&lt;p&gt;Finalmente, sempre há algo a ser dito sobre manter a complexidade ciclomática baixa. Isso significa manter o número de ramificações condicionais tão baixo quanto for possível. Cada ramificação adicional não apenas adiciona mais indentação e prejudica a legibilidade, mas, mais importante que isso, aumenta o número de elementos aos quais você precisa estar atento.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso-e-mais-leituras&quot;&gt;Conclusão e mais leituras&lt;/h2&gt;
+
+&lt;p&gt;Estes são cinco conceitos simples e abrangentes, e o meu objetivo aqui foi tornar seu aprendizado mais fácil ao lhe dar caixas nas quais colocar todas as suas ideias sobre organização de código.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pratique focar nesses aspectos ao programar para solidifica-los.&lt;/strong&gt; Se você ainda não leu, eu realmente recomendo Code Complete. Ele vem com um grande número de exemplos e disseca quase todas as situações que você pode vir a encontrar.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/escrevendo-codigo-bom/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/escrevendo-codigo-bom/</guid>
+        
+        <category>traducoes</category>
+        
+        <category>boas-praticas</category>
+        
+        
+      </item>
     
       <item>
         <title>Funcionalidades do C# 7 que vale a pena conhecer - Parte 1</title>
@@ -1099,157 +1205,6 @@ A tecnologia é interessante; mas perigosa. NUNCA “confie no carro”!&lt;/p&g
         <category>integração contínua</category>
         
         <category>testes de software</category>
-        
-        <category>testes automatizados</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Testes unitários para iniciantes - Parte 1</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Você já deve ter trabalhado em um sistema assim: incrivelmente complexo, com uma base de código gigantesca, mal documentada, cheia de gambiarras, acoplamentos desnecessários, com arquitetura confusa, especificações inexistentes, onde era quase considerado um milagre que o software chegasse a funcionar. Talvez eu tenha acabado de descrever seu projeto atual!
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Nesse tipo de projeto, é comum que os desenvolvedores fiquem com receio de mexer no código, pois sabem que, inevitavelmente, algo vai quebrar. E provavelmente, o erro só vai ser descoberto em produção.&lt;/p&gt;
-
-&lt;p&gt;Agora, imagine se a aplicação fosse completamente protegida por um sistema de alarmes. Cada vez que uma &lt;em&gt;feature&lt;/em&gt; parasse de funcionar, o alarme dispararia. Os desenvolvedores seriam imediatamente notificados, e alguém resolveria o problema o mais rápido possível.&lt;/p&gt;
-
-&lt;p&gt;Imagine ainda que esse sistema de alarmes fosse composto por centenas de sistemas menores. Cada um desses subsistemas seria responsável por “vigiar” uma parte bem pequena e específica da sua aplicação. E para que o sistema de alarmes funcionasse bem, os subsistemas deveriam ser totalmente independentes uns dos outros.&lt;/p&gt;
-
-&lt;p&gt;A adoção de um sistema desse tipo traria muitos benefícios. Logo de cara, o medo de mexer no código iria embora. A refatoração se tornaria mais fácil e frequente, e, como consequência, a qualidade do código aumentaria.&lt;/p&gt;
-
-&lt;p&gt;O próprio processo de desenvolvimento seria simplificado. O sistema de alarmes reduziria drasticamente a necessidade dos lentos testes manuais, agilizando a entrega da aplicação para os usuários.&lt;/p&gt;
-
-&lt;p&gt;Por fim, a necessidade de independência entre os subsistemas incentivaria a diminuição do acoplamento entre as partes da aplicação.&lt;/p&gt;
-
-&lt;p&gt;Parece bom demais para ser verdade? Pois saiba que não é. Esse sistema de alarmes é o benefício que você ganha ao implementar uma &lt;strong&gt;suíte de testes unitários&lt;/strong&gt; em sua aplicação.&lt;/p&gt;
-
-&lt;h2 id=&quot;o-que-so-testes-unitrios&quot;&gt;O que são testes unitários&lt;/h2&gt;
-
-&lt;p&gt;Vamos ver a definição da Wikipédia:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In computer programming, unit testing is a software testing method by which individual units of source code, […] are tested to determine whether they are fit for use. Intuitively, one can view a unit as the smallest testable part of an application.  […]
- Unit tests are typically written and run by software developers to ensure that code meets its design and behaves as intended.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Em programação de computadores, teste unitário é um método de teste de software pelo qual unidades individuais de código fonte […] são testadas para determinar se são adequadas para o uso. Intuitivamente, pode-se considerar uma unidade como a menor parte testável de uma aplicação. […]
- Testes unitários são tipicamente escritos e executados por desenvolvedores para garantir que o código está de acordo com o projeto e se comporta da maneira desejada.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A primeira coisa que chama a atenção é que os testes unitários &lt;strong&gt;não têm o propósito de testar o sistema como um todo&lt;/strong&gt;. Pelo contrário, eles testam pequenas partes do software - as tais das unidades. E o que é uma unidade? Existem diversos pontos de vista conflitantes sobre isso, diversas “escolas de pensamento”. Mas é seguro dizer que, no contexto de programação orientada a objeto, a maioria das pessoas considera unidade como sendo uma &lt;strong&gt;classe&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Logo a seguir, nós vemos que os testes unitários são tipicamente escritos e executados por programadores. Isso é interessante por dois motivos: primeiro, contradiz uma ideia antiga de que programadores não são bons testadores de software (vou voltar nesse ponto depois). E mais importante do que isso, ele deixa claro a principal característica dos testes unitários: eles são &lt;strong&gt;automatizados&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Tenha em mente que existem diversos tipos de testes automatizados, mas aqui estamos tratando apenas de testes unitários (os quais, de acordo com diversos autores, tais como &lt;a href=&quot;http://martinfowler.com/bliki/TestPyramid.html&quot;&gt;Martin Fowler&lt;/a&gt;, são os que trazem mais benefícios para uma aplicação).&lt;/p&gt;
-
-&lt;p&gt;Na prática, os testes unitários consistem de classes contendo métodos que testam partes pequenas e isoladas do sistema. Essas classes são criadas com o auxílio de um framework de testes (como o JUnit no Java, ou o NUnit ou o Microsoft Test no .Net). Esses testes podem então ser executados pela linha de comando, pela sua IDE ou mesmo por um serviço de build automatizado.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1460211309/teste00_bnsbfl.png&quot; alt=&quot;Exemplo de método de teste em C#&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Após a execução dos testes, você obtém um retorno imediato sobre quais testes passaram e quais falharam, acompanhado do tempo de execução de cada um dos testes.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979476/teste01_ciglca.png&quot; alt=&quot;Janela exibindo resultados da execução de testes unitários&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Com base nesse feedback, você decide o melhor curso de ação. Idealmente, um teste que falha deveria ser sinal de erro no código. O código de produção deveria então ser ajustado para que o teste volte a passar.&lt;/p&gt;
-
-&lt;h2 id=&quot;benefcios-dos-testes-unitrios&quot;&gt;Benefícios dos testes unitários&lt;/h2&gt;
-
-&lt;p&gt;No começo do post, ao usar a metáfora do sistema de alarmes, eu falei de alguns dos benefícios que os testes unitários trazem, como por exemplo:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;incentivo à refatoração;&lt;/li&gt;
-  &lt;li&gt;incentivo à evolução da arquitetura do sistema;&lt;/li&gt;
-  &lt;li&gt;simplificação e agilidade na entrega do produto aos usuários;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Outro benefício que vale a pena citar é que os testes também servem como &lt;strong&gt;documentação do código&lt;/strong&gt;. Pense bem: para cada classe de produção no seu sistema, existem diversos métodos de teste que exercitam e exemplificam todos os usos possíveis dessa classe. Uma boa suíte de testes poderia ajudar um recém-chegado ao time adquirir familiaridade com a base de código em pouco tempo.&lt;/p&gt;
-
-&lt;p&gt;Ou seja: documentação viva, executável, sempre atualizada, e que nunca mente.&lt;/p&gt;
-
-&lt;p&gt;Não podemos deixar de mencionar também que uma boa suíte de testes unitários também ajuda a prevenir a regressão de bugs. É uma ótima prática criar um novo teste toda vez que um bug for encontrado. Assim, caso alguma alteração futura faça com que o bug retorne (“regresse”), o teste vai indicar isso.&lt;/p&gt;
-
-&lt;p&gt;Finalmente, um dos maiores benefícios da automação de testes que eu não vejo sendo alardeado por aí é a redução de custos - talvez por ser um fator mais de negócios do que técnico. Digamos que antes de cada release a sua equipe faça um teste completo na aplicação, com quatro testadores, trabalhando 8 horas por dia, durante duas semanas. Basta fazer uma simples multiplicação e você verá que &lt;strong&gt;testes manuais custam caro.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Pior ainda: eles custam caro duas vezes. Primeiro, há o custo dos testes em si, que você pode calcular com a fórmula &lt;em&gt;valor da hora de trabalho dos testadores x nº de testadores x horas gastas em teste.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Além disso, há o &lt;a href=&quot;https://pt.wikipedia.org/wiki/Custo_de_oportunidade&quot;&gt;custo de oportunidade&lt;/a&gt;: quando profissionais precisam desempenhar testes manuais que poderiam ser automatizados, eles estão deixando de desempenhar atividades criativas/intelectuais que teriam potencial de trazer ganhos muito maiores para a empresa.&lt;/p&gt;
-
-&lt;h2 id=&quot;equvocos-comuns&quot;&gt;Equívocos comuns&lt;/h2&gt;
-
-&lt;p&gt;Nessa seção, vou tentar esclarecer alguns dos mitos e equívocos que existem a respeito de testes unitários.&lt;/p&gt;
-
-&lt;h3 id=&quot;programadores-no-deveriam-escrever-testes-pois-geralmente-so-maus-testadores&quot;&gt;Programadores não deveriam escrever testes, pois geralmente são maus testadores&lt;/h3&gt;
-
-&lt;p&gt;Existe uma ideia bastante difundida de que programadores não deveriam testar seu próprio código. O raciocínio é que eles, inconscientemente, evitariam usar a aplicação de uma maneira que a faria quebrar. E por experiência própria, eu digo que isso de fato acontece. Já perdi a conta de quantas vezes algum colega encontrou bugs em uma aplicação que eu fiz após &lt;strong&gt;segundos&lt;/strong&gt; de uso, sendo que eu já havia passado muito mais tempo que isso testando e sem conseguir fazer falhar.&lt;/p&gt;
-
-&lt;p&gt;O ponto a salientar aqui é: &lt;strong&gt;há testes e testes&lt;/strong&gt;. Geralmente, quando pessoas dizem que programadores não deveriam testar, elas estão se referindo a testes de sistema, também chamados testes ponta a ponta. Tais testes têm o propósito de testar o sistema como um todo, o que, como já vimos, não é o objetivo dos testes unitários.&lt;/p&gt;
-
-&lt;p&gt;Muitas vezes o que ocorre é simplesmente falta de informação: a pessoa talvez desconheça a natureza e propósito dos testes unitários, e os toma por testes de ponta a ponta.&lt;/p&gt;
-
-&lt;h3 id=&quot;escrever-testes-unitrios--uma-perda-de-tempo--o-mesmo-que-programar-duas-vezes&quot;&gt;Escrever testes unitários é uma perda de tempo; é o mesmo que programar duas vezes&lt;/h3&gt;
-
-&lt;p&gt;Ao tentar “vender” testes unitários para a gerência na sua empresa, uma boa estratégia é apelar para a redução de custos, como visto anteriormente. Mas…e os desenvolvedores? Como convencê-los a gastar mais tempo escrevendo código de teste além do código de produção?&lt;/p&gt;
-
-&lt;p&gt;Dizer que os testes unitários são perda de tempo é uma justificativa comum apresentada por desenvolvedores que não querem escrever testes. E é uma justificativa aparentemente legítima. Afinal, nossos prazos são apertadíssimos, como podemos arrumar tempo para ficar escrevendo casos de teste?&lt;/p&gt;
-
-&lt;p&gt;O que essas pessoas falham em perceber é que &lt;em&gt;elas já testam o próprio código constantemente, mesmo que não chamem por esse nome.&lt;/em&gt; É bem provável que seu workflow de desenvolvimento seja bem parecido com isso:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Escreve um pouco de código&lt;/li&gt;
-  &lt;li&gt;Compila&lt;/li&gt;
-  &lt;li&gt;Executa a aplicação, testa a funcionalidade
-    &lt;ul&gt;
-      &lt;li&gt;Se funcionou, começa a escrever a próxima funcionalidade&lt;/li&gt;
-      &lt;li&gt;Se não funcionou, passa um tempo debugando até encontrar e corrigir o erro&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Repita&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O que estamos propondo é simplesmente trocar o ciclo “escreve código de produção -&amp;gt; compila -&amp;gt; testa -&amp;gt; debuga -&amp;gt; repete” pelo ciclo “escreve código de produção -&amp;gt; escreve código de testes -&amp;gt; executa testes -&amp;gt; corrige código de produção se necessário”.&lt;/p&gt;
-
-&lt;p&gt;É até possível argumentar que os ciclos são praticamente os mesmos. Mas a grande vantagem dos testes unitários é que, uma vez escritos, eles estão automatizados para o resto da vida do projeto. Você “perde tempo” só uma vez. Você investe tempo e esforço no começo, para criar os testes, e colhe os benefícios por tempo indefinido.&lt;/p&gt;
-
-&lt;h3 id=&quot;testes-unitrios-substituem-todos-os-testes-manuais&quot;&gt;Testes unitários substituem todos os testes manuais&lt;/h3&gt;
-
-&lt;p&gt;Testes unitários não são os únicos tipos de testes que trazem benefícios a um projeto. Também podemos utilizar outros tipos de testes automatizados como &lt;strong&gt;testes de integração&lt;/strong&gt; e &lt;strong&gt;testes de aceitação&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1460217453/testing_triangle-300x233_nzq8kx.jpg&quot; alt=&quot;Triângulo dos testes, mostrando a razão ideal entre os diversos tipos de teste de software&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Isso não significa que testes manuais devem ser extintos. Pelo contrário, eles continuam tendo um papel importante no processo de controle de qualidade. De preferência, os testes manuais devem se concentrar nas áreas que não podem ser automatizadas, como testes de usabilidade.&lt;/p&gt;
-
-&lt;p&gt;Dentro de um contexto de metodologias ágeis, é essencial que o Product Owner/Cliente/Pessoa de Negócios valide e aceite as histórias antes delas serem incluídas em uma release.&lt;/p&gt;
-
-&lt;p&gt;Testes manuais exploratórios, que não seguem um roteiro definido, costumam ser valiosos na detecção de certos tipos de bugs. Os casos de testes automatizados tendem a focar no “Happy Path”, ou seja, o cenário no qual deu tudo certo, as unidades foram usadas exatamente do jeito que o codificador pensou e projetou. Na vida real, é muito comum que os usuários utilizem a aplicação de maneiras…como dizer?…“criativas”. Então,colocar o software sob stress, utilizando-o de maneiras diferentes e inesperadas, podem acabar revelando bugs que de outra forma permaneceriam ocultos.&lt;/p&gt;
-
-&lt;p&gt;É claro que, uma vez que o bug tenha sido revelado pelo teste manual, deve-se imediatamente escrever um teste automatizado que o exponha. Assim, na eventualidade do bug regredir, ele será facilmente detectado.&lt;/p&gt;
-
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
-
-&lt;p&gt;Testes unitários - e automação de testes, no geral - são um tema gigantesco. Há muitos livros sobre esse tema, bem como teses de mestrado. Há conferências anuais em diversos países apenas sobre teste de software. Então, é claro que seria impossível que eu, com uma mera postagem no meu blog, fizesse jus a esse tema.&lt;/p&gt;
-
-&lt;p&gt;Mas eu espero, sinceramente, ter feito uma boa introdução aos testes unitários e esclarecido um pouco das dúvidas que os iniciantes geralmente têm. Qualquer dúvida, sugestão ou crítica, a área de comentário é de vocês.&lt;/p&gt;
-
-&lt;p&gt;Este post é o início de uma série dedicada ao tema dos testes.
-No próximo artigo, começaremos a colocar a mão na massa: vou mostrar a vocês como criar seus primeiros testes!&lt;/p&gt;
-
-&lt;p&gt;Até lá!&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Apr 2016 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1</guid>
-        
-        <category>testes de software</category>
-        
-        <category>testes unitários</category>
-        
-        <category>metodologias ágeis</category>
         
         <category>testes automatizados</category>
         
