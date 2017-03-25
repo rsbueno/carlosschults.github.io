@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Mar 2017 17:10:34 -0300</pubDate>
-    <lastBuildDate>Sat, 25 Mar 2017 17:10:34 -0300</lastBuildDate>
+    <pubDate>Sat, 25 Mar 2017 17:17:29 -0300</pubDate>
+    <lastBuildDate>Sat, 25 Mar 2017 17:17:29 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
     
@@ -20,7 +20,7 @@
 &lt;hr /&gt;
 &lt;p&gt;&lt;/p&gt;
 
-&lt;p&gt;Baixo número de bugs, boa performance, facilidade de modificação. Código bem feito gera alto impacto, e talvez seja a maior razão por trás da existência do famoso desenvolvedor “10x”. E ainda assim, apesar de sua importância, código bom escapa a novos novos desenvolvedores. A literatura nessa área geralmente consistente de coleções de dicas desconexas. Como um novo desenvolvedor vai simplesmente memorizar isso tudo?  “&lt;a href=&quot;https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=as_li_ss_tl?ie=UTF8&amp;amp;linkCode=ll1&amp;amp;tag=chrimaiospo06-20&amp;amp;linkId=6aabd46b91da513d86257af2c05b6585&quot;&gt;Code Complete&lt;/a&gt;“, o maior expoente nesta matéria, é um livro de 960 páginas!&lt;/p&gt;
+&lt;p&gt;Baixo número de bugs, boa performance, facilidade de modificação. Código bem feito gera alto impacto, e talvez seja a maior razão por trás da existência do famoso desenvolvedor “10x”. E ainda assim, apesar de sua importância, código bom escapa a novos desenvolvedores. A literatura nessa área geralmente consistente de coleções de dicas desconexas. Como um novo desenvolvedor vai simplesmente memorizar isso tudo?  “&lt;a href=&quot;https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=as_li_ss_tl?ie=UTF8&amp;amp;linkCode=ll1&amp;amp;tag=chrimaiospo06-20&amp;amp;linkId=6aabd46b91da513d86257af2c05b6585&quot;&gt;Code Complete&lt;/a&gt;“, o maior expoente nesta matéria, é um livro de 960 páginas!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Eu acredito que é possível construir um framework mental simples que pode ser usado com qualquer linguagem ou biblioteca e que vai resultar em código de boa qualidade por padrão.&lt;/strong&gt; Há cinco conceitos principais sobre os quais vou falar aqui. Basta mantê-los em mente e escrever código de boa qualidade será moleza.&lt;/p&gt;
 
