@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/en/git-basics-for-tfs-users</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/git-basics-for-tfs-users" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/basicos-do-git-usuarios-tfvc" />
+        
+        <lastmod>2017-04-04T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/basicos-do-git-usuarios-tfvc</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/git-basics-for-tfs-users" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/basicos-do-git-usuarios-tfvc" />
+        
+        <lastmod>2017-04-04T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/escrevendo-codigo-bom/</loc>
         
         
@@ -935,6 +963,71 @@
   
     
       <url>
+        <loc>/tag_ptbr/controle-de-versao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/controle-de-versao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/controle-de-versao/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/git/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/git/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/git/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/tfs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tfs/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/tfvcs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfvcs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tfvcs/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/version-control-system/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1357,6 +1450,71 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/controle-de-versao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/controle-de-versao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/controle-de-versao/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/git/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/git/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/git/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/tfs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tfs/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/tfvcs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfvcs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tfvcs/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/version-control-system/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
         
         <changefreq>weekly</changefreq>
       </url>
