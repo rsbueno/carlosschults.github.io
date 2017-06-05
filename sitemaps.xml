@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/funcionalidades-csharp-7-parte-2</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp-7-parte-2" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-7-features-part-2/" />
+        
+        <lastmod>2017-06-05T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/csharp-7-features-part-2/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp-7-parte-2" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-7-features-part-2/" />
+        
+        <lastmod>2017-06-05T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/git-basics-for-tfs-users</loc>
         
         

@@ -5,10 +5,185 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 04 Apr 2017 21:34:34 -0300</pubDate>
-    <lastBuildDate>Tue, 04 Apr 2017 21:34:34 -0300</lastBuildDate>
+    <pubDate>Mon, 05 Jun 2017 20:55:17 -0300</pubDate>
+    <lastBuildDate>Mon, 05 Jun 2017 20:55:17 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>C# 7 Features Worth Knowing - Part 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this post we’ll see some more new features from C# 7.0.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;http://carlosschults.net/en/csharp-7-features/&quot;&gt;the first part of this series&lt;/a&gt;, we talked about some new features from C#, namely: literal improvements, out variables, more &lt;em&gt;expression-bodied&lt;/em&gt; members and throw expressions.&lt;/p&gt;
+
+&lt;p&gt;Today we’ll see: &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;. But before we go on, I’d like to thank my friend Gunter Italiano Ribeiro for reviewing this article.&lt;/p&gt;
+
+&lt;h2 id=&quot;tuples&quot;&gt;Tuples&lt;/h2&gt;
+
+&lt;p&gt;Have you ever felt the need to write a method that returned more than one value? I’d bet you have. In previous versions of the C# language, there were some options available. You could use an out parameter, or even create a type for that, but each one of these had their own problems. Out parameters are non-intuitive and can complicate the design; creating a custom type just for this can be overkill.&lt;/p&gt;
+
+&lt;p&gt;In C# 7.0 you have a new option, by using &lt;strong&gt;tuple types&lt;/strong&gt; and &lt;strong&gt;tuple literals&lt;/strong&gt;. With this feature you can easily declare a method that returns more than one value. Let’s see an example:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/37689aeb84ed4fdff067eab72690a035.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You’re probably familiar with the &lt;code class=&quot;highlighter-rouge&quot;&gt;TryXXX&lt;/code&gt; pattern, used, for instance, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt; BCL type. These sort of methods generally use an out parameter to return the resulting value (or the type default value, in case the parsing operation does not succeed).&lt;/p&gt;
+
+&lt;p&gt;The method above contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; method in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; class. Take a look at the method’s signature.&lt;/p&gt;
+
+&lt;p&gt;When you write more than one type in the method’s return, you’re using a &lt;em&gt;tuple type&lt;/em&gt;.  Don’t worry, you’re going to get used to it.&lt;/p&gt;
+
+&lt;p&gt;Right at the start of the method, we pass the specified text for a private method that actually performs the validation and returns a boolean value.&lt;/p&gt;
+
+&lt;p&gt;After the validation, we return a &lt;em&gt;tuple literal&lt;/em&gt;, which consists in a new instance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; class and a boolean flag indicating whether the parsing operation succeeded.&lt;/p&gt;
+
+&lt;p&gt;Nice, but what about the other side? How the function caller deals with this sort of return value? Let’s see:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/81b46fd01a187d866a41c0a74c8fc430.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;If you hover over the variable name, you’ll see its type described, unsurprisingly, as &lt;code class=&quot;highlighter-rouge&quot;&gt;(ZipCode, bool)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can access each tuple element by using &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item2&lt;/code&gt;, and son on.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/f4a1cf2fea5808474fb126888c436f55.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;However, you’re not forced to use the default names. There’s nothing stopping you from using more descritive naems:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/eb3d649160d4a72a8d94b8ae79eefa2c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The calling code becomes more readable:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/5f5c85d832af66094a68c4a59bdb23d7.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;There’s still another way of accessing a tuple’s items. By using a functionality called &lt;strong&gt;Deconstruction&lt;/strong&gt;, you can easily split a tuple’s elements into variables.&lt;/p&gt;
+
+&lt;p&gt;You can declare the variables by using their types:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/cccbc00f7b154bb897c332e4f8ed614c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Type inference also works here, and you have two options: you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; keyword for each variable, or to use it just once for all variables, placing it outside the parenthesis.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/225e608c7b844df46084b6a7af5b6ac2.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You don’t even need to declare the variables at the deconstruction moment. It’s perfectly valid to deconstruct a tuple into already existent variables.&lt;/p&gt;
+
+&lt;h3 id=&quot;some-notes&quot;&gt;Some notes&lt;/h3&gt;
+
+&lt;p&gt;Tuples are &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp//&quot;&gt;&lt;em&gt;Value Types&lt;/em&gt;&lt;/a&gt;. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same &lt;code class=&quot;highlighter-rouge&quot;&gt;HashCode&lt;/code&gt;. The names of the items are not relevant&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/c8200f265b19c59a117d8ad5c347805b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Assignment also works in the intuitive way. As long as they’re assignable to each other, two tuples can freely be assigned to one another. As in the previous case, the item’s names don’t matter.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/feb631d45a4d8b067c502a14eb4730ea.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Currently, for this feature to work, you must install a nuget package called &lt;code class=&quot;highlighter-rouge&quot;&gt;System.ValueTuple&lt;/code&gt;. In Visual Studio, go to &lt;strong&gt;Tools&lt;/strong&gt; &amp;gt; &lt;strong&gt;NuGet Package Manager&lt;/strong&gt; &amp;gt; &lt;strong&gt;Package Manager Console.&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Package Manager Console Windows will be shown. Type &lt;code class=&quot;highlighter-rouge&quot;&gt;Install-Package System.ValueTuple&lt;/code&gt; and press &lt;code class=&quot;highlighter-rouge&quot;&gt;ENTER&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;but-what-about-systemtuple&quot;&gt;But what about &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt;?&lt;/h3&gt;
+
+&lt;p&gt;Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; reference type since its 4.0 version? Why don’t we just stick to the older type?&lt;/p&gt;
+
+&lt;p&gt;Well, &lt;a href=&quot;http://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple&quot;&gt;this Stack Overflow answers it pretty well&lt;/a&gt;, but I’ll try to summarize it here.&lt;/p&gt;
+
+&lt;p&gt;Firstly, as already mentioned, the older type is a &lt;em&gt;reference type&lt;/em&gt;, and the new one is a &lt;em&gt;value type&lt;/em&gt;, with all the usual implications.&lt;/p&gt;
+
+&lt;p&gt;But the really important differences have to do with convenience and readability. If you use &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; there is no deconstruction; you can only access the items by using the default names, which makes the code harder to read and understand.&lt;/p&gt;
+
+&lt;h2 id=&quot;local-functions&quot;&gt;Local Functions&lt;/h2&gt;
+
+&lt;p&gt;A &lt;strong&gt;Local Function&lt;/strong&gt; is exactly what its name suggests: a function that can be declared inside another function.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/0aebfaf7d900d3b47a2d142a676dbb01.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;As you’ve noticed, the inner function can access the values available for the outer function.&lt;/p&gt;
+
+&lt;p&gt;Of course, the example shown above is deliberately simple; in production, you’d probably just write the code in &lt;code class=&quot;highlighter-rouge&quot;&gt;Log()&lt;/code&gt; in the external methods and be done with it.&lt;/p&gt;
+
+&lt;p&gt;It’d also be possible to use a &lt;code class=&quot;highlighter-rouge&quot;&gt;delegate&lt;/code&gt; for that:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/045204806458c6563cd3a8b20a63133f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;It seems that everything we can do with a local function is also possible to do with private methods or delegates. Do we really need this feature?&lt;/p&gt;
+
+&lt;p&gt;Giovani Bassi give us some reasons to use this feature:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Sintaxe consistente com a já utilizada em métodos;&lt;/li&gt;
+    &lt;li&gt;Não há necessidade de criar um delegate, ou referenciar Func, Action, ou algo parecido;&lt;/li&gt;
+    &lt;li&gt;Lambdas e delegates causam alocações extras, funções locais não;&lt;/li&gt;
+    &lt;li&gt;Ref e out são permitidos;&lt;/li&gt;
+    &lt;li&gt;Tipos genéricos são permitidos;&lt;/li&gt;
+    &lt;li&gt;É possível referenciar funções ainda não declaradas.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In free translation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Sintaxe consistent with the one already used in methods;&lt;/li&gt;
+    &lt;li&gt;No need to create a delegate, or reference Func, Action, or something like that;&lt;/li&gt;
+    &lt;li&gt;Lambdas and delegates cause extra allocations, local functions don’t;&lt;/li&gt;
+    &lt;li&gt;Ref and out are allowed;&lt;/li&gt;
+    &lt;li&gt;Generic types are allowed;&lt;/li&gt;
+    &lt;li&gt;It’s possible to reference functions not yet declared.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Of course you could just use a private method. But the local function has this nice property of not being acessible to the rest of your class, making it impossible to be accidentally called.&lt;/p&gt;
+
+&lt;p&gt;Mads Torgersen shows us a situation for which local functions are the perfect solution:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As an example, methods implemented as iterators commonly need a non-iterator wrapper method for eagerly checking the arguments at the time of the call. (The iterator itself doesn’t start running until MoveNext is called). Local functions are perfect for this scenario:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/34b77038c058f261f615e739c7f9ea2a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You could turn &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator()&lt;/code&gt; into a private method, sure, but that would be: 1) redundant and not very elegant, since it would require you to repeat the same signature from the outer function; and 2) less safe, because another part of the code could call the method without performing the validation.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Today we’ve talked about &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;, two new features from C# that, at first sight, can look harmless, but have potential to change the way you write code in interesting ways.&lt;/p&gt;
+
+&lt;p&gt;Local functions? At first, I didn’t really liked it, I must admit. Or rather: I couldn’t understand what would they be useful for. After some research, I understood their use cases.&lt;/p&gt;
+
+&lt;p&gt;With tuples, it’s a whole other story. I believe every C# developer with some experience under their belt has felt the need to return more than one value from a method and was frustrated with the available options. Now using tuples we finally have an elegant, easy-to-use solution, that makes the code less clumsy and more readable.&lt;/p&gt;
+
+&lt;p&gt;Not everything is perfect though. Some developers already express concerns with these features. For instance, local functions could encourage the creation of large methods.&lt;/p&gt;
+
+&lt;p&gt;Tuples, on the other hand, could be over-used in situations that require &lt;em&gt;objects&lt;/em&gt;, making the code more procedural.&lt;/p&gt;
+
+&lt;p&gt;My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in &lt;a href=&quot;http://carlosschults.net/en/are-private-methods-a-code-smell/&quot;&gt;my article about private methods&lt;/a&gt;, code review and/or pair-programming can be of invaluable help in situations like these.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading. See you next time.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&quot;&gt;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&quot;&gt;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&lt;/a&gt; (pt-br)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 05 Jun 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/csharp-7-features-part-2/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/csharp-7-features-part-2/</guid>
+        
+        <category>csharp</category>
+        
+        <category>beginners</category>
+        
+        
+      </item>
     
       <item>
         <title>Git basics for TFS/TFVC users</title>
@@ -1285,46 +1460,6 @@ Next post: time to get your hands dirty! I’m going to show how to create your 
         <category>unit testing</category>
         
         <category>automated tests</category>
-        
-        <category>agile</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Book Review: The Pragmatic Programmer</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1457998345/the-pragmatic-programmer-review-min_tulprt.png&quot; alt=&quot;&quot; /&gt;
-If I had to choose one book, just one book, to elect as the number one must-read to every programmer, I’d choose “The Pragmatic Programmer”. It’s a no-brainer. It’s just that good. 
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;The Pragmatic Programmer: From Journeyman to Master&lt;/em&gt;&lt;/strong&gt; is a book about software engineering by Andrew Hunt and David Thomas, published in October 1999. The book is organized in short, self-contained chapters, that you can read in any order you’d like. Each chapter features tips (there are 70 in total) that offer advice on several subjects, like estimating, testing, debugging, how to prototype, how to communicate effectively, best practices about exception handling, and a whole lot more.&lt;/p&gt;
-
-&lt;p&gt;Each chapter also has exercises and/or challenges. What’s the difference? All the exercises have answers, and you can find them in the appendix in the end of the book. The challenges, on the other hand, are not supposed to have clear answers. They are designed to make you think, reflect and (guess what!) challenge yourself and the way you currently do things.&lt;/p&gt;
-
-&lt;p&gt;One thing I really like about this book is that it is very practical. Of course theory has its value and its place, and I personally believe that a lot of programmers lack knowledge in the fundamentals of Computer Science and that really hurts our industry. That said, I think it’s awesome that two programmers took the time to translate their years of experience and knowledge into a book that goes straight to the point with very practical advice that you can put in use right away!&lt;/p&gt;
-
-&lt;p&gt;Another point I’d like to highlight is how easy and fun it is to read this book. Its chapters and sections are short, providing a very comfortable pace. It also has a great sense of humor. Not the type that makes you laugh hysterically, but the type that makes you feel at ease, as if the book was a conversation. But I think the number one thing I love about “The Pragmatic Programmer” is that it isn’t really focused on code, or tied to a particular technology, or to particular tools. Sure, it has its fair share of code samples (mostly Java and C/C++). Yeah, it mentions some particular tools and applications. But for the most part, &lt;strong&gt;this book is about a mindset&lt;/strong&gt;. A certain way of thinking, a way of approaching problems and challenges. Once this mindset, this “
-Pragmatic Philosophy” is really ingrained in your way of thinking, you’ll be able to apply it to a lot of areas in your professional life, not just coding. And I think this is the real strength of this book. Had it been focused on tools or a specific language, I probably wouldn’t be writing about it now, almost 17 year later.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-little-bit-of-cons&quot;&gt;A little bit of cons&lt;/h2&gt;
-
-&lt;p&gt;Of course, now that I have sang the many praises of this book, let me talk about some bad things in it. And, to be honest, it’s not that easy to find something bad to say about it.But if there’s one thing that I think most readers would agree, is that some parts of it are somewhat outdated.&lt;/p&gt;
-
-&lt;p&gt;I mean, come on! It’s been almost two decades! It’s amazing for a software development book to remain influential for this long. Of course at least some parts &lt;em&gt;must&lt;/em&gt; be outdated. For example, one of the tips is to always use version control. Nowadays, version control is something that we take for granted, every developer worth his/her salt knows what Github is, so it’s almost funny to read that recommendation. It is like when you watch Steve Jobs giving the first iPhone presentation, and the audience is mesmerized about its capabilities, that are weak by today’s standards, but were amazing for them at the time. (Yeah, I know there are companies out there in which developers don’t even know about version control. My tip is: if you work in a place like this, try to evangelize version control to them. If you succeed, great! If you don’t, get out as soon as possible.)&lt;/p&gt;
-
-&lt;p&gt;In another point of the book, they explain a technique called “tracer-bullet development”. The name may be a little strange, but when they start to explain it, you may find that it sounds a lot like the “minimum viable product” concept, that you may be familiar with from the agile methodologies.&lt;/p&gt;
-
-&lt;p&gt;Which shouldn’t be a surprise at all, since Andy Thomas and Dave Hunt were among the signatories of the now legendary &lt;a href=&quot;http://agilemanifesto.org/&quot;&gt;Manifesto For Agile Software Development&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;That’s why is so hard to find anything wrong with this book. You see, it may seem a little outdated &lt;strong&gt;today&lt;/strong&gt;, but that’s just because the authors were way ahead of their time. Some things that are commonplace and obvious today, we’re totally non-obvious and even counter-intuitive almost 20 years ago. It took a lot of vision to write this book, and for this, and all of the above, I think it’s a very worth read.&lt;/p&gt;
-</description>
-        <pubDate>Mon, 14 Mar 2016 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/book-review-pragmatic-programmer/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/book-review-pragmatic-programmer/</guid>
-        
-        <category>book review</category>
         
         <category>agile</category>
         
