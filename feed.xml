@@ -5,10 +5,295 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Jun 2017 20:55:17 -0300</pubDate>
-    <lastBuildDate>Mon, 05 Jun 2017 20:55:17 -0300</lastBuildDate>
+    <pubDate>Tue, 08 Aug 2017 22:43:45 -0300</pubDate>
+    <lastBuildDate>Tue, 08 Aug 2017 22:43:45 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Unit testing for beginners - Part 2</title>
+        <description>&lt;h1 id=&quot;unit-testing-for-beginners---part-2&quot;&gt;Unit Testing For Beginners - Part 2&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Better late than later! Time to continue our series on unit testing for beginners. Today you’re going to write your first unit test.&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;http://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;previous article&lt;/a&gt; you learned what unit tests are and what are the motivations for writing them.&lt;/p&gt;
+
+&lt;p&gt;Today you’re going to learn how to create unit tests. I’ll show you how to install and use the a unit test framework called &lt;strong&gt;NUnit&lt;/strong&gt;. Together, we’re going to write some tests in order for you to know some of its features.&lt;/p&gt;
+
+&lt;h2 id=&quot;nunit-installation&quot;&gt;NUnit Installation&lt;/h2&gt;
+
+&lt;p&gt;If you recall my &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;previous article&lt;/a&gt;, you’ll remember that, in order to write and run unit tests, you need a &lt;strong&gt;unit testing framework.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The framework we’re going to use is &lt;strong&gt;NUnit&lt;/strong&gt;, based on &lt;strong&gt;JUnit&lt;/strong&gt;, which is a test framework for the Java language. There are other testing frameworks available in the .Net world, such as MS Test, developed by Microsoft itself.
+Feel free to try other frameworks later on.&lt;/p&gt;
+
+&lt;p&gt;Ok, let’s begin. For this project I’m going to use Visual Studio 2017. &lt;a href=&quot;https://www.visualstudio.com/pt-br/downloads/&quot;&gt;Download the Community version here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Create a new solution of the &lt;strong&gt;Class Library&lt;/strong&gt; type, with the name &lt;strong&gt;LearningUnitTesting&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Whenever I create a new solution on Visual Studio I delete the &lt;code class=&quot;highlighter-rouge&quot;&gt;Class1&lt;/code&gt; class that is created by default. You could rename it, of course, it makes no difference.&lt;/p&gt;
+
+&lt;p&gt;Now, let’s rename the default project to &lt;strong&gt;Application&lt;/strong&gt;. This project will store the &lt;em&gt;production code&lt;/em&gt; in our solution.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the context of unit testing, we use the term &lt;strong&gt;Production Code&lt;/strong&gt; when we’re talking about the “real code” in our application, in contrast to the &lt;strong&gt;Test Code&lt;/strong&gt; we also write.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Next step! Now we &lt;strong&gt;create the test project&lt;/strong&gt;. There are several different opinions regarding &lt;em&gt;where&lt;/em&gt; should the test class be kept: along with production code, or in a different location. I usually create another project, which I name using the scheme &lt;em&gt;[ProductionProject]Test&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, the new project will be called &lt;strong&gt;ApplicationTest&lt;/strong&gt;, and it’ll be of type &lt;strong&gt;Class Library&lt;/strong&gt; as well.
+After creating the project, I delete the default class, same as before.&lt;/p&gt;
+
+&lt;p&gt;Your solution should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s install NUnit. Fortunately, NUnit is available as a Nuget package, which makes its installation a breeze.&lt;/p&gt;
+
+&lt;p&gt;First, open the &lt;strong&gt;Package Manager Console&lt;/strong&gt;. Go to: &lt;strong&gt;Tools&lt;/strong&gt; &amp;gt; &lt;strong&gt;Nuget Package Manager&lt;/strong&gt; &amp;gt; &lt;strong&gt;Package Manager Console&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then type or copy-paste the following command:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Install-Package NUnit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Double-check that you’ve got the right project selected, like in the image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And then press &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
+
+&lt;p&gt;We are not done yet, though. We need to install another package, the &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;, which we’ll let us run NUnit tests in Visual Studio. The process is the same, the only difference is the package’s name:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Install-Package NUnit3TestAdapter&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Don’t forget to check if the right project is selected before pressing &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
+
+&lt;p&gt;This is it.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-and-running-the-first-test&quot;&gt;Creating and running the first test&lt;/h2&gt;
+
+&lt;p&gt;Let’s create some tests. First, let’s add a new class to our production project. The class’s name will be &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; and its code will look like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I think the class is simple enough to not require additional explanation. Now, it’s time to create our test class. Add a new class called &lt;code class=&quot;highlighter-rouge&quot;&gt;EmployeeTest&lt;/code&gt; to the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is another naming convention I like to use: to name the test class after the production class, adding the word &lt;em&gt;Test&lt;/em&gt; at the end.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After the class is created, add the &lt;em&gt;NUnit.Framework&lt;/em&gt; namespace to its using declarations. Then, create a new void returning public method called &lt;strong&gt;MyFirstTestMethod&lt;/strong&gt; and add the &lt;code class=&quot;highlighter-rouge&quot;&gt;[Test]&lt;/code&gt; attribute to it.&lt;/p&gt;
+
+&lt;p&gt;By now, your code should look like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/406525bd23d3ee2ecba4f7592c0f8af3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The skeleton for the test is ready. It’s time for you to write your first &lt;strong&gt;assertion&lt;/strong&gt;. In the context of unit testing, an assertion is an affirmation about how a unit of your system should behave. If the affirmation turns out to be true, we say the test has &lt;em&gt;passed&lt;/em&gt;. In case it proves to be false, we say the test has &lt;em&gt;failed&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In NUnit we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class to write our assertions. This class has a large number of methods that allow us to express our expectations about the behavior of our units.&lt;/p&gt;
+
+&lt;p&gt;Add the following line of code to the test method:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assert.Pass();&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Pass&lt;/code&gt; method, not surprisingly, just forces the test to pass. Now you’re going to run this test in order to see it passing. First of all, open the &lt;strong&gt;Test Explorer&lt;/strong&gt;. Use the menu bar: &lt;strong&gt;Test&lt;/strong&gt; &amp;gt; &lt;strong&gt;Windows&lt;/strong&gt; &amp;gt; &lt;strong&gt;Test Explorer&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;When the window is show, click on &lt;em&gt;Run All&lt;/em&gt;. If everything goes right, you’ll see this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When you click on the test’s name, some additional information is shown, such as the test file and elapsed time:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice the use of green to indicate the test’s success.&lt;/p&gt;
+
+&lt;p&gt;Now let’s do the opposite: force the test to fail. Replace the previous line for the following one:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assert.Fail();&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Run the test again and you’ll see the failure message, this time with the red bar:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that you’re getting the hang of it, we’re start testing our &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; class. Don’t forget to switch the test method back to &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass()&lt;/code&gt;, otherwise it will continue to fail.&lt;/p&gt;
+
+&lt;p&gt;Now add a new method called &lt;code class=&quot;highlighter-rouge&quot;&gt;IntroduceMethodShouldWorkCorrectly&lt;/code&gt;. In this method we’ll create a new instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; and verify that the &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; method is working properly.&lt;/p&gt;
+
+&lt;p&gt;Before we do that, though, we must add a reference from the production project to our test project. Otherwise, our test class won’t be able to see the classes it is supposed to test!&lt;/p&gt;
+
+&lt;p&gt;To do that, right-click the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project, then go to &lt;strong&gt;Add&lt;/strong&gt;, then &lt;strong&gt;Reference&lt;/strong&gt;. In the opened window, choose the project, according to the following image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, click on &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Back to the test class. Edit the code so it looks like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You will notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; is marked as an error. If you hover over it, you’ll see a message saying that the name &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; couldn’t be found and asking if there is some reference or &lt;em&gt;using&lt;/em&gt; directive missing.&lt;/p&gt;
+
+&lt;p&gt;Of course there is a using directive missing, related to the reference we’ve just added. To fix this problem, just add the line &lt;code class=&quot;highlighter-rouge&quot;&gt;using Application;&lt;/code&gt; to the namespace declarations, right at the start of the file.&lt;/p&gt;
+
+&lt;p&gt;Now that our code compiles, let’s go through this method, line by line.&lt;/p&gt;
+
+&lt;p&gt;In the first line, we create a new instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;, specifying name, profession and salary. In the following line, we assign to a variable the value we &lt;strong&gt;expect&lt;/strong&gt; the method to return. Then we assign to another variable the obtained result from the method.&lt;/p&gt;
+
+&lt;p&gt;Finally, we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; method from the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class to verify the equality of the two values. This method is, probably, the one you’ll use the most during your tests.&lt;/p&gt;
+
+&lt;p&gt;Now it’s time to run the test. Use the shortcut &lt;strong&gt;CTRL + R, A&lt;/strong&gt; or click on &lt;strong&gt;Run All&lt;/strong&gt; in the Test Explorer window. If everything goes smoothly, you should see the green bar and the message indicating that both tests have passed.&lt;/p&gt;
+
+&lt;p&gt;Time to test our test! We’re going to deliberately ruin the &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; method to see if the test fails as expected. Back to the production class, edit the method like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;As you’ve seen, we’ve just removed the square brackets before and after “JobTitle”. This way, the string interpolation won’t work, hard-coding the string instead of replacing it by the value of the variable.&lt;/p&gt;
+
+&lt;p&gt;When we run the tests again, we got the following result:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mensagem:   Expected string length 48 but was 46. Strings differ at index 37.
+Expected: “Hi! My name is Alice and I work as a Programmer.”
+But was:  “Hi! My name is Alice and I work as a JobTitle.”
+————————————————^&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As you can see, the message is very detailed. It not only lets us know that the strings differed, but it also tells us exactly where they differ. It also shows the expected string and what we really got. It is important to notice that the parameter’s orders in the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; matters a lot, since it is used in the failure message.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The parameters’ order in the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; is very important. First specify the expected value, and then the actual result.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Great. Now you can switch the method back to the correct implementation and run the tests again, so the test can be green again.&lt;/p&gt;
+
+&lt;p&gt;As you can see, a unit test consists in a well defined sequence of steps: we &lt;strong&gt;prepare&lt;/strong&gt; the scenario, then &lt;strong&gt;execute&lt;/strong&gt; the action and &lt;strong&gt;verify&lt;/strong&gt; the results. This sequence of steps, or phases, is sometimes called AAA: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A typical unit test has the three phases: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Even though there are another naming conventions for the phases of a unit test, we’ll adopt &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; , at least for now.&lt;/p&gt;
+
+&lt;p&gt;You may be wondering why I gave the name “sut” to the variable at the start of the method. This is a naming convention that I learned while reading &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;Mark Seeman’s blog&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; stands for &lt;em&gt;System Under Test&lt;/em&gt;, i.e. the thing you’re testing.&lt;/p&gt;
+
+&lt;p&gt;There is nothing preventing you from naming the variable whatever you want. I really like to follow this convention, though, since it makes really clear what is being tested.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Tip: Try to use naming conventions that improve the readability of your code and make the author’s intention clear for anyone who reads the code.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Take a look at the same test method, but this time with comments delimiting each test phase:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a91d41ff7ac732fc9c57e63c03a6be07.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Even though it isn’t really need, I suggest you use comments like the ones above to indicate the test phases, at least in the beginning of your learning.&lt;/p&gt;
+
+&lt;h2 id=&quot;testing-the-giveraise-method&quot;&gt;Testing the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method&lt;/h2&gt;
+
+&lt;p&gt;A salary raise is always welcome, wouldn’t you agree? Let’s test the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method to see if it’s working properly. Add the following method to your test class:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Run the test and you should see the familiar green bar. Did it work? Great. Time to &lt;strong&gt;test the test&lt;/strong&gt;: we’re going to sabotage the implementation of &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; and hope our test catches the error.&lt;/p&gt;
+
+&lt;p&gt;In the production class, edit the method this way:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/fba5901aaa2f542bcd8528de0e96afff.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now the method is obviously wrong; the test should fail. Let’s run it?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mensagem:   Expected: 110
+   But was:  5m&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ok, as we can see, the test did fail. Switch the method back to the correct implementation.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-last-test&quot;&gt;One last test&lt;/h2&gt;
+
+&lt;p&gt;Let’s say the Product Owner just showed up with a new requirement: the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method should ignore negative raise rates. First, let’s edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method to deal with this scenario:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;We’ve just made a change in production code. Our top priority right now is &lt;strong&gt;to guarantee that we haven’t broken anything&lt;/strong&gt;.
+Run the test to be sure that all of them are passing.&lt;/p&gt;
+
+&lt;p&gt;Everything still green? Great, let’s go ahead. Now we need to create a new test to document the “negative raise attempt” scenario.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unit tests are also a type of documentation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the test class, add the following method:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a474698655450da6547dbfa6b9dbcb8c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Nothing really surprising here, right? At this point I’m sure you’ve already got this. So, now it is up to you to &lt;strong&gt;test the test&lt;/strong&gt;: ruin the production code in one or more ways to see if the test fails as expected.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-quick-recap&quot;&gt;A quick recap&lt;/h2&gt;
+
+&lt;p&gt;Today’s article was more dense than the previous one. We’ve managed to cover several topics::&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Installation of &lt;strong&gt;NUnit&lt;/strong&gt; and &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;Creation of a test;&lt;/li&gt;
+  &lt;li&gt;Introduction to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class;&lt;/li&gt;
+  &lt;li&gt;Test execution, via &lt;em&gt;Test Explorer&lt;/em&gt; and keyboard shortcuts;&lt;/li&gt;
+  &lt;li&gt;Reading and interpretation of test results;&lt;/li&gt;
+  &lt;li&gt;Phases of a unit test (&lt;em&gt;Arrange-Act-Assert&lt;/em&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides these topics, we’ve also enlarged our test related vocabulary with terms like &lt;em&gt;SUT&lt;/em&gt;, &lt;em&gt;assertion&lt;/em&gt; and &lt;em&gt;test code vs production code&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some naming conventions were covered as well, for both classes and methods.&lt;/p&gt;
+
+&lt;p&gt;Last but not least, you’ve learned about the importance of seeing the test fail, and how we can gain confidence in our tests by deliberately sabotaging the production code.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-notes&quot;&gt;Some notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You’ve probably noticed that my Visual Studio is not in English in the screen-captures. That is because I’m Brazilian and my Visual Studio is configured in Portuguese (and I first wrote this post in pt-br). I apologize for that.&lt;/li&gt;
+  &lt;li&gt;All of the code for today’s post &lt;a href=&quot;https://github.com/carlosschults/learning-unit-testing/&quot;&gt;can be found on Github&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Once again, I thank my friend Gunter Italiano Ribeiro for proof-reading this post.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This was my second article in the series about unit testing. As I already mentioned, it is deliberately longer and more practical than the previous one. Still, all we’ve covered today is just the tip of the iceberg. Whole books were written about unit testing; by the way I’m indicating some in the following articles, along with more references.&lt;/p&gt;
+
+&lt;p&gt;For the tests we wrote today, we used the more intuitive - and probably more common - approach of creating the tests after the production code. However, many people and teams work differently: they write the tests &lt;em&gt;before&lt;/em&gt; the production code.&lt;/p&gt;
+
+&lt;p&gt;I know it may sound strange, at first, but working this way can bring many benefits to your project. This and other topics will be covered in the next article.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading! See you soon.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Aug 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/unit-testing-for-beginners-part2/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/unit-testing-for-beginners-part2/</guid>
+        
+        <category>software testing</category>
+        
+        <category>unit testing</category>
+        
+        <category>automated tests</category>
+        
+        <category>agile</category>
+        
+        
+      </item>
     
       <item>
         <title>C# 7 Features Worth Knowing - Part 2</title>
@@ -1317,151 +1602,6 @@ are horrible, not to mention the fact that you’d have to check the flag every 
         <guid isPermaLink="true">http://carlosschults.net/en/how-to-choose-good-names/</guid>
         
         <category>best practices</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Unit testing for beginners - Part 1</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Maybe, some time in your career, you might have worked on an incredibly complex application, with an enormous, poorly-documented code base, full of hacks, unnecessary couplings, with a confused architecture and no specifications at all. That kind of app you’d call a miracle if it even works. Maybe I’ve just described your current project!
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;In this type of project, it’s very common for the developers to get afraid of touching the code, cause they know that if they do, something is going to break for sure. And worse: it’s going to break in production, most likely.&lt;/p&gt;
-
-&lt;p&gt;Now, imagine that your application is completely covered by an alarm system. Every time a feature stops working, the alarm goes off. The developers are immediately notified, and someone can take action and solve the problem as soon as possible.&lt;/p&gt;
-
-&lt;p&gt;Imagine yet that this alarm system consists of hundreds of smaller systems. Each subsystem must watch a very specific part of your application. In order for the main system to function properly, each subsystem must be totally independent from the others.&lt;/p&gt;
-
-&lt;p&gt;The adoption of such a system would bring several benefits. First of all, developers would lose the fear of touching the code. Code refactoring would become easier to do, and it would be done more often. As a consequence, the quality of the code would improve.&lt;/p&gt;
-
-&lt;p&gt;The development process itself would be simplified. The alarm system would dramatically reduce the need for slow manual tests, thus speeding the release to the users.&lt;/p&gt;
-
-&lt;p&gt;Finally, the need for independence between the subsystems would promote the reduction of coupling between modules of the application.&lt;/p&gt;
-
-&lt;p&gt;It sounds too good to be true? Well, it isn’t. This “alarm system” is exactly the benefit you get after adding a suite of unit tests to your application.&lt;/p&gt;
-
-&lt;h2 id=&quot;what-are-unit-tests&quot;&gt;What are unit tests?&lt;/h2&gt;
-
-&lt;p&gt;Let’s see what Wikipedia tells us:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In computer programming, unit testing is a software testing method by which individual units of source code, […] are tested to determine whether they are fit for use. Intuitively, one can view a unit as the smallest testable part of an application.  […]
- Unit tests are typically written and run by software developers to ensure that code meets its design and behaves as intended.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The first thing worth mentioning is that unit tests &lt;strong&gt;don’t have the goal of testing the system as a whole&lt;/strong&gt;. On the contrary, they test small pieces of the application - the units. And what is a unit? There are several conflicting points of view on this, several “schools of thought”. But it’s safe to say that, in a context of Object Oriented Programming, most people would consider the class as being a unit.&lt;/p&gt;
-
-&lt;p&gt;Right after this, we see that unit tests are usually written and run by programmers. This is interesting for two reasons: first, it apparently goes against the idea that programmers don’t make good testers (I’m going back to this point later). And more importantly than that, it shows the principal feature of unit tests: they are &lt;strong&gt;automated&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Bear in mind that there are a lot of types of automated tests, but here we’re only talking about unit tests (which, according to several authors, such as &lt;a href=&quot;http://martinfowler.com/bliki/TestPyramid.html&quot;&gt;Martin Fowler&lt;/a&gt;, are the ones who benefits the application the most).&lt;/p&gt;
-
-&lt;p&gt;In practice, unit tests are classes that contains methods who test small and isolated pieces of functionality. These classes are created with the aid of a test framework (such as JUnit in Java, NUnit or Microsoft Test in .Net). Then, the tests can be run via command line, by your IDE or even by an automated build service.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1460211309/teste00_bnsbfl.png&quot; alt=&quot;Example of test case in C#&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;After the tests are run, you get an immediate feedback about which tests failed and which ones succeeded, along with the run time of each one of them.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979476/teste01_ciglca.png&quot; alt=&quot;Windows displaying the result of a test run&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;With this feedback, you can decide on your best course of action. Ideally, a failing test should signal something wrong in the production code. The production code should then be fixed so the test can pass.&lt;/p&gt;
-
-&lt;h2 id=&quot;benefits-of-unit-tests&quot;&gt;Benefits of unit tests&lt;/h2&gt;
-
-&lt;p&gt;In the beginning of the post, while using the alarm system metaphor, I’ve talked about some of the benefits that unit tests can provide, for instance:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;they promote and facilitate code refactoring;&lt;/li&gt;
-  &lt;li&gt;they promote architectural improvement of the system;&lt;/li&gt;
-  &lt;li&gt;they can simplify and accelerate the release of the product to the final users;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Another benefit worth mention is that unit tests &lt;strong&gt;document the code&lt;/strong&gt;. Think of it: for each production class in your system, there are several test cases, that exercise every possible use of this class. A good test suite could help a recent hire to quickly gain familiarity with the code base.&lt;/p&gt;
-
-&lt;p&gt;That is, the best type of documentation: the one that is alive, executable, always up-to-date, and never lies.&lt;/p&gt;
-
-&lt;p&gt;We must also mention that a good and comprehensive test suite helps to prevent bug regression. It’s a best practice to create a new test every time a new bug is found. That way, if the bug ever comes back due to a change, the test is going to show you.&lt;/p&gt;
-
-&lt;p&gt;Finally, one of the more important benefits that test automation can provide is cost reduction. Oddly enough, I don’t see this benefit being talked about too much - maybe because it’s more related to the business side of things. Let’s say that your team tests the whole application, every time your about to release. You use four testers, working full-time, during two weeks. Just do the math and you’ll see that &lt;strong&gt;manual tests are freaking expensive!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Worse yet: they are expensive twice. First, there’s the cost itself, that you can calculate with the formula &lt;em&gt;hourly rate of tester x number of testers x hours spent in testing&lt;/em&gt;. Pretty straightforward, no surprises here.&lt;/p&gt;
-
-&lt;p&gt;But, besides that, there is also an &lt;a href=&quot;https://en.wikipedia.org/wiki/Opportunity_cost&quot;&gt;opportunity cost&lt;/a&gt;: if professionals are spending time doing manual tests that could be automated, then they are &lt;em&gt;NOT&lt;/em&gt; doing other tasks that could have a greater ROI to the company.&lt;/p&gt;
-
-&lt;h2 id=&quot;common-misconceptions&quot;&gt;Common misconceptions&lt;/h2&gt;
-
-&lt;p&gt;In this section, I’m going to try to clarify some of the myths and misconceptions that some people have about unit testing.&lt;/p&gt;
-
-&lt;h3 id=&quot;programmers-shouldnt-write-tests-because-they-are-bad-testers&quot;&gt;Programmers shouldn’t write tests, because they are bad testers&lt;/h3&gt;
-
-&lt;p&gt;There is a widespread notion that programmers shouldn’t test their own code. The rationale for this is that the developers would unconsciously avoid to use the app in a way that would break it. And from experience I can say that this indeed happens. I’ve lost count of how many times a coworker found bugs in an app I made after literally &lt;strong&gt;seconds&lt;/strong&gt; of using it, in spite of the fact that I had already tested it a lot without making it fail.&lt;/p&gt;
-
-&lt;p&gt;The important point here is: &lt;strong&gt;there are tests and tests&lt;/strong&gt;. Often, when people say that developers shouldn’t test, they’re talking about system tests, also called end-to-end tests. Such tests mean to test the system as a whole, which is not the goal of unit tests, as I said before.&lt;/p&gt;
-
-&lt;p&gt;Maybe, it’s just lack of information: the person probably doesn’t know the nature and purpose of unit tests, and mistake them for end-to-end tests.&lt;/p&gt;
-
-&lt;h2 id=&quot;writing-unit-tests-is-a-waste-of-time-its-like-coding-the-same-thing-twice&quot;&gt;Writing unit tests is a waste of time; it’s like coding the same thing twice&lt;/h2&gt;
-
-&lt;p&gt;When you try to convince management that unit tests are worth it, it would be wise to focus on cost reduction. But, what about the developers? How to convince them to spend time writing test code, when they’re already in tight deadlines and under a lot of pressure?&lt;/p&gt;
-
-&lt;p&gt;So, don’t be so surprised if you try to sell unit testing to your fellow developers, and they just say to you: “Wast of time. We’re not going to do that”.&lt;/p&gt;
-
-&lt;p&gt;What these people don’t grasp is that &lt;em&gt;they’re already testing their own code all the time, even if they don’t call it that way&lt;/em&gt;. Not convinced? Well, I bet your development work-flow looks something like this:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Write a bit of code&lt;/li&gt;
-  &lt;li&gt;Compile&lt;/li&gt;
-  &lt;li&gt;Run the app, test the new feature
-    &lt;ul&gt;
-      &lt;li&gt;If it works, start to code next functionality;&lt;/li&gt;
-      &lt;li&gt;If if doesn’t, debug until you find what’s wrong, then fix it.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Repeat&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;What we propose is just to swap the “write production code -&amp;gt; compile -&amp;gt; test manually -&amp;gt; debug -&amp;gt; repeat” cycle for the “write production code -&amp;gt; write test code -&amp;gt; run tests -&amp;gt; fix production code if necessary”.&lt;/p&gt;
-
-&lt;p&gt;You could argue that the cycles are the same - they kind of are. But the big advantage of unit tests is that, once written, they are easily repeatable until the end of the project’s life. You “waste time” only once. Or better, you &lt;strong&gt;invest&lt;/strong&gt; time and effort in the beginning, in order to create the tests, and seize the benefits for indefinite time.&lt;/p&gt;
-
-&lt;h3 id=&quot;unit-tests-replace-all-manual-tests&quot;&gt;Unit tests replace all manual tests&lt;/h3&gt;
-
-&lt;p&gt;Unit tests are not the only types of tests that can be beneficial to a project. We can also use several other types of automated tests such as &lt;strong&gt;integration tests&lt;/strong&gt; and &lt;em&gt;acceptance tests&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1460217453/testing_triangle-300x233_nzq8kx.jpg&quot; alt=&quot;Testing pyramid, showing the ideal ratio of different types of software testing&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;That doesn’t mean that manual testing should be extinct. On the contrary, manual tests still have an important role in quality assurance processes. Ideally, manual tests should focus on the areas that can’t be automated, like usability testing.&lt;/p&gt;
-
-&lt;p&gt;In regards to agile methodologies, it is key that the Product Owner/Client/Business Person approves and accepts the user stories before they are included in a release.&lt;/p&gt;
-
-&lt;p&gt;Exploratory manual tests, that doesn’t follow a script, can be useful to detect certain kinds of bugs. Most automated test cases tend to focus on the “Happy Path”, that is, the scenario in which everything went right.
-In real life, is very common for the users to use the application in…hm…“creative” ways. So, when you put the system under stress, using it in ways that the developers never intended, nasty bugs that would otherwise keep hidden, can show up.&lt;/p&gt;
-
-&lt;p&gt;Of course, once the bug is found, you should immediately write a test that exposes it. That way, if the bug ever comes back, it’ll be easily detected.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Unit testing - and automated software testing, in general - is a huge subject. There are a lot of books about it, there are master’s theses about it. So, of course I can’t do justice to this subject with a mere blog post.&lt;/p&gt;
-
-&lt;p&gt;But I sincerely hope that I had made a proper introduction to unit tests and clarified some of the questions that beginners usually have. If you have a question, suggestion or criticism, the comment are is all yours.&lt;/p&gt;
-
-&lt;p&gt;This post is the first one in a series dedicated to unit testing.
-Next post: time to get your hands dirty! I’m going to show how to create your first unit test!&lt;/p&gt;
-
-&lt;p&gt;See you there!&lt;/p&gt;
-</description>
-        <pubDate>Sat, 09 Apr 2016 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/unit-testing-for-beginners-part1/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/unit-testing-for-beginners-part1/</guid>
-        
-        <category>software testing</category>
-        
-        <category>unit testing</category>
-        
-        <category>automated tests</category>
-        
-        <category>agile</category>
         
         
       </item>

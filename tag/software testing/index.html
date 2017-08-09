@@ -80,6 +80,294 @@
   
   
   
+   <span class="post-meta">Aug 8, 2017</span>
+    <h2>
+          <a class="post-link" href="/en/unit-testing-for-beginners-part2/">Unit testing for beginners - Part 2</a>
+    </h2>
+    <div class="post-content">
+    <h1 id="unit-testing-for-beginners---part-2">Unit Testing For Beginners - Part 2</h1>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png" alt="" /></p>
+
+<p>Better late than later! Time to continue our series on unit testing for beginners. Today you’re going to write your first unit test.</p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>In the <a href="http://carlosschults.net/en/unit-testing-for-beginners-part1/">previous article</a> you learned what unit tests are and what are the motivations for writing them.</p>
+
+<p>Today you’re going to learn how to create unit tests. I’ll show you how to install and use the a unit test framework called <strong>NUnit</strong>. Together, we’re going to write some tests in order for you to know some of its features.</p>
+
+<h2 id="nunit-installation">NUnit Installation</h2>
+
+<p>If you recall my <a href="http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">previous article</a>, you’ll remember that, in order to write and run unit tests, you need a <strong>unit testing framework.</strong></p>
+
+<p>The framework we’re going to use is <strong>NUnit</strong>, based on <strong>JUnit</strong>, which is a test framework for the Java language. There are other testing frameworks available in the .Net world, such as MS Test, developed by Microsoft itself.
+Feel free to try other frameworks later on.</p>
+
+<p>Ok, let’s begin. For this project I’m going to use Visual Studio 2017. <a href="https://www.visualstudio.com/pt-br/downloads/">Download the Community version here</a>.</p>
+
+<p>Create a new solution of the <strong>Class Library</strong> type, with the name <strong>LearningUnitTesting</strong>.</p>
+
+<p>Whenever I create a new solution on Visual Studio I delete the <code class="highlighter-rouge">Class1</code> class that is created by default. You could rename it, of course, it makes no difference.</p>
+
+<p>Now, let’s rename the default project to <strong>Application</strong>. This project will store the <em>production code</em> in our solution.</p>
+
+<blockquote>
+  <p>In the context of unit testing, we use the term <strong>Production Code</strong> when we’re talking about the “real code” in our application, in contrast to the <strong>Test Code</strong> we also write.</p>
+</blockquote>
+
+<p>Next step! Now we <strong>create the test project</strong>. There are several different opinions regarding <em>where</em> should the test class be kept: along with production code, or in a different location. I usually create another project, which I name using the scheme <em>[ProductionProject]Test</em>.</p>
+
+<p>So, the new project will be called <strong>ApplicationTest</strong>, and it’ll be of type <strong>Class Library</strong> as well.
+After creating the project, I delete the default class, same as before.</p>
+
+<p>Your solution should look like this:</p>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png" alt="" /></p>
+
+<p>Let’s install NUnit. Fortunately, NUnit is available as a Nuget package, which makes its installation a breeze.</p>
+
+<p>First, open the <strong>Package Manager Console</strong>. Go to: <strong>Tools</strong> &gt; <strong>Nuget Package Manager</strong> &gt; <strong>Package Manager Console</strong>.</p>
+
+<p>Then type or copy-paste the following command:</p>
+
+<blockquote>
+  <p>Install-Package NUnit</p>
+</blockquote>
+
+<p>Double-check that you’ve got the right project selected, like in the image:</p>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png" alt="" /></p>
+
+<p>And then press <em>ENTER</em>. The installation will be done in a few seconds.</p>
+
+<p>We are not done yet, though. We need to install another package, the <strong>NUnit Test Adapter</strong>, which we’ll let us run NUnit tests in Visual Studio. The process is the same, the only difference is the package’s name:</p>
+
+<blockquote>
+  <p>Install-Package NUnit3TestAdapter</p>
+</blockquote>
+
+<p>Don’t forget to check if the right project is selected before pressing <em>ENTER</em>. The installation will be done in a few seconds.</p>
+
+<p>This is it.</p>
+
+<h2 id="creating-and-running-the-first-test">Creating and running the first test</h2>
+
+<p>Let’s create some tests. First, let’s add a new class to our production project. The class’s name will be <code class="highlighter-rouge">Employee</code> and its code will look like this:</p>
+
+<script src="https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js"></script>
+
+<p>I think the class is simple enough to not require additional explanation. Now, it’s time to create our test class. Add a new class called <code class="highlighter-rouge">EmployeeTest</code> to the <strong>ApplicationTest</strong> project.</p>
+
+<blockquote>
+  <p>This is another naming convention I like to use: to name the test class after the production class, adding the word <em>Test</em> at the end.</p>
+</blockquote>
+
+<p>After the class is created, add the <em>NUnit.Framework</em> namespace to its using declarations. Then, create a new void returning public method called <strong>MyFirstTestMethod</strong> and add the <code class="highlighter-rouge">[Test]</code> attribute to it.</p>
+
+<p>By now, your code should look like this:</p>
+
+<script src="https://gist.github.com/carlosschults/406525bd23d3ee2ecba4f7592c0f8af3.js"></script>
+
+<p>The skeleton for the test is ready. It’s time for you to write your first <strong>assertion</strong>. In the context of unit testing, an assertion is an affirmation about how a unit of your system should behave. If the affirmation turns out to be true, we say the test has <em>passed</em>. In case it proves to be false, we say the test has <em>failed</em>.</p>
+
+<p>In NUnit we use the <code class="highlighter-rouge">Assert</code> class to write our assertions. This class has a large number of methods that allow us to express our expectations about the behavior of our units.</p>
+
+<p>Add the following line of code to the test method:</p>
+
+<blockquote>
+  <p>Assert.Pass();</p>
+</blockquote>
+
+<p>The <code class="highlighter-rouge">Pass</code> method, not surprisingly, just forces the test to pass. Now you’re going to run this test in order to see it passing. First of all, open the <strong>Test Explorer</strong>. Use the menu bar: <strong>Test</strong> &gt; <strong>Windows</strong> &gt; <strong>Test Explorer</strong>.</p>
+
+<p>When the window is show, click on <em>Run All</em>. If everything goes right, you’ll see this:</p>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png" alt="" /></p>
+
+<p>When you click on the test’s name, some additional information is shown, such as the test file and elapsed time:</p>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png" alt="" /></p>
+
+<p>Notice the use of green to indicate the test’s success.</p>
+
+<p>Now let’s do the opposite: force the test to fail. Replace the previous line for the following one:</p>
+
+<blockquote>
+  <p>Assert.Fail();</p>
+</blockquote>
+
+<p>Run the test again and you’ll see the failure message, this time with the red bar:</p>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png" alt="" /></p>
+
+<p>Now that you’re getting the hang of it, we’re start testing our <code class="highlighter-rouge">Employee</code> class. Don’t forget to switch the test method back to <code class="highlighter-rouge">Assert.Pass()</code>, otherwise it will continue to fail.</p>
+
+<p>Now add a new method called <code class="highlighter-rouge">IntroduceMethodShouldWorkCorrectly</code>. In this method we’ll create a new instance of <code class="highlighter-rouge">Employee</code> and verify that the <code class="highlighter-rouge">Introduce</code> method is working properly.</p>
+
+<p>Before we do that, though, we must add a reference from the production project to our test project. Otherwise, our test class won’t be able to see the classes it is supposed to test!</p>
+
+<p>To do that, right-click the <strong>ApplicationTest</strong> project, then go to <strong>Add</strong>, then <strong>Reference</strong>. In the opened window, choose the project, according to the following image:</p>
+
+<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png" alt="" /></p>
+
+<p>Then, click on <strong>OK</strong>.</p>
+
+<p>Back to the test class. Edit the code so it looks like this:</p>
+
+<script src="https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js"></script>
+
+<p>You will notice that <code class="highlighter-rouge">Employee</code> is marked as an error. If you hover over it, you’ll see a message saying that the name <code class="highlighter-rouge">Employee</code> couldn’t be found and asking if there is some reference or <em>using</em> directive missing.</p>
+
+<p>Of course there is a using directive missing, related to the reference we’ve just added. To fix this problem, just add the line <code class="highlighter-rouge">using Application;</code> to the namespace declarations, right at the start of the file.</p>
+
+<p>Now that our code compiles, let’s go through this method, line by line.</p>
+
+<p>In the first line, we create a new instance of <code class="highlighter-rouge">Employee</code>, specifying name, profession and salary. In the following line, we assign to a variable the value we <strong>expect</strong> the method to return. Then we assign to another variable the obtained result from the method.</p>
+
+<p>Finally, we use the <code class="highlighter-rouge">AreEqual</code> method from the <code class="highlighter-rouge">Assert</code> class to verify the equality of the two values. This method is, probably, the one you’ll use the most during your tests.</p>
+
+<p>Now it’s time to run the test. Use the shortcut <strong>CTRL + R, A</strong> or click on <strong>Run All</strong> in the Test Explorer window. If everything goes smoothly, you should see the green bar and the message indicating that both tests have passed.</p>
+
+<p>Time to test our test! We’re going to deliberately ruin the <code class="highlighter-rouge">Introduce</code> method to see if the test fails as expected. Back to the production class, edit the method like this:</p>
+
+<script src="https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js"></script>
+
+<p>As you’ve seen, we’ve just removed the square brackets before and after “JobTitle”. This way, the string interpolation won’t work, hard-coding the string instead of replacing it by the value of the variable.</p>
+
+<p>When we run the tests again, we got the following result:</p>
+
+<blockquote>
+  <p>Mensagem:   Expected string length 48 but was 46. Strings differ at index 37.
+Expected: “Hi! My name is Alice and I work as a Programmer.”
+But was:  “Hi! My name is Alice and I work as a JobTitle.”
+————————————————^</p>
+</blockquote>
+
+<p>As you can see, the message is very detailed. It not only lets us know that the strings differed, but it also tells us exactly where they differ. It also shows the expected string and what we really got. It is important to notice that the parameter’s orders in the <code class="highlighter-rouge">AreEqual</code> matters a lot, since it is used in the failure message.</p>
+
+<blockquote>
+  <p><strong>The parameters’ order in the <code class="highlighter-rouge">AreEqual</code> is very important. First specify the expected value, and then the actual result.</strong></p>
+</blockquote>
+
+<p>Great. Now you can switch the method back to the correct implementation and run the tests again, so the test can be green again.</p>
+
+<p>As you can see, a unit test consists in a well defined sequence of steps: we <strong>prepare</strong> the scenario, then <strong>execute</strong> the action and <strong>verify</strong> the results. This sequence of steps, or phases, is sometimes called AAA: <strong>Arrange-Act-Assert</strong>.</p>
+
+<blockquote>
+  <p>A typical unit test has the three phases: <strong>Arrange-Act-Assert</strong>.</p>
+</blockquote>
+
+<p>Even though there are another naming conventions for the phases of a unit test, we’ll adopt <strong>Arrange-Act-Assert</strong> , at least for now.</p>
+
+<p>You may be wondering why I gave the name “sut” to the variable at the start of the method. This is a naming convention that I learned while reading <a href="http://blog.ploeh.dk/">Mark Seeman’s blog</a>. <strong>SUT</strong> stands for <em>System Under Test</em>, i.e. the thing you’re testing.</p>
+
+<p>There is nothing preventing you from naming the variable whatever you want. I really like to follow this convention, though, since it makes really clear what is being tested.</p>
+
+<blockquote>
+  <p><strong>Tip: Try to use naming conventions that improve the readability of your code and make the author’s intention clear for anyone who reads the code.</strong></p>
+</blockquote>
+
+<p>Take a look at the same test method, but this time with comments delimiting each test phase:</p>
+
+<script src="https://gist.github.com/carlosschults/a91d41ff7ac732fc9c57e63c03a6be07.js"></script>
+
+<p>Even though it isn’t really need, I suggest you use comments like the ones above to indicate the test phases, at least in the beginning of your learning.</p>
+
+<h2 id="testing-the-giveraise-method">Testing the <code class="highlighter-rouge">GiveRaise</code> method</h2>
+
+<p>A salary raise is always welcome, wouldn’t you agree? Let’s test the <code class="highlighter-rouge">GiveRaise</code> method to see if it’s working properly. Add the following method to your test class:</p>
+
+<script src="https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js"></script>
+
+<p>Run the test and you should see the familiar green bar. Did it work? Great. Time to <strong>test the test</strong>: we’re going to sabotage the implementation of <code class="highlighter-rouge">GiveRaise</code> and hope our test catches the error.</p>
+
+<p>In the production class, edit the method this way:</p>
+
+<script src="https://gist.github.com/carlosschults/fba5901aaa2f542bcd8528de0e96afff.js"></script>
+
+<p>Now the method is obviously wrong; the test should fail. Let’s run it?</p>
+
+<blockquote>
+  <p>Mensagem:   Expected: 110
+   But was:  5m</p>
+</blockquote>
+
+<p>Ok, as we can see, the test did fail. Switch the method back to the correct implementation.</p>
+
+<h2 id="one-last-test">One last test</h2>
+
+<p>Let’s say the Product Owner just showed up with a new requirement: the <code class="highlighter-rouge">GiveRaise</code> method should ignore negative raise rates. First, let’s edit the <code class="highlighter-rouge">GiveRaise</code> method to deal with this scenario:</p>
+
+<script src="https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js"></script>
+
+<p>We’ve just made a change in production code. Our top priority right now is <strong>to guarantee that we haven’t broken anything</strong>.
+Run the test to be sure that all of them are passing.</p>
+
+<p>Everything still green? Great, let’s go ahead. Now we need to create a new test to document the “negative raise attempt” scenario.</p>
+
+<blockquote>
+  <p>Unit tests are also a type of documentation.</p>
+</blockquote>
+
+<p>In the test class, add the following method:</p>
+
+<script src="https://gist.github.com/carlosschults/a474698655450da6547dbfa6b9dbcb8c.js"></script>
+
+<p>Nothing really surprising here, right? At this point I’m sure you’ve already got this. So, now it is up to you to <strong>test the test</strong>: ruin the production code in one or more ways to see if the test fails as expected.</p>
+
+<h2 id="a-quick-recap">A quick recap</h2>
+
+<p>Today’s article was more dense than the previous one. We’ve managed to cover several topics::</p>
+
+<ul>
+  <li>Installation of <strong>NUnit</strong> and <strong>NUnit Test Adapter</strong>;</li>
+  <li>Creation of a test;</li>
+  <li>Introduction to the <code class="highlighter-rouge">Assert</code> class;</li>
+  <li>Test execution, via <em>Test Explorer</em> and keyboard shortcuts;</li>
+  <li>Reading and interpretation of test results;</li>
+  <li>Phases of a unit test (<em>Arrange-Act-Assert</em>).</li>
+</ul>
+
+<p>Besides these topics, we’ve also enlarged our test related vocabulary with terms like <em>SUT</em>, <em>assertion</em> and <em>test code vs production code</em>.</p>
+
+<p>Some naming conventions were covered as well, for both classes and methods.</p>
+
+<p>Last but not least, you’ve learned about the importance of seeing the test fail, and how we can gain confidence in our tests by deliberately sabotaging the production code.</p>
+
+<h2 id="some-notes">Some notes</h2>
+
+<ul>
+  <li>You’ve probably noticed that my Visual Studio is not in English in the screen-captures. That is because I’m Brazilian and my Visual Studio is configured in Portuguese (and I first wrote this post in pt-br). I apologize for that.</li>
+  <li>All of the code for today’s post <a href="https://github.com/carlosschults/learning-unit-testing/">can be found on Github</a>.</li>
+  <li>Once again, I thank my friend Gunter Italiano Ribeiro for proof-reading this post.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This was my second article in the series about unit testing. As I already mentioned, it is deliberately longer and more practical than the previous one. Still, all we’ve covered today is just the tip of the iceberg. Whole books were written about unit testing; by the way I’m indicating some in the following articles, along with more references.</p>
+
+<p>For the tests we wrote today, we used the more intuitive - and probably more common - approach of creating the tests after the production code. However, many people and teams work differently: they write the tests <em>before</em> the production code.</p>
+
+<p>I know it may sound strange, at first, but working this way can bring many benefits to your project. This and other topics will be covered in the next article.</p>
+
+<p>Thanks for reading! See you soon.</p>
+
+    <a href="/en/unit-testing-for-beginners-part2/">read more...</a>
+   </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
