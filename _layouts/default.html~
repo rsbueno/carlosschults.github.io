@@ -1,0 +1,22 @@
+<!DOCTYPE html>{% if page.lang == "en"%}
+{% assign language = "en-US" %}
+{% else %}
+{% assign language = "pt-BR" %}
+{% endif%}
+<html lang="{{ language }}">
+  {% include head.html %}
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content">
+      <div class="wrapper">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

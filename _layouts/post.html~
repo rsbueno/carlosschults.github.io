@@ -1,0 +1,42 @@
+---
+layout: default
+---
+<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">    
+    <h2 class="postTitle" itemprop="headline">{{ page.title }}</h2>
+    <p class="post-meta">   
+    <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% if page.lang == "en" %}{{ page.date | date: "%b %-d, %Y" }}{% else %}{{ page.date | date: "%d/%m/%Y" }}{% endif %}
+    </time>{% if page.author %} • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>{% endif %}
+  <span class="tags" itemprop="keywords"> • Tags: {% for tag in page.tags %}<a href="/{%if page.lang == 'en'%}tag{% else %}tag_ptbr{% endif %}/{{tag}}">{{tag}} </a> {% endfor %}</span>
+  </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    {{ content }}
+    {% assign posts=site.posts | where:"lang", page.lang %}
+    
+    {% for post in posts reversed %}
+	  {% if post.title == page.title %}
+	    {% assign page_index = forloop.index0 %}
+            {% capture previous_post_index %}{{ page_index | minus: 1 }}{% endcapture %}
+            {% capture next_post_index %}{{ page_index | plus: 1 }}{% endcapture %}
+	  {% endif %}
+    {% endfor %}  
+    
+    {% for post in posts reversed %}     
+        
+        {% capture current_post_index %}{{ forloop.index0 }}{% endcapture %}
+                
+        {% if current_post_index == previous_post_index %}            
+            <a rel="previous" class="previous" href="{{ post.url }}">&larr; {{ post.title }} </a>
+        {% endif %}
+        
+        {% if current_post_index == next_post_index %}	    
+            <a rel="next" class="next" href="{{ post.url }}">{{ post.title }} &rarr;</a>
+        {% endif %}        
+    {% endfor %}  
+    
+  </div>
+
+</article>
