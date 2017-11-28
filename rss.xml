@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 27 Nov 2017 22:12:46 -0200</pubDate>
-    <lastBuildDate>Mon, 27 Nov 2017 22:12:46 -0200</lastBuildDate>
+    <pubDate>Mon, 27 Nov 2017 22:27:06 -0200</pubDate>
+    <lastBuildDate>Mon, 27 Nov 2017 22:27:06 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
     
@@ -78,11 +78,14 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;Embora muitas pessoas tentem aprender inglês, poucas conseguem. Por quê?&lt;/p&gt;
 
-&lt;p&gt;Há pessoas que têm a resposta na ponta da língua para isso:
-- “Precisa começar a estudar na infância”.
-- “Precisa ter muito dinheiro”.
-- “Precisa morar fora/fazer intercâmbio”.
-- “Precisa ter uma inteligência muito acima da média”.&lt;/p&gt;
+&lt;p&gt;Há pessoas que têm a resposta na ponta da língua para isso:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“Precisa começar a estudar na infância”.&lt;/li&gt;
+  &lt;li&gt;“Precisa ter muito dinheiro”.&lt;/li&gt;
+  &lt;li&gt;“Precisa morar fora/fazer intercâmbio”.&lt;/li&gt;
+  &lt;li&gt;“Precisa ter uma inteligência muito acima da média”.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Eu acredito que estas pessoas estão &lt;em&gt;erradas&lt;/em&gt;. Embora essas coisas ajudem, nenhuma delas é &lt;em&gt;essencial&lt;/em&gt;.&lt;/p&gt;
 
@@ -91,7 +94,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 &lt;h3 id=&quot;excesso-de-foco-em-gramtica-em-detrimento-de-todo-o-resto&quot;&gt;Excesso de foco em gramática em detrimento de todo o resto&lt;/h3&gt;
 &lt;p&gt;Durante a faculdade, havia um colega que sempre me pedia ajuda nas provas de inglês, apesar dele ter estudado SETE anos em uma escola de idiomas famosa. E eu sempre comentava: “Cara, mas não te ensinaram isso no curso?” E sua resposta, invariavelmente, era: “Ah, eles não passavam muito vocabulário, era mais gramática).&lt;/p&gt;
 
-&lt;p&gt;Agora pense. E se esse meu amigo fosse abordado por um americano na rua perguntando”&lt;strong&gt;Excuse me? How do I get to the nearest subway station?&lt;/strong&gt;” o que meu colega iria fazer? Abrir um livro de gramática? Recitar a lista de verbos regulares e irregulares?&lt;/p&gt;
+&lt;p&gt;Agora pense. E se esse meu amigo fosse abordado por um americano na rua perguntando “&lt;strong&gt;Excuse me? How do I get to the nearest subway station?&lt;/strong&gt;”? O que ele iria fazer? Abrir um livro de gramática? Recitar a lista de verbos regulares e irregulares?&lt;/p&gt;
 
 &lt;h3 id=&quot;falta-de-prtica&quot;&gt;Falta de prática&lt;/h3&gt;
 &lt;p&gt;Qualquer pessoa que já estudou algum instrumento musical sabe que não basta frequentar as aulas; é preciso praticar em casa, de acordo com o plano de estudos recebido. Fazer exercícios, treinar escalas, praticar percepção musical, &lt;strong&gt;todos os dias&lt;/strong&gt;.&lt;/p&gt;
@@ -161,8 +164,8 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 </description>
         <pubDate>Mon, 27 Nov 2017 00:00:00 -0200</pubDate>
-        <link>http://carlosschults.net/pt/como-aprender-ingles-parte1</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte1</guid>
+        <link>http://carlosschults.net/pt/como-aprender-ingles-parte-1</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-1</guid>
         
         <category>boas práticas</category>
         
