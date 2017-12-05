@@ -3,6 +3,18 @@
   
     
       <url>
+        <loc>/pt/como-aprender-ingles-parte-2</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/como-aprender-ingles-parte-2" />
+        
+        <lastmod>2017-12-05T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/como-aprender-ingles-parte-1</loc>
         
         
@@ -475,6 +487,17 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/busca/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/search/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/como-aprender-ingles/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/como-aprender-ingles/" />
         
         <changefreq>weekly</changefreq>
       </url>

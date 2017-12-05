@@ -5,10 +5,225 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 27 Nov 2017 22:27:06 -0200</pubDate>
-    <lastBuildDate>Mon, 27 Nov 2017 22:27:06 -0200</lastBuildDate>
+    <pubDate>Tue, 05 Dec 2017 12:10:30 -0200</pubDate>
+    <lastBuildDate>Tue, 05 Dec 2017 12:10:30 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Como aprender inglês: Um guia para desenvolvedores, Parte 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Parte 2: Pratique diariamente. Áudio em primeiro lugar.&lt;/em&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;No &lt;a href=&quot;http://carlosschults.net/pt/como-aprender-ingles-parte-1&quot;&gt;post anterior&lt;/a&gt; eu expliquei quais são, na minha opinião, os principais erros que as pessoas cometem ao tentar aprender inglês.&lt;/p&gt;
+
+&lt;p&gt;Agora chegou a hora de fazer o oposto: vou detalhar o que você &lt;em&gt;deve&lt;/em&gt; fazer para aprender inglês da forma correta, gastando pouco e se divertindo no processo.&lt;/p&gt;
+
+&lt;h2 id=&quot;antes-um-disclaimer&quot;&gt;Antes, um disclaimer&lt;/h2&gt;
+
+&lt;p&gt;Apenas para deixar claro. Eu não sou de forma alguma uma autoridade em aprendizado de idiomas. Não sou formado em Linguística ou algo do tipo. Não tenho credenciais.&lt;/p&gt;
+
+&lt;p&gt;Também não estou fazendo promessas mágicas, do tipo “fique fluente em três meses”. Desconfie de qualquer um que venda esse tipo de coisa. Aprender inglês é mais fácil do que a maioria das pessoas pensam, &lt;strong&gt;mas ainda sim leva tempo e demanda esforço&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Este post e o anterior têm o objetivo de compartilhar a minha experiência no aprendizado do inglês, detalhando o que funcionou ou não
+para mim. Também é minha intenção que você aprenda com meus erros, de modo que sua jornada não precise demorar tanto quanto a minha.&lt;/p&gt;
+
+&lt;h2 id=&quot;se-eu-aprendi-ingls-voc-tambm-pode&quot;&gt;Se eu aprendi inglês, você também pode&lt;/h2&gt;
+
+&lt;p&gt;Eu nunca fiz curso de inglês em escola particular. Com exceção de uma vez que fui à Wizard da minha cidade entregar currículo para o
+cargo de professor de informática, eu nunca &lt;strong&gt;entrei&lt;/strong&gt; em uma escola de inglês. Também estudei em escola pública a vida toda. Nunca fiz intercâmbio (aliás, nunca saí do país). Durante a maior parte da vida, não tive computador e internet em casa. Smartphone? Só aos 22 anos.&lt;/p&gt;
+
+&lt;p&gt;E eu tenho confiança para dizer que o meu inglês é melhor que várias pessoas que conheço que tiveram uma ou mais dessas oportunidades.
+Sei que corro o risco de soar arrogante dizendo este tipo de coisa, mas garanto que esta não é a intenção. Muito pelo contrário, 
+estou tentando usar meu exemplo pessoal para tentar derrubar alguns mitos.&lt;/p&gt;
+
+&lt;p&gt;Não, não precisa sair do país para aprender inglês. Não, não precisa estudar em escola de inglês famosa. Não, não precisa ter muito
+dinheiro.&lt;/p&gt;
+
+&lt;p&gt;Tudo isso é &lt;em&gt;nice to have&lt;/em&gt;, não &lt;em&gt;must have&lt;/em&gt;. Se você tiver oportunidade de fazer intercâmbio, então é claro que você deve ir. Se você teve a oportunidade de estudar inglês desde cedo, meus parabéns. Se você tem muito dinheiro…bora dividir um pouco? ;)&lt;/p&gt;
+
+&lt;p&gt;Apenas não use a falta de uma ou mais destas coisas como desculpa para não se dedicar.&lt;/p&gt;
+
+&lt;h2 id=&quot;minha-jornada-com-o-ingls&quot;&gt;Minha jornada com o inglês&lt;/h2&gt;
+
+&lt;p&gt;Se eu tivesse que listar de forma resumida o meu trajeto no inglês, seria algo assim:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fase informal
+    &lt;ul&gt;
+      &lt;li&gt;Vários anos de contato contínuo, porém limitado, com o inglês &lt;strong&gt;escrito&lt;/strong&gt;.&lt;/li&gt;
+      &lt;li&gt;Exposição ao inglês falado por meio de filmes e músicas.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Fase formal
+    &lt;ul&gt;
+      &lt;li&gt;Leitura de dicas de vocabulário e expressões&lt;/li&gt;
+      &lt;li&gt;Prática consistente de listening&lt;/li&gt;
+      &lt;li&gt;Conversação com professor nativo&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vou agora expandir esses tópicos e contar em detalhes a história do meu aprendizado em inglês.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-fase-informal&quot;&gt;A “fase informal”&lt;/h2&gt;
+&lt;p&gt;Eu sempre gostei e tive vontade de aprender inglês. Mas minha família não tinha condições de pagar um curso; eu também não tinha videogame, videocassete (sim, você não leu errado) ou outras amenidades que poderiam de alguma forma me dar mais exposição ao inglês.&lt;/p&gt;
+
+&lt;p&gt;Computador só em sonho. Naquela época (meados dos anos 90) o custo de um computador era proibitivo para a maior parcela da população (que era exatamente a &lt;em&gt;minha&lt;/em&gt; parcela).&lt;/p&gt;
+
+&lt;p&gt;Para piorar, nesta época não havia aulas de inglês para ensino fundamental antes da quinta série, pelo menos no ensino público. 
+Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola. Antes tarde que nunca, certo?&lt;/p&gt;
+
+&lt;p&gt;Sendo assim, minha exposição ao inglês era rara e em doses minúsculas. Por exemplo, eu lia tudo em inglês que encontrava em embalagens e manuais de instruções de aparelhos que meus pais compravam; eu lia as coisas em inglês nos próprios aparelhos; eu mudava o idioma do menu da TV para inglês (e espanhol também) só para ver como era.&lt;/p&gt;
+
+&lt;p&gt;A TV era outra fonte de pequenos momentos de contato com o inglês, através de filmes e desenhos. Sim, eu assistia tudo dublado, claro (TV a cabo? O que é isso?). Mas ainda sim oportunidades surgiam; o exemplo típico é quando aparecia algo escrito em inglês no filme/desenho (letreiro de loja, rótulo de algum produto, sinal de trânsito, título do episódio) e o locutor falava em português a tradução.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we&#39;re closed&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Foi em 2001, mas eu me lembro bem como estava ansioso para o início da quinta série. &lt;strong&gt;Finalmente&lt;/strong&gt; iria ter aulas de inglês!&lt;/p&gt;
+
+&lt;p&gt;Imagine o grau da minha decepção quando as aulas de fato começaram.&lt;/p&gt;
+
+&lt;p&gt;Não quero causar polêmica mas acredito que não é segredo nenhum que as aulas de inglês do ensino público…deixam a desejar.&lt;/p&gt;
+
+&lt;p&gt;Seria injusto (e mentiroso) dizer que eu não aprendi algo. Eu aprendi os dias da semana, os meses do ano, os números (até um certo ponto), o básico do verbo to be. Tudo isso, claro, com uma pronúncia que passava longe da correta, mas depois vou voltar a esse assunto.&lt;/p&gt;
+
+&lt;p&gt;Em algum momento eu comprei um minidicionário de inglês, que embora fosse bem limitado, tinha uma &lt;em&gt;feature&lt;/em&gt; muito útil: na frente de cada entrada do dicionário, havia a pronúncia “aportuguesada” da palavra.&lt;/p&gt;
+
+&lt;p&gt;Algo assim:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512430827/dictionary-min_vxoqp5.jpg&quot; alt=&quot;Página do dicionário de inglês&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso me ajudou a aprender a pronúncia aproximada de várias palavras, e ver que elas eram bem diferentes do que eu imaginava (e do que muitas pessoas pronunciavam).&lt;/p&gt;
+
+&lt;p&gt;Minha exposição ao inglês ia lentamente crescendo. Acho que foi mais ou menos nesta época que eu finalmente ganhei um video-game: o lendário &lt;a href=&quot;https://jogos.uol.com.br/ultimas-noticias/2013/05/10/uol-jogos-testa-o-polystation-videogame-que-mais-engana-os-pais.htm&quot;&gt;Polystation&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Não era o que eu realmente queria, claro, mas ainda sim me proporcionou muitas horas de diversão e um pouco mais de aprendizado.&lt;/p&gt;
+
+&lt;p&gt;Foi por volta de 2004 que eu finalmente realizei outro sonho: comprei um aparelho de DVD. \o/&lt;/p&gt;
+
+&lt;p&gt;Eu privilegiava alugar filmes mais antigos, que eram mais baratos que os lançamentos. E ainda assim, eu alugava relativamente poucos filmes, às vezes só um. Então, eu queria aproveitar ao máximo: eu assistia dublado, depois novamente legendado, via todos os materiais extras disponíveis, como documentários, cenas excluídas, comentários de diretor, este tipo de coisa. Um ponto importante é que &lt;strong&gt;o material extra era apenas legendado&lt;/strong&gt;, o que me forçava a assistir com legendas, mesmo não gostando muito na época.&lt;/p&gt;
+
+&lt;p&gt;Com cerca de 14, 15 anos, uma nova paixão surgiu na minha vida: a música (ou para ser específico, o &lt;em&gt;rock&lt;/em&gt;). Mais aprendizado veio na forma de tradução das letras das músicas nos encartes dos CD’s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD&#39;s e DVD&#39;s de Rock&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;No final de 2006 eu consegui meu primeiro estágio na área da informática. Depois de algum tempo (provavelmente no começo do ano seguinte) comprei meu primeiro computador: um Positivo, com configurações risíveis. Mas era um sonho que eu tive por boa parte da minha vida e finalmente havia conseguido realizá-lo.&lt;/p&gt;
+
+&lt;p&gt;Eu continuava não tendo acesso à internet, porém. Sinceramente não lembro bem a razão; deve ter sido uma mistura de custo proibitivo e falta de cobertura em nosso bairro, provavelmente. Mas eu tinha acesso à internet no próprio estágio, então eu aproveitava os momentos livres para ler, principalmente artigos na Wikipédia.&lt;/p&gt;
+
+&lt;p&gt;Lá para meados de 2007 finalmente consegui ter acesso à internet em minha casa, por meio de um provedor local, via rádio. Era uma conexão bem precária, com a velocidade apenas um pouco maior do que internet discada, mas já era alguma coisa.&lt;/p&gt;
+
+&lt;p&gt;Interessante salientar que nesta época minha leitura já era boa; &lt;strong&gt;eu conseguia entender com facilidade a maior parte dos textos que me propunha a ler&lt;/strong&gt;. Todos os anos de exposição contínua ao inglês, ainda que limitada, estavam dando fruto.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-fase-formal&quot;&gt;A fase “formal”&lt;/h2&gt;
+&lt;p&gt;### Aprendendo a estudar inglês&lt;/p&gt;
+
+&lt;p&gt;Em 2010, eu iniciei o bacharelado em Ciência da Computação. Também comecei a fazer estágio em uma pequena firma de desenvolvimento de software da cidade.&lt;/p&gt;
+
+&lt;p&gt;Nesta época, eu já tinha criado vários hábitos para ampliar meu contato com o inglês. Por exemplo, eu só assistia filmes e séries com áudio &lt;em&gt;E&lt;/em&gt; legenda em inglês. Passei a usar o inglês quando fazia anotações. Mudei o idioma do sistema operacional para inglês. E assim por diante.&lt;/p&gt;
+
+&lt;p&gt;No entanto, eu ainda não estava satisfeito. Foi quando resolvi realmente estudar inglês, com método, com um plano de estudos diário, coisa que eu não havia feito até então. E é esta a razão da divisão entre fase formal e fase informal no nome dos tópicos.&lt;/p&gt;
+
+&lt;p&gt;Até então, eu nunca tinha tentado &lt;em&gt;falar&lt;/em&gt; inglês. Eu estava satisfeito em conseguir ler razoavelmente bem, mas a conversação, por algum motivo, não me interessava. Talvez eu achasse que estivesse além da minha capacidade ou algo assim. Sinceramente, não me lembro.&lt;/p&gt;
+
+&lt;p&gt;Foi nesta época que eu comecei a acompanhar sites de dicas de aprendizado de inglês (no fim deste post vou listar vários). Esses sites me apresentaram à noção de praticar o &lt;em&gt;listening&lt;/em&gt;, ou seja, ouvir o áudio em inglês. Eu já era fã de &lt;a href=&quot;https://en.wikipedia.org/wiki/Podcast&quot;&gt;podcasts&lt;/a&gt;, principalmente voltados a filmes, quadrinhos, games, esse tipo de coisa. Então, foi um passo natural passar a ouvir podcasts de aprendizado de inglês.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts!&lt;/h3&gt;
+
+&lt;p&gt;O primeiro podcast que passei a consumir regularmente foi o &lt;a href=&quot;http://eslpod.com/&quot;&gt;ESL Podcast&lt;/a&gt;. Eu ouvia os episódios durante o horário do almoço, acompanhando a transcrição. O texto geralmente consistia de um diálogo entre dois personagens. Os leitores liam bem devagar e de maneira bem articulada, de modo que era fácil de entender o que eles estavam dizendo.&lt;/p&gt;
+
+&lt;p&gt;Não demorou muito tempo na verdade para que eu desse o próximo passo na minha evolução: &lt;strong&gt;passei a conseguir entender 100% do áudio sem as transcrições&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Eu diria que esse é um passo decisivo no progresso do seu aprendizado. Não depender de transcrições te dá uma liberdade sem precedentes para praticar o &lt;em&gt;listening&lt;/em&gt;. Você pode ouvir:
+- fazendo exercícios;
+- indo ou vindo do trabalho;
+- na fila ou sala de espera do banco/correio/dentista/etc;
+- lavando a louça, limpando a casa ou fazendo outro tipo de trabalho manual.&lt;/p&gt;
+
+&lt;p&gt;Em resumo, ouvir sem depender da transcrição &lt;strong&gt;deixa suas mãos livres&lt;/strong&gt;, o que te permite &lt;strong&gt;integrar o inglês na sua rotina&lt;/strong&gt;, ocupando intervalos de tempo que em outra situação seriam desperdiçados.&lt;/p&gt;
+
+&lt;p&gt;Toda essa prática surtiu efeito e a minha compreensão do inglês falado foi melhorando consideravelmente. Aos poucos, eu fui abandonando os podcasts de “aprendizado de inglês” e passei apenas a ouvir podcasts de assuntos variados (inclusive de programação).&lt;/p&gt;
+
+&lt;p&gt;Toda essa prática surtiu efeito e a minha compreensão do inglês falado aumentou consideravelmente. Só faltava uma coisa: como arrumar alguém para conversar?&lt;/p&gt;
+
+&lt;h3 id=&quot;skype-to-the-rescue&quot;&gt;Skype to the rescue&lt;/h3&gt;
+
+&lt;p&gt;Por volta de 2014, se não me engano, eu vim a saber de um americano chamado &lt;a href=&quot;https://www.linkedin.com/in/blakewind/&quot;&gt;Blake Wind&lt;/a&gt; que dava aulas de inglês por Skype, e cobrava mais barato que muitos outros professores da época.&lt;/p&gt;
+
+&lt;p&gt;Fiz diversas aulas com o Blake em 2014 e 2015, e depois de um tempo parei devido à alta do dólar. Desde então, faço aulas esporadicamente quando sinto que preciso de prática em algum ponto específico.&lt;/p&gt;
+
+&lt;h2 id=&quot;roadmap&quot;&gt;Roadmap&lt;/h2&gt;
+
+&lt;p&gt;Se eu tivesse que aprender inglês novamente hoje - ou aprender outro idioma - como eu faria? É basicamente disso que esta seção se trata. Vou usar a minha experiência e os erros cometidos como base para criar um “roteiro” para você seguir.&lt;/p&gt;
+
+&lt;h3 id=&quot;aprender-o-bsico&quot;&gt;Aprender o básico&lt;/h3&gt;
+
+&lt;p&gt;Assim como uma casa precisa de um alicerce, você necessita de uma base de conhecimentos sobre a qual construir seu aprendizado. Como fazer isso?&lt;/p&gt;
+
+&lt;h4 id=&quot;duolingo&quot;&gt;Duolingo&lt;/h4&gt;
+&lt;p&gt;Algo que não existia na minha época que teria ajudado muito é o &lt;a href=&quot;https://www.duolingo.com/&quot;&gt;Duolingo&lt;/a&gt;. Eu estou atualmente usando esse aplicativo para estudar Espanhol e Francês, e eu posso dizer que ele funciona &lt;strong&gt;caso seu objetivo seja avançar do zero até um conhecimento básico&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Você não vai sair falando inglês apenas com ele, mas você vai conseguir praticar as quatro habilidades. Você vai conseguir construir um vocabulário, aprendendo não apenas palavras soltas mas também frases comuns e expressões, &lt;strong&gt;e integrando o áudio e a pronúncia correta desde o início&lt;/strong&gt;, o que é fundamental.&lt;/p&gt;
+
+&lt;p&gt;Estude com o Duolingo todo dia, até terminar o curso. Após isso, continue reforçando os pontos nos quais não estiver tão bem.&lt;/p&gt;
+
+&lt;h4 id=&quot;curso-ingls-online&quot;&gt;Curso Inglês Online&lt;/h4&gt;
+&lt;p&gt;Depois do Duolingo, eu recomendo o &lt;a href=&quot;http://www.cursoinglesonline.com.br/curso-basico-informacoes/&quot;&gt;curso básico do site Inglês Online, da Ana Luiza&lt;/a&gt;. O curso é pago, mas é um valor que considero acessível e vale muito a pena.&lt;/p&gt;
+
+&lt;h3 id=&quot;prtica-diria-do-listening&quot;&gt;Prática diária do listening&lt;/h3&gt;
+
+&lt;p&gt;O próximo passo é integrar o áudio no seu dia-a-dia. Como já disse anteriormente, a situação ideal é chegar ao ponto de não precisar mais de transcrições, pois assim você terá liberdade para ouvir inglês praticamente em qualquer situação que sobrar um tempo.&lt;/p&gt;
+
+&lt;p&gt;Chegar até esse ponto vai demandar um certo trabalho, no entanto. Para isso, eu sugiro a leitura da série de artigos &lt;a href=&quot;http://www.inglesonline.com.br/como-falar-ingles-as-dicas-essenciais/&quot;&gt;“Como Falar Inglês - As Dicas Essenciais”&lt;/a&gt;, escrita pela Ana Luiza do site Inglês Online. É uma série um pouco extensa, mas que detalha passo a passo como evoluir no &lt;em&gt;listening&lt;/em&gt;, inclusive com fontes de áudio adequados para cada nível do aprendizado.&lt;/p&gt;
+
+&lt;h3 id=&quot;no-esquea-das-outras-reas&quot;&gt;Não esqueça das outras áreas&lt;/h3&gt;
+
+&lt;p&gt;O &lt;em&gt;listening&lt;/em&gt; deve ser o protagonista da sua estratégia de aprendizado. O que não significa que as outras habilidades devem ser negligenciadas.&lt;/p&gt;
+
+&lt;p&gt;Aqui vão algumas estratégias para deixá-las em dia:&lt;/p&gt;
+
+&lt;h4 id=&quot;reading&quot;&gt;&lt;em&gt;Reading&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Favoreça o inglês na leitura de qualquer material. Favoreça sempre a Wikipédia em inglês, assim como documentação de linguagens ou frameworks. Siga pessoas influentes da área no Twitter; leia seus blogs e quaisquer outras publicações. Além de praticar o seu inglês, você vai estar antenado(a) com o que acontece de importante na área.&lt;/p&gt;
+
+&lt;h4 id=&quot;writing&quot;&gt;&lt;em&gt;Writing&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Invente oportunidades para escrever em inglês. Crie um blog. Comece um diário. Encontre algum projeto Open Source que você ache interessante (de preferência, algo que você usa) e se envolva! Entre no &lt;a href=&quot;&quot;&gt;chat do projeto no Gitter&lt;/a&gt;; procure as issues no GitHub e participe das discussões; puxe assunto no Twitter com alguma daquelas pessoas influentes que você seguiu no passo anterior. Talvez você se surpreenda com a frequência com que elas respondem!&lt;/p&gt;
+
+&lt;p&gt;#### &lt;em&gt;Speaking&lt;/em&gt;
+Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (ou áudio) curto, de até um minuto, no qual você fala sobre seu dia (ou qualquer assunto).&lt;/p&gt;
+
+&lt;p&gt;Outra dica interessante é ler em voz alta. Encontre um texto, de preferência sobre um assunto que ache interessante, e leia em voz alta. Melhor ainda é gravar a sua leitura e depois pedir a opinião de uma pessoa que saiba inglês.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DICA IMPORTANTE&lt;/strong&gt;: jamais tente adivinhar a pronúncia de uma palavra. Quando encontrar uma palavra que você jamais ouviu, ao invés de tentar pronunciá-la, ouça sua pronúncia correta antes. Uma ótima ferramenta para isso &lt;a href=&quot;https://pt.forvo.com/&quot;&gt;é o site Forvo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Falar sozinho e ler em voz alta sejam técnicas úteis, mas têm uma limitação importante e óbvia: a falta de interação com outra pessoa. Para resolver isso, temos sites de language exchange, &lt;a href=&quot;https://www.italki.com/home?hl=pt&quot;&gt;como o italki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, aulas com professores nativos sempre é uma opção, caso esteja dentro das suas possibilidades.&lt;/p&gt;
+
+&lt;h2 id=&quot;aprender-ingls--possvel-o-que-voc-est-esperando&quot;&gt;Aprender inglês é possível. O que você está esperando?&lt;/h2&gt;
+
+&lt;p&gt;Espero ter conseguido, através da minha história, mostrar que aprender inglês é possível sim, ainda que haja dificuldades. O meu aprendizado foi longo e inconsistente, por não ter tido as facilidades que existem hoje em dia.&lt;/p&gt;
+
+&lt;p&gt;Para te ajudar ainda mais, eu &lt;a href=&quot;http://carlosschults.net/como-aprender-ingles&quot;&gt;criei uma página com recursos para estudar inglês online&lt;/a&gt;. Vou mantê-la atualizada constantemente.&lt;/p&gt;
+
+&lt;p&gt;Agradeço pelo seu tempo, e estou à disposição caso precise de mais alguma ajuda. A área de comentários está aí para isso.&lt;/p&gt;
+
+&lt;p&gt;See you later!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Dec 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/como-aprender-ingles-parte-2</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-2</guid>
+        
+        <category>boas práticas</category>
+        
+        <category>inglês</category>
+        
+        
+      </item>
     
       <item>
         <title>Como aprender inglês: Um guia para desenvolvedores</title>
@@ -17,8 +232,9 @@
 &lt;p&gt;&lt;em&gt;Parte 1: Não faça o que todo mundo faz.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;usar português ou inglês para nomear classes, variáveis,
-e demais artefatos no código&lt;/a&gt;. Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Esta é a primeira parte de uma série de dois posts. Veja &lt;a href=&quot;http://carlosschults.net/pt/como-aprender-ingles-parte-2&quot;&gt;a segunda parte&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;usar português ou inglês para nomear classes, variáveis, e demais artefatos no código&lt;/a&gt;. Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.&lt;/p&gt;
 
 &lt;p&gt;Minha opinião atual continua praticamente a mesma da época. Prefiro que você &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;leia o post completo&lt;/a&gt;, mas aqui vai a versão resumida: tente usar inglês o máximo possível, porém vão existir situações nas quais o português faz mais sentido. Decida de acordo com as características do seu projeto e equipe.&lt;/p&gt;
 
@@ -1430,247 +1646,6 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
         <guid isPermaLink="true">http://carlosschults.net/pt/blogs-desenvolvimento-portugues/</guid>
         
         <category>recomendacoes</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Métodos privados são um &#39;Code Smell&#39;?</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Algumas pessoas acham que métodos privados devem ser evitados. Será que elas estão certas?
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Há uns dois meses, &lt;a href=&quot;https://twitter.com/mdbs99&quot;&gt;Marcos Douglas&lt;/a&gt; publicou um post &lt;a href=&quot;http://objectpascalprogramming.com/posts/menos-e-mais/&quot;&gt;sobre como o uso de regras e restrições pode melhorar seu código&lt;/a&gt;. Essa &lt;a href=&quot;https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db#.rptqu89ec&quot;&gt;premissa&lt;/a&gt; costuma aparecer &lt;a href=&quot;http://blog.ploeh.dk/2015/04/13/less-is-more-language-features/&quot;&gt;de novo&lt;/a&gt; e &lt;a href=&quot;https://robots.thoughtbot.com/sandi-metz-rules-for-developers&quot;&gt;de novo&lt;/a&gt; pela web, e eu concordo totalmente com ela.&lt;/p&gt;
-
-&lt;p&gt;Marcos mostra várias orientações úteis, tais como o número ideal de argumentos em um método, o número ideal de métodos, em uma classe, e assim por diante. O artigo é muito bom, e eu recomendo a todos vocês que o &lt;a href=&quot;https://gist.github.com/carlosschults/5f4ba7cfb2453977c8d11424b2926686&quot;&gt;leiam &lt;/a&gt;, mas ele não é o foco do meu post hoje.&lt;/p&gt;
-
-&lt;p&gt;Hoje, o que eu realmente quero falar é de um assunto que surgiu na área de comentários do artigo do Marcos: que diversas pessoas consideram métodos privados como um &lt;a href=&quot;http://www.pedromendes.com.br/2013/11/04/code-smells/&quot;&gt;&lt;em&gt;Code Smell&lt;/em&gt; (algo como “mau-cheiro de código”)&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Como eu nunca tinha ouvido ou lido nada nesse sentido antes, fiquei bastante surpreso e decidi pesquisar mais.&lt;/p&gt;
-
-&lt;h2 id=&quot;qual-seria-o-problema-de-mtodos-privados&quot;&gt;Qual seria o problema de métodos privados?&lt;/h2&gt;
-
-&lt;p&gt;Para começar, vamos tentar entender por qual razão métodos privados seriam um problema.&lt;/p&gt;
-
-&lt;p&gt;One common argument is that private methods violate the Single Responsibility Principle. The SRP states that each class should do only one thing. If you’re tempted to create private methods, the argument follows, that’s a sign that your class is doing too much.&lt;/p&gt;
-
-&lt;p&gt;Um argumento comum é que métodos privados violam o &lt;em&gt;Princípio da Responsabilidade Única&lt;/em&gt; (ou SRP, do inglês &lt;em&gt;Single Responsibility Principle&lt;/em&gt;).&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Private helper methods indicate classes are doing too many things. Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.&lt;/p&gt;
-
-  &lt;p&gt;Kent R Spillner, em &lt;a href=&quot;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&quot;&gt;Private Methods are a Code Smell&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Métodos auxiliares privados indicam que as classes estão fazendo coisas demais. Mover métodos auxiliares privados para classes diferentes, incluindo criar novas classes se necessário, divide as responsabilidades originais em múltiplas classes, levando à projetos mais simples e melhores.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Aqui temos uma opinião bem parecida:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Private methods are not inherently bad, but they are a sign that you might be missing out on an opportunity to make a useful abstraction. If you have a private method that calls another private method, then there is almost certainly an area of responsibility that remains unidentified.&lt;/p&gt;
-
-  &lt;p&gt;John McDowall, em &lt;a href=&quot;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&quot;&gt;Break. It. Up! – Private Method Access Modifiers as Code Smells&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Métodos privados não são inerentemente ruins, mas eles são um sinal de que você talvez esteja perdendo uma oportunidade de criar uma abstração útil. Se você tem um método privado que chama outro método privado, então é quase certeza que há uma outra área de responsabilidade que permanece não identificada.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Outro argumento é que métodos privados dificultam o uso de testes unitários:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Make it public!&lt;/p&gt;
-
-  &lt;p&gt;[…]This is probably the simplest way to overcome the problem of untestability.[…] There’s a reason for that:  testability is a perfectly good reason to make something public.  And you should test most of your code.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Jason M Baker, em &lt;a href=&quot;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&quot;&gt;Enemies of Test Driven Development part I: encapsulation&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Torne [o método privado] público!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[…]Essa é provavelmente a maneira mais simples de resolver o problema da não-testabilidade[…] Existe uma razão para isso: testabilidade é uma razão perfeitamente boa para tornar algo público. E você deveria testar a maior parte do seu código.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Finalmente, pessoas também argumentam que métodos privados desempenham um papel importante no problema de “bagunçar” o estado interno dos objetos, o que pode lhe causar grandes problemas.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Functional programming teaches that state (in the form of member variables) is evil, because it makes your code more complex and harder to test.&lt;/p&gt;
-
-  &lt;p&gt;Ryan Ginstrom, em &lt;a href=&quot;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&quot;&gt;Three reasons to avoid private class members&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Programação funcional ensina que estado (na forma de variáveis de instância) é maligno, porque ele torna seu código mais complexo e mais difícil de ser testado.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Eu acabei de mostrar alguns dos argumentos comuns contra a criação de métodos privados, então agora é hora de mostrar a opinião nesse assunto.&lt;/p&gt;
-
-&lt;h2 id=&quot;mtodos-privados-no-so-necessariamente-violaes-do-srp&quot;&gt;Métodos privados &lt;em&gt;não&lt;/em&gt; são necessariamente violações do SRP&lt;/h2&gt;
-
-&lt;p&gt;O primeiro argumento apresentando afirma que métodos privados violam o Princípio da Responsabilidade Única.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Private helper methods indicate classes are doing too many things.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Eu não penso que esse seja o caso. Pelo menos, não sempre. Isso depende do que exatamente o método privado faz.&lt;/p&gt;
-
-&lt;p&gt;Você provavelmente não deveria adicionar um método chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;ValidarEnderecoDeEmail&lt;/code&gt; à sua classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Cliente&lt;/code&gt;, sendo o método privado ou não. Afinal de contas, um cliente não é a única entidade que pode ter um endereço de e-mail. Ao invés disso, crie uma classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Email&lt;/code&gt; e coloque todas as validações pertinentes nela.&lt;/p&gt;
-
-&lt;p&gt;Por outro lado, digamos que você esteja criando um método &lt;code class=&quot;highlighter-rouge&quot;&gt;Ordenar&lt;/code&gt; em uma estrutura de dados customizada. Nesse caso, faria todo o sentido manter o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Ordenar&lt;/code&gt; público, e ter alguns métodos privados auxiliares, como &lt;code class=&quot;highlighter-rouge&quot;&gt;CompararItens&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Trocar&lt;/code&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Meu principal problema com esse argumento não é que classes pequenas são geralmente melhores que as grandes, o que eu concordo.&lt;/p&gt;
-
-&lt;p&gt;Meu problema é que eu não concordo que criar novas classes e métodos públicos &lt;strong&gt;apenas para evitar métodos privados&lt;/strong&gt; vai &lt;strong&gt;automaticamente&lt;/strong&gt; gerar “designs mais simples e melhores”. É claro que &lt;em&gt;pode&lt;/em&gt; gerar; mas pode gerar projetos priores também. Cada situação é única.&lt;/p&gt;
-
-&lt;h2 id=&quot;eu-no-compro-testabilidade-como-um-fim-em-si-mesmo&quot;&gt;Eu não compro testabilidade como um fim em si mesmo&lt;/h2&gt;
-
-&lt;p&gt;Eu gosto muito de testes unitários (e testes automatizados de uma maneira geral). Eu ajudei evangelizar testes unitários no meu trabalho, e atualmente eu supervisiono o time que está adicionando testes unitários e de integração em nosso &lt;em&gt;codebase&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;E uma das primeiras perguntas que as pessoas fazem quando estão aprendendo sobre testes unitários é: &lt;em&gt;Como eu faço para testar métodos privados?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;unicorn_dies.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Minha resposta geralmente é: &lt;strong&gt;você não deveria precisar&lt;/strong&gt;. Na minha opinião, não é muito produtivo colocar um esforço excessivo em testar métodos privados: como eles são chamados pelos públicos, eles vão ser exercitados pela sua suíte de testes de qualquer forma.&lt;/p&gt;
-
-&lt;p&gt;O objetivo de um teste unitário deveria ser testar e documentar uma “unidade” (uma classe) por meio de usar sua API pública. O que nos leva ao próximo ponto.&lt;/p&gt;
-
-&lt;h1 id=&quot;sua-api-pblica-deve-ser-estvel-ou-encapsulamento-importa&quot;&gt;Sua API pública deve ser estável (ou “Encapsulamento importa”)&lt;/h1&gt;
-
-&lt;p&gt;API significa &lt;em&gt;Application Programming Interface&lt;/em&gt;, ou Interface de Programação de Aplicações, em tradução livre. 
-Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no conjunto das classes e métodos públicos que você expõe aos consumidores.&lt;/p&gt;
-
-&lt;p&gt;A API age como um tipo de contrato entre você e os consumidores do seu código. É um acordo. Se você alterar o acordo, a outra parte não vai ficar muito feliz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;deal.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sua API pública deveria ter o máximo de estabilidade possível. Isso é particularmente importante quando você está criando um &lt;em&gt;web service&lt;/em&gt;, uma biblioteca, ou qualquer tipo de ferramenta na qual terceiros dependem.&lt;/p&gt;
-
-&lt;p&gt;A propósito, esses “terceiros” não necessariamente precisar estar distante geograficamente de você. É bem comum em empresas, médias para cima, que vários times dependam de código disponibilizado por outros. O que aconteceria se cada equipe fizesse alterações drásticas em suas APIs constantemente? Caos.&lt;/p&gt;
-
-&lt;p&gt;A partir do momento que você expõe um método publicamente, você tem a responsabilidade de mantê-lo funcionando e honrando seu contrato; do contrário, você corre o risco de causar quebra de retrocompatibilidade nos seus clientes!&lt;/p&gt;
-
-&lt;p&gt;Um bom uso de métodos privados pode ajudar a manter um encapsulamento correto no seu design.&lt;/p&gt;
-
-&lt;p&gt;Aqui temos mais uma citação de Kent R Spillner:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sometimes, private methods are created just to give pieces of functionality more descriptive names. Although descriptive names are desirable, creating private methods to provide descriptive names for things is still a smell. Moving these methods to collaborators and making them public creates opportunities for future reuse without reducing the clarity of the original code.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Às vezes, métodos privados são criados apenas para dar nomes mais descritivos a pequenos trechos de funcionalidade. Embora nomes descritivos são desejáveis, criar métodos privados para dar nomes descritivos a coisas ainda é um &lt;em&gt;smell&lt;/em&gt;. Mover esses métodos para colaboradores e torná-los públicos cria oportunidades para reuso futuro sem reduzir a claridade do código original.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Esse é um dos pontos com os quais eu discordo mais veementemente. Eu frequentemente crio métodos privados pela exata razão que Kent critica aqui, ou seja, dar nomes descritivos a certos trechos de código, um hábito eu adquiri após ler o livro &lt;em&gt;Código Limpo&lt;/em&gt;, de Robert C. Martin.&lt;/p&gt;
-
-&lt;p&gt;Kent defende que o jeito correto de lidar com isso seria mover esses métodos para novas classes e torná-los públicos.&lt;/p&gt;
-
-&lt;p&gt;Mas se eu fizer isso, eu adiciono um novo método à API público da minha aplicação! Agora eu tenho um método a mais para documentar, testar e manter, mesmo que jamais tenha intencionado que esse método fizesse parte da API.&lt;/p&gt;
-
-&lt;p&gt;Aqui temos uma definição para modificadores de acesso que na minha opinião acerta em cheio:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;public - this method is part of the published API and will not change within major versions of the class&lt;/p&gt;
-
-  &lt;p&gt;[…]&lt;/p&gt;
-
-  &lt;p&gt;private - this method was refactored out of a well tested public or protected method for reasons of clarity or internal re-use. This method may absolutely change, even in patch releases, and should not be relied upon to even exist.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;público - este método é parte da API publicada e não vai mudar dentro de versões principais da classe.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;[…]&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;privado - este método foi criado na refatoração de um método público ou protegido bem testado, por razões de claridade ou reuso interno. Este método com certeza pode ser alterado, mesmo em releases de correção, e ninguém deveria depender da existência dele.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Eu concordo com essa definição. Portanto, em minha visão.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Métodos privados não são necessariamente uma coisa ruim a ser evitada a todo custo.&lt;/li&gt;
-  &lt;li&gt;A prática de tornar métodos privados em públicos não leva automaticamente a um design melhor; ela pode também gerar uma API desnecessariamente inflada, encapsulamento enfraquecido, e maior trabalho para manutenção.&lt;/li&gt;
-  &lt;li&gt;Testabilidade é um objetivo nobre, mas precisa ser buscado de maneira pragmática. Métodos públicos bem testados e bem documentados deveriam ser suficientes, na maioria dos casos.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;mtodos-privados-podem-ser-bons-ou-ruins-aprenda-a-separ-o-joio-do-trigo&quot;&gt;Métodos privados podem ser bons ou ruins; aprenda a separ o joio do trigo&lt;/h2&gt;
-
-&lt;p&gt;Tudo isso dito, eu também acho que existem casos nos quais métodos privados são usados de uma maneira errada. Toda ferramenta pode ser abusada. Existem alguns sinais para os quais você precisa ficar alerta:&lt;/p&gt;
-
-&lt;p&gt;Se um método privado está em um &lt;strong&gt;nível de abstração diferente&lt;/strong&gt; que os públicos em uma classe, é um sinal de que ele pertence em outra classe. Leitura e escrita em arquivo está um nível de abstração bem mais baixo que o cálculo do pagamento mensal de um empregado, por exemplo.&lt;/p&gt;
-
-&lt;p&gt;Quando um método privado é tão complexo que você realmente queria poder testá-lo…é sinal de que ele provavelmente deveria ser público. (Antes que você corra para os comentários para apontar minha aparente contradição, eu não estou dizendo que &lt;strong&gt;todos&lt;/strong&gt; os métodos privados deveriam virar públicos para serem testáveis…apenas aqueles que ultrapassam um determinado limiar de complexidade).&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;pt&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/pablogl&quot;&gt;@pablogl&lt;/a&gt; i only test public methods. if a private method is complex enough to need testing, it generally needs its own object.&lt;/p&gt;&amp;mdash; Kent Beck (@KentBeck) &lt;a href=&quot;https://twitter.com/KentBeck/status/3579860805&quot;&gt;27 de agosto de 2009&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;E quando um método privado contém código duplicado, do tipo, copiado e colado de outra classe? Livre-se da duplicação na hora!&lt;/p&gt;
-
-&lt;p&gt;Então, esse é o ponto: duas das três dicas que acabo de mostrar são meio subjetivas. Em algum ponto, você tem que fazer algumas escolhas. Quão complexo é complexo o suficiente para um método privado precisar de testes unitários? Como distinguir níveis de abstrações diferentes?&lt;/p&gt;
-
-&lt;p&gt;A melhor dica que eu posso oferecer é: &lt;strong&gt;Duas cabeças pensam melhor que uma&lt;/strong&gt;. Sempre faça com que outra pessoa olhe e examine seu código antes de ser commitado. Programação em par e/ou revisão de código são ótimas técnicas, não apenas para melhorar o projeto e encontrar bugs, mas principalmente para espalhar conhecimento por uma equipe. Não só conhecimento técnico, mas conhecimento do domínio também, e isso pode fazer toda a diferença na hora de tomar as decisões difíceis.&lt;/p&gt;
-
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
-
-&lt;p&gt;Embora métodos privados podem ser usados em maneiras ruins, eu penso que seria prematuro automaticamente rotulá-los como uma coisa ruim a ser evitada.&lt;/p&gt;
-
-&lt;p&gt;Me parece que algumas das pessoas que afirmam estar argumentando contra métodos privados &lt;strong&gt;estão na verdade argumento contra problemas que são ortogonais a métodos privados&lt;/strong&gt;; você pode violar a SRP com ou sem métodos privados; você pode causar problemas com estado interno mutável com ou sem métodos privados, e assim por diante.&lt;/p&gt;
-
-&lt;p&gt;Desenvolver software é uma arte, cheia de &lt;em&gt;trade-offs&lt;/em&gt; e incerteza. E ainda que “regras de ouro” possam ser úteis, elas não devem ser seguidas cegamente.&lt;/p&gt;
-
-&lt;p&gt;Este post ficou muito mais longo do que eu planejei. Agradeço caso tenha chegado até aqui. Até a próxima!&lt;/p&gt;
-
-&lt;h2 id=&quot;veja-tambm&quot;&gt;Veja também&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented&quot;&gt;http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&quot;&gt;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&quot;&gt;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&quot;&gt;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct&quot;&gt;https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&quot;&gt;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://rc3.org/2010/01/26/the-argument-against-private-methods/&quot;&gt;http://rc3.org/2010/01/26/the-argument-against-private-methods/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html&quot;&gt;http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Sun, 29 Jan 2017 00:00:00 -0200</pubDate>
-        <link>http://carlosschults.net/pt/metodos-privados-code-smell/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/metodos-privados-code-smell/</guid>
-        
-        <category>code smell</category>
-        
-        <category>boas práticas</category>
-        
-        <category>orientacao-a-objetos</category>
         
         
       </item>
