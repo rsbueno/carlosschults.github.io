@@ -1,0 +1,1654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>carlos schults / blog</title>
+    <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
+    <link>http://carlosschults.net/</link>
+    <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 05 Dec 2017 12:10:30 -0200</pubDate>
+    <lastBuildDate>Tue, 05 Dec 2017 12:10:30 -0200</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+    
+      <item>
+        <title>Como aprender inglês: Um guia para desenvolvedores, Parte 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Parte 2: Pratique diariamente. Áudio em primeiro lugar.&lt;/em&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;No &lt;a href=&quot;http://carlosschults.net/pt/como-aprender-ingles-parte-1&quot;&gt;post anterior&lt;/a&gt; eu expliquei quais são, na minha opinião, os principais erros que as pessoas cometem ao tentar aprender inglês.&lt;/p&gt;
+
+&lt;p&gt;Agora chegou a hora de fazer o oposto: vou detalhar o que você &lt;em&gt;deve&lt;/em&gt; fazer para aprender inglês da forma correta, gastando pouco e se divertindo no processo.&lt;/p&gt;
+
+&lt;h2 id=&quot;antes-um-disclaimer&quot;&gt;Antes, um disclaimer&lt;/h2&gt;
+
+&lt;p&gt;Apenas para deixar claro. Eu não sou de forma alguma uma autoridade em aprendizado de idiomas. Não sou formado em Linguística ou algo do tipo. Não tenho credenciais.&lt;/p&gt;
+
+&lt;p&gt;Também não estou fazendo promessas mágicas, do tipo “fique fluente em três meses”. Desconfie de qualquer um que venda esse tipo de coisa. Aprender inglês é mais fácil do que a maioria das pessoas pensam, &lt;strong&gt;mas ainda sim leva tempo e demanda esforço&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Este post e o anterior têm o objetivo de compartilhar a minha experiência no aprendizado do inglês, detalhando o que funcionou ou não
+para mim. Também é minha intenção que você aprenda com meus erros, de modo que sua jornada não precise demorar tanto quanto a minha.&lt;/p&gt;
+
+&lt;h2 id=&quot;se-eu-aprendi-ingls-voc-tambm-pode&quot;&gt;Se eu aprendi inglês, você também pode&lt;/h2&gt;
+
+&lt;p&gt;Eu nunca fiz curso de inglês em escola particular. Com exceção de uma vez que fui à Wizard da minha cidade entregar currículo para o
+cargo de professor de informática, eu nunca &lt;strong&gt;entrei&lt;/strong&gt; em uma escola de inglês. Também estudei em escola pública a vida toda. Nunca fiz intercâmbio (aliás, nunca saí do país). Durante a maior parte da vida, não tive computador e internet em casa. Smartphone? Só aos 22 anos.&lt;/p&gt;
+
+&lt;p&gt;E eu tenho confiança para dizer que o meu inglês é melhor que várias pessoas que conheço que tiveram uma ou mais dessas oportunidades.
+Sei que corro o risco de soar arrogante dizendo este tipo de coisa, mas garanto que esta não é a intenção. Muito pelo contrário, 
+estou tentando usar meu exemplo pessoal para tentar derrubar alguns mitos.&lt;/p&gt;
+
+&lt;p&gt;Não, não precisa sair do país para aprender inglês. Não, não precisa estudar em escola de inglês famosa. Não, não precisa ter muito
+dinheiro.&lt;/p&gt;
+
+&lt;p&gt;Tudo isso é &lt;em&gt;nice to have&lt;/em&gt;, não &lt;em&gt;must have&lt;/em&gt;. Se você tiver oportunidade de fazer intercâmbio, então é claro que você deve ir. Se você teve a oportunidade de estudar inglês desde cedo, meus parabéns. Se você tem muito dinheiro…bora dividir um pouco? ;)&lt;/p&gt;
+
+&lt;p&gt;Apenas não use a falta de uma ou mais destas coisas como desculpa para não se dedicar.&lt;/p&gt;
+
+&lt;h2 id=&quot;minha-jornada-com-o-ingls&quot;&gt;Minha jornada com o inglês&lt;/h2&gt;
+
+&lt;p&gt;Se eu tivesse que listar de forma resumida o meu trajeto no inglês, seria algo assim:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fase informal
+    &lt;ul&gt;
+      &lt;li&gt;Vários anos de contato contínuo, porém limitado, com o inglês &lt;strong&gt;escrito&lt;/strong&gt;.&lt;/li&gt;
+      &lt;li&gt;Exposição ao inglês falado por meio de filmes e músicas.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Fase formal
+    &lt;ul&gt;
+      &lt;li&gt;Leitura de dicas de vocabulário e expressões&lt;/li&gt;
+      &lt;li&gt;Prática consistente de listening&lt;/li&gt;
+      &lt;li&gt;Conversação com professor nativo&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Vou agora expandir esses tópicos e contar em detalhes a história do meu aprendizado em inglês.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-fase-informal&quot;&gt;A “fase informal”&lt;/h2&gt;
+&lt;p&gt;Eu sempre gostei e tive vontade de aprender inglês. Mas minha família não tinha condições de pagar um curso; eu também não tinha videogame, videocassete (sim, você não leu errado) ou outras amenidades que poderiam de alguma forma me dar mais exposição ao inglês.&lt;/p&gt;
+
+&lt;p&gt;Computador só em sonho. Naquela época (meados dos anos 90) o custo de um computador era proibitivo para a maior parcela da população (que era exatamente a &lt;em&gt;minha&lt;/em&gt; parcela).&lt;/p&gt;
+
+&lt;p&gt;Para piorar, nesta época não havia aulas de inglês para ensino fundamental antes da quinta série, pelo menos no ensino público. 
+Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola. Antes tarde que nunca, certo?&lt;/p&gt;
+
+&lt;p&gt;Sendo assim, minha exposição ao inglês era rara e em doses minúsculas. Por exemplo, eu lia tudo em inglês que encontrava em embalagens e manuais de instruções de aparelhos que meus pais compravam; eu lia as coisas em inglês nos próprios aparelhos; eu mudava o idioma do menu da TV para inglês (e espanhol também) só para ver como era.&lt;/p&gt;
+
+&lt;p&gt;A TV era outra fonte de pequenos momentos de contato com o inglês, através de filmes e desenhos. Sim, eu assistia tudo dublado, claro (TV a cabo? O que é isso?). Mas ainda sim oportunidades surgiam; o exemplo típico é quando aparecia algo escrito em inglês no filme/desenho (letreiro de loja, rótulo de algum produto, sinal de trânsito, título do episódio) e o locutor falava em português a tradução.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we&#39;re closed&amp;quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Foi em 2001, mas eu me lembro bem como estava ansioso para o início da quinta série. &lt;strong&gt;Finalmente&lt;/strong&gt; iria ter aulas de inglês!&lt;/p&gt;
+
+&lt;p&gt;Imagine o grau da minha decepção quando as aulas de fato começaram.&lt;/p&gt;
+
+&lt;p&gt;Não quero causar polêmica mas acredito que não é segredo nenhum que as aulas de inglês do ensino público…deixam a desejar.&lt;/p&gt;
+
+&lt;p&gt;Seria injusto (e mentiroso) dizer que eu não aprendi algo. Eu aprendi os dias da semana, os meses do ano, os números (até um certo ponto), o básico do verbo to be. Tudo isso, claro, com uma pronúncia que passava longe da correta, mas depois vou voltar a esse assunto.&lt;/p&gt;
+
+&lt;p&gt;Em algum momento eu comprei um minidicionário de inglês, que embora fosse bem limitado, tinha uma &lt;em&gt;feature&lt;/em&gt; muito útil: na frente de cada entrada do dicionário, havia a pronúncia “aportuguesada” da palavra.&lt;/p&gt;
+
+&lt;p&gt;Algo assim:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512430827/dictionary-min_vxoqp5.jpg&quot; alt=&quot;Página do dicionário de inglês&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Isso me ajudou a aprender a pronúncia aproximada de várias palavras, e ver que elas eram bem diferentes do que eu imaginava (e do que muitas pessoas pronunciavam).&lt;/p&gt;
+
+&lt;p&gt;Minha exposição ao inglês ia lentamente crescendo. Acho que foi mais ou menos nesta época que eu finalmente ganhei um video-game: o lendário &lt;a href=&quot;https://jogos.uol.com.br/ultimas-noticias/2013/05/10/uol-jogos-testa-o-polystation-videogame-que-mais-engana-os-pais.htm&quot;&gt;Polystation&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Não era o que eu realmente queria, claro, mas ainda sim me proporcionou muitas horas de diversão e um pouco mais de aprendizado.&lt;/p&gt;
+
+&lt;p&gt;Foi por volta de 2004 que eu finalmente realizei outro sonho: comprei um aparelho de DVD. \o/&lt;/p&gt;
+
+&lt;p&gt;Eu privilegiava alugar filmes mais antigos, que eram mais baratos que os lançamentos. E ainda assim, eu alugava relativamente poucos filmes, às vezes só um. Então, eu queria aproveitar ao máximo: eu assistia dublado, depois novamente legendado, via todos os materiais extras disponíveis, como documentários, cenas excluídas, comentários de diretor, este tipo de coisa. Um ponto importante é que &lt;strong&gt;o material extra era apenas legendado&lt;/strong&gt;, o que me forçava a assistir com legendas, mesmo não gostando muito na época.&lt;/p&gt;
+
+&lt;p&gt;Com cerca de 14, 15 anos, uma nova paixão surgiu na minha vida: a música (ou para ser específico, o &lt;em&gt;rock&lt;/em&gt;). Mais aprendizado veio na forma de tradução das letras das músicas nos encartes dos CD’s.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD&#39;s e DVD&#39;s de Rock&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;No final de 2006 eu consegui meu primeiro estágio na área da informática. Depois de algum tempo (provavelmente no começo do ano seguinte) comprei meu primeiro computador: um Positivo, com configurações risíveis. Mas era um sonho que eu tive por boa parte da minha vida e finalmente havia conseguido realizá-lo.&lt;/p&gt;
+
+&lt;p&gt;Eu continuava não tendo acesso à internet, porém. Sinceramente não lembro bem a razão; deve ter sido uma mistura de custo proibitivo e falta de cobertura em nosso bairro, provavelmente. Mas eu tinha acesso à internet no próprio estágio, então eu aproveitava os momentos livres para ler, principalmente artigos na Wikipédia.&lt;/p&gt;
+
+&lt;p&gt;Lá para meados de 2007 finalmente consegui ter acesso à internet em minha casa, por meio de um provedor local, via rádio. Era uma conexão bem precária, com a velocidade apenas um pouco maior do que internet discada, mas já era alguma coisa.&lt;/p&gt;
+
+&lt;p&gt;Interessante salientar que nesta época minha leitura já era boa; &lt;strong&gt;eu conseguia entender com facilidade a maior parte dos textos que me propunha a ler&lt;/strong&gt;. Todos os anos de exposição contínua ao inglês, ainda que limitada, estavam dando fruto.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-fase-formal&quot;&gt;A fase “formal”&lt;/h2&gt;
+&lt;p&gt;### Aprendendo a estudar inglês&lt;/p&gt;
+
+&lt;p&gt;Em 2010, eu iniciei o bacharelado em Ciência da Computação. Também comecei a fazer estágio em uma pequena firma de desenvolvimento de software da cidade.&lt;/p&gt;
+
+&lt;p&gt;Nesta época, eu já tinha criado vários hábitos para ampliar meu contato com o inglês. Por exemplo, eu só assistia filmes e séries com áudio &lt;em&gt;E&lt;/em&gt; legenda em inglês. Passei a usar o inglês quando fazia anotações. Mudei o idioma do sistema operacional para inglês. E assim por diante.&lt;/p&gt;
+
+&lt;p&gt;No entanto, eu ainda não estava satisfeito. Foi quando resolvi realmente estudar inglês, com método, com um plano de estudos diário, coisa que eu não havia feito até então. E é esta a razão da divisão entre fase formal e fase informal no nome dos tópicos.&lt;/p&gt;
+
+&lt;p&gt;Até então, eu nunca tinha tentado &lt;em&gt;falar&lt;/em&gt; inglês. Eu estava satisfeito em conseguir ler razoavelmente bem, mas a conversação, por algum motivo, não me interessava. Talvez eu achasse que estivesse além da minha capacidade ou algo assim. Sinceramente, não me lembro.&lt;/p&gt;
+
+&lt;p&gt;Foi nesta época que eu comecei a acompanhar sites de dicas de aprendizado de inglês (no fim deste post vou listar vários). Esses sites me apresentaram à noção de praticar o &lt;em&gt;listening&lt;/em&gt;, ou seja, ouvir o áudio em inglês. Eu já era fã de &lt;a href=&quot;https://en.wikipedia.org/wiki/Podcast&quot;&gt;podcasts&lt;/a&gt;, principalmente voltados a filmes, quadrinhos, games, esse tipo de coisa. Então, foi um passo natural passar a ouvir podcasts de aprendizado de inglês.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts!&lt;/h3&gt;
+
+&lt;p&gt;O primeiro podcast que passei a consumir regularmente foi o &lt;a href=&quot;http://eslpod.com/&quot;&gt;ESL Podcast&lt;/a&gt;. Eu ouvia os episódios durante o horário do almoço, acompanhando a transcrição. O texto geralmente consistia de um diálogo entre dois personagens. Os leitores liam bem devagar e de maneira bem articulada, de modo que era fácil de entender o que eles estavam dizendo.&lt;/p&gt;
+
+&lt;p&gt;Não demorou muito tempo na verdade para que eu desse o próximo passo na minha evolução: &lt;strong&gt;passei a conseguir entender 100% do áudio sem as transcrições&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Eu diria que esse é um passo decisivo no progresso do seu aprendizado. Não depender de transcrições te dá uma liberdade sem precedentes para praticar o &lt;em&gt;listening&lt;/em&gt;. Você pode ouvir:
+- fazendo exercícios;
+- indo ou vindo do trabalho;
+- na fila ou sala de espera do banco/correio/dentista/etc;
+- lavando a louça, limpando a casa ou fazendo outro tipo de trabalho manual.&lt;/p&gt;
+
+&lt;p&gt;Em resumo, ouvir sem depender da transcrição &lt;strong&gt;deixa suas mãos livres&lt;/strong&gt;, o que te permite &lt;strong&gt;integrar o inglês na sua rotina&lt;/strong&gt;, ocupando intervalos de tempo que em outra situação seriam desperdiçados.&lt;/p&gt;
+
+&lt;p&gt;Toda essa prática surtiu efeito e a minha compreensão do inglês falado foi melhorando consideravelmente. Aos poucos, eu fui abandonando os podcasts de “aprendizado de inglês” e passei apenas a ouvir podcasts de assuntos variados (inclusive de programação).&lt;/p&gt;
+
+&lt;p&gt;Toda essa prática surtiu efeito e a minha compreensão do inglês falado aumentou consideravelmente. Só faltava uma coisa: como arrumar alguém para conversar?&lt;/p&gt;
+
+&lt;h3 id=&quot;skype-to-the-rescue&quot;&gt;Skype to the rescue&lt;/h3&gt;
+
+&lt;p&gt;Por volta de 2014, se não me engano, eu vim a saber de um americano chamado &lt;a href=&quot;https://www.linkedin.com/in/blakewind/&quot;&gt;Blake Wind&lt;/a&gt; que dava aulas de inglês por Skype, e cobrava mais barato que muitos outros professores da época.&lt;/p&gt;
+
+&lt;p&gt;Fiz diversas aulas com o Blake em 2014 e 2015, e depois de um tempo parei devido à alta do dólar. Desde então, faço aulas esporadicamente quando sinto que preciso de prática em algum ponto específico.&lt;/p&gt;
+
+&lt;h2 id=&quot;roadmap&quot;&gt;Roadmap&lt;/h2&gt;
+
+&lt;p&gt;Se eu tivesse que aprender inglês novamente hoje - ou aprender outro idioma - como eu faria? É basicamente disso que esta seção se trata. Vou usar a minha experiência e os erros cometidos como base para criar um “roteiro” para você seguir.&lt;/p&gt;
+
+&lt;h3 id=&quot;aprender-o-bsico&quot;&gt;Aprender o básico&lt;/h3&gt;
+
+&lt;p&gt;Assim como uma casa precisa de um alicerce, você necessita de uma base de conhecimentos sobre a qual construir seu aprendizado. Como fazer isso?&lt;/p&gt;
+
+&lt;h4 id=&quot;duolingo&quot;&gt;Duolingo&lt;/h4&gt;
+&lt;p&gt;Algo que não existia na minha época que teria ajudado muito é o &lt;a href=&quot;https://www.duolingo.com/&quot;&gt;Duolingo&lt;/a&gt;. Eu estou atualmente usando esse aplicativo para estudar Espanhol e Francês, e eu posso dizer que ele funciona &lt;strong&gt;caso seu objetivo seja avançar do zero até um conhecimento básico&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Você não vai sair falando inglês apenas com ele, mas você vai conseguir praticar as quatro habilidades. Você vai conseguir construir um vocabulário, aprendendo não apenas palavras soltas mas também frases comuns e expressões, &lt;strong&gt;e integrando o áudio e a pronúncia correta desde o início&lt;/strong&gt;, o que é fundamental.&lt;/p&gt;
+
+&lt;p&gt;Estude com o Duolingo todo dia, até terminar o curso. Após isso, continue reforçando os pontos nos quais não estiver tão bem.&lt;/p&gt;
+
+&lt;h4 id=&quot;curso-ingls-online&quot;&gt;Curso Inglês Online&lt;/h4&gt;
+&lt;p&gt;Depois do Duolingo, eu recomendo o &lt;a href=&quot;http://www.cursoinglesonline.com.br/curso-basico-informacoes/&quot;&gt;curso básico do site Inglês Online, da Ana Luiza&lt;/a&gt;. O curso é pago, mas é um valor que considero acessível e vale muito a pena.&lt;/p&gt;
+
+&lt;h3 id=&quot;prtica-diria-do-listening&quot;&gt;Prática diária do listening&lt;/h3&gt;
+
+&lt;p&gt;O próximo passo é integrar o áudio no seu dia-a-dia. Como já disse anteriormente, a situação ideal é chegar ao ponto de não precisar mais de transcrições, pois assim você terá liberdade para ouvir inglês praticamente em qualquer situação que sobrar um tempo.&lt;/p&gt;
+
+&lt;p&gt;Chegar até esse ponto vai demandar um certo trabalho, no entanto. Para isso, eu sugiro a leitura da série de artigos &lt;a href=&quot;http://www.inglesonline.com.br/como-falar-ingles-as-dicas-essenciais/&quot;&gt;“Como Falar Inglês - As Dicas Essenciais”&lt;/a&gt;, escrita pela Ana Luiza do site Inglês Online. É uma série um pouco extensa, mas que detalha passo a passo como evoluir no &lt;em&gt;listening&lt;/em&gt;, inclusive com fontes de áudio adequados para cada nível do aprendizado.&lt;/p&gt;
+
+&lt;h3 id=&quot;no-esquea-das-outras-reas&quot;&gt;Não esqueça das outras áreas&lt;/h3&gt;
+
+&lt;p&gt;O &lt;em&gt;listening&lt;/em&gt; deve ser o protagonista da sua estratégia de aprendizado. O que não significa que as outras habilidades devem ser negligenciadas.&lt;/p&gt;
+
+&lt;p&gt;Aqui vão algumas estratégias para deixá-las em dia:&lt;/p&gt;
+
+&lt;h4 id=&quot;reading&quot;&gt;&lt;em&gt;Reading&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Favoreça o inglês na leitura de qualquer material. Favoreça sempre a Wikipédia em inglês, assim como documentação de linguagens ou frameworks. Siga pessoas influentes da área no Twitter; leia seus blogs e quaisquer outras publicações. Além de praticar o seu inglês, você vai estar antenado(a) com o que acontece de importante na área.&lt;/p&gt;
+
+&lt;h4 id=&quot;writing&quot;&gt;&lt;em&gt;Writing&lt;/em&gt;&lt;/h4&gt;
+
+&lt;p&gt;Invente oportunidades para escrever em inglês. Crie um blog. Comece um diário. Encontre algum projeto Open Source que você ache interessante (de preferência, algo que você usa) e se envolva! Entre no &lt;a href=&quot;&quot;&gt;chat do projeto no Gitter&lt;/a&gt;; procure as issues no GitHub e participe das discussões; puxe assunto no Twitter com alguma daquelas pessoas influentes que você seguiu no passo anterior. Talvez você se surpreenda com a frequência com que elas respondem!&lt;/p&gt;
+
+&lt;p&gt;#### &lt;em&gt;Speaking&lt;/em&gt;
+Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (ou áudio) curto, de até um minuto, no qual você fala sobre seu dia (ou qualquer assunto).&lt;/p&gt;
+
+&lt;p&gt;Outra dica interessante é ler em voz alta. Encontre um texto, de preferência sobre um assunto que ache interessante, e leia em voz alta. Melhor ainda é gravar a sua leitura e depois pedir a opinião de uma pessoa que saiba inglês.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;DICA IMPORTANTE&lt;/strong&gt;: jamais tente adivinhar a pronúncia de uma palavra. Quando encontrar uma palavra que você jamais ouviu, ao invés de tentar pronunciá-la, ouça sua pronúncia correta antes. Uma ótima ferramenta para isso &lt;a href=&quot;https://pt.forvo.com/&quot;&gt;é o site Forvo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Falar sozinho e ler em voz alta sejam técnicas úteis, mas têm uma limitação importante e óbvia: a falta de interação com outra pessoa. Para resolver isso, temos sites de language exchange, &lt;a href=&quot;https://www.italki.com/home?hl=pt&quot;&gt;como o italki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, aulas com professores nativos sempre é uma opção, caso esteja dentro das suas possibilidades.&lt;/p&gt;
+
+&lt;h2 id=&quot;aprender-ingls--possvel-o-que-voc-est-esperando&quot;&gt;Aprender inglês é possível. O que você está esperando?&lt;/h2&gt;
+
+&lt;p&gt;Espero ter conseguido, através da minha história, mostrar que aprender inglês é possível sim, ainda que haja dificuldades. O meu aprendizado foi longo e inconsistente, por não ter tido as facilidades que existem hoje em dia.&lt;/p&gt;
+
+&lt;p&gt;Para te ajudar ainda mais, eu &lt;a href=&quot;http://carlosschults.net/como-aprender-ingles&quot;&gt;criei uma página com recursos para estudar inglês online&lt;/a&gt;. Vou mantê-la atualizada constantemente.&lt;/p&gt;
+
+&lt;p&gt;Agradeço pelo seu tempo, e estou à disposição caso precise de mais alguma ajuda. A área de comentários está aí para isso.&lt;/p&gt;
+
+&lt;p&gt;See you later!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 05 Dec 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/como-aprender-ingles-parte-2</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-2</guid>
+        
+        <category>boas práticas</category>
+        
+        <category>inglês</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Como aprender inglês: Um guia para desenvolvedores</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Parte 1: Não faça o que todo mundo faz.&lt;/em&gt;
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Esta é a primeira parte de uma série de dois posts. Veja &lt;a href=&quot;http://carlosschults.net/pt/como-aprender-ingles-parte-2&quot;&gt;a segunda parte&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;usar português ou inglês para nomear classes, variáveis, e demais artefatos no código&lt;/a&gt;. Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.&lt;/p&gt;
+
+&lt;p&gt;Minha opinião atual continua praticamente a mesma da época. Prefiro que você &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;leia o post completo&lt;/a&gt;, mas aqui vai a versão resumida: tente usar inglês o máximo possível, porém vão existir situações nas quais o português faz mais sentido. Decida de acordo com as características do seu projeto e equipe.&lt;/p&gt;
+
+&lt;p&gt;Outra coisa que ainda não mudou é a minha opinião de que quem trabalha desenvolvendo software &lt;strong&gt;definitivamente deve aprender inglês&lt;/strong&gt;.
+Se você tem uma lista de coisas para estudar, remova Kotlin/programação funcional/framework javascript da moda do topo da lista e coloque inglês no lugar.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.englishexperts.com.br/qual-e-o-significado-de-i-mean-it/&quot;&gt;I mean it.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;O que pretendo fazer agora  é compartilhar minha experiência ao aprender inglês de maneira autodidata, dando dicas para que a sua jornada seja mais fácil e rápida que a minha.&lt;/p&gt;
+
+&lt;p&gt;Este será um guia em duas partes. Nesta primeira parte, vou falar sobre os principais motivos que, em minha visão, dificultam o aprendizado das pessoas.&lt;/p&gt;
+
+&lt;p&gt;Mas talvez você ainda precise de convencimento sobre a importância do inglês. Se este é seu caso, a próxima seção é para você.&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-voc-deve-aprender-ingls-spoiler-no--para-ganhar-mais&quot;&gt;Por que você deve aprender inglês (SPOILER: não é para “ganhar mais”)&lt;/h2&gt;
+
+&lt;p&gt;Quando o assunto é o aprendizado de inglês, uma das razões mais citadas é o aumento de renda. Embora &lt;a href=&quot;http://g1.globo.com/concursos-e-emprego/noticia/2016/04/salario-e-ate-61-maior-entre-quem-fala-ingles-fluente-diz-pesquisa.html&quot;&gt;existam estudos que sugerem aumento de salário para quem domina o idioma&lt;/a&gt;, este não deveria ser o seu maior (ou único) motivador.&lt;/p&gt;
+
+&lt;p&gt;Outro argumento bastante usado é de que o inglês torna mais fácil conseguir um emprego. Intuitivamente, parece fazer sentido, embora eu desconheça algum estudo demonstrando isso (fique a vontade para postar um link nos comentários, caso conheça). Como &lt;a href=&quot;https://pt.wikipedia.org/wiki/Evid%C3%AAncia_aned%C3%B3tica&quot;&gt;evidência anedótica&lt;/a&gt;, acredito que todos nós conhecemos muitas pessoas que são profissionais competentes e não dominam o idioma. Quanto a isso, pode se tranquilizar: &lt;strong&gt;sabendo programar minimamente bem, você vai conseguir um emprego mesmo sem saber inglês&lt;/strong&gt; (excluindo-se, obviamente, empresas no exterior ou cargos em empresas brasileiras que requerem comunicação com pessoas de fora). Poderíamos argumentar sobre a qualidade desses empregos, ou o salário que você poderá conseguir, mas não pretendo entrar neste mérito por enquanto.&lt;/p&gt;
+
+&lt;p&gt;Certo, mas… e aí? O que sobra? Colocando da maneira mais simples possível: você deve aprender inglês porque é &lt;strong&gt;útil&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;o-ingls-como-lngua-franca&quot;&gt;O inglês como língua franca&lt;/h3&gt;
+
+&lt;p&gt;O inglês é, para todos os efeitos, a língua franca da tecnologia. E isto facilita muitas coisas.&lt;/p&gt;
+
+&lt;p&gt;Um exemplo: eu gosto muito do &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;blog do Mark Seeman&lt;/a&gt; e fico feliz por ele escrever em inglês, mesmo sendo da Dinamarca. &lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net&quot;&gt;Também aprendi bastante coisa com seu livro sobre injeção de dependência&lt;/a&gt;. Até onde eu sei, este livro nunca foi traduzido para português, apesar da primeira edição ter sido lançada em 2011 (&lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net-second-edition&quot;&gt;a segunda edição está prevista para janeiro de 2018&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;O criador do Ruby On Rails, David Heinemeier Hansson, também é dinamarquês, o que não o impede de &lt;a href=&quot;https://medium.com/@dhh&quot;&gt;postar em inglês com frequência&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Como estamos no assunto de aprender um idioma, você deve conhecer um aplicativo chamado &lt;a href=&quot;https://pt.duolingo.com/&quot;&gt;Duolingo&lt;/a&gt;. Pois bem, o fundador e CEO do Duolingo (e também do &lt;a href=&quot;https://www.google.com/recaptcha&quot;&gt;reCaptcha&lt;/a&gt;) é o pesquisador &lt;a href=&quot;https://twitter.com/luisvonahn&quot;&gt;Luís von Ahn&lt;/a&gt;, da Guatemala. Embora de vez em quando poste algo em espanhol, o inglês é usado na maioria das comunicações dele nas redes sociais.&lt;/p&gt;
+
+&lt;p&gt;Por último mas não menos importante, vou citar o brasileiro &lt;a href=&quot;https://zenorocha.com/&quot;&gt;Zeno Rocha&lt;/a&gt;, referência no desenvolvimento front-end e que se comunica principalmente em inglês no seu site e diversas mídias sociais.&lt;/p&gt;
+
+&lt;p&gt;Vamos falar um pouco de Open Source agora. Recentemente eu comecei a contribuir com um projeto chamado &lt;a href=&quot;https://github.com/nodatime/nodatime/&quot;&gt;Noda Time&lt;/a&gt;. Se você der uma olhada na área de discussão do projeto, verá que todas elas são em inglês, apesar de haver contribuidores de diversas países (Brasil, Estados Unidos, Inglaterra e Rússia, só para citar alguns).&lt;/p&gt;
+
+&lt;p&gt;Poderia ficar aqui o dia citando exemplos, mas você pegou a ideia. Seria impraticável todos aprenderem os idiomas de todos. Consolidar em apenas um idioma é a solução óbvia.&lt;/p&gt;
+
+&lt;h3 id=&quot;o-ingls-como-facilitador-do-aprendizado&quot;&gt;O inglês como facilitador do aprendizado&lt;/h3&gt;
+
+&lt;p&gt;Acho que não é difícil convencer alguém de que, pelo menos na área de desenvolvimento de software, há muito mais material em inglês que em outros idiomas. Aliás, eu arriscaria que isto também é verdade para outras áreas.&lt;/p&gt;
+
+&lt;p&gt;Uma forma relativamente fácil de demonstrar isso é fazer uma busca no Google ou Youtube em português e depois em inglês, com os mesmos termos, e comparar o número de resultados retornados.&lt;/p&gt;
+
+&lt;p&gt;Outro site cuja diferença entre as versões em inglês e português é gritante é a famosa Wikipédia. Por exemplo, &lt;a href=&quot;https://pt.wikipedia.org/wiki/Bubble_sort&quot;&gt;compare o artigo sobre o algoritmo de ordenação BubbleSort em português&lt;/a&gt; com &lt;a href=&quot;https://en.wikipedia.org/wiki/Bubble_sort&quot;&gt;a versão em inglês&lt;/a&gt;. Nem precisa falar muita coisa, certo?&lt;/p&gt;
+
+&lt;p&gt;É claro que estes são apenas exemplos bobos, usando uma “metodologia” que não tem nada de científica, mas eu acredito que é suficiente. Também não estou de forma alguma afirmando que não existe conteúdo de qualidade em português - eu sei que existe. Aliás, a própria existência deste blog é prova de que acredito na importância do conteúdo em português.&lt;/p&gt;
+
+&lt;p&gt;Mas é inegável que &lt;strong&gt;é mais fácil encontrar material em qualidade e quantidade em inglês&lt;/strong&gt;. Não apenas na forma de tutoriais e blog posts, mas também em livros; assim como o já citado &lt;strong&gt;Dependency Injection in .Net&lt;/strong&gt;, do Mark Seeman, existem muitos outros livros que nunca foram traduzidos para o nosso idioma. Alguns livros &lt;em&gt;são&lt;/em&gt; traduzidos, eventualmente, mas a qualidade da tradução muitas vezes deixa a desejar.&lt;/p&gt;
+
+&lt;p&gt;E quem consegue entender o inglês falado? Esta pessoa já tem &lt;em&gt;muito&lt;/em&gt; mais vantagens, pois pode assistir palestras no Youtube, &lt;a href=&quot;https://www.pluralsight.com/&quot;&gt;cursos no Pluralsight&lt;/a&gt; e similares, &lt;strong&gt;ouvir a excelentes podcasts de tecnologia&lt;/strong&gt;, e muito mais.&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-as-pessoas-no-aprendem-ingls&quot;&gt;Por que as pessoas não aprendem inglês?&lt;/h2&gt;
+&lt;p&gt;Não é raro vermos &lt;a href=&quot;https://exame.abril.com.br/brasil/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking/&quot;&gt;matérias&lt;/a&gt; retratando o &lt;a href=&quot;http://jovempan.uol.com.br/programas/jornal-da-manha/brasil-cai-de-posicao-e-sai-do-top-40-no-ranking-mundial-de-proficiencia-em-ingles.html&quot;&gt;péssimo desempenho&lt;/a&gt; do Brasil nos rankings de proficiência no inglês.&lt;/p&gt;
+
+&lt;p&gt;Ao mesmo tempo, &lt;a href=&quot;https://g1.globo.com/economia/negocios/noticia/carlos-wizard-compra-35-da-wizeup-e-retoma-ao-setor-de-educacao.ghtml&quot;&gt;redes de escolas de idiomas são negociadas por bilhões&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Embora muitas pessoas tentem aprender inglês, poucas conseguem. Por quê?&lt;/p&gt;
+
+&lt;p&gt;Há pessoas que têm a resposta na ponta da língua para isso:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;“Precisa começar a estudar na infância”.&lt;/li&gt;
+  &lt;li&gt;“Precisa ter muito dinheiro”.&lt;/li&gt;
+  &lt;li&gt;“Precisa morar fora/fazer intercâmbio”.&lt;/li&gt;
+  &lt;li&gt;“Precisa ter uma inteligência muito acima da média”.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Eu acredito que estas pessoas estão &lt;em&gt;erradas&lt;/em&gt;. Embora essas coisas ajudem, nenhuma delas é &lt;em&gt;essencial&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Vou agora falar sobre o que eu considero os motivos principais que impedem as pessoas de aprender inglês.&lt;/p&gt;
+
+&lt;h3 id=&quot;excesso-de-foco-em-gramtica-em-detrimento-de-todo-o-resto&quot;&gt;Excesso de foco em gramática em detrimento de todo o resto&lt;/h3&gt;
+&lt;p&gt;Durante a faculdade, havia um colega que sempre me pedia ajuda nas provas de inglês, apesar dele ter estudado SETE anos em uma escola de idiomas famosa. E eu sempre comentava: “Cara, mas não te ensinaram isso no curso?” E sua resposta, invariavelmente, era: “Ah, eles não passavam muito vocabulário, era mais gramática).&lt;/p&gt;
+
+&lt;p&gt;Agora pense. E se esse meu amigo fosse abordado por um americano na rua perguntando “&lt;strong&gt;Excuse me? How do I get to the nearest subway station?&lt;/strong&gt;”? O que ele iria fazer? Abrir um livro de gramática? Recitar a lista de verbos regulares e irregulares?&lt;/p&gt;
+
+&lt;h3 id=&quot;falta-de-prtica&quot;&gt;Falta de prática&lt;/h3&gt;
+&lt;p&gt;Qualquer pessoa que já estudou algum instrumento musical sabe que não basta frequentar as aulas; é preciso praticar em casa, de acordo com o plano de estudos recebido. Fazer exercícios, treinar escalas, praticar percepção musical, &lt;strong&gt;todos os dias&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511625841/musician.jpg&quot; alt=&quot;Músico tocando violino&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;É claro que a necessidade de praticar não se aplica somente à música, mas também aos esportes, à programação e muitas outras áreas.&lt;/p&gt;
+
+&lt;p&gt;Agora, quando o assunto é inglês, algumas pessoas parecem pensar que elas vão aprender por osmose, por contágio, algo assim. Que basta ficar perto do(a) professor(a) por uma (ou na melhor das hipóteses, duas) horas e depois ir embora para casa e não ter nenhum contato com o idioma por uma semana e vão aprender assim mesmo.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://forum.wordreference.com/threads/i-hate-to-break-it-to-you.1910645/&quot;&gt;Sorry to break it to you&lt;/a&gt;, mas não vão.&lt;/p&gt;
+
+&lt;h3 id=&quot;no-integrar-o-udio-ao-aprendizado-ou-integr-lo-tardiamente&quot;&gt;Não integrar o áudio ao aprendizado (ou integrá-lo tardiamente)&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.inglesonline.com.br/2014/01/22/o-perigo-de-aprender-ingles-so-lendo/&quot;&gt;Este é um problema comum na área de TI&lt;/a&gt;. Inclusive, eu cometi este erro em uma etapa do meu aprendizado. Como precisamos constantemente ler textos técnicos em inglês, como manuais e documentações, muitos de nós conseguem ter um domínio razoável do inglês escrito ao longo dos anos.&lt;/p&gt;
+
+&lt;p&gt;O problema é quando chega a hora de &lt;em&gt;falar&lt;/em&gt;, principalmente por conta da pronúncia do inglês, que é totalmente não intuitiva para nós falantes de português.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826587/practice-listening-min_lzgqcr.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Na maioria das vezes, sem ter a referência da pronúncia correta, a pessoa acaba “aportuguesando” a pronúncia da palavra. Quantas pessoas você conhece que pronunciam 4Shared como “Quatro Xarédi”, ou algo do tipo?&lt;/p&gt;
+
+&lt;p&gt;Outro problema é que a pronúncia do inglês é bastante “imprevisível”. É perigoso você assumir que existem regrinhas infalíveis para a pronúncia e sair aplicando. Você pode até acertar algumas vezes, mas vai errar muitas outras. Veja as três palavras a seguir:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Book&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Door&lt;/em&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Blood&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Agora ouça a pronúncia de cada uma:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://forvo.com/_ext/ext-prons.js?id=1507143&quot;&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://forvo.com/_ext/ext-prons.js?id=6800&quot;&gt;&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://forvo.com/_ext/ext-prons.js?id=1436811&quot;&gt;&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;É provável que você tenha se surpreendido com a pronúncia de pelo menos uma delas.&lt;/p&gt;
+
+&lt;p&gt;Vamos a mais um exemplo. Desta vez, uma palavra que você conhece e usa com frequência: &lt;em&gt;Query&lt;/em&gt;. Você sabe a pronúncia desta palavra? &lt;strong&gt;Tem certeza?&lt;/strong&gt; Se você acha que rima com &lt;em&gt;very&lt;/em&gt;, então errou:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://pt.forvo.com/_ext/ext-prons.js?id=681194&quot;&gt;&lt;/script&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Resumidamente, pessoas que só tiveram contato com inglês escrito vão inevitavelmente internalizar pronúncias erradas devido à falta de exposição a áudios com as pronúncias corretas, o que acarretará em dificuldades na conversação.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-fazer-ento&quot;&gt;O que fazer então?&lt;/h2&gt;
+
+&lt;p&gt;Basicamente, o contrário do que foi listado acima. Colocando em uma frase, seria algo do tipo:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Estude/pratique consistentemente (de preferência todos os dias), utilizando uma estratégia de estudos que integre o uso de áudio desde o início, e não privilegia a gramática em detrimento de todas as outras áreas.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Sim, é um pouco abstrato, eu admito. Corrigiremos isso no próximo post, no qual eu vou contar a história do meu aprendizado no inglês, detalhando meus erros e acertos, para que sua jornada seja menos longa que a minha.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading! See you next time!&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 27 Nov 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/como-aprender-ingles-parte-1</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-1</guid>
+        
+        <category>boas práticas</category>
+        
+        <category>inglês</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Testes Unitários Para Iniciantes - Parte 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Antes tarde do que mais tarde! Hora de continuar nossa série sobre testes unitários para iniciantes. Hoje você vai escrever seu primeiro teste unitário.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduo&quot;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;No &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro artigo nesta série&lt;/a&gt; eu defini o que são testes unitários, e também falei dos benefícios de sua utilização.&lt;/p&gt;
+
+&lt;p&gt;Hoje você vai aprender, na prática, como criar testes unitários. Vou mostrar como instalar e utilizar o framework de testes &lt;strong&gt;NUnit&lt;/strong&gt;. E depois vamos criar alguns testes para você conhecer algumas das features deste framework.&lt;/p&gt;
+
+&lt;h2 id=&quot;instalando-o-nunit&quot;&gt;Instalando o NUnit&lt;/h2&gt;
+
+&lt;p&gt;Como eu expliquei no &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro post da série&lt;/a&gt;, para utilizar testes unitários na sua aplicação você necessita de um &lt;strong&gt;Framework de Testes&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;O framework que vamos utilizar é o &lt;strong&gt;NUnit&lt;/strong&gt;, que é baseado no JUnit, um framework de testes desenvolvido para a linguagem Java. Existem outros frameworks de teste disponíveis no mundo .Net, como o MS Test, desenvolvido pela própria Microsoft.
+Se for do seu interesse, você poderá experimentar os outros frameworks por conta própria mais tarde.&lt;/p&gt;
+
+&lt;p&gt;Ok, vamos começar. Para este projeto, eu vou utilizar o Visual Studio 2017. &lt;a href=&quot;https://www.visualstudio.com/pt-br/downloads/&quot;&gt;Clique aqui para baixar a versão Community&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Crie uma nova solução do tipo &lt;strong&gt;Class Library&lt;/strong&gt;, com o nome de &lt;strong&gt;LearningUnitTesting&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Uma coisa que eu sempre costumo fazer ao criar uma nova solução é excluir a classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Class1&lt;/code&gt; que vem criada por padrão. Você também poderia renomeá-la, é claro, mas fica totalmente ao seu critério.&lt;/p&gt;
+
+&lt;p&gt;Agora, vamos renomear o projeto padrão que foi criado para &lt;strong&gt;Application&lt;/strong&gt;. Este projeto vai servir para guardar o &lt;em&gt;código de produção&lt;/em&gt; em nossa solução.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;No contexto de testes unitários, usamos o termo &lt;strong&gt;Código de Produção&lt;/strong&gt; para nos referirmos ao código “real” da nossa aplicação, em contraste ao &lt;strong&gt;Código de Testes&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;O próximo passo é &lt;strong&gt;criar o projeto de testes&lt;/strong&gt;. Existem algumas opiniões diferentes a respeito de &lt;em&gt;onde&lt;/em&gt; devem ficar as classes de teste: se junto às classes de produção, ou em um local separado. Eu particularmente prefiro criar um projeto à parte, e o sistema de nomenclatura que eu costumo usar é: o mesmo nome do projeto de produção, mais a palavra &lt;em&gt;Test&lt;/em&gt; no final.&lt;/p&gt;
+
+&lt;p&gt;O nome do projeto será, portanto, &lt;strong&gt;ApllicationTest&lt;/strong&gt;, e também será do tipo &lt;strong&gt;Class Library&lt;/strong&gt;. 
+Após a criação do projeto, vou remover a classe adicionada por padrão, assim como fiz com o projeto de produção.&lt;/p&gt;
+
+&lt;p&gt;Sua solução deveria estar desta forma:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Chegou a hora de instalarmos o NUnit. Felizmente, o framework é disponibilizado como um pacote do Nuget, o que torna sua instalação trivial.&lt;/p&gt;
+
+&lt;p&gt;Pimeiro, abra o &lt;strong&gt;Console do Gerenciador de Pacotes&lt;/strong&gt;. Vá para: &lt;strong&gt;Ferramentas&lt;/strong&gt; &amp;gt; &lt;strong&gt;Gerenciador de Pacotes do Nuget&lt;/strong&gt; &amp;gt; &lt;strong&gt;Console do Gerenciador de Pacotes&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Quando o console estiver aberto, digite ou copie e cole o seguinte comando:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Install-Package NUnit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Verifique que o projeto de testes é o que está selecionado, como na imagem:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;E pressione &lt;em&gt;ENTER&lt;/em&gt;. A instalação será realizada em poucos segundos.&lt;/p&gt;
+
+&lt;p&gt;Entretanto, isto não é tudo. Precisamos instalar um outro pacote, o &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;, para que sejamos capazes de executar os testes do NUnit com o Visual Studio. O processo é o mesmo, o que muda é o comando:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Install-Package NUnit3TestAdapter&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Assim como no passo anterior, verifique que o projeto correto está selecionado antes de confirmar. A instalação deve terminar em poucos segundos.&lt;/p&gt;
+
+&lt;p&gt;É isto.&lt;/p&gt;
+
+&lt;h2 id=&quot;criando-e-executando-o-primeiro-teste&quot;&gt;Criando e executando o primeiro teste&lt;/h2&gt;
+
+&lt;p&gt;Vamos começar a criar alguns testes. Primeiro, vamos adicionar uma nova classe ao nosso projeto de Produção. A classe se chamará &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; e terá o seguinte código:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Eu imagino que a classe seja simples o suficiente e não necessita de explicação. Agora, vamos criar nossa classe de teste. No projeto &lt;strong&gt;ApplicationTest&lt;/strong&gt;, adicione uma nova classe com o nome de &lt;strong&gt;EmployeeTest&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Este é um dos padrões de nomenclatura que eu também utilizo: nomear a classe de teste com o mesmo nome da classe de produção, acrescentando &lt;em&gt;Test&lt;/em&gt; no final.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Após a criação da classe, adicione o namespace &lt;em&gt;NUnit.Framework&lt;/em&gt; na lista de usings da classe. Em seguida, crie um novo método público de retorno &lt;em&gt;void&lt;/em&gt; chamado &lt;strong&gt;MyFirstTestMethod&lt;/strong&gt; e adicione o atributo &lt;code class=&quot;highlighter-rouge&quot;&gt;[Test]&lt;/code&gt; a ele.&lt;/p&gt;
+
+&lt;p&gt;Nesse ponto, o código da classe deve estar assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/406525bd23d3ee2ecba4f7592c0f8af3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;O esqueleto do teste já está pronto. Então vamos escrever nossa primeira &lt;strong&gt;asserção&lt;/strong&gt;. Uma asserção é uma &lt;em&gt;afirmação&lt;/em&gt; sobre como um determinado método deveria se comportar. Caso a afirmação se prove verdadeira, dizemos que o teste &lt;em&gt;passou&lt;/em&gt;. Caso a afirmação se prove falsa, dizemos que o teste &lt;em&gt;falhou&lt;/em&gt;, ou quebrou.&lt;/p&gt;
+
+&lt;p&gt;No NUnit, utilizamos a classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; para escrevermos nossas asserções. Esta classe possui um número grande de métodos que nos permitem expressar nossas expectativas com relação ao comportamento das unidades que estamos testando.&lt;/p&gt;
+
+&lt;p&gt;Adicione a seguinte linha de código ao método de teste:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assert.Pass();&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Esta é uma asserção que serve para forçar o teste a passar. Vamos agora rodar esse teste para vê-lo passando. Primeiro, precisamos abrir o &lt;strong&gt;Gerenciador de Testes&lt;/strong&gt;. Vá para: &lt;strong&gt;Testar&lt;/strong&gt; &amp;gt; &lt;strong&gt;Janelas&lt;/strong&gt; &amp;gt; &lt;strong&gt;Gerenciador de Testes&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Na janela exibida, clique em &lt;em&gt;Executar Tudo&lt;/em&gt;. Caso tudo tenha funcionado da maneira correta, você verá isso:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Ao clicar no nome do teste, serão exibidas algumas informações adicionais, como o arquivo do teste e tempo decorrido:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Note o uso da cor verde para indicar o sucesso do teste.&lt;/p&gt;
+
+&lt;p&gt;Vamos agora fazer o contrário: forçar a falha do teste. Substitua a linha no método por:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assert.Fail();&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Execute o teste novamente e verá a mensagem de falha, dessa vez com a barra vermelha:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora que você já está pegando o jeito, vamos começar a testar a nossa classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;. Não esqueça de voltar o método de teste que fizemos para &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass&lt;/code&gt; para que ele não fique falhando.&lt;/p&gt;
+
+&lt;p&gt;Em seguida, adicione um novo método de teste chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;IntroduceMethodShouldWorkCorrectly&lt;/code&gt;. Nele, vamos criar uma nova instância do objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; e verificar que o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; está funcionando como deveria.&lt;/p&gt;
+
+&lt;p&gt;Antes de fazermos isso, porém, precisamos adicionar uma referência do projeto de produção ao nosso projeto de testes. Do contrário, nossa classe de teste não conseguirá enxergar as classes que deveria testar!&lt;/p&gt;
+
+&lt;p&gt;Para isso, clique com o botão direito no projeto &lt;strong&gt;ApplicationTest&lt;/strong&gt; &amp;gt; &lt;strong&gt;Adicionar&lt;/strong&gt; &amp;gt; &lt;strong&gt;Referência…&lt;/strong&gt;. Na janela exibida, selecione o projeto, conforme a imagem a seguir:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;E depois clique em OK.&lt;/p&gt;
+
+&lt;p&gt;De volta à classe de teste, modifique o método de teste para que fique da forma abaixo:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Você vai notar que &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; está marcado como erro. Ao passar o cursor em cima, você verá uma mensagem avisando que o nome &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; não pode ser encontrado e perguntando se não tem alguma referência ou diretiva &lt;em&gt;using&lt;/em&gt; faltando.&lt;/p&gt;
+
+&lt;p&gt;É claro que tem uma diretiva &lt;em&gt;using&lt;/em&gt; faltando, relativa à referência que acabamos de adicionar. Para corrigir o problema, basta adicionar a linha &lt;code class=&quot;highlighter-rouge&quot;&gt;using Application;&lt;/code&gt; no começo do arquivo.&lt;/p&gt;
+
+&lt;p&gt;Agora que o código compila, vamos entender este método, linha a linha.&lt;/p&gt;
+
+&lt;p&gt;Na primeira linha, instanciamos nossa classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;, definindo nome, profissão e salário. Na linha seguinte, atribuímos a uma variável o valor que &lt;strong&gt;esperamos&lt;/strong&gt; que o método retorne. Em seguida, atribuímos a outra variável o resultado da execução do método.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, utilizamos o método &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; da classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; para verificar se os dois valores são iguais. Este método é, provavelmente, o que você mais vai utilizar durante seus testes.&lt;/p&gt;
+
+&lt;p&gt;Agora é hora de executar o teste. Utilize o atalho &lt;strong&gt;CTRL + R, A&lt;/strong&gt; ou clique em &lt;strong&gt;Executar Tudo&lt;/strong&gt; na janela do Gerenciador de Teste. Se tudo der certo, você verá a barra verde e a mensagem indicando que os dois testes passaram.&lt;/p&gt;
+
+&lt;p&gt;Vamos agora testar o teste: vamos “estragar” o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; e ver se o método falha como deveria. De volta à classe de produção, vamos modificar o método da seguinte forma:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Como você viu, nós retiramos os colchetes ao redor de JobTitle. Desta forma, a interpolação de string não será realizada, fixando o texto “JobTitle” ao invés de substituí-lo pelo valor da variável.&lt;/p&gt;
+
+&lt;p&gt;Ao rodar os testes novamente, obtemos o seguinte resultado:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mensagem:   Expected string length 48 but was 46. Strings differ at index 37.
+Expected: “Hi! My name is Alice and I work as a Programmer.”
+But was:  “Hi! My name is Alice and I work as a JobTitle.”
+————————————————^&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre, seria algo como:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;O comprimento esperado da string era 48 mas o obtido foi 46. As string diferem a partir do índice 37.
+Esperado: “Hi! My name is Alice and I work as a Programmer.”
+Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Como podemos ver, a mensagem é bem explicativa. Ela nos informa não apenas que as string divergiram mas exatamente em que parte elas começaram a divergir. Também nos informa exatamente o texto esperado e o que realmente foi obtido. É importante salientar que a ordem dos parâmetros do método &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; importa, pois isso influi na mensagem exibida quando o teste falha.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;A ordem dos parâmetros no método &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; é muito importante. Passe primeiro o resultado esperado, e depois o que realmente foi obtido.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ótimo. Podemos voltar o método para sua implementação anterior e executar os testes novamente, para ver que o teste volte a passar.&lt;/p&gt;
+
+&lt;p&gt;Como você pode ver, um teste de unidade envolve uma sequência de passos bem definida: &lt;strong&gt;preparamos&lt;/strong&gt; o cenário, &lt;strong&gt;executamos&lt;/strong&gt; a ação, e &lt;strong&gt;verificamos&lt;/strong&gt; o resultado. Essa sequência de passos - ou fases - é muitas vezes chamada de AAA: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Um teste de unidade típico envolve as fases &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Embora existam outras nomenclaturas para as fases do teste de unidade, vamos adotar &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; como nossa nomenclatura padrão, ao menos por enquanto.&lt;/p&gt;
+
+&lt;p&gt;Você talvez esteja se perguntando por qual motivo eu de o nome de “sut” à variável declarada no início do método. Este é um padrão de nomenclatura que aprendi lendo o blog do &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;Mark Seeman&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; significa &lt;em&gt;System Under Test&lt;/em&gt;, ou “Sistema Sob Teste”, em tradução livre. É um termo usado para se referir à classe sendo testada no teste atual. Não há nada que obrigue a utilização de &lt;code class=&quot;highlighter-rouge&quot;&gt;sut&lt;/code&gt; como o nome da variável, mas eu gosto de usar dessa forma, pois deixa evidente no teste quem é que está sendo testado.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Dica: Procure utilizar padrões de codificação que melhorem a legibilidade e deixem a intenção do autor explícita para o leitor do código.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Logo abaixo temos o método de teste, dessa vez com comentários demonstrando cada fase do teste:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a91d41ff7ac732fc9c57e63c03a6be07.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Embora não seja realmente necessário, eu sugiro que você use comentários para demarcar as fases do teste como no exemplo acima, ao menos no início de seu aprendizado.&lt;/p&gt;
+
+&lt;h2 id=&quot;mais-um-teste-mtodo-giveraise&quot;&gt;Mais um teste: método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Um aumento no salário é sempre bem-vindo, concordam? Vamos testar que o método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; funciona como deveria. Na sua classe de teste, adicione o método a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Execute o teste e você deverá ver a familiar barra verde de sucesso. Deu certo? Ótimo. Hora de &lt;strong&gt;testar o teste:&lt;/strong&gt; vamos “sabotar” a implementação do método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; e ver se o teste falha.&lt;/p&gt;
+
+&lt;p&gt;Na classe de produção, vamos deixar o método assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/fba5901aaa2f542bcd8528de0e96afff.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Agora que o método está obviamente errado, o teste deveria falhar. Vamos executá-lo?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mensagem:   Expected: 110
+   But was:  5m&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ok, podemos ver que o teste realmente falhou. Podemos voltar o método ao normal e ver que agora tudo passa como deveria.&lt;/p&gt;
+
+&lt;h2 id=&quot;um-ltimo-teste&quot;&gt;Um último teste&lt;/h2&gt;
+
+&lt;p&gt;Digamos que surgiu um novo requisito: se a porcentagem de aumento passada for negativa, o salário deve permanecer o mesmo. Vamos então alterar o método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; para tratar este caso:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Fizemos uma alteração no código de produção. Nossa prioridade agora é &lt;strong&gt;verificar que nada quebrou&lt;/strong&gt;. Execute os testes para verificar se todos ainda estão passando normalmente.&lt;/p&gt;
+
+&lt;p&gt;Tudo ainda está verde? Ótimo, vamos em frente. Agora precisamos criar um novo teste para documentar o caso da tentativa de aumento negativo.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Testes de unidade também são uma forma de documentação.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Na classe de teste, adicione o método a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a474698655450da6547dbfa6b9dbcb8c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Nada de surpreendente aqui, certo? À esta altura, você já deve ter pegado o jeito da coisa. Assim, vou deixar por sua conta o &lt;strong&gt;teste do teste:&lt;/strong&gt; sabote o método de uma ou mais maneiras e confira que o teste falhou conforme deveria.&lt;/p&gt;
+
+&lt;h2 id=&quot;recapitulando&quot;&gt;Recapitulando&lt;/h2&gt;
+
+&lt;p&gt;O artigo de hoje foi bem mais prático que o anterior. Conseguimos abordar diversos tópicos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Instalação do &lt;strong&gt;NUnit&lt;/strong&gt; e &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;Criação de caso de teste;&lt;/li&gt;
+  &lt;li&gt;Conceito de &lt;em&gt;asserção&lt;/em&gt; e classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt;;&lt;/li&gt;
+  &lt;li&gt;Execução dos testes, tanto por meio do &lt;em&gt;Gerenciador de Testes&lt;/em&gt; quanto por teclas de atalho;&lt;/li&gt;
+  &lt;li&gt;Interpretação da mensagem de erro do teste;&lt;/li&gt;
+  &lt;li&gt;Fases do teste unitário (&lt;em&gt;Arrange-Act-Assert&lt;/em&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Além desses tópicos, também ampliamos nosso vocabulário relativo à testes, com os termos &lt;em&gt;SUT&lt;/em&gt;, &lt;em&gt;asserção&lt;/em&gt;, &lt;em&gt;código de teste x código de produção&lt;/em&gt;, entre outros.&lt;/p&gt;
+
+&lt;p&gt;Também foram abordados alguns padrões de nomenclatura, tanto para classes quanto para métodos de teste.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, você aprendeu sobre a importância de ver o teste falhar, e como podemos “testar o teste” através de uma sabotagem deliberada do código de produção.&lt;/p&gt;
+
+&lt;h2 id=&quot;notas&quot;&gt;Notas&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;O código do post de hoje &lt;a href=&quot;https://github.com/carlosschults/learning-unit-testing/&quot;&gt;está no Github&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Agradeço novamente ao amigo Gunter Italiano Ribeiro por revisar este artigo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Este foi o segundo artigo da minha série sobre testes unitários. Como já mencionei, ele é propositalmente maior e mais prático que o artigo inicial da série. Ainda assim, tudo o que foi abordado é apenas a ponta do iceberg do que existe a respeito de testes de unidade. Livros inteiros poderiam foram escritos sobre este assunto. Nos artigos futuros indicarei alguns, além de outros materiais para estudo.&lt;/p&gt;
+
+&lt;p&gt;Nos testes que escrevemos hoje, utilizamos a abordagem mais intuitiva - e provavelmente mais comum - de se criar os testes após o código de produção. Porém, muitas pessoas e equipes trabalham com uma metodologia diferente: eles escrevem os testes &lt;em&gt;antes&lt;/em&gt; do código de produção.&lt;/p&gt;
+
+&lt;p&gt;Pode parecer estranho, à princípio, mas trabalhar desta forma pode trazer diversos benefícios para seu projeto. Este e outros tópicos serão abordados no próximo artigo.&lt;/p&gt;
+
+&lt;p&gt;Até lá!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Aug 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/testes-unitarios-iniciantes-parte-2</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/testes-unitarios-iniciantes-parte-2</guid>
+        
+        <category>csharp</category>
+        
+        <category>iniciantes</category>
+        
+        <category>testes de software</category>
+        
+        <category>testes unitários</category>
+        
+        <category>testes automatizados</category>
+        
+        <category>csharp</category>
+        
+        <category>metodologias ágeis</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Funcionalidades do C# 7 que vale a pena conhecer - Parte 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Neste artigo, vamos continuar a ver algumas das features mais interessantes do C# 7.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Na &lt;a href=&quot;http://carlosschults.net/pt/funcionalidades-csharp-7/&quot;&gt;primeira parte da série&lt;/a&gt;, nós falamos sobre algumas das novas features do C#, a saber: melhorias em literais, variáveis de saída, mais membros “&lt;em&gt;expression-bodied&lt;/em&gt;” e throw expressions.&lt;/p&gt;
+
+&lt;p&gt;Hoje nós veremos: &lt;strong&gt;Tuplas&lt;/strong&gt; e &lt;strong&gt;Funções locais&lt;/strong&gt;. Mas antes de continuarmos, quero deixar meu agradecimento ao amigo Gunter Italiano Ribeiro, que gentilmente revisou este artigo.&lt;/p&gt;
+
+&lt;h2 id=&quot;tuplas&quot;&gt;Tuplas&lt;/h2&gt;
+
+&lt;p&gt;Alguma vez você já teve a necessidade de escrever um método que retornasse mais de um valor? Provavelmente sim. Nas versões anteriores do C#, havia algumas opções disponíveis. Você poderia usar um parâmetro de saída (&lt;em&gt;out&lt;/em&gt;), ou talvez criar um tipo específico, mas cada uma dessas opções tem seus próprios problemas. Parâmetros de saída podem complicar um pouco o design; criar um tipo para cada uma dessas situações pode ocasionar um &lt;em&gt;overhead&lt;/em&gt; desnecessário, se tudo que você quer é só uma maneira de retornar dois valores, principalmente em um contexto privado.&lt;/p&gt;
+
+&lt;p&gt;No C# 7.0 você tem uma nova opção, utilizando &lt;strong&gt;tuple types&lt;/strong&gt; e &lt;strong&gt;tuple literals&lt;/strong&gt;. Com esta funcionalidade você pode facilmente declarar um método que retorna mais de um valor. Vamos ver um exemplo:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/37689aeb84ed4fdff067eab72690a035.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Você é provavelmente familiar com o padrão &lt;code class=&quot;highlighter-rouge&quot;&gt;TryXXX&lt;/code&gt;, usado por exemplo no tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt;. Estes tipos de métodos geralmente utilizam um parâmetro de saída (&lt;em&gt;out&lt;/em&gt;) para retornar o valor resultante (ou o valor default do tipo, no caso da operação de &lt;em&gt;parsing&lt;/em&gt; não for bem sucedida.&lt;/p&gt;
+
+&lt;p&gt;O exemplo acima contém um método &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; na classe &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt;. Observe a assinatura do método.&lt;/p&gt;
+
+&lt;p&gt;Quando você escreve mais de um tipo desta forma na declaração do método, você está usando um &lt;em&gt;tuple type&lt;/em&gt;.  Não se preocupe, você vai se acostumar.&lt;/p&gt;
+
+&lt;p&gt;Logo no início do método, nós passamos o texto recebido para um método privado que realizada a validação propriamente dita e retorna um valor lógico.&lt;/p&gt;
+
+&lt;p&gt;Depois da validação, nós retornamos um &lt;em&gt;tuple literal&lt;/em&gt;, que consiste em uma nova instância da classe &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; e o flag indicando se a operação de &lt;em&gt;parsing&lt;/em&gt; foi bem sucedida.&lt;/p&gt;
+
+&lt;p&gt;Legal, mas e o outro lado? Como o chamador da função lida com este tipo de retorno? Vamos ver:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/81b46fd01a187d866a41c0a74c8fc430.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Se você colocar o cursor sobre o nome da variável, você verá seu tipo descrito, não surpreendentemente, como &lt;code class=&quot;highlighter-rouge&quot;&gt;(ZipCode, bool)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você pode acessar cada elemento da tupla utilizando &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item2&lt;/code&gt;, e assim por diante.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/f4a1cf2fea5808474fb126888c436f55.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Entretanto, você não é obrigado a usar os nomes padrão dos elementos. Você pode usar nomes mais descritivos:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/eb3d649160d4a72a8d94b8ae79eefa2c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;O código que chama o método torna-se mais legível:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/5f5c85d832af66094a68c4a59bdb23d7.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Há ainda outra maneira de acessar os elementos de uma tupla. Utilizando uma funcionalidade chamada &lt;strong&gt;Desconstrução&lt;/strong&gt;, você pode facilmente quebrar os componentes de uma tupla em variáveis.&lt;/p&gt;
+
+&lt;p&gt;Você pode declarar as variáveis usando seus tipos&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/cccbc00f7b154bb897c332e4f8ed614c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;É claro que inferência de tipo também funciona aqui, e neste caso você tem duas opções: usar a palavra-chave &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; para cada variável, ou usá-la uma vez só para todas as variáveis, colocando-a fora dos parênteses.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/225e608c7b844df46084b6a7af5b6ac2.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Você não precisa realmente declarar as variáveis no momento da desconstrução, porém. É perfeitamente válido desconstruir uma tupla em variáveis já declaradas.&lt;/p&gt;
+
+&lt;h3 id=&quot;algumas-notas&quot;&gt;Algumas notas&lt;/h3&gt;
+
+&lt;p&gt;Tuplas são &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;&lt;em&gt;Tipos de Valor&lt;/em&gt;&lt;/a&gt;. A igualdade nas tuplas é implementada da maneira que você provavelmente esperaria: duas tuplas são iguais se seus valores são iguais e elas retornam o mesmo &lt;code class=&quot;highlighter-rouge&quot;&gt;HashCode&lt;/code&gt;. O nome dos elementos não é relevante.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/4da3e29f9346a45aab9b5d9a583c6ac1.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;A atribuição também funciona da maneira que você provavelmente espera. Contato que elas sejam atribuíveis, duas tuplas podem ser atribuídas uma a outra facilmente. Assim como no caso anterior, nomes dos elementos não importam.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/7a8c710d4c22d31736d8dd714115e0c8.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Atualmente, para que esta funcionalidade funcione, você precisa instalar um pacote do nuget chamado “System.ValueTuple”. No Visual Studio, vá para &lt;strong&gt;Ferramentas&lt;/strong&gt; &amp;gt; &lt;strong&gt;Gerenciador de pacotes do NuGet&lt;/strong&gt; &amp;gt; &lt;strong&gt;Console do Gerenciador de Pacotes&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;A janela do Console do Gerenciador de Pacotes será exibida. Digite (ou copie e cole) &lt;code class=&quot;highlighter-rouge&quot;&gt;Install-Package System.ValueTuple&lt;/code&gt; e pressione &lt;code class=&quot;highlighter-rouge&quot;&gt;ENTER&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;mas-e-o-tipo-systemtuple&quot;&gt;Mas e o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt;?&lt;/h3&gt;
+
+&lt;p&gt;Você talvez esteja se perguntando: qual a razão de tanto barulho sobre tuplas, já que o .Net Framework tem o tipo de referência &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; desde a versão 4.0? Por que não continuamos com o tipo mais antigo?&lt;/p&gt;
+
+&lt;p&gt;Bem, &lt;a href=&quot;http://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple&quot;&gt;esta resposta no Stack Overflow explica muito bem (em inglês)&lt;/a&gt;, então eu vou tentar resumir aqui.&lt;/p&gt;
+
+&lt;p&gt;Primeiramente, conforme já mencionado, o tipo mais antigo é um tipo de referência, e o novo tipo é um tipo de valor, com todas as implicações usuais que isso traz.&lt;/p&gt;
+
+&lt;p&gt;Mas as diferenças realmente importantes têm a ver com conveniência e legibilidade. Ao usar &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; não há desconstrução; você só pode acessar os elementos usando os nomes padrão (Item1, Item2, etc), o que pode prejudicar a leitura e interpretação do código.&lt;/p&gt;
+
+&lt;h2 id=&quot;funes-locais&quot;&gt;Funções Locais&lt;/h2&gt;
+
+&lt;p&gt;Resumidamente, uma função local é exatamente o que o nome sugere: uma função que pode ser declarada dentro de outra.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/0aebfaf7d900d3b47a2d142a676dbb01.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Como você notou, a função interna consegue acessar os valores disponíveis para a função mais externa.&lt;/p&gt;
+
+&lt;p&gt;É claro que o exemplo acima é deliberadamente simples; em produção, você provavelmente escreveria o código em &lt;code class=&quot;highlighter-rouge&quot;&gt;Log()&lt;/code&gt; dentro do próprio método exterior.&lt;/p&gt;
+
+&lt;p&gt;Você também poderia utilizar um &lt;code class=&quot;highlighter-rouge&quot;&gt;delegate&lt;/code&gt;:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/045204806458c6563cd3a8b20a63133f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Pelo visto, tudo que podemos fazer com funções locais já é possível de ser feito com métodos privados ou &lt;code class=&quot;highlighter-rouge&quot;&gt;delegates&lt;/code&gt;. Será que precisamos mesmo desta feature?&lt;/p&gt;
+
+&lt;p&gt;Giovani Bassi nos mostra algumas razões para utilizar funções locais:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Sintaxe consistente com a já utilizada em métodos;&lt;/li&gt;
+    &lt;li&gt;Não há necessidade de criar um delegate, ou referenciar Func, Action, ou algo parecido;&lt;/li&gt;
+    &lt;li&gt;Lambdas e delegates causam alocações extras, funções locais não;&lt;/li&gt;
+    &lt;li&gt;Ref e out são permitidos;&lt;/li&gt;
+    &lt;li&gt;Tipos genéricos são permitidos;&lt;/li&gt;
+    &lt;li&gt;É possível referenciar funções ainda não declaradas.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;É claro que você poderia simplesmente usar um método privado. Mas a função local tem essa característica interessante de não ser acessível em nenhum outro lugar na classe, de maneira que não pode ser chamada acidentalmente.&lt;/p&gt;
+
+&lt;p&gt;Mads Torgersen nos mostra uma situação para a qual funções locais são a solução perfeita:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As an example, methods implemented as iterators commonly need a non-iterator wrapper method for eagerly checking the arguments at the time of the call. (The iterator itself doesn’t start running until MoveNext is called). Local functions are perfect for this scenario:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Como exemplo, é comum que métodos implementados como iteradores necessitem de um &lt;em&gt;wraper&lt;/em&gt; sem iterador para checar os argumentos imediatamente na hora da chamada. (O iterador em si não começa a rodar até que &lt;code class=&quot;highlighter-rouge&quot;&gt;MoveNext&lt;/code&gt; seja chamado). Funções locais são perfeitas para este cenário:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/34b77038c058f261f615e739c7f9ea2a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Você poderia transformar a função &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator()&lt;/code&gt; acima em um método privado, mas seria: 1) redundante e pouco elegante, pois iria requerer repetir a mesma assinatura e argumentos da função externa; e 2) menos seguro, pois outra parte do código poderia chamar o método sem fazer a validação.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Falamos hoje sobre &lt;strong&gt;Tuplas&lt;/strong&gt; e &lt;strong&gt;Funções Locais&lt;/strong&gt;, duas novas features do C# que, à primeira vista, podem até parecer “inofensivas”, mas que têm potencial para mudar o código que escrevemos de maneiras interessantes.&lt;/p&gt;
+
+&lt;p&gt;Com relação às funções locais, admito que, a princípio, não gostei. Ou melhor dizendo: não fui capaz de ver utilidade. Depois de pesquisar um pouco mais, entendi que funções locais têm sim seus casos de uso.&lt;/p&gt;
+
+&lt;p&gt;Com as tuplas a história é diferente. Acredito que quase todo desenvolvedor C# com alguma experiência já desejou poder retornar mais de um valor de um método e se frustrou com as opções disponíveis. Agora com as tuplas finalmente temos uma solução elegante, fácil de usar e que melhora a legibilidade do código.&lt;/p&gt;
+
+&lt;p&gt;Nem tudo são flores, infelizmente. Alguns desenvolvedores já expressaram preocupações com essas features. Por exemplo, as funções locais podem incentivar a proliferação de métodos gigantescos.&lt;/p&gt;
+
+&lt;p&gt;As tuplas, por sua vez, podem ser exageradamente utilizadas em situações que requerem &lt;em&gt;objetos&lt;/em&gt;, tornando o código mais procedural.&lt;/p&gt;
+
+&lt;p&gt;Minha opinião com relação à isso é simples: toda e qualquer feature pode ser abusada. Cada a nós, profissionais, e às nossas equipe, exercermos o senso crítico na hora de utilizar essas (e outras) funcionalidades. Aliás, conforme mencionei no &lt;a href=&quot;http://carlosschults.net/pt/metodos-privados-code-smell/&quot;&gt;meu artigo sobre métodos privados&lt;/a&gt;, revisão de código e/ou programação em par são de ótima ajuda em momentos como esse.&lt;/p&gt;
+
+&lt;p&gt;Obrigado pela leitura, e até a próxima.&lt;/p&gt;
+
+&lt;h2 id=&quot;referncias&quot;&gt;Referências&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&quot;&gt;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&quot;&gt;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 05 Jun 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/funcionalidades-csharp-7-parte-2</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp-7-parte-2</guid>
+        
+        <category>csharp</category>
+        
+        <category>iniciantes</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Introdução ao Git para usuários de TFS/TFVC</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491343925/git-for-tfs-users-1038x437_ios03n.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aprender Git pode ser desafiador para desenvolvedores com experiência em versionadores centralizados. Mas não precisa ser assim. 
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduo&quot;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;O Git está se tornando (já se tornou, muitos diriam) o sistema de controles de versão padrão da nossa área. O versionador foi criado em 2005 por Linus Torvalds para gerenciar o código-fonte do kernel do Linux, e desde então tem apresentado um crescimento fenomenal no seu uso, principalmente após o advento do &lt;a href=&quot;github.com&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Porém, mesmo após uma década de sua existência, alguns mitos sobre esse sistema ainda persistem. Um deles é de que Git é muito difícil de se aprender. E pela experiência que eu tive, isso simplesmente não é verdade.&lt;/p&gt;
+
+&lt;p&gt;O Git foi criado com o intuito de oferecer muita flexibilidade e poder aos seus usuários. Ou seja, ele permite uma maior complexidade ou sofisticação. Mas na prática, os comandos básicos, aqueles que você realmente irá usar no dia a dia, são relativamente fáceis de se aprender.&lt;/p&gt;
+
+&lt;p&gt;Tendo dito isto, a curva de aprendizado do Git &lt;em&gt;pode&lt;/em&gt; apresentar mais desafios para pessoas que estão acostumadas com sistemas de controle de versão centralizados. É natural tentar encontrar padrões e mapear conceitos entre o sistema que se conhece e o que se está aprendendo; mas existem diferenças marcantes o suficiente para que o resultado deste mapeamento seja frustrante.&lt;/p&gt;
+
+&lt;p&gt;Com isso em mente, resolvi escrever uma série de artigos para tentar auxiliar desenvolvedores vindos de versionadores centralizados (especificamente TFS/TFVC) e tentando aprender o Git. Não tenho nenhuma pretensão de fazer uma cobertura exaustiva do assunto; muito pelo contrário: nos momentos em que for necessário, indicarei conteúdos que ofereçam uma explicação mais densa de certos tópicos.&lt;/p&gt;
+
+&lt;h2 id=&quot;uma-nota-rpida-sobre-a-nomenclatura-utilizada-neste-artigo&quot;&gt;Uma nota rápida sobre a nomenclatura utilizada neste artigo&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;TFS&lt;/strong&gt; significa Team Foundation Server. É um produto da Microsoft que visa o gerenciamento de projeto, gerenciamento de requisitos, automatização de build, gerenciamento de releases, e diversas outras features.&lt;/p&gt;
+
+&lt;p&gt;O TFS também oferece a feature de controle de versão. Desde a versão 2013 existe suporte nativo para o Git, mas antes disso o versionamento era feito por meio de um versionador próprio, conhecido como &lt;strong&gt;Team Foundation Version Control (TFVC)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Então, &lt;strong&gt;TFS&lt;/strong&gt; se refere à solução completa de gerenciamento do ciclo de vida da aplicação. E &lt;strong&gt;TFVC&lt;/strong&gt; se refere ao versionador.&lt;/p&gt;
+
+&lt;p&gt;Independente disso, neste artigo vou me referir ao versionador como TFS, pois, coloquialmente, muitos desenvolvedores o conhecem por este nome.&lt;/p&gt;
+
+&lt;h2 id=&quot;commit--check-in&quot;&gt;Commit != Check-in&lt;/h2&gt;
+
+&lt;p&gt;O TFS, por ser um versionador centralizado, apresenta um fluxo de trabalho razoavelmente simples, que geralmente consiste em três ações:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Baixar a versão mais atualizada do código-fonte para sua máquina;&lt;/li&gt;
+  &lt;li&gt;Efetuar as alterações necessárias;&lt;/li&gt;
+  &lt;li&gt;Enviar de volta o código com suas alterações para o servidor.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Então, o comando &lt;em&gt;check-in&lt;/em&gt; no TFS acaba tendo duas semânticas: a de “salvar” alterações, e “enviar” estas alterações para o servidor.&lt;/p&gt;
+
+&lt;p&gt;O que noto é que esta noção de “&lt;strong&gt;vou enviar minhas alterações para o servidor&lt;/strong&gt;” é algo um pouco difícil de esquecer ao se fazer a transição.&lt;/p&gt;
+
+&lt;p&gt;Lembre-se: &lt;strong&gt;no Git não existe um conceito de servidor central&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;O que existe são &lt;em&gt;remotes&lt;/em&gt;, ou seja, repositórios remotos. Você pode ter, a princípio, quantos repositórios remotos você quiser. E eles não necessariamente precisam ser tão remotos assim. Sim, eles podem estar em um site como Github/Gitlab/Bitbucket. Mas também podem estar na máquina do colega ao lado, em uma unidade de rede, ou até em uma outra pasta em sua própria máquina.&lt;/p&gt;
+
+&lt;p&gt;Quando se trabalha em equipe é comum utilizar-se de um repositório padrão que é considerado, para efeitos de organização, o repositório padrão, onde o código “mais atual” encontra-se. Mais uma vez, no Git não existe conceito de servidor central; o uso de tal repositório padrão é uma convenção utilizada pelos times.&lt;/p&gt;
+
+&lt;p&gt;Com isso em mente, vamos treinar um pouco alguns comandos do Git para começarmos a nos habituar com eles. No post de hoje não veremos nada de repositório remoto, servidor, nada disso: apenas comandos locais.&lt;/p&gt;
+
+&lt;h2 id=&quot;baixando-e-instalando-o-git&quot;&gt;Baixando e instalando o Git&lt;/h2&gt;
+
+&lt;p&gt;Dizem que houve uma época em que trabalhar com o Git no Windows era problemático. Atualmente, não é mais o caso, como você já vai ver.&lt;/p&gt;
+
+&lt;p&gt;Para começar &lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;faça o download do Git para Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Clique duas vezes no arquivo baixado, next, next, você sabe. Em geral não deveria haver problema se você deixar todas as opções como default mesmo; no entanto, é interessante fazer uma alteração:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491350434/git1_xek0vv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Quando chegar a esta tela, é interessante marcar a segunda opção para que você seja capaz de utilizar o Git a partir do prompt de comando do Windows, e não apenas a partir do Bash do Git.&lt;/p&gt;
+
+&lt;h2 id=&quot;configurao-bsica&quot;&gt;Configuração básica&lt;/h2&gt;
+
+&lt;p&gt;Depois de terminada a instalação, é necessária fazer a configuração básica de identidade do Git, que consiste em dizer ao Git seu nome e e-mail para que ele os associe a cada commit que você efetuar.&lt;/p&gt;
+
+&lt;p&gt;Para fazer isso, vamos utilizar o Git Bash. No menu iniciar localize o programa “Git Bash” e execute-o. A janela do Git Bash será aberta.&lt;/p&gt;
+
+&lt;p&gt;Digite os seguintes comandos:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git config –global user.name “Seu nome”&lt;/p&gt;
+
+  &lt;p&gt;git config –global user.email “email@exemplo.com”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Existem mais configurações e opções possíveis, mas isso já é suficiente para que você comece a experimentar o Git.&lt;/p&gt;
+
+&lt;h2 id=&quot;criando-o-repositrio&quot;&gt;Criando o repositório&lt;/h2&gt;
+
+&lt;p&gt;No Git Bash, vamos criar uma nova pasta e em seguida acessá-la:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;mkdir repo&lt;/p&gt;
+
+  &lt;p&gt;cd repo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Depois de acessarmos a pasta recém-criada, é hora de criarmos nosso repositório:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git init&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Depois de executar esse comando, você verá a seguinte mensagem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Initialized empty Git repository in C:/Users/your-name/repo/.git/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;O prompt do Git Bash deveria estar mostrar algo assim:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Usuario@Maquina MINGW64 ~/repo (master)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ou seja: usuário logado, localização atual e branch atual. O branch padrão do Git chama-se &lt;em&gt;master&lt;/em&gt;. No próximo artigo desta série aprenderemos a operação básica de branches, mas por enquanto vamos permanecer apenas no branch padrão mesmo.&lt;/p&gt;
+
+&lt;h2 id=&quot;primeiros-comandos&quot;&gt;Primeiros comandos&lt;/h2&gt;
+
+&lt;p&gt;OK, com o repositório criado, é hora de testarmos alguns comandos. Um dos comandos mais úteis e que você irá utilizar com mais frequência é o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;, que serve para visualizar o estado atual em que se encontra o repositório.&lt;/p&gt;
+
+&lt;p&gt;Ao executá-lo, você deveria ver a seguinte mensagem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On branch master&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Initial commit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;nothing to commit (create/copy files and use “git add” to track)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ou seja:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;o branch atual;&lt;/li&gt;
+  &lt;li&gt;que está esperando por seu primeiro commit;&lt;/li&gt;
+  &lt;li&gt;e indica o que entrará no commit - o que nesse caso é nada, já que ainda não há alterações em nosso repositório.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ele ainda indica qual é o próximo passo a tomar, i.e. criar ou copiar arquivos e depois usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; para rastreá-los. Por enquanto, não se preocupe com o que “rastrear” significa, pois isso será abordado no futuro.&lt;/p&gt;
+
+&lt;p&gt;Vamos então criar um arquivo.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;echo teste &amp;gt; arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Execute novamente o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e você verá que desta vez a mensagem está diferente:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Untracked files:
+(use “git add &lt;file&gt;...&quot; to include in what will be committed)&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;arq1.txt&lt;/p&gt;
+
+  &lt;p&gt;nothing added to commit but untracked files present (use “git add” to track)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Alguns conceitos novos, começando por “Untracked files”, ou, em tradução livre, “Arquivos não rastreados”. O Git está vendo o arquivo que acabamos de criar, mas não está pronto ainda para incluí-lo no próximo commit.&lt;/p&gt;
+
+&lt;p&gt;O interessante é que mais uma vez o Git nos dá a dica do que precisa ser feito, como você pode ver. Execute o comando:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git add arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Execute novamente &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e veja que a resposta mudou novamente:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Changes to be committed:&lt;/p&gt;
+
+  &lt;p&gt;(use “git rm –cached &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;new file:   arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Por enquanto ignore a mensagem: 
+&amp;gt; use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora podemos ver que o arquivo adicionado está pronto para entrar no commit. Então, vamos “commitar”:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git commit -m “Primeiro commit”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;O comando acima cria o nosso primeiro commit. O parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;-m&lt;/code&gt; serve para especificar uma mensagem de commit, o que é essencial para o futuro entendimento da evolução de um projeto.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; novamente:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On branch master&lt;/p&gt;
+
+  &lt;p&gt;nothing to commit, working directory clean&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para terminar, vamos fazer uma alteração em nosso arquivo. Abra o arquivo no Bloco de Notas (ou outro editor de texto de sua preferência) e acrescente a seguinte linha:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;acrescentando uma nova linha&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; novamente:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On branch master
+Changes not staged for commit:
+(use “git add &lt;file&gt;...&quot; to update what will be committed)
+ (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)&lt;/file&gt;&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
+
+  &lt;p&gt;no changes added to commit (use “git add” and/or “git commit -a”)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A mensagem é familiar, apesar de ser diferente das anteriores. Como você já deve estar acostumado, ela termina com uma dica da próxima ação a ser tomada. Vamos então seguir a sugestão do Git:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git add arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Perceba que é o mesmo comando que executamos lá atrás, quando o arquivo ainda estava no estado “untracked”. Embora o comando seja o mesmo, neste caso aqui ele tem um significado ligeiramente diferente. No futuro, entenderemos estas diferenças.&lt;/p&gt;
+
+&lt;p&gt;Ao executar novamente &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; recebemos, novamente, uma nova mensagem:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Changes to be committed:
+(use “git reset HEAD &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Embora seja parecida com uma das mensagens anteriores, perceba que agora o nosso arquivo está no estado “modified”, e não “new file”, o que faz bastante sentido.&lt;/p&gt;
+
+&lt;p&gt;Imagino que você saiba o que vem a seguir:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git commit -m “Segundo commit: adicionamos segunda linha para testar alteração”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Para terminar, execute novamente o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e verá novamente a mensagem já familiar: diretório de trabalho limpo, nada a ser commitado.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Este artigo foi extremamente simples, e isso não foi um acidente. Minha intenção foi de mostrar os comandos mais básicos, com a intenção de que você pegue o “feeling” de como se usa o Git.&lt;/p&gt;
+
+&lt;p&gt;Perceba que existe um padrão facilmente perceptível nos comandos que executamos:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cria um arquivo&lt;/li&gt;
+  &lt;li&gt;“adiciona”&lt;/li&gt;
+  &lt;li&gt;dá commit&lt;/li&gt;
+  &lt;li&gt;faz alteração no arquivo&lt;/li&gt;
+  &lt;li&gt;“adiciona”&lt;/li&gt;
+  &lt;li&gt;dá commit novamente&lt;/li&gt;
+  &lt;li&gt;etc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Nos lugares onde coloquei “adiciona”, você sabe que estou me referindo ao comando &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt;. Você talvez tenha percebido que este comando tem duas finalidades diferentes, evidenciado pelas diferentes mensagens que o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; retornou depois de sua execução.&lt;/p&gt;
+
+&lt;p&gt;Você provavelmente também notou os diferentes estados que os arquivos em um repositório podem assumir: “untracked”, “new file”, “modified”. Eles caminham de um estado para o outro, como em uma pipeline.&lt;/p&gt;
+
+&lt;p&gt;No próximo post da série vamos nos aprofundar nestas questões. Iremos entender as áreas existentes em um repositório, entender o fluxo de trabalho e os estágios pelos quais os arquivos passam.&lt;/p&gt;
+
+&lt;p&gt;Vamos começar também a trabalhar com um dos conceitos mais importantes do Git: branches. Iremos dar início às operações mais comuns que são realizadas com branches, e também mostraremos como branches no Git diferem da maneira que você está acostumado a trabalhar no TFS.&lt;/p&gt;
+
+&lt;p&gt;Até lá!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Apr 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/basicos-do-git-usuarios-tfvc</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/basicos-do-git-usuarios-tfvc</guid>
+        
+        <category>controle-de-versao</category>
+        
+        <category>git</category>
+        
+        <category>tfs</category>
+        
+        <category>tfvcs</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Escrevendo código bom: como reduzir a carga cognitiva do seu código</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490471059/escrevendo-codigo-bom-1038x437_e4oy0i.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;: O artigo a seguir foi originalmente escrito por &lt;a href=&quot;https://chrismm.com/&quot;&gt;Christian Maioli M.&lt;/a&gt;, que gentilmente me autorizou a fazer esta tradução. Caso seja do seu interesse, &lt;a href=&quot;https://chrismm.com/blog/writing-good-code-reduce-the-cognitive-load/&quot;&gt;confira o artigo original&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Baixo número de bugs, boa performance, facilidade de modificação. Código bem feito gera alto impacto, e talvez seja a maior razão por trás da existência do famoso desenvolvedor “10x”. E ainda assim, apesar de sua importância, código bom escapa a novos desenvolvedores. A literatura nessa área geralmente consistente de coleções de dicas desconexas. Como um novo desenvolvedor vai simplesmente memorizar isso tudo?  “&lt;a href=&quot;https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=as_li_ss_tl?ie=UTF8&amp;amp;linkCode=ll1&amp;amp;tag=chrimaiospo06-20&amp;amp;linkId=6aabd46b91da513d86257af2c05b6585&quot;&gt;Code Complete&lt;/a&gt;“, o maior expoente nesta matéria, é um livro de 960 páginas!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Eu acredito que é possível construir um framework mental simples que pode ser usado com qualquer linguagem ou biblioteca e que vai resultar em código de boa qualidade por padrão.&lt;/strong&gt; Há cinco conceitos principais sobre os quais vou falar aqui. Basta mantê-los em mente e escrever código de boa qualidade será moleza.&lt;/p&gt;
+
+&lt;p&gt;Update: Mia Li fez a gentileza de disponibilizar uma tradução deste artigo para o Chinês &lt;a href=&quot;http://www.inside.com.tw/2016/07/05/writing-good-code-how-to-reduce-the-cognitive-load-of-your-code&quot;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;mantenha-suas-peculiaridades-pessoais-de-fora&quot;&gt;Mantenha suas peculiaridades pessoais de fora&lt;/h2&gt;
+
+&lt;p&gt;Você lê um artigo que explode a sua mente com truques novos. Agora você vai escrever código “esperto” e todos os seus colegas ficarão impressionados.&lt;/p&gt;
+
+&lt;p&gt;O problema é que as pessoas só querem corrigir seus bugs e ir em frente. Seu truquezinho esperto é, com frequência, pouco mais que uma distração. Como eu falei em “&lt;a href=&quot;https://chrismm.com/blog/applying-neuroscience-to-software-development/&quot;&gt;Applying neuroscience to software development&lt;/a&gt;“, quando as pessoas têm que digerir  seu código, as “pilhas mentais” enchem depressa e se torna difícil fazer progresso.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_0_fzqyo8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;Não personalize seu trabalho em maneiras que irão precisar de explicações. 
+
+Tradução do comentário: Isso era útil na linguagem C para evitar escrever acidentalmente &quot;variable = null&quot;. Atualmente, isso apenas confundiria a maioria das pessoas, com pouco benefício.&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Não codifique “do seu jeito”. Apenas siga a padronização de código. Este tipo de coisa é um problema já resolvido. Torne seu código previsível e fácil de ler codificando da maneira que as pessoas esperam.&lt;/p&gt;
+
+&lt;h2 id=&quot;dividir-para-conquistar&quot;&gt;Dividir para conquistar&lt;/h2&gt;
+
+&lt;p&gt;Código complexo frequentemente pode ser clarificado por meio da modularização, e existem mais maneiras de se fazer isso do que apenas criando mais funções. Gravar o resultado de longas condicionais em uma variável ou duas é uma grande maneira de modularizar sem o overhead de chamar uma função. Isso irá inclusive lhe permitir compô-las em condicionais maiores, ou reutilizar o resultado em algum outro lugar.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A abordagem ao se dividir um problema deve ser tornar cada seção o mais focada possível, afetando apenas estado local, sem misturar com assuntos irrelevantes, e se possível sem nenhum efeito colateral.&lt;/strong&gt; Linguagens de programação e bibliotecas muitas vezes têm seus próprios problemas, e abstraí-los pode ajudar a fazer com que seu código cuide apenas dos assuntos dele. O &lt;a href=&quot;http://code.tutsplus.com/tutorials/solid-part-1-the-single-responsibility-principle--net-36074&quot;&gt;Princípio da Responsabilidade Única&lt;/a&gt; é outro exemplo de como código focado e localizado resulta em bom design.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_1_rfmnyv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;Eu gosto de utilizar variáveis para compartimentar lógica.
+Tradução do comentário: Isso pode ser uma boa maneira para modularizar sem o peso excessivo de chamadas de funções&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;TDD, além de trazer seus próprios benefícios quando feito corretamente, tem feitos com que as pessoas apliquem certos princípios que anteriormente não eram tão populares. Código sem estado era desprezado como lento e desnecessário (ver: maior parte de código antigo em C/C++), e agora todos estão falando sobre funções puras. Mesmo que você não use TDD, você deveria aprender seus princípios. Trabalhar sob novos paradigmas transformará você em um desenvolvedor resiliente.&lt;/p&gt;
+
+&lt;h2 id=&quot;torne-seu-cdigo-discreto-e-processvel&quot;&gt;Torne seu código discreto e processável&lt;/h2&gt;
+
+&lt;p&gt;Seu computador e suas ferramentas podem sofrer tanto quanto você para lidar com seu código, e existe alguma correlação entre o número de pré-processadores e mutações você precisa aplicar e o quão bagunçado o seu código é.&lt;/p&gt;
+
+&lt;p&gt;Vamos deixar de lado os possíveis benefícios destas ferramentas de build adicional por um momento. A probabilidade é de que elas requerem que você use linguagens de domínio específica como templates customizados, ou estruturas de dados dinâmicas e complexas como hash tables. A sua IDE provavelmente não será boa em lidar com tais coisas, e a localização de trechos relevantes do código se tornará mais difícil.&lt;/p&gt;
+
+&lt;p&gt;Evite usar extensões de linguagens e bibliotecas que não trabalham bem com sua IDE. O impacto que eles terão na sua produtividade bate de longe o pequeno benefício de uma configuração mais fácil ou a economia de algumas poucas teclas com uma sintaxe mais concisa.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_2_pn1dp4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;figcaption&gt;
+O uso de Service Locator é um exemplo de design que resulta em integração ruim com a maioria das IDEs.
+Tradução do comentário: Uso de string mágicas fará com que seja impossível para sua IDE acompanhar seu código.
+&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;Outra maneira de manter a parte “integrada” da sua IDE relevante é evitar código mágico. A maioria das linguagens disponibilizam maneiras para que você escreva código mais dinâmico. Abusar tais features utilizando strings mágicas, índices de arrays mágicos e funcionalidades de templates customizados irá resultar em uma base de código mais desconectada. Geralmente qualquer feature que apenas um humano sabe o significado vai levar você para essa caminho, e é uma estrada difícil de se escapar, porque se a sua IDE não entende o código, quaisquer funcionalidades de refatoração que possua serão inúteis quando você quiser mudar para uma arquitetura mais estática.&lt;/p&gt;
+
+&lt;h2 id=&quot;torne-seu-cdigo-legvel&quot;&gt;Torne seu código legível&lt;/h2&gt;
+
+&lt;p&gt;Trabalhe no sentido de ter uma arquitetura previsível. Seus colegas de time terão mais facilidade em localizar as coisas, e isso vai reduzir bastante o tempo necessário para concluir as tarefas. &lt;strong&gt;Assim que vocês estiverem de acordo sobre uma estrutura arquitetural geral para seu projeto, torne óbvia a localização dos principais elementos.&lt;/strong&gt; Usa MVC? Coloque models, views e controllers em suas próprias pastas, não três níveis abaixo ou espalhados em vários lugares.&lt;/p&gt;
+
+&lt;p&gt;Eu falei sobre modularização. Também é possível existir modularização em excesso, o que geralmente torna seu código mais difícil de localizar. Sua IDE pode oferecer alguma ajuda, mas às vezes você estará dividido entre fazer com que sua IDE ignore uma pasta de biblioteca ou outro terceiro devido a ela conter muito código irrelevante, ou mantê-la indexada e lidar com o problema manualmente. É um beco sem saída. Tente utilizar menos bibliotecas escolhendo aquelas que resolvem tantas necessidades quantas forem possível.&lt;/p&gt;
+
+&lt;p&gt;Bibliotecas e ferramentas também podem ser uma barreira a novos desenvolvedores. Eu recentemente fiz um projeto usando EcmaScript 7 (babel), apenas para depois perceber que nosso desenvolvedor júnior estava tendo problemas para entender o que tudo aquilo significava.  Uma penalidade pesada para a produtividade do time. Eu subestimei o potencial daquilo de sobrecarregar uma pessoa que está só começando. Não use ferramentas que ainda são difíceis demais de aprender. Espere por uma época melhor.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_3_vdvcrz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;figcaption&gt;Código real de um makefile que escrevi. Desenvolvedores juniores não conseguem lidar com o uso excessivo de novas ferramentas.&lt;/figcaption&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;h2 id=&quot;torne-seu-cdigo-fcil-de-digerir&quot;&gt;Torne seu código fácil de digerir&lt;/h2&gt;
+
+&lt;p&gt;Se você chegou até aqui, eu tenho boas notícias: esta é provavelmente a parte mais importante. A escolha de bons nomes é sabidamente um dos maiores problemas no desenvolvimento de software. Ferramentas de build provavelmente não vão causar nenhuma melhora aqui, e a razão é que computadores não podem realmente saber o raciocínio que houve por trás de uma solução.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Você precisa documentar o porquê. Nomes de variáveis e funções relevantes e contextuais são uma ótima maneira de se fazer isso.&lt;/strong&gt; Nomes que transmitem propósito podem até reduzir a necessidade de documentação.&lt;/p&gt;
+
+&lt;p&gt;O uso de prefixos em nomes é uma boa maneira de adicionar sentido a eles. É uma prática que costumava ser popular, e eu penso que o mau uso foi o motivo dela não continuar a ser usada. Sistemas de prefixos como  &lt;a href=&quot;http://www.joelonsoftware.com/articles/Wrong.html&quot;&gt;notação húngara&lt;/a&gt; inicialmente tinham a intenção de adicionar sentido, mas com o tempo eles acabaram sendo usado em maneiras menos contextuais, tais como para adicionar informação de tipo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_4_x8oly3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;figcaption&gt;Interfaces fluentes tem sido abusadas frequentemente em tempos recentes.&lt;/figcaption&gt;
+&lt;p&gt;Tradução do comentário: Use nomes que transmitam propósito, não tome vantagem da linguagem apenas para parecer inteligente&lt;/p&gt;
+
+&lt;p&gt;Finalmente, sempre há algo a ser dito sobre manter a complexidade ciclomática baixa. Isso significa manter o número de ramificações condicionais tão baixo quanto for possível. Cada ramificação adicional não apenas adiciona mais indentação e prejudica a legibilidade, mas, mais importante que isso, aumenta o número de elementos aos quais você precisa estar atento.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso-e-mais-leituras&quot;&gt;Conclusão e mais leituras&lt;/h2&gt;
+
+&lt;p&gt;Estes são cinco conceitos simples e abrangentes, e o meu objetivo aqui foi tornar seu aprendizado mais fácil ao lhe dar caixas nas quais colocar todas as suas ideias sobre organização de código.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pratique focar nesses aspectos ao programar para solidifica-los.&lt;/strong&gt; Se você ainda não leu, eu realmente recomendo Code Complete. Ele vem com um grande número de exemplos e disseca quase todas as situações que você pode vir a encontrar.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 25 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/escrevendo-codigo-bom/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/escrevendo-codigo-bom/</guid>
+        
+        <category>traducoes</category>
+        
+        <category>boas-praticas</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Funcionalidades do C# 7 que vale a pena conhecer - Parte 1</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C# 7 está finalmente entre nós. Hora de conhecer algumas de suas features.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;No meu &lt;a href=&quot;http://carlosschults.net/pt/funcionalidades-csharp-6/&quot;&gt;último post&lt;/a&gt; eu escrevi sobre algumas das funcionalidades mais interessantes (para mim, pelo menos) do C# 6. Visual Studio 2017 e C# 7 foram oficialmente lançados no dia seguinte, então eu acredito que agora é o momento perfeito para batermos um papo sobre a nova versão da linguagem.&lt;/p&gt;
+
+&lt;p&gt;Eu acho que é justo dizer que, em sua sétima versão, o C# continua a tendência iniciada na versão anterior. Ao invés de adicionar novas capacidades radicalmente novas na linguagem, o time de design escolheu incluir funcionalidades que podem tornar seu código mais limpo e simples.&lt;/p&gt;
+
+&lt;p&gt;Nesta versão, eles expandiram certas funcionalidades que tiveram sua estreia na versão 6. Parece até que o C# 6 foi um tipo de ensaio para algumas das features; agora que os projetistas da linguagem sabem que elas foram bem recebidas, eles podem levá-las para seu próximo nível.&lt;/p&gt;
+
+&lt;p&gt;Então, sem mais delongas, vamos começar.&lt;/p&gt;
+
+&lt;h2 id=&quot;separadores-de-dgitos-e-literais-binrios&quot;&gt;Separadores de dígitos e literais binários&lt;/h2&gt;
+
+&lt;p&gt;Dê uma olhada no código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/00e899d0f7611e3ca3b54f109f58619b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Para que servem os underscores? &lt;strong&gt;Legibilidade&lt;/strong&gt;, essa é a resposta.&lt;/p&gt;
+
+&lt;p&gt;Números compridos podem ficar bem difíceis de serem lidos. Para lidar com esse problema, C# 7 permite que você use o &lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; como separador de dígito.&lt;/p&gt;
+
+&lt;p&gt;Os separadores não fazem nenhuma diferença no valor do número. Você pode colocá-los em qualquer lugar no número, e em qualquer quantidade.&lt;/p&gt;
+
+&lt;p&gt;E caso você esteja se perguntando, você não está restrito a usar os separadores com números inteiros apenas; eles também funcionam com os outros tipos numéricos.&lt;/p&gt;
+
+&lt;p&gt;A nova versão do C# também introduz literais binários, como visto na terceira linha do exemplo anterior. Se você precisar escrever um valor binário, basta colocar &lt;code class=&quot;highlighter-rouge&quot;&gt;0b&lt;/code&gt; no começo do número, e é isso!&lt;/p&gt;
+
+&lt;h2 id=&quot;variveis-out&quot;&gt;Variáveis ‘Out’&lt;/h2&gt;
+
+&lt;p&gt;Em versões anteriores do C#, trabalhar com variáveis &lt;em&gt;out&lt;/em&gt; era um pouco inconveniente. Você tinha que separar a declaração da variável e seu uso em dois passos.&lt;/p&gt;
+
+&lt;p&gt;Agora, é possível já declarar a variável na lista de argumentos:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/fbd60b4e31a09c1e0a4f19b431b10320.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Algumas coisas importantes para se ter em mente:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Apesar de eu ter explicitamente escrito o nome do tipo na declaração, isso não é sempre necessário. Eu poderia ter usado &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; e funcionaria do mesmo jeito.&lt;/li&gt;
+  &lt;li&gt;Você talvez tenha pensado que a variável iria sair de escopo depois do bloco do &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt;. Este não é o caso. A variável continua sendo acessada normalmente até que saia do seu escopo normal.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a23411376a6610e0e9081674faf1b0a5.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;mais-membros-expression-bodied&quot;&gt;(Mais) Membros “Expression-bodied”&lt;/h2&gt;
+
+&lt;p&gt;No começo deste post, eu disso que C# 7 expande algumas features do seu antecessor, lembra? Bom, este é um destes casos.&lt;/p&gt;
+
+&lt;p&gt;No post anterior, nós vimos que &lt;a href=&quot;http://carlosschults.net/pt/funcionalidades-csharp-6/#mtodos-e-propriedades-expression-bodied&quot;&gt;o C# 6 nos trouxe membros “Expression-bodied”&lt;/a&gt;, que é uma maneira mais legal e mais curta de declarar membros de classe, usando a sintaxe das expressões lambda.&lt;/p&gt;
+
+&lt;p&gt;Porém, você só podia utilizar essa funcionalidade com &lt;strong&gt;métodos, propriedades somente leitura e indexadores&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;C# 7 muda o jogo. Agora também é permitido ter construtores, destrutores e propriedades de escrita que usam essa feature.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/50512925b89eb8ee590190793846a724.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;expresses-throw&quot;&gt;Expressões “throw”&lt;/h2&gt;
+
+&lt;p&gt;Esta é bem simples. Considere o código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/8f89e4fff3cf3e6302bc8325d4df5617.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Foram 9 linhas de código para apenas uma atribuição. E a maioria dessas linhas nem estão fazendo a atribuição em si; elas são apenas uma cláusula de guarda. Claro, elas são importantes, mas tendem a poluir o seu código. E se tivesse um outro jeito?&lt;/p&gt;
+
+&lt;p&gt;Agora tem.&lt;/p&gt;
+
+&lt;p&gt;Nas versões anteriores, &lt;code class=&quot;highlighter-rouge&quot;&gt;throw&lt;/code&gt; era uma declaração. Agora, é uma &lt;strong&gt;expressão&lt;/strong&gt;, o que nos permite disparar exceções em lugares como a segunda parte do operador “Null Coalescing” e em expressões condicionais.&lt;/p&gt;
+
+&lt;p&gt;Usando a &lt;em&gt;throw expression&lt;/em&gt;, o exemplo acima fica simples assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a10cfa584d08fda2d3497075926d073d.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Claro, não há nada nos impedindo de transformar o construtor em um “membro com corpo de expressão”:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/02548a3f2d735468518e6c00eea385a8.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Neste post, nós vimos algumas das novas features da sétima versão do C#. Isto foi apenas a primeira parte. Mais partes virão, nas quais eu planejo abordar todas (ou, ao menos, a maioria) das novas funcionalidades.&lt;/p&gt;
+
+&lt;p&gt;Como eu disse antes, C# 7 meio que continua o caminho iniciado no 6. O time de projetistas não saiu incluindo umas features novas e loucas apenas por colocar; em vez disso, eles cuidadosamente selecionaram aquelas que mais nos ajudariam a melhorar a qualidade do nosso código.&lt;/p&gt;
+
+&lt;p&gt;Tendo dito isso, eu realmente considero essa versão um pouco menos…tímida - por falta de palavra melhor - que a anterior. Algumas das funcionalidades que não mencionei hoje mostram que a linguagem está sendo levada à novas e interessantes direções, e eu penso que temos uma viagem bastante interessante à nossa frente.&lt;/p&gt;
+
+&lt;p&gt;Obrigado por ter lido até aqui, e fique ligado(a) para a parte 2!&lt;/p&gt;
+</description>
+        <pubDate>Mon, 13 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/funcionalidades-csharp-7/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp-7/</guid>
+        
+        <category>csharp</category>
+        
+        <category>iniciantes</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Já está na hora de começar a usar essas features do C# 6!</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1487896790/csharp6features_y5czrf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A sétima versão do C# está chegando, e vai provavelmente trazer várias funcionalidades novas e úteis para nossas  caixas de ferramentas. Mas deixa eu perguntar uma coisa: você já está usando as funcionalidades da versão anterior?
+ &lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;Alguns dias atrás eu estava pensando sobre qual seria o tema do próximo post. Nada mais natural que escrever sobre o C# 7, já que &lt;a href=&quot;https://blogs.msdn.microsoft.com/visualstudio/2017/02/09/visual-studio-2017-launch-event-and-20th-anniversary/&quot;&gt;seu lançamento, junto com o Visual Studio 2017, é amanhã.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Mas então eu percebi que, mesmo já fazendo cerca de dois anos desde o lançamento do C# 6, alguns desenvolvedores ainda não se sentem confortáveis o suficiente com as funcionalidades da versão, de maneira a não incorporá-las em seu código.&lt;/p&gt;
+
+&lt;p&gt;Assim, eu decidi voltar um pouco e escrever sobre as funcionalidades do C# 6 no lugar disso. Não todas, mas aquelas que podem tornar seu código mais limpo e expressivo, e que são simples o suficiente para você já sair usando!&lt;/p&gt;
+
+&lt;h2 id=&quot;interpolao-de-string&quot;&gt;Interpolação de String&lt;/h2&gt;
+
+&lt;p&gt;Suponha que nós temos uma classe chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;Person&lt;/code&gt;, com duas propriedades somente-leitura, &lt;code class=&quot;highlighter-rouge&quot;&gt;Name&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt;. Algo assim:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/84db03cd2a530530b72c4b9eeeb738d4.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Então nós adicionamos um método chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt;, para que nossas pessoas sejam capazes de se apresentar. Para uma pessoa de 22 anos chamada Maria, o método deve retornar “Hi! My name is Maria and I’m 22 years old.”&lt;/p&gt;
+
+&lt;p&gt;Tem algumas maneiras diferentes de se fazer isso na versão 5 do C#, como você pode ver na seguinte listagem:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/9e30324951420356397c5cc8f50ea51b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Cada uma delas tem suas vantagens e desvantagens, claro, mas o C# 6 disponibiliza um novo jeito:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/17f501bd6d0ce6f5938edf17ef8e8704.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Apenas coloque um cifrão no início da string, coloque suas variáveis dentro de chaves, e é isso!&lt;/p&gt;
+
+&lt;p&gt;Interpolação de strings não funciona para todas as ocasiões. Se você precisa de uma formatação especial nos valores, você ainda teria de usar &lt;code class=&quot;highlighter-rouge&quot;&gt;string.Format()&lt;/code&gt;, por exemplo.&lt;/p&gt;
+
+&lt;p&gt;Mas no dia-a-dia, eu uso interpolação na maioria das vezes que preciso fazer concatenação de strings. Eu acho essa forma bem mais interessante e mais clara do que as outras opções.&lt;/p&gt;
+
+&lt;h2 id=&quot;initializers-para-propriedades-automticas&quot;&gt;Initializers para propriedades automáticas&lt;/h2&gt;
+
+&lt;p&gt;Continuando com o exemplo anterior. Vamos supor que nós precisamos de um construtor sem parâmetros em nossa classe. Junto com isso, vamos precisar disponibilizar valores padrão para &lt;code class=&quot;highlighter-rouge&quot;&gt;Name&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Do contrário, o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce()&lt;/code&gt; retornaria “Hi! My name is  and I’m 0 years old.” E não iríamos querer isso, né?&lt;/p&gt;
+
+&lt;p&gt;No C# 5, nós teríamos que inicializar as propriedades dentro do construtor:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/d95cade5d8d5f245a1d6bb49ef2feb1f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Já a sexta versão da linguagem nos permite definir valores padrão para as propriedades no mesmo momento em que as declaramos:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/e7d56c032e723f7c5110a9e3bfa1c744.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;operador-condicional-nulo&quot;&gt;Operador condicional nulo&lt;/h2&gt;
+
+&lt;p&gt;Considere o código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/7fb5caff2e73f4130f4db982825adbe6.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Nada demais, não é? Mas tem um problema esperando para acontecer aqui. Se &lt;code class=&quot;highlighter-rouge&quot;&gt;customer&lt;/code&gt; é &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, esse código vai disparar uma &lt;code class=&quot;highlighter-rouge&quot;&gt;NullReferenceException&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;É nesse momento que o “Operador condicional nulo” vem a calhar:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/65bc4372a0e4fc3e8f38c0ee57905beb.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;O que o código acima faz? Simples: se &lt;code class=&quot;highlighter-rouge&quot;&gt;customer&lt;/code&gt; não é &lt;code class=&quot;highlighter-rouge&quot;&gt;nulo&lt;/code&gt;, a propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Address&lt;/code&gt; é acessada normalmente, e seu valor é atribuído à nossa variável local. No entanto, se &lt;code class=&quot;highlighter-rouge&quot;&gt;customer&lt;/code&gt; &lt;em&gt;é&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, a expressão toda é avaliada para nulo, e é isso que a variável recebe.&lt;/p&gt;
+
+&lt;p&gt;Outra coisa legal a respeito desse operador é que você pode usá-lo em conjunto com o &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/ms173224.aspx&quot;&gt;Operador Null Coalesce&lt;/a&gt; para disponibilizar, de maneira fácil, um valor default diferente de &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/e17d34ba939fb7c472e164010db56377.js&quot;&gt;&lt;/script&gt;
+
+&lt;h2 id=&quot;mtodos-e-propriedades-expression-bodied&quot;&gt;Métodos e propriedades “Expression-bodied”&lt;/h2&gt;
+
+&lt;p&gt;Essa é bem fácil. Trata-se de uma maneira mais curta de escrever métodos, utilizando a sintaxe das expressões lambda.&lt;/p&gt;
+
+&lt;p&gt;Por exemplo, os dois métodos a seguir fazem a mesma coisa:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/eeae77f3876f9b692ca667281b5401d0.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Essa funcionalidade não é restrita a métodos. Ela também pode ser usada com propriedades (de apenas leitura) e indexadores.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Parece claro que o objetivo da Microsoft  com a sexta versão do C# não era adicionar funcionalidades radicalmente novas à linguagem.&lt;/p&gt;
+
+&lt;p&gt;Ao invés disso, a intenção era permitir aos desenvolvedores escrever código de uma maneira mais clara e concisa. E em minha opinião, o objetivo foi alcançado.&lt;/p&gt;
+
+&lt;p&gt;Você pode pensar que algumas das funcionalidades não fazem tanta diferença, na prática. Eu discordo. C# é frequentemente acusado de ser muito verboso. Existem situações nas quais você precisa escrever uma quantidade razoável de código para fazer algo que em Ruby ou Python poderia ser feito em uma linha.&lt;/p&gt;
+
+&lt;p&gt;E isso é normal. Um pouco (a maioria) da já mencionada verbosidade vem do fato de C# ser uma linguagem estaticamente tipada, e eu digo: &lt;strong&gt;sou feliz por isso&lt;/strong&gt;. Eu não consigo contar a quantidade de vezes que o compilador me salvou, pegando meus erros idiotas.&lt;/p&gt;
+
+&lt;p&gt;Se um pouco de verbosidade é o preço que tenho que pagar por isso, que seja.&lt;/p&gt;
+
+&lt;p&gt;Tudo isto dito, os detratores têm uma certa razão. É possível ser verboso &lt;em&gt;excessivamente&lt;/em&gt;. Então, qualquer funcionalidade que me permite eliminar um pouco dessa verbosidade extra e escrever código mais conciso é muito bem vinda.&lt;/p&gt;
+
+&lt;h2 id=&quot;veja-mais&quot;&gt;Veja mais&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://geekswithblogs.net/WinAZ/archive/2015/06/30/whatrsquos-new-in-c-6.0-auto-property-initializers.aspx&quot;&gt;http://geekswithblogs.net/WinAZ/archive/2015/06/30/whatrsquos-new-in-c-6.0-auto-property-initializers.aspx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://msdn.microsoft.com/en-us/magazine/dn802602.aspx&quot;&gt;https://msdn.microsoft.com/en-us/magazine/dn802602.aspx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.caelum.com.br/novidades-do-c-6-0/&quot;&gt;http://blog.caelum.com.br/novidades-do-c-6-0/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 06 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/funcionalidades-csharp-6/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp-6/</guid>
+        
+        <category>csharp</category>
+        
+        <category>iniciantes</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Aprenda quais tipos de comentários devem ser evitados</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Alerta de Spoiler: Você deveria evitar a maioria.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;“Comentar ou não comentar”. Essa é uma questão que gera debates acalorados. Algumas pessoas dizem que comentários são indispensáveis. Outros defendem que comentários apenas mostram a incapacidade do desenvolvedor de se expressar claramente no código. Quem está certo?&lt;/p&gt;
+
+&lt;p&gt;Na época da faculdade, eu considerava comentários indispensáveis na hora de programar. Do contrário, como você poderia entender o que código deveria fazer?&lt;/p&gt;
+
+&lt;p&gt;Depois de me formar e encontrar um emprego, as coisas começaram a mudar. Eu comecei a ser exposto à &lt;em&gt;código real&lt;/em&gt;. Eu estava lendo livros, artigos e blog posts escritos por pessoas influentes da área.&lt;/p&gt;
+
+&lt;p&gt;Todas essas experiências moldaram a minha visão atual.&lt;/p&gt;
+
+&lt;h2 id=&quot;os-perigos-da-documentao-ruim&quot;&gt;Os perigos da documentação ruim&lt;/h2&gt;
+
+&lt;p&gt;Comentários são apenas outra forma de documentação. E não se engane: documentação é uma coisa boa - &lt;em&gt;quando feita corretamente e na quantidade certa&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Infelizmente, é feita errada frequentemente!&lt;/p&gt;
+
+&lt;p&gt;Muitos tipos de documentação podem ser problemáticas. É muito comum que a documentação perca sincronia com o que está documentando, o que é bem pior que não ter documentação nenhuma para começar.&lt;/p&gt;
+
+&lt;p&gt;Esse é um dos problemas dos quais comentários sofrem, mas está longe de ser o único.&lt;/p&gt;
+
+&lt;h3 id=&quot;cdigo-comentado&quot;&gt;Código comentado&lt;/h3&gt;
+
+&lt;p&gt;Vamos começar com o problema mais óbvio de todos, que é código comentado. Alguns desenvolvedores, durante uma correção de bug por exemplo, decidem comentar o código que está errado, em vez de removê-lo.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Não faça isso!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Código comentado não traz benefício para ninguém. É apenas desperdício. Confie no seu sistema de controle de versão. Ele vai lembrar das alterações feitas caso seja necessário revertê-las no futuro.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-changelog&quot;&gt;Comentários ‘Changelog’&lt;/h3&gt;
+
+&lt;p&gt;Esta categoria de comentários ruins é parecida com a anterior, no sentido de ser causada por uma falta de confiança no sistema de controle de versões.&lt;/p&gt;
+
+&lt;p&gt;O que eu quero dizer por comentários changelog? Comentários que servem apenas para listar as alterações feitas a um arquivo.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3889e4d4b337c6adc94af354ec574d9a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Comentários desse tipo estão apenas fazendo o mesmo trabalho que seu controle de versão, mas de uma maneira desajeitada e propensa ao erro.&lt;/p&gt;
+
+&lt;p&gt;Não escreve comentários como esses. Use &lt;a href=&quot;https://git-scm.com/&quot;&gt;git&lt;/a&gt; e seja feliz.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-redundantes&quot;&gt;Comentários redundantes&lt;/h3&gt;
+
+&lt;p&gt;Esse tipo de comentário ruim é muito fácil de detectar e corrigir. Considere o código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/cc821bc3c00137e5fad68f1fe7d65490.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Eu acho que todos podemos concordar que esses comentários são inúteis. O código é perfeitamente claro sem eles, portanto, devem ser removidos.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-delimitando-fim-de-blocos&quot;&gt;Comentários delimitando fim de blocos&lt;/h3&gt;
+
+&lt;p&gt;Você provavelmente já viu algum código assim antes:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/0c6e461ec278db804f52d64ade458bf4.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Algumas pessoas escrevem comentários assim para não perderem o controle das chaves.&lt;/p&gt;
+
+&lt;p&gt;Se você precisa de comentários por essa razão, isso é indicativo de que seu método é muito longo e você tem muitos níveis de indentação.&lt;/p&gt;
+
+&lt;p&gt;Lembre-se do Princípio da Responsabilidade Única: cada método deve fazer apenas uma coisa. Divida o seu método em métodos menores e a necessidade desse tipo de comentários desaparece.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-que-delimitam-sees-dentro-de-um-mtodo&quot;&gt;Comentários que delimitam seções dentro de um método&lt;/h3&gt;
+
+&lt;p&gt;Esse é parecido com o anterior. Se você tem diversas seções dentro de um método, cada uma delas com um comentário explicativo em cima, então você provavelmente está violando o Princípio da Responsabilidade Única.&lt;/p&gt;
+
+&lt;p&gt;Extraia cada trecho para seu próprio método, usando o texto do comentário como o nome do novo método, e então remova os comentários.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-desatualizados&quot;&gt;Comentários desatualizados.&lt;/h3&gt;
+
+&lt;p&gt;Um cenário comum:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Bob escreve algumas linhas de código. Ele decide que o código não está claro o suficiente e adiciona alguns comentários para tornar a sua intenção mais clara.&lt;/li&gt;
+  &lt;li&gt;Passam-se algumas semanas. Alguém descobre um bug no código de Bob. Mas ele está de férias, então Alice é encarregada de corrigir o bug.&lt;/li&gt;
+  &lt;li&gt;Alice corrige o código em alguns minutos e comita suas alterações. Mas ela esquece de alterar os comentários para refletir as mudanças que ela fez no código.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O que nós temos agora? Comentários mentirosos!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Documentação que espalha mentiras é pior que não ter documentação alguma.&lt;/strong&gt; É uma fonte de confusão para os desenvolvedores, e terreno fértil para bugs. Quando você ver um comentário desatualizado, não pense duas vezes: remova-o imediatamente, ou corrija-o. Mas na maioria das vezes você não deveria manter o comentário. Veja o próximo tópico para descobrir o porquê.&lt;/p&gt;
+
+&lt;h3 id=&quot;comentrios-criados-devido--falta-de-expressividade-no-cdigo&quot;&gt;Comentários criados devido à falta de expressividade no código&lt;/h3&gt;
+
+&lt;p&gt;Considere o código a seguir:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/ec7db3ebadccded768f97933c88e704f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Talvez você não considere o comentário no trecho acima tão ruim. Tudo bem, não é péssimo. Mas pense na oportunidade perdida de extrair um método ou propriedade útil:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/b102a4f5c11ba7b1639410dcbb87830f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;No novo código, nós extraímos o conceito de ser elegível para doar sangue para uma nova propriedade. As regras para elegibilidade para doação de sangue estão agora consolidadas em um único local; se elas mudarem algum dia, a quantidade de trabalho necessária para atualizá-las será mínima.&lt;/p&gt;
+
+&lt;p&gt;E nós ainda ganhamos o benefício adicional da legibilidade: a nova instrução &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; lê quase como linguagem natural.&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Como vimos, há diversos tipos de comentários ruins com os quais você deve ficar alerta. Eles geralmente são sinais de que há algo errado no seu código. Talvez seus métodos são muito longos.Talvez &lt;a href=&quot;http://carlosschults.net/pt/como-escolher-bons-nomes/&quot;&gt;você não escolheu bons nomes para suas variáveis&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Toda vez que você sentir a necessidade de escrever um comentário, pare e tente pensar em maneiras de melhorar o seu código para tornar o comentário desnecessário.&lt;/p&gt;
+
+&lt;p&gt;Nem todos os comentários são ruins. Em um post futuro, vou falar sobre os tipos de comentários que são úteis.&lt;/p&gt;
+
+&lt;p&gt;Até mais!&lt;/p&gt;
+
+&lt;h2 id=&quot;ler-mais-todos-os-links-em-ingls&quot;&gt;Ler mais (todos os links em inglês)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode&quot;&gt;Apologies In Code, por Robert C. Martin&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.codeproject.com/tips/467657/write-comments-that-matter&quot;&gt;Write comments that matter, por Sander Rossel&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@kentcdodds/please-don-t-commit-commented-out-code-53d0b5b26d5f#.yex54k2sg&quot;&gt;Please, don’t commit commented out code, por Kent C. Dodds&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 02 Mar 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/tipos-de-comentarios-a-evitar/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/tipos-de-comentarios-a-evitar/</guid>
+        
+        <category>code smell</category>
+        
+        <category>BoasPraticas</category>
+        
+        <category>iniciantes</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Blogs em português sobre desenvolvimento de software que você deveria seguir!</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1486838693/capa-min_gdaepw.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Para o bem ou para o mal, o idioma da tecnologia é o inglês. Mas isso não significa que não existe conteúdo de qualidade sendo produzido na nossa língua.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;O inglês é a língua franca da tecnologia, como eu já &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;disse quando expus minha opinião sobre a controvérsia de se programar em inglês ou português.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Além das oportunidades que saber inglês pode lhe trazer, eu acredito que o maior benefício que você consegue é ter acesso a muita informação de qualidade.&lt;/p&gt;
+
+&lt;p&gt;Porém, isso não quer dizer que não exista informação de qualidade sendo publicada na nossa língua. Seguem agora três blogs que você já deveria estar acompanhando:&lt;/p&gt;
+
+&lt;h2 id=&quot;object-pascal-programming&quot;&gt;Object Pascal Programming&lt;/h2&gt;
+
+&lt;p&gt;Vamos começar a lista com o &lt;a href=&quot;http://objectpascalprogramming.com/&quot;&gt;Object Pascal Programming&lt;/a&gt;, blog do &lt;a href=&quot;https://github.com/mdbs99/&quot;&gt;Marcos Douglas Santos&lt;/a&gt;, o qual eu citei no meu &lt;a href=&quot;carlosschults.net/pt/metodos-privados-code-smell/&quot;&gt;último post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Conheci esse site há cerca de dois meses, por acaso, e desde então tenho lido todos os artigos, que são publicados assiduamente toda semana.&lt;/p&gt;
+
+&lt;p&gt;Talvez vocês estejam se perguntando o que há de tão interessante em um blog de Object Pascal para um programador C#? Aí é que está: não se deixem enganar pelo título. Marcos escreve sobre conceitos e boas práticas da orientação a objetos, de uma forma que é aplicável para a maioria da linguagens que seguem esse paradigma.&lt;/p&gt;
+
+&lt;p&gt;Quando há exemplos de código, esses são escritos em Object Pascal, mas são simples e claros o bastante para que você consiga seguir, independente de ter ou não experiência com essa linguagem.&lt;/p&gt;
+
+&lt;p&gt;Além da qualidade dos artigos em si, é importante citar ótimo trabalho que Marcos tem feito em fomentar uma comunidade em torno do blog, com o uso de redes sociais, chat e lista de e-mail.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://objectpascalprogramming.com/&quot;&gt;Recomendadíssimo&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;robson-castillo&quot;&gt;Robson Castillo&lt;/h2&gt;
+
+&lt;p&gt;O &lt;a href=&quot;https://twitter.com/nosborcastilho&quot;&gt;Robson&lt;/a&gt; publica em seu &lt;a href=&quot;https://robsoncastilho.com.br/&quot;&gt;blog&lt;/a&gt; desde 2010, e aborda uma gama bem diversa de assuntos.&lt;/p&gt;
+
+&lt;p&gt;Ele já escreveu sobre tecnologias específicas, como tutoriais de ASP.NET MVC, passando por assuntos mais “&lt;em&gt;high level&lt;/em&gt;” como arquitetura de software, Design Patterns e boas práticas de codificação, sem esquecer das metodologias ágeis e gerenciamento de carreira.&lt;/p&gt;
+
+&lt;p&gt;Uma área muito bacana neste blog é a &lt;a href=&quot;https://robsoncastilho.com.br/livros-indicados/&quot;&gt;página de leituras recomendadas&lt;/a&gt;. Apesar da avalanche de informação disponível na Web, eu acredito que livros ainda têm um lugar importante no aprendizado de desenvolvedores, e vejo que Robson compartilha da minha visão.&lt;/p&gt;
+
+&lt;p&gt;Embora existam alguns posts que são específicos a .Net e C#, a grande maioria não é. Então, independente de qual seja a linguagem que você usa, pode ir sem medo que você vai encontrar conteúdo de qualidade no blog do Robson.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://robsoncastilho.com.br/&quot;&gt;Não deixe de conferir&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;elemar-jr&quot;&gt;Elemar Jr&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/elemarjr&quot;&gt;Elemar Jr&lt;/a&gt; é um nome bastante conhecido na comunidade .NET. Assim como Robson, ele &lt;a href=&quot;http://elemarjr.com/pt/home/&quot;&gt;publica em seu blog desde 2010&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Elemar é conhecido por ser incrivelmente prolífico, escrevendo sobre um número impressionante de tópicos. Existe um certo viés para C#, mas ele também aborda diversas outras linguagens, tecnologias e técnicas, como C++, F#, Haskell, HTML, Javascript, testes automatizados, arquitetura, e muito mais.&lt;/p&gt;
+
+&lt;p&gt;Um aspecto interessante do blog do Elemar é que ele não para no conteúdo técnico, explorando também tópicos como filosofia, política, psicologia, economia, entre outros, o que eu acho valiosíssimo. Nós, desenvolvedores, às vezes só conversamos com outros desenvolvedores, sobre desenvolvimento, e isso não é saudável.&lt;/p&gt;
+
+&lt;p&gt;Nos reconectar com o mundo ao nosso redor é necessário para uma vida equilibrada. E no lado profissional, nos envolver com as humanidades também melhora a nossa visão do negócio e de como o código que escrevemos é apenas um meio para gerar valor para nossos clientes e nossas empresas.&lt;/p&gt;
+
+&lt;p&gt;Recentemente, Elemar &lt;a href=&quot;http://elemarjr.com/pt/2016/04/17/por-que-comecei-a-blogar-em-ingles/&quot;&gt;começou a blogar também em inglês&lt;/a&gt;, o que é uma iniciativa com a qual eu naturalmente &lt;a href=&quot;http://carlosschults.net&quot;&gt;concordo&lt;/a&gt; ;)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://elemarjr.com/pt/home/&quot;&gt;Boa leitura&lt;/a&gt;!&lt;/p&gt;
+
+&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Você deve estar se perguntando porque mantive o número de blogs recomendados baixo. Um dos motivos é que, com esses três blogs, você já tem leitura de sobra para muito tempo (isso se formos considerar apenas os artigos já publicados. É claro que os blogs estão na ativa, então mais posts continuarão vindo).&lt;/p&gt;
+
+&lt;p&gt;O segundo - e mais importante - motivo é que sou &lt;em&gt;bastante exigente com o que leio&lt;/em&gt;. Não gosto de perder tempo com textos pessimamente escritos, com argumentos sem embasamento, ou com títulos sensacionalistas apenas para ganhar cliques.&lt;/p&gt;
+
+&lt;p&gt;Evidentemente, nenhum dos três blogs acima tem essas características. Você ter a certeza que os blogs recomendados nesse post oferecem um conteúdo de alta qualidade, capaz de aumentar seu conhecimento e trazer benefícios para a sua carreira.&lt;/p&gt;
+
+&lt;p&gt;E você, tem algum blog que gostaria de recomendar? Compartilhe com a gente nos comentários.&lt;/p&gt;
+
+&lt;p&gt;Até a próxima!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 11 Feb 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/blogs-desenvolvimento-portugues/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/blogs-desenvolvimento-portugues/</guid>
+        
+        <category>recomendacoes</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
