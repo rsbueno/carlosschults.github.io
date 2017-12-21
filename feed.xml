@@ -5,10 +5,200 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Dec 2017 12:37:47 -0200</pubDate>
-    <lastBuildDate>Tue, 05 Dec 2017 12:37:47 -0200</lastBuildDate>
+    <pubDate>Thu, 21 Dec 2017 00:01:27 -0200</pubDate>
+    <lastBuildDate>Thu, 21 Dec 2017 00:01:27 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>C# 8.0 Features: A Glimpse of the Future</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C# 8.0 is coming and will bring some great new features. Let’s check out what the future holds for us.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/c-8-0-features-glimpse-future/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download NDepend and give it a try.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s been almost 20 years since Microsoft released the first version of the C# language. From its inception—when some unjustly deemed it a mere Java copycat—until now, C# has had a remarkable evolution.&lt;/p&gt;
+
+&lt;p&gt;Nowadays, it’s frequently featured in both &lt;a href=&quot;https://insights.stackoverflow.com/survey/2017#technology-programming-languages&quot;&gt;most used&lt;/a&gt; and &lt;a href=&quot;https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted&quot;&gt;most loved&lt;/a&gt; programming languages lists. You can use it to develop desktop, web, and mobile apps, and you can write code that will run in all the major operating systems. Or you can jump right onto the IOT bandwagon and write code to “smarten” your house. We live in interesting times to be a C# developer indeed.&lt;/p&gt;
+
+&lt;p&gt;If the present is already exciting, what about the future? Would it be possible for us to get a glimpse of what lies ahead for the language?&lt;/p&gt;
+
+&lt;p&gt;Of course it is. Microsoft has developed C# “in the open” for quite a while now. You can just &lt;a href=&quot;https://github.com/dotnet/csharplang&quot;&gt;take a look at the GitHub repo&lt;/a&gt; to read (and participate—why not?) in the discussions and proposals.&lt;/p&gt;
+
+&lt;p&gt;Today, we’ve selected three feature proposals for C# 8.0 to talk about here: &lt;strong&gt;extension everything&lt;/strong&gt;, &lt;strong&gt;default implementations on interfaces,&lt;/strong&gt; and &lt;strong&gt;nullable reference types&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;extension-everything&quot;&gt;Extension Everything&lt;/h2&gt;
+
+&lt;p&gt;Extension everything is probably the least controversial of these three feature proposals, and in a certain way, it’s the least fleshed out also. So I figured it’d make a good starting point.&lt;/p&gt;
+
+&lt;p&gt;You’re probably familiar with extension methods, introduced in C# 3.0 in 2007. &lt;a href=&quot;https://www.daedtech.com/why-i-dont-like-c-extension-methods/&quot;&gt;And while it’s totally possible for them to be abused&lt;/a&gt;, there’s no denying that extension methods, if used wisely, can be an awesome addition to the C# developer’s toolkit—not to mention they’re essential for LINQ.&lt;/p&gt;
+
+&lt;p&gt;At some point you may have wondered, though: why only extension &lt;em&gt;methods&lt;/em&gt;? And you wouldn’t be alone. Extension properties, for instance, have been a desire of C# developers for quite a long time, as evidenced by &lt;a href=&quot;https://stackoverflow.com/questions/619033/does-c-sharp-have-extension-properties&quot;&gt;this 2009 Stack Overflow question&lt;/a&gt; or this &lt;a href=&quot;https://channel9.msdn.com/forums/Coffeehouse/257556-C-Extension-Properties/&quot;&gt;even older 2007(!) forum thread&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But now it seems the wait is finally coming to an end. According to Mads Torgersen, the program manager for the C# design team, &lt;a href=&quot;https://channel9.msdn.com/Blogs/Seth-Juarez/A-Preview-of-C-8-with-Mads-Torgersen&quot;&gt;a Microsoft intern proposed a new syntax for extension methods that will also allow “extension &lt;em&gt;other things&lt;/em&gt;”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-see-the-code&quot;&gt;Let’s See the Code&lt;/h3&gt;
+
+&lt;p&gt;Well, if I were you, I’d be itching to see some code. Here’s an example of an extension method using current syntax:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/d6ec153b7274ac699634d5dadb2e9644.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Nothing surprising here, right? In the original syntax, an extension method is just a static method in a static class, with the &lt;em&gt;this&lt;/em&gt; keyword before the first parameter.&lt;/p&gt;
+
+&lt;p&gt;The thing is this syntax only works with methods (and, really, how could it be otherwise, since what would be the first “parameter” of a property?)&lt;/p&gt;
+
+&lt;p&gt;Here comes “extension everything.” This proposal suggests a new type declaration called an “extension”:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/5c1afca9c8fbc6837257cc5d289df2e9.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code above is an example; as of the date of this writing, the C# team is yet to settle on a syntax.&lt;/p&gt;
+
+&lt;p&gt;Regardless, the example shows the creation of an extension class that extends “int.” We then declare a property as we normally do, and we’re done.&lt;/p&gt;
+
+&lt;p&gt;Now the caller code would be able to use the property normally:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/d401d37e182647b253fa721425eec828.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This new feature is meant to support methods, properties, operators, and static members, at least in the beginning; events and constructors may come later.&lt;/p&gt;
+
+&lt;p&gt;You won’t be able to add additional state to the original instance, i.e., creating a private field in the extension class. According to Torgersen, this would add undesirable complexity in order to keep track of this new state.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;You can &lt;a href=&quot;https://github.com/dotnet/csharplang/issues/192&quot;&gt;follow the feature development on its GitHub issue.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;default-implementation-on-interfaces&quot;&gt;Default Implementation on Interfaces&lt;/h2&gt;
+
+&lt;p&gt;I admit I was surprised—and not exactly happy—when I first heard about default implementation on interfaces &lt;a href=&quot;https://channel9.msdn.com/Events/Build/2017/B8104&quot;&gt;in a talk Mads Torgersen gave in May 2017, at the Build 2017 Conference.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;“What about record types?” I thought. “What about immutable objects? What we’re really getting is implementation on &lt;em&gt;interfaces&lt;/em&gt;?”&lt;/p&gt;
+
+&lt;p&gt;You can safely guess what this feature is by its name: we’ll be able to add method implementations on interfaces. For instance:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/efde91de1a54a1bc4f44c1a7a748d70c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In C# 8.0, the code above would be perfectly legal. A class implementing the interface wouldn’t need to implement the method. If some implementation of the interface decides that the default implementation doesn’t fit its needs, then it can provide its own implementation.&lt;/p&gt;
+
+&lt;p&gt;Besides methods, you’ll also be allowed to add bodies for indexers, properties, and event accessors. Static members such as methods, properties, and indexers will be allowed as well.&lt;/p&gt;
+
+&lt;p&gt;Instance state will not be allowed in interfaces, though. You’ll be able to use static fields but not instance fields. As a consequence of this, auto-implement properties won’t be allowed as well, since they automatically declare a hidden backing-field.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-cases&quot;&gt;Use Cases&lt;/h3&gt;
+
+&lt;p&gt;As stated in the feature &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;proposal&lt;/a&gt;, the primary use case for default interface methods is to enable the developer to safely evolve an interface. You could add new methods to it and, as long as you provided a default implementation, existing clients of the interface wouldn’t be forced to implement it.&lt;/p&gt;
+
+&lt;p&gt;Currently, you could solve this problem with an extension method. This approach is limited, though: what if you wanted to provide a specialized version of the method for one of the implementations? Good luck with that.&lt;/p&gt;
+
+&lt;p&gt;That’s when default implementation shines.&lt;/p&gt;
+
+&lt;p&gt;Another important value proposition of default implementation on interfaces relates to Android and iOS. Since both Java and Swift offer this feature, it’s tricky to use C# to wrap Android/iOS APIs that make use of it. C# 8.0 will make it possible to wrap those APIs more faithfully.&lt;/p&gt;
+
+&lt;h3 id=&quot;will-interfaces-become-abstract-classes&quot;&gt;Will Interfaces Become Abstract Classes?&lt;/h3&gt;
+
+&lt;p&gt;Sort of, but not really. As you know, there’s no multiple inheritance in languages like C# and Java, which means you can’t inherit from more than one class. On the other hand, a class is (and will continue to be) able to implement several interfaces.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status-1&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;This feature is currently being prototyped. &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;You can follow its development on the GitHub issue.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;nullable-reference-types&quot;&gt;Nullable Reference Types&lt;/h2&gt;
+
+&lt;p&gt;“What?” you may be wondering. “Shouldn’t it be ‘&lt;strong&gt;non&lt;/strong&gt;-nullable reference types’?” The name of this feature can be a bit confusing, indeed. I’ll get back to that soon, but first, let me address why this is even a thing.&lt;/p&gt;
+
+&lt;p&gt;I bet you’re familiar with the phrase “the billion dollar mistake.” On the off-chance you’re not, the phrase refers to the null reference, and it &lt;a href=&quot;https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions&quot;&gt;was coined by none other than Sir Tony Hoare, the inventor of the null reference himself.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;but-why-is-that-why-is-null-so-bad&quot;&gt;But why is that? Why is null so bad?&lt;/h3&gt;
+
+&lt;p&gt;You could make several arguments as to why, but the biggest problem is, of course, the risk of getting the infamous null-reference exception (aka null-pointer exception in Java-land). Since everything (“everything” in the context of C# meaning all &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;reference types&lt;/a&gt;) can be null, you always run the risk of getting an exception when you try to access some member of the object.&lt;/p&gt;
+
+&lt;p&gt;One of the biggest issues here is that the language itself lacks a syntax that would allow the author to express their intent. It isn’t possible for you to say “This parameter can never be null” or “This property may be null sometimes, and that’s ok.”&lt;/p&gt;
+
+&lt;p&gt;It’s common for functional languages to deal with this by having some type that represents the concept of a potential absent value, often called “Maybe” or “Option.”&lt;/p&gt;
+
+&lt;p&gt;The C# team decided against something like this since, according to them, it’d be the same as adding a new kind of null to the language and it’d probably make things more complex.&lt;/p&gt;
+
+&lt;p&gt;Let’s go back now to the naming issue. You may be thinking that I’ve got it backwards. It makes sense to talk about nullable value types since value types are non-nullable by default. But in the case of reference types, it shouldn’t, right? After all, they’ve been nullable from the beginning.&lt;/p&gt;
+
+&lt;p&gt;Here’s the catch: the C# design team—in a move not free of controversy—intends to make non-nullability the new default for reference types. In that sense, the “new” thing would be the nullable types.&lt;/p&gt;
+
+&lt;p&gt;To keep the language consistent, they propose to use the same syntax that already exists for nullable reference types—in other words, the question mark.&lt;/p&gt;
+
+&lt;h3 id=&quot;enough-talking-lets-see-some-code&quot;&gt;Enough talking. Let’s see some code!&lt;/h3&gt;
+
+&lt;p&gt;I suppose using the infamous “Person” class in an example is the software equivalent of playing “Stairway to Heaven” in a musical instruments store—it may be a little overdone. But using a more elaborate example would be both distracting and unnecessary, so please bear with me.&lt;/p&gt;
+
+&lt;p&gt;Suppose we have a “Person” class with an “Age” property of type “int.” Then, we write the following method:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/9b09f0572e737569e6f97315e5028411.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Even though the code above will gladly compile, it’s fragile since “p” could be null. You probably should add an “if” statement to account for that possibility, but no one will make you do that. You’re completely free to leave the code as it is.&lt;/p&gt;
+
+&lt;p&gt;C# 8 promises to change that by making reference types non-nullable by default. In the example above, trying to access the “Age” property would be safe, since “p” would never be null.&lt;/p&gt;
+
+&lt;p&gt;If you wanted “p” to be nullable, then you’d have to add a question mark to the type, as I’ve mentioned before:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/8554d8863882955b554b486797b83726.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now that “p” can be null, trying to access Age isn’t safe anymore: you’ll get a warning for doing that. Want to get rid of the warning?&lt;/p&gt;
+
+&lt;p&gt;Just do what you (hopefully) already do today and perform a null check:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/edc992560bf6c005c6be821103e160a3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;That way, a flow analysis will be performed; if the assignment line is reached, the compiler will know for a fact that “p” can’t possibly be null and will leave you alone.&lt;/p&gt;
+
+&lt;p&gt;Here’s another possibility:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/518c1b35560cafe17fca829aa2aef27b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In short, you have several options. As soon as you convince the compiler that your code offers no risk of throwing a null reference exception, the warning goes away.&lt;/p&gt;
+
+&lt;h3 id=&quot;preventing-assignment-from-nullable-to-non-nullable&quot;&gt;Preventing Assignment from Nullable to Non-Nullable&lt;/h3&gt;
+
+&lt;p&gt;The new version of C# will also prevent assigning from a nullable variable to a non-nullable, so the code below will result in a warning as well:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/98f91bc50c924a8bd47897b874a7be89.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This feature will come along with a new operator called the null-ignoring operator. You’ll basically use this operator to tell the compiler that “I, the developer, know best.” There will be situations when a variable can’t possibly be null, but the compiler won’t be able to infer that.&lt;/p&gt;
+
+&lt;p&gt;One such example would be the use of the “string.IsNullOrEmpty()” method:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/7f0f2f7470f810d228f1d68559b1d6b7.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code above will generate a warning, despite it not being possible for “bar” to be null. That’s when this operator comes in handy:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/008709a0b9ff6a72abc8fc4882a467d3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Keep in my mind that, by using this operator, you’re basically telling the compiler: “Trust me! I know what I’m doing.” So you’d better really know what you’re doing!&lt;/p&gt;
+
+&lt;h3 id=&quot;what-about-backward-compatibility&quot;&gt;What about backward compatibility?&lt;/h3&gt;
+
+&lt;p&gt;I know what you’re probably thinking by now. “That sounds nice and all, but wouldn’t this change break a lot of existing code?”&lt;/p&gt;
+
+&lt;p&gt;Well, of course it would. That’s why this will be an &lt;strong&gt;opt-in&lt;/strong&gt; change, activated on a per-project basis&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status-2&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;This one is already prototyped. If you’re interested, &lt;a href=&quot;https://github.com/dotnet/csharplang/wiki/Nullable-Reference-Types-Preview&quot;&gt;you can download, install, and test a preview for nullable reference types right away.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As with the previous features, you can stay tuned by &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/nullable-reference-types.md&quot;&gt;following the relevant proposal in GitHub.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;c-has-a-future-and-it-looks-awesome&quot;&gt;C# Has a Future. And It Looks Awesome&lt;/h2&gt;
+
+&lt;p&gt;So now you know a bit more about three of the features we’re probably getting with the next major version of the C# language.&lt;/p&gt;
+
+&lt;p&gt;As you can see, evolving the language is hard work. The language has to remain compatible with the millions (billions?) of lines of code written with it in the last 17 years. At the same time, in order to continue being relevant, it must meet the needs of developers that are facing challenges that were unimaginable years ago. And it must do all of this without losing its essence: being an easy and approachable object-oriented C-like language.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 20 Dec 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/csharp-8-features/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/csharp-8-features/</guid>
+        
+        <category>csharp</category>
+        
+        
+      </item>
     
       <item>
         <title>Unit testing for beginners - Part 2</title>
@@ -1466,141 +1656,6 @@ are horrible, not to mention the fact that you’d have to check the flag every 
         <category>oop</category>
         
         <category>type system</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Ten tips to help you choose good names</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1462225938/baby-name-min_nosetz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;There are only two hard things in Computer Science: cache invalidation and naming things.&lt;/p&gt;
-
-  &lt;p&gt;Phil Karlton&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Do you want to write great code? Clean, understandable, human-readable code? Well, there are several skills you need to acquire. But I’d say #1 on the list is “Picking Good Names”.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Choosing great names for your classes, methods, variables and the like is essential. Wisely chosen names often are the difference between good and awful code.&lt;/p&gt;
-
-&lt;p&gt;But what exactly is a good name?  Even though there are some generally accepted guidelines, I’m afraid there isn’t a real consensus. (As it is with a lot of topics in our field, I’d say).&lt;/p&gt;
-
-&lt;p&gt;So, today I’m going to talk about naming conventions and principles that I try to use whenever I’m coding. It’s a mix of what I learned in college, studying by my own and working as a professional developer. It’s been useful to me, so I hope it’s going to be useful to you as well.&lt;/p&gt;
-
-&lt;p&gt;Some of the tips I’m going show you here today come from the book “Clean Code”, by Robert C. Martin (Uncle Bob). It’s one of my favorite programming books, and I’ll write a review on it sometime soon. Stay tuned!&lt;/p&gt;
-
-&lt;h2 id=&quot;use-self-explanatory-names&quot;&gt;0. Use self-explanatory names&lt;/h2&gt;
-
-&lt;p&gt;What your variable/class/whatever does? How it’s supposed to be used? Choose a name that answers these questions.&lt;/p&gt;
-
-&lt;p&gt;Some people have the misguided notion that shorter names are always better. I can’t understand this. Are they trying to save keystrokes or something?&lt;/p&gt;
-
-&lt;p&gt;Let’s say you’re browsing a code base and you see some code like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;days&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;until&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deadline&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;You could argue that this code is fine. The variable’s meaning is perfectly expressed in the comment. Great, but remember that the variable will probably be used in other points, away from the declaration and the comment.&lt;/p&gt;
-
-&lt;p&gt;So…why not just drop the comment and use the comment’s text as the variable’s name?&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;daysUntilDealine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;use-abbreviations-only-when-theyre-widely-known&quot;&gt;1. Use abbreviations only when they’re widely known&lt;/h2&gt;
-
-&lt;p&gt;It would be crazy to name a variable “ServiceUniformResourceLocator” instead of “ServiceUrl”. Every developer knows what a Url is. The same thing with Ftp, UI, IO, and so on. So, it’s ok to use abbreviations to name things, but only if they are widely known and used. It would be counterproductive not to do so.&lt;/p&gt;
-
-&lt;p&gt;By the way. When I say “widely known”, I don’t necessarily mean &lt;em&gt;worldwide known&lt;/em&gt;. Of course you can use abbreviations that are common in your business domain. It is considered a best practice to program as close as possible to the customer’s language. So, if your fellow developers and the business people are comfortable with the abbreviations, there’s no problem at all in using them.&lt;/p&gt;
-
-&lt;h2 id=&quot;choose-clarity-over-brevity&quot;&gt;2. Choose clarity over brevity&lt;/h2&gt;
-
-&lt;p&gt;This is somewhat related to the first point. All else being equal, shorter names are better. But one day you’ll have to choose between clarity and brevity. When that day comes, always pick clarity. Six months down the road, when you have to revisit that code, you’re going to thank yourself.&lt;/p&gt;
-
-&lt;h2 id=&quot;use-widely-accepted-conventions-most-of-the-time&quot;&gt;3. Use widely accepted conventions (most of the time)&lt;/h2&gt;
-
-&lt;p&gt;There are very few points in the book “Clean Code” that I disagree with. One of them is Uncle Bob’s recommendation to not start interface names with a capital “I”.  He argues that this practice is reminiscent of Hungarian notation, and thus should die. Even though I understand why he thinks like this, I’m still starting my interface names with an “I”.&lt;/p&gt;
-
-&lt;p&gt;Why? One simple reason: starting interface names with an “I” is a very widespread and accepted convention in the .Net community. When you go against an established convention, you risk alienating developers who are used to that convention, like potential new team members or open-source projects contributors.&lt;/p&gt;
-
-&lt;p&gt;I think you should abandon a widely accepted convention only when the benefit of doing so greatly outweighs the costs. And I don’t think that’s the case here.&lt;/p&gt;
-
-&lt;h2 id=&quot;dont-use-hungarian-notation&quot;&gt;4. Don’t use Hungarian notation&lt;/h2&gt;
-
-&lt;p&gt;Maybe you’ve heard about Hungarian Notation, maybe you haven’t. But I bet you’ve seen it, or even used it yourself, even if the name doesn’t ring a bell immediately.&lt;/p&gt;
-
-&lt;p&gt;So, what is this Hungarian thing? Our friend Wikipedia comes to our rescue:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Hungarian notation is an identifier naming convention in computer programming, in which the name of a variable 
- or function indicates its type or intended use.&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Hungarian_notation&quot;&gt;Wikipedia: Hungarian Notation&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;So, in a nutshell, Hungarian notation is encoding the type of the variable in its name. So, if I have an int variable meant to store the age of a student, I’d call it &lt;code class=&quot;highlighter-rouge&quot;&gt;iStudentAge&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;intStudentAge&lt;/code&gt;. Similarly, a string variable supposed to store a product’s description would be called &lt;code class=&quot;highlighter-rouge&quot;&gt;sProductDescription&lt;/code&gt;, or even &lt;code class=&quot;highlighter-rouge&quot;&gt;strProductDescription&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;And why is this bad? Here are a few reasons:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;First of all, it’s useless. If your variable has a self-explaining name (see item #0), it will give you a decent clue about its type. If you spot a variable called &lt;code class=&quot;highlighter-rouge&quot;&gt;productName&lt;/code&gt;, would you think it’s a floating-point number? Besides, most modern IDEs can tell you not only the variable’s type, but also if it’s a local variable,instance member or a method parameter, and even how many times it’s been referenced.&lt;/li&gt;
-  &lt;li&gt;It can be misleading. People make mistakes, and it’s perfectly possible to change the variable’s type but forget to also change its name to reflect the new type. So now you have a variable prefixed with “int” but it’s actually a long.&lt;/li&gt;
-  &lt;li&gt;It makes the names more difficult to pronounce, and this may complicate discussion about the code and the architecture of your application.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;stick-to-the-languageframeworkprojects-coding-style&quot;&gt;5. Stick to the language/framework/project’s coding style&lt;/h2&gt;
-
-&lt;p&gt;Most C# developers tend to use CamelCase to name local variables, instance variables and methods parameters, as in &lt;code class=&quot;highlighter-rouge&quot;&gt;productName&lt;/code&gt;. In Ruby, for instance, the recommended style is &lt;code class=&quot;highlighter-rouge&quot;&gt;snake_case&lt;/code&gt;, as in &lt;code class=&quot;highlighter-rouge&quot;&gt;product_name&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Development frameworks and open-source projects might have their own guidelines and standards as well.&lt;/p&gt;
-
-&lt;p&gt;It would be pointless to fight against established standards, due to a matter of taste and preference. If you’re writing Ruby code, write the way the Ruby community expects. The same with Java, C#, PHP, what have you.&lt;/p&gt;
-
-&lt;p&gt;It’s like they say: “When in Rome, do as the Romans do”.&lt;/p&gt;
-
-&lt;h2 id=&quot;method-names-should-start-with-a-verb&quot;&gt;6. Method names should start with a verb&lt;/h2&gt;
-
-&lt;p&gt;This one is really short. Methods are usually actions that an object can perform. As such, their names should start with a verb that indicates the action to be performed, e.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;PrintReport()&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;DrawShape(IShape shape)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;class-names-should-be-nouns&quot;&gt;7. Class names should be nouns&lt;/h2&gt;
-
-&lt;p&gt;Likewise, class names should be nouns, like &lt;code class=&quot;highlighter-rouge&quot;&gt;Product&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Student&lt;/code&gt;. Avoid using the words like &lt;code class=&quot;highlighter-rouge&quot;&gt;Manager&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Data&lt;/code&gt;, because they add little or no value.&lt;/p&gt;
-
-&lt;h2 id=&quot;property-names-should-be-nouns-or-adjective-phrases-c-specific&quot;&gt;8. Property names should be nouns or adjective phrases (C# specific)&lt;/h2&gt;
-
-&lt;p&gt;Properties should be names with nouns, noun phrases or adjectives. When naming boolean properties, you may add the prefixes &lt;code class=&quot;highlighter-rouge&quot;&gt;Can&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;Is&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;Has&lt;/code&gt;, when doing so provides value to the caller.&lt;/p&gt;
-
-&lt;h2 id=&quot;use-pronounceablesearchable-names&quot;&gt;9. Use pronounceable/searchable names&lt;/h2&gt;
-
-&lt;p&gt;Work hard to choose names that are pronounceable. When you pick a name that is hard or impossible to pronounce, you discourage discussion about your code, which is never a good thing.&lt;/p&gt;
-
-&lt;p&gt;Likewise, try to avoid names with a single letter. Among other reasons, they may give you a very hard time when you have to search for them! They make good names only for loop control variables or in lambda expressions. But even then, only when the scope is super short.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Choosing names is really hard. A name should express purpose, intention, meaning. It doesn’t necessarily need to be clever – but there are certain tricky situations that will require a little bit of cleverness.&lt;/p&gt;
-
-&lt;p&gt;A name should clearly express the purpose of the entity being named. But there are a lot of things that are very complex by their own nature, and it’s not so easy to come up with a perfect name for a very complex concept.&lt;/p&gt;
-
-&lt;p&gt;Sometimes, the difficulty you experience while choosing a name is a symptom of another problem, like a messy   architecture, for instance. If you can’t decide between five options when naming a class, maybe the class is violating the Single Responsibility Principle (it’s trying to do more than one thing).&lt;/p&gt;
-
-&lt;p&gt;On the other hand, if you feel like calling a dozen classes the same thing…maybe they belong together as a single class.&lt;/p&gt;
-
-&lt;p&gt;Choosing names is ultimately about communication. And I think that’s why it’s such a hard task. Because we, developers, are not necessarily famous for our communication skills.&lt;/p&gt;
-
-&lt;p&gt;In “Clean Code”, at the end of the chapter about choosing good names, Uncle Bob writes:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;The hardest thing about choosing good names is that it requires good descriptive skills and a shared cultural background. This is a teaching issue rather than a technical, business, or management issue. As a result, many people in this field do not do it very well.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Don’t be like most people in our field. Do the hard work and learn how to name things. You’ll thank yourself in the future.&lt;/p&gt;
-</description>
-        <pubDate>Sun, 22 May 2016 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/how-to-choose-good-names/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/how-to-choose-good-names/</guid>
-        
-        <category>best practices</category>
         
         
       </item>
