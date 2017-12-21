@@ -3,8 +3,24 @@
   
     
       <url>
+        <loc>/pt/funcionalidades-csharp8/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp8/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-8-features/" />
+        
+        <lastmod>2017-12-20T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/csharp-8-features/</loc>
         
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/funcionalidades-csharp8/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/en/csharp-8-features/" />
         
