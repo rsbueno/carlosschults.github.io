@@ -5,10 +5,199 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 Dec 2017 22:05:53 -0200</pubDate>
-    <lastBuildDate>Thu, 21 Dec 2017 22:05:53 -0200</lastBuildDate>
+    <pubDate>Wed, 17 Jan 2018 21:25:34 -0200</pubDate>
+    <lastBuildDate>Wed, 17 Jan 2018 21:25:34 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Programação Cargo Cult É A Arte de Programar Por Coincidência</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/cargo-cult-programming/&quot;&gt;clicar aqui para ler o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, baixe e experimente o NDepend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Eu ouvi falar em programação cargo cult a primeira vez há alguns anos. Eu me lembro de ter pensado na época: “Que nome estranho para um conceito relacionado com programação”.&lt;/p&gt;
+
+&lt;p&gt;Se você compartilha do estranhamento do meu “eu” do passado, o post de hoje é para você.&lt;/p&gt;
+
+&lt;p&gt;Primeiramente, você verá o que programação cargo cult é e por que você deve se importar. Então, vamos dar uma olhada em alguns exemplos práticos, usando a linguagem C#. Finalmente, nós encerraremos com conselhos sobre o que você pode fazer para não cair nessa armadilha.&lt;/p&gt;
+
+&lt;h2 id=&quot;programao-cargo-cult-fazendo-as-coisas-porque-sim&quot;&gt;Programação Cargo Cult: Fazendo as coisas porque sim.&lt;/h2&gt;
+
+&lt;p&gt;Segundo a versão em inglês da &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Programação &lt;em&gt;cargo cult&lt;/em&gt; é um estilo de programação de computadores caracterizado pela inclusão ritualística de código ou estruturas de programação que não servem nenhum propósito real.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em outras palavras, é quando um(a) desenvolvedor(a) escreve código sem entender realmente o que aquele código faz. Talvez uma abordagem por tentativa e erro tenha sido usada - copia o código de um lugar, cola em outro, e vai mexendo e testando até que funciona, mais ou menos. Quando chega nesse ponto a pessoa geralmente para de mexer no código, por medo de fazer parar de funcionar. No processo, talvez sobrem resquícios de código que não servem realmente para nada.&lt;/p&gt;
+
+&lt;p&gt;Ou talvez a pessoa tenha tentado usar uma técnica aprendida com um colega, mas falhou em compreender que os conceitos são diferentes e que a tal técnica é inútil na situação atual.&lt;/p&gt;
+
+&lt;p&gt;Por fim, também é possível que o problema seja simplesmente educação insuficiente: talvez o desenvolvedor tenha um entendimento pobre a respeito de como as ferramentas usadas funcionam.&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-a-programao-cargo-cult--um-problema&quot;&gt;Por que a programação &lt;em&gt;cargo cult&lt;/em&gt; é um problema?&lt;/h2&gt;
+&lt;p&gt;Como Eric Lippert diz, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/&quot;&gt;programadores cargo cult sofrem para fazer alterações significativas em um programa&lt;/a&gt; e acabam usando uma abordagem de tentativa e erro já que eles não entendem o funcionamento interno do código que estão prestes a alterar.&lt;/p&gt;
+
+&lt;p&gt;Isso não é tão diferent do que os &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;programadores pragmáticos chamam de “programação por coincidência”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fred doesn’t know why the code is failing because he didn’t know why it worked in the first place. It seemed to work, given the limited “testing” that Fred did, but that was just a coincidence.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fred não sabe porque o código está falhando porque ele não sabe porque ele funcionou da primeira vez. Parecia estar funcionando, com o “teste” limitado que Fred fez, mas era apenas uma coincidência.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;A frase acima resume tudo para mim: se você não sabe como ou por que seu código funciona, você também não vai entender o que aconteceu quando ele parar de funcionar.&lt;/p&gt;
+
+&lt;h2 id=&quot;origem-do-termo&quot;&gt;Origem do termo&lt;/h2&gt;
+&lt;p&gt;Embora práticas que são consideradas “culto à carga” (&lt;em&gt;cargo cult&lt;/em&gt;) atualmente tenham sido registradas tão cedo quando&lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult#First_occurrences&quot;&gt;tenham sido registradas tão cedo quanto o final do século XIX&lt;/a&gt;, o termo em si data de 1945, quando foi usado pela primeira vez para descrever práticas que surgiram durante e depois da Segunda Guerra Mundial entre habitantes da Melanésia.&lt;/p&gt;
+
+&lt;p&gt;Os nativos começaram a imitar o comportamento dos soldados, vestindo-se como controladores de voo e balançando gravetos, na esperança de que isso faria com que aviões carregados de suprimentos descessem dos céus.&lt;/p&gt;
+
+&lt;p&gt;Desde então, o termo culto à carga tem sido usado em uma variedade de contextos para significar &lt;strong&gt;imitar forma sem conteúdo&lt;/strong&gt; - copiar perfeitamente os elementos superficiais mas ao mesmo tempo falhando em entender de maneira mais profunda o significado e funcionamento do que se está tentando emular.&lt;/p&gt;
+
+&lt;h2 id=&quot;falar--fcil-me-mostre-o-cdigo&quot;&gt;Falar é fácil; me mostre o código!&lt;/h2&gt;
+&lt;p&gt;Chega da aula de História por hoje. Hora de ver código! Eu vou mostrar cinco exemplos de programação cargo cult usando a linguagem C#. Vamos lá.&lt;/p&gt;
+
+&lt;h3 id=&quot;checar-um-tipo-de-valor-no-nulvel-for-null&quot;&gt;Checar um tipo de valor não-nulável for &lt;em&gt;Null&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;O primeiro item é algo que me incomoda já que eu vejo isso bastante em código de produção. É algo assim:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// essa verificação é inútil
+&lt;/span&gt;	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	       &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Esta linha sempre será executada.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;diferença entre tipos de valor e referência&lt;/a&gt;. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.&lt;/p&gt;
+
+&lt;p&gt;Você pode achar isso um exagero da minha parte. Afinal de contas, o código vai rodar perfeitamente mesmo assim. Na verdade, a verificação não será nem ao mesma incluída no IL resultante, como você pode ver nesse print de uma ferramenta de descompilação:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;Uma imagem mostrando um trecho de código que não contem a checagem de nulo.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Você pode ver no trecho de código acima que o compilador otimizou o código, removendo a checagem por nulo.&lt;/p&gt;
+
+&lt;p&gt;Tem problemas muito piores, claro. Sim, a aplicação não vai &lt;em&gt;quebrar&lt;/em&gt; por causa disso. Então, qual é o ponto?&lt;/p&gt;
+
+&lt;p&gt;Bom, pra começo de conversa, eu me preocuparia com uma empresa de desenvolvimento cujo único critério de qualidade é “roda sem quebrar”. Mas o problema de verdade aqui é que esse tipo de código demonstra uma falta de entendimento sobre características fundamentais da linguagem e da plataforma que podem lhe causar problemas no futuro.&lt;/p&gt;
+
+&lt;h3 id=&quot;uso-desnecessrio-de-tolist-em-consultas-do-linq-to-object&quot;&gt;Uso Desnecessário de &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; em consultas do LINQ to Object&lt;/h3&gt;
+&lt;p&gt;Assim como o problema anterior, o item atual é algo que eu rotineiramente vejo em código de produção. Considere o código abaixo:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O problema que temos aqui é que as chamadas ao método &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; são totalmente desnecessárias (exceto talvez a última, caso você realmente precisasse que o resultado fosse um lista e não apenas um &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;Em minha experiência, isso acontece quando quem escreveu o código não entende bem a natureza do LINQ; eles erroneamente acham que os métodos do LINQ pertencem ao tipo concreto &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; ao invés de serem métodos de extensão que podem ser usados com qualquer implementação de &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Ao chamar &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; diversas vezes dessa forma, o desenvolvedor na verdade cria diversas listas novas, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
+
+&lt;p&gt;O código acima pode ser reescrito da seguinte forma:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;converses-desnecessrias&quot;&gt;Conversões Desnecessárias&lt;/h3&gt;
+&lt;p&gt;Considere a linha seguinte:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Aqui temos não apenas uma mas duas conversões desnecessárias. Primeiro, criamos uma nova string e então a “parseamos” para &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; quando um simples &lt;em&gt;cast&lt;/em&gt; seria suficiente:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Esse exemplo assume que o tipo no banco de dados é um tipo específico para lidar com datas (como &lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;datetime&lt;/code&gt; no SQL Server). É claro que se você estivesse usando um tipo inadequado (como &lt;code class=&quot;highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) então isso já seria um outro problema.&lt;/p&gt;
+
+&lt;h3 id=&quot;try-catch-em-todo-lugar&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Try-Catch&lt;/code&gt; em todo lugar&lt;/h3&gt;
+&lt;p&gt;Também conhecido como síndrome Pokémon (“Gotta catch’em all!”), o &lt;em&gt;anti-pattern&lt;/em&gt; aqui é adicionar um bloco &lt;code class=&quot;highlighter-rouge&quot;&gt;try-catch&lt;/code&gt; em cada linha em que exista a remota possibilidade de uma exceção ser disparada.&lt;/p&gt;
+
+&lt;p&gt;Pontos bônus se o código estiver tentando capturar &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; ao invés de uma exceção mais específica, acabando com a distinção entre erros esperados e não esperados.&lt;/p&gt;
+
+&lt;p&gt;Mais pontos se o bloco do &lt;code class=&quot;highlighter-rouge&quot;&gt;catch&lt;/code&gt; não conter código nenhum!&lt;/p&gt;
+
+&lt;p&gt;A dica geral aqui é: jamais capture uma exceção a não ser que você tenha uma razão muito específica para fazê-lo. Do contrário, deixe que a exceção suba até que o gerenciador de exceções geral no nível mais alto lide com ela.&lt;/p&gt;
+
+&lt;p&gt;Se esse conselho parece vago (“Como vou saber se eu tenho uma boa razão para capturar a exceção?”), é porque de fato é. Explorar esse tema mais a fundo iria além do escopo desse post, , mas &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;ler o excelente artigo do Eric Lippert chamado “Vexing Exceptions”&lt;/a&gt; vai aumentar e muito o seu entendimento sobre exceções.&lt;/p&gt;
+
+&lt;h3 id=&quot;usar-stringbuilder-demais&quot;&gt;Usar &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; Demais&lt;/h3&gt;
+&lt;p&gt;Você já deve ter visto o filme: depois de ler em algum lugar que concatenar strings usando &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; é ineficiente, nosso intrépido desenvolvedor resolve tomar pra si a tarefa hercúlea de mudar cada concatenação de string no projeto para o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A justificativa para isso, claro, é que &lt;code class=&quot;highlighter-rouge&quot;&gt;System.String&lt;/code&gt; é imutável. Então, cada vez que você “muda” a string, você na verdade está criando uma instância nova na memória, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
+
+&lt;p&gt;Mas adivinha só. O compilador é bem esperto. Digamos que você tenha a seguinte linha:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Isso vai ser no fim das contas traduzido para:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; provavelmente faz mais sentido&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Lógico, alguns cenários não são tão claros assim. O único conselho que faz sentido dar aqui é: faça seu devre de casa. Quando estiver com dúvida, pesquise e faça &lt;em&gt;benchmark&lt;/em&gt; sem dó.&lt;/p&gt;
+
+&lt;p&gt;Eu termino com mais uma dica sensata do Eric Lippert:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unnecessary code changes are expensive and dangerous; &lt;strong&gt;don’t make performance-based changes unless you’ve identified a performance problem.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;existe-soluo&quot;&gt;Existe Solução?&lt;/h2&gt;
+&lt;p&gt;Eu diria que é justo supor que pessoas com menos experiência são mais propensas a cometer erros devido à programação cargo cult. Mas desenvolvedor nenhum está realmente a salvo, independentemente de seu nível de conhecimento ou experiência.&lt;/p&gt;
+
+&lt;p&gt;Nós somos apenas humanos no fim das contas. Cansaço, prazos, vieses cognitivos e (para ser realmente honesto) a preguiça eventual pode transformar até o melhor de nós em um programador cargo cult.&lt;/p&gt;
+
+&lt;p&gt;Infelizmente, não há uma maneira 100% garantida de impedir isso de acontecer. Mesmo assim, aqui vão algumas medidas que você pode tomar para, ao menos, diminuir as chances.&lt;/p&gt;
+
+&lt;p&gt;Vamos ver algumas delas.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-reviso-de-cdigoprogramao-em-par&quot;&gt;Use Revisão de Código/Programação em Par&lt;/h3&gt;
+&lt;p&gt;A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;revisão de código e programação em par não são exatamente equivalentes&lt;/a&gt;, ambas as práticas podem lhe trazer esse benefício.&lt;/p&gt;
+
+&lt;h3 id=&quot;sempre-teste-suas-hipteses&quot;&gt;Sempre Teste Suas Hipóteses&lt;/h3&gt;
+&lt;p&gt;Escreva &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;testes de unidade&lt;/a&gt; (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça &lt;em&gt;benchmarks&lt;/em&gt; exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer &lt;em&gt;insights&lt;/em&gt; valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.&lt;/p&gt;
+
+&lt;h3 id=&quot;leia-cdigo-de-outras-pessoas&quot;&gt;Leia Código de Outras Pessoas&lt;/h3&gt;
+&lt;p&gt;Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.&lt;/p&gt;
+
+&lt;p&gt;Na era do &lt;a href=&quot;http://github.com/&quot;&gt;GitHub&lt;/a&gt;, não tem muita desculpa para não fazer isso.&lt;/p&gt;
+
+&lt;h3 id=&quot;aprenda-com-suas-ferramentas&quot;&gt;Aprenda Com Suas Ferramentas&lt;/h3&gt;
+&lt;p&gt;Existe um número enorme de ferramentas que podem ajudar &lt;a href=&quot;https://www.ndepend.com/&quot;&gt;sua equipe com a qualidade do seu código&lt;/a&gt;. Aqui vai a dica principal: você não deve só usar essas ferramentas. Você deve também aprender com elas. Se você usa NDepend, &lt;a href=&quot;https://www.ndepend.com/default-rules/webframe.html&quot;&gt;leia sobre suas regras&lt;/a&gt;. Tente entender a justificativa por trás de cada uma delas. Quais são os princípios e boas práticas que guiaram seus autores durante a criação delas?&lt;/p&gt;
+
+&lt;p&gt;A mesma dica vale para outros tipos de ferramentas, e até para os warnings que o compilador lhe mostra.&lt;/p&gt;
+
+&lt;h2 id=&quot;cincia-da-computao-no-superstio-da-computao&quot;&gt;Ciência da Computação, Não &lt;em&gt;Superstição&lt;/em&gt; da Computação&lt;/h2&gt;
+&lt;p&gt;Embora ninguém seja imune à programação cargo cult, nós devemos nos esforçar para superá-la. Há sabedoria na nossa área à nossa disposição, acumulada lentamente ao longo de mais de 7 década. Vamos usá-la. Vamos entender melhor nossas ferramentas e nossa profissão e escrever software de qualidade.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 17 Jan 2018 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/cargo-cult-programming/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/cargo-cult-programming/</guid>
+        
+        <category>csharp</category>
+        
+        <category>boas praticas</category>
+        
+        <category>programacao cargo cult</category>
+        
+        
+      </item>
     
       <item>
         <title>Funcionalidades do C# 8.0: Um Vislumbre do Futuro</title>
@@ -1630,136 +1819,6 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
         <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp-6/</guid>
         
         <category>csharp</category>
-        
-        <category>iniciantes</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Aprenda quais tipos de comentários devem ser evitados</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Alerta de Spoiler: Você deveria evitar a maioria.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;“Comentar ou não comentar”. Essa é uma questão que gera debates acalorados. Algumas pessoas dizem que comentários são indispensáveis. Outros defendem que comentários apenas mostram a incapacidade do desenvolvedor de se expressar claramente no código. Quem está certo?&lt;/p&gt;
-
-&lt;p&gt;Na época da faculdade, eu considerava comentários indispensáveis na hora de programar. Do contrário, como você poderia entender o que código deveria fazer?&lt;/p&gt;
-
-&lt;p&gt;Depois de me formar e encontrar um emprego, as coisas começaram a mudar. Eu comecei a ser exposto à &lt;em&gt;código real&lt;/em&gt;. Eu estava lendo livros, artigos e blog posts escritos por pessoas influentes da área.&lt;/p&gt;
-
-&lt;p&gt;Todas essas experiências moldaram a minha visão atual.&lt;/p&gt;
-
-&lt;h2 id=&quot;os-perigos-da-documentao-ruim&quot;&gt;Os perigos da documentação ruim&lt;/h2&gt;
-
-&lt;p&gt;Comentários são apenas outra forma de documentação. E não se engane: documentação é uma coisa boa - &lt;em&gt;quando feita corretamente e na quantidade certa&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Infelizmente, é feita errada frequentemente!&lt;/p&gt;
-
-&lt;p&gt;Muitos tipos de documentação podem ser problemáticas. É muito comum que a documentação perca sincronia com o que está documentando, o que é bem pior que não ter documentação nenhuma para começar.&lt;/p&gt;
-
-&lt;p&gt;Esse é um dos problemas dos quais comentários sofrem, mas está longe de ser o único.&lt;/p&gt;
-
-&lt;h3 id=&quot;cdigo-comentado&quot;&gt;Código comentado&lt;/h3&gt;
-
-&lt;p&gt;Vamos começar com o problema mais óbvio de todos, que é código comentado. Alguns desenvolvedores, durante uma correção de bug por exemplo, decidem comentar o código que está errado, em vez de removê-lo.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Não faça isso!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Código comentado não traz benefício para ninguém. É apenas desperdício. Confie no seu sistema de controle de versão. Ele vai lembrar das alterações feitas caso seja necessário revertê-las no futuro.&lt;/p&gt;
-
-&lt;h3 id=&quot;comentrios-changelog&quot;&gt;Comentários ‘Changelog’&lt;/h3&gt;
-
-&lt;p&gt;Esta categoria de comentários ruins é parecida com a anterior, no sentido de ser causada por uma falta de confiança no sistema de controle de versões.&lt;/p&gt;
-
-&lt;p&gt;O que eu quero dizer por comentários changelog? Comentários que servem apenas para listar as alterações feitas a um arquivo.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/3889e4d4b337c6adc94af354ec574d9a.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Comentários desse tipo estão apenas fazendo o mesmo trabalho que seu controle de versão, mas de uma maneira desajeitada e propensa ao erro.&lt;/p&gt;
-
-&lt;p&gt;Não escreve comentários como esses. Use &lt;a href=&quot;https://git-scm.com/&quot;&gt;git&lt;/a&gt; e seja feliz.&lt;/p&gt;
-
-&lt;h3 id=&quot;comentrios-redundantes&quot;&gt;Comentários redundantes&lt;/h3&gt;
-
-&lt;p&gt;Esse tipo de comentário ruim é muito fácil de detectar e corrigir. Considere o código a seguir:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/cc821bc3c00137e5fad68f1fe7d65490.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Eu acho que todos podemos concordar que esses comentários são inúteis. O código é perfeitamente claro sem eles, portanto, devem ser removidos.&lt;/p&gt;
-
-&lt;h3 id=&quot;comentrios-delimitando-fim-de-blocos&quot;&gt;Comentários delimitando fim de blocos&lt;/h3&gt;
-
-&lt;p&gt;Você provavelmente já viu algum código assim antes:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/0c6e461ec278db804f52d64ade458bf4.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Algumas pessoas escrevem comentários assim para não perderem o controle das chaves.&lt;/p&gt;
-
-&lt;p&gt;Se você precisa de comentários por essa razão, isso é indicativo de que seu método é muito longo e você tem muitos níveis de indentação.&lt;/p&gt;
-
-&lt;p&gt;Lembre-se do Princípio da Responsabilidade Única: cada método deve fazer apenas uma coisa. Divida o seu método em métodos menores e a necessidade desse tipo de comentários desaparece.&lt;/p&gt;
-
-&lt;h3 id=&quot;comentrios-que-delimitam-sees-dentro-de-um-mtodo&quot;&gt;Comentários que delimitam seções dentro de um método&lt;/h3&gt;
-
-&lt;p&gt;Esse é parecido com o anterior. Se você tem diversas seções dentro de um método, cada uma delas com um comentário explicativo em cima, então você provavelmente está violando o Princípio da Responsabilidade Única.&lt;/p&gt;
-
-&lt;p&gt;Extraia cada trecho para seu próprio método, usando o texto do comentário como o nome do novo método, e então remova os comentários.&lt;/p&gt;
-
-&lt;h3 id=&quot;comentrios-desatualizados&quot;&gt;Comentários desatualizados.&lt;/h3&gt;
-
-&lt;p&gt;Um cenário comum:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob escreve algumas linhas de código. Ele decide que o código não está claro o suficiente e adiciona alguns comentários para tornar a sua intenção mais clara.&lt;/li&gt;
-  &lt;li&gt;Passam-se algumas semanas. Alguém descobre um bug no código de Bob. Mas ele está de férias, então Alice é encarregada de corrigir o bug.&lt;/li&gt;
-  &lt;li&gt;Alice corrige o código em alguns minutos e comita suas alterações. Mas ela esquece de alterar os comentários para refletir as mudanças que ela fez no código.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;O que nós temos agora? Comentários mentirosos!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Documentação que espalha mentiras é pior que não ter documentação alguma.&lt;/strong&gt; É uma fonte de confusão para os desenvolvedores, e terreno fértil para bugs. Quando você ver um comentário desatualizado, não pense duas vezes: remova-o imediatamente, ou corrija-o. Mas na maioria das vezes você não deveria manter o comentário. Veja o próximo tópico para descobrir o porquê.&lt;/p&gt;
-
-&lt;h3 id=&quot;comentrios-criados-devido--falta-de-expressividade-no-cdigo&quot;&gt;Comentários criados devido à falta de expressividade no código&lt;/h3&gt;
-
-&lt;p&gt;Considere o código a seguir:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/ec7db3ebadccded768f97933c88e704f.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Talvez você não considere o comentário no trecho acima tão ruim. Tudo bem, não é péssimo. Mas pense na oportunidade perdida de extrair um método ou propriedade útil:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/b102a4f5c11ba7b1639410dcbb87830f.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;No novo código, nós extraímos o conceito de ser elegível para doar sangue para uma nova propriedade. As regras para elegibilidade para doação de sangue estão agora consolidadas em um único local; se elas mudarem algum dia, a quantidade de trabalho necessária para atualizá-las será mínima.&lt;/p&gt;
-
-&lt;p&gt;E nós ainda ganhamos o benefício adicional da legibilidade: a nova instrução &lt;code class=&quot;highlighter-rouge&quot;&gt;if&lt;/code&gt; lê quase como linguagem natural.&lt;/p&gt;
-
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
-
-&lt;p&gt;Como vimos, há diversos tipos de comentários ruins com os quais você deve ficar alerta. Eles geralmente são sinais de que há algo errado no seu código. Talvez seus métodos são muito longos.Talvez &lt;a href=&quot;http://carlosschults.net/pt/como-escolher-bons-nomes/&quot;&gt;você não escolheu bons nomes para suas variáveis&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Toda vez que você sentir a necessidade de escrever um comentário, pare e tente pensar em maneiras de melhorar o seu código para tornar o comentário desnecessário.&lt;/p&gt;
-
-&lt;p&gt;Nem todos os comentários são ruins. Em um post futuro, vou falar sobre os tipos de comentários que são úteis.&lt;/p&gt;
-
-&lt;p&gt;Até mais!&lt;/p&gt;
-
-&lt;h2 id=&quot;ler-mais-todos-os-links-em-ingls&quot;&gt;Ler mais (todos os links em inglês)&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode&quot;&gt;Apologies In Code, por Robert C. Martin&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.codeproject.com/tips/467657/write-comments-that-matter&quot;&gt;Write comments that matter, por Sander Rossel&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@kentcdodds/please-don-t-commit-commented-out-code-53d0b5b26d5f#.yex54k2sg&quot;&gt;Please, don’t commit commented out code, por Kent C. Dodds&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 02 Mar 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/tipos-de-comentarios-a-evitar/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/tipos-de-comentarios-a-evitar/</guid>
-        
-        <category>code smell</category>
-        
-        <category>BoasPraticas</category>
         
         <category>iniciantes</category>
         

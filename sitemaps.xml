@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/cargo-cult-programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/cargo-cult-programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/cargo-cult-programming/" />
+        
+        <lastmod>2018-01-17T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/cargo-cult-programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/cargo-cult-programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/cargo-cult-programming/" />
+        
+        <lastmod>2018-01-17T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/funcionalidades-csharp8/</loc>
         
         
@@ -1158,6 +1186,45 @@
   
     
       <url>
+        <loc>/tag_ptbr/cargo%20cult%20programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cargo%20cult%20programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cargo%20cult%20programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/boas%20praticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20praticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20praticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/programacao%20cargo%20cult/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20cargo%20cult/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20cargo%20cult/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1645,6 +1712,45 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/cargo%20cult%20programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cargo%20cult%20programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cargo%20cult%20programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/boas%20praticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20praticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20praticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/programacao%20cargo%20cult/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20cargo%20cult/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20cargo%20cult/" />
         
         <changefreq>weekly</changefreq>
       </url>
