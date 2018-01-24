@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/revisao-codigo-vs-programacao-em-par/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/revisao-codigo-vs-programacao-em-par/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/code-review-vs-pair-programming/" />
+        
+        <lastmod>2018-01-24T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/code-review-vs-pair-programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/revisao-codigo-vs-programacao-em-par/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/code-review-vs-pair-programming/" />
+        
+        <lastmod>2018-01-24T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/cargo-cult-programming/</loc>
         
         
@@ -1225,6 +1253,71 @@
   
     
       <url>
+        <loc>/tag_ptbr/pair%20programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/pair%20programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/pair%20programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/code%20review/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20review/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20review/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/programacao%20em%20par/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20em%20par/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20em%20par/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/revisao%20de%20codigo/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/revisao%20de%20codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/revisao%20de%20codigo/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/metodologias%20ageis/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20ageis/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20ageis/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1751,6 +1844,71 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20cargo%20cult/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20cargo%20cult/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/pair%20programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/pair%20programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/pair%20programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/code%20review/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20review/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20review/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/programacao%20em%20par/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20em%20par/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20em%20par/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/revisao%20de%20codigo/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/revisao%20de%20codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/revisao%20de%20codigo/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/metodologias%20ageis/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20ageis/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20ageis/" />
         
         <changefreq>weekly</changefreq>
       </url>

@@ -5,10 +5,154 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jan 2018 21:25:34 -0200</pubDate>
-    <lastBuildDate>Wed, 17 Jan 2018 21:25:34 -0200</lastBuildDate>
+    <pubDate>Wed, 24 Jan 2018 14:08:23 -0200</pubDate>
+    <lastBuildDate>Wed, 24 Jan 2018 14:08:23 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Code Review vs Pair-Programming: Which One Should Your Team Pick?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you with automated code reviews.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Some weeks ago, I was browsing Twitter when I saw this:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Pair Programming &amp;gt; Code Review&lt;/p&gt;&amp;mdash; Rafael Ponte (@rponte) &lt;a href=&quot;https://twitter.com/rponte/status/932390250848178176?ref_src=twsrc%5Etfw&quot;&gt;November 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This prompted a brief discussion between the author and me. He made good arguments, but I left unconvinced that pair programming was the obvious winner.&lt;/p&gt;
+
+&lt;p&gt;As someone who’s implemented code review with success and also paired to some extent, I could see how both practices can be valuable. But is one of them clearly &lt;em&gt;better&lt;/em&gt; than the other? Are code review and pair programming interchangeable, or are there scenarios in which one clearly shines?&lt;/p&gt;
+
+&lt;p&gt;That’s what I’m going to answer today. Let’s dive in.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-i-mean-by-code-review&quot;&gt;What I Mean By Code Review&lt;/h2&gt;
+
+&lt;p&gt;Picture this: you’re a young programmer on your first development job. After you finish your first assignment, they call you to a meeting room; there you find your tech lead and three senior developers. There’s also a large monitor displaying your code. Time for review!&lt;/p&gt;
+
+&lt;p&gt;For two-and-a-half excruciating hours, they scrutinize your work while you sweat profusely. From criticizing your high-level design decisions to nitpicking over the most trivial stylistic preferences, nothing gets a free pass.&lt;/p&gt;
+
+&lt;p&gt;Is this the scene your mind conjures when you see the words “code review”?&lt;/p&gt;
+
+&lt;p&gt;Good news, then. That’s &lt;em&gt;not&lt;/em&gt; the kind of review I’m talking about. Instead, think of a very informal and lightweight process. You submit your code for review by creating a pull request or maybe using some embedded functionality on your IDE.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-good&quot;&gt;The Good&lt;/h3&gt;
+
+&lt;p&gt;After touching briefly on the &lt;em&gt;what&lt;/em&gt; and &lt;em&gt;how&lt;/em&gt; of a code review, let’s get to the &lt;em&gt;why&lt;/em&gt;. Why should your team adopt this practice? What are the benefits?&lt;/p&gt;
+
+&lt;p&gt;The first reason is, not surprisingly, &lt;strong&gt;to catch bugs&lt;/strong&gt;. I’d bet you’re familiar with that old piece of software wisdom that says &lt;a href=&quot;https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf&quot;&gt;that the later a defect is found, the higher the cost of fixing it&lt;/a&gt;. Then why not use a relatively cheap process &lt;a href=&quot;https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf&quot;&gt;that can catch up to 60% of defects&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Here’s another reason your company should perform code reviews: to &lt;strong&gt;improve the readability of the code&lt;/strong&gt;. Trying to read and understand some new piece of code frequently leads to the discovery of issues such as&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Poor naming.&lt;/li&gt;
+  &lt;li&gt;Bad indentation.&lt;/li&gt;
+  &lt;li&gt;Instances of &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;cargo cult programming&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Non-idiomatic code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The reviewer could also spot overlooked corner cases or help the author assess how performative their code is.&lt;/p&gt;
+
+&lt;p&gt;And here’s one last reason. A well-done code review can &lt;strong&gt;spread knowledge throughout the team.&lt;/strong&gt; This improves the product’s quality by destroying knowledge silos.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-bad&quot;&gt;The Bad&lt;/h3&gt;
+
+&lt;p&gt;While some say code reviews are &lt;a href=&quot;https://blog.codinghorror.com/code-reviews-just-do-it/&quot;&gt;the number one practice you should adopt&lt;/a&gt; to improve your code, &lt;a href=&quot;https://blog.nelhage.com/2010/06/i-hate-code-review/&quot;&gt;this kind of enthusiasm is not universal&lt;/a&gt;. So, what are the potential drawbacks?&lt;/p&gt;
+
+&lt;p&gt;For the most part, their complaint is &lt;strong&gt;time&lt;/strong&gt;. When you submit some code for review, you’ll have to wait until the reviewer is done.&lt;/p&gt;
+
+&lt;p&gt;What should you do while waiting? Ideally, your team should break up the available work in small, discrete units so it can work on these pieces somewhat independently. That’s not always feasible, though. And by the way, the &lt;strong&gt;constant switching of tasks might be detrimental to the developer’s focus and productivity&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s say Bob spends &lt;em&gt;x&lt;/em&gt; hours implementing a feature. Then Alice reviews his work and says his implementation is completely wrong, and he needs to start from scratch. &lt;strong&gt;Those &lt;em&gt;x&lt;/em&gt; development hours were just thrown away&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally, people sometimes will waste ridiculous amounts of time &lt;strong&gt;arguing on pointless stylistic details&lt;/strong&gt;, such as the position of braces or whether or not to include an underscore before a private field’s name. These debates can unfortunately escalate to levels that turn the workplace toxic.&lt;/p&gt;
+
+&lt;h2 id=&quot;pair-programming-not-just-a-super-code-review&quot;&gt;Pair Programming: Not Just a Super Code Review&lt;/h2&gt;
+
+&lt;p&gt;Pair programming is a technique in which two developers collaborate on the code together, sitting at one workstation.&lt;/p&gt;
+
+&lt;p&gt;They periodically take turns in two roles. The &lt;em&gt;driver&lt;/em&gt; writes the code, thinking out loud in order to explain their design decisions and thought process. The &lt;em&gt;navigator&lt;/em&gt; observes the driver’s work, giving real-time feedback and advice.&lt;/p&gt;
+
+&lt;p&gt;So, is it just “code review on steroids”, &lt;a href=&quot;https://blog.codinghorror.com/pair-programming-vs-code-reviews/&quot;&gt;as put by Jeff Atwood&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Maybe not. One of the basic principles of agile methodologies is the shorter your feedback loop, the better you are. You can see how getting someone to review your code sooner rather than later works in harmony with the principles that make agile so successful.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-good-1&quot;&gt;The Good&lt;/h3&gt;
+
+&lt;p&gt;Well, it should be no surprise that many benefits of pair programming are also benefits of code reviews, such as fewer bugs, improvement in code readability, and knowledge dispersion throughout the team.&lt;/p&gt;
+
+&lt;p&gt;Pair programming may provide exclusive benefits as well, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Higher focus&lt;/strong&gt;. The presence of a peer may exert some pressure to stay motivated to solve the task at hand.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Shorter feedback cycle&lt;/strong&gt;. Since your pair is reviewing your code in real time, there’s a lot less risk of wasting time due to delayed feedback.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Increase in usage of other good engineering practices&lt;/strong&gt;. As suggested in a study done at North Carolina State University, &lt;a href=&quot;https://collaboration.csc.ncsu.edu/laurie/Papers/ESE%20WilliamsPairProgramming_V2.pdf&quot;&gt;teams using pair programming tend to increasingly use development practices such as unit testing, continuous integration, and establishing coding standards&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-bad-1&quot;&gt;The Bad&lt;/h3&gt;
+
+&lt;p&gt;As in the case of the code review, pair programming is far from being a universally accepted practice. While many developers love it, &lt;a href=&quot;https://web.archive.org/web/20110101145142/https://tersesystems.com/2010/12/29/where-pair-programming-fails-for-me&quot;&gt;others don’t have such happy stories to tell&lt;/a&gt;. So, what are some of the most cited problems with pairing?&lt;/p&gt;
+
+&lt;p&gt;Let’s start with one common complaint: pair programming &lt;strong&gt;can be exhausting&lt;/strong&gt;. In fact, many claim that &lt;a href=&quot;https://softwareengineering.stackexchange.com/a/9518&quot;&gt;pairing is more effective when used for shorter blocks of time—from one and a half to two and a half hours.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Obviously, an odd number of team members doesn’t work well for pair programming. But a shifting number of available personnel is inevitable.&lt;/p&gt;
+
+&lt;p&gt;Next on our list of problems is the fact that paring isn’t very remote friendly. You can better imagine the issue after hearing what Daniel Kaplan, who wrote “&lt;a href=&quot;https://builttoadapt.io/what-its-like-to-pair-for-a-year-86d048494324&quot;&gt;What It’s Like to Pair for a Year&lt;/a&gt;,” had to say about pairing:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;These scheduling interruptions happen, but on a typical day we avoid them by having the pairs show up at the same time (for breakfast and standup), go to lunch at the same time, and leave at the same time. This maximizes the time the pairs are pairing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, pairing &lt;strong&gt;requires synchronicity&lt;/strong&gt;, which might make it a non-option for remote teams (or even co-located teams with flexible hours).&lt;/p&gt;
+
+&lt;p&gt;Some people argue that pairing can &lt;strong&gt;undermine creativity and prevent experimentation.&lt;/strong&gt; While pairing, it’d be rude to waste your pair’s time trying some experimental approach that might ultimately end up not working. So, the safest possible design tends to always prevail, even if it’s not the best possible one.&lt;/p&gt;
+
+&lt;p&gt;Finally, pairing doesn’t really provide one of the key benefits of the after-the-fact code review: a person with zero context analyzing the code. The two developers &lt;strong&gt;share a context from the beginning of the session&lt;/strong&gt;, and the effect this has cannot be underestimated. People tend to &lt;a href=&quot;https://en.wikipedia.org/wiki/IKEA_effect&quot;&gt;overvalue their contributions and get emotionally attached to what they create&lt;/a&gt;; that’s why it’s so important to get a second person that doesn’t have this attachment and is thus able to provide a clearer judgment.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-review-vs-pair-programming-the-verdict&quot;&gt;Code Review vs Pair Programming: The Verdict?&lt;/h2&gt;
+
+&lt;p&gt;I’ve reached the conclusion that, although code review and pair programming &lt;em&gt;seem&lt;/em&gt; equivalent, they’re really not. There is some overlap, but each practice also presents some unique benefits and challenges.&lt;/p&gt;
+
+&lt;p&gt;There’s no getting around that pair programming, despite its benefits, requires an even number of people, working at the same time. If your team consists of developers living across several time zones (or even a co-located team with extremely flexible hours), then it’s a no-brainer: code review to the rescue.&lt;/p&gt;
+
+&lt;p&gt;If your team doesn’t fit the above description, then give pair programming a try. As long as you work hard to accommodate and have empathy for &lt;a href=&quot;https://www.amazon.com/Quiet-Power-Introverts-World-Talking/dp/0307352153/ref=asap_bc?ie=UTF8&quot;&gt;different kinds of personalities&lt;/a&gt; and don’t make it mandatory, it can be beneficial to your team.&lt;/p&gt;
+
+&lt;p&gt;Finally, there’s nothing stopping you from using &lt;em&gt;both&lt;/em&gt;. You could adopt pair programming as the default MO and leave soloing and code review to fill in the gaps where pair programming doesn’t quite fit so well.&lt;/p&gt;
+
+&lt;h2 id=&quot;no-matter-what-you-do-embrace-automation&quot;&gt;No Matter What You Do, Embrace Automation&lt;/h2&gt;
+
+&lt;p&gt;Imagine you write for a publication, such as a magazine. After you have a draft, you submit it for review. Would it make sense for the editor to spend all their time looking for spelling errors? Of course not! We have automated spell-check for that, freeing the editor to look for more &lt;em&gt;high-level&lt;/em&gt; problems, such as poorly chosen words, lack of cohesion, inappropriate tone, and all those things your English teacher kept nagging you about in high school.&lt;/p&gt;
+
+&lt;p&gt;With software, things should not be so different. By using &lt;a href=&quot;https://submain.com/products/codeit.right.aspx&quot;&gt;an automated code review tool&lt;/a&gt;, you can eliminate a lot of the bickering that often occurs in code reviews or pair programming sessions. There will be no arguing about naming and formatting conventions, the position of brackets, and others pointless trivia.&lt;/p&gt;
+
+&lt;p&gt;You can also employ a static analysis tool to warn you about potential bugs and opportunities for refactoring. That way, the reviewer/navigator is free to focus on the high-level stuff that requires human creativity, intelligence, and empathy.&lt;/p&gt;
+
+&lt;h2 id=&quot;trust-and-respect&quot;&gt;Trust and Respect&lt;/h2&gt;
+
+&lt;p&gt;While researching for this post, one theme kept reappearing: that code review emerges from a lack of trust in our developers or that pair programming infantilizes them.&lt;/p&gt;
+
+&lt;p&gt;I couldn’t disagree more.&lt;/p&gt;
+
+&lt;p&gt;Precisely because we respect our developers—and our clients—we should employ techniques and tools at our disposal to improve the quality of our work.&lt;/p&gt;
+
+&lt;p&gt;It’s not about lack of trust. It’s about recognizing that programming is hard and sometimes, just one brain isn’t up to the task.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 24 Jan 2018 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/code-review-vs-pair-programming/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/code-review-vs-pair-programming/</guid>
+        
+        <category>pair programming</category>
+        
+        <category>best practices</category>
+        
+        <category>code review</category>
+        
+        <category>agile</category>
+        
+        
+      </item>
     
       <item>
         <title>Cargo Cult Programming Is The Art of Programming by Coincidence</title>
@@ -1639,107 +1783,6 @@ Changes not staged for commit:
         <category>best practices</category>
         
         <category>oop</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Book Review: Soft Skills</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1469301144/soft-skills-1038-437-min_u6ucwf.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;What about a software development book that isn’t about software development?
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;More than four months have passed since &lt;a href=&quot;http://carlosschults.net/en/book-review-pragmatic-programmer/&quot;&gt;I reviewed “The Pragmatic Programmer”, by Andy Hunt and Dave Thomas&lt;/a&gt;. So, I figured it was about time I wrote another book review.&lt;/p&gt;
-
-&lt;p&gt;Today’s book is &lt;em&gt;Soft Skills: The software developer’s life manual&lt;/em&gt;, by John Sonmez.&lt;/p&gt;
-
-&lt;p&gt;For those of you who don’t know, John is a software developer best known for his blog Simple Programmer and his YouTube channel. On both of these platforms, he produces content about a broad range of topics, such as finances, negotiation, learning techniques, fitness, entrepreneurship, and so on.&lt;/p&gt;
-
-&lt;p&gt;Think of the content John produces and shares as some kind of “self-help for software developers”, but try not to apply the negative connotation that “self-help” usually carries.&lt;/p&gt;
-
-&lt;h2 id=&quot;so-what-about-the-book&quot;&gt;So, what about the book?&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Soft Skills: The software developer’s life manual&lt;/em&gt; was published in late 2014, and it has forewords by Scott Hanselman and Robert C. Martin aka Uncle Bob.&lt;/p&gt;
-
-&lt;p&gt;As its name suggests, this book doesn’t cover any tech-related topics, at least not in a direct way. It is divided into seven sections: Career, Marketing Yourself, Learning, Productivity, Financial, Fitness, Spirit. Each section is meant to cover a specific area of a software developer’s life, and is divided into several short chapters.&lt;/p&gt;
-
-&lt;p&gt;The books is somewhat lengthy - the edition I own is a paperback version which has 470 pages total. It took me a while to finish it, though I admit I read it in a slower pace than usual.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-good&quot;&gt;The Good&lt;/h2&gt;
-
-&lt;p&gt;The book is written in a very conversational and easy-to-follow style. Mind you, I’m from Brazil, my first language is Portuguese, and I can still follow it very easily, which is a good sign.&lt;/p&gt;
-
-&lt;p&gt;The chapters are short, which, for me, it’s a good thing. I usually can’t afford to devote a large chunk of time to reading. What I’ve got instead are several smaller chunks throughout the day, so it’s great when chapters are small enough to fit in those chunks. I’m not sure why, but it feels wrong to leave a chapter unfinished, so I’m always a little bit anxious when I start reading a chapter knowing that I probably won’t be able to finish it in the same session.&lt;/p&gt;
-
-&lt;p&gt;Every chapter of &lt;em&gt;Soft Skills&lt;/em&gt; ends with a “call to action”. John invites you to do a small exercise in order to help you get the most out of the content, and figure out how to apply it to your life. Don’t let the word “exercise” scare you though. The challenges proposed are all very easy to follow and generally involve some amount of thinking and a little bit of writing. And let me tell you, I’m usually the person who would dismiss this sort of thing as “self-help nonsense”. But what I’ve found while reading this book is that this can be really effective.&lt;/p&gt;
-
-&lt;p&gt;The thing is, you may think you know what you want to do with your career and your life. But when you force yourself to stop for a few minutes and actually think about it and write it down…you may be surprised by how little you actually know about your goals, your strengths, your weaknesses, and what you want to accomplish.&lt;/p&gt;
-
-&lt;p&gt;This is specially true when you’re starting your career. Our industry is quite huge. When you’re fresh out of college, young and inexperienced, the sheer amount of options to choose from can be overwhelming. Should I work at a start-up or a large company? Maybe follow the freelancing path? Ruby On Rails or Node.js? So many questions…&lt;/p&gt;
-
-&lt;p&gt;Soft Skills offers some help here. The first section of the book covers, among other things:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;employment options (freelancer vs employee vs entrepreneur);&lt;/li&gt;
-  &lt;li&gt;kinds of specialties for software developers;&lt;/li&gt;
-  &lt;li&gt;kinds of companies you might work for;&lt;/li&gt;
-  &lt;li&gt;advice for working remotely.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Section 4 (Productivity) is probably my favorite. The thing is: left to my own devices, I’m not that productive. Shame on me.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1470788220/shame_mivvrv.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;I’ve been fighting procrastination since college. I tried a lot of to-do apps and productivity techniques. I read &lt;a href=&quot;https://www.amazon.com/Getting-Things-Done-Stress-Free-Productivity-ebook/dp/B000WH7PKY#navbar&quot;&gt;David Allen’s Getting Things Done&lt;/a&gt; every year. I read &lt;a href=&quot;http://lifehacker.com/&quot;&gt;Lifehacker&lt;/a&gt; almost on a daily basis. I even listen to a &lt;a href=&quot;https://www.relay.fm/cortex&quot;&gt;podcast that is mostly about work and productivity&lt;/a&gt;. And yet, I’m still not as productive as I’d like to be, even though I’ve been making progress.&lt;/p&gt;
-
-&lt;p&gt;Those of you who can relate to this feeling will probably find some value in &lt;em&gt;Soft Skills&lt;/em&gt;. John covers a lot here, including the formation of habits, the importance of having a routine, and what are the major time wasters you should try to eliminate from your life. He also covers the &lt;a href=&quot;https://en.wikipedia.org/wiki/Pomodoro_Technique&quot;&gt;Pomodoro technique&lt;/a&gt; and his personal productivity system. He even talks about burnout, which can be a real issue in our industry and you definitely should be prepared to deal with it in your career.&lt;/p&gt;
-
-&lt;p&gt;One common criticism that “Soft Skills” receives - and some people extend this criticism to all of John’s work - is that it has a very market-y vibe. This is kind of true, I’d say. But I don’t necessarily see it as a bad thing.&lt;/p&gt;
-
-&lt;p&gt;A few years ago, back in college, I’ve attended a talk in which the speaker said something along the lines of “it doesn’t matter if you’re the best programmer in the world if no one knows that”.&lt;/p&gt;
-
-&lt;p&gt;For many (most?) developers, the word marketing has a very negative connotation. It’s understandable, since we’ve all seen our share of shady and manipulative marketing tactics in our lives. 
-What you need to understand here is that marketing is something that we all do, all the time, even if you don’t call it that. What is a job interview, if not a sales pitch?&lt;/p&gt;
-
-&lt;p&gt;Since marketing is something that you must do, it’s worth doing right and deliberately. &lt;strong&gt;This is where &lt;em&gt;Soft Skills&lt;/em&gt; shines&lt;/strong&gt;, in my opinion. It offers advice about treating your career as a business and your name as a brand. It also explains what exactly a brand is, what is its purpose, its components, and how you can &lt;strong&gt;create and establish your brand by generating value for others&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Sections 3 and 6 (&lt;em&gt;Learning&lt;/em&gt; and &lt;em&gt;Fitness&lt;/em&gt;, respectively) also deserve honorable mentions, but I won’t cover them in detail here for brevity sake. Go read the book!&lt;/p&gt;
-
-&lt;h2 id=&quot;the-bad&quot;&gt;The Bad&lt;/h2&gt;
-
-&lt;p&gt;Now, let’s turn to the not-so-bright side and talk about some of the cons about &lt;em&gt;Soft Skills&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some of the chapters are really, really short. Yes, I know that not so many paragraphs ago I praised the brevity of the chapters. Now am I speaking the opposite?&lt;/p&gt;
-
-&lt;p&gt;I don’t mind a chapter being short if it provides values and insights. In fact, as I said earlier, I’d rather read a short chapter over a long one, if both of them provides the same value.&lt;/p&gt;
-
-&lt;p&gt;But the thing is: some chapters provide too little value. They would be better off as a paragraph in another section.&lt;/p&gt;
-
-&lt;p&gt;For instance. Chapter 18, “Don’t get religious about technology”, has three pages, in which John tell us not to get too much attached to particular languages, frameworks, operating systems and so on. Great advice, totally agree on that. How many  hours have been wasted on the internet, in endless debates of the “tabs vs spaces” kind? Probably much more than we’d like to know. But this message could easily be summarized in a short paragraph or section in another chapter.&lt;/p&gt;
-
-&lt;p&gt;The book suffers from the opposite problem as well. Some subjects would probably benefit from a little more depth. In chapter 25, “Writing books and articles that attract a following”, John says that, in order to publish a book by traditional means, you should write a proposal, to try to pitch your book to publishers. But he stops there, &lt;strong&gt;without providing an example or template of what such proposal should look like&lt;/strong&gt;, which would be incredible valuable for the wannabe author in his audience.&lt;/p&gt;
-
-&lt;p&gt;Some of the advice in &lt;em&gt;Soft Skill&lt;/em&gt; sound…weird. I particularly disliked John’s advice to hire a professional resume writer. In our field, in the present day, resumes aren’t much more than a formality IMHO.
-Provided that your resume it’s not completely awful (i.e. contains a lot of spelling mistakes, it’s designed in a nonsensical way, it lacks essential information, etc) it probably won’t harm you. There are way more important factors that your prospective employer takes into account.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-ugly&quot;&gt;The Ugly&lt;/h2&gt;
-
-&lt;p&gt;Almost every software development book has an ugly and/or weird cover, and &lt;strong&gt;&lt;em&gt;Soft Skills&lt;/em&gt;&lt;/strong&gt; is no exception. But who cares? I just &lt;a href=&quot;https://en.wikipedia.org/wiki/The_Good,_the_Bad_and_the_Ugly&quot;&gt;wanted to make that reference :P&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;in-conclusion&quot;&gt;In Conclusion&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Soft Skills: The software developer’s life manual&lt;/em&gt; was a fun read. John offers some great insights, specially in regards to learning techniques, career and productivity.&lt;/p&gt;
-
-&lt;p&gt;There are some cons, of course, as I’ve said. Some of the advice offered just don’t make sense to me. I can understand that they probably worked out for John, tough.&lt;/p&gt;
-
-&lt;p&gt;My approach on these types of books is: keep what is valuable, ignore the rest. And I can safely say that I’ve found a good deal of valuable content in &lt;em&gt;Soft Skills&lt;/em&gt;.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 09 Aug 2016 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/book-review-soft-skills/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/book-review-soft-skills/</guid>
-        
-        <category>book review</category>
         
         
       </item>

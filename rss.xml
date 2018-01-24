@@ -5,10 +5,159 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Jan 2018 21:25:34 -0200</pubDate>
-    <lastBuildDate>Wed, 17 Jan 2018 21:25:34 -0200</lastBuildDate>
+    <pubDate>Wed, 24 Jan 2018 14:08:23 -0200</pubDate>
+    <lastBuildDate>Wed, 24 Jan 2018 14:08:23 -0200</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>Revisão de Código vs Programação em Par: Qual a sua equipe deve escolher?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blug da SubMain. Você pode &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;conferir o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Algumas semanas atrás, eu estava olhando o Twitter quando vi isso:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Pair Programming &amp;gt; Code Review&lt;/p&gt;&amp;mdash; Rafael Ponte (@rponte) &lt;a href=&quot;https://twitter.com/rponte/status/932390250848178176?ref_src=twsrc%5Etfw&quot;&gt;November 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;O que se seguiu foi uma breve discussão entre o autor e eu. Ele apresentou bons argumentos, mas eu continuei não convencido de que programação em par (&lt;em&gt;pair programming&lt;/em&gt;) era um vencedor tão óbvio.&lt;/p&gt;
+
+&lt;p&gt;Como eu já havia implementado práticas de revisão de código (&lt;em&gt;code review&lt;/em&gt;) com sucesso e também pareado até certo ponto, eu não tinha dificuldades em ver como as duas práticas podem ser valiosas. Mas será que uma deles é claramente &lt;em&gt;melhor&lt;/em&gt; que a outra? Revisão de código e programação em par são intercambiáveis, ou há cenários em que um ou outro claramente se destaca?&lt;/p&gt;
+
+&lt;p&gt;É o que vou responder hoje. Vamos lá.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-quero-dizer-por-reviso-de-cdigo&quot;&gt;O que quero dizer por “Revisão de Código”&lt;/h2&gt;
+
+&lt;p&gt;Imagine a seguinte cena: você é um(a) jovem programador(a) em seu primeiro trabalho com desenvolvimento de software. Após terminar sua primeira tarefa, você é convocado(a) a uma sala de reunião; lá você encontra o desenvolvedor líder e três desenvolvedores seniores. Um monitor enorme está ligado exibindo seu código. Hora da revisão!&lt;/p&gt;
+
+&lt;p&gt;Durante duas horas e meia sofridas, seu código é julgado sem só enquanto você sua profusamente. Desde suas decisões de projeto até as mais triviais preferências estilísticas, nada escapa da enxurrada de críticas.&lt;/p&gt;
+
+&lt;p&gt;É essa a cena exibida na sua mente quando você vê as palavras “revisão de código”?&lt;/p&gt;
+
+&lt;p&gt;Boa notícias pra você, então. Este &lt;em&gt;não&lt;/em&gt; é o tipo de revisão de código sobre o qual estou falando. Ao invés, pense em um processo bem leve e informal. Você submete seu código para revisão criando um pull request ou mesmo usando alguma funcionalidade incorporada na sua IDE.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-parte-boa&quot;&gt;A parte boa&lt;/h3&gt;
+
+&lt;p&gt;Após tocar brevemente no “o que” e no “como” de uma revisão de código, hora de abordarmos o “por que”. Por que o seu time deve adotar a prática? Quais são os benefícios?&lt;/p&gt;
+
+&lt;p&gt;A primeira razão, não surpreendentemente, é &lt;strong&gt;detectar bugs&lt;/strong&gt;. Eu aposto que você é familiar com aquela velha pérola de sabedoria que diz que &lt;a href=&quot;https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf&quot;&gt;quanto mais tarde um defeito é encontrado, maior é o custo para sua resolução&lt;/a&gt;. Sendo assim, por que não usar um processo relativamente barato que pode encontrar &lt;a href=&quot;https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf&quot;&gt;até 60% dos defeitos&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Outra razão para a sua empresa adotar revisões de código: melhorar a &lt;strong&gt;legibilidade do código&lt;/strong&gt;. Tentar ler e entender um trecho novo de código frequentemente leva à descoberta de problemas como:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Nomes ruins.&lt;/li&gt;
+  &lt;li&gt;Indentação errada.&lt;/li&gt;
+  &lt;li&gt;Ocorrências de &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;programação cargo cult&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Código não idiomático.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;O revisor também pode encontrar &lt;em&gt;corner cases&lt;/em&gt; que passaram despercebidos ou ajudar na avaliação de performance do código escrito.&lt;/p&gt;
+
+&lt;p&gt;E chegamos à última razão. Uma revisão de código bem feita pode &lt;strong&gt;espalhar conhecimento pelo time.&lt;/strong&gt; Isso destrói ilhas de conhecimento na equipe, melhorando a qualidade final do produto.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-parte-ruim&quot;&gt;A parte ruim&lt;/h3&gt;
+
+&lt;p&gt;Enquanto alguns dizem que a revisão de código é a &lt;a href=&quot;https://blog.codinghorror.com/code-reviews-just-do-it/&quot;&gt;prática mais importante que você deve adotar&lt;/a&gt; para aperfeiçoar seu código, &lt;a href=&quot;https://blog.nelhage.com/2010/06/i-hate-code-review/&quot;&gt;tal entusiasmo não é universal&lt;/a&gt;. Assim, não poderíamos deixar de falar também das potenciais desvantagens da prática.&lt;/p&gt;
+
+&lt;p&gt;A queixa mais comum sobre revisão de código tem a ver com &lt;strong&gt;tempo&lt;/strong&gt;. Quando você envia algum código para revisão, você obviamente precisa esperar até que a revisão seja finalizada.&lt;/p&gt;
+
+&lt;p&gt;O que fazer durante a espera? Idealmente, sua equipe deveria quebrar o trabalho disponível em unidades pequenas e discretas, que possam ser resolvidas de maneira mais ou menos independente. Nem sempre isso é prático, porém. E falando nisso, &lt;strong&gt;a própria troca constante de tarefas pode ser prejudicial para seu foco e produtividade&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Digamos que o Bruno gastou &lt;em&gt;x&lt;/em&gt; horas implementando uma funcionalidade. Então a Ana revisa o trabalho dele e diz que a implementação está completamente errada, e ele precisa refazer tudo. &lt;strong&gt;Aquelas &lt;em&gt;x&lt;/em&gt; horas de desenvolvimento acabaram de ir para o lixo&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, às vezes as pessoas desperdiçam quantidades ridículas de tempo &lt;strong&gt;discutindo sobre detalhes estéticos inúteis&lt;/strong&gt;, como a posição das chaves, ou se devem ou não incluir um underscore no nome de um campo privado. Infelizmente, debates idiotas assim às vezes escalam para níveis que tornam o local de trabalho tóxico.&lt;/p&gt;
+
+&lt;h2 id=&quot;programao-em-par-mais-que-uma-super-reviso-de-cdigo&quot;&gt;Programação em Par: Mais que uma super revisão de código&lt;/h2&gt;
+
+&lt;p&gt;Programação em par é uma técnica na qual duas pessoas colaboram no código juntas, na mesma estação de trabalho.&lt;/p&gt;
+
+&lt;p&gt;Elas periodicamente revezam em dois papéis. O &lt;em&gt;piloto&lt;/em&gt; escreve o código, pensando em voz alta para explicar suas decisões e o que está pensando. O &lt;em&gt;navegador&lt;/em&gt; observa o piloto, dando feedback e opiniões em tempo real.&lt;/p&gt;
+
+&lt;p&gt;Seria a programação em par nada mais que “&lt;em&gt;code review on steroids&lt;/em&gt;”, &lt;a href=&quot;https://blog.codinghorror.com/pair-programming-vs-code-reviews/&quot;&gt;como coloca Jeff Atwood&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Talvez não. Um dos princípios básicos das metologias ágeis é que o desenvolvimento de software se beneficia de ciclos de feedback curtos. Levando isso em consideração, trazer a revisão de código para o mais cedo possível no processo faria bastante sentido, por estar em harmonia com os princípios ágeis.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-parte-boa-1&quot;&gt;A parte boa&lt;/h3&gt;
+
+&lt;p&gt;Não deveria ser surpresa que a programação em par compartilha vários dos benefícios da revisão de código, como detecção de bugs, melhoras na legibilidade do código e propagação de conhecimento pela equipe.&lt;/p&gt;
+
+&lt;p&gt;Mas a programação em par também pode oferecer benefícios exclusivos, tais como:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Mais foco&lt;/strong&gt;. A presença de um colega ao lado pode exercer uma certa pressão, lhe mantendo motivado na tarefa a ser realizada.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ciclos de feedback mais curtos.&lt;/strong&gt;. Já que seu par está revisando seu código o tempo todo, existe um risco muito menor de desperdiçar tempo graças a feedback tardio.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Aumento no uso de outras boas práticas da Engenharia de Software&lt;/strong&gt;. Como sugerido por um estudo realizado na Universidade Estadual da Carolina do Norte, &lt;a href=&quot;https://collaboration.csc.ncsu.edu/laurie/Papers/ESE%20WilliamsPairProgramming_V2.pdf&quot;&gt;equipes usando programação em par tendem a usar mais práticas de desenvolvimento como testes unitários, integração contínua e a criação de padrões de código&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;a-parte-ruim-1&quot;&gt;A parte ruim&lt;/h3&gt;
+
+&lt;p&gt;Assim como no caso da revisão de código, programação em par está longe de ser uma prática universalmente aceita. Enquanto muitas pessoas amam a prática, &lt;a href=&quot;https://web.archive.org/web/20110101145142/https://tersesystems.com/2010/12/29/where-pair-programming-fails-for-me&quot;&gt;outras não têm histórias tão felizes para contar&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Vamos começar com uma reclamação comum: programação em par &lt;strong&gt;pode ser extremamente cansativa&lt;/strong&gt;. Na verdade, não é incomum ourvir que &lt;a href=&quot;https://softwareengineering.stackexchange.com/a/9518&quot;&gt;parear é mais eficaz quando usado por blocos de tempo curtos — de 1 hora a 2 horas e meia.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Evidentemente, um número ímpar de integrantes na equipe não combina muito bem com programação em par. Mas um número flutuante de pessoal disponível é inevitável.&lt;/p&gt;
+
+&lt;p&gt;O próximo item na nossa lista de problemas é o fato de que programação em par não é muito compatível com trabalho remoto. Você pode ter uma ideia melhor do problema após ouvir o que Daniel Kaplan, que escreveu “&lt;a href=&quot;https://builttoadapt.io/what-its-like-to-pair-for-a-year-86d048494324&quot;&gt;What It’s Like to Pair for a Year&lt;/a&gt;,” tem a dizer sobre programação em par:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;These scheduling interruptions happen, but on a typical day we avoid them by having the pairs show up at the same time (for breakfast and standup), go to lunch at the same time, and leave at the same time. This maximizes the time the pairs are pairing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Em tradução livre, com grifo meu:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Tais interrupções ocorrem, mas em um dia típico nós conseguimos evitá-las &lt;strong&gt;fazendo com que os pares cheguem na mesma hora (para café da manhã e reunião em pé), vão almoçar no mesmo horário, e vão para casa no mesmo horário&lt;/strong&gt;. Isso maximiza o tempo que os pares passam programando juntos.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Então, programação em par &lt;strong&gt;requer sincronismo&lt;/strong&gt;, o que pode torná-la uma opção inviável para equipes remotas (ou mesmo equipes que trabalham no mesmo local mas tem horários extremamente flexíveis).&lt;/p&gt;
+
+&lt;p&gt;Tem gente que argumenta que trabalhar em pares pode &lt;strong&gt;prejudicar a criatividade e impedir experimentações.&lt;/strong&gt; Durante uma sessão em par, pode ser considerado rude desperdiçar o tempo de seu par tentando uma abordagem experimental que pode talvez não dar em nada. Então, a decisão mais segura possível tende a prevalecer sempre, mesmo que não seja a melhor possível.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, a programação em par não fornece um dos benefícios chave da revisão de código posterior: ter uma pessoa com zero contexto analisando o código produzido. As duas pessoas do par &lt;strong&gt;compartilham contexto desde o início da sessão&lt;/strong&gt;, o que não deve ser subestimado. As pessoas têm uma tendência a &lt;a href=&quot;https://en.wikipedia.org/wiki/IKEA_effect&quot;&gt;superestimar o valor de suas contribuições e criar laços emocionais com o que elas criam&lt;/a&gt;; por isso é tão importante conseguir uma outra pessoa que, livre desses laços, será capaz de oferecer um julgamento mais claro.&lt;/p&gt;
+
+&lt;h2 id=&quot;reviso-de-cdigo-vs-programao-em-par-o-veredito&quot;&gt;Revisão de Código vs Programação em Par: O Veredito?&lt;/h2&gt;
+&lt;p&gt;Eu cheguei à conclusão de que, embora revisão de código e programação em par &lt;em&gt;pareçam&lt;/em&gt; equivalentes, na verdade não são. Existe uma intersecção ali, mas cada prática também apresenta benefícios e desafios únicos.&lt;/p&gt;
+
+&lt;p&gt;Não tem como fugir do fato de que programação em par, apesar de seus benefícios, requer um número par de pessoas, trabalhando ao mesmo tempo. Se seu time consiste de pessoas vivendo em diversos fusos horários diferentes (ou mesmo uma equipe local mas com horário flexível), é fácil decidir: revisão de código na cabeça.&lt;/p&gt;
+
+&lt;p&gt;Se a sua equipe não se encaixa na descrição acima, então eu digo: &lt;strong&gt;faça uma tentativa com programação em par&lt;/strong&gt;. Contanto que você se esforce para acomodar e ter empatia com &lt;a href=&quot;https://www.amazon.com/Quiet-Power-Introverts-World-Talking/dp/0307352153/ref=asap_bc?ie=UTF8&quot;&gt;diferentes tipos de personalidades&lt;/a&gt; e não torne obrigatório, programação em par pode ser benéfica para sua equipe.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, não há nada lhe impedindo de usar &lt;em&gt;ambas&lt;/em&gt; práticas. Você pode adotar programação em par como o &lt;em&gt;Modus Operandi&lt;/em&gt; padrão e deixar e revisão de código para preencher os vácuos onde o pareamento não funciona tão bem.&lt;/p&gt;
+
+&lt;h2 id=&quot;de-um-jeito-ou-de-outro-abrace-a-automao&quot;&gt;De um jeito ou de outro, abrace a automação&lt;/h2&gt;
+&lt;p&gt;Imagine que você escreve para uma publicação, como uma revista. Após finalizar um rascunho, ele precisa ser submetido para revisão. Será que faz sentido para a editora gastar todo seu tempo procurando por erros de ortografia? É claro que não! Nós temos ferramentas para checar tais erros de forma automática, liberando a editora para procurar por problemas em um nível mais alto, como vocabulário mal escolhido, falta de coesão, tom inapropriado, e todas aquelas coisas sobre as quais a sua professora de português não dava sossego.&lt;/p&gt;
+
+&lt;p&gt;Com software não é diferente. Ao usar &lt;a href=&quot;https://submain.com/products/codeit.right.aspx&quot;&gt;uma ferramenta de revisão de códigos automatizados&lt;/a&gt;, você pode eliminar muitas das discussões inúteis que acontecem frequentemente em revisões de código ou sessões de programação em par. Não vai ter mais briga sobre convenções estéticas e de nomenclatura, posição de chaves e outras trivialidades inúteis.&lt;/p&gt;
+
+&lt;p&gt;You can also employ a static analysis tool to warn you about potential bugs and opportunities for refactoring. That way, the reviewer/navigator is free to focus on the high-level stuff that requires human creativity, intelligence, and empathy.&lt;/p&gt;
+
+&lt;p&gt;Você também pode usar uma ferramenta de análise estática para lhe alertar sobre potenciais bugs e oportunidades para refatoração. Assim, o revisor/navegador fica livre para focar em preocupações de mais alto nível que necessitam da criatividade, inteligência e empatia humanas.&lt;/p&gt;
+
+&lt;h2 id=&quot;confiana-e-respeito&quot;&gt;Confiança e respeito&lt;/h2&gt;
+&lt;p&gt;Quando estava pesquisando para escrever esse post, um tema aparecia bastante: pessoas afirmando que revisão de código surge devido à falta de confiança em nossos desenvolvedores ou que programação em par os infantiliza.&lt;/p&gt;
+
+&lt;p&gt;Eu não poderia discordar mais.&lt;/p&gt;
+
+&lt;p&gt;É exatamente por respeitarmos nossos colegas e clientes que devemos empregar técnicas e ferramentas à nossa disposição para melhorar a qualidade do trabalho que produzimos.&lt;/p&gt;
+
+&lt;p&gt;Não é falta de confiança. É reconhecer que programar é difícil e às vezes, só um cérebro pode não dar conta do recado.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 24 Jan 2018 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</guid>
+        
+        <category>programacao em par</category>
+        
+        <category>boas praticas</category>
+        
+        <category>revisao de codigo</category>
+        
+        <category>metodologias ageis</category>
+        
+        
+      </item>
     
       <item>
         <title>Programação Cargo Cult É A Arte de Programar Por Coincidência</title>
@@ -45,7 +194,7 @@
 &lt;h2 id=&quot;por-que-a-programao-cargo-cult--um-problema&quot;&gt;Por que a programação &lt;em&gt;cargo cult&lt;/em&gt; é um problema?&lt;/h2&gt;
 &lt;p&gt;Como Eric Lippert diz, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/&quot;&gt;programadores cargo cult sofrem para fazer alterações significativas em um programa&lt;/a&gt; e acabam usando uma abordagem de tentativa e erro já que eles não entendem o funcionamento interno do código que estão prestes a alterar.&lt;/p&gt;
 
-&lt;p&gt;Isso não é tão diferent do que os &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;programadores pragmáticos chamam de “programação por coincidência”&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;Isso não é tão diferente do que os &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;programadores pragmáticos chamam de “programação por coincidência”&lt;/a&gt;:&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Fred doesn’t know why the code is failing because he didn’t know why it worked in the first place. It seemed to work, given the limited “testing” that Fred did, but that was just a coincidence.&lt;/p&gt;
@@ -60,7 +209,7 @@
 &lt;p&gt;A frase acima resume tudo para mim: se você não sabe como ou por que seu código funciona, você também não vai entender o que aconteceu quando ele parar de funcionar.&lt;/p&gt;
 
 &lt;h2 id=&quot;origem-do-termo&quot;&gt;Origem do termo&lt;/h2&gt;
-&lt;p&gt;Embora práticas que são consideradas “culto à carga” (&lt;em&gt;cargo cult&lt;/em&gt;) atualmente tenham sido registradas tão cedo quando&lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult#First_occurrences&quot;&gt;tenham sido registradas tão cedo quanto o final do século XIX&lt;/a&gt;, o termo em si data de 1945, quando foi usado pela primeira vez para descrever práticas que surgiram durante e depois da Segunda Guerra Mundial entre habitantes da Melanésia.&lt;/p&gt;
+&lt;p&gt;Embora práticas que são consideradas “culto à carga” (&lt;em&gt;cargo cult&lt;/em&gt;) atualmente &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult#First_occurrences&quot;&gt;tenham sido registradas tão cedo quanto o final do século XIX&lt;/a&gt;, o termo em si data de 1945, quando foi usado pela primeira vez para descrever práticas que surgiram durante e depois da Segunda Guerra Mundial entre habitantes da Melanésia.&lt;/p&gt;
 
 &lt;p&gt;Os nativos começaram a imitar o comportamento dos soldados, vestindo-se como controladores de voo e balançando gravetos, na esperança de que isso faria com que aviões carregados de suprimentos descessem dos céus.&lt;/p&gt;
 
@@ -150,7 +299,7 @@
 
 &lt;p&gt;A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; provavelmente faz mais sentido&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Lógico, alguns cenários não são tão claros assim. O único conselho que faz sentido dar aqui é: faça seu devre de casa. Quando estiver com dúvida, pesquise e faça &lt;em&gt;benchmark&lt;/em&gt; sem dó.&lt;/p&gt;
+&lt;p&gt;Lógico, alguns cenários não são tão claros assim. O único conselho que faz sentido dar aqui é: faça seu dever de casa. Quando estiver com dúvida, pesquise e faça &lt;em&gt;benchmark&lt;/em&gt; sem dó.&lt;/p&gt;
 
 &lt;p&gt;Eu termino com mais uma dica sensata do Eric Lippert:&lt;/p&gt;
 
@@ -1707,116 +1856,6 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
         <pubDate>Mon, 13 Mar 2017 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/funcionalidades-csharp-7/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp-7/</guid>
-        
-        <category>csharp</category>
-        
-        <category>iniciantes</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Já está na hora de começar a usar essas features do C# 6!</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1487896790/csharp6features_y5czrf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A sétima versão do C# está chegando, e vai provavelmente trazer várias funcionalidades novas e úteis para nossas  caixas de ferramentas. Mas deixa eu perguntar uma coisa: você já está usando as funcionalidades da versão anterior?
- &lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;Alguns dias atrás eu estava pensando sobre qual seria o tema do próximo post. Nada mais natural que escrever sobre o C# 7, já que &lt;a href=&quot;https://blogs.msdn.microsoft.com/visualstudio/2017/02/09/visual-studio-2017-launch-event-and-20th-anniversary/&quot;&gt;seu lançamento, junto com o Visual Studio 2017, é amanhã.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Mas então eu percebi que, mesmo já fazendo cerca de dois anos desde o lançamento do C# 6, alguns desenvolvedores ainda não se sentem confortáveis o suficiente com as funcionalidades da versão, de maneira a não incorporá-las em seu código.&lt;/p&gt;
-
-&lt;p&gt;Assim, eu decidi voltar um pouco e escrever sobre as funcionalidades do C# 6 no lugar disso. Não todas, mas aquelas que podem tornar seu código mais limpo e expressivo, e que são simples o suficiente para você já sair usando!&lt;/p&gt;
-
-&lt;h2 id=&quot;interpolao-de-string&quot;&gt;Interpolação de String&lt;/h2&gt;
-
-&lt;p&gt;Suponha que nós temos uma classe chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;Person&lt;/code&gt;, com duas propriedades somente-leitura, &lt;code class=&quot;highlighter-rouge&quot;&gt;Name&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt;. Algo assim:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/84db03cd2a530530b72c4b9eeeb738d4.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Então nós adicionamos um método chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt;, para que nossas pessoas sejam capazes de se apresentar. Para uma pessoa de 22 anos chamada Maria, o método deve retornar “Hi! My name is Maria and I’m 22 years old.”&lt;/p&gt;
-
-&lt;p&gt;Tem algumas maneiras diferentes de se fazer isso na versão 5 do C#, como você pode ver na seguinte listagem:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/9e30324951420356397c5cc8f50ea51b.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Cada uma delas tem suas vantagens e desvantagens, claro, mas o C# 6 disponibiliza um novo jeito:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/17f501bd6d0ce6f5938edf17ef8e8704.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Apenas coloque um cifrão no início da string, coloque suas variáveis dentro de chaves, e é isso!&lt;/p&gt;
-
-&lt;p&gt;Interpolação de strings não funciona para todas as ocasiões. Se você precisa de uma formatação especial nos valores, você ainda teria de usar &lt;code class=&quot;highlighter-rouge&quot;&gt;string.Format()&lt;/code&gt;, por exemplo.&lt;/p&gt;
-
-&lt;p&gt;Mas no dia-a-dia, eu uso interpolação na maioria das vezes que preciso fazer concatenação de strings. Eu acho essa forma bem mais interessante e mais clara do que as outras opções.&lt;/p&gt;
-
-&lt;h2 id=&quot;initializers-para-propriedades-automticas&quot;&gt;Initializers para propriedades automáticas&lt;/h2&gt;
-
-&lt;p&gt;Continuando com o exemplo anterior. Vamos supor que nós precisamos de um construtor sem parâmetros em nossa classe. Junto com isso, vamos precisar disponibilizar valores padrão para &lt;code class=&quot;highlighter-rouge&quot;&gt;Name&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Do contrário, o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce()&lt;/code&gt; retornaria “Hi! My name is  and I’m 0 years old.” E não iríamos querer isso, né?&lt;/p&gt;
-
-&lt;p&gt;No C# 5, nós teríamos que inicializar as propriedades dentro do construtor:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/d95cade5d8d5f245a1d6bb49ef2feb1f.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Já a sexta versão da linguagem nos permite definir valores padrão para as propriedades no mesmo momento em que as declaramos:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/e7d56c032e723f7c5110a9e3bfa1c744.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;operador-condicional-nulo&quot;&gt;Operador condicional nulo&lt;/h2&gt;
-
-&lt;p&gt;Considere o código a seguir:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/7fb5caff2e73f4130f4db982825adbe6.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Nada demais, não é? Mas tem um problema esperando para acontecer aqui. Se &lt;code class=&quot;highlighter-rouge&quot;&gt;customer&lt;/code&gt; é &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, esse código vai disparar uma &lt;code class=&quot;highlighter-rouge&quot;&gt;NullReferenceException&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;É nesse momento que o “Operador condicional nulo” vem a calhar:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/65bc4372a0e4fc3e8f38c0ee57905beb.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;O que o código acima faz? Simples: se &lt;code class=&quot;highlighter-rouge&quot;&gt;customer&lt;/code&gt; não é &lt;code class=&quot;highlighter-rouge&quot;&gt;nulo&lt;/code&gt;, a propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Address&lt;/code&gt; é acessada normalmente, e seu valor é atribuído à nossa variável local. No entanto, se &lt;code class=&quot;highlighter-rouge&quot;&gt;customer&lt;/code&gt; &lt;em&gt;é&lt;/em&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, a expressão toda é avaliada para nulo, e é isso que a variável recebe.&lt;/p&gt;
-
-&lt;p&gt;Outra coisa legal a respeito desse operador é que você pode usá-lo em conjunto com o &lt;a href=&quot;https://msdn.microsoft.com/en-us/library/ms173224.aspx&quot;&gt;Operador Null Coalesce&lt;/a&gt; para disponibilizar, de maneira fácil, um valor default diferente de &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/e17d34ba939fb7c472e164010db56377.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;mtodos-e-propriedades-expression-bodied&quot;&gt;Métodos e propriedades “Expression-bodied”&lt;/h2&gt;
-
-&lt;p&gt;Essa é bem fácil. Trata-se de uma maneira mais curta de escrever métodos, utilizando a sintaxe das expressões lambda.&lt;/p&gt;
-
-&lt;p&gt;Por exemplo, os dois métodos a seguir fazem a mesma coisa:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/eeae77f3876f9b692ca667281b5401d0.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Essa funcionalidade não é restrita a métodos. Ela também pode ser usada com propriedades (de apenas leitura) e indexadores.&lt;/p&gt;
-
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
-
-&lt;p&gt;Parece claro que o objetivo da Microsoft  com a sexta versão do C# não era adicionar funcionalidades radicalmente novas à linguagem.&lt;/p&gt;
-
-&lt;p&gt;Ao invés disso, a intenção era permitir aos desenvolvedores escrever código de uma maneira mais clara e concisa. E em minha opinião, o objetivo foi alcançado.&lt;/p&gt;
-
-&lt;p&gt;Você pode pensar que algumas das funcionalidades não fazem tanta diferença, na prática. Eu discordo. C# é frequentemente acusado de ser muito verboso. Existem situações nas quais você precisa escrever uma quantidade razoável de código para fazer algo que em Ruby ou Python poderia ser feito em uma linha.&lt;/p&gt;
-
-&lt;p&gt;E isso é normal. Um pouco (a maioria) da já mencionada verbosidade vem do fato de C# ser uma linguagem estaticamente tipada, e eu digo: &lt;strong&gt;sou feliz por isso&lt;/strong&gt;. Eu não consigo contar a quantidade de vezes que o compilador me salvou, pegando meus erros idiotas.&lt;/p&gt;
-
-&lt;p&gt;Se um pouco de verbosidade é o preço que tenho que pagar por isso, que seja.&lt;/p&gt;
-
-&lt;p&gt;Tudo isto dito, os detratores têm uma certa razão. É possível ser verboso &lt;em&gt;excessivamente&lt;/em&gt;. Então, qualquer funcionalidade que me permite eliminar um pouco dessa verbosidade extra e escrever código mais conciso é muito bem vinda.&lt;/p&gt;
-
-&lt;h2 id=&quot;veja-mais&quot;&gt;Veja mais&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://geekswithblogs.net/WinAZ/archive/2015/06/30/whatrsquos-new-in-c-6.0-auto-property-initializers.aspx&quot;&gt;http://geekswithblogs.net/WinAZ/archive/2015/06/30/whatrsquos-new-in-c-6.0-auto-property-initializers.aspx&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://msdn.microsoft.com/en-us/magazine/dn802602.aspx&quot;&gt;https://msdn.microsoft.com/en-us/magazine/dn802602.aspx&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.caelum.com.br/novidades-do-c-6-0/&quot;&gt;http://blog.caelum.com.br/novidades-do-c-6-0/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 06 Mar 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/funcionalidades-csharp-6/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp-6/</guid>
         
         <category>csharp</category>
         

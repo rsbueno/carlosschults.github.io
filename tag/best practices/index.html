@@ -84,6 +84,153 @@
   
   
   
+   <span class="post-meta">Jan 24, 2018</span>
+    <h2>
+          <a class="post-link" href="/en/code-review-vs-pair-programming/">Code Review vs Pair-Programming: Which One Should Your Team Pick?</a>
+    </h2>
+    <div class="post-content">
+    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg" alt="" /></p>
+
+<p><em>Editorial note: I originally wrote this post for the SubMain blog.  You can <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">check out the original here, at their site</a>. While you’re there, have a look at CodeIt.Right, which can help you with automated code reviews.</em></p>
+
+<p>Some weeks ago, I was browsing Twitter when I saw this:</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Pair Programming &gt; Code Review</p>&mdash; Rafael Ponte (@rponte) <a href="https://twitter.com/rponte/status/932390250848178176?ref_src=twsrc%5Etfw">November 19, 2017</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>This prompted a brief discussion between the author and me. He made good arguments, but I left unconvinced that pair programming was the obvious winner.</p>
+
+<p>As someone who’s implemented code review with success and also paired to some extent, I could see how both practices can be valuable. But is one of them clearly <em>better</em> than the other? Are code review and pair programming interchangeable, or are there scenarios in which one clearly shines?</p>
+
+<p>That’s what I’m going to answer today. Let’s dive in.</p>
+
+<h2 id="what-i-mean-by-code-review">What I Mean By Code Review</h2>
+
+<p>Picture this: you’re a young programmer on your first development job. After you finish your first assignment, they call you to a meeting room; there you find your tech lead and three senior developers. There’s also a large monitor displaying your code. Time for review!</p>
+
+<p>For two-and-a-half excruciating hours, they scrutinize your work while you sweat profusely. From criticizing your high-level design decisions to nitpicking over the most trivial stylistic preferences, nothing gets a free pass.</p>
+
+<p>Is this the scene your mind conjures when you see the words “code review”?</p>
+
+<p>Good news, then. That’s <em>not</em> the kind of review I’m talking about. Instead, think of a very informal and lightweight process. You submit your code for review by creating a pull request or maybe using some embedded functionality on your IDE.</p>
+
+<h3 id="the-good">The Good</h3>
+
+<p>After touching briefly on the <em>what</em> and <em>how</em> of a code review, let’s get to the <em>why</em>. Why should your team adopt this practice? What are the benefits?</p>
+
+<p>The first reason is, not surprisingly, <strong>to catch bugs</strong>. I’d bet you’re familiar with that old piece of software wisdom that says <a href="https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf">that the later a defect is found, the higher the cost of fixing it</a>. Then why not use a relatively cheap process <a href="https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf">that can catch up to 60% of defects</a>?</p>
+
+<p>Here’s another reason your company should perform code reviews: to <strong>improve the readability of the code</strong>. Trying to read and understand some new piece of code frequently leads to the discovery of issues such as</p>
+
+<ul>
+  <li>Poor naming.</li>
+  <li>Bad indentation.</li>
+  <li>Instances of <a href="https://en.wikipedia.org/wiki/Cargo_cult_programming">cargo cult programming</a>.</li>
+  <li>Non-idiomatic code.</li>
+</ul>
+
+<p>The reviewer could also spot overlooked corner cases or help the author assess how performative their code is.</p>
+
+<p>And here’s one last reason. A well-done code review can <strong>spread knowledge throughout the team.</strong> This improves the product’s quality by destroying knowledge silos.</p>
+
+<h3 id="the-bad">The Bad</h3>
+
+<p>While some say code reviews are <a href="https://blog.codinghorror.com/code-reviews-just-do-it/">the number one practice you should adopt</a> to improve your code, <a href="https://blog.nelhage.com/2010/06/i-hate-code-review/">this kind of enthusiasm is not universal</a>. So, what are the potential drawbacks?</p>
+
+<p>For the most part, their complaint is <strong>time</strong>. When you submit some code for review, you’ll have to wait until the reviewer is done.</p>
+
+<p>What should you do while waiting? Ideally, your team should break up the available work in small, discrete units so it can work on these pieces somewhat independently. That’s not always feasible, though. And by the way, the <strong>constant switching of tasks might be detrimental to the developer’s focus and productivity</strong>.</p>
+
+<p>Let’s say Bob spends <em>x</em> hours implementing a feature. Then Alice reviews his work and says his implementation is completely wrong, and he needs to start from scratch. <strong>Those <em>x</em> development hours were just thrown away</strong>.</p>
+
+<p>Finally, people sometimes will waste ridiculous amounts of time <strong>arguing on pointless stylistic details</strong>, such as the position of braces or whether or not to include an underscore before a private field’s name. These debates can unfortunately escalate to levels that turn the workplace toxic.</p>
+
+<h2 id="pair-programming-not-just-a-super-code-review">Pair Programming: Not Just a Super Code Review</h2>
+
+<p>Pair programming is a technique in which two developers collaborate on the code together, sitting at one workstation.</p>
+
+<p>They periodically take turns in two roles. The <em>driver</em> writes the code, thinking out loud in order to explain their design decisions and thought process. The <em>navigator</em> observes the driver’s work, giving real-time feedback and advice.</p>
+
+<p>So, is it just “code review on steroids”, <a href="https://blog.codinghorror.com/pair-programming-vs-code-reviews/">as put by Jeff Atwood</a>?</p>
+
+<p>Maybe not. One of the basic principles of agile methodologies is the shorter your feedback loop, the better you are. You can see how getting someone to review your code sooner rather than later works in harmony with the principles that make agile so successful.</p>
+
+<h3 id="the-good-1">The Good</h3>
+
+<p>Well, it should be no surprise that many benefits of pair programming are also benefits of code reviews, such as fewer bugs, improvement in code readability, and knowledge dispersion throughout the team.</p>
+
+<p>Pair programming may provide exclusive benefits as well, such as:</p>
+
+<ul>
+  <li><strong>Higher focus</strong>. The presence of a peer may exert some pressure to stay motivated to solve the task at hand.</li>
+  <li><strong>Shorter feedback cycle</strong>. Since your pair is reviewing your code in real time, there’s a lot less risk of wasting time due to delayed feedback.</li>
+  <li><strong>Increase in usage of other good engineering practices</strong>. As suggested in a study done at North Carolina State University, <a href="https://collaboration.csc.ncsu.edu/laurie/Papers/ESE%20WilliamsPairProgramming_V2.pdf">teams using pair programming tend to increasingly use development practices such as unit testing, continuous integration, and establishing coding standards</a>.</li>
+</ul>
+
+<h3 id="the-bad-1">The Bad</h3>
+
+<p>As in the case of the code review, pair programming is far from being a universally accepted practice. While many developers love it, <a href="https://web.archive.org/web/20110101145142/https://tersesystems.com/2010/12/29/where-pair-programming-fails-for-me">others don’t have such happy stories to tell</a>. So, what are some of the most cited problems with pairing?</p>
+
+<p>Let’s start with one common complaint: pair programming <strong>can be exhausting</strong>. In fact, many claim that <a href="https://softwareengineering.stackexchange.com/a/9518">pairing is more effective when used for shorter blocks of time—from one and a half to two and a half hours.</a></p>
+
+<p>Obviously, an odd number of team members doesn’t work well for pair programming. But a shifting number of available personnel is inevitable.</p>
+
+<p>Next on our list of problems is the fact that paring isn’t very remote friendly. You can better imagine the issue after hearing what Daniel Kaplan, who wrote “<a href="https://builttoadapt.io/what-its-like-to-pair-for-a-year-86d048494324">What It’s Like to Pair for a Year</a>,” had to say about pairing:</p>
+
+<blockquote>
+  <p>These scheduling interruptions happen, but on a typical day we avoid them by having the pairs show up at the same time (for breakfast and standup), go to lunch at the same time, and leave at the same time. This maximizes the time the pairs are pairing.</p>
+</blockquote>
+
+<p>So, pairing <strong>requires synchronicity</strong>, which might make it a non-option for remote teams (or even co-located teams with flexible hours).</p>
+
+<p>Some people argue that pairing can <strong>undermine creativity and prevent experimentation.</strong> While pairing, it’d be rude to waste your pair’s time trying some experimental approach that might ultimately end up not working. So, the safest possible design tends to always prevail, even if it’s not the best possible one.</p>
+
+<p>Finally, pairing doesn’t really provide one of the key benefits of the after-the-fact code review: a person with zero context analyzing the code. The two developers <strong>share a context from the beginning of the session</strong>, and the effect this has cannot be underestimated. People tend to <a href="https://en.wikipedia.org/wiki/IKEA_effect">overvalue their contributions and get emotionally attached to what they create</a>; that’s why it’s so important to get a second person that doesn’t have this attachment and is thus able to provide a clearer judgment.</p>
+
+<h2 id="code-review-vs-pair-programming-the-verdict">Code Review vs Pair Programming: The Verdict?</h2>
+
+<p>I’ve reached the conclusion that, although code review and pair programming <em>seem</em> equivalent, they’re really not. There is some overlap, but each practice also presents some unique benefits and challenges.</p>
+
+<p>There’s no getting around that pair programming, despite its benefits, requires an even number of people, working at the same time. If your team consists of developers living across several time zones (or even a co-located team with extremely flexible hours), then it’s a no-brainer: code review to the rescue.</p>
+
+<p>If your team doesn’t fit the above description, then give pair programming a try. As long as you work hard to accommodate and have empathy for <a href="https://www.amazon.com/Quiet-Power-Introverts-World-Talking/dp/0307352153/ref=asap_bc?ie=UTF8">different kinds of personalities</a> and don’t make it mandatory, it can be beneficial to your team.</p>
+
+<p>Finally, there’s nothing stopping you from using <em>both</em>. You could adopt pair programming as the default MO and leave soloing and code review to fill in the gaps where pair programming doesn’t quite fit so well.</p>
+
+<h2 id="no-matter-what-you-do-embrace-automation">No Matter What You Do, Embrace Automation</h2>
+
+<p>Imagine you write for a publication, such as a magazine. After you have a draft, you submit it for review. Would it make sense for the editor to spend all their time looking for spelling errors? Of course not! We have automated spell-check for that, freeing the editor to look for more <em>high-level</em> problems, such as poorly chosen words, lack of cohesion, inappropriate tone, and all those things your English teacher kept nagging you about in high school.</p>
+
+<p>With software, things should not be so different. By using <a href="https://submain.com/products/codeit.right.aspx">an automated code review tool</a>, you can eliminate a lot of the bickering that often occurs in code reviews or pair programming sessions. There will be no arguing about naming and formatting conventions, the position of brackets, and others pointless trivia.</p>
+
+<p>You can also employ a static analysis tool to warn you about potential bugs and opportunities for refactoring. That way, the reviewer/navigator is free to focus on the high-level stuff that requires human creativity, intelligence, and empathy.</p>
+
+<h2 id="trust-and-respect">Trust and Respect</h2>
+
+<p>While researching for this post, one theme kept reappearing: that code review emerges from a lack of trust in our developers or that pair programming infantilizes them.</p>
+
+<p>I couldn’t disagree more.</p>
+
+<p>Precisely because we respect our developers—and our clients—we should employ techniques and tools at our disposal to improve the quality of our work.</p>
+
+<p>It’s not about lack of trust. It’s about recognizing that programming is hard and sometimes, just one brain isn’t up to the task.</p>
+
+
+    <a href="/en/code-review-vs-pair-programming/">read more...</a>
+   </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
    <span class="post-meta">Jan 17, 2018</span>
     <h2>
           <a class="post-link" href="/en/cargo-cult-programming/">Cargo Cult Programming Is The Art of Programming by Coincidence</a>
