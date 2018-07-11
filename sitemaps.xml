@@ -1346,19 +1346,6 @@
   
     
       <url>
-        <loc>/tag_ptbr/datetime/</loc>
-        
-        
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/datetime/" />
-        
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/datetime/" />
-        
-        <changefreq>weekly</changefreq>
-      </url>
-    
-  
-    
-      <url>
         <loc>/tag_ptbr/time/</loc>
         
         
@@ -1372,12 +1359,12 @@
   
     
       <url>
-        <loc>/tag_ptbr/date/</loc>
+        <loc>/tag_ptbr/tempo/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/date/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tempo/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/date/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tempo/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1983,19 +1970,6 @@
   
     
       <url>
-        <loc>/tag/datetime/</loc>
-        
-        
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/datetime/" />
-        
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/datetime/" />
-        
-        <changefreq>weekly</changefreq>
-      </url>
-    
-  
-    
-      <url>
         <loc>/tag/time/</loc>
         
         
@@ -2009,12 +1983,12 @@
   
     
       <url>
-        <loc>/tag/date/</loc>
+        <loc>/tag/tempo/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/date/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tempo/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/date/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tempo/" />
         
         <changefreq>weekly</changefreq>
       </url>
