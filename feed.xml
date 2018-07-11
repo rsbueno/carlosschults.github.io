@@ -5,10 +5,165 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 Jan 2018 14:08:23 -0200</pubDate>
-    <lastBuildDate>Wed, 24 Jan 2018 14:08:23 -0200</lastBuildDate>
+    <pubDate>Wed, 11 Jul 2018 14:33:57 -0300</pubDate>
+    <lastBuildDate>Wed, 11 Jul 2018 14:33:57 -0300</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
+    
+      <item>
+        <title>4 Common Datetime Mistakes in C# — And How to Avoid Them</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/4-common-datetime-mistakes-c-avoid/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you with time-related issues and much more.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Do you remember the “falsehoods programmers believe about &lt;em&gt;X&lt;/em&gt;”  meme that became popular among software blogs a few years ago? The first one was about &lt;a href=&quot;http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;names&lt;/a&gt;, but several others soon followed, covering topics such as &lt;a href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;addresses&lt;/a&gt;, &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;geography,&lt;/a&gt; and &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=22201&quot;&gt;online shopping&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My favorite was &lt;a href=&quot;http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;the one about time&lt;/a&gt;. I hadn’t thought deeply about time and its intricacies up until that point, and I was intrigued by how a fundamental domain could be such a fertile ground for misunderstandings.&lt;/p&gt;
+
+&lt;p&gt;Now even though I like the post, I have a problem with it: it lists wrong assumptions, and then it basically stops there. The reader is likely to leave the article wondering:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Why are these assumptions falsehoods?&lt;/li&gt;
+  &lt;li&gt;How likely is it that I’ll get in trouble due to one of these assumptions?&lt;/li&gt;
+  &lt;li&gt;What’s the proper way of dealing with these issues?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The article is interesting food for thought, but I think it’d make sense to provide more actionable information.&lt;/p&gt;
+
+&lt;p&gt;That’s what today’s post is about. I’m going to show you four common mistakes C#/.NET developers make when dealing with time. And that’s not all. I’ll also show what you should do to avoid them and make your code safer and easier to reason about.&lt;/p&gt;
+
+&lt;h2 id=&quot;naively-calculating-durations&quot;&gt;1. Naively Calculating Durations&lt;/h2&gt;
+
+&lt;p&gt;Consider the code below:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3e18612b9a9238382b6d4fa3c574a231.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Will this code work? It depends on where and when it’s going to run.&lt;/p&gt;
+
+&lt;p&gt;When you use &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.Now&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; you get represents the current date and time local to your machine (i.e., it has the &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; property set to &lt;code class=&quot;highlighter-rouge&quot;&gt;Local&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;If you live in an area that observes DST (Daylight Saving Time), you know there’s one day in the year when all clocks must be moved forward a certain amount of time (generally one hour, but there are places that adjust by other offsets). Of course, there’s also the day when the opposite happens.&lt;/p&gt;
+
+&lt;p&gt;Now picture this: today is March 12th, 2017, and you live in New York City. You start using the program above. The &lt;code class=&quot;highlighter-rouge&quot;&gt;StartMatch()&lt;/code&gt; method runs at exactly 01:00 AM.  One hour and 15 minutes later, the &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch()&lt;/code&gt; method runs. The calculation is performed, and the following text is shown:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Duration of the match: 00:02:15&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I bet you’ve correctly guessed what just happened here: when clocks were about to hit 2 AM, DST just kicked in and moved them straight to 3 AM. Then &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; got back the current time, effectively adding a whole hour to the calculation. If the same had happened at the end of DST, the result would’ve been just 15 minutes!&lt;/p&gt;
+
+&lt;p&gt;Sure, the code above is just a toy example, but what if it were a payroll application? Would you like to pay an employee the wrong amount?&lt;/p&gt;
+
+&lt;h3 id=&quot;what-to-do&quot;&gt;What to Do?&lt;/h3&gt;
+
+&lt;p&gt;When calculating the duration of human activities, use UTC for the start and end dates. That way, you’ll be able to** unambiguously point to an instant in time**. Instead of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;Now&lt;/code&gt; property on &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt;, use `UtcNow to retrieve the date time already in UTC to perform the calculations:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/82492845edaa8f8fc16c646ed2bbcf2a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;What if the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; objects you already have are set to Local? In that case, you should use the ToUniversalTime() method to convert them to UTC:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;a-little-warning-about-touniversaltime&quot;&gt;A Little Warning About ToUniversalTime()&lt;/h3&gt;
+
+&lt;p&gt;The usage of &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; — and its sibling, &lt;code class=&quot;highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt;— can be a little tricky. The problem is that these methods make assumptions about what you want based on the value of the Kind property of your date, and that can cause unexpected results.&lt;/p&gt;
+
+&lt;p&gt;When calling &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;, one of the following things will happen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; is set to UTC, then the same value is returned.&lt;/li&gt;
+  &lt;li&gt;On the other hand, if it’s set to Local, the corresponding value in UTC is returned.&lt;/li&gt;
+  &lt;li&gt;Finally, if Kind is set to Unspecified,** then it’s assumed the datetime is meant to be local, **and the corresponding UTC datetime is returned.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The problem we have here is &lt;a href=&quot;https://codeofmatt.com/2013/04/25/the-case-against-datetime-now/#localkindsdontroundtrip&quot;&gt;that local times don’t roundtrip&lt;/a&gt;. They’re local as long as they don’t leave the context of your machine. If you save a local datetime to a database and then retrieve it back, the information that’s supposed to be local is lost: now it’s unspecified.&lt;/p&gt;
+
+&lt;p&gt;So, the following scenario can happen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You retrieve the current date and time using &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.UtcNow&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;You save it to the database.&lt;/li&gt;
+  &lt;li&gt;Another part of the code retrieves this value and, unaware that it’s supposed to already be in UTC, calls &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; on it.&lt;/li&gt;
+  &lt;li&gt;Since the datetime is unspecified, the method will treat it as Local and perform an unnecessary conversion, generating a wrong value.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How do you prevent this? It’s a recommended practice to use UTC to record the time when an event happened. My suggestion here is to follow this advice and also to make it explicit that you’re doing so. Append the “UTC” suffix to every database column and class property that holds a UTC datetime. Instead of Created, change it to CreatedUTC and so on. It’s not as pretty, but it’s definitely more clear.&lt;/p&gt;
+
+&lt;h2 id=&quot;not-using-utc-when-it-should-be-used-and-vice-versa&quot;&gt;2. Not Using UTC When It Should Be Used (and Vice Versa)&lt;/h2&gt;
+
+&lt;p&gt;We could define this as a universal rule: use UTC to record the time when events &lt;em&gt;happened&lt;/em&gt;. When logging, auditing, and recording all types of timestamps in your application, UTC is the way to go.&lt;/p&gt;
+
+&lt;p&gt;So, use UTC everywhere! …Right? Nope, not so fast.&lt;/p&gt;
+
+&lt;p&gt;Let’s say you need to be able to reconstruct the local datetime — to the user’s perspective — of when something happened, and the only information you have is a timestamp in UTC. That’s a piece of bad luck.&lt;/p&gt;
+
+&lt;p&gt;In cases like this, it’d make more sense to either (a) store the datetime in UTC along with the user’s time zone or (b) use the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTimeOffset&lt;/code&gt; type, which will record the local date along with the UTC offset, enabling you to reconstruct the UTC date from it when you need it.&lt;/p&gt;
+
+&lt;p&gt;Another common use case where UTC is not the right solution is &lt;a href=&quot;https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;amp;lq=1&quot;&gt;scheduling future local events&lt;/a&gt;. You wouldn’t want to wake up one hour later or earlier in the days of DST transitions, right? That’s exactly what would happen if you’d set your alarm clock by UTC.&lt;/p&gt;
+
+&lt;h2 id=&quot;not-validating-user-input&quot;&gt;3. Not Validating User Input&lt;/h2&gt;
+
+&lt;p&gt;Let’s say you’ve created a simple Windows desktop app that lets users set reminders for themselves. The user enters the date and time at which they want to receive the reminder, clicks a button, and that’s it.&lt;/p&gt;
+
+&lt;p&gt;Everything seems to be working fine until a user from Brazil emails you, complaining the reminder she set for October 15th at 12:15 AM didn’t work. What happened?&lt;/p&gt;
+
+&lt;h3 id=&quot;dst-strikes-back&quot;&gt;DST Strikes Back&lt;/h3&gt;
+
+&lt;p&gt;The villain here is good old Daylight Saving Time again. In 2017, DST in Brazil started at midnight on October 15th. (Remember that Brazil is in the southern hemisphere.) So, the date-time combination the user supplied &lt;strong&gt;simply didn’t exist in her time zone!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, the opposite problem is also possible. When DST ends and clocks turn backward by one hour, this &lt;strong&gt;generates ambiguous times.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-the-remedy&quot;&gt;What Is the Remedy?&lt;/h3&gt;
+
+&lt;p&gt;How do you deal with those issues as a C# developer? The &lt;code class=&quot;highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; class has got you covered. It not only represents a time zone but it also provides methods to check for a datetime validity:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/2b94d57390b3518294730c01003f159c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;What should you do then? What should replace the “do something” comments in the snippets above?&lt;/p&gt;
+
+&lt;p&gt;You could show the user a message saying the input date is invalid. Or you could preemptively choose another date for the user.&lt;/p&gt;
+
+&lt;p&gt;Let’s talk about invalid times first. Your options: move forward or backward. It’s somewhat of an arbitrary decision, so which one should you pick? For instance, the Google Calendar app on Android chooses the former. And it makes sense when you think about it. That’s exactly what your clocks already did due to DST. Why shouldn’t you do the same?&lt;/p&gt;
+
+&lt;p&gt;And what about ambiguous times? You also have two options: choose between the first and second occurrences. Then again, it’s somewhat arbitrary, but my advice is to pick the first one. Since you have to choose one, why not make things simpler?&lt;/p&gt;
+
+&lt;h2 id=&quot;mistaking-an-offset-for-a-time-zone&quot;&gt;4. Mistaking an Offset for a Time Zone&lt;/h2&gt;
+
+&lt;p&gt;Consider the following timestamp: 1995-07-14T13:05:00.0000000-03:00. When asked what the -03:00 at the end is called, many developers answer, “a time zone.”&lt;/p&gt;
+
+&lt;p&gt;Here’s the thing. They probably correctly assume that the number represents the offset from UTC. Also, they’d probably see that you can get the corresponding time in UTC from the offset. (Many developers fail to understand that in a string like this, the offset is already applied: to get the UTC time, you should invert the offset sign. Only then should you add it to the time.)&lt;/p&gt;
+
+&lt;p&gt;The mistake is in thinking that the offset is all there is to a time zone. It’s not.  A time zone is a geographical area, and it consists of many pieces of information, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One or more offsets. (DST is a thing, after all.)&lt;/li&gt;
+  &lt;li&gt;The dates when DST transitions happen. (These can and do change whenever governments feel like it.)&lt;/li&gt;
+  &lt;li&gt;The amount of time applied when transitions happened. (It’s not one hour everywhere.)&lt;/li&gt;
+  &lt;li&gt;The historical records of changes to the above rules.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In short: don’t try to guess a time zone by the offset. You’ll be wrong most of the time.&lt;/p&gt;
+
+&lt;h2 id=&quot;its-about-timeyou-learn-about-time&quot;&gt;It’s About Time…You Learn About Time!&lt;/h2&gt;
+
+&lt;p&gt;This list is by no means exhaustive. I only wanted to give you a quick start in the fascinating and somewhat bizarre world of datetime issues. There are plenty of valuable resources out there for you to learn from, such as the &lt;a href=&quot;https://stackoverflow.com/tags/timezone/info&quot;&gt;time zone tag on Stack Overflow&lt;/a&gt; or blogs such as &lt;a href=&quot;https://codeblog.jonskeet.uk/&quot;&gt;Jon Skeet’s&lt;/a&gt; and &lt;a href=&quot;https://codeofmatt.com/&quot;&gt;Matt Johnson’s,&lt;/a&gt; who are authors of the popular NodaTime library.&lt;/p&gt;
+
+&lt;p&gt;And of course, always use the tools at your disposal. For instance, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; has a rule to force you to specify a &lt;code class=&quot;highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; in situations where it’s optional, which can save you from nasty bugs when parsing dates.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Jul 2018 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        <category>datetime</category>
+        
+        <category>time</category>
+        
+        <category>date</category>
+        
+        
+      </item>
     
       <item>
         <title>Code Review vs Pair-Programming: Which One Should Your Team Pick?</title>
@@ -1590,199 +1745,6 @@ Changes not staged for commit:
         <category>best practices</category>
         
         <category>beginners</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Are private methods a code smell?</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Some people believe private methods should be avoided. Are they right?
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;A couple of months ago, &lt;a href=&quot;https://twitter.com/mdbs99&quot;&gt;Marcos Douglas&lt;/a&gt; published a post about &lt;a href=&quot;https://gist.github.com/carlosschults/5f4ba7cfb2453977c8d11424b2926686&quot;&gt;how the use of rules and constraints can help you keep your code clean and maintainable&lt;/a&gt;*. This &lt;a href=&quot;https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db#.rptqu89ec&quot;&gt;premise&lt;/a&gt; keeps showing up &lt;a href=&quot;http://blog.ploeh.dk/2015/04/13/less-is-more-language-features/&quot;&gt;again&lt;/a&gt; and &lt;a href=&quot;https://robots.thoughtbot.com/sandi-metz-rules-for-developers&quot;&gt;again&lt;/a&gt; around the web, and I totally agree with it.&lt;/p&gt;
-
-&lt;p&gt;Marcos lays out several useful guidelines such as the ideal number of arguments in a method, the ideal numbers of methods in a class, and so on. The post is very good, and I think you should all &lt;a href=&quot;https://gist.github.com/carlosschults/5f4ba7cfb2453977c8d11424b2926686&quot;&gt;check it out&lt;/a&gt;, but it is not the focus of today’s post.&lt;/p&gt;
-
-&lt;p&gt;Instead, I want to talk about a subject that showed up in the comment’s thread: private methods as a &lt;a href=&quot;https://martinfowler.com/bliki/CodeSmell.html&quot;&gt;code smell&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Since I’d never heard something along those lines, I was naturally surprised and decided to do some research.&lt;/p&gt;
-
-&lt;h2 id=&quot;whats-the-matter-with-private-methods&quot;&gt;What’s the matter with private methods?&lt;/h2&gt;
-
-&lt;p&gt;First, let’s try to understand why would private methods be a problem.&lt;/p&gt;
-
-&lt;p&gt;One common argument is that private methods violate the Single Responsibility Principle. The SRP states that each class should do only one thing. If you’re tempted to create private methods, the argument follows, that’s a sign that your class is doing too much.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Private helper methods indicate classes are doing too many things. Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.&lt;/p&gt;
-
-  &lt;p&gt;Kent R Spillner, in &lt;a href=&quot;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&quot;&gt;Private Methods are a Code Smell&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here is another similar view:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Private methods are not inherently bad, but they are a sign that you might be missing out on an opportunity to make a useful abstraction. If you have a private method that calls another private method, then there is almost certainly an area of responsibility that remains unidentified.&lt;/p&gt;
-
-  &lt;p&gt;John McDowall, in &lt;a href=&quot;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&quot;&gt;Break. It. Up! – Private Method Access Modifiers as Code Smells&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Another argument is that private methods make unit testing difficult:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Make it public!&lt;/p&gt;
-
-  &lt;p&gt;[…]This is probably the simplest way to overcome the problem of untestability.[…] There’s a reason for that:  testability is a perfectly good reason to make something public.  And you should test most of your code.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Jason M Baker, in &lt;a href=&quot;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&quot;&gt;Enemies of Test Driven Development part I: encapsulation&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Finally, people also argue that private methods play an important role in messing with internal states in objects, which can get you in real trouble.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Functional programming teaches that state (in the form of member variables) is evil, because it makes your code more complex and harder to test.&lt;/p&gt;
-
-  &lt;p&gt;Ryan Ginstrom, in &lt;a href=&quot;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&quot;&gt;Three reasons to avoid private class members&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I’ve just outlined some of the common arguments against the creation of private methods, so now it’s time to show my opinions on this.&lt;/p&gt;
-
-&lt;h2 id=&quot;private-methods-are-not-necessarily-srp-violations&quot;&gt;Private methods are &lt;em&gt;not&lt;/em&gt; necessarily SRP violations&lt;/h2&gt;
-
-&lt;p&gt;The first argument presented states that private methods violate the Single Responsibility Principle.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Private helper methods indicate classes are doing too many things.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I don’t think that’s the case. At least, not always. It depends on what the private method is doing.&lt;/p&gt;
-
-&lt;p&gt;You probably shouldn’t add a method called &lt;code class=&quot;highlighter-rouge&quot;&gt;ValidateEmailAddress&lt;/code&gt; to your &lt;code class=&quot;highlighter-rouge&quot;&gt;Customer&lt;/code&gt; class, whether private or not. After all, a customer is not the only entity that can have an email address. Instead, create an &lt;code class=&quot;highlighter-rouge&quot;&gt;Email&lt;/code&gt; class and put all the pertinent validations in it.&lt;/p&gt;
-
-&lt;p&gt;On the other hand, let’s say you’re creating a &lt;code class=&quot;highlighter-rouge&quot;&gt;Sort&lt;/code&gt; method for a custom data structure. In this case, it’d make a lot of sense to keep the &lt;code class=&quot;highlighter-rouge&quot;&gt;Sort&lt;/code&gt; method public, and have some auxiliary private methods, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;CompareItems&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Swap&lt;/code&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;My main issue with this argument is not that small classes are generally better than large ones, which I agree.&lt;/p&gt;
-
-&lt;p&gt;My problem is that I don’t agree that creating new classes and public methods &lt;strong&gt;just for the sake of avoiding private methods&lt;/strong&gt; will &lt;strong&gt;automatically&lt;/strong&gt; lead to “simpler, better designs”. It sure &lt;em&gt;can&lt;/em&gt;; but it can lead you to worse designs as well. Each situation is unique.&lt;/p&gt;
-
-&lt;h2 id=&quot;i-dont-buy-testability-for-testabilitys-sake&quot;&gt;I don’t buy testability for testability’s sake&lt;/h2&gt;
-
-&lt;p&gt;I really like unit tests (and automated tests in general). I helped evangelize unit testing in my workplace, and I’m currently supervising the team that is adding unit and integration tests to our codebase.&lt;/p&gt;
-
-&lt;p&gt;And one of the first questions that people ask when you’re teaching unit testing to them is: How do I unit test private methods?&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1485701114/unicorn_dies-min_epffty.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;My answer usually is: &lt;strong&gt;you shouldn’t&lt;/strong&gt;. IMHO, it’s just not that productive to put a lot of effort into testing private methods: since they are called by the public ones, they’re going to be exercised by your tests anyway.&lt;/p&gt;
-
-&lt;p&gt;The goal of a unit test should be to test and document a “unit” (a class) by using its public API. Which leads us to the next point.&lt;/p&gt;
-
-&lt;h2 id=&quot;your-public-api-should-be-stable&quot;&gt;Your public API should be stable!&lt;/h2&gt;
-
-&lt;p&gt;API stands for “Application Programming Interface”. This term can mean a bunch of things, but in this context, think of the API as the set of all public classes and methods that your application exposes to consumers.&lt;/p&gt;
-
-&lt;p&gt;The API acts as a kind of contract between you and your consumers. It’s a deal. If you alter the deal, the other party won’t be happy.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1485701325/deal-min_th2zxm.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Your public API should be as stable as possible. This is specially true when you’re writing a web service, a library, or any kind of tool that other parties depend on.&lt;/p&gt;
-
-&lt;p&gt;By the way, this third party doesn’t have to be geographically distant from you. It’s common for a medium to large company to have several teams that depend on code provided by each other. What would happen if each team constantly made drastic changes in their APIs? Chaos.&lt;/p&gt;
-
-&lt;p&gt;When you expose a method publicly, from that moment on you’re “forced” to keep that method working and honoring its contract; otherwise, your consumers will suffer with breaking changes in their code!&lt;/p&gt;
-
-&lt;p&gt;A good usage of private methods can help ensure proper encapsulation in your design.&lt;/p&gt;
-
-&lt;p&gt;Here’s yet another quote from Kent R Spillner:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Sometimes, private methods are created just to give pieces of functionality more descriptive names. Although descriptive names are desirable, creating private methods to provide descriptive names for things is still a smell. Moving these methods to collaborators and making them public creates opportunities for future reuse without reducing the clarity of the original code.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;This is one of the points I most vehemently disagree with. I often create private methods for the exact reason Kent R Spillner criticizes here, i.e. giving descriptive names for chunks of code, a habit I developed after reading Robert C. Martin’s book &lt;em&gt;Clean Code&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Mr. Spillner defends that the proper way to deal with this should be to move these methods to other classes and make them public.&lt;/p&gt;
-
-&lt;p&gt;But in doing that, I’ve just added a new public method to the public API of my system! Now it’s one more method to document, test and support, even though it was never &lt;em&gt;meant&lt;/em&gt; to be part of the public API.&lt;/p&gt;
-
-&lt;p&gt;Here we have a definition for access modifiers that I think is spot on:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;public - this method is part of the published API and will not change within major versions of the class&lt;/p&gt;
-
-  &lt;p&gt;[…]&lt;/p&gt;
-
-  &lt;p&gt;private - this method was refactored out of a well tested public or protected method for reasons of clarity or internal re-use. This method may absolutely change, even in patch releases, and should not be relied upon to even exist.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;I subscribe to this definition. Thus, in my opinion:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Private methods are not necessarily a bad thing to be avoided at all costs.&lt;/li&gt;
-  &lt;li&gt;Making private methods public don’t automatically lead to better design; it can also lead to an unnecessary inflated API, weak encapsulation, and increased maintenance overhead.&lt;/li&gt;
-  &lt;li&gt;Testability is a noble goal, but should be pursued pragmatically. Well tested and documented public methods should be enough, for most cases.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;private-methods-can-be-good-or-bad-learn-to-tell-them-apart&quot;&gt;Private methods can be good or bad; learn to tell them apart&lt;/h2&gt;
-
-&lt;p&gt;All being said, I do think there are cases in which private methods are used in a wrong way. Like any other tool, they can be abused. You should probably watch out for some red flags.&lt;/p&gt;
-
-&lt;p&gt;If a private method is at a &lt;strong&gt;different level of abstraction&lt;/strong&gt; than the public ones in a class, it’s a sign that it belongs in another class. Reading/writing to a file is at a lower level than calculating an employee’s  monthly payment, for instance.&lt;/p&gt;
-
-&lt;p&gt;When a private method is so complex that you really, really wished you could unit test it…then it probably should be made public. (Before you point out my apparent contradiction, I’m not saying that &lt;strong&gt;every&lt;/strong&gt; private method should be made public in order to become testable…just the ones who cross some threshold of complexity).&lt;/p&gt;
-
-&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;pt&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;&lt;a href=&quot;https://twitter.com/pablogl&quot;&gt;@pablogl&lt;/a&gt; i only test public methods. if a private method is complex enough to need testing, it generally needs its own object.&lt;/p&gt;&amp;mdash; Kent Beck (@KentBeck) &lt;a href=&quot;https://twitter.com/KentBeck/status/3579860805&quot;&gt;27 de agosto de 2009&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;What about a private method that contains duplicated code, as in, copied and pasted from another class…? Get rid of the duplication immediately!&lt;/p&gt;
-
-&lt;p&gt;So, here is the thing: two out of the three signs I’ve just outlined are somewhat subjective. At some point, you have to make some choices. How complex is complex enough for a private method to need unit testing? How to properly tell about different levels of abstractions?&lt;/p&gt;
-
-&lt;p&gt;The best tip I can offer is: &lt;strong&gt;Use an extra pair of eyes&lt;/strong&gt;. Always have another person look and examine your code before you check it in. Pair-programming and/or code review are great techniques, not only for improving design and catching bugs, but also for spreading knowledge across a team. Not only technical knowledge, but domain knowledge as well, and that can make the difference when the time comes to make those tough decisions.&lt;/p&gt;
-
-&lt;h2 id=&quot;in-conclusion&quot;&gt;In conclusion&lt;/h2&gt;
-
-&lt;p&gt;Although private methods can be used in bad ways, I think it’s premature to automatically label them as a bad thing and something to be avoided.&lt;/p&gt;
-
-&lt;p&gt;It seems to me that some of the people that claim to be arguing against private methods &lt;strong&gt;are in fact arguing against issues that are orthogonal to private methods&lt;/strong&gt;; you can violate SRP with and without private methods; you can mess with internal mutable state with and without private methods, and so on.&lt;/p&gt;
-
-&lt;p&gt;Software development is an art, full of trade-offs and uncertainty. And while rules-of-thumbs can be useful, they should not be followed blindly.&lt;/p&gt;
-
-&lt;p&gt;This post turned out way longer than I intended. Thanks if you’ve made this far. See you next time!&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented&quot;&gt;http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&quot;&gt;http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&quot;&gt;http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&quot;&gt;https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct&quot;&gt;https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&quot;&gt;http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://rc3.org/2010/01/26/the-argument-against-private-methods/&quot;&gt;http://rc3.org/2010/01/26/the-argument-against-private-methods/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html&quot;&gt;http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;* The author has given me permission to translate the article to English. &lt;a href=&quot;http://objectpascalprogramming.com/posts/menos-e-mais/&quot;&gt;Here is the original version, in Portuguese&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Sun, 29 Jan 2017 00:00:00 -0200</pubDate>
-        <link>http://carlosschults.net/en/are-private-methods-a-code-smell/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/are-private-methods-a-code-smell/</guid>
-        
-        <category>code smell</category>
-        
-        <category>best practices</category>
-        
-        <category>oop</category>
         
         
       </item>

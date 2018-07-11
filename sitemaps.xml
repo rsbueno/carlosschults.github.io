@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/4-erros-comuns-datetime-csharp/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/4-erros-comuns-datetime-csharp/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/4-common-datetime-mistakes-csharp/" />
+        
+        <lastmod>2018-07-11T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/4-common-datetime-mistakes-csharp/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/4-erros-comuns-datetime-csharp/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/4-common-datetime-mistakes-csharp/" />
+        
+        <lastmod>2018-07-11T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/revisao-codigo-vs-programacao-em-par/</loc>
         
         
@@ -1318,6 +1346,45 @@
   
     
       <url>
+        <loc>/tag_ptbr/datetime/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/datetime/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/datetime/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/time/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/time/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/time/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/date/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/date/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/date/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -1909,6 +1976,45 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20ageis/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20ageis/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/datetime/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/datetime/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/datetime/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/time/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/time/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/time/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/date/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/date/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/date/" />
         
         <changefreq>weekly</changefreq>
       </url>
