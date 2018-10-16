@@ -115,7 +115,7 @@
 
 <p>Some of the tips I’m going show you here today come from the book “Clean Code”, by Robert C. Martin (Uncle Bob). It’s one of my favorite programming books, and I’ll write a review on it sometime soon. Stay tuned!</p>
 
-<h2 id="use-self-explanatory-names">0. Use self-explanatory names</h2>
+<h2 id="0-use-self-explanatory-names">0. Use self-explanatory names</h2>
 
 <p>What your variable/class/whatever does? How it’s supposed to be used? Choose a name that answers these questions.</p>
 
@@ -123,7 +123,7 @@
 
 <p>Let’s say you’re browsing a code base and you see some code like this:</p>
 
-<figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">d</span><span class="p">;</span> <span class="p">//</span> <span class="n">days</span> <span class="n">until</span> <span class="n">deadline</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">d</span><span class="p">;</span> <span class="c1">// days until deadline</span></code></pre></figure>
 
 <p>You could argue that this code is fine. The variable’s meaning is perfectly expressed in the comment. Great, but remember that the variable will probably be used in other points, away from the declaration and the comment.</p>
 
@@ -131,17 +131,17 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">daysUntilDealine</span><span class="p">;</span></code></pre></figure>
 
-<h2 id="use-abbreviations-only-when-theyre-widely-known">1. Use abbreviations only when they’re widely known</h2>
+<h2 id="1-use-abbreviations-only-when-theyre-widely-known">1. Use abbreviations only when they’re widely known</h2>
 
 <p>It would be crazy to name a variable “ServiceUniformResourceLocator” instead of “ServiceUrl”. Every developer knows what a Url is. The same thing with Ftp, UI, IO, and so on. So, it’s ok to use abbreviations to name things, but only if they are widely known and used. It would be counterproductive not to do so.</p>
 
 <p>By the way. When I say “widely known”, I don’t necessarily mean <em>worldwide known</em>. Of course you can use abbreviations that are common in your business domain. It is considered a best practice to program as close as possible to the customer’s language. So, if your fellow developers and the business people are comfortable with the abbreviations, there’s no problem at all in using them.</p>
 
-<h2 id="choose-clarity-over-brevity">2. Choose clarity over brevity</h2>
+<h2 id="2-choose-clarity-over-brevity">2. Choose clarity over brevity</h2>
 
 <p>This is somewhat related to the first point. All else being equal, shorter names are better. But one day you’ll have to choose between clarity and brevity. When that day comes, always pick clarity. Six months down the road, when you have to revisit that code, you’re going to thank yourself.</p>
 
-<h2 id="use-widely-accepted-conventions-most-of-the-time">3. Use widely accepted conventions (most of the time)</h2>
+<h2 id="3-use-widely-accepted-conventions-most-of-the-time">3. Use widely accepted conventions (most of the time)</h2>
 
 <p>There are very few points in the book “Clean Code” that I disagree with. One of them is Uncle Bob’s recommendation to not start interface names with a capital “I”.  He argues that this practice is reminiscent of Hungarian notation, and thus should die. Even though I understand why he thinks like this, I’m still starting my interface names with an “I”.</p>
 
@@ -149,7 +149,7 @@
 
 <p>I think you should abandon a widely accepted convention only when the benefit of doing so greatly outweighs the costs. And I don’t think that’s the case here.</p>
 
-<h2 id="dont-use-hungarian-notation">4. Don’t use Hungarian notation</h2>
+<h2 id="4-dont-use-hungarian-notation">4. Don’t use Hungarian notation</h2>
 
 <p>Maybe you’ve heard about Hungarian Notation, maybe you haven’t. But I bet you’ve seen it, or even used it yourself, even if the name doesn’t ring a bell immediately.</p>
 
@@ -172,7 +172,7 @@
   <li>It makes the names more difficult to pronounce, and this may complicate discussion about the code and the architecture of your application.</li>
 </ul>
 
-<h2 id="stick-to-the-languageframeworkprojects-coding-style">5. Stick to the language/framework/project’s coding style</h2>
+<h2 id="5-stick-to-the-languageframeworkprojects-coding-style">5. Stick to the language/framework/project’s coding style</h2>
 
 <p>Most C# developers tend to use CamelCase to name local variables, instance variables and methods parameters, as in <code class="highlighter-rouge">productName</code>. In Ruby, for instance, the recommended style is <code class="highlighter-rouge">snake_case</code>, as in <code class="highlighter-rouge">product_name</code>.</p>
 
@@ -182,19 +182,19 @@
 
 <p>It’s like they say: “When in Rome, do as the Romans do”.</p>
 
-<h2 id="method-names-should-start-with-a-verb">6. Method names should start with a verb</h2>
+<h2 id="6-method-names-should-start-with-a-verb">6. Method names should start with a verb</h2>
 
 <p>This one is really short. Methods are usually actions that an object can perform. As such, their names should start with a verb that indicates the action to be performed, e.g. <code class="highlighter-rouge">PrintReport()</code>, <code class="highlighter-rouge">DrawShape(IShape shape)</code>.</p>
 
-<h2 id="class-names-should-be-nouns">7. Class names should be nouns</h2>
+<h2 id="7-class-names-should-be-nouns">7. Class names should be nouns</h2>
 
 <p>Likewise, class names should be nouns, like <code class="highlighter-rouge">Product</code>, <code class="highlighter-rouge">Customer</code>, <code class="highlighter-rouge">Student</code>. Avoid using the words like <code class="highlighter-rouge">Manager</code>, <code class="highlighter-rouge">Data</code>, because they add little or no value.</p>
 
-<h2 id="property-names-should-be-nouns-or-adjective-phrases-c-specific">8. Property names should be nouns or adjective phrases (C# specific)</h2>
+<h2 id="8-property-names-should-be-nouns-or-adjective-phrases-c-specific">8. Property names should be nouns or adjective phrases (C# specific)</h2>
 
 <p>Properties should be names with nouns, noun phrases or adjectives. When naming boolean properties, you may add the prefixes <code class="highlighter-rouge">Can</code>, <code class="highlighter-rouge">Is</code> or <code class="highlighter-rouge">Has</code>, when doing so provides value to the caller.</p>
 
-<h2 id="use-pronounceablesearchable-names">9. Use pronounceable/searchable names</h2>
+<h2 id="9-use-pronounceablesearchable-names">9. Use pronounceable/searchable names</h2>
 
 <p>Work hard to choose names that are pronounceable. When you pick a name that is hard or impossible to pronounce, you discourage discussion about your code, which is never a good thing.</p>
 
@@ -269,6 +269,13 @@
         
         	    
             <a rel="next" class="next" href="/en/value-reference-types-in-csharp-part-2/">Value and reference types in C#, Part 2 - Why can't a DateTime be null? &rarr;</a>
+                
+         
+        
+        
+                
+        
+        
                 
          
         

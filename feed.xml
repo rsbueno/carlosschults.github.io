@@ -5,10 +5,134 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Jul 2018 14:51:12 -0300</pubDate>
-    <lastBuildDate>Wed, 11 Jul 2018 14:51:12 -0300</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Tue, 16 Oct 2018 13:06:12 -0300</pubDate>
+    <lastBuildDate>Tue, 16 Oct 2018 13:06:12 -0300</lastBuildDate>
+    <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Coding Best Practices When You’re Short On Time</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1539703469/coding-best-practices-1038x437_ugnhab.jpg&quot; alt=&quot;&quot; /&gt;
+Photo by Ales Nesetril on Unsplash&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download and try their CodeIt.Right product.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;One topic in software development that really fascinates me is coding best practices. I’m always searching for ways to improve my work and deliver value in a fast and consistent manner.&lt;/p&gt;
+
+&lt;p&gt;It can be tricky to define what a “&lt;a href=&quot;https://www.daedtech.com/what-is-a-best-practice-in-software-development/&quot;&gt;coding best practice” is&lt;/a&gt;. Some people are even in favor of &lt;a href=&quot;https://dzone.com/articles/death-best-practices&quot;&gt;downright retiring the term!&lt;/a&gt; But one thing pretty much everyone agrees upon is this: coming up with and implementing strategies—by whatever name you call them—to improve the output of one’s work is something that any developer worth his or her salt should be continuously doing.&lt;/p&gt;
+
+&lt;p&gt;Of course, there’s no free lunch. The adoption of a best practice takes time…and sometimes you just don’t have much of that to begin with. And then there’s management, whose buy-in is not always guaranteed.&lt;/p&gt;
+
+&lt;p&gt;So, what to do if your development team is struggling with the poor quality of a codebase while lacking time to implement best practices that would help?&lt;/p&gt;
+
+&lt;p&gt;The answer I offer you today is what I’ll call the “coding best practices emergency pack”: &lt;em&gt;a small list of coding best practices that you can adopt on relatively short notice to get your team and your codebase from utter chaos to a more manageable state&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Because there’s lots of advice on coding best practices out there, to the point where it’s hard not to feel overwhelmed, I narrowed down my list of emergency-pack best practices by requiring they meet three criteria:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They must be fundamental, in the sense that they’re the building blocks with which you can implement more sophisticated practices later.&lt;/li&gt;
+  &lt;li&gt;You can adopt them in relatively short notice. (I’d say a week is feasible.)&lt;/li&gt;
+  &lt;li&gt;Their cost is free or very low.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The practices that follow all fit these parameters. And without further ado, here it is: my coding best practices emergency pack, with items listed in the order they should be implemented and starting with the most critical one.&lt;/p&gt;
+
+&lt;h2 id=&quot;version-control-system&quot;&gt;Version Control System&lt;/h2&gt;
+
+&lt;p&gt;I once worked for a software development shop where no version control system was used. The source files were placed in a shared folder that every developer could access. What was the process we used when editing a file? Yeah, you guessed it:  we’d simply create a copy of the file and rename it to “filename_old.ext” or something like that.&lt;/p&gt;
+
+&lt;p&gt;This was about eight or nine years ago. So maybe things have improved, right? Well, they certainly have, to some extent, but not completely. There are still &lt;a href=&quot;https://twitter.com/_m_b_j_/status/938785388268806146&quot;&gt;companies out there that don’t use a VCS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-proceed&quot;&gt;How to Proceed?&lt;/h3&gt;
+
+&lt;p&gt;From now on, I’ll just assume you agree that a VCS is a fundamental coding best practice. If that’s not the case, there’s plenty of resources out there explaining &lt;a href=&quot;https://www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/what-is-version-control#start&quot;&gt;what a VCS is&lt;/a&gt; and &lt;a href=&quot;https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control&quot;&gt;why should you use one.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With that out of the way, it’s time to get to specifics. Which tool should you use? How to go about its adoption?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; is a solid choice. And despite having a steeper learning curve for &lt;a href=&quot;http://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;those more used to centralized version control systems, such as Subversion or TFVC&lt;/a&gt;, it’s &lt;em&gt;de facto&lt;/em&gt; standard in our industry. So by all means, learn it, since not doing so can harm your career in the future.&lt;/p&gt;
+
+&lt;p&gt;But it’s possible that Git is not the best choice for your team &lt;strong&gt;right now&lt;/strong&gt;. Remember, you’re short on time. So we need to get your team to adopt these coding best practices ASAP.&lt;/p&gt;
+
+&lt;p&gt;How do we do this? So, let’s say you have experience with &lt;a href=&quot;https://subversion.apache.org/&quot;&gt;Subversion&lt;/a&gt;, having used it at your previous company, but you have no experience with Git at all. If that’s the case, I’d say Subversion is the best choice for you. The overhead of learning a new system and teaching it to your co-workers while putting it into production would be too great.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-review&quot;&gt;Code Review&lt;/h2&gt;
+
+&lt;p&gt;I’m not going to lie: I &lt;em&gt;love &lt;/em&gt;code reviews—and &lt;a href=&quot;http://www.codinghorror.com/blog/archives/000495.html&quot;&gt;I’m not alone in that&lt;/a&gt;. I’ve witnessed firsthand how a good code review can reduce the number of bugs in a codebase, make the code look and feel more consistent, and perhaps best of all, spread knowledge throughout a development team.&lt;/p&gt;
+
+&lt;p&gt;And here’s a major selling point: a code review practice is relatively easy to implement. Start as simple as you can, and then tweak and experiment with your approach as the need arises.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-do-i-mean-by-code-review&quot;&gt;What Do I Mean by Code Review?&lt;/h3&gt;
+
+&lt;p&gt;Talking about “code review” can be tricky. People sometimes mean widely different things when they use the term, so I think it warrants further clarification.&lt;/p&gt;
+
+&lt;p&gt;I’m not in favor of a highly stressful and bureaucratic code review process, where your code is scrutinized and criticized in public for hours. I don’t believe in public shaming as a tool for achieving quality. On the contrary, &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;the type of code review I advocate for&lt;/a&gt; is a lightweight and low-stress process, usually initiated by submitting a pull request or using your favorite IDE.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-proceed-1&quot;&gt;How to Proceed &lt;/h3&gt;
+
+&lt;p&gt;Since we’re now on the same page about what a code review should look like, how would one go about implementing the practice? My answer is, not surprisingly, “the simplest way that could possibly work.” &lt;/p&gt;
+
+&lt;p&gt;For instance, if yours is a .NET shop using TFS/TFVC, you can start by &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ColinD.ColinsALMCheckinPoliciesVS2017&quot;&gt;installing a check-in policy&lt;/a&gt; that requires a code review for each check-in. If your team uses GitHub, you can use &lt;a href=&quot;https://help.github.com/articles/about-pull-requests/&quot;&gt;pull requests&lt;/a&gt;. Just start performing reviews so you and your team can get used to it. Then, with time, start tuning and perfecting your approach.&lt;/p&gt;
+
+&lt;p&gt;Here are some of the questions that can appear as you refine your process for this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;What’s the goal of a code review?&lt;/strong&gt; Are we looking for bugs? Trying to improve readability? Checking adherence to the company’s coding standard?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Where do we draw the line between “suggestions” and “impediments”?&lt;/strong&gt; Is it OK to give a thumbs-down to someone’s code for bad indentation or a slightly off variable name?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What do when reviewer and reviewee can’t come to a consensus?&lt;/strong&gt; Bring in a mediator to give the final word? And who should be this mediator? The lead developer?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The answer to all of these questions can be found in &lt;strong&gt;automation&lt;/strong&gt;. Much of the awkwardness of a code review can be removed when you employ a &lt;a href=&quot;https://blog.submain.com/different-styles-code-analyzer/&quot;&gt;code analyzer&lt;/a&gt; to handle the automatable portions of the process.&lt;/p&gt;
+
+&lt;p&gt;For instance, &lt;a href=&quot;https://submain.com/codeit.right/features&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; will give you real-time feedback from inside Visual Studio, alerting you of possible coding issues and even automatically fix code smells and violations for you.&lt;/p&gt;
+
+&lt;p&gt;By employing automation, you set your developers free to worry about higher level concerns when performing reviews, such as code clarity or architectural decisions.&lt;/p&gt;
+
+&lt;h2 id=&quot;automated-builds&quot;&gt;Automated Builds&lt;/h2&gt;
+
+&lt;p&gt;You may be thinking that I’ve got it wrong. After all, does it even make sense to talk about automated builds without mentioning automated tests?&lt;/p&gt;
+
+&lt;p&gt;Well, I’m going argue that yes, it does make sense, and for one very simple reason: it eliminates “&lt;a href=&quot;https://blog.codinghorror.com/the-works-on-my-machine-certification-program/&quot;&gt;it works on my machine&lt;/a&gt;” syndrome. &lt;/p&gt;
+
+&lt;p&gt;By having a central place where builds are performed, you shed light on all kinds of problems, from poor management of dependencies to bad test discipline.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-proceed-2&quot;&gt;How to Proceed&lt;/h3&gt;
+
+&lt;p&gt;My advice here is the same as before: do the simplest thing that could work.&lt;/p&gt;
+
+&lt;p&gt;If your team already uses TFS, then learn how to create a &lt;a href=&quot;https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1&quot;&gt;build definition and you’re good to go&lt;/a&gt;. On the other hand, if you host your projects on GitHub, you might be interested in taking a look at &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With time, you should improve your strategy. Remember the static code analyzers I mentioned earlier? You can integrate them into your build process. Unit testing and other kinds of automated tests are a very important addition as well.&lt;/p&gt;
+
+&lt;p&gt;Speaking of which…&lt;/p&gt;
+
+&lt;h2 id=&quot;notable-absences&quot;&gt;Notable Absences&lt;/h2&gt;
+
+&lt;p&gt;You might be surprised to see that I haven’t included unit testing in the list of coding best practices, &lt;a href=&quot;http://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;despite being myself a firm believer in the importance of automated testing&lt;/a&gt; to the overall quality of a codebase. And why is that?&lt;/p&gt;
+
+&lt;p&gt;Adding unit tests to a legacy application, unfortunately, is &lt;em&gt;hard&lt;/em&gt;, to the point that there’s even &lt;a href=&quot;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&amp;amp;qid=1515443597&amp;amp;sr=8-1&amp;amp;keywords=working+effectively+with+legacy+code&quot;&gt;a famous book&lt;/a&gt;that focuses solely on this. It’s just not a feasible task for you to tackle quickly.&lt;/p&gt;
+
+&lt;p&gt;In a similar fashion, it’s possible that a portion of readers expected me to talk about clean code or the &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)&quot;&gt;SOLID&lt;/a&gt;principles. I do encourage you to research and learn about these topics,  but I don’t think they’re a good fit for the purpose of this post. They are, as the name already points out, principles. Think of them as philosophical guidelines—useful, but not as easy to break down into simple, actionable advice.&lt;/p&gt;
+
+&lt;h2 id=&quot;deploy-your-package-asap&quot;&gt;Deploy Your Package ASAP!&lt;/h2&gt;
+
+&lt;p&gt;It’s possible that some of you found these practices to be extremely basic and not post-worthy. “Who doesn’t use version control in twenty-freaking-eighteen???” I hear you saying.&lt;/p&gt;
+
+&lt;p&gt;Well, it really doesn’t take long to find evidence (anecdotal, but still) that &lt;a href=&quot;http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;things are not all sunshine and rainbows&lt;/a&gt;. To believe that even basic coding best practices, such as using version control or automated testing, are universally applied is probably more wishful thinking than what we’d like to believe.&lt;/p&gt;
+
+&lt;p&gt;For the rest of you, I hope this list proves useful.&lt;/p&gt;
+
+&lt;p&gt;You know what they say. “When in a hole, stop digging.” And that’s exactly the type of help I wanted to offer with this post: a quick and easy fix, meant to give you and your teammates just enough sanity that you can focus and regain control of your application, ensuring its long-term health.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Oct 2018 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/coding-best-practices-short-time/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/coding-best-practices-short-time/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        
+      </item>
     
       <item>
         <title>4 Common Datetime Mistakes in C# — And How to Avoid Them</title>
@@ -32,7 +156,7 @@
 
 &lt;p&gt;That’s what today’s post is about. I’m going to show you four common mistakes C#/.NET developers make when dealing with time. And that’s not all. I’ll also show what you should do to avoid them and make your code safer and easier to reason about.&lt;/p&gt;
 
-&lt;h2 id=&quot;naively-calculating-durations&quot;&gt;1. Naively Calculating Durations&lt;/h2&gt;
+&lt;h2 id=&quot;1-naively-calculating-durations&quot;&gt;1. Naively Calculating Durations&lt;/h2&gt;
 
 &lt;p&gt;Consider the code below:&lt;/p&gt;
 
@@ -87,7 +211,7 @@
 
 &lt;p&gt;How do you prevent this? It’s a recommended practice to use UTC to record the time when an event happened. My suggestion here is to follow this advice and also to make it explicit that you’re doing so. Append the “UTC” suffix to every database column and class property that holds a UTC datetime. Instead of Created, change it to CreatedUTC and so on. It’s not as pretty, but it’s definitely more clear.&lt;/p&gt;
 
-&lt;h2 id=&quot;not-using-utc-when-it-should-be-used-and-vice-versa&quot;&gt;2. Not Using UTC When It Should Be Used (and Vice Versa)&lt;/h2&gt;
+&lt;h2 id=&quot;2-not-using-utc-when-it-should-be-used-and-vice-versa&quot;&gt;2. Not Using UTC When It Should Be Used (and Vice Versa)&lt;/h2&gt;
 
 &lt;p&gt;We could define this as a universal rule: use UTC to record the time when events &lt;em&gt;happened&lt;/em&gt;. When logging, auditing, and recording all types of timestamps in your application, UTC is the way to go.&lt;/p&gt;
 
@@ -99,7 +223,7 @@
 
 &lt;p&gt;Another common use case where UTC is not the right solution is &lt;a href=&quot;https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;amp;lq=1&quot;&gt;scheduling future local events&lt;/a&gt;. You wouldn’t want to wake up one hour later or earlier in the days of DST transitions, right? That’s exactly what would happen if you’d set your alarm clock by UTC.&lt;/p&gt;
 
-&lt;h2 id=&quot;not-validating-user-input&quot;&gt;3. Not Validating User Input&lt;/h2&gt;
+&lt;h2 id=&quot;3-not-validating-user-input&quot;&gt;3. Not Validating User Input&lt;/h2&gt;
 
 &lt;p&gt;Let’s say you’ve created a simple Windows desktop app that lets users set reminders for themselves. The user enters the date and time at which they want to receive the reminder, clicks a button, and that’s it.&lt;/p&gt;
 
@@ -125,7 +249,7 @@
 
 &lt;p&gt;And what about ambiguous times? You also have two options: choose between the first and second occurrences. Then again, it’s somewhat arbitrary, but my advice is to pick the first one. Since you have to choose one, why not make things simpler?&lt;/p&gt;
 
-&lt;h2 id=&quot;mistaking-an-offset-for-a-time-zone&quot;&gt;4. Mistaking an Offset for a Time Zone&lt;/h2&gt;
+&lt;h2 id=&quot;4-mistaking-an-offset-for-a-time-zone&quot;&gt;4. Mistaking an Offset for a Time Zone&lt;/h2&gt;
 
 &lt;p&gt;Consider the following timestamp: 1995-07-14T13:05:00.0000000-03:00. When asked what the -03:00 at the end is called, many developers answer, “a time zone.”&lt;/p&gt;
 
@@ -353,8 +477,8 @@
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this check is useless
-&lt;/span&gt;	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this check is useless&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	       &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This line will always get reached.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 	
@@ -376,7 +500,7 @@
 &lt;h3 id=&quot;unnecessary-use-of-tolist-in-linq-to-object-queries&quot;&gt;Unnecessary Use of ToList() in LINQ to Object Queries&lt;/h3&gt;
 &lt;p&gt;Like the previous one, this is something I routinely see in production code. Consider the code below:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
@@ -390,7 +514,7 @@
 
 &lt;p&gt;You could rewrite the code above like this:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;h3 id=&quot;unnecessary-conversions&quot;&gt;Unnecessary Conversions&lt;/h3&gt;
 &lt;p&gt;Consider the following line:&lt;/p&gt;
@@ -1140,7 +1264,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
 
 &lt;p&gt;However, even after all this time, there are some myths about Git that just won’t die. One of them is that Git is super hard to learn. From my experience, I can say that this isn’t true.&lt;/p&gt;
 
-&lt;p&gt;Git was meant to provide a lot of power and flexibility to its users. He certainly allow you to use it in more complex or sophisticate ways. But in practice, the basic commands you will use to get your daily work done are not that hard to learn.&lt;/p&gt;
+&lt;p&gt;Git was meant to provide a lot of power and flexibility to its users. It certainly allows you to use it in more complex or sophisticate ways. But in practice, the basic commands you will use to get your daily work done are not that hard to learn.&lt;/p&gt;
 
 &lt;p&gt;That being said, Git’s learning curve &lt;em&gt;may&lt;/em&gt; present some challenging to people that are used to centralized systems. I think it’s human nature to try to find patterns and to map concepts between what you already know and what you’re trying to learn; but there are significant differences and this “mapping” often results in frustration.&lt;/p&gt;
 
@@ -1300,8 +1424,10 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
   &lt;p&gt;new file:   arq1.txt&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;For now ignore this: 
-&amp;gt; use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
+&lt;p&gt;For now ignore this:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Now we can see that the added file is ready to be commited. So, let’s do it!&lt;/p&gt;
 
@@ -1508,7 +1634,7 @@ Changes not staged for commit:
       </item>
     
       <item>
-        <title>It&#39;s about time you start using these C# 6 features</title>
+        <title>It's about time you start using these C# 6 features</title>
         <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1487896790/csharp6features_y5czrf.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;The 7th version of C# is coming, and it’s expected to bring some new and exciting features to our tool sets. Here’s the thing, though: Are you up to speed with its predecessor’s features?
@@ -1609,136 +1735,6 @@ Changes not staged for commit:
         <guid isPermaLink="true">http://carlosschults.net/en/csharp-6-features/</guid>
         
         <category>csharp</category>
-        
-        <category>beginners</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Learn which types of comments should be avoided</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Spoiler Alert: You should avoid most of them.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;“To comment or not to comment”. This is a question that tends to spark heated debate. Some people say that comments are an indispensable tool. Others argue that the comments show the developer’s inability to express himself clearly in the code. Who’s right?&lt;/p&gt;
-
-&lt;p&gt;When I was in college, I considered the comments indispensable when writing code. Otherwise, how could you understand what the code should do?&lt;/p&gt;
-
-&lt;p&gt;After getting my degree and finding a job, things started to change. I was being exposed to &lt;em&gt;real code&lt;/em&gt;; I was reading books, articles and blog posts written by influential people in our industry.&lt;/p&gt;
-
-&lt;p&gt;These experiences shaped my current vision.&lt;/p&gt;
-
-&lt;h2 id=&quot;the-dangers-of-bad-documentation&quot;&gt;The dangers of bad documentation&lt;/h2&gt;
-
-&lt;p&gt;Comments are just another form of documentation. And make no mistake: documentation is a good thing - &lt;em&gt;when done correctly and in the right amount&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, it is so often done wrong!&lt;/p&gt;
-
-&lt;p&gt;Many types of documentation can be problematic. It is very common for the documentation to lose synchronization with what it is documenting, which is worse than not having any documentation in the first place.&lt;/p&gt;
-
-&lt;p&gt;This is one of the problems that comments suffer from, but it is far from being the only one.&lt;/p&gt;
-
-&lt;h3 id=&quot;commented-out-code&quot;&gt;Commented-out Code&lt;/h3&gt;
-
-&lt;p&gt;Let’s start with the most obvious one, which is commented-out code. Some developers, when fixing a bug, for example, choose to comment the offending code out, rather than delete it.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Don’t do this!&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Commented-out code does no good to anyone. It’s just waste. Rely on your version control system. It will remember the changes you made if you needed to revert them in the future.&lt;/p&gt;
-
-&lt;h3 id=&quot;changelog-comments&quot;&gt;‘Changelog’ Comments&lt;/h3&gt;
-
-&lt;p&gt;This category of bad comments is similar to the previous category, which is caused by a lack of trust in your version control system.&lt;/p&gt;
-
-&lt;p&gt;What do I mean by “Changelog” comments? Comments that just list the changes made to a file:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/61ffc0459edf71302af6a8140a0e225c.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Comments like this are just doing the same work as your VCS already does, but in a clumsy and error-prone way.&lt;/p&gt;
-
-&lt;p&gt;Do not write these types of comments. Use &lt;a href=&quot;https://git-scm.com/&quot;&gt;git&lt;/a&gt; and be happy.&lt;/p&gt;
-
-&lt;h3 id=&quot;redundant-comments&quot;&gt;Redundant Comments&lt;/h3&gt;
-
-&lt;p&gt;This type of bad comment is very easy to detect and very easy to fix. Consider the following code:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/d22bf34fcd542e605a31476c46cfb315.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;I think we can all agree that these comments are useless. The code is perfectly clear without them, therefore, they should be removed.&lt;/p&gt;
-
-&lt;h3 id=&quot;comments-at-the-end-of-blocks&quot;&gt;Comments at the end of blocks&lt;/h3&gt;
-
-&lt;p&gt;You’ve probably seen code like this before:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/2d54e29662cd1b35d3c0807138b9e989.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Some people write them so they do not lose control of the brackets.&lt;/p&gt;
-
-&lt;p&gt;If you need a comment for this reason, that indicates that your method is too long and you have too many levels of indentation.&lt;/p&gt;
-
-&lt;p&gt;Remember the Principle of Single Responsibility: each method should do only one thing. Divide your method into small ones and the need for such comments disappears.&lt;/p&gt;
-
-&lt;h3 id=&quot;comments-that-delimit-sections-inside-methods&quot;&gt;Comments that delimit sections inside methods&lt;/h3&gt;
-
-&lt;p&gt;This one is similar to the previous one. If you have several sections inside a method, each one of them with an explaining comment on top, then you’re probably violating the Single Responsibility Principle.&lt;/p&gt;
-
-&lt;p&gt;Remove each section to its own method, use the comment text as the name for the new method, and then delete the comments.&lt;/p&gt;
-
-&lt;h3 id=&quot;out-of-date-comments&quot;&gt;Out of date comments&lt;/h3&gt;
-
-&lt;p&gt;Here’s a common scenario:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Bob writes some lines of code. He thinks the code isn’t clear enough and adds some comments to express its intent.&lt;/li&gt;
-  &lt;li&gt;Fast forward some weeks. It turns out that the code Bob wrote had a bug. He is on vacation, though, so Alice is made responsible for fixing the bug.&lt;/li&gt;
-  &lt;li&gt;Alice fixes the code in a few minutes and checks in her changes. But she forgets to update the comments to reflect the changes she’s made in the code.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Now what you get? Comments that lie!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Documentation that spread lies is worse than no documentation at all.&lt;/strong&gt; It’s a source of confusion for developers, and a fertile ground for bugs. When you spot an out-of-date comment, don’t think twice: delete it right away, or rewrite it to be accurate. But most of the time you shouldn’t keep the comment. See next topic for why.&lt;/p&gt;
-
-&lt;h3 id=&quot;comments-created-due-to-lack-of-expressiveness-in-the-code&quot;&gt;Comments created due to lack of expressiveness in the code&lt;/h3&gt;
-
-&lt;p&gt;Consider the following code:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/0530c4bf5884eb0fc46e63e71908b44d.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Maybe you don’t consider the comment in the sample above to be bad. It is not that terrible, sure. But think of the missed opportunity to extract a useful method or property:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/c914168d48e8d5d567ed79c0d612eafb.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;In the new code, we’ve extracted the concept of being eligible for blood donation in a new property. The rules for blood donation eligibility are now consolidated in a single place; should they ever change, the amount of work required to update them will be minimal.&lt;/p&gt;
-
-&lt;p&gt;And we get the nice collateral benefit of readability: the new if statement reads almost like natural language.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;As we’ve seen, there are several types of bad comments you should be weary of. They are often signs that there may be something wrong with your code. Maybe your methods are too long. Maybe &lt;a href=&quot;http://carlosschults.net/en/how-to-choose-good-names/&quot;&gt;you didn’t pick good names for your variables&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Every time you feel the need to write a comment, stop and try to think about ways in which you could improve your code to render the comment unnecessary.&lt;/p&gt;
-
-&lt;p&gt;Not all comments are bad, though. In a future post, I’ll write about situations in which comments can be valuable.&lt;/p&gt;
-
-&lt;p&gt;See you later!&lt;/p&gt;
-
-&lt;h2 id=&quot;read-more&quot;&gt;Read More&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;http://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode&quot;&gt;Apologies In Code, by Robert C. Martin&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.codeproject.com/tips/467657/write-comments-that-matter&quot;&gt;Write comments that matter, by Sander Rossel&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@kentcdodds/please-don-t-commit-commented-out-code-53d0b5b26d5f#.yex54k2sg&quot;&gt;Please, don’t commit commented out code, by Kent C. Dodds&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 02 Mar 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/types-of-comments-to-avoid/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/types-of-comments-to-avoid/</guid>
-        
-        <category>code smell</category>
-        
-        <category>best practices</category>
         
         <category>beginners</category>
         

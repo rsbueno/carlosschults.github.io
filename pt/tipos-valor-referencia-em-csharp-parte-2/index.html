@@ -112,7 +112,7 @@
 
 <p>Eu acho que antes de tentarmos responder essas questões, seria interessar voltar um passo e pensar um pouco sobre outra questão.</p>
 
-<h2 id="o-que-exatamente--null">O que exatamente é null?</h2>
+<h2 id="o-que-exatamente-é-null">O que exatamente é null?</h2>
 
 <p>Você provavelmente pensa em <code class="highlighter-rouge">null</code> como uma maneira de representar uma informação que está faltando. Algo desconhecido, ausente ou irrelevante. Talvez um dado que não está onde deveria <em>ainda</em>, mas talvez esteja no futuro.</p>
 
@@ -126,7 +126,7 @@
 
 <p>Quando você entende isso, fica mais fácil enxergar qual é o problema com tipos de valor.</p>
 
-<h2 id="como-voc-representaria-null-para-um-tipo-de-valor">Como você representaria null para um tipo de valor?</h2>
+<h2 id="como-você-representaria-null-para-um-tipo-de-valor">Como você representaria null para um tipo de valor?</h2>
 
 <p>Para entender qual é a dificuldade em fazer um tipo de valor ser nulo, você precisa considerar que tipos de valor geralmente têm um intervalo de valores possíveis que eles são capazes de representar.</p>
 
@@ -134,15 +134,14 @@
 
 <p>Esse tipo representa um número inteiro sem sinal de 8 bits. Como 2 elevado a 8 é 256, é possível representar 256 valores. Como é um tipo “sem sinal”, ele só pode representar valores maiores ou igual a zero. Portanto, o range de valores possíveis para esse tipo é <strong>de 0 a 255</strong>.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>00000000 =&gt; 0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00000000 =&gt; 0
 00000001 =&gt; 1
 00000010 =&gt; 2
     .        .
     .        .
     .        .
 11111111 =&gt; 255
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Agora vem a parte complicada. Se os projetistas do C# quisessem que o tipo byte fosse nulável, eles teriam que escolher um dos valores desse intervalo para elegê-lo como o valor nulo. Imagine que eles tivessem escolhido o zero. Nesse caso, <strong>nós nunca poderíamos usar o zero como um valor válido novamente!</strong></p>
 
@@ -170,7 +169,7 @@ are horrible, not to mention the fact that you’d have to check the flag every 
 
 <p>Então, não há nada <strong>em princípio</strong> que impede que tipos de valor recebem nulo. É que seria tão complicado que os projetistas da linguagem decidiram que os benefícios de fazer isso não superam os custos.</p>
 
-<h2 id="mas-eu-realmente-preciso-de-um-tipo-de-valor-nulvel-e-agora">Mas eu realmente preciso de um tipo de valor nulável. E agora?</h2>
+<h2 id="mas-eu-realmente-preciso-de-um-tipo-de-valor-nulável-e-agora">Mas eu realmente preciso de um tipo de valor nulável. E agora?</h2>
 
 <p>Agora você entende as complicações envolvidas em representar <code class="highlighter-rouge">null</code> para um tipo de valor, e porque os projetistas do C# decidiram contra permitir isso. Mas, e se você realmente precisa fazer isso? Um cenário comum é quando você busca dados de um banco de dados relacional. O que é possível ser feito?</p>
 

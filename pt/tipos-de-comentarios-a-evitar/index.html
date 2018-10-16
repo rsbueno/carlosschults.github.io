@@ -111,7 +111,7 @@
 
 <p>Todas essas experiências moldaram a minha visão atual.</p>
 
-<h2 id="os-perigos-da-documentao-ruim">Os perigos da documentação ruim</h2>
+<h2 id="os-perigos-da-documentação-ruim">Os perigos da documentação ruim</h2>
 
 <p>Comentários são apenas outra forma de documentação. E não se engane: documentação é uma coisa boa - <em>quando feita corretamente e na quantidade certa</em>.</p>
 
@@ -121,7 +121,7 @@
 
 <p>Esse é um dos problemas dos quais comentários sofrem, mas está longe de ser o único.</p>
 
-<h3 id="cdigo-comentado">Código comentado</h3>
+<h3 id="código-comentado">Código comentado</h3>
 
 <p>Vamos começar com o problema mais óbvio de todos, que é código comentado. Alguns desenvolvedores, durante uma correção de bug por exemplo, decidem comentar o código que está errado, em vez de removê-lo.</p>
 
@@ -129,7 +129,7 @@
 
 <p>Código comentado não traz benefício para ninguém. É apenas desperdício. Confie no seu sistema de controle de versão. Ele vai lembrar das alterações feitas caso seja necessário revertê-las no futuro.</p>
 
-<h3 id="comentrios-changelog">Comentários ‘Changelog’</h3>
+<h3 id="comentários-changelog">Comentários ‘Changelog’</h3>
 
 <p>Esta categoria de comentários ruins é parecida com a anterior, no sentido de ser causada por uma falta de confiança no sistema de controle de versões.</p>
 
@@ -141,7 +141,7 @@
 
 <p>Não escreve comentários como esses. Use <a href="https://git-scm.com/">git</a> e seja feliz.</p>
 
-<h3 id="comentrios-redundantes">Comentários redundantes</h3>
+<h3 id="comentários-redundantes">Comentários redundantes</h3>
 
 <p>Esse tipo de comentário ruim é muito fácil de detectar e corrigir. Considere o código a seguir:</p>
 
@@ -149,7 +149,7 @@
 
 <p>Eu acho que todos podemos concordar que esses comentários são inúteis. O código é perfeitamente claro sem eles, portanto, devem ser removidos.</p>
 
-<h3 id="comentrios-delimitando-fim-de-blocos">Comentários delimitando fim de blocos</h3>
+<h3 id="comentários-delimitando-fim-de-blocos">Comentários delimitando fim de blocos</h3>
 
 <p>Você provavelmente já viu algum código assim antes:</p>
 
@@ -161,13 +161,13 @@
 
 <p>Lembre-se do Princípio da Responsabilidade Única: cada método deve fazer apenas uma coisa. Divida o seu método em métodos menores e a necessidade desse tipo de comentários desaparece.</p>
 
-<h3 id="comentrios-que-delimitam-sees-dentro-de-um-mtodo">Comentários que delimitam seções dentro de um método</h3>
+<h3 id="comentários-que-delimitam-seções-dentro-de-um-método">Comentários que delimitam seções dentro de um método</h3>
 
 <p>Esse é parecido com o anterior. Se você tem diversas seções dentro de um método, cada uma delas com um comentário explicativo em cima, então você provavelmente está violando o Princípio da Responsabilidade Única.</p>
 
 <p>Extraia cada trecho para seu próprio método, usando o texto do comentário como o nome do novo método, e então remova os comentários.</p>
 
-<h3 id="comentrios-desatualizados">Comentários desatualizados.</h3>
+<h3 id="comentários-desatualizados">Comentários desatualizados.</h3>
 
 <p>Um cenário comum:</p>
 
@@ -181,7 +181,7 @@
 
 <p><strong>Documentação que espalha mentiras é pior que não ter documentação alguma.</strong> É uma fonte de confusão para os desenvolvedores, e terreno fértil para bugs. Quando você ver um comentário desatualizado, não pense duas vezes: remova-o imediatamente, ou corrija-o. Mas na maioria das vezes você não deveria manter o comentário. Veja o próximo tópico para descobrir o porquê.</p>
 
-<h3 id="comentrios-criados-devido--falta-de-expressividade-no-cdigo">Comentários criados devido à falta de expressividade no código</h3>
+<h3 id="comentários-criados-devido-à-falta-de-expressividade-no-código">Comentários criados devido à falta de expressividade no código</h3>
 
 <p>Considere o código a seguir:</p>
 
@@ -195,7 +195,7 @@
 
 <p>E nós ainda ganhamos o benefício adicional da legibilidade: a nova instrução <code class="highlighter-rouge">if</code> lê quase como linguagem natural.</p>
 
-<h2 id="concluso">Conclusão</h2>
+<h2 id="conclusão">Conclusão</h2>
 
 <p>Como vimos, há diversos tipos de comentários ruins com os quais você deve ficar alerta. Eles geralmente são sinais de que há algo errado no seu código. Talvez seus métodos são muito longos.Talvez <a href="http://carlosschults.net/pt/como-escolher-bons-nomes/">você não escolheu bons nomes para suas variáveis</a>.</p>
 
@@ -205,7 +205,7 @@
 
 <p>Até mais!</p>
 
-<h2 id="ler-mais-todos-os-links-em-ingls">Ler mais (todos os links em inglês)</h2>
+<h2 id="ler-mais-todos-os-links-em-inglês">Ler mais (todos os links em inglês)</h2>
 
 <ul>
   <li><a href="http://butunclebob.com/ArticleS.TimOttinger.ApologizeIncode">Apologies In Code, por Robert C. Martin</a></li>

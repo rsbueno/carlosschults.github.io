@@ -104,7 +104,7 @@
 <p>Aprender Git pode ser desafiador para desenvolvedores com experiência em versionadores centralizados. Mas não precisa ser assim. 
 <!--more--></p>
 
-<h2 id="introduo">Introdução</h2>
+<h2 id="introdução">Introdução</h2>
 
 <p>O Git está se tornando (já se tornou, muitos diriam) o sistema de controles de versão padrão da nossa área. O versionador foi criado em 2005 por Linus Torvalds para gerenciar o código-fonte do kernel do Linux, e desde então tem apresentado um crescimento fenomenal no seu uso, principalmente após o advento do <a href="github.com">Github</a>.</p>
 
@@ -116,7 +116,7 @@
 
 <p>Com isso em mente, resolvi escrever uma série de artigos para tentar auxiliar desenvolvedores vindos de versionadores centralizados (especificamente TFS/TFVC) e tentando aprender o Git. Não tenho nenhuma pretensão de fazer uma cobertura exaustiva do assunto; muito pelo contrário: nos momentos em que for necessário, indicarei conteúdos que ofereçam uma explicação mais densa de certos tópicos.</p>
 
-<h2 id="uma-nota-rpida-sobre-a-nomenclatura-utilizada-neste-artigo">Uma nota rápida sobre a nomenclatura utilizada neste artigo</h2>
+<h2 id="uma-nota-rápida-sobre-a-nomenclatura-utilizada-neste-artigo">Uma nota rápida sobre a nomenclatura utilizada neste artigo</h2>
 
 <p><strong>TFS</strong> significa Team Foundation Server. É um produto da Microsoft que visa o gerenciamento de projeto, gerenciamento de requisitos, automatização de build, gerenciamento de releases, e diversas outras features.</p>
 
@@ -160,7 +160,7 @@
 
 <p>Quando chegar a esta tela, é interessante marcar a segunda opção para que você seja capaz de utilizar o Git a partir do prompt de comando do Windows, e não apenas a partir do Bash do Git.</p>
 
-<h2 id="configurao-bsica">Configuração básica</h2>
+<h2 id="configuração-básica">Configuração básica</h2>
 
 <p>Depois de terminada a instalação, é necessária fazer a configuração básica de identidade do Git, que consiste em dizer ao Git seu nome e e-mail para que ele os associe a cada commit que você efetuar.</p>
 
@@ -176,7 +176,7 @@
 
 <p>Existem mais configurações e opções possíveis, mas isso já é suficiente para que você comece a experimentar o Git.</p>
 
-<h2 id="criando-o-repositrio">Criando o repositório</h2>
+<h2 id="criando-o-repositório">Criando o repositório</h2>
 
 <p>No Git Bash, vamos criar uma nova pasta e em seguida acessá-la:</p>
 
@@ -269,8 +269,10 @@
   <p>new file:   arq1.txt</p>
 </blockquote>
 
-<p>Por enquanto ignore a mensagem: 
-&gt; use “git rm –cached <file>..." to unstage</file></p>
+<p>Por enquanto ignore a mensagem:</p>
+<blockquote>
+  <p>use “git rm –cached <file>..." to unstage</file></p>
+</blockquote>
 
 <p>Agora podemos ver que o arquivo adicionado está pronto para entrar no commit. Então, vamos “commitar”:</p>
 
@@ -334,7 +336,7 @@ Changes not staged for commit:
 
 <p>Para terminar, execute novamente o <code class="highlighter-rouge">git status</code> e verá novamente a mensagem já familiar: diretório de trabalho limpo, nada a ser commitado.</p>
 
-<h2 id="concluso">Conclusão</h2>
+<h2 id="conclusão">Conclusão</h2>
 
 <p>Este artigo foi extremamente simples, e isso não foi um acidente. Minha intenção foi de mostrar os comandos mais básicos, com a intenção de que você pegue o “feeling” de como se usa o Git.</p>
 

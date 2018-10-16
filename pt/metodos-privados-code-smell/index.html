@@ -111,7 +111,7 @@
 
 <p>Como eu nunca tinha ouvido ou lido nada nesse sentido antes, fiquei bastante surpreso e decidi pesquisar mais.</p>
 
-<h2 id="qual-seria-o-problema-de-mtodos-privados">Qual seria o problema de métodos privados?</h2>
+<h2 id="qual-seria-o-problema-de-métodos-privados">Qual seria o problema de métodos privados?</h2>
 
 <p>Para começar, vamos tentar entender por qual razão métodos privados seriam um problema.</p>
 
@@ -183,7 +183,7 @@
 
 <p>Eu acabei de mostrar alguns dos argumentos comuns contra a criação de métodos privados, então agora é hora de mostrar a opinião nesse assunto.</p>
 
-<h2 id="mtodos-privados-no-so-necessariamente-violaes-do-srp">Métodos privados <em>não</em> são necessariamente violações do SRP</h2>
+<h2 id="métodos-privados-não-são-necessariamente-violações-do-srp">Métodos privados <em>não</em> são necessariamente violações do SRP</h2>
 
 <p>O primeiro argumento apresentando afirma que métodos privados violam o Princípio da Responsabilidade Única.</p>
 
@@ -205,7 +205,7 @@
 
 <p>Meu problema é que eu não concordo que criar novas classes e métodos públicos <strong>apenas para evitar métodos privados</strong> vai <strong>automaticamente</strong> gerar “designs mais simples e melhores”. É claro que <em>pode</em> gerar; mas pode gerar projetos priores também. Cada situação é única.</p>
 
-<h2 id="eu-no-compro-testabilidade-como-um-fim-em-si-mesmo">Eu não compro testabilidade como um fim em si mesmo</h2>
+<h2 id="eu-não-compro-testabilidade-como-um-fim-em-si-mesmo">Eu não compro testabilidade como um fim em si mesmo</h2>
 
 <p>Eu gosto muito de testes unitários (e testes automatizados de uma maneira geral). Eu ajudei evangelizar testes unitários no meu trabalho, e atualmente eu supervisiono o time que está adicionando testes unitários e de integração em nosso <em>codebase</em>.</p>
 
@@ -217,7 +217,7 @@
 
 <p>O objetivo de um teste unitário deveria ser testar e documentar uma “unidade” (uma classe) por meio de usar sua API pública. O que nos leva ao próximo ponto.</p>
 
-<h1 id="sua-api-pblica-deve-ser-estvel-ou-encapsulamento-importa">Sua API pública deve ser estável (ou “Encapsulamento importa”)</h1>
+<h1 id="sua-api-pública-deve-ser-estável-ou-encapsulamento-importa">Sua API pública deve ser estável (ou “Encapsulamento importa”)</h1>
 
 <p>API significa <em>Application Programming Interface</em>, ou Interface de Programação de Aplicações, em tradução livre. 
 Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no conjunto das classes e métodos públicos que você expõe aos consumidores.</p>
@@ -284,7 +284,7 @@ Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no 
   <li>Testabilidade é um objetivo nobre, mas precisa ser buscado de maneira pragmática. Métodos públicos bem testados e bem documentados deveriam ser suficientes, na maioria dos casos.</li>
 </ul>
 
-<h2 id="mtodos-privados-podem-ser-bons-ou-ruins-aprenda-a-separ-o-joio-do-trigo">Métodos privados podem ser bons ou ruins; aprenda a separ o joio do trigo</h2>
+<h2 id="métodos-privados-podem-ser-bons-ou-ruins-aprenda-a-separ-o-joio-do-trigo">Métodos privados podem ser bons ou ruins; aprenda a separ o joio do trigo</h2>
 
 <p>Tudo isso dito, eu também acho que existem casos nos quais métodos privados são usados de uma maneira errada. Toda ferramenta pode ser abusada. Existem alguns sinais para os quais você precisa ficar alerta:</p>
 
@@ -301,7 +301,7 @@ Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no 
 
 <p>A melhor dica que eu posso oferecer é: <strong>Duas cabeças pensam melhor que uma</strong>. Sempre faça com que outra pessoa olhe e examine seu código antes de ser commitado. Programação em par e/ou revisão de código são ótimas técnicas, não apenas para melhorar o projeto e encontrar bugs, mas principalmente para espalhar conhecimento por uma equipe. Não só conhecimento técnico, mas conhecimento do domínio também, e isso pode fazer toda a diferença na hora de tomar as decisões difíceis.</p>
 
-<h2 id="concluso">Conclusão</h2>
+<h2 id="conclusão">Conclusão</h2>
 
 <p>Embora métodos privados podem ser usados em maneiras ruins, eu penso que seria prematuro automaticamente rotulá-los como uma coisa ruim a ser evitada.</p>
 
@@ -311,7 +311,7 @@ Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no 
 
 <p>Este post ficou muito mais longo do que eu planejei. Agradeço caso tenha chegado até aqui. Até a próxima!</p>
 
-<h2 id="veja-tambm">Veja também</h2>
+<h2 id="veja-também">Veja também</h2>
 
 <ul>
   <li><a href="http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented">http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented</a></li>

@@ -5,9 +5,9 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Jul 2018 14:51:12 -0300</pubDate>
-    <lastBuildDate>Wed, 11 Jul 2018 14:51:12 -0300</lastBuildDate>
-    <generator>Jekyll v3.1.2</generator>
+    <pubDate>Tue, 16 Oct 2018 13:06:12 -0300</pubDate>
+    <lastBuildDate>Tue, 16 Oct 2018 13:06:12 -0300</lastBuildDate>
+    <generator>Jekyll v3.8.4</generator>
     
     
       <item>
@@ -32,7 +32,7 @@
 
 &lt;p&gt;E é exatamente esse é o objetivo do post de hoje. Eu vou mostrar 4 erros comuns que as pessoas cometem ao lidar com tempo em C#/.NET. E não para por aí. Eu também vou mostrar o que você deve fazer para evitar esses erros e tornar seu código mais seguro e mais fácil de ser compreendido.&lt;/p&gt;
 
-&lt;h2 id=&quot;calculando-duraes-de-maneira-ingnua&quot;&gt;1. Calculando Durações de Maneira Ingênua&lt;/h2&gt;
+&lt;h2 id=&quot;1-calculando-durações-de-maneira-ingênua&quot;&gt;1. Calculando Durações de Maneira Ingênua&lt;/h2&gt;
 
 &lt;p&gt;Considere o código abaixo:&lt;/p&gt;
 
@@ -62,7 +62,7 @@
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js&quot;&gt;&lt;/script&gt;
 
-&lt;h3 id=&quot;uma-rpida-advertncia-sobre-touniversaltime&quot;&gt;Uma Rápida Advertência Sobre &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;uma-rápida-advertência-sobre-touniversaltime&quot;&gt;Uma Rápida Advertência Sobre &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;&lt;/h3&gt;
 
 &lt;p&gt;O uso do método &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; - e seu irmão, &lt;code class=&quot;highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt; - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; do objeto datetime que você tem, o que pode trazer resultados inesperados.&lt;/p&gt;
 
@@ -87,7 +87,7 @@
 
 &lt;p&gt;Como evitar que isso aconteça? Uma prática recomendada é usar UTC para armazenar o tempo em que um evento aconteceu. Minha sugestão é seguir esse conselho e também esse fato bem explícito. Coloque o sufixo “UTC” em cada coluna de tabela no banco de dados e também em nomes de propriedades que se referem a um valor em UTC. Ao invés de “Inclusao”, use “InclusaoUTC” e assim por diante. Não é tão bonito, mas com certeza é mais claro.&lt;/p&gt;
 
-&lt;h2 id=&quot;no-usar-utc-quando-deveria-e-vice-versa&quot;&gt;2. Não Usar UTC Quando Deveria (e vice-versa)&lt;/h2&gt;
+&lt;h2 id=&quot;2-não-usar-utc-quando-deveria-e-vice-versa&quot;&gt;2. Não Usar UTC Quando Deveria (e vice-versa)&lt;/h2&gt;
 
 &lt;p&gt;Nós podemos definir isso como uma regra universal: use UTC para registrar quando eventos aconteceram. Ao logar, auditar, e registrar todo tipo de &lt;em&gt;timestamps&lt;/em&gt; na sua aplicação, UTC é a resposta.&lt;/p&gt;
 
@@ -99,19 +99,19 @@
 
 &lt;p&gt;Outro caso de uso comum para o qual UTC não é a solução correta é  &lt;a href=&quot;https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;amp;lq=1&quot;&gt;o agendamento de eventos locais no futuro&lt;/a&gt;. Você não quer que seu alarme acorde você uma hora mais cedo ou uma hora mais tarde nos dias de transição do Horário de Verão, certo? Pois é exatamente isso que aconteceria se você configurasse o seu alarme pelo horário UTC.&lt;/p&gt;
 
-&lt;h2 id=&quot;no-validar-entrada-dos-usurios&quot;&gt;3. Não Validar Entrada dos Usuários&lt;/h2&gt;
+&lt;h2 id=&quot;3-não-validar-entrada-dos-usuários&quot;&gt;3. Não Validar Entrada dos Usuários&lt;/h2&gt;
 
 &lt;p&gt;Imagine que você criou uma aplicação desktop simples que permite que usuários configurem lembretes. A pessoa informa a data e hora que quer receber o lembrete, clica em um botão, e pronto.&lt;/p&gt;
 
 &lt;p&gt;Tudo parece estar funcionando direito até que alguém do Brasil envia um e-mail para você, reclamando que o lembrete que ela configurou para 15 de outubro às 0h15 não funcionou. O que será que aconteceu?&lt;/p&gt;
 
-&lt;h3 id=&quot;o-horrio-de-vero-contra-ataca&quot;&gt;O Horário de Verão Contra Ataca&lt;/h3&gt;
+&lt;h3 id=&quot;o-horário-de-verão-contra-ataca&quot;&gt;O Horário de Verão Contra Ataca&lt;/h3&gt;
 
 &lt;p&gt;O vilão aqui é o bom e velho Horário de Verão novamente. Em 2017, o Horário de Verão no Brasil começou à meia-noite do dia 15 de outubro. Então, a combinação de data e hora que a usuária informou &lt;strong&gt;simplesmente não existe em seu fuso-horário!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;É claro que o problema oposto também é possível. Quando o Horário de Verão chega ao fim e os relógios são atrasados, isso &lt;strong&gt;gera horas ambíguas&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;qual--a-soluo&quot;&gt;Qual É A Solução?&lt;/h3&gt;
+&lt;h3 id=&quot;qual-é-a-solução&quot;&gt;Qual É A Solução?&lt;/h3&gt;
 
 &lt;p&gt;Como lidar com esse tipo de problema no C#? A classe &lt;code class=&quot;highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; é válido:&lt;/p&gt;
 
@@ -125,7 +125,7 @@
 
 &lt;p&gt;E no caso das horas ambíguas? Você também tem duas opções: escolher entre a primeira e segunda ocorrências. Novamente, é meio arbitrário, mas eu aconselho você a escolher a primeira ocorrência, pelo simples fato de tornar as coisas mais simples.&lt;/p&gt;
 
-&lt;h2 id=&quot;confundir-um-offset--com-um-fuso-horrio&quot;&gt;4. Confundir um &lt;em&gt;Offset&lt;/em&gt;  com um Fuso Horário&lt;/h2&gt;
+&lt;h2 id=&quot;4-confundir-um-offset--com-um-fuso-horário&quot;&gt;4. Confundir um &lt;em&gt;Offset&lt;/em&gt;  com um Fuso Horário&lt;/h2&gt;
 
 &lt;p&gt;Considere o timestamp a seguir: 1995-07-14T13:05:00.0000000-03:00. Quando alguém pergunta o que o “-03:00” no final é chamado, muita gente responde “o fuso horário”.&lt;/p&gt;
 
@@ -142,7 +142,7 @@
 
 &lt;p&gt;Em resumo: não tente adivinhar um fuso horário pelo offset. Você vai errar a maioria das vezes.&lt;/p&gt;
 
-&lt;h2 id=&quot;quer-aprender-sobre-tempo-j-no-era-sem-tempo&quot;&gt;Quer aprender sobre tempo? Já não era sem tempo!&lt;/h2&gt;
+&lt;h2 id=&quot;quer-aprender-sobre-tempo-já-não-era-sem-tempo&quot;&gt;Quer aprender sobre tempo? Já não era sem tempo!&lt;/h2&gt;
 
 &lt;p&gt;Esta lista não é de forma alguma exausitiva. Eu apenas quis oferecer a vocês uma introdução ao fascinante e meio bizarro mundo dos problemas com hora e data em programação. Há muitos recursos valiosos por aí, como&lt;a href=&quot;https://stackoverflow.com/tags/timezone/info&quot;&gt;a tag time zone no Stack Overflow&lt;/a&gt; ou blogs como &lt;a href=&quot;https://codeblog.jonskeet.uk/&quot;&gt;o de Jon Skeet&lt;/a&gt; e &lt;a href=&quot;https://codeofmatt.com/&quot;&gt;o de Matt Johnson&lt;/a&gt; que são autores da popular biblioteca NodaTime.&lt;/p&gt;
 
@@ -165,7 +165,7 @@
         <title>Revisão de Código vs Programação em Par: Qual a sua equipe deve escolher?</title>
         <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blug da SubMain. Você pode &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;conferir o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da SubMain. Você pode &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;conferir o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Algumas semanas atrás, eu estava olhando o Twitter quando vi isso:&lt;/p&gt;
 
@@ -178,7 +178,7 @@
 
 &lt;p&gt;É o que vou responder hoje. Vamos lá.&lt;/p&gt;
 
-&lt;h2 id=&quot;o-que-quero-dizer-por-reviso-de-cdigo&quot;&gt;O que quero dizer por “Revisão de Código”&lt;/h2&gt;
+&lt;h2 id=&quot;o-que-quero-dizer-por-revisão-de-código&quot;&gt;O que quero dizer por “Revisão de Código”&lt;/h2&gt;
 
 &lt;p&gt;Imagine a seguinte cena: você é um(a) jovem programador(a) em seu primeiro trabalho com desenvolvimento de software. Após terminar sua primeira tarefa, você é convocado(a) a uma sala de reunião; lá você encontra o desenvolvedor líder e três desenvolvedores seniores. Um monitor enorme está ligado exibindo seu código. Hora da revisão!&lt;/p&gt;
 
@@ -219,7 +219,7 @@
 
 &lt;p&gt;Finalmente, às vezes as pessoas desperdiçam quantidades ridículas de tempo &lt;strong&gt;discutindo sobre detalhes estéticos inúteis&lt;/strong&gt;, como a posição das chaves, ou se devem ou não incluir um underscore no nome de um campo privado. Infelizmente, debates idiotas assim às vezes escalam para níveis que tornam o local de trabalho tóxico.&lt;/p&gt;
 
-&lt;h2 id=&quot;programao-em-par-mais-que-uma-super-reviso-de-cdigo&quot;&gt;Programação em Par: Mais que uma super revisão de código&lt;/h2&gt;
+&lt;h2 id=&quot;programação-em-par-mais-que-uma-super-revisão-de-código&quot;&gt;Programação em Par: Mais que uma super revisão de código&lt;/h2&gt;
 
 &lt;p&gt;Programação em par é uma técnica na qual duas pessoas colaboram no código juntas, na mesma estação de trabalho.&lt;/p&gt;
 
@@ -267,7 +267,7 @@
 
 &lt;p&gt;Finalmente, a programação em par não fornece um dos benefícios chave da revisão de código posterior: ter uma pessoa com zero contexto analisando o código produzido. As duas pessoas do par &lt;strong&gt;compartilham contexto desde o início da sessão&lt;/strong&gt;, o que não deve ser subestimado. As pessoas têm uma tendência a &lt;a href=&quot;https://en.wikipedia.org/wiki/IKEA_effect&quot;&gt;superestimar o valor de suas contribuições e criar laços emocionais com o que elas criam&lt;/a&gt;; por isso é tão importante conseguir uma outra pessoa que, livre desses laços, será capaz de oferecer um julgamento mais claro.&lt;/p&gt;
 
-&lt;h2 id=&quot;reviso-de-cdigo-vs-programao-em-par-o-veredito&quot;&gt;Revisão de Código vs Programação em Par: O Veredito?&lt;/h2&gt;
+&lt;h2 id=&quot;revisão-de-código-vs-programação-em-par-o-veredito&quot;&gt;Revisão de Código vs Programação em Par: O Veredito?&lt;/h2&gt;
 &lt;p&gt;Eu cheguei à conclusão de que, embora revisão de código e programação em par &lt;em&gt;pareçam&lt;/em&gt; equivalentes, na verdade não são. Existe uma intersecção ali, mas cada prática também apresenta benefícios e desafios únicos.&lt;/p&gt;
 
 &lt;p&gt;Não tem como fugir do fato de que programação em par, apesar de seus benefícios, requer um número par de pessoas, trabalhando ao mesmo tempo. Se seu time consiste de pessoas vivendo em diversos fusos horários diferentes (ou mesmo uma equipe local mas com horário flexível), é fácil decidir: revisão de código na cabeça.&lt;/p&gt;
@@ -276,7 +276,7 @@
 
 &lt;p&gt;Finalmente, não há nada lhe impedindo de usar &lt;em&gt;ambas&lt;/em&gt; práticas. Você pode adotar programação em par como o &lt;em&gt;Modus Operandi&lt;/em&gt; padrão e deixar e revisão de código para preencher os vácuos onde o pareamento não funciona tão bem.&lt;/p&gt;
 
-&lt;h2 id=&quot;de-um-jeito-ou-de-outro-abrace-a-automao&quot;&gt;De um jeito ou de outro, abrace a automação&lt;/h2&gt;
+&lt;h2 id=&quot;de-um-jeito-ou-de-outro-abrace-a-automação&quot;&gt;De um jeito ou de outro, abrace a automação&lt;/h2&gt;
 &lt;p&gt;Imagine que você escreve para uma publicação, como uma revista. Após finalizar um rascunho, ele precisa ser submetido para revisão. Será que faz sentido para a editora gastar todo seu tempo procurando por erros de ortografia? É claro que não! Nós temos ferramentas para checar tais erros de forma automática, liberando a editora para procurar por problemas em um nível mais alto, como vocabulário mal escolhido, falta de coesão, tom inapropriado, e todas aquelas coisas sobre as quais a sua professora de português não dava sossego.&lt;/p&gt;
 
 &lt;p&gt;Com software não é diferente. Ao usar &lt;a href=&quot;https://submain.com/products/codeit.right.aspx&quot;&gt;uma ferramenta de revisão de códigos automatizados&lt;/a&gt;, você pode eliminar muitas das discussões inúteis que acontecem frequentemente em revisões de código ou sessões de programação em par. Não vai ter mais briga sobre convenções estéticas e de nomenclatura, posição de chaves e outras trivialidades inúteis.&lt;/p&gt;
@@ -285,7 +285,7 @@
 
 &lt;p&gt;Você também pode usar uma ferramenta de análise estática para lhe alertar sobre potenciais bugs e oportunidades para refatoração. Assim, o revisor/navegador fica livre para focar em preocupações de mais alto nível que necessitam da criatividade, inteligência e empatia humanas.&lt;/p&gt;
 
-&lt;h2 id=&quot;confiana-e-respeito&quot;&gt;Confiança e respeito&lt;/h2&gt;
+&lt;h2 id=&quot;confiança-e-respeito&quot;&gt;Confiança e respeito&lt;/h2&gt;
 &lt;p&gt;Quando estava pesquisando para escrever esse post, um tema aparecia bastante: pessoas afirmando que revisão de código surge devido à falta de confiança em nossos desenvolvedores ou que programação em par os infantiliza.&lt;/p&gt;
 
 &lt;p&gt;Eu não poderia discordar mais.&lt;/p&gt;
@@ -322,7 +322,7 @@
 
 &lt;p&gt;Primeiramente, você verá o que programação cargo cult é e por que você deve se importar. Então, vamos dar uma olhada em alguns exemplos práticos, usando a linguagem C#. Finalmente, nós encerraremos com conselhos sobre o que você pode fazer para não cair nessa armadilha.&lt;/p&gt;
 
-&lt;h2 id=&quot;programao-cargo-cult-fazendo-as-coisas-porque-sim&quot;&gt;Programação Cargo Cult: Fazendo as coisas porque sim.&lt;/h2&gt;
+&lt;h2 id=&quot;programação-cargo-cult-fazendo-as-coisas-porque-sim&quot;&gt;Programação Cargo Cult: Fazendo as coisas porque sim.&lt;/h2&gt;
 
 &lt;p&gt;Segundo a versão em inglês da &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
 
@@ -342,7 +342,7 @@
 
 &lt;p&gt;Por fim, também é possível que o problema seja simplesmente educação insuficiente: talvez o desenvolvedor tenha um entendimento pobre a respeito de como as ferramentas usadas funcionam.&lt;/p&gt;
 
-&lt;h2 id=&quot;por-que-a-programao-cargo-cult--um-problema&quot;&gt;Por que a programação &lt;em&gt;cargo cult&lt;/em&gt; é um problema?&lt;/h2&gt;
+&lt;h2 id=&quot;por-que-a-programação-cargo-cult-é-um-problema&quot;&gt;Por que a programação &lt;em&gt;cargo cult&lt;/em&gt; é um problema?&lt;/h2&gt;
 &lt;p&gt;Como Eric Lippert diz, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/&quot;&gt;programadores cargo cult sofrem para fazer alterações significativas em um programa&lt;/a&gt; e acabam usando uma abordagem de tentativa e erro já que eles não entendem o funcionamento interno do código que estão prestes a alterar.&lt;/p&gt;
 
 &lt;p&gt;Isso não é tão diferente do que os &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;programadores pragmáticos chamam de “programação por coincidência”&lt;/a&gt;:&lt;/p&gt;
@@ -366,16 +366,16 @@
 
 &lt;p&gt;Desde então, o termo culto à carga tem sido usado em uma variedade de contextos para significar &lt;strong&gt;imitar forma sem conteúdo&lt;/strong&gt; - copiar perfeitamente os elementos superficiais mas ao mesmo tempo falhando em entender de maneira mais profunda o significado e funcionamento do que se está tentando emular.&lt;/p&gt;
 
-&lt;h2 id=&quot;falar--fcil-me-mostre-o-cdigo&quot;&gt;Falar é fácil; me mostre o código!&lt;/h2&gt;
+&lt;h2 id=&quot;falar-é-fácil-me-mostre-o-código&quot;&gt;Falar é fácil; me mostre o código!&lt;/h2&gt;
 &lt;p&gt;Chega da aula de História por hoje. Hora de ver código! Eu vou mostrar cinco exemplos de programação cargo cult usando a linguagem C#. Vamos lá.&lt;/p&gt;
 
-&lt;h3 id=&quot;checar-um-tipo-de-valor-no-nulvel-for-null&quot;&gt;Checar um tipo de valor não-nulável for &lt;em&gt;Null&lt;/em&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;checar-um-tipo-de-valor-não-nulável-for-null&quot;&gt;Checar um tipo de valor não-nulável for &lt;em&gt;Null&lt;/em&gt;&lt;/h3&gt;
 &lt;p&gt;O primeiro item é algo que me incomoda já que eu vejo isso bastante em código de produção. É algo assim:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// essa verificação é inútil
-&lt;/span&gt;	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// essa verificação é inútil&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
 	       &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Esta linha sempre será executada.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 	
@@ -394,10 +394,10 @@
 
 &lt;p&gt;Bom, pra começo de conversa, eu me preocuparia com uma empresa de desenvolvimento cujo único critério de qualidade é “roda sem quebrar”. Mas o problema de verdade aqui é que esse tipo de código demonstra uma falta de entendimento sobre características fundamentais da linguagem e da plataforma que podem lhe causar problemas no futuro.&lt;/p&gt;
 
-&lt;h3 id=&quot;uso-desnecessrio-de-tolist-em-consultas-do-linq-to-object&quot;&gt;Uso Desnecessário de &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; em consultas do LINQ to Object&lt;/h3&gt;
+&lt;h3 id=&quot;uso-desnecessário-de-tolist-em-consultas-do-linq-to-object&quot;&gt;Uso Desnecessário de &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; em consultas do LINQ to Object&lt;/h3&gt;
 &lt;p&gt;Assim como o problema anterior, o item atual é algo que eu rotineiramente vejo em código de produção. Considere o código abaixo:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
@@ -411,9 +411,9 @@
 
 &lt;p&gt;O código acima pode ser reescrito da seguinte forma:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;h3 id=&quot;converses-desnecessrias&quot;&gt;Conversões Desnecessárias&lt;/h3&gt;
+&lt;h3 id=&quot;conversões-desnecessárias&quot;&gt;Conversões Desnecessárias&lt;/h3&gt;
 &lt;p&gt;Considere a linha seguinte:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
@@ -458,7 +458,7 @@
   &lt;p&gt;Unnecessary code changes are expensive and dangerous; &lt;strong&gt;don’t make performance-based changes unless you’ve identified a performance problem.&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&quot;existe-soluo&quot;&gt;Existe Solução?&lt;/h2&gt;
+&lt;h2 id=&quot;existe-solução&quot;&gt;Existe Solução?&lt;/h2&gt;
 &lt;p&gt;Eu diria que é justo supor que pessoas com menos experiência são mais propensas a cometer erros devido à programação cargo cult. Mas desenvolvedor nenhum está realmente a salvo, independentemente de seu nível de conhecimento ou experiência.&lt;/p&gt;
 
 &lt;p&gt;Nós somos apenas humanos no fim das contas. Cansaço, prazos, vieses cognitivos e (para ser realmente honesto) a preguiça eventual pode transformar até o melhor de nós em um programador cargo cult.&lt;/p&gt;
@@ -467,13 +467,13 @@
 
 &lt;p&gt;Vamos ver algumas delas.&lt;/p&gt;
 
-&lt;h3 id=&quot;use-reviso-de-cdigoprogramao-em-par&quot;&gt;Use Revisão de Código/Programação em Par&lt;/h3&gt;
+&lt;h3 id=&quot;use-revisão-de-códigoprogramação-em-par&quot;&gt;Use Revisão de Código/Programação em Par&lt;/h3&gt;
 &lt;p&gt;A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;revisão de código e programação em par não são exatamente equivalentes&lt;/a&gt;, ambas as práticas podem lhe trazer esse benefício.&lt;/p&gt;
 
-&lt;h3 id=&quot;sempre-teste-suas-hipteses&quot;&gt;Sempre Teste Suas Hipóteses&lt;/h3&gt;
+&lt;h3 id=&quot;sempre-teste-suas-hipóteses&quot;&gt;Sempre Teste Suas Hipóteses&lt;/h3&gt;
 &lt;p&gt;Escreva &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;testes de unidade&lt;/a&gt; (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça &lt;em&gt;benchmarks&lt;/em&gt; exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer &lt;em&gt;insights&lt;/em&gt; valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.&lt;/p&gt;
 
-&lt;h3 id=&quot;leia-cdigo-de-outras-pessoas&quot;&gt;Leia Código de Outras Pessoas&lt;/h3&gt;
+&lt;h3 id=&quot;leia-código-de-outras-pessoas&quot;&gt;Leia Código de Outras Pessoas&lt;/h3&gt;
 &lt;p&gt;Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.&lt;/p&gt;
 
 &lt;p&gt;Na era do &lt;a href=&quot;http://github.com/&quot;&gt;GitHub&lt;/a&gt;, não tem muita desculpa para não fazer isso.&lt;/p&gt;
@@ -483,7 +483,7 @@
 
 &lt;p&gt;A mesma dica vale para outros tipos de ferramentas, e até para os warnings que o compilador lhe mostra.&lt;/p&gt;
 
-&lt;h2 id=&quot;cincia-da-computao-no-superstio-da-computao&quot;&gt;Ciência da Computação, Não &lt;em&gt;Superstição&lt;/em&gt; da Computação&lt;/h2&gt;
+&lt;h2 id=&quot;ciência-da-computação-não-superstição-da-computação&quot;&gt;Ciência da Computação, Não &lt;em&gt;Superstição&lt;/em&gt; da Computação&lt;/h2&gt;
 &lt;p&gt;Embora ninguém seja imune à programação cargo cult, nós devemos nos esforçar para superá-la. Há sabedoria na nossa área à nossa disposição, acumulada lentamente ao longo de mais de 7 década. Vamos usá-la. Vamos entender melhor nossas ferramentas e nossa profissão e escrever software de qualidade.&lt;/p&gt;
 </description>
         <pubDate>Wed, 17 Jan 2018 00:00:00 -0200</pubDate>
@@ -528,7 +528,7 @@
 
 &lt;p&gt;Mas agora parece que a espera está finalmente chegando ao fim. Segundo Mads Torgersen, o &lt;em&gt;program manager&lt;/em&gt; do time de design do C#, &lt;a href=&quot;https://channel9.msdn.com/Blogs/Seth-Juarez/A-Preview-of-C-8-with-Mads-Torgersen&quot;&gt;um estagiário da Microsoft propôs uma nova sintaxe para métodos de extensão que também possibilitará “outras coisas de extensão”&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;vamos-ver-o-cdigo&quot;&gt;Vamos ver o código&lt;/h3&gt;
+&lt;h3 id=&quot;vamos-ver-o-código&quot;&gt;Vamos ver o código&lt;/h3&gt;
 
 &lt;p&gt;Se eu fosse você estaria ansioso para ver algum código Logo abaixo temos um exemplo de um método de extensão, utilizando a sintaxe atual:&lt;/p&gt;
 
@@ -558,7 +558,7 @@
 
 &lt;p&gt;Você pode &lt;a href=&quot;https://github.com/dotnet/csharplang/issues/192&quot;&gt;acompanhar o desenvolvimento da feature na sua issue no GitHub.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;implementao-default-em-interfaces&quot;&gt;Implementação default em interfaces.&lt;/h2&gt;
+&lt;h2 id=&quot;implementação-default-em-interfaces&quot;&gt;Implementação default em interfaces.&lt;/h2&gt;
 
 &lt;p&gt;Eu admito que fiquei surpreso - e não muito feliz - quando ouvi sobre essa feature pela primeira vez, &lt;a href=&quot;https://channel9.msdn.com/Events/Build/2017/B8104&quot;&gt;em uma palestra Mads Torgersen ministrou em maio, na conferência Build 2017.&lt;/a&gt;&lt;/p&gt;
 
@@ -584,7 +584,7 @@
 
 &lt;p&gt;Outra proposta de valor importação dessa feature tem relação com os sistemas Android e iOs. Já que tanto Java e Swift oferecem implementações padrão em interfaces, pode ser complicado &lt;em&gt;envelopar&lt;/em&gt; APIs do Android e iOs que fazem uso desta funcionalidade. Com a oitava versão do C#, será possível adaptar tais APIs de maneira mais fiel.&lt;/p&gt;
 
-&lt;h3 id=&quot;as-interfaces-vo-virar-classes-abstratas&quot;&gt;As interfaces vão virar classes abstratas?&lt;/h3&gt;
+&lt;h3 id=&quot;as-interfaces-vão-virar-classes-abstratas&quot;&gt;As interfaces vão virar classes abstratas?&lt;/h3&gt;
 
 &lt;p&gt;Mais ou menos, mas não realmente. Como você sabe, não há herança múltipla em linguagens coo C# e Java, o que significa que não é possível herdar de mais de uma classe. Por outro lado, uma classe é (e continuará sendo) capaz de implementar várias interfaces.&lt;/p&gt;
 
@@ -592,13 +592,13 @@
 
 &lt;p&gt;Essa funcionalidade está sendo prototipada. &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;Você pode seguir seu desenvolvimento na issue no GitHub.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;tipos-de-referncia-nulveis&quot;&gt;Tipos de Referência Nuláveis&lt;/h2&gt;
+&lt;h2 id=&quot;tipos-de-referência-nuláveis&quot;&gt;Tipos de Referência Nuláveis&lt;/h2&gt;
 
 &lt;p&gt;“O quê?”, você talvez esteja pensando. “Não seria ‘tipos de referência &lt;strong&gt;não&lt;/strong&gt;-nuláveis’?” O nome dessa funcionalidade pode realmente confundir um pouco. Vou voltar a isso mais tarde, mas antes, vamos explicar a razão de uma feature como essa ser sequer considerada.&lt;/p&gt;
 
 &lt;p&gt;Eu aposto que você conhece a frase “o erro de um bilhão de dólares”. Na remota possibilidade de que você não conheça, ela ser refere à referência nula, e foi &lt;a href=&quot;https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions&quot;&gt;criada por ninguém mais ninguém menos que Sir Tony Hoare, o próprio criador da referência nula.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&quot;mas-por-que-null--to-ruim&quot;&gt;Mas por que &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; é tão ruim?&lt;/h3&gt;
+&lt;h3 id=&quot;mas-por-que-null-é-tão-ruim&quot;&gt;Mas por que &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; é tão ruim?&lt;/h3&gt;
 
 &lt;p&gt;Existem várias possíveis respostas para essa pergunta mas o maior problema é, claro, o risco da famosa &lt;em&gt;null-reference exception&lt;/em&gt; (também conhecida como &lt;em&gt;null-pointer exception&lt;/em&gt; na Java-lândia). Já que tudo (“tudo” no contexto do C# significa tipos os &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;tipos de referência&lt;/a&gt;) pode ser nulo, você sempre corre o risco de receber uma exceção quando tenta acessar algum membro de um objeto.&lt;/p&gt;
 
@@ -614,7 +614,7 @@
 
 &lt;p&gt;Para manter a linguagem consistente, a proposta é que seja usada a mesma sintaxe que já existe para tipos de valor nuláveis - em outras palavras, o ponto de interrogação.&lt;/p&gt;
 
-&lt;h3 id=&quot;chega-de-falar-vamos-ver-cdigo&quot;&gt;Chega de falar. Vamos ver código!&lt;/h3&gt;
+&lt;h3 id=&quot;chega-de-falar-vamos-ver-código&quot;&gt;Chega de falar. Vamos ver código!&lt;/h3&gt;
 
 &lt;p&gt;Eu imagino que usar uma classe “Pessoa” como exemplo é o equivalente de tocar “Stairway to Heaven” numa loja de instrumentos musicais: originalidade zero. Mas usar um exemplo mais elaborado seria uma distração desnecessária, então me dá um desconto desta vez.&lt;/p&gt;
 
@@ -644,7 +644,7 @@
 
 &lt;p&gt;Em resumo, você tem várias opções. Assim que você conseguir convencer o compilador que seu código não tem risco de disparar uma &lt;em&gt;null reference exception&lt;/em&gt;, o aviso vai embora.&lt;/p&gt;
 
-&lt;h3 id=&quot;impedindo-atribuio-de-nulvel-para-no-nulvel&quot;&gt;Impedindo atribuição de nulável para não-nulável&lt;/h3&gt;
+&lt;h3 id=&quot;impedindo-atribuição-de-nulável-para-não-nulável&quot;&gt;Impedindo atribuição de nulável para não-nulável&lt;/h3&gt;
 
 &lt;p&gt;A nova versão do C# também vai impedir atribuição de uma variável nulável para uma não-nulável, então o código a seguir também vai resultar em um aviso:&lt;/p&gt;
 
@@ -674,7 +674,7 @@
 
 &lt;p&gt;Assim como as outras funcionalidades, você pode se &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/nullable-reference-types.md&quot;&gt;antenar com o que está acontecendo por meio da issue no GitHub.&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;c-tem-um-futuro-e-vai-ser-incrvel&quot;&gt;C# tem um futuro. E vai ser incrível.&lt;/h2&gt;
+&lt;h2 id=&quot;c-tem-um-futuro-e-vai-ser-incrível&quot;&gt;C# tem um futuro. E vai ser incrível.&lt;/h2&gt;
 
 &lt;p&gt;Agora você sabe um pouco mais sobre três das funcionalidades que nós provavelmente ganharemos com a próxima versão da linguagem C#.&lt;/p&gt;
 
@@ -709,7 +709,7 @@
 &lt;p&gt;Este post e o anterior têm o objetivo de compartilhar a minha experiência no aprendizado do inglês, detalhando o que funcionou ou não
 para mim. Também é minha intenção que você aprenda com meus erros, de modo que sua jornada não precise demorar tanto quanto a minha.&lt;/p&gt;
 
-&lt;h2 id=&quot;se-eu-aprendi-ingls-voc-tambm-pode&quot;&gt;Se eu aprendi inglês, você também pode&lt;/h2&gt;
+&lt;h2 id=&quot;se-eu-aprendi-inglês-você-também-pode&quot;&gt;Se eu aprendi inglês, você também pode&lt;/h2&gt;
 
 &lt;p&gt;Eu nunca fiz curso de inglês em escola particular. Com exceção de uma vez que fui à Wizard da minha cidade entregar currículo para o
 cargo de professor de informática, eu nunca &lt;strong&gt;entrei&lt;/strong&gt; em uma escola de inglês. Também estudei em escola pública a vida toda. Nunca fiz intercâmbio (aliás, nunca saí do país). Durante a maior parte da vida, não tive computador e internet em casa. Smartphone? Só aos 22 anos.&lt;/p&gt;
@@ -725,7 +725,7 @@ dinheiro.&lt;/p&gt;
 
 &lt;p&gt;Apenas não use a falta de uma ou mais destas coisas como desculpa para não se dedicar.&lt;/p&gt;
 
-&lt;h2 id=&quot;minha-jornada-com-o-ingls&quot;&gt;Minha jornada com o inglês&lt;/h2&gt;
+&lt;h2 id=&quot;minha-jornada-com-o-inglês&quot;&gt;Minha jornada com o inglês&lt;/h2&gt;
 
 &lt;p&gt;Se eu tivesse que listar de forma resumida o meu trajeto no inglês, seria algo assim:&lt;/p&gt;
 
@@ -759,7 +759,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;A TV era outra fonte de pequenos momentos de contato com o inglês, através de filmes e desenhos. Sim, eu assistia tudo dublado, claro (TV a cabo? O que é isso?). Mas ainda sim oportunidades surgiam; o exemplo típico é quando aparecia algo escrito em inglês no filme/desenho (letreiro de loja, rótulo de algum produto, sinal de trânsito, título do episódio) e o locutor falava em português a tradução.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we&#39;re closed&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we're closed&amp;quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Foi em 2001, mas eu me lembro bem como estava ansioso para o início da quinta série. &lt;strong&gt;Finalmente&lt;/strong&gt; iria ter aulas de inglês!&lt;/p&gt;
 
@@ -787,7 +787,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;Com cerca de 14, 15 anos, uma nova paixão surgiu na minha vida: a música (ou para ser específico, o &lt;em&gt;rock&lt;/em&gt;). Mais aprendizado veio na forma de tradução das letras das músicas nos encartes dos CD’s.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD&#39;s e DVD&#39;s de Rock&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD's e DVD's de Rock&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;No final de 2006 eu consegui meu primeiro estágio na área da informática. Depois de algum tempo (provavelmente no começo do ano seguinte) comprei meu primeiro computador: um Positivo, com configurações risíveis. Mas era um sonho que eu tive por boa parte da minha vida e finalmente havia conseguido realizá-lo.&lt;/p&gt;
 
@@ -798,7 +798,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 &lt;p&gt;Interessante salientar que nesta época minha leitura já era boa; &lt;strong&gt;eu conseguia entender com facilidade a maior parte dos textos que me propunha a ler&lt;/strong&gt;. Todos os anos de exposição contínua ao inglês, ainda que limitada, estavam dando fruto.&lt;/p&gt;
 
 &lt;h2 id=&quot;a-fase-formal&quot;&gt;A fase “formal”&lt;/h2&gt;
-&lt;p&gt;### Aprendendo a estudar inglês&lt;/p&gt;
+&lt;h3 id=&quot;aprendendo-a-estudar-inglês&quot;&gt;Aprendendo a estudar inglês&lt;/h3&gt;
 
 &lt;p&gt;Em 2010, eu iniciei o bacharelado em Ciência da Computação. Também comecei a fazer estágio em uma pequena firma de desenvolvimento de software da cidade.&lt;/p&gt;
 
@@ -816,11 +816,13 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;Não demorou muito tempo na verdade para que eu desse o próximo passo na minha evolução: &lt;strong&gt;passei a conseguir entender 100% do áudio sem as transcrições&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Eu diria que esse é um passo decisivo no progresso do seu aprendizado. Não depender de transcrições te dá uma liberdade sem precedentes para praticar o &lt;em&gt;listening&lt;/em&gt;. Você pode ouvir:
-- fazendo exercícios;
-- indo ou vindo do trabalho;
-- na fila ou sala de espera do banco/correio/dentista/etc;
-- lavando a louça, limpando a casa ou fazendo outro tipo de trabalho manual.&lt;/p&gt;
+&lt;p&gt;Eu diria que esse é um passo decisivo no progresso do seu aprendizado. Não depender de transcrições te dá uma liberdade sem precedentes para praticar o &lt;em&gt;listening&lt;/em&gt;. Você pode ouvir:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;fazendo exercícios;&lt;/li&gt;
+  &lt;li&gt;indo ou vindo do trabalho;&lt;/li&gt;
+  &lt;li&gt;na fila ou sala de espera do banco/correio/dentista/etc;&lt;/li&gt;
+  &lt;li&gt;lavando a louça, limpando a casa ou fazendo outro tipo de trabalho manual.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;Em resumo, ouvir sem depender da transcrição &lt;strong&gt;deixa suas mãos livres&lt;/strong&gt;, o que te permite &lt;strong&gt;integrar o inglês na sua rotina&lt;/strong&gt;, ocupando intervalos de tempo que em outra situação seriam desperdiçados.&lt;/p&gt;
 
@@ -838,7 +840,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;Se eu tivesse que aprender inglês novamente hoje - ou aprender outro idioma - como eu faria? É basicamente disso que esta seção se trata. Vou usar a minha experiência e os erros cometidos como base para criar um “roteiro” para você seguir.&lt;/p&gt;
 
-&lt;h3 id=&quot;aprender-o-bsico&quot;&gt;Aprender o básico&lt;/h3&gt;
+&lt;h3 id=&quot;aprender-o-básico&quot;&gt;Aprender o básico&lt;/h3&gt;
 
 &lt;p&gt;Assim como uma casa precisa de um alicerce, você necessita de uma base de conhecimentos sobre a qual construir seu aprendizado. Como fazer isso?&lt;/p&gt;
 
@@ -849,16 +851,16 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;Estude com o Duolingo todo dia, até terminar o curso. Após isso, continue reforçando os pontos nos quais não estiver tão bem.&lt;/p&gt;
 
-&lt;h4 id=&quot;curso-ingls-online&quot;&gt;Curso Inglês Online&lt;/h4&gt;
+&lt;h4 id=&quot;curso-inglês-online&quot;&gt;Curso Inglês Online&lt;/h4&gt;
 &lt;p&gt;Depois do Duolingo, eu recomendo o &lt;a href=&quot;http://www.cursoinglesonline.com.br/curso-basico-informacoes/&quot;&gt;curso básico do site Inglês Online, da Ana Luiza&lt;/a&gt;. O curso é pago, mas é um valor que considero acessível e vale muito a pena.&lt;/p&gt;
 
-&lt;h3 id=&quot;prtica-diria-do-listening&quot;&gt;Prática diária do listening&lt;/h3&gt;
+&lt;h3 id=&quot;prática-diária-do-listening&quot;&gt;Prática diária do listening&lt;/h3&gt;
 
 &lt;p&gt;O próximo passo é integrar o áudio no seu dia-a-dia. Como já disse anteriormente, a situação ideal é chegar ao ponto de não precisar mais de transcrições, pois assim você terá liberdade para ouvir inglês praticamente em qualquer situação que sobrar um tempo.&lt;/p&gt;
 
 &lt;p&gt;Chegar até esse ponto vai demandar um certo trabalho, no entanto. Para isso, eu sugiro a leitura da série de artigos &lt;a href=&quot;http://www.inglesonline.com.br/como-falar-ingles-as-dicas-essenciais/&quot;&gt;“Como Falar Inglês - As Dicas Essenciais”&lt;/a&gt;, escrita pela Ana Luiza do site Inglês Online. É uma série um pouco extensa, mas que detalha passo a passo como evoluir no &lt;em&gt;listening&lt;/em&gt;, inclusive com fontes de áudio adequados para cada nível do aprendizado.&lt;/p&gt;
 
-&lt;h3 id=&quot;no-esquea-das-outras-reas&quot;&gt;Não esqueça das outras áreas&lt;/h3&gt;
+&lt;h3 id=&quot;não-esqueça-das-outras-áreas&quot;&gt;Não esqueça das outras áreas&lt;/h3&gt;
 
 &lt;p&gt;O &lt;em&gt;listening&lt;/em&gt; deve ser o protagonista da sua estratégia de aprendizado. O que não significa que as outras habilidades devem ser negligenciadas.&lt;/p&gt;
 
@@ -883,7 +885,7 @@ Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (
 
 &lt;p&gt;Finalmente, aulas com professores nativos sempre é uma opção, caso esteja dentro das suas possibilidades.&lt;/p&gt;
 
-&lt;h2 id=&quot;aprender-ingls--possvel-o-que-voc-est-esperando&quot;&gt;Aprender inglês é possível. O que você está esperando?&lt;/h2&gt;
+&lt;h2 id=&quot;aprender-inglês-é-possível-o-que-você-está-esperando&quot;&gt;Aprender inglês é possível. O que você está esperando?&lt;/h2&gt;
 
 &lt;p&gt;Espero ter conseguido, através da minha história, mostrar que aprender inglês é possível sim, ainda que haja dificuldades. O meu aprendizado foi longo e inconsistente, por não ter tido as facilidades que existem hoje em dia.&lt;/p&gt;
 
@@ -928,7 +930,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;Mas talvez você ainda precise de convencimento sobre a importância do inglês. Se este é seu caso, a próxima seção é para você.&lt;/p&gt;
 
-&lt;h2 id=&quot;por-que-voc-deve-aprender-ingls-spoiler-no--para-ganhar-mais&quot;&gt;Por que você deve aprender inglês (SPOILER: não é para “ganhar mais”)&lt;/h2&gt;
+&lt;h2 id=&quot;por-que-você-deve-aprender-inglês-spoiler-não-é-para-ganhar-mais&quot;&gt;Por que você deve aprender inglês (SPOILER: não é para “ganhar mais”)&lt;/h2&gt;
 
 &lt;p&gt;Quando o assunto é o aprendizado de inglês, uma das razões mais citadas é o aumento de renda. Embora &lt;a href=&quot;http://g1.globo.com/concursos-e-emprego/noticia/2016/04/salario-e-ate-61-maior-entre-quem-fala-ingles-fluente-diz-pesquisa.html&quot;&gt;existam estudos que sugerem aumento de salário para quem domina o idioma&lt;/a&gt;, este não deveria ser o seu maior (ou único) motivador.&lt;/p&gt;
 
@@ -936,7 +938,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;Certo, mas… e aí? O que sobra? Colocando da maneira mais simples possível: você deve aprender inglês porque é &lt;strong&gt;útil&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;h3 id=&quot;o-ingls-como-lngua-franca&quot;&gt;O inglês como língua franca&lt;/h3&gt;
+&lt;h3 id=&quot;o-inglês-como-língua-franca&quot;&gt;O inglês como língua franca&lt;/h3&gt;
 
 &lt;p&gt;O inglês é, para todos os efeitos, a língua franca da tecnologia. E isto facilita muitas coisas.&lt;/p&gt;
 
@@ -952,7 +954,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;Poderia ficar aqui o dia citando exemplos, mas você pegou a ideia. Seria impraticável todos aprenderem os idiomas de todos. Consolidar em apenas um idioma é a solução óbvia.&lt;/p&gt;
 
-&lt;h3 id=&quot;o-ingls-como-facilitador-do-aprendizado&quot;&gt;O inglês como facilitador do aprendizado&lt;/h3&gt;
+&lt;h3 id=&quot;o-inglês-como-facilitador-do-aprendizado&quot;&gt;O inglês como facilitador do aprendizado&lt;/h3&gt;
 
 &lt;p&gt;Acho que não é difícil convencer alguém de que, pelo menos na área de desenvolvimento de software, há muito mais material em inglês que em outros idiomas. Aliás, eu arriscaria que isto também é verdade para outras áreas.&lt;/p&gt;
 
@@ -966,7 +968,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;E quem consegue entender o inglês falado? Esta pessoa já tem &lt;em&gt;muito&lt;/em&gt; mais vantagens, pois pode assistir palestras no Youtube, &lt;a href=&quot;https://www.pluralsight.com/&quot;&gt;cursos no Pluralsight&lt;/a&gt; e similares, &lt;strong&gt;ouvir a excelentes podcasts de tecnologia&lt;/strong&gt;, e muito mais.&lt;/p&gt;
 
-&lt;h2 id=&quot;por-que-as-pessoas-no-aprendem-ingls&quot;&gt;Por que as pessoas não aprendem inglês?&lt;/h2&gt;
+&lt;h2 id=&quot;por-que-as-pessoas-não-aprendem-inglês&quot;&gt;Por que as pessoas não aprendem inglês?&lt;/h2&gt;
 &lt;p&gt;Não é raro vermos &lt;a href=&quot;https://exame.abril.com.br/brasil/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking/&quot;&gt;matérias&lt;/a&gt; retratando o &lt;a href=&quot;http://jovempan.uol.com.br/programas/jornal-da-manha/brasil-cai-de-posicao-e-sai-do-top-40-no-ranking-mundial-de-proficiencia-em-ingles.html&quot;&gt;péssimo desempenho&lt;/a&gt; do Brasil nos rankings de proficiência no inglês.&lt;/p&gt;
 
 &lt;p&gt;Ao mesmo tempo, &lt;a href=&quot;https://g1.globo.com/economia/negocios/noticia/carlos-wizard-compra-35-da-wizeup-e-retoma-ao-setor-de-educacao.ghtml&quot;&gt;redes de escolas de idiomas são negociadas por bilhões&lt;/a&gt;.&lt;/p&gt;
@@ -986,12 +988,12 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;Vou agora falar sobre o que eu considero os motivos principais que impedem as pessoas de aprender inglês.&lt;/p&gt;
 
-&lt;h3 id=&quot;excesso-de-foco-em-gramtica-em-detrimento-de-todo-o-resto&quot;&gt;Excesso de foco em gramática em detrimento de todo o resto&lt;/h3&gt;
+&lt;h3 id=&quot;excesso-de-foco-em-gramática-em-detrimento-de-todo-o-resto&quot;&gt;Excesso de foco em gramática em detrimento de todo o resto&lt;/h3&gt;
 &lt;p&gt;Durante a faculdade, havia um colega que sempre me pedia ajuda nas provas de inglês, apesar dele ter estudado SETE anos em uma escola de idiomas famosa. E eu sempre comentava: “Cara, mas não te ensinaram isso no curso?” E sua resposta, invariavelmente, era: “Ah, eles não passavam muito vocabulário, era mais gramática).&lt;/p&gt;
 
 &lt;p&gt;Agora pense. E se esse meu amigo fosse abordado por um americano na rua perguntando “&lt;strong&gt;Excuse me? How do I get to the nearest subway station?&lt;/strong&gt;”? O que ele iria fazer? Abrir um livro de gramática? Recitar a lista de verbos regulares e irregulares?&lt;/p&gt;
 
-&lt;h3 id=&quot;falta-de-prtica&quot;&gt;Falta de prática&lt;/h3&gt;
+&lt;h3 id=&quot;falta-de-prática&quot;&gt;Falta de prática&lt;/h3&gt;
 &lt;p&gt;Qualquer pessoa que já estudou algum instrumento musical sabe que não basta frequentar as aulas; é preciso praticar em casa, de acordo com o plano de estudos recebido. Fazer exercícios, treinar escalas, praticar percepção musical, &lt;strong&gt;todos os dias&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511625841/musician.jpg&quot; alt=&quot;Músico tocando violino&quot; /&gt;&lt;/p&gt;
@@ -1002,7 +1004,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;&lt;a href=&quot;https://forum.wordreference.com/threads/i-hate-to-break-it-to-you.1910645/&quot;&gt;Sorry to break it to you&lt;/a&gt;, mas não vão.&lt;/p&gt;
 
-&lt;h3 id=&quot;no-integrar-o-udio-ao-aprendizado-ou-integr-lo-tardiamente&quot;&gt;Não integrar o áudio ao aprendizado (ou integrá-lo tardiamente)&lt;/h3&gt;
+&lt;h3 id=&quot;não-integrar-o-áudio-ao-aprendizado-ou-integrá-lo-tardiamente&quot;&gt;Não integrar o áudio ao aprendizado (ou integrá-lo tardiamente)&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.inglesonline.com.br/2014/01/22/o-perigo-de-aprender-ingles-so-lendo/&quot;&gt;Este é um problema comum na área de TI&lt;/a&gt;. Inclusive, eu cometi este erro em uma etapa do meu aprendizado. Como precisamos constantemente ler textos técnicos em inglês, como manuais e documentações, muitos de nós conseguem ter um domínio razoável do inglês escrito ao longo dos anos.&lt;/p&gt;
 
 &lt;p&gt;O problema é quando chega a hora de &lt;em&gt;falar&lt;/em&gt;, principalmente por conta da pronúncia do inglês, que é totalmente não intuitiva para nós falantes de português.&lt;/p&gt;
@@ -1045,7 +1047,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;Resumidamente, pessoas que só tiveram contato com inglês escrito vão inevitavelmente internalizar pronúncias erradas devido à falta de exposição a áudios com as pronúncias corretas, o que acarretará em dificuldades na conversação.&lt;/p&gt;
 
-&lt;h2 id=&quot;o-que-fazer-ento&quot;&gt;O que fazer então?&lt;/h2&gt;
+&lt;h2 id=&quot;o-que-fazer-então&quot;&gt;O que fazer então?&lt;/h2&gt;
 
 &lt;p&gt;Basicamente, o contrário do que foi listado acima. Colocando em uma frase, seria algo do tipo:&lt;/p&gt;
 
@@ -1076,7 +1078,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 &lt;p&gt;Antes tarde do que mais tarde! Hora de continuar nossa série sobre testes unitários para iniciantes. Hoje você vai escrever seu primeiro teste unitário.
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;introduo&quot;&gt;Introdução&lt;/h2&gt;
+&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
 
 &lt;p&gt;No &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro artigo nesta série&lt;/a&gt; eu defini o que são testes unitários, e também falei dos benefícios de sua utilização.&lt;/p&gt;
 
@@ -1265,7 +1267,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Embora não seja realmente necessário, eu sugiro que você use comentários para demarcar as fases do teste como no exemplo acima, ao menos no início de seu aprendizado.&lt;/p&gt;
 
-&lt;h2 id=&quot;mais-um-teste-mtodo-giveraise&quot;&gt;Mais um teste: método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&quot;mais-um-teste-método-giveraise&quot;&gt;Mais um teste: método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;Um aumento no salário é sempre bem-vindo, concordam? Vamos testar que o método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; funciona como deveria. Na sua classe de teste, adicione o método a seguir:&lt;/p&gt;
 
@@ -1286,7 +1288,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Ok, podemos ver que o teste realmente falhou. Podemos voltar o método ao normal e ver que agora tudo passa como deveria.&lt;/p&gt;
 
-&lt;h2 id=&quot;um-ltimo-teste&quot;&gt;Um último teste&lt;/h2&gt;
+&lt;h2 id=&quot;um-último-teste&quot;&gt;Um último teste&lt;/h2&gt;
 
 &lt;p&gt;Digamos que surgiu um novo requisito: se a porcentagem de aumento passada for negativa, o salário deve permanecer o mesmo. Vamos então alterar o método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; para tratar este caso:&lt;/p&gt;
 
@@ -1332,7 +1334,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
   &lt;li&gt;Agradeço novamente ao amigo Gunter Italiano Ribeiro por revisar este artigo.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
 
 &lt;p&gt;Este foi o segundo artigo da minha série sobre testes unitários. Como já mencionei, ele é propositalmente maior e mais prático que o artigo inicial da série. Ainda assim, tudo o que foi abordado é apenas a ponta do iceberg do que existe a respeito de testes de unidade. Livros inteiros poderiam foram escritos sobre este assunto. Nos artigos futuros indicarei alguns, além de outros materiais para estudo.&lt;/p&gt;
 
@@ -1448,7 +1450,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Mas as diferenças realmente importantes têm a ver com conveniência e legibilidade. Ao usar &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; não há desconstrução; você só pode acessar os elementos usando os nomes padrão (Item1, Item2, etc), o que pode prejudicar a leitura e interpretação do código.&lt;/p&gt;
 
-&lt;h2 id=&quot;funes-locais&quot;&gt;Funções Locais&lt;/h2&gt;
+&lt;h2 id=&quot;funções-locais&quot;&gt;Funções Locais&lt;/h2&gt;
 
 &lt;p&gt;Resumidamente, uma função local é exatamente o que o nome sugere: uma função que pode ser declarada dentro de outra.&lt;/p&gt;
 
@@ -1496,7 +1498,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Você poderia transformar a função &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator()&lt;/code&gt; acima em um método privado, mas seria: 1) redundante e pouco elegante, pois iria requerer repetir a mesma assinatura e argumentos da função externa; e 2) menos seguro, pois outra parte do código poderia chamar o método sem fazer a validação.&lt;/p&gt;
 
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
 
 &lt;p&gt;Falamos hoje sobre &lt;strong&gt;Tuplas&lt;/strong&gt; e &lt;strong&gt;Funções Locais&lt;/strong&gt;, duas novas features do C# que, à primeira vista, podem até parecer “inofensivas”, mas que têm potencial para mudar o código que escrevemos de maneiras interessantes.&lt;/p&gt;
 
@@ -1512,7 +1514,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Obrigado pela leitura, e até a próxima.&lt;/p&gt;
 
-&lt;h2 id=&quot;referncias&quot;&gt;Referências&lt;/h2&gt;
+&lt;h2 id=&quot;referências&quot;&gt;Referências&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&quot;&gt;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&lt;/a&gt;&lt;/li&gt;
@@ -1537,7 +1539,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 &lt;p&gt;Aprender Git pode ser desafiador para desenvolvedores com experiência em versionadores centralizados. Mas não precisa ser assim. 
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;introduo&quot;&gt;Introdução&lt;/h2&gt;
+&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
 
 &lt;p&gt;O Git está se tornando (já se tornou, muitos diriam) o sistema de controles de versão padrão da nossa área. O versionador foi criado em 2005 por Linus Torvalds para gerenciar o código-fonte do kernel do Linux, e desde então tem apresentado um crescimento fenomenal no seu uso, principalmente após o advento do &lt;a href=&quot;github.com&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
@@ -1549,7 +1551,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Com isso em mente, resolvi escrever uma série de artigos para tentar auxiliar desenvolvedores vindos de versionadores centralizados (especificamente TFS/TFVC) e tentando aprender o Git. Não tenho nenhuma pretensão de fazer uma cobertura exaustiva do assunto; muito pelo contrário: nos momentos em que for necessário, indicarei conteúdos que ofereçam uma explicação mais densa de certos tópicos.&lt;/p&gt;
 
-&lt;h2 id=&quot;uma-nota-rpida-sobre-a-nomenclatura-utilizada-neste-artigo&quot;&gt;Uma nota rápida sobre a nomenclatura utilizada neste artigo&lt;/h2&gt;
+&lt;h2 id=&quot;uma-nota-rápida-sobre-a-nomenclatura-utilizada-neste-artigo&quot;&gt;Uma nota rápida sobre a nomenclatura utilizada neste artigo&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;TFS&lt;/strong&gt; significa Team Foundation Server. É um produto da Microsoft que visa o gerenciamento de projeto, gerenciamento de requisitos, automatização de build, gerenciamento de releases, e diversas outras features.&lt;/p&gt;
 
@@ -1593,7 +1595,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Quando chegar a esta tela, é interessante marcar a segunda opção para que você seja capaz de utilizar o Git a partir do prompt de comando do Windows, e não apenas a partir do Bash do Git.&lt;/p&gt;
 
-&lt;h2 id=&quot;configurao-bsica&quot;&gt;Configuração básica&lt;/h2&gt;
+&lt;h2 id=&quot;configuração-básica&quot;&gt;Configuração básica&lt;/h2&gt;
 
 &lt;p&gt;Depois de terminada a instalação, é necessária fazer a configuração básica de identidade do Git, que consiste em dizer ao Git seu nome e e-mail para que ele os associe a cada commit que você efetuar.&lt;/p&gt;
 
@@ -1609,7 +1611,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Existem mais configurações e opções possíveis, mas isso já é suficiente para que você comece a experimentar o Git.&lt;/p&gt;
 
-&lt;h2 id=&quot;criando-o-repositrio&quot;&gt;Criando o repositório&lt;/h2&gt;
+&lt;h2 id=&quot;criando-o-repositório&quot;&gt;Criando o repositório&lt;/h2&gt;
 
 &lt;p&gt;No Git Bash, vamos criar uma nova pasta e em seguida acessá-la:&lt;/p&gt;
 
@@ -1702,8 +1704,10 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
   &lt;p&gt;new file:   arq1.txt&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;Por enquanto ignore a mensagem: 
-&amp;gt; use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
+&lt;p&gt;Por enquanto ignore a mensagem:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;p&gt;Agora podemos ver que o arquivo adicionado está pronto para entrar no commit. Então, vamos “commitar”:&lt;/p&gt;
 
@@ -1767,7 +1771,7 @@ Changes not staged for commit:
 
 &lt;p&gt;Para terminar, execute novamente o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e verá novamente a mensagem já familiar: diretório de trabalho limpo, nada a ser commitado.&lt;/p&gt;
 
-&lt;h2 id=&quot;concluso&quot;&gt;Conclusão&lt;/h2&gt;
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
 
 &lt;p&gt;Este artigo foi extremamente simples, e isso não foi um acidente. Minha intenção foi de mostrar os comandos mais básicos, com a intenção de que você pegue o “feeling” de como se usa o Git.&lt;/p&gt;
 
@@ -1853,7 +1857,7 @@ Tradução do comentário: Isso pode ser uma boa maneira para modularizar sem o 
 
 &lt;p&gt;TDD, além de trazer seus próprios benefícios quando feito corretamente, tem feitos com que as pessoas apliquem certos princípios que anteriormente não eram tão populares. Código sem estado era desprezado como lento e desnecessário (ver: maior parte de código antigo em C/C++), e agora todos estão falando sobre funções puras. Mesmo que você não use TDD, você deveria aprender seus princípios. Trabalhar sob novos paradigmas transformará você em um desenvolvedor resiliente.&lt;/p&gt;
 
-&lt;h2 id=&quot;torne-seu-cdigo-discreto-e-processvel&quot;&gt;Torne seu código discreto e processável&lt;/h2&gt;
+&lt;h2 id=&quot;torne-seu-código-discreto-e-processável&quot;&gt;Torne seu código discreto e processável&lt;/h2&gt;
 
 &lt;p&gt;Seu computador e suas ferramentas podem sofrer tanto quanto você para lidar com seu código, e existe alguma correlação entre o número de pré-processadores e mutações você precisa aplicar e o quão bagunçado o seu código é.&lt;/p&gt;
 
@@ -1871,7 +1875,7 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
 
 &lt;p&gt;Outra maneira de manter a parte “integrada” da sua IDE relevante é evitar código mágico. A maioria das linguagens disponibilizam maneiras para que você escreva código mais dinâmico. Abusar tais features utilizando strings mágicas, índices de arrays mágicos e funcionalidades de templates customizados irá resultar em uma base de código mais desconectada. Geralmente qualquer feature que apenas um humano sabe o significado vai levar você para essa caminho, e é uma estrada difícil de se escapar, porque se a sua IDE não entende o código, quaisquer funcionalidades de refatoração que possua serão inúteis quando você quiser mudar para uma arquitetura mais estática.&lt;/p&gt;
 
-&lt;h2 id=&quot;torne-seu-cdigo-legvel&quot;&gt;Torne seu código legível&lt;/h2&gt;
+&lt;h2 id=&quot;torne-seu-código-legível&quot;&gt;Torne seu código legível&lt;/h2&gt;
 
 &lt;p&gt;Trabalhe no sentido de ter uma arquitetura previsível. Seus colegas de time terão mais facilidade em localizar as coisas, e isso vai reduzir bastante o tempo necessário para concluir as tarefas. &lt;strong&gt;Assim que vocês estiverem de acordo sobre uma estrutura arquitetural geral para seu projeto, torne óbvia a localização dos principais elementos.&lt;/strong&gt; Usa MVC? Coloque models, views e controllers em suas próprias pastas, não três níveis abaixo ou espalhados em vários lugares.&lt;/p&gt;
 
@@ -1883,7 +1887,7 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
 &lt;figcaption&gt;Código real de um makefile que escrevi. Desenvolvedores juniores não conseguem lidar com o uso excessivo de novas ferramentas.&lt;/figcaption&gt;
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;h2 id=&quot;torne-seu-cdigo-fcil-de-digerir&quot;&gt;Torne seu código fácil de digerir&lt;/h2&gt;
+&lt;h2 id=&quot;torne-seu-código-fácil-de-digerir&quot;&gt;Torne seu código fácil de digerir&lt;/h2&gt;
 
 &lt;p&gt;Se você chegou até aqui, eu tenho boas notícias: esta é provavelmente a parte mais importante. A escolha de bons nomes é sabidamente um dos maiores problemas no desenvolvimento de software. Ferramentas de build provavelmente não vão causar nenhuma melhora aqui, e a razão é que computadores não podem realmente saber o raciocínio que houve por trás de uma solução.&lt;/p&gt;
 
@@ -1897,7 +1901,7 @@ Tradução do comentário: Uso de string mágicas fará com que seja impossível
 
 &lt;p&gt;Finalmente, sempre há algo a ser dito sobre manter a complexidade ciclomática baixa. Isso significa manter o número de ramificações condicionais tão baixo quanto for possível. Cada ramificação adicional não apenas adiciona mais indentação e prejudica a legibilidade, mas, mais importante que isso, aumenta o número de elementos aos quais você precisa estar atento.&lt;/p&gt;
 
-&lt;h2 id=&quot;concluso-e-mais-leituras&quot;&gt;Conclusão e mais leituras&lt;/h2&gt;
+&lt;h2 id=&quot;conclusão-e-mais-leituras&quot;&gt;Conclusão e mais leituras&lt;/h2&gt;
 
 &lt;p&gt;Estes são cinco conceitos simples e abrangentes, e o meu objetivo aqui foi tornar seu aprendizado mais fácil ao lhe dar caixas nas quais colocar todas as suas ideias sobre organização de código.&lt;/p&gt;
 

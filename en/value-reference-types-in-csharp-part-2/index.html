@@ -135,15 +135,14 @@ In practice, the <code class="highlighter-rouge">null</code> value is represente
 
 <p>This type can represent one byte of possible values. Since 2^8 = 256, it can represent 256 values. It is also unsigned, meaning it can only represent values greater than or equals to zero. Thus, the range of possible values that the byte type can represent is <strong>0 to 255.</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>00000000 =&gt; 0
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00000000 =&gt; 0
 00000001 =&gt; 1
 00000010 =&gt; 2
     .        .
     .        .
     .        .
 11111111 =&gt; 255
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Now comes the tricky part. If the C# language designers wanted the byte type to be nullable, they’d have to pick a value from the range and elect it as the <code class="highlighter-rouge">null</code> value. Let’s imagine they picked zero as the <code class="highlighter-rouge">null</code> value for <code class="highlighter-rouge">byte</code>. If that was the case, <strong>we wouldn’t be able to use zero as a valid value never again!</strong></p>
 
@@ -165,7 +164,7 @@ are horrible, not to mention the fact that you’d have to check the flag every 
 
 <p>You now hopefully understand the complications involved in representing <code class="highlighter-rouge">null</code> for a value type, and why the C# developers decided against it. But, what if you really need to do this? One common scenario is when you’re fetching data from a relational database. What should you do?</p>
 
-<p>Well, thankfully, there’s an easy solution. Even though “normal” value types can’t be <code class="highlighter-rouge">null</code>, C# 2 introduced the Nullable<t> structure, which allows you to assign `null` to pretty much anything.</t></p>
+<p>Well, thankfully, there’s an easy solution. Even though “normal” value types can’t be <code class="highlighter-rouge">null</code>, C# 2 introduced the Nullable<T> structure, which allows you to assign `null` to pretty much anything.</T></p>
 
 <p>I’ll talk about nullable types in the next article. As a bonus, you’ll learn a bit about another nice feature called <em>generics</em>.</p>
 
@@ -227,6 +226,13 @@ are horrible, not to mention the fact that you’d have to check the flag every 
         
         	    
             <a rel="next" class="next" href="/en/book-review-soft-skills/">Book Review: Soft Skills &rarr;</a>
+                
+         
+        
+        
+                
+        
+        
                 
          
         

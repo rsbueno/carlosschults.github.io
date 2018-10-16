@@ -144,8 +144,8 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">public</span> <span class="n">Product</span> <span class="nf">Find</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
 	<span class="p">{</span>
-   	   <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="c1">// this check is useless
-</span>	   <span class="p">{</span>
+   	   <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="c1">// this check is useless</span>
+	   <span class="p">{</span>
 	       <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"This line will always get reached."</span><span class="p">);</span>
 	   <span class="p">}</span>
 	
@@ -167,7 +167,7 @@
 <h3 id="unnecessary-use-of-tolist-in-linq-to-object-queries">Unnecessary Use of ToList() in LINQ to Object Queries</h3>
 <p>Like the previous one, this is something I routinely see in production code. Consider the code below:</p>
 
-<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
 	<span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">PremiumUser</span><span class="p">)</span>
 	<span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
 	<span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">})</span>
@@ -181,7 +181,7 @@
 
 <p>You could rewrite the code above like this:</p>
 
-<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">PremiumUser</span><span class="p">).</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">});</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">PremiumUser</span><span class="p">).</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">});</span></code></pre></figure>
 
 <h3 id="unnecessary-conversions">Unnecessary Conversions</h3>
 <p>Consider the following line:</p>
@@ -382,6 +382,13 @@
         
         	    
             <a rel="next" class="next" href="/en/code-review-vs-pair-programming/">Code Review vs Pair-Programming: Which One Should Your Team Pick? &rarr;</a>
+                
+         
+        
+        
+                
+        
+        
                 
          
         

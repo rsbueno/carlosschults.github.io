@@ -118,7 +118,7 @@
 
 <p>E é exatamente esse é o objetivo do post de hoje. Eu vou mostrar 4 erros comuns que as pessoas cometem ao lidar com tempo em C#/.NET. E não para por aí. Eu também vou mostrar o que você deve fazer para evitar esses erros e tornar seu código mais seguro e mais fácil de ser compreendido.</p>
 
-<h2 id="calculando-duraes-de-maneira-ingnua">1. Calculando Durações de Maneira Ingênua</h2>
+<h2 id="1-calculando-durações-de-maneira-ingênua">1. Calculando Durações de Maneira Ingênua</h2>
 
 <p>Considere o código abaixo:</p>
 
@@ -148,7 +148,7 @@
 
 <script src="https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js"></script>
 
-<h3 id="uma-rpida-advertncia-sobre-touniversaltime">Uma Rápida Advertência Sobre <code class="highlighter-rouge">ToUniversalTime()</code></h3>
+<h3 id="uma-rápida-advertência-sobre-touniversaltime">Uma Rápida Advertência Sobre <code class="highlighter-rouge">ToUniversalTime()</code></h3>
 
 <p>O uso do método <code class="highlighter-rouge">ToUniversalTime()</code> - e seu irmão, <code class="highlighter-rouge">ToLocalTime()</code> - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade <code class="highlighter-rouge">Kind</code> do objeto datetime que você tem, o que pode trazer resultados inesperados.</p>
 
@@ -173,7 +173,7 @@
 
 <p>Como evitar que isso aconteça? Uma prática recomendada é usar UTC para armazenar o tempo em que um evento aconteceu. Minha sugestão é seguir esse conselho e também esse fato bem explícito. Coloque o sufixo “UTC” em cada coluna de tabela no banco de dados e também em nomes de propriedades que se referem a um valor em UTC. Ao invés de “Inclusao”, use “InclusaoUTC” e assim por diante. Não é tão bonito, mas com certeza é mais claro.</p>
 
-<h2 id="no-usar-utc-quando-deveria-e-vice-versa">2. Não Usar UTC Quando Deveria (e vice-versa)</h2>
+<h2 id="2-não-usar-utc-quando-deveria-e-vice-versa">2. Não Usar UTC Quando Deveria (e vice-versa)</h2>
 
 <p>Nós podemos definir isso como uma regra universal: use UTC para registrar quando eventos aconteceram. Ao logar, auditar, e registrar todo tipo de <em>timestamps</em> na sua aplicação, UTC é a resposta.</p>
 
@@ -185,19 +185,19 @@
 
 <p>Outro caso de uso comum para o qual UTC não é a solução correta é  <a href="https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;lq=1">o agendamento de eventos locais no futuro</a>. Você não quer que seu alarme acorde você uma hora mais cedo ou uma hora mais tarde nos dias de transição do Horário de Verão, certo? Pois é exatamente isso que aconteceria se você configurasse o seu alarme pelo horário UTC.</p>
 
-<h2 id="no-validar-entrada-dos-usurios">3. Não Validar Entrada dos Usuários</h2>
+<h2 id="3-não-validar-entrada-dos-usuários">3. Não Validar Entrada dos Usuários</h2>
 
 <p>Imagine que você criou uma aplicação desktop simples que permite que usuários configurem lembretes. A pessoa informa a data e hora que quer receber o lembrete, clica em um botão, e pronto.</p>
 
 <p>Tudo parece estar funcionando direito até que alguém do Brasil envia um e-mail para você, reclamando que o lembrete que ela configurou para 15 de outubro às 0h15 não funcionou. O que será que aconteceu?</p>
 
-<h3 id="o-horrio-de-vero-contra-ataca">O Horário de Verão Contra Ataca</h3>
+<h3 id="o-horário-de-verão-contra-ataca">O Horário de Verão Contra Ataca</h3>
 
 <p>O vilão aqui é o bom e velho Horário de Verão novamente. Em 2017, o Horário de Verão no Brasil começou à meia-noite do dia 15 de outubro. Então, a combinação de data e hora que a usuária informou <strong>simplesmente não existe em seu fuso-horário!</strong></p>
 
 <p>É claro que o problema oposto também é possível. Quando o Horário de Verão chega ao fim e os relógios são atrasados, isso <strong>gera horas ambíguas</strong>.</p>
 
-<h3 id="qual--a-soluo">Qual É A Solução?</h3>
+<h3 id="qual-é-a-solução">Qual É A Solução?</h3>
 
 <p>Como lidar com esse tipo de problema no C#? A classe <code class="highlighter-rouge">TimeZoneInfo</code> pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto <code class="highlighter-rouge">DateTime</code> é válido:</p>
 
@@ -211,7 +211,7 @@
 
 <p>E no caso das horas ambíguas? Você também tem duas opções: escolher entre a primeira e segunda ocorrências. Novamente, é meio arbitrário, mas eu aconselho você a escolher a primeira ocorrência, pelo simples fato de tornar as coisas mais simples.</p>
 
-<h2 id="confundir-um-offset--com-um-fuso-horrio">4. Confundir um <em>Offset</em>  com um Fuso Horário</h2>
+<h2 id="4-confundir-um-offset--com-um-fuso-horário">4. Confundir um <em>Offset</em>  com um Fuso Horário</h2>
 
 <p>Considere o timestamp a seguir: 1995-07-14T13:05:00.0000000-03:00. Quando alguém pergunta o que o “-03:00” no final é chamado, muita gente responde “o fuso horário”.</p>
 
@@ -228,7 +228,7 @@
 
 <p>Em resumo: não tente adivinhar um fuso horário pelo offset. Você vai errar a maioria das vezes.</p>
 
-<h2 id="quer-aprender-sobre-tempo-j-no-era-sem-tempo">Quer aprender sobre tempo? Já não era sem tempo!</h2>
+<h2 id="quer-aprender-sobre-tempo-já-não-era-sem-tempo">Quer aprender sobre tempo? Já não era sem tempo!</h2>
 
 <p>Esta lista não é de forma alguma exausitiva. Eu apenas quis oferecer a vocês uma introdução ao fascinante e meio bizarro mundo dos problemas com hora e data em programação. Há muitos recursos valiosos por aí, como<a href="https://stackoverflow.com/tags/timezone/info">a tag time zone no Stack Overflow</a> ou blogs como <a href="https://codeblog.jonskeet.uk/">o de Jon Skeet</a> e <a href="https://codeofmatt.com/">o de Matt Johnson</a> que são autores da popular biblioteca NodaTime.</p>
 

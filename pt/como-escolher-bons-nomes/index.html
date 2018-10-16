@@ -115,7 +115,7 @@
 
 <p>Algumas das dicas que vou mostrar vêm do livro “Código Limpo”, escrito por Robert C. Martin (mais conhecido com Uncle Bob). É um dos meus livros de programação favoritos, e eu escreverei uma resenha dele em breve. Fique ligado!</p>
 
-<h2 id="use-nomes-auto-explicativos">0. Use nomes auto-explicativos</h2>
+<h2 id="0-use-nomes-auto-explicativos">0. Use nomes auto-explicativos</h2>
 
 <p>O quê sua variável/classe/sei-lá-o-quê faz? Como ela deve ser usada? Escolha um nome que responda a essas perguntas.</p>
 
@@ -123,7 +123,7 @@
 
 <p>Digamos que ao ler um código você se depara com isso:</p>
 
-<figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">d</span><span class="p">;</span> <span class="p">//</span> <span class="n">dias</span> <span class="n">para</span> <span class="n">fim</span> <span class="k">do</span> <span class="n">prazo</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">d</span><span class="p">;</span> <span class="c1">// dias para fim do prazo</span></code></pre></figure>
 
 <p>Você poderia argumentar que o código está bom assim. O significado da variável está perfeitamento expresso no comentário. Ótimo, mas lembre-se que a variável vai provavelmente ser utilizada em outros pontos, longe da declaração e do comentário.</p>
 
@@ -131,17 +131,17 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">diasParaFimDoPrazo</span><span class="p">;</span></code></pre></figure>
 
-<h2 id="use-abreviaes-apenas-quando-elas-so-amplamente-conhecidas">1. Use abreviações apenas quando elas são amplamente conhecidas</h2>
+<h2 id="1-use-abreviações-apenas-quando-elas-são-amplamente-conhecidas">1. Use abreviações apenas quando elas são amplamente conhecidas</h2>
 
 <p>Seria loucura nomear uma variável “UniformeResourceLocatorServico” em vez de “UrlServico”. Qualquer desenvolvedor sabe o que uma url é. A mesma coisa com Ftp, UI, IO, e por aí vai. Ou seja, tudo bem usar abreviações nos seus nomes, mas só quando elas são bem conhecidas. Seria contra-produtivo não fazer assim.</p>
 
 <p>A propósito. Quando eu digo “amplamente conhecidas”, não estou querendo dizer conhecidas no mundo todo, ou mesmo no país todo. É claro que você pode e deve usar abreviações que são comuns no domínio do seu negócio. Em geral é considerado uma boa prática codificar o mais próximo possível da linguagem do cliente. Então, se os outros desenvolvedores e as pessoas de negócio se sentem confortáveis usando as abreviações, não tem problema nenhum utilizá-las.</p>
 
-<h2 id="escolha-clareza-ao-invs-de-brevidade">2. Escolha clareza ao invés de brevidade</h2>
+<h2 id="2-escolha-clareza-ao-invés-de-brevidade">2. Escolha clareza ao invés de brevidade</h2>
 
 <p>Isso é parecido com o primeiro ponto. Todo o resto se mantendo igual, nomes mais curtos são melhores. Mas um dia você terá que escolher entre clareza e brevidade. Quando esse dia chegar, escolha a clareza. Seis meses depois, quando você tiver que revisitar aquele código, você vai agradecer a si mesmo.</p>
 
-<h2 id="use-convenes-amplamente-aceitas-na-maior-parte-do-tempo">3. Use convenções amplamente aceitas (na maior parte do tempo</h2>
+<h2 id="3-use-convenções-amplamente-aceitas-na-maior-parte-do-tempo">3. Use convenções amplamente aceitas (na maior parte do tempo</h2>
 
 <p>Existem poucos pontos no livro “Código Limpo” com os quais eu não concordo. Um deles é a recomendação do Uncle Bob para não começar nomes de interfaces com uma letra “I” maiúscula. Ele argumenta que essa prática é um resquício da Notação Húngara e portanto deveria desaparecer. Mesmo eu entendendo a porque ele pensa dessa forma, vou continuar a nomear minhas interfaces com um “I” no começo.</p>
 
@@ -149,7 +149,7 @@
 
 <p>A minha opinião é que se deve abandonar uma convenção extremamente bem aceita apenas quando os benefícios de fazer isso são muito maiores que os custos. E eu não acredito que esse seja o caso aqui.</p>
 
-<h2 id="no-use-notao-hngara">4. Não use notação húngara</h2>
+<h2 id="4-não-use-notação-húngara">4. Não use notação húngara</h2>
 
 <p>Talvez você tenha ouvido falar de notação húngara, talvez não. Mas eu aposto que você já viu, ou talvez já tenha até mesmo usado, mesmo que o nome não seja familiar.</p>
 
@@ -171,7 +171,7 @@
   <li>Faz com que os nomes fiquem mais difíceis de pronunciar, e isso pode dificultar discussões sobre o código e a arquitetura da sua aplicação.</li>
 </ul>
 
-<h2 id="respeite-o-estilo-de-codificao-da-linguagem-framework-ou-projeto">5. Respeite o estilo de codificação da linguagem, framework, ou projeto</h2>
+<h2 id="5-respeite-o-estilo-de-codificação-da-linguagem-framework-ou-projeto">5. Respeite o estilo de codificação da linguagem, framework, ou projeto</h2>
 
 <p>Desenvolvedores C# tendem a utilizar <code class="highlighter-rouge">CamelCase</code> para nomear variáveis locais, membros de instância e parâmetros de métodos, como em <code class="highlighter-rouge">nomeProduto</code>. Já em Ruby o estilo recomendado é o <code class="highlighter-rouge">snake_case</code>. A mesma variável ficaria: <code class="highlighter-rouge">nome_produto</code>.</p>
 
@@ -181,15 +181,15 @@
 
 <p>É como diz o ditado: “Quando estiver em Roma, faça como os romanos”.</p>
 
-<h2 id="nomes-de-mtodos-devem-comear-com-um-verbo">6. Nomes de métodos devem começar com um verbo</h2>
+<h2 id="6-nomes-de-métodos-devem-começar-com-um-verbo">6. Nomes de métodos devem começar com um verbo</h2>
 
 <p>Essa dica é bem curta. Métodos são geralmente ações que um objeto pode realizar. Assim, seus nomes deveriam começar com um verbo que indica qual é essa ação, e.g. <code class="highlighter-rouge">ImprimirRelatorio()</code>, <code class="highlighter-rouge">ExibirPoligono(IPoligono poligono)</code>.</p>
 
-<h2 id="nomes-de-classes-devem-ser-substantivos">7. Nomes de classes devem ser substantivos</h2>
+<h2 id="7-nomes-de-classes-devem-ser-substantivos">7. Nomes de classes devem ser substantivos</h2>
 
 <p>Da mesma forma, nomes de classes deveriam ser substantivos, como <code class="highlighter-rouge">Produto</code>, <code class="highlighter-rouge">Cliente</code>, <code class="highlighter-rouge">Estudante</code>, e assim por diante. Tente evitar termos genéricos como <code class="highlighter-rouge">Manager</code>, porque eles não adicionam nenhum valor.</p>
 
-<h2 id="nomes-de-propriedades-devem-ser-substantivos-adjetivos-ou-frases-adjetivas">8. Nomes de propriedades devem ser substantivos, adjetivos ou frases adjetivas</h2>
+<h2 id="8-nomes-de-propriedades-devem-ser-substantivos-adjetivos-ou-frases-adjetivas">8. Nomes de propriedades devem ser substantivos, adjetivos ou frases adjetivas</h2>
 
 <p>Propriedades devem ser nomeadas com substantivos (<code class="highlighter-rouge">Nome</code>), frases adjetivas ou adjetivos (como no caso de propriedades do tipo <code class="highlighter-rouge">Boolean</code>, e.g. <code class="highlighter-rouge">Finalizado</code> ou <code class="highlighter-rouge">EstaFinalizado</code>).</p>
 
@@ -197,13 +197,13 @@
 
 <p>Abrindo um parênteses. Aqui entramos mais uma vez <a href="(http://carlosschults.net/pt/programar-portugues-ou-ingles/)">naquela velha discussão sobre português x inglês</a>. Muita gente vai dizer que misturar português e inglês como em <code class="highlighter-rouge">IsValido</code> é algo horrível e que jamais deveria ser feito. Outros vão argumentar que o uso de <code class="highlighter-rouge">Is</code> é um idioma facilmente reconhecível por qualquer programador e que tentar aportuguesá-lo como em <code class="highlighter-rouge">EValido</code> ou <code class="highlighter-rouge">EhValido</code> é bem pior. É uma discussão que dá pano pra manga. <a href="http://carlosschults.net/pt/programar-portugues-ou-ingles/">Clique aqui para saber minha opinião a respeito.</a></p>
 
-<h2 id="use-nomes-pronunciveis-e-passveis-de-busca">9. Use nomes pronunciáveis e passíveis de busca</h2>
+<h2 id="9-use-nomes-pronunciáveis-e-passíveis-de-busca">9. Use nomes pronunciáveis e passíveis de busca</h2>
 
 <p>Se esforce para escolher nomes que são pronunciáveis. Quando você escolhe um nome que é difícil ou impossível de ser pronunciado, você desencoraja a discussão sobre o código, o que nunca é uma boa coisa.</p>
 
 <p>Do mesmo jeito, evite nomes com uma letra só. Entre outras razões, você vai sofrer bastante quando tiver que fazer uma busca por eles! Nomes de uma letra só são bons apenas para variáveis de controle em laços de repetição e em expressões lambda. E ainda assim, só quando o escopo é bem curto.</p>
 
-<h2 id="concluso">Conclusão</h2>
+<h2 id="conclusão">Conclusão</h2>
 
 <p>Escolher nomes não é uma tarefa fácil. Um nome precisa expressar propósito, intenção, significado. Ele não precisa ser necessariamente “esperto”, mas tem situações na qual um pouco de esperteza vai ser necessário.</p>
 

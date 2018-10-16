@@ -108,7 +108,7 @@
 
 <p>E é exatamente esse é o objetivo do post de hoje. Eu vou mostrar 4 erros comuns que as pessoas cometem ao lidar com tempo em C#/.NET. E não para por aí. Eu também vou mostrar o que você deve fazer para evitar esses erros e tornar seu código mais seguro e mais fácil de ser compreendido.</p>
 
-<h2 id="calculando-duraes-de-maneira-ingnua">1. Calculando Durações de Maneira Ingênua</h2>
+<h2 id="1-calculando-durações-de-maneira-ingênua">1. Calculando Durações de Maneira Ingênua</h2>
 
 <p>Considere o código abaixo:</p>
 
@@ -138,7 +138,7 @@
 
 <script src="https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js"></script>
 
-<h3 id="uma-rpida-advertncia-sobre-touniversaltime">Uma Rápida Advertência Sobre <code class="highlighter-rouge">ToUniversalTime()</code></h3>
+<h3 id="uma-rápida-advertência-sobre-touniversaltime">Uma Rápida Advertência Sobre <code class="highlighter-rouge">ToUniversalTime()</code></h3>
 
 <p>O uso do método <code class="highlighter-rouge">ToUniversalTime()</code> - e seu irmão, <code class="highlighter-rouge">ToLocalTime()</code> - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade <code class="highlighter-rouge">Kind</code> do objeto datetime que você tem, o que pode trazer resultados inesperados.</p>
 
@@ -163,7 +163,7 @@
 
 <p>Como evitar que isso aconteça? Uma prática recomendada é usar UTC para armazenar o tempo em que um evento aconteceu. Minha sugestão é seguir esse conselho e também esse fato bem explícito. Coloque o sufixo “UTC” em cada coluna de tabela no banco de dados e também em nomes de propriedades que se referem a um valor em UTC. Ao invés de “Inclusao”, use “InclusaoUTC” e assim por diante. Não é tão bonito, mas com certeza é mais claro.</p>
 
-<h2 id="no-usar-utc-quando-deveria-e-vice-versa">2. Não Usar UTC Quando Deveria (e vice-versa)</h2>
+<h2 id="2-não-usar-utc-quando-deveria-e-vice-versa">2. Não Usar UTC Quando Deveria (e vice-versa)</h2>
 
 <p>Nós podemos definir isso como uma regra universal: use UTC para registrar quando eventos aconteceram. Ao logar, auditar, e registrar todo tipo de <em>timestamps</em> na sua aplicação, UTC é a resposta.</p>
 
@@ -175,19 +175,19 @@
 
 <p>Outro caso de uso comum para o qual UTC não é a solução correta é  <a href="https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;lq=1">o agendamento de eventos locais no futuro</a>. Você não quer que seu alarme acorde você uma hora mais cedo ou uma hora mais tarde nos dias de transição do Horário de Verão, certo? Pois é exatamente isso que aconteceria se você configurasse o seu alarme pelo horário UTC.</p>
 
-<h2 id="no-validar-entrada-dos-usurios">3. Não Validar Entrada dos Usuários</h2>
+<h2 id="3-não-validar-entrada-dos-usuários">3. Não Validar Entrada dos Usuários</h2>
 
 <p>Imagine que você criou uma aplicação desktop simples que permite que usuários configurem lembretes. A pessoa informa a data e hora que quer receber o lembrete, clica em um botão, e pronto.</p>
 
 <p>Tudo parece estar funcionando direito até que alguém do Brasil envia um e-mail para você, reclamando que o lembrete que ela configurou para 15 de outubro às 0h15 não funcionou. O que será que aconteceu?</p>
 
-<h3 id="o-horrio-de-vero-contra-ataca">O Horário de Verão Contra Ataca</h3>
+<h3 id="o-horário-de-verão-contra-ataca">O Horário de Verão Contra Ataca</h3>
 
 <p>O vilão aqui é o bom e velho Horário de Verão novamente. Em 2017, o Horário de Verão no Brasil começou à meia-noite do dia 15 de outubro. Então, a combinação de data e hora que a usuária informou <strong>simplesmente não existe em seu fuso-horário!</strong></p>
 
 <p>É claro que o problema oposto também é possível. Quando o Horário de Verão chega ao fim e os relógios são atrasados, isso <strong>gera horas ambíguas</strong>.</p>
 
-<h3 id="qual--a-soluo">Qual É A Solução?</h3>
+<h3 id="qual-é-a-solução">Qual É A Solução?</h3>
 
 <p>Como lidar com esse tipo de problema no C#? A classe <code class="highlighter-rouge">TimeZoneInfo</code> pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto <code class="highlighter-rouge">DateTime</code> é válido:</p>
 
@@ -201,7 +201,7 @@
 
 <p>E no caso das horas ambíguas? Você também tem duas opções: escolher entre a primeira e segunda ocorrências. Novamente, é meio arbitrário, mas eu aconselho você a escolher a primeira ocorrência, pelo simples fato de tornar as coisas mais simples.</p>
 
-<h2 id="confundir-um-offset--com-um-fuso-horrio">4. Confundir um <em>Offset</em>  com um Fuso Horário</h2>
+<h2 id="4-confundir-um-offset--com-um-fuso-horário">4. Confundir um <em>Offset</em>  com um Fuso Horário</h2>
 
 <p>Considere o timestamp a seguir: 1995-07-14T13:05:00.0000000-03:00. Quando alguém pergunta o que o “-03:00” no final é chamado, muita gente responde “o fuso horário”.</p>
 
@@ -218,7 +218,7 @@
 
 <p>Em resumo: não tente adivinhar um fuso horário pelo offset. Você vai errar a maioria das vezes.</p>
 
-<h2 id="quer-aprender-sobre-tempo-j-no-era-sem-tempo">Quer aprender sobre tempo? Já não era sem tempo!</h2>
+<h2 id="quer-aprender-sobre-tempo-já-não-era-sem-tempo">Quer aprender sobre tempo? Já não era sem tempo!</h2>
 
 <p>Esta lista não é de forma alguma exausitiva. Eu apenas quis oferecer a vocês uma introdução ao fascinante e meio bizarro mundo dos problemas com hora e data em programação. Há muitos recursos valiosos por aí, como<a href="https://stackoverflow.com/tags/timezone/info">a tag time zone no Stack Overflow</a> ou blogs como <a href="https://codeblog.jonskeet.uk/">o de Jon Skeet</a> e <a href="https://codeofmatt.com/">o de Matt Johnson</a> que são autores da popular biblioteca NodaTime.</p>
 
@@ -243,7 +243,7 @@
     <div class="post-content">
     <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg" alt="" /></p>
 
-<p><em>NOTA: Eu escrevi este post originalmente para o blug da SubMain. Você pode <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">conferir o artigo original no site deles, em inglês</a>. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.</em></p>
+<p><em>NOTA: Eu escrevi este post originalmente para o blog da SubMain. Você pode <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">conferir o artigo original no site deles, em inglês</a>. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.</em></p>
 
 <p>Algumas semanas atrás, eu estava olhando o Twitter quando vi isso:</p>
 
@@ -256,7 +256,7 @@
 
 <p>É o que vou responder hoje. Vamos lá.</p>
 
-<h2 id="o-que-quero-dizer-por-reviso-de-cdigo">O que quero dizer por “Revisão de Código”</h2>
+<h2 id="o-que-quero-dizer-por-revisão-de-código">O que quero dizer por “Revisão de Código”</h2>
 
 <p>Imagine a seguinte cena: você é um(a) jovem programador(a) em seu primeiro trabalho com desenvolvimento de software. Após terminar sua primeira tarefa, você é convocado(a) a uma sala de reunião; lá você encontra o desenvolvedor líder e três desenvolvedores seniores. Um monitor enorme está ligado exibindo seu código. Hora da revisão!</p>
 
@@ -297,7 +297,7 @@
 
 <p>Finalmente, às vezes as pessoas desperdiçam quantidades ridículas de tempo <strong>discutindo sobre detalhes estéticos inúteis</strong>, como a posição das chaves, ou se devem ou não incluir um underscore no nome de um campo privado. Infelizmente, debates idiotas assim às vezes escalam para níveis que tornam o local de trabalho tóxico.</p>
 
-<h2 id="programao-em-par-mais-que-uma-super-reviso-de-cdigo">Programação em Par: Mais que uma super revisão de código</h2>
+<h2 id="programação-em-par-mais-que-uma-super-revisão-de-código">Programação em Par: Mais que uma super revisão de código</h2>
 
 <p>Programação em par é uma técnica na qual duas pessoas colaboram no código juntas, na mesma estação de trabalho.</p>
 
@@ -345,7 +345,7 @@
 
 <p>Finalmente, a programação em par não fornece um dos benefícios chave da revisão de código posterior: ter uma pessoa com zero contexto analisando o código produzido. As duas pessoas do par <strong>compartilham contexto desde o início da sessão</strong>, o que não deve ser subestimado. As pessoas têm uma tendência a <a href="https://en.wikipedia.org/wiki/IKEA_effect">superestimar o valor de suas contribuições e criar laços emocionais com o que elas criam</a>; por isso é tão importante conseguir uma outra pessoa que, livre desses laços, será capaz de oferecer um julgamento mais claro.</p>
 
-<h2 id="reviso-de-cdigo-vs-programao-em-par-o-veredito">Revisão de Código vs Programação em Par: O Veredito?</h2>
+<h2 id="revisão-de-código-vs-programação-em-par-o-veredito">Revisão de Código vs Programação em Par: O Veredito?</h2>
 <p>Eu cheguei à conclusão de que, embora revisão de código e programação em par <em>pareçam</em> equivalentes, na verdade não são. Existe uma intersecção ali, mas cada prática também apresenta benefícios e desafios únicos.</p>
 
 <p>Não tem como fugir do fato de que programação em par, apesar de seus benefícios, requer um número par de pessoas, trabalhando ao mesmo tempo. Se seu time consiste de pessoas vivendo em diversos fusos horários diferentes (ou mesmo uma equipe local mas com horário flexível), é fácil decidir: revisão de código na cabeça.</p>
@@ -354,7 +354,7 @@
 
 <p>Finalmente, não há nada lhe impedindo de usar <em>ambas</em> práticas. Você pode adotar programação em par como o <em>Modus Operandi</em> padrão e deixar e revisão de código para preencher os vácuos onde o pareamento não funciona tão bem.</p>
 
-<h2 id="de-um-jeito-ou-de-outro-abrace-a-automao">De um jeito ou de outro, abrace a automação</h2>
+<h2 id="de-um-jeito-ou-de-outro-abrace-a-automação">De um jeito ou de outro, abrace a automação</h2>
 <p>Imagine que você escreve para uma publicação, como uma revista. Após finalizar um rascunho, ele precisa ser submetido para revisão. Será que faz sentido para a editora gastar todo seu tempo procurando por erros de ortografia? É claro que não! Nós temos ferramentas para checar tais erros de forma automática, liberando a editora para procurar por problemas em um nível mais alto, como vocabulário mal escolhido, falta de coesão, tom inapropriado, e todas aquelas coisas sobre as quais a sua professora de português não dava sossego.</p>
 
 <p>Com software não é diferente. Ao usar <a href="https://submain.com/products/codeit.right.aspx">uma ferramenta de revisão de códigos automatizados</a>, você pode eliminar muitas das discussões inúteis que acontecem frequentemente em revisões de código ou sessões de programação em par. Não vai ter mais briga sobre convenções estéticas e de nomenclatura, posição de chaves e outras trivialidades inúteis.</p>
@@ -363,7 +363,7 @@
 
 <p>Você também pode usar uma ferramenta de análise estática para lhe alertar sobre potenciais bugs e oportunidades para refatoração. Assim, o revisor/navegador fica livre para focar em preocupações de mais alto nível que necessitam da criatividade, inteligência e empatia humanas.</p>
 
-<h2 id="confiana-e-respeito">Confiança e respeito</h2>
+<h2 id="confiança-e-respeito">Confiança e respeito</h2>
 <p>Quando estava pesquisando para escrever esse post, um tema aparecia bastante: pessoas afirmando que revisão de código surge devido à falta de confiança em nossos desenvolvedores ou que programação em par os infantiliza.</p>
 
 <p>Eu não poderia discordar mais.</p>
@@ -402,7 +402,7 @@
 
 <p>Primeiramente, você verá o que programação cargo cult é e por que você deve se importar. Então, vamos dar uma olhada em alguns exemplos práticos, usando a linguagem C#. Finalmente, nós encerraremos com conselhos sobre o que você pode fazer para não cair nessa armadilha.</p>
 
-<h2 id="programao-cargo-cult-fazendo-as-coisas-porque-sim">Programação Cargo Cult: Fazendo as coisas porque sim.</h2>
+<h2 id="programação-cargo-cult-fazendo-as-coisas-porque-sim">Programação Cargo Cult: Fazendo as coisas porque sim.</h2>
 
 <p>Segundo a versão em inglês da <a href="https://en.wikipedia.org/wiki/Cargo_cult_programming">Wikipedia</a></p>
 
@@ -422,7 +422,7 @@
 
 <p>Por fim, também é possível que o problema seja simplesmente educação insuficiente: talvez o desenvolvedor tenha um entendimento pobre a respeito de como as ferramentas usadas funcionam.</p>
 
-<h2 id="por-que-a-programao-cargo-cult--um-problema">Por que a programação <em>cargo cult</em> é um problema?</h2>
+<h2 id="por-que-a-programação-cargo-cult-é-um-problema">Por que a programação <em>cargo cult</em> é um problema?</h2>
 <p>Como Eric Lippert diz, <a href="https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/">programadores cargo cult sofrem para fazer alterações significativas em um programa</a> e acabam usando uma abordagem de tentativa e erro já que eles não entendem o funcionamento interno do código que estão prestes a alterar.</p>
 
 <p>Isso não é tão diferente do que os <a href="https://pragprog.com/the-pragmatic-programmer/extracts/coincidence">programadores pragmáticos chamam de “programação por coincidência”</a>:</p>
@@ -446,16 +446,16 @@
 
 <p>Desde então, o termo culto à carga tem sido usado em uma variedade de contextos para significar <strong>imitar forma sem conteúdo</strong> - copiar perfeitamente os elementos superficiais mas ao mesmo tempo falhando em entender de maneira mais profunda o significado e funcionamento do que se está tentando emular.</p>
 
-<h2 id="falar--fcil-me-mostre-o-cdigo">Falar é fácil; me mostre o código!</h2>
+<h2 id="falar-é-fácil-me-mostre-o-código">Falar é fácil; me mostre o código!</h2>
 <p>Chega da aula de História por hoje. Hora de ver código! Eu vou mostrar cinco exemplos de programação cargo cult usando a linguagem C#. Vamos lá.</p>
 
-<h3 id="checar-um-tipo-de-valor-no-nulvel-for-null">Checar um tipo de valor não-nulável for <em>Null</em></h3>
+<h3 id="checar-um-tipo-de-valor-não-nulável-for-null">Checar um tipo de valor não-nulável for <em>Null</em></h3>
 <p>O primeiro item é algo que me incomoda já que eu vejo isso bastante em código de produção. É algo assim:</p>
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">public</span> <span class="n">Product</span> <span class="nf">Find</span><span class="p">(</span><span class="kt">int</span> <span class="n">id</span><span class="p">)</span>
 	<span class="p">{</span>
-   	   <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="c1">// essa verificação é inútil
-</span>	   <span class="p">{</span>
+   	   <span class="k">if</span> <span class="p">(</span><span class="n">id</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> <span class="c1">// essa verificação é inútil</span>
+	   <span class="p">{</span>
 	       <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">"Esta linha sempre será executada."</span><span class="p">);</span>
 	   <span class="p">}</span>
 	
@@ -474,10 +474,10 @@
 
 <p>Bom, pra começo de conversa, eu me preocuparia com uma empresa de desenvolvimento cujo único critério de qualidade é “roda sem quebrar”. Mas o problema de verdade aqui é que esse tipo de código demonstra uma falta de entendimento sobre características fundamentais da linguagem e da plataforma que podem lhe causar problemas no futuro.</p>
 
-<h3 id="uso-desnecessrio-de-tolist-em-consultas-do-linq-to-object">Uso Desnecessário de <code class="highlighter-rouge">ToList()</code> em consultas do LINQ to Object</h3>
+<h3 id="uso-desnecessário-de-tolist-em-consultas-do-linq-to-object">Uso Desnecessário de <code class="highlighter-rouge">ToList()</code> em consultas do LINQ to Object</h3>
 <p>Assim como o problema anterior, o item atual é algo que eu rotineiramente vejo em código de produção. Considere o código abaixo:</p>
 
-<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
 	<span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">PremiumUser</span><span class="p">)</span>
 	<span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
 	<span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">})</span>
@@ -491,9 +491,9 @@
 
 <p>O código acima pode ser reescrito da seguinte forma:</p>
 
-<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">PremiumUser</span><span class="p">).</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">});</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">PremiumUser</span><span class="p">).</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">});</span></code></pre></figure>
 
-<h3 id="converses-desnecessrias">Conversões Desnecessárias</h3>
+<h3 id="conversões-desnecessárias">Conversões Desnecessárias</h3>
 <p>Considere a linha seguinte:</p>
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">DateTime</span> <span class="n">creationDate</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"creation_date"</span><span class="p">].</span><span class="nf">ToString</span><span class="p">());</span></code></pre></figure>
@@ -538,7 +538,7 @@
   <p>Unnecessary code changes are expensive and dangerous; <strong>don’t make performance-based changes unless you’ve identified a performance problem.</strong></p>
 </blockquote>
 
-<h2 id="existe-soluo">Existe Solução?</h2>
+<h2 id="existe-solução">Existe Solução?</h2>
 <p>Eu diria que é justo supor que pessoas com menos experiência são mais propensas a cometer erros devido à programação cargo cult. Mas desenvolvedor nenhum está realmente a salvo, independentemente de seu nível de conhecimento ou experiência.</p>
 
 <p>Nós somos apenas humanos no fim das contas. Cansaço, prazos, vieses cognitivos e (para ser realmente honesto) a preguiça eventual pode transformar até o melhor de nós em um programador cargo cult.</p>
@@ -547,13 +547,13 @@
 
 <p>Vamos ver algumas delas.</p>
 
-<h3 id="use-reviso-de-cdigoprogramao-em-par">Use Revisão de Código/Programação em Par</h3>
+<h3 id="use-revisão-de-códigoprogramação-em-par">Use Revisão de Código/Programação em Par</h3>
 <p>A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">revisão de código e programação em par não são exatamente equivalentes</a>, ambas as práticas podem lhe trazer esse benefício.</p>
 
-<h3 id="sempre-teste-suas-hipteses">Sempre Teste Suas Hipóteses</h3>
+<h3 id="sempre-teste-suas-hipóteses">Sempre Teste Suas Hipóteses</h3>
 <p>Escreva <a href="http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">testes de unidade</a> (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça <em>benchmarks</em> exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer <em>insights</em> valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.</p>
 
-<h3 id="leia-cdigo-de-outras-pessoas">Leia Código de Outras Pessoas</h3>
+<h3 id="leia-código-de-outras-pessoas">Leia Código de Outras Pessoas</h3>
 <p>Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.</p>
 
 <p>Na era do <a href="http://github.com/">GitHub</a>, não tem muita desculpa para não fazer isso.</p>
@@ -563,7 +563,7 @@
 
 <p>A mesma dica vale para outros tipos de ferramentas, e até para os warnings que o compilador lhe mostra.</p>
 
-<h2 id="cincia-da-computao-no-superstio-da-computao">Ciência da Computação, Não <em>Superstição</em> da Computação</h2>
+<h2 id="ciência-da-computação-não-superstição-da-computação">Ciência da Computação, Não <em>Superstição</em> da Computação</h2>
 <p>Embora ninguém seja imune à programação cargo cult, nós devemos nos esforçar para superá-la. Há sabedoria na nossa área à nossa disposição, acumulada lentamente ao longo de mais de 7 década. Vamos usá-la. Vamos entender melhor nossas ferramentas e nossa profissão e escrever software de qualidade.</p>
 
     <a href="/pt/cargo-cult-programming/">leia mais...</a>

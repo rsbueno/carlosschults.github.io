@@ -86,6 +86,12 @@
   
   
   
+  
+  
+  
+  
+  
+  
    <span class="post-meta">Jul 11, 2018</span>
     <h2>
           <a class="post-link" href="/en/4-common-datetime-mistakes-csharp/">4 Common Datetime Mistakes in C# — And How to Avoid Them</a>
@@ -111,7 +117,7 @@
 
 <p>That’s what today’s post is about. I’m going to show you four common mistakes C#/.NET developers make when dealing with time. And that’s not all. I’ll also show what you should do to avoid them and make your code safer and easier to reason about.</p>
 
-<h2 id="naively-calculating-durations">1. Naively Calculating Durations</h2>
+<h2 id="1-naively-calculating-durations">1. Naively Calculating Durations</h2>
 
 <p>Consider the code below:</p>
 
@@ -166,7 +172,7 @@
 
 <p>How do you prevent this? It’s a recommended practice to use UTC to record the time when an event happened. My suggestion here is to follow this advice and also to make it explicit that you’re doing so. Append the “UTC” suffix to every database column and class property that holds a UTC datetime. Instead of Created, change it to CreatedUTC and so on. It’s not as pretty, but it’s definitely more clear.</p>
 
-<h2 id="not-using-utc-when-it-should-be-used-and-vice-versa">2. Not Using UTC When It Should Be Used (and Vice Versa)</h2>
+<h2 id="2-not-using-utc-when-it-should-be-used-and-vice-versa">2. Not Using UTC When It Should Be Used (and Vice Versa)</h2>
 
 <p>We could define this as a universal rule: use UTC to record the time when events <em>happened</em>. When logging, auditing, and recording all types of timestamps in your application, UTC is the way to go.</p>
 
@@ -178,7 +184,7 @@
 
 <p>Another common use case where UTC is not the right solution is <a href="https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;lq=1">scheduling future local events</a>. You wouldn’t want to wake up one hour later or earlier in the days of DST transitions, right? That’s exactly what would happen if you’d set your alarm clock by UTC.</p>
 
-<h2 id="not-validating-user-input">3. Not Validating User Input</h2>
+<h2 id="3-not-validating-user-input">3. Not Validating User Input</h2>
 
 <p>Let’s say you’ve created a simple Windows desktop app that lets users set reminders for themselves. The user enters the date and time at which they want to receive the reminder, clicks a button, and that’s it.</p>
 
@@ -204,7 +210,7 @@
 
 <p>And what about ambiguous times? You also have two options: choose between the first and second occurrences. Then again, it’s somewhat arbitrary, but my advice is to pick the first one. Since you have to choose one, why not make things simpler?</p>
 
-<h2 id="mistaking-an-offset-for-a-time-zone">4. Mistaking an Offset for a Time Zone</h2>
+<h2 id="4-mistaking-an-offset-for-a-time-zone">4. Mistaking an Offset for a Time Zone</h2>
 
 <p>Consider the following timestamp: 1995-07-14T13:05:00.0000000-03:00. When asked what the -03:00 at the end is called, many developers answer, “a time zone.”</p>
 

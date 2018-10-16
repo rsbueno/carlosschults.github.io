@@ -123,7 +123,7 @@
 
 <p>Mas agora parece que a espera está finalmente chegando ao fim. Segundo Mads Torgersen, o <em>program manager</em> do time de design do C#, <a href="https://channel9.msdn.com/Blogs/Seth-Juarez/A-Preview-of-C-8-with-Mads-Torgersen">um estagiário da Microsoft propôs uma nova sintaxe para métodos de extensão que também possibilitará “outras coisas de extensão”</a>.</p>
 
-<h3 id="vamos-ver-o-cdigo">Vamos ver o código</h3>
+<h3 id="vamos-ver-o-código">Vamos ver o código</h3>
 
 <p>Se eu fosse você estaria ansioso para ver algum código Logo abaixo temos um exemplo de um método de extensão, utilizando a sintaxe atual:</p>
 
@@ -153,7 +153,7 @@
 
 <p>Você pode <a href="https://github.com/dotnet/csharplang/issues/192">acompanhar o desenvolvimento da feature na sua issue no GitHub.</a></p>
 
-<h2 id="implementao-default-em-interfaces">Implementação default em interfaces.</h2>
+<h2 id="implementação-default-em-interfaces">Implementação default em interfaces.</h2>
 
 <p>Eu admito que fiquei surpreso - e não muito feliz - quando ouvi sobre essa feature pela primeira vez, <a href="https://channel9.msdn.com/Events/Build/2017/B8104">em uma palestra Mads Torgersen ministrou em maio, na conferência Build 2017.</a></p>
 
@@ -179,7 +179,7 @@
 
 <p>Outra proposta de valor importação dessa feature tem relação com os sistemas Android e iOs. Já que tanto Java e Swift oferecem implementações padrão em interfaces, pode ser complicado <em>envelopar</em> APIs do Android e iOs que fazem uso desta funcionalidade. Com a oitava versão do C#, será possível adaptar tais APIs de maneira mais fiel.</p>
 
-<h3 id="as-interfaces-vo-virar-classes-abstratas">As interfaces vão virar classes abstratas?</h3>
+<h3 id="as-interfaces-vão-virar-classes-abstratas">As interfaces vão virar classes abstratas?</h3>
 
 <p>Mais ou menos, mas não realmente. Como você sabe, não há herança múltipla em linguagens coo C# e Java, o que significa que não é possível herdar de mais de uma classe. Por outro lado, uma classe é (e continuará sendo) capaz de implementar várias interfaces.</p>
 
@@ -187,13 +187,13 @@
 
 <p>Essa funcionalidade está sendo prototipada. <a href="https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md">Você pode seguir seu desenvolvimento na issue no GitHub.</a></p>
 
-<h2 id="tipos-de-referncia-nulveis">Tipos de Referência Nuláveis</h2>
+<h2 id="tipos-de-referência-nuláveis">Tipos de Referência Nuláveis</h2>
 
 <p>“O quê?”, você talvez esteja pensando. “Não seria ‘tipos de referência <strong>não</strong>-nuláveis’?” O nome dessa funcionalidade pode realmente confundir um pouco. Vou voltar a isso mais tarde, mas antes, vamos explicar a razão de uma feature como essa ser sequer considerada.</p>
 
 <p>Eu aposto que você conhece a frase “o erro de um bilhão de dólares”. Na remota possibilidade de que você não conheça, ela ser refere à referência nula, e foi <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">criada por ninguém mais ninguém menos que Sir Tony Hoare, o próprio criador da referência nula.</a></p>
 
-<h3 id="mas-por-que-null--to-ruim">Mas por que <code class="highlighter-rouge">null</code> é tão ruim?</h3>
+<h3 id="mas-por-que-null-é-tão-ruim">Mas por que <code class="highlighter-rouge">null</code> é tão ruim?</h3>
 
 <p>Existem várias possíveis respostas para essa pergunta mas o maior problema é, claro, o risco da famosa <em>null-reference exception</em> (também conhecida como <em>null-pointer exception</em> na Java-lândia). Já que tudo (“tudo” no contexto do C# significa tipos os <a href="http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">tipos de referência</a>) pode ser nulo, você sempre corre o risco de receber uma exceção quando tenta acessar algum membro de um objeto.</p>
 
@@ -209,7 +209,7 @@
 
 <p>Para manter a linguagem consistente, a proposta é que seja usada a mesma sintaxe que já existe para tipos de valor nuláveis - em outras palavras, o ponto de interrogação.</p>
 
-<h3 id="chega-de-falar-vamos-ver-cdigo">Chega de falar. Vamos ver código!</h3>
+<h3 id="chega-de-falar-vamos-ver-código">Chega de falar. Vamos ver código!</h3>
 
 <p>Eu imagino que usar uma classe “Pessoa” como exemplo é o equivalente de tocar “Stairway to Heaven” numa loja de instrumentos musicais: originalidade zero. Mas usar um exemplo mais elaborado seria uma distração desnecessária, então me dá um desconto desta vez.</p>
 
@@ -239,7 +239,7 @@
 
 <p>Em resumo, você tem várias opções. Assim que você conseguir convencer o compilador que seu código não tem risco de disparar uma <em>null reference exception</em>, o aviso vai embora.</p>
 
-<h3 id="impedindo-atribuio-de-nulvel-para-no-nulvel">Impedindo atribuição de nulável para não-nulável</h3>
+<h3 id="impedindo-atribuição-de-nulável-para-não-nulável">Impedindo atribuição de nulável para não-nulável</h3>
 
 <p>A nova versão do C# também vai impedir atribuição de uma variável nulável para uma não-nulável, então o código a seguir também vai resultar em um aviso:</p>
 
@@ -269,7 +269,7 @@
 
 <p>Assim como as outras funcionalidades, você pode se <a href="https://github.com/dotnet/csharplang/blob/master/proposals/nullable-reference-types.md">antenar com o que está acontecendo por meio da issue no GitHub.</a></p>
 
-<h2 id="c-tem-um-futuro-e-vai-ser-incrvel">C# tem um futuro. E vai ser incrível.</h2>
+<h2 id="c-tem-um-futuro-e-vai-ser-incrível">C# tem um futuro. E vai ser incrível.</h2>
 
 <p>Agora você sabe um pouco mais sobre três das funcionalidades que nós provavelmente ganharemos com a próxima versão da linguagem C#.</p>
 

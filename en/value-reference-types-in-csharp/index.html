@@ -111,8 +111,8 @@ I’ll write about those in the future, but for today let’s focus on the basic
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">int</span> <span class="n">x</span> <span class="p">=</span> <span class="m">10</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
     <span class="n">y</span><span class="p">++;</span>
-    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="err">$</span><span class="s">"The value of x is {x}"</span><span class="p">);</span> <span class="c1">// Outputs "The value of x is 10"
-</span>    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="err">$</span><span class="s">"The value of y is {y}"</span><span class="p">);</span> <span class="p">//</span> <span class="n">Outputs</span> <span class="s">"The value of y is 11"</span></code></pre></figure>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The value of x is </span><span class="p">{</span><span class="n">x</span><span class="p">}</span><span class="s">"</span><span class="p">);</span> <span class="c1">// Outputs "The value of x is 10"</span>
+    <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"The value of y is </span><span class="p">{</span><span class="n">y</span><span class="p">}</span><span class="s">"</span><span class="p">);</span> <span class="c1">// Outputs "The value of y is 11"</span></code></pre></figure>
 
 <p>No surprises here, cause this is the exact behaviour you’d expect.<br />
 Now, suppose we have a class like this:</p>
@@ -130,20 +130,20 @@ Now, suppose we have a class like this:</p>
 
         <span class="k">public</span> <span class="k">void</span> <span class="nf">SayHello</span><span class="p">()</span>
         <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="err">$</span><span class="s">"Hello! My name is {Name} and I'm a {Profession}"</span><span class="p">);</span>
+            <span class="n">Console</span><span class="p">.</span><span class="nf">WriteLine</span><span class="p">(</span><span class="s">$"Hello! My name is </span><span class="p">{</span><span class="n">Name</span><span class="p">}</span><span class="s"> and I'm a </span><span class="p">{</span><span class="n">Profession</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span></code></pre></figure>
 
 <p>Now, you do this:<code> </code></p>
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">   
-    <span class="n">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="s">"Mary"</span><span class="p">,</span> <span class="s">"programmer"</span><span class="p">);</span>    
-    <span class="n">person</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">();</span> <span class="c1">// outputs "Hello! My name is Mary and I'm a programmer"
-</span>    <span class="n">var</span> <span class="n">person2</span> <span class="p">=</span> <span class="n">person</span><span class="p">;</span>
+    <span class="kt">var</span> <span class="n">person</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">Person</span><span class="p">(</span><span class="s">"Mary"</span><span class="p">,</span> <span class="s">"programmer"</span><span class="p">);</span>    
+    <span class="n">person</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">();</span> <span class="c1">// outputs "Hello! My name is Mary and I'm a programmer"</span>
+    <span class="kt">var</span> <span class="n">person2</span> <span class="p">=</span> <span class="n">person</span><span class="p">;</span>
     <span class="n">person2</span><span class="p">.</span><span class="n">Name</span> <span class="p">=</span> <span class="s">"John"</span><span class="p">;</span>
     <span class="n">person2</span><span class="p">.</span><span class="n">Profession</span> <span class="p">=</span> <span class="s">"musician"</span><span class="p">;</span>    
-    <span class="n">person2</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">();</span> <span class="c1">// outputs "Hello! My name is John and I'm a musician "  
-</span>    <span class="n">person</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">();</span>   <span class="p">//</span> <span class="n">outputs</span> <span class="s">"Hello! My name is John and I'm a musician "</span> </code></pre></figure>
+    <span class="n">person2</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">();</span> <span class="c1">// outputs "Hello! My name is John and I'm a musician "  </span>
+    <span class="n">person</span><span class="p">.</span><span class="nf">SayHello</span><span class="p">();</span>   <span class="c1">// outputs "Hello! My name is John and I'm a musician " </span></code></pre></figure>
 
 <p>Now is the time when beginners sometimes get confused. “This doesn’t make sense”, they say. “I’ve changed the value of one of the variables, and the other also changed.”</p>
 
@@ -245,6 +245,13 @@ Let me know in the comments, or <a href="http://twitter.com/carlosschults">reach
         
         	    
             <a rel="next" class="next" href="/en/book-review-pragmatic-programmer/">Book Review: The Pragmatic Programmer &rarr;</a>
+                
+         
+        
+        
+                
+        
+        
                 
          
         
