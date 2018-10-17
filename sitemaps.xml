@@ -8,6 +8,22 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/en/coding-best-practices-short-time/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/boas-praticas-sem-tempo/" />
+        
+        <lastmod>2018-10-16T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/boas-praticas-sem-tempo/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/coding-best-practices-short-time/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/boas-praticas-sem-tempo/" />
+        
         <lastmod>2018-10-16T00:00:00-03:00</lastmod>
         <changefreq>weekly</changefreq>
       </url>

@@ -83,6 +83,134 @@
   
   
   
+    <span class="post-meta"><time datetime='16-10-2018'>16/10/2018</time></span> 
+    <h2>
+          <a class="post-link" href="/pt/boas-praticas-sem-tempo/">Boas Práticas De Programação Para Os Apressados</a>
+    </h2>
+    <div class="post-content">
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1539703469/coding-best-practices-1038x437_ugnhab.jpg" alt="" />
+Photo by Ales Nesetril on Unsplash</p>
+
+<p><em>NOTA: Este post foi originalmente escrito para o blog da the SubMain.  Você pode <a href="https://blog.submain.com/coding-best-practices-short-time/">ler o artigo original no site deles, em inglês</a>. Quando estiver por lá, baixe e experimente o CodeIt.Right.</em></p>
+
+<p>Um dos tópicos em desenvolvimento de software que me interessa muito são boas práticas de codificação. Eu estou sempre pesquisando e buscando maneiras de aperfeiçoar meu trabalho e entregar valor de forma rápida e consistente.</p>
+
+<p>Pode ser meio espinhoso definir o que “<a href="https://www.daedtech.com/what-is-a-best-practice-in-software-development/">é realmente uma boa prática”</a>. Há pessoas que inclusive sugerem <a href="https://dzone.com/articles/death-best-practices">aposentar o termo!</a> Mas um ponto em que praticamente todos concordam é: descobrir e implementar estratégias - não importa o nome que você coloca nelas - para melhorar o resultado do seu trabalho é algo que qualquer programadora ou programador que faz jus a esse nome deveria fazer continuamente.</p>
+
+<p>Claro, não existe almoço grátis. A adoção de uma boa prática leva tempo, o que você provavelmente não tem muito sobrando para começo de conversa. Isso sem mencionar a gerência, nem sempre muito animados a tentarem coisas novas.</p>
+
+<p>Então, o que fazer se a sua equipe de desenvolvimento está sofrendo com a baixa qualidade de uma base de código, mas não tem tempo para implementar as boas práticas que remediariam a situação?</p>
+
+<p>A resposta que eu ofereço é o que eu vou chamar de “pacote emergencial de boas práticas”: uma pequena lista de boas práticas de programação que você pode adotar em relativamente pouco tempo para levar sua equipe e sua aplicação do completo caos para um estado mais gerenciável.</p>
+
+<p>Sim, eu sei que há tantos conselhos sobre boas práticas por aí que é até difícil não se sentir sobrecarregado. Por causa disso, eu restringi a minha lista de boas práticas a itens que atendam aos seguintes critérios:</p>
+
+<ul>
+  <li>As boas práticas precisam ser fundamentais, no sentido de que elas são blocos básicos a partir dos quais você pode implementar práticas mais sofisticadas depois.</li>
+  <li>Você pode adotá-las em relativamente pouco tempo. (Eu diria que uma semana é praticável.)</li>
+  <li>O seu custo é zero ou perto disso.</li>
+</ul>
+
+<p>As práticas a seguir atendem os critérios listados. E sem mais enrolação, aqui está: meu pacote emergencial de boas práticas de codificação, com itens listados na ordem que eles deveriam ser adotados, começando pelo mais crítico.</p>
+
+<h2 id="sistema-de-controle-de-versão">Sistema de Controle de Versão</h2>
+
+<p>Eu trabalhei uma vez em uma empresa de desenvolvimento de software na qual nenhum sistema de controle de versão era usado. Os arquivos de código fonte ficavam em uma pasta compartilhada que qualquer desenvolvedor podia acessar. Qual era o processo usado para poder editar um arquivo? Você provavelmente adivinhou: nós criávamos uma cópia do arquivo e adicionávamos “_OLD” ao final do nome.</p>
+
+<p>Isso aconteceu há oito ou nove anos, o que significa que as coisas devem ter melhorado, certo? Bom, provavelmente melhoraram, um pouco, mas não totalmente. Ainda tem <a href="https://twitter.com/_m_b_j_/status/938785388268806146">empresas por aí que não usam controle de versão</a>.</p>
+
+<h3 id="como-proceder">Como proceder?</h3>
+
+<p>De agora em diante, eu vou assumir que você concorda que versionamento é uma boa prática fundamental. Caso esse não seja o caso, há muitos recursos pela web afora explicando <a href="https://www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/what-is-version-control#start">o que um versionador é</a> e <a href="https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control">porque você deveria usar um.</a></p>
+
+<p>Com isso resolvido, é hora de sermos mais específicos. Qual ferramenta usar? Como proceder com a sua adoção?</p>
+
+<p><a href="https://git-scm.com/">Git</a> é uma escolha sólida. E apesar de ter uma curva de aprendizado mais acentuada para<a href="http://carlosschults.net/en/git-basics-for-tfs-users">quem já está mais acostumado com sistemas de controle de versão centralizados, como Subversion ou TFVC</a>, Git é o padrão <em>de facto</em> da indústria. Então, sem sombra de dúvidas, você deve aprender git. Não fazê-lo pode prejudicar a sua carreira no futuro.</p>
+
+<p>Mas é possível que o Git não seja a melhor escolha para o seu time <strong>agora</strong>. Lembre-se, você não tem muito tempo. Nós precisamos que a sua equipe adote as boas práticas o mais rápido possível.</p>
+
+<p>Como nós podemos fazer isso? Suponha que você tenha experiência com <a href="https://subversion.apache.org/">Subversion</a>, pois esse era o versionador usado na empresa que você trabalhou anteriormente. Sua experiência com Git, porém, é nenhuma. Se esse é o caso, eu diria que Subversion é a melhor escolha para você. Ter que aprender um novo sistema e ensiná-lo para seus colegas ao mesmo tempo que o coloca em vigor na empresa seria demais: você iria apenas se sobrecarregar.</p>
+
+<h2 id="revisão-de-código">Revisão de Código</h2>
+
+<p>Eu não vou mentir: eu sou um grande fã de revisão de código. E <a href="http://www.codinghorror.com/blog/archives/000495.html">eu não estou sozinho nisso.</a>. Eu já testemunhei em primeira mão como um bom processo de revisão de código pode reduzir o número de problemas em uma aplicação, tornar o código mais consistente e, mais importante ainda, espalhar conhecimento por todo o time de desenvolvimento.</p>
+
+<p>E aqui vai uma ótima vantagem dessa prática: revisão de código é algo relativamente fácil de ser implementado. Comece da maneira mais simples possível, e então faça adaptações na sua abordagem conforme as necessidades aparecerem.</p>
+
+<h3 id="minha-definição-de-revisão-de-código">Minha Definição de Revisão de Código</h3>
+
+<p>Falar de revisão de código pode ser complicado. As pessoas às vezes tem ideias totalmente diferentes sobre o que a expressão significa. Então eu acho que uma clarificação se faz necessária.</p>
+
+<p>Eu <strong>não</strong> sou a favor de um processo de revisão de código altamente burocrático e estressante, no qual o seu código é esmiuçado, em público, durante horas. Eu não acredito que envergonhar as pessoas em público é uma forma eficaz de aumentar a qualidade de um projeto. Ao contrário, <a href="http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/">o tipo de revisão de código que eu defendo</a> é um processo simples, geralmente iniciado ao submeter um pull request ou usando sua IDE favorita.</p>
+
+<h3 id="como-proceder-1">Como Proceder</h3>
+
+<p>Agora que nós estamos sintonizados em relação ao significado de “revisão de código”, a próxima pergunta é: “como implementar isso na prática?” Da maneira mais simples possível que funcione.</p>
+
+<p>Por exemplo, se a sua empresa desenvolve em .NET e usa TFS/TFVC, você pode começar <a href="https://marketplace.visualstudio.com/items?itemName=ColinD.ColinsALMCheckinPoliciesVS2017">instalando uma política de check-in</a> que exige uma revisão de código para cada check-in. Se a sua equipe usa GitHub, vocês podem usar <a href="https://help.github.com/articles/about-pull-requests/">pull requests</a>. Apenas comece a realizar revisões de código. Então, com o tempo, vá fazendo os ajustes e adaptações necessários.</p>
+
+<p>Estas são algumas das questões que podem surgir ao refinar o seu processo:</p>
+
+<ul>
+  <li><strong>Qual é o objetivo da revisão de código?</strong> Estamos procurando por bugs? Tentando melhorar a legibilidade?Checando se o código adere ao padrão de codificação da empresa?</li>
+  <li><strong>Como separamos “sugestões” de “impedimentos”?</strong> É OK recusar a alteração de alguém por causa de uma indentação ruim ou um nome de variável ligeiramente equivocado?</li>
+  <li><strong>O que fazer se revisor e revisado não conseguem chegar a um consenso?</strong> Trazer um mediador para dar a palavra final? E quem seria essa pessoa?</li>
+</ul>
+
+<p>A resposta para todas as perguntas acima podem ser encontradas na <strong>automação</strong>. Uma boa parte do desconforto das revisões de códigos pode ser eliminada quando você emprega um <a href="https://blog.submain.com/different-styles-code-analyzer/">analisador de código</a> para lidar com as partes automatizáveis do processo.</p>
+
+<p>Por exemplo, <a href="https://submain.com/codeit.right/features">SubMain possui um produto chamado CodeIt.Right</a> que oferece feedback em tempo real de dentro do Visual Studio, lhe alertando de possíveis problemas de codificação, inclusive corrigindo problemas quando possível.</p>
+
+<p>Ao abraçar a automação, você deixa as pessoas da equipe livres para se preocuparem com questões de mais alto nível durante as revisões, como claridade do código ou decisões arquiteturais.</p>
+
+<h2 id="builds-automatizados">Builds Automatizados</h2>
+
+<p>Talvez você esteja pensando que eu me equivoquei nessa seção. Afinal de contas, sequer faz sentido falar de builds automatizados sem mencionar testes automatizados?</p>
+
+<p>Eu vou argumentar que sim, faz sentido, por uma razão muito simples: builds automatizados eliminam o famoso problema de “<a href="https://blog.codinghorror.com/the-works-on-my-machine-certification-program/">na minha máquina funciona</a>”. </p>
+
+<p>Ter um local central onde os builds são feitos joga luz em vários tipos de problemas, de mal gerenciamento de dependências a falta de disciplina em testes.</p>
+
+<h3 id="como-proceder-2">Como Proceder</h3>
+
+<p>Meu conselho aqui é o mesmo que na seção anterior: faça a coisa mais simples possível que funcione.</p>
+
+<p>Se sua equipe já usa TFS, aprenda como <a href="https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1">criar uma definição de build</a>. Se os seus projetos estão no GitHub, dê uma olhada no <a href="https://travis-ci.org/">Travis CI.</a></p>
+
+<p>Com o tempo, você vai melhorando a sua estratégia. Lembra dos analisadores de código que eu mencionei anteriormente? É possível integrá-los no seu processo de build. <a href="http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">Testes unitários</a> e outros tipos de testes automatizados também são uma valiosa adição.</p>
+
+<p>E por falar nisso…</p>
+
+<h2 id="ausências-notáveis">Ausências Notáveis</h2>
+
+<p>Você talvez tenha se surpreendido por minha lista de boas práticas não incluir testes unitários, mesmo eu sendo um defensor da importância de testes automatizados para a qualidade de uma aplicação. Qual é a razão disso?</p>
+
+<p>Infelizmente, adicionar testes unitários a uma aplicação legada é muito difícil, ao ponto de existir até <a href="https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&amp;qid=1515443597&amp;sr=8-1&amp;keywords=working+effectively+with+legacy+code">um livro famoso</a> que foca apenas nisso. Não é uma tarefa fácil de se fazer em pouco tempo.</p>
+
+<p>Também é possível que muitos de vocês esperavam que eu falasse sobre código limpo ou os princípios <a href="https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)">SOLID</a>. Eu encorajo vocês a lerem e pesquisarem sobre esses tópicos, mas eu não acredito que eles encaixam no propósito do post de hoje. Como o próprio nome deixa claro, eles são <em>princípios</em>. Pense neles como diretrizes filosóficas. Úteis? Claro. Mas não tão fáceis de decompor em conselhos pequenos, simples e acionáveis.</p>
+
+<h2 id="implemente-essas-práticas-para-ontem">Implemente Essas Práticas Para Ontem!</h2>
+
+<p>É possível que vários de vocês tenha achado essas práticas extremamente básicas e não dignas de um post. “Quem é que não usa controle de versão em 2018???”</p>
+
+<p>Bom, não é tão difícil assim encontrar evidência (anedótica, mas ainda assim) que <a href="http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr">as coisas ainda não são tão perfeitas</a>.</p>
+
+<p>Acreditar que mesmo práticas tão fundamentais como versionamento de código ou testes automatizados são aplicadas universalmente é mais ingenuidade do que talvez queremos admitir.</p>
+
+<p>Para o restante de vocês, eu espero que essa lista seja útil.</p>
+
+<p>Você já deve ter ouvido o ditado. “Quando estiver em um buraco, para de cavar.” E é exatamente esse o tipo de ajuda que eu quis oferecer com esse post: correções rápidas e fáceis, para que você e as demais pessoas em seu tipo possam recuperar o suficiente de sanidade para poderem focar e recuperar o controle de sua aplicação, garantido sua saúde a longo prazo.</p>
+
+    <a href="/pt/boas-praticas-sem-tempo/">leia mais...</a>
+   </div>
+  
+  
+  
+  
+  
+  
+  
+  
     <span class="post-meta"><time datetime='11-07-2018'>11/07/2018</time></span> 
     <h2>
           <a class="post-link" href="/pt/4-erros-comuns-datetime-csharp/">4 Erros Comuns Com Data e Hora no C# — E como evitá-los</a>

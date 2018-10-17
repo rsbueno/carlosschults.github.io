@@ -5,10 +5,136 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Oct 2018 13:06:12 -0300</pubDate>
-    <lastBuildDate>Tue, 16 Oct 2018 13:06:12 -0300</lastBuildDate>
+    <pubDate>Wed, 17 Oct 2018 10:52:59 -0300</pubDate>
+    <lastBuildDate>Wed, 17 Oct 2018 10:52:59 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Boas Práticas De Programação Para Os Apressados</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1539703469/coding-best-practices-1038x437_ugnhab.jpg&quot; alt=&quot;&quot; /&gt;
+Photo by Ales Nesetril on Unsplash&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA: Este post foi originalmente escrito para o blog da the SubMain.  Você pode &lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;ler o artigo original no site deles, em inglês&lt;/a&gt;. Quando estiver por lá, baixe e experimente o CodeIt.Right.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Um dos tópicos em desenvolvimento de software que me interessa muito são boas práticas de codificação. Eu estou sempre pesquisando e buscando maneiras de aperfeiçoar meu trabalho e entregar valor de forma rápida e consistente.&lt;/p&gt;
+
+&lt;p&gt;Pode ser meio espinhoso definir o que “&lt;a href=&quot;https://www.daedtech.com/what-is-a-best-practice-in-software-development/&quot;&gt;é realmente uma boa prática”&lt;/a&gt;. Há pessoas que inclusive sugerem &lt;a href=&quot;https://dzone.com/articles/death-best-practices&quot;&gt;aposentar o termo!&lt;/a&gt; Mas um ponto em que praticamente todos concordam é: descobrir e implementar estratégias - não importa o nome que você coloca nelas - para melhorar o resultado do seu trabalho é algo que qualquer programadora ou programador que faz jus a esse nome deveria fazer continuamente.&lt;/p&gt;
+
+&lt;p&gt;Claro, não existe almoço grátis. A adoção de uma boa prática leva tempo, o que você provavelmente não tem muito sobrando para começo de conversa. Isso sem mencionar a gerência, nem sempre muito animados a tentarem coisas novas.&lt;/p&gt;
+
+&lt;p&gt;Então, o que fazer se a sua equipe de desenvolvimento está sofrendo com a baixa qualidade de uma base de código, mas não tem tempo para implementar as boas práticas que remediariam a situação?&lt;/p&gt;
+
+&lt;p&gt;A resposta que eu ofereço é o que eu vou chamar de “pacote emergencial de boas práticas”: uma pequena lista de boas práticas de programação que você pode adotar em relativamente pouco tempo para levar sua equipe e sua aplicação do completo caos para um estado mais gerenciável.&lt;/p&gt;
+
+&lt;p&gt;Sim, eu sei que há tantos conselhos sobre boas práticas por aí que é até difícil não se sentir sobrecarregado. Por causa disso, eu restringi a minha lista de boas práticas a itens que atendam aos seguintes critérios:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;As boas práticas precisam ser fundamentais, no sentido de que elas são blocos básicos a partir dos quais você pode implementar práticas mais sofisticadas depois.&lt;/li&gt;
+  &lt;li&gt;Você pode adotá-las em relativamente pouco tempo. (Eu diria que uma semana é praticável.)&lt;/li&gt;
+  &lt;li&gt;O seu custo é zero ou perto disso.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;As práticas a seguir atendem os critérios listados. E sem mais enrolação, aqui está: meu pacote emergencial de boas práticas de codificação, com itens listados na ordem que eles deveriam ser adotados, começando pelo mais crítico.&lt;/p&gt;
+
+&lt;h2 id=&quot;sistema-de-controle-de-versão&quot;&gt;Sistema de Controle de Versão&lt;/h2&gt;
+
+&lt;p&gt;Eu trabalhei uma vez em uma empresa de desenvolvimento de software na qual nenhum sistema de controle de versão era usado. Os arquivos de código fonte ficavam em uma pasta compartilhada que qualquer desenvolvedor podia acessar. Qual era o processo usado para poder editar um arquivo? Você provavelmente adivinhou: nós criávamos uma cópia do arquivo e adicionávamos “_OLD” ao final do nome.&lt;/p&gt;
+
+&lt;p&gt;Isso aconteceu há oito ou nove anos, o que significa que as coisas devem ter melhorado, certo? Bom, provavelmente melhoraram, um pouco, mas não totalmente. Ainda tem &lt;a href=&quot;https://twitter.com/_m_b_j_/status/938785388268806146&quot;&gt;empresas por aí que não usam controle de versão&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;como-proceder&quot;&gt;Como proceder?&lt;/h3&gt;
+
+&lt;p&gt;De agora em diante, eu vou assumir que você concorda que versionamento é uma boa prática fundamental. Caso esse não seja o caso, há muitos recursos pela web afora explicando &lt;a href=&quot;https://www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/what-is-version-control#start&quot;&gt;o que um versionador é&lt;/a&gt; e &lt;a href=&quot;https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control&quot;&gt;porque você deveria usar um.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Com isso resolvido, é hora de sermos mais específicos. Qual ferramenta usar? Como proceder com a sua adoção?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; é uma escolha sólida. E apesar de ter uma curva de aprendizado mais acentuada para&lt;a href=&quot;http://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;quem já está mais acostumado com sistemas de controle de versão centralizados, como Subversion ou TFVC&lt;/a&gt;, Git é o padrão &lt;em&gt;de facto&lt;/em&gt; da indústria. Então, sem sombra de dúvidas, você deve aprender git. Não fazê-lo pode prejudicar a sua carreira no futuro.&lt;/p&gt;
+
+&lt;p&gt;Mas é possível que o Git não seja a melhor escolha para o seu time &lt;strong&gt;agora&lt;/strong&gt;. Lembre-se, você não tem muito tempo. Nós precisamos que a sua equipe adote as boas práticas o mais rápido possível.&lt;/p&gt;
+
+&lt;p&gt;Como nós podemos fazer isso? Suponha que você tenha experiência com &lt;a href=&quot;https://subversion.apache.org/&quot;&gt;Subversion&lt;/a&gt;, pois esse era o versionador usado na empresa que você trabalhou anteriormente. Sua experiência com Git, porém, é nenhuma. Se esse é o caso, eu diria que Subversion é a melhor escolha para você. Ter que aprender um novo sistema e ensiná-lo para seus colegas ao mesmo tempo que o coloca em vigor na empresa seria demais: você iria apenas se sobrecarregar.&lt;/p&gt;
+
+&lt;h2 id=&quot;revisão-de-código&quot;&gt;Revisão de Código&lt;/h2&gt;
+
+&lt;p&gt;Eu não vou mentir: eu sou um grande fã de revisão de código. E &lt;a href=&quot;http://www.codinghorror.com/blog/archives/000495.html&quot;&gt;eu não estou sozinho nisso.&lt;/a&gt;. Eu já testemunhei em primeira mão como um bom processo de revisão de código pode reduzir o número de problemas em uma aplicação, tornar o código mais consistente e, mais importante ainda, espalhar conhecimento por todo o time de desenvolvimento.&lt;/p&gt;
+
+&lt;p&gt;E aqui vai uma ótima vantagem dessa prática: revisão de código é algo relativamente fácil de ser implementado. Comece da maneira mais simples possível, e então faça adaptações na sua abordagem conforme as necessidades aparecerem.&lt;/p&gt;
+
+&lt;h3 id=&quot;minha-definição-de-revisão-de-código&quot;&gt;Minha Definição de Revisão de Código&lt;/h3&gt;
+
+&lt;p&gt;Falar de revisão de código pode ser complicado. As pessoas às vezes tem ideias totalmente diferentes sobre o que a expressão significa. Então eu acho que uma clarificação se faz necessária.&lt;/p&gt;
+
+&lt;p&gt;Eu &lt;strong&gt;não&lt;/strong&gt; sou a favor de um processo de revisão de código altamente burocrático e estressante, no qual o seu código é esmiuçado, em público, durante horas. Eu não acredito que envergonhar as pessoas em público é uma forma eficaz de aumentar a qualidade de um projeto. Ao contrário, &lt;a href=&quot;http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/&quot;&gt;o tipo de revisão de código que eu defendo&lt;/a&gt; é um processo simples, geralmente iniciado ao submeter um pull request ou usando sua IDE favorita.&lt;/p&gt;
+
+&lt;h3 id=&quot;como-proceder-1&quot;&gt;Como Proceder&lt;/h3&gt;
+
+&lt;p&gt;Agora que nós estamos sintonizados em relação ao significado de “revisão de código”, a próxima pergunta é: “como implementar isso na prática?” Da maneira mais simples possível que funcione.&lt;/p&gt;
+
+&lt;p&gt;Por exemplo, se a sua empresa desenvolve em .NET e usa TFS/TFVC, você pode começar &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ColinD.ColinsALMCheckinPoliciesVS2017&quot;&gt;instalando uma política de check-in&lt;/a&gt; que exige uma revisão de código para cada check-in. Se a sua equipe usa GitHub, vocês podem usar &lt;a href=&quot;https://help.github.com/articles/about-pull-requests/&quot;&gt;pull requests&lt;/a&gt;. Apenas comece a realizar revisões de código. Então, com o tempo, vá fazendo os ajustes e adaptações necessários.&lt;/p&gt;
+
+&lt;p&gt;Estas são algumas das questões que podem surgir ao refinar o seu processo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Qual é o objetivo da revisão de código?&lt;/strong&gt; Estamos procurando por bugs? Tentando melhorar a legibilidade?Checando se o código adere ao padrão de codificação da empresa?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Como separamos “sugestões” de “impedimentos”?&lt;/strong&gt; É OK recusar a alteração de alguém por causa de uma indentação ruim ou um nome de variável ligeiramente equivocado?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;O que fazer se revisor e revisado não conseguem chegar a um consenso?&lt;/strong&gt; Trazer um mediador para dar a palavra final? E quem seria essa pessoa?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A resposta para todas as perguntas acima podem ser encontradas na &lt;strong&gt;automação&lt;/strong&gt;. Uma boa parte do desconforto das revisões de códigos pode ser eliminada quando você emprega um &lt;a href=&quot;https://blog.submain.com/different-styles-code-analyzer/&quot;&gt;analisador de código&lt;/a&gt; para lidar com as partes automatizáveis do processo.&lt;/p&gt;
+
+&lt;p&gt;Por exemplo, &lt;a href=&quot;https://submain.com/codeit.right/features&quot;&gt;SubMain possui um produto chamado CodeIt.Right&lt;/a&gt; que oferece feedback em tempo real de dentro do Visual Studio, lhe alertando de possíveis problemas de codificação, inclusive corrigindo problemas quando possível.&lt;/p&gt;
+
+&lt;p&gt;Ao abraçar a automação, você deixa as pessoas da equipe livres para se preocuparem com questões de mais alto nível durante as revisões, como claridade do código ou decisões arquiteturais.&lt;/p&gt;
+
+&lt;h2 id=&quot;builds-automatizados&quot;&gt;Builds Automatizados&lt;/h2&gt;
+
+&lt;p&gt;Talvez você esteja pensando que eu me equivoquei nessa seção. Afinal de contas, sequer faz sentido falar de builds automatizados sem mencionar testes automatizados?&lt;/p&gt;
+
+&lt;p&gt;Eu vou argumentar que sim, faz sentido, por uma razão muito simples: builds automatizados eliminam o famoso problema de “&lt;a href=&quot;https://blog.codinghorror.com/the-works-on-my-machine-certification-program/&quot;&gt;na minha máquina funciona&lt;/a&gt;”. &lt;/p&gt;
+
+&lt;p&gt;Ter um local central onde os builds são feitos joga luz em vários tipos de problemas, de mal gerenciamento de dependências a falta de disciplina em testes.&lt;/p&gt;
+
+&lt;h3 id=&quot;como-proceder-2&quot;&gt;Como Proceder&lt;/h3&gt;
+
+&lt;p&gt;Meu conselho aqui é o mesmo que na seção anterior: faça a coisa mais simples possível que funcione.&lt;/p&gt;
+
+&lt;p&gt;Se sua equipe já usa TFS, aprenda como &lt;a href=&quot;https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1&quot;&gt;criar uma definição de build&lt;/a&gt;. Se os seus projetos estão no GitHub, dê uma olhada no &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Com o tempo, você vai melhorando a sua estratégia. Lembra dos analisadores de código que eu mencionei anteriormente? É possível integrá-los no seu processo de build. &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;Testes unitários&lt;/a&gt; e outros tipos de testes automatizados também são uma valiosa adição.&lt;/p&gt;
+
+&lt;p&gt;E por falar nisso…&lt;/p&gt;
+
+&lt;h2 id=&quot;ausências-notáveis&quot;&gt;Ausências Notáveis&lt;/h2&gt;
+
+&lt;p&gt;Você talvez tenha se surpreendido por minha lista de boas práticas não incluir testes unitários, mesmo eu sendo um defensor da importância de testes automatizados para a qualidade de uma aplicação. Qual é a razão disso?&lt;/p&gt;
+
+&lt;p&gt;Infelizmente, adicionar testes unitários a uma aplicação legada é muito difícil, ao ponto de existir até &lt;a href=&quot;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&amp;amp;qid=1515443597&amp;amp;sr=8-1&amp;amp;keywords=working+effectively+with+legacy+code&quot;&gt;um livro famoso&lt;/a&gt; que foca apenas nisso. Não é uma tarefa fácil de se fazer em pouco tempo.&lt;/p&gt;
+
+&lt;p&gt;Também é possível que muitos de vocês esperavam que eu falasse sobre código limpo ou os princípios &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)&quot;&gt;SOLID&lt;/a&gt;. Eu encorajo vocês a lerem e pesquisarem sobre esses tópicos, mas eu não acredito que eles encaixam no propósito do post de hoje. Como o próprio nome deixa claro, eles são &lt;em&gt;princípios&lt;/em&gt;. Pense neles como diretrizes filosóficas. Úteis? Claro. Mas não tão fáceis de decompor em conselhos pequenos, simples e acionáveis.&lt;/p&gt;
+
+&lt;h2 id=&quot;implemente-essas-práticas-para-ontem&quot;&gt;Implemente Essas Práticas Para Ontem!&lt;/h2&gt;
+
+&lt;p&gt;É possível que vários de vocês tenha achado essas práticas extremamente básicas e não dignas de um post. “Quem é que não usa controle de versão em 2018???”&lt;/p&gt;
+
+&lt;p&gt;Bom, não é tão difícil assim encontrar evidência (anedótica, mas ainda assim) que &lt;a href=&quot;http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;as coisas ainda não são tão perfeitas&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Acreditar que mesmo práticas tão fundamentais como versionamento de código ou testes automatizados são aplicadas universalmente é mais ingenuidade do que talvez queremos admitir.&lt;/p&gt;
+
+&lt;p&gt;Para o restante de vocês, eu espero que essa lista seja útil.&lt;/p&gt;
+
+&lt;p&gt;Você já deve ter ouvido o ditado. “Quando estiver em um buraco, para de cavar.” E é exatamente esse o tipo de ajuda que eu quis oferecer com esse post: correções rápidas e fáceis, para que você e as demais pessoas em seu tipo possam recuperar o suficiente de sanidade para poderem focar e recuperar o controle de sua aplicação, garantido sua saúde a longo prazo.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Oct 2018 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/boas-praticas-sem-tempo/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/boas-praticas-sem-tempo/</guid>
+        
+        <category>csharp</category>
+        
+        <category>boas praticas</category>
+        
+        
+      </item>
     
       <item>
         <title>4 Erros Comuns Com Data e Hora no C# — E como evitá-los</title>
@@ -1808,112 +1934,6 @@ Changes not staged for commit:
         <category>tfs</category>
         
         <category>tfvcs</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Escrevendo código bom: como reduzir a carga cognitiva do seu código</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490471059/escrevendo-codigo-bom-1038x437_e4oy0i.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;NOTA&lt;/strong&gt;: O artigo a seguir foi originalmente escrito por &lt;a href=&quot;https://chrismm.com/&quot;&gt;Christian Maioli M.&lt;/a&gt;, que gentilmente me autorizou a fazer esta tradução. Caso seja do seu interesse, &lt;a href=&quot;https://chrismm.com/blog/writing-good-code-reduce-the-cognitive-load/&quot;&gt;confira o artigo original&lt;/a&gt;.&lt;/p&gt;
-
-&lt;!--more--&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;/p&gt;
-
-&lt;p&gt;Baixo número de bugs, boa performance, facilidade de modificação. Código bem feito gera alto impacto, e talvez seja a maior razão por trás da existência do famoso desenvolvedor “10x”. E ainda assim, apesar de sua importância, código bom escapa a novos desenvolvedores. A literatura nessa área geralmente consistente de coleções de dicas desconexas. Como um novo desenvolvedor vai simplesmente memorizar isso tudo?  “&lt;a href=&quot;https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/ref=as_li_ss_tl?ie=UTF8&amp;amp;linkCode=ll1&amp;amp;tag=chrimaiospo06-20&amp;amp;linkId=6aabd46b91da513d86257af2c05b6585&quot;&gt;Code Complete&lt;/a&gt;“, o maior expoente nesta matéria, é um livro de 960 páginas!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Eu acredito que é possível construir um framework mental simples que pode ser usado com qualquer linguagem ou biblioteca e que vai resultar em código de boa qualidade por padrão.&lt;/strong&gt; Há cinco conceitos principais sobre os quais vou falar aqui. Basta mantê-los em mente e escrever código de boa qualidade será moleza.&lt;/p&gt;
-
-&lt;p&gt;Update: Mia Li fez a gentileza de disponibilizar uma tradução deste artigo para o Chinês &lt;a href=&quot;http://www.inside.com.tw/2016/07/05/writing-good-code-how-to-reduce-the-cognitive-load-of-your-code&quot;&gt;aqui&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;mantenha-suas-peculiaridades-pessoais-de-fora&quot;&gt;Mantenha suas peculiaridades pessoais de fora&lt;/h2&gt;
-
-&lt;p&gt;Você lê um artigo que explode a sua mente com truques novos. Agora você vai escrever código “esperto” e todos os seus colegas ficarão impressionados.&lt;/p&gt;
-
-&lt;p&gt;O problema é que as pessoas só querem corrigir seus bugs e ir em frente. Seu truquezinho esperto é, com frequência, pouco mais que uma distração. Como eu falei em “&lt;a href=&quot;https://chrismm.com/blog/applying-neuroscience-to-software-development/&quot;&gt;Applying neuroscience to software development&lt;/a&gt;“, quando as pessoas têm que digerir  seu código, as “pilhas mentais” enchem depressa e se torna difícil fazer progresso.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_0_fzqyo8.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;figcaption&gt;Não personalize seu trabalho em maneiras que irão precisar de explicações. 
-
-Tradução do comentário: Isso era útil na linguagem C para evitar escrever acidentalmente &quot;variable = null&quot;. Atualmente, isso apenas confundiria a maioria das pessoas, com pouco benefício.&lt;/figcaption&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;Não codifique “do seu jeito”. Apenas siga a padronização de código. Este tipo de coisa é um problema já resolvido. Torne seu código previsível e fácil de ler codificando da maneira que as pessoas esperam.&lt;/p&gt;
-
-&lt;h2 id=&quot;dividir-para-conquistar&quot;&gt;Dividir para conquistar&lt;/h2&gt;
-
-&lt;p&gt;Código complexo frequentemente pode ser clarificado por meio da modularização, e existem mais maneiras de se fazer isso do que apenas criando mais funções. Gravar o resultado de longas condicionais em uma variável ou duas é uma grande maneira de modularizar sem o overhead de chamar uma função. Isso irá inclusive lhe permitir compô-las em condicionais maiores, ou reutilizar o resultado em algum outro lugar.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;A abordagem ao se dividir um problema deve ser tornar cada seção o mais focada possível, afetando apenas estado local, sem misturar com assuntos irrelevantes, e se possível sem nenhum efeito colateral.&lt;/strong&gt; Linguagens de programação e bibliotecas muitas vezes têm seus próprios problemas, e abstraí-los pode ajudar a fazer com que seu código cuide apenas dos assuntos dele. O &lt;a href=&quot;http://code.tutsplus.com/tutorials/solid-part-1-the-single-responsibility-principle--net-36074&quot;&gt;Princípio da Responsabilidade Única&lt;/a&gt; é outro exemplo de como código focado e localizado resulta em bom design.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_1_rfmnyv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;figcaption&gt;Eu gosto de utilizar variáveis para compartimentar lógica.
-Tradução do comentário: Isso pode ser uma boa maneira para modularizar sem o peso excessivo de chamadas de funções&lt;/figcaption&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;TDD, além de trazer seus próprios benefícios quando feito corretamente, tem feitos com que as pessoas apliquem certos princípios que anteriormente não eram tão populares. Código sem estado era desprezado como lento e desnecessário (ver: maior parte de código antigo em C/C++), e agora todos estão falando sobre funções puras. Mesmo que você não use TDD, você deveria aprender seus princípios. Trabalhar sob novos paradigmas transformará você em um desenvolvedor resiliente.&lt;/p&gt;
-
-&lt;h2 id=&quot;torne-seu-código-discreto-e-processável&quot;&gt;Torne seu código discreto e processável&lt;/h2&gt;
-
-&lt;p&gt;Seu computador e suas ferramentas podem sofrer tanto quanto você para lidar com seu código, e existe alguma correlação entre o número de pré-processadores e mutações você precisa aplicar e o quão bagunçado o seu código é.&lt;/p&gt;
-
-&lt;p&gt;Vamos deixar de lado os possíveis benefícios destas ferramentas de build adicional por um momento. A probabilidade é de que elas requerem que você use linguagens de domínio específica como templates customizados, ou estruturas de dados dinâmicas e complexas como hash tables. A sua IDE provavelmente não será boa em lidar com tais coisas, e a localização de trechos relevantes do código se tornará mais difícil.&lt;/p&gt;
-
-&lt;p&gt;Evite usar extensões de linguagens e bibliotecas que não trabalham bem com sua IDE. O impacto que eles terão na sua produtividade bate de longe o pequeno benefício de uma configuração mais fácil ou a economia de algumas poucas teclas com uma sintaxe mais concisa.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_2_pn1dp4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;figcaption&gt;
-O uso de Service Locator é um exemplo de design que resulta em integração ruim com a maioria das IDEs.
-Tradução do comentário: Uso de string mágicas fará com que seja impossível para sua IDE acompanhar seu código.
-&lt;/figcaption&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;p&gt;Outra maneira de manter a parte “integrada” da sua IDE relevante é evitar código mágico. A maioria das linguagens disponibilizam maneiras para que você escreva código mais dinâmico. Abusar tais features utilizando strings mágicas, índices de arrays mágicos e funcionalidades de templates customizados irá resultar em uma base de código mais desconectada. Geralmente qualquer feature que apenas um humano sabe o significado vai levar você para essa caminho, e é uma estrada difícil de se escapar, porque se a sua IDE não entende o código, quaisquer funcionalidades de refatoração que possua serão inúteis quando você quiser mudar para uma arquitetura mais estática.&lt;/p&gt;
-
-&lt;h2 id=&quot;torne-seu-código-legível&quot;&gt;Torne seu código legível&lt;/h2&gt;
-
-&lt;p&gt;Trabalhe no sentido de ter uma arquitetura previsível. Seus colegas de time terão mais facilidade em localizar as coisas, e isso vai reduzir bastante o tempo necessário para concluir as tarefas. &lt;strong&gt;Assim que vocês estiverem de acordo sobre uma estrutura arquitetural geral para seu projeto, torne óbvia a localização dos principais elementos.&lt;/strong&gt; Usa MVC? Coloque models, views e controllers em suas próprias pastas, não três níveis abaixo ou espalhados em vários lugares.&lt;/p&gt;
-
-&lt;p&gt;Eu falei sobre modularização. Também é possível existir modularização em excesso, o que geralmente torna seu código mais difícil de localizar. Sua IDE pode oferecer alguma ajuda, mas às vezes você estará dividido entre fazer com que sua IDE ignore uma pasta de biblioteca ou outro terceiro devido a ela conter muito código irrelevante, ou mantê-la indexada e lidar com o problema manualmente. É um beco sem saída. Tente utilizar menos bibliotecas escolhendo aquelas que resolvem tantas necessidades quantas forem possível.&lt;/p&gt;
-
-&lt;p&gt;Bibliotecas e ferramentas também podem ser uma barreira a novos desenvolvedores. Eu recentemente fiz um projeto usando EcmaScript 7 (babel), apenas para depois perceber que nosso desenvolvedor júnior estava tendo problemas para entender o que tudo aquilo significava.  Uma penalidade pesada para a produtividade do time. Eu subestimei o potencial daquilo de sobrecarregar uma pessoa que está só começando. Não use ferramentas que ainda são difíceis demais de aprender. Espere por uma época melhor.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_3_vdvcrz.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;figcaption&gt;Código real de um makefile que escrevi. Desenvolvedores juniores não conseguem lidar com o uso excessivo de novas ferramentas.&lt;/figcaption&gt;
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-
-&lt;h2 id=&quot;torne-seu-código-fácil-de-digerir&quot;&gt;Torne seu código fácil de digerir&lt;/h2&gt;
-
-&lt;p&gt;Se você chegou até aqui, eu tenho boas notícias: esta é provavelmente a parte mais importante. A escolha de bons nomes é sabidamente um dos maiores problemas no desenvolvimento de software. Ferramentas de build provavelmente não vão causar nenhuma melhora aqui, e a razão é que computadores não podem realmente saber o raciocínio que houve por trás de uma solução.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Você precisa documentar o porquê. Nomes de variáveis e funções relevantes e contextuais são uma ótima maneira de se fazer isso.&lt;/strong&gt; Nomes que transmitem propósito podem até reduzir a necessidade de documentação.&lt;/p&gt;
-
-&lt;p&gt;O uso de prefixos em nomes é uma boa maneira de adicionar sentido a eles. É uma prática que costumava ser popular, e eu penso que o mau uso foi o motivo dela não continuar a ser usada. Sistemas de prefixos como  &lt;a href=&quot;http://www.joelonsoftware.com/articles/Wrong.html&quot;&gt;notação húngara&lt;/a&gt; inicialmente tinham a intenção de adicionar sentido, mas com o tempo eles acabaram sendo usado em maneiras menos contextuais, tais como para adicionar informação de tipo.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1490470570/image_4_x8oly3.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-&lt;figcaption&gt;Interfaces fluentes tem sido abusadas frequentemente em tempos recentes.&lt;/figcaption&gt;
-&lt;p&gt;Tradução do comentário: Use nomes que transmitam propósito, não tome vantagem da linguagem apenas para parecer inteligente&lt;/p&gt;
-
-&lt;p&gt;Finalmente, sempre há algo a ser dito sobre manter a complexidade ciclomática baixa. Isso significa manter o número de ramificações condicionais tão baixo quanto for possível. Cada ramificação adicional não apenas adiciona mais indentação e prejudica a legibilidade, mas, mais importante que isso, aumenta o número de elementos aos quais você precisa estar atento.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusão-e-mais-leituras&quot;&gt;Conclusão e mais leituras&lt;/h2&gt;
-
-&lt;p&gt;Estes são cinco conceitos simples e abrangentes, e o meu objetivo aqui foi tornar seu aprendizado mais fácil ao lhe dar caixas nas quais colocar todas as suas ideias sobre organização de código.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Pratique focar nesses aspectos ao programar para solidifica-los.&lt;/strong&gt; Se você ainda não leu, eu realmente recomendo Code Complete. Ele vem com um grande número de exemplos e disseca quase todas as situações que você pode vir a encontrar.&lt;/p&gt;
-</description>
-        <pubDate>Sat, 25 Mar 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/escrevendo-codigo-bom/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/escrevendo-codigo-bom/</guid>
-        
-        <category>traducoes</category>
-        
-        <category>boas-praticas</category>
         
         
       </item>
