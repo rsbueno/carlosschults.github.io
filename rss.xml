@@ -5,10 +5,135 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 17 Oct 2018 10:52:59 -0300</pubDate>
-    <lastBuildDate>Wed, 17 Oct 2018 10:52:59 -0300</lastBuildDate>
+    <pubDate>Wed, 24 Oct 2018 14:33:26 -0300</pubDate>
+    <lastBuildDate>Wed, 24 Oct 2018 14:33:26 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Value Objects: Uma Técnica Para Código Auto-Documentado E Menos Erros</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1540385528/value-object-tool/value-object-tool-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/&quot;&gt;conferir o artigo original, em inglês, no site deles&lt;/a&gt;. Aproveite que está lá e faça o download do NDepend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Você já ouviu falar de &lt;em&gt;value objects&lt;/em&gt;? Eu imagino que sim. Apesar de não se falar tanto a respeito deles como eu gostaria, eles ainda são mencionados o bastante para que muitos desenvolvedores tenham no mínimo alguma familiaridade com o termo.&lt;/p&gt;
+
+&lt;p&gt;Porém, “alguma familiaridade” não é bom o bastante. Então é isso que vamos consertar com esse post. Hoje vamos aprender o que &lt;em&gt;value objects&lt;/em&gt; são e como você, por meio do C#, pode usar todo o poder deles para tornar seu código mais claro, auto-documentável e menos propenso a erros.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-sãovalue-objects&quot;&gt;O que são Value Objects?&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Value objects&lt;/em&gt; são um dos blocos fundamentais do DDD (Domain Driven Design, ou Projeto Guiado por Domínio, em tradução livre), conforme proposto por Eric Evans em seu livro &lt;a href=&quot;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&quot;&gt;Domain-Driven Design: Tackling Complexity in the Heart of Software.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Da maneira mais simples possível, um value object é um objeto que representa um valor. E sim, eu estou ciente de que isso soa óbvio e tedioso quando dito dessa forma. Então, por que tanto barulho por causa desse conceito?&lt;/p&gt;
+
+&lt;h2 id=&quot;algumas-propriedades&quot;&gt;Algumas Propriedades&lt;/h2&gt;
+
+&lt;p&gt;Eu acho que é mais fácil de entender value objects se eu parar de tentar explicar o que eles são e, ao invés disso, falar sobre as suas características.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-não-têm-identidade&quot;&gt;Value Objects Não Têm Identidade&lt;/h3&gt;
+
+&lt;p&gt;Eu acho que é justo dizer que a principal característica dos value objects é que eles não possuem &lt;em&gt;identidade&lt;/em&gt;. Mas o que isso realmente quer dizer na prática?&lt;/p&gt;
+
+&lt;p&gt;Digamos que você vá até o caixa eletrônico mais próximo e deposite uma nota de 50 reais em sua conta. Então você dirige umas duas horas até outra cidade, entra em uma agência bancária, e saca 50 reais.&lt;/p&gt;
+
+&lt;p&gt;Pergunta: faz alguma diferença para você o fato de que a nota que você tem em mãos não é a mesma que você depositou antes? É claro que não! Quando se trata de dinheiro o que as pessoas geralmente se importam é com seu valor, não com o veículo daquele valor.&lt;/p&gt;
+
+&lt;p&gt;Em outras palavras, nós não damos a mínima para a &lt;em&gt;identidade&lt;/em&gt; daquela cédula em particular. A única coisa com a qual nós nos importamos é o seu valor.&lt;/p&gt;
+
+&lt;p&gt;Não é coincidência o fato de que dinheiro é um exemplo clássico de value object na literatura.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-são-imutáveis&quot;&gt;Value Objects São Imutáveis&lt;/h3&gt;
+
+&lt;p&gt;Você consegue mudar o número cinco? Não. Não há nada que você (ou qualquer outra pessoa) possa fazer para mudar o valor do número 5. Se você adicionar 1, ele não muda. Você tem agora 6, que é um &lt;em&gt;outro&lt;/em&gt; número.&lt;/p&gt;
+
+&lt;p&gt;É possível alterar uma data? Não, também não dá para fazer isso. Se você inicia com “2018-01-09” e adiciona um dia, você chega em “2018-01-10.” O valor original não é alterado de forma alguma. Na verdade, a imutabilidade de um value object é uma consequência direta do ponto anterior; como um value object não possui identidade, podemos dizer que o value object &lt;em&gt;é&lt;/em&gt; o seu valor. Portanto, nem sequer faz sentido falar sobre mudá-lo.&lt;/p&gt;
+
+&lt;p&gt;A implicação disso no desenvolvimento é que value objects são intrinsecamente mais seguros e mais fáceis de serem compreendidos. Não tem perigo de mudar por acidente aquilo que você não pode mudar de jeito nenhum.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-têm-igualdade-estrutural&quot;&gt;Value Objects Têm Igualdade Estrutural&lt;/h3&gt;
+&lt;p&gt;Imagine que você pudesse magicamente transportar pessoas para qualquer lugar que você quisesse e, por alguma razão bizarra, você tenha decidido trocar dois homens chamados “João da Silva” durante a noite. Como você acha que as suas respectivas famílias reagiriam ao encontrar um estranho em casa na manhã seguinte?&lt;/p&gt;
+
+&lt;p&gt;Obviamente, pessoas não são intercambiáveis, mesmo que compartilhem uma ou mais características. Mesmo se nossos dois “Joães” (Joões?) tivessem não apenas o mesmo nome, mas também a mesma altura, peso, cor de pele e cabelo, eles ainda seriam duas pessoas completamente diferentes. Mesmo gêmeos idênticos (ou clones, caso você esteja numa onda meio Black Mirror) continuam sendo pessoas completamente diferentes, apesar de serem tão iguais um ao outro quanto é possível ser.&lt;/p&gt;
+
+&lt;p&gt;Por outro lado, as pessoas mudam constantemente durante a vida, mas continuam sendo as mesmas pessoas. Pelo menos (enquanto a gente não resolver filosofar com “&lt;a href=&quot;https://www.brainyquote.com/quotes/heraclitus_107157&quot;&gt;um homem não entra no mesmo rio duas vezes&lt;/a&gt;” e coisas do tipo).&lt;/p&gt;
+
+&lt;p&gt;Você talvez esteja se perguntando se eu divaguei demais aqui, mas é tudo de propósito. Tudo isso serve apenas para ilustrar a diferença crucial entre entidades e value objects. Com as entidades, nós nos importamos com a  sua identidade, não com o valor de seus atributos. Com value objects, é exatamente o oposto.&lt;/p&gt;
+
+&lt;p&gt;A implicação disso, em termos de programação, é que value objects tipicamente apresentam igualidade estrutural. Faz sentido compará-los pelos seus valores, não suas referências ou identidades. Então, quando for implementar um value object, sempre faça &lt;em&gt;override&lt;/em&gt; dos métodos &lt;code class=&quot;highlighter-rouge&quot;&gt;Equals&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;GetHashCode&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-que-você-ganha-com-isso&quot;&gt;O que Você Ganha Com Isso?&lt;/h2&gt;
+&lt;p&gt;A essa altura você já deve ter uma boa ideia do que value objects são. O que ainda não está claro é: por que você deveria usá-los? Para responder isso, vamos dar uma olhada na linha de código a seguir:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Tem algo errado com a linha acima? Bom, eu poderia dar uma de &lt;em&gt;&lt;a href=&quot;http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi&quot;&gt;Ben Kenobi&lt;/a&gt; &lt;/em&gt;e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.&lt;/p&gt;
+
+&lt;p&gt;O problema aqui é o &lt;em&gt;code smell&lt;/em&gt; conhecido como “obsessão primitiva”, isto é, a modelagem de conceitos de domínio usando tipos primitivos. As próximas seções vão explicar melhor porque isso é um problema tão sério e como o uso de &lt;em&gt;value objects&lt;/em&gt; podem ajudar.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-proporcionam-contexto&quot;&gt;Value Objects Proporcionam Contexto&lt;/h3&gt;
+
+&lt;p&gt;Por que &lt;a href=&quot;https://blog.ndepend.com/easy-miss-code-smells/&quot;&gt;obsessão primitiva é algo ruim&lt;/a&gt;? Há várias razões, mas um dos principais problemas com a linha de código que você viu na seção anterior é que há uma informação extremamente importante faltando. Como você pode ver, o código atribui o valor 4.5 à variável. Mas 4.5 o que? Metros? Quilômetros? Milhas? Parsecs? Em outras palavras, falta uma &lt;strong&gt;unidade de medida&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Isso pode ser uma receita para o desastre. Tudo o que você precisa é alguém recuperar um valor do banco de dados ou de um arquivo, pensando que representa metros mas na verdade são quilômetros. Quando a pessoa resolve usar o valor em um cálculo, adicionando quilômetros com metros…silêncio. Você agora tem um programa que, no lugar de falhar rápido como deveria, se comporta de maneira errada silenciosamente enquanto corrompe dados e gera resultados inconsistentes. Ainda bem que você usa &lt;a href=&quot;https://blog.ndepend.com/unit-testing-affect-codebases/&quot;&gt;testes unitários&lt;/a&gt;…certo?&lt;/p&gt;
+
+&lt;p&gt;Tudo bem, nada impede você de colocar essa informação no próprio nome da variável:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distanceInKilometers&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Certo, isso é um pouco melhor do que a versão anterior, mas ainda é uma solução muito frágil. A qualquer momento o valor pode ser atribuído a outra variável ou passado como argumento para uma função, e aí a unidade de medida é perdida.&lt;/p&gt;
+
+&lt;p&gt;Usando value objects, você pode eliminar esse problema facilmente. Você teria apenas que escolher uma unidade para ser a representação interna do tipo - para distância, faz sentido usar o metro, por ser uma unidade do Sistema Internacional de Medidas. E aí você pode implementar diversos métodos estáticos para fabricar valores para cada unidade necessária:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FromMeters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance2&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FromKilometers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Você poderia ainda sobrecarregar o operador “+” (ou criar um método &lt;code class=&quot;highlighter-rouge&quot;&gt;Plus&lt;/code&gt;). Dessa forma seria possível somar duas distâncias que se originaram de diferentes unidades de medida já que a representação interna é a mesma.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-apresentam-segurança-de-tipo&quot;&gt;Value Objects Apresentam Segurança de Tipo&lt;/h3&gt;
+
+&lt;p&gt;Digamos que você tem um método com a seguinte assinatura:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;nf&quot;&gt;PerformSomeImportantCalculation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O que aconteceria se você cometesse um erro e invertesse os valores ao chamar o método? O programa iria silenciosamente se comportar erro, e você nem ficaria sabendo. Com sorte, a sua empresa teria um bom processo de garantia de qualidade que poderia pegar esse erro antes de chegar no ambiente de produção. Mas ficar dependendo de sorte não é lá uma grande estratégia, concorda?&lt;/p&gt;
+
+&lt;p&gt;Pois acontece que esse é o tipo de problema que value objects são ótimos em evitar. Você teria apenas que usar topos customizados para cada conceito em vez de tipos primitivos:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;nf&quot;&gt;PerformSomeImportantCalculation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Temperature&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Dessa forma, se torna impossível passar os parâmetros na ordem errada: o compilador simplesmente não deixa!&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-evitam-duplicação-de-lógica-de-domínio&quot;&gt;Value Objects Evitam Duplicação de Lógica de Domínio&lt;/h3&gt;
+
+&lt;p&gt;Quando você usa tipos primitivos para modelar conceitos de domínio, a tendência é você ter um monte de código relacionado a esses conceitos espalhados por toda a aplicação. Imagine que você está criando um programa que tem o conceito de uma placa de carro, e você está usando &lt;code class=&quot;highlighter-rouge&quot;&gt;strings&lt;/code&gt; para representá-las. É claro que nem todas as strings válidas são placas válidas. Então o seu código acaba entupido de validações de placas de carro por todo lugar.&lt;/p&gt;
+
+&lt;p&gt;Isso seria evitado criando uma classe chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;LicensePlate&lt;/code&gt; e fazendo todas as validações necessárias em seu construtor. Dessa forma você consolidaria todo o código de validação em apenas um lugar; se esse código precisar mudar no futuro, você tem que mudar em apenas um lugar.&lt;/p&gt;
+
+&lt;h2 id=&quot;value-objects-e-tipos-de-valor-não-são-sinônimos&quot;&gt;Value Objects e Tipos de Valor Não São Sinônimos&lt;/h2&gt;
+
+&lt;p&gt;Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;duas categorias de tipos: tipos de referência e tipos de valor.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Sim, não há nada que impeça você de usar structs (tipos de valor) para implementar value objects - exemplos na Base Class Library (BCL) seriam o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; ou os tipos numéricos primitivos. Mas você também pode usar classes tranquilamente.&lt;/p&gt;
+
+&lt;p&gt;Por outro lado, structs não podem ser considerados value objects automaticamente. Por exemplo, embora manter structs imutáveis seja uma prática recomendada, eles não são imutáveis por padrão.&lt;/p&gt;
+
+&lt;p&gt;Resumidamente, “tipo de valor” é um detalhe de implementação em C#/.NET e “value object” é um padrão de projeto. Mantenha isso em mente e consulte &lt;a href=&quot;https://docs.microsoft.com/pt-br/dotnet/standard/design-guidelines/choosing-between-class-and-struct&quot;&gt;as diretrizes de design da Microsoft&lt;/a&gt; e tudo vai ficar bem.&lt;/p&gt;
+
+&lt;h2 id=&quot;value-objects-valem-a-pena&quot;&gt;Value Objects Valem a Pena!&lt;/h2&gt;
+
+&lt;p&gt;O uso de value objects é uma técnica com um custo relativamente baixo que pode aumentar bastante a manutenibilidade e claridade do seu código. Colocando value objects em prática, você pode tornar seu código mais fácil de ser compreendido, criando interfaces que são auto-documentáveis, difíceis de serem usadas da maneira errada, e intrinsecamente &lt;em&gt;type-safe&lt;/em&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 24 Oct 2018 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/value-objects-ferramenta/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/value-objects-ferramenta/</guid>
+        
+        <category>csharp</category>
+        
+        <category>boas praticas</category>
+        
+        
+      </item>
     
       <item>
         <title>Boas Práticas De Programação Para Os Apressados</title>
@@ -1654,286 +1779,6 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
         <category>csharp</category>
         
         <category>iniciantes</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Introdução ao Git para usuários de TFS/TFVC</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491343925/git-for-tfs-users-1038x437_ios03n.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Aprender Git pode ser desafiador para desenvolvedores com experiência em versionadores centralizados. Mas não precisa ser assim. 
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
-
-&lt;p&gt;O Git está se tornando (já se tornou, muitos diriam) o sistema de controles de versão padrão da nossa área. O versionador foi criado em 2005 por Linus Torvalds para gerenciar o código-fonte do kernel do Linux, e desde então tem apresentado um crescimento fenomenal no seu uso, principalmente após o advento do &lt;a href=&quot;github.com&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Porém, mesmo após uma década de sua existência, alguns mitos sobre esse sistema ainda persistem. Um deles é de que Git é muito difícil de se aprender. E pela experiência que eu tive, isso simplesmente não é verdade.&lt;/p&gt;
-
-&lt;p&gt;O Git foi criado com o intuito de oferecer muita flexibilidade e poder aos seus usuários. Ou seja, ele permite uma maior complexidade ou sofisticação. Mas na prática, os comandos básicos, aqueles que você realmente irá usar no dia a dia, são relativamente fáceis de se aprender.&lt;/p&gt;
-
-&lt;p&gt;Tendo dito isto, a curva de aprendizado do Git &lt;em&gt;pode&lt;/em&gt; apresentar mais desafios para pessoas que estão acostumadas com sistemas de controle de versão centralizados. É natural tentar encontrar padrões e mapear conceitos entre o sistema que se conhece e o que se está aprendendo; mas existem diferenças marcantes o suficiente para que o resultado deste mapeamento seja frustrante.&lt;/p&gt;
-
-&lt;p&gt;Com isso em mente, resolvi escrever uma série de artigos para tentar auxiliar desenvolvedores vindos de versionadores centralizados (especificamente TFS/TFVC) e tentando aprender o Git. Não tenho nenhuma pretensão de fazer uma cobertura exaustiva do assunto; muito pelo contrário: nos momentos em que for necessário, indicarei conteúdos que ofereçam uma explicação mais densa de certos tópicos.&lt;/p&gt;
-
-&lt;h2 id=&quot;uma-nota-rápida-sobre-a-nomenclatura-utilizada-neste-artigo&quot;&gt;Uma nota rápida sobre a nomenclatura utilizada neste artigo&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;TFS&lt;/strong&gt; significa Team Foundation Server. É um produto da Microsoft que visa o gerenciamento de projeto, gerenciamento de requisitos, automatização de build, gerenciamento de releases, e diversas outras features.&lt;/p&gt;
-
-&lt;p&gt;O TFS também oferece a feature de controle de versão. Desde a versão 2013 existe suporte nativo para o Git, mas antes disso o versionamento era feito por meio de um versionador próprio, conhecido como &lt;strong&gt;Team Foundation Version Control (TFVC)&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Então, &lt;strong&gt;TFS&lt;/strong&gt; se refere à solução completa de gerenciamento do ciclo de vida da aplicação. E &lt;strong&gt;TFVC&lt;/strong&gt; se refere ao versionador.&lt;/p&gt;
-
-&lt;p&gt;Independente disso, neste artigo vou me referir ao versionador como TFS, pois, coloquialmente, muitos desenvolvedores o conhecem por este nome.&lt;/p&gt;
-
-&lt;h2 id=&quot;commit--check-in&quot;&gt;Commit != Check-in&lt;/h2&gt;
-
-&lt;p&gt;O TFS, por ser um versionador centralizado, apresenta um fluxo de trabalho razoavelmente simples, que geralmente consiste em três ações:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Baixar a versão mais atualizada do código-fonte para sua máquina;&lt;/li&gt;
-  &lt;li&gt;Efetuar as alterações necessárias;&lt;/li&gt;
-  &lt;li&gt;Enviar de volta o código com suas alterações para o servidor.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Então, o comando &lt;em&gt;check-in&lt;/em&gt; no TFS acaba tendo duas semânticas: a de “salvar” alterações, e “enviar” estas alterações para o servidor.&lt;/p&gt;
-
-&lt;p&gt;O que noto é que esta noção de “&lt;strong&gt;vou enviar minhas alterações para o servidor&lt;/strong&gt;” é algo um pouco difícil de esquecer ao se fazer a transição.&lt;/p&gt;
-
-&lt;p&gt;Lembre-se: &lt;strong&gt;no Git não existe um conceito de servidor central&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;O que existe são &lt;em&gt;remotes&lt;/em&gt;, ou seja, repositórios remotos. Você pode ter, a princípio, quantos repositórios remotos você quiser. E eles não necessariamente precisam ser tão remotos assim. Sim, eles podem estar em um site como Github/Gitlab/Bitbucket. Mas também podem estar na máquina do colega ao lado, em uma unidade de rede, ou até em uma outra pasta em sua própria máquina.&lt;/p&gt;
-
-&lt;p&gt;Quando se trabalha em equipe é comum utilizar-se de um repositório padrão que é considerado, para efeitos de organização, o repositório padrão, onde o código “mais atual” encontra-se. Mais uma vez, no Git não existe conceito de servidor central; o uso de tal repositório padrão é uma convenção utilizada pelos times.&lt;/p&gt;
-
-&lt;p&gt;Com isso em mente, vamos treinar um pouco alguns comandos do Git para começarmos a nos habituar com eles. No post de hoje não veremos nada de repositório remoto, servidor, nada disso: apenas comandos locais.&lt;/p&gt;
-
-&lt;h2 id=&quot;baixando-e-instalando-o-git&quot;&gt;Baixando e instalando o Git&lt;/h2&gt;
-
-&lt;p&gt;Dizem que houve uma época em que trabalhar com o Git no Windows era problemático. Atualmente, não é mais o caso, como você já vai ver.&lt;/p&gt;
-
-&lt;p&gt;Para começar &lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;faça o download do Git para Windows&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Clique duas vezes no arquivo baixado, next, next, você sabe. Em geral não deveria haver problema se você deixar todas as opções como default mesmo; no entanto, é interessante fazer uma alteração:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491350434/git1_xek0vv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Quando chegar a esta tela, é interessante marcar a segunda opção para que você seja capaz de utilizar o Git a partir do prompt de comando do Windows, e não apenas a partir do Bash do Git.&lt;/p&gt;
-
-&lt;h2 id=&quot;configuração-básica&quot;&gt;Configuração básica&lt;/h2&gt;
-
-&lt;p&gt;Depois de terminada a instalação, é necessária fazer a configuração básica de identidade do Git, que consiste em dizer ao Git seu nome e e-mail para que ele os associe a cada commit que você efetuar.&lt;/p&gt;
-
-&lt;p&gt;Para fazer isso, vamos utilizar o Git Bash. No menu iniciar localize o programa “Git Bash” e execute-o. A janela do Git Bash será aberta.&lt;/p&gt;
-
-&lt;p&gt;Digite os seguintes comandos:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git config –global user.name “Seu nome”&lt;/p&gt;
-
-  &lt;p&gt;git config –global user.email “email@exemplo.com”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Existem mais configurações e opções possíveis, mas isso já é suficiente para que você comece a experimentar o Git.&lt;/p&gt;
-
-&lt;h2 id=&quot;criando-o-repositório&quot;&gt;Criando o repositório&lt;/h2&gt;
-
-&lt;p&gt;No Git Bash, vamos criar uma nova pasta e em seguida acessá-la:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;mkdir repo&lt;/p&gt;
-
-  &lt;p&gt;cd repo&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Depois de acessarmos a pasta recém-criada, é hora de criarmos nosso repositório:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git init&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Depois de executar esse comando, você verá a seguinte mensagem:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Initialized empty Git repository in C:/Users/your-name/repo/.git/&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;O prompt do Git Bash deveria estar mostrar algo assim:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Usuario@Maquina MINGW64 ~/repo (master)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ou seja: usuário logado, localização atual e branch atual. O branch padrão do Git chama-se &lt;em&gt;master&lt;/em&gt;. No próximo artigo desta série aprenderemos a operação básica de branches, mas por enquanto vamos permanecer apenas no branch padrão mesmo.&lt;/p&gt;
-
-&lt;h2 id=&quot;primeiros-comandos&quot;&gt;Primeiros comandos&lt;/h2&gt;
-
-&lt;p&gt;OK, com o repositório criado, é hora de testarmos alguns comandos. Um dos comandos mais úteis e que você irá utilizar com mais frequência é o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;, que serve para visualizar o estado atual em que se encontra o repositório.&lt;/p&gt;
-
-&lt;p&gt;Ao executá-lo, você deveria ver a seguinte mensagem:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On branch master&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Initial commit&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;nothing to commit (create/copy files and use “git add” to track)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ou seja:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;o branch atual;&lt;/li&gt;
-  &lt;li&gt;que está esperando por seu primeiro commit;&lt;/li&gt;
-  &lt;li&gt;e indica o que entrará no commit - o que nesse caso é nada, já que ainda não há alterações em nosso repositório.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ele ainda indica qual é o próximo passo a tomar, i.e. criar ou copiar arquivos e depois usar o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; para rastreá-los. Por enquanto, não se preocupe com o que “rastrear” significa, pois isso será abordado no futuro.&lt;/p&gt;
-
-&lt;p&gt;Vamos então criar um arquivo.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;echo teste &amp;gt; arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Execute novamente o comando &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e você verá que desta vez a mensagem está diferente:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Untracked files:
-(use “git add &lt;file&gt;...&quot; to include in what will be committed)&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;arq1.txt&lt;/p&gt;
-
-  &lt;p&gt;nothing added to commit but untracked files present (use “git add” to track)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Alguns conceitos novos, começando por “Untracked files”, ou, em tradução livre, “Arquivos não rastreados”. O Git está vendo o arquivo que acabamos de criar, mas não está pronto ainda para incluí-lo no próximo commit.&lt;/p&gt;
-
-&lt;p&gt;O interessante é que mais uma vez o Git nos dá a dica do que precisa ser feito, como você pode ver. Execute o comando:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git add arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Execute novamente &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e veja que a resposta mudou novamente:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Changes to be committed:&lt;/p&gt;
-
-  &lt;p&gt;(use “git rm –cached &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;new file:   arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Por enquanto ignore a mensagem:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Agora podemos ver que o arquivo adicionado está pronto para entrar no commit. Então, vamos “commitar”:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git commit -m “Primeiro commit”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;O comando acima cria o nosso primeiro commit. O parâmetro &lt;code class=&quot;highlighter-rouge&quot;&gt;-m&lt;/code&gt; serve para especificar uma mensagem de commit, o que é essencial para o futuro entendimento da evolução de um projeto.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; novamente:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On branch master&lt;/p&gt;
-
-  &lt;p&gt;nothing to commit, working directory clean&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Para terminar, vamos fazer uma alteração em nosso arquivo. Abra o arquivo no Bloco de Notas (ou outro editor de texto de sua preferência) e acrescente a seguinte linha:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;acrescentando uma nova linha&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; novamente:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On branch master
-Changes not staged for commit:
-(use “git add &lt;file&gt;...&quot; to update what will be committed)
- (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)&lt;/file&gt;&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
-
-  &lt;p&gt;no changes added to commit (use “git add” and/or “git commit -a”)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A mensagem é familiar, apesar de ser diferente das anteriores. Como você já deve estar acostumado, ela termina com uma dica da próxima ação a ser tomada. Vamos então seguir a sugestão do Git:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git add arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Perceba que é o mesmo comando que executamos lá atrás, quando o arquivo ainda estava no estado “untracked”. Embora o comando seja o mesmo, neste caso aqui ele tem um significado ligeiramente diferente. No futuro, entenderemos estas diferenças.&lt;/p&gt;
-
-&lt;p&gt;Ao executar novamente &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; recebemos, novamente, uma nova mensagem:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Changes to be committed:
-(use “git reset HEAD &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Embora seja parecida com uma das mensagens anteriores, perceba que agora o nosso arquivo está no estado “modified”, e não “new file”, o que faz bastante sentido.&lt;/p&gt;
-
-&lt;p&gt;Imagino que você saiba o que vem a seguir:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git commit -m “Segundo commit: adicionamos segunda linha para testar alteração”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Para terminar, execute novamente o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; e verá novamente a mensagem já familiar: diretório de trabalho limpo, nada a ser commitado.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
-
-&lt;p&gt;Este artigo foi extremamente simples, e isso não foi um acidente. Minha intenção foi de mostrar os comandos mais básicos, com a intenção de que você pegue o “feeling” de como se usa o Git.&lt;/p&gt;
-
-&lt;p&gt;Perceba que existe um padrão facilmente perceptível nos comandos que executamos:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;cria um arquivo&lt;/li&gt;
-  &lt;li&gt;“adiciona”&lt;/li&gt;
-  &lt;li&gt;dá commit&lt;/li&gt;
-  &lt;li&gt;faz alteração no arquivo&lt;/li&gt;
-  &lt;li&gt;“adiciona”&lt;/li&gt;
-  &lt;li&gt;dá commit novamente&lt;/li&gt;
-  &lt;li&gt;etc&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Nos lugares onde coloquei “adiciona”, você sabe que estou me referindo ao comando &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt;. Você talvez tenha percebido que este comando tem duas finalidades diferentes, evidenciado pelas diferentes mensagens que o &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; retornou depois de sua execução.&lt;/p&gt;
-
-&lt;p&gt;Você provavelmente também notou os diferentes estados que os arquivos em um repositório podem assumir: “untracked”, “new file”, “modified”. Eles caminham de um estado para o outro, como em uma pipeline.&lt;/p&gt;
-
-&lt;p&gt;No próximo post da série vamos nos aprofundar nestas questões. Iremos entender as áreas existentes em um repositório, entender o fluxo de trabalho e os estágios pelos quais os arquivos passam.&lt;/p&gt;
-
-&lt;p&gt;Vamos começar também a trabalhar com um dos conceitos mais importantes do Git: branches. Iremos dar início às operações mais comuns que são realizadas com branches, e também mostraremos como branches no Git diferem da maneira que você está acostumado a trabalhar no TFS.&lt;/p&gt;
-
-&lt;p&gt;Até lá!&lt;/p&gt;
-</description>
-        <pubDate>Tue, 04 Apr 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/basicos-do-git-usuarios-tfvc</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/basicos-do-git-usuarios-tfvc</guid>
-        
-        <category>controle-de-versao</category>
-        
-        <category>git</category>
-        
-        <category>tfs</category>
-        
-        <category>tfvcs</category>
         
         
       </item>
