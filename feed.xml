@@ -5,10 +5,208 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 24 Oct 2018 14:33:26 -0300</pubDate>
-    <lastBuildDate>Wed, 24 Oct 2018 14:33:26 -0300</lastBuildDate>
+    <pubDate>Tue, 22 Jan 2019 21:45:49 -0200</pubDate>
+    <lastBuildDate>Tue, 22 Jan 2019 21:45:49 -0200</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Functional Programming in C#: Map, Filter, and Reduce Your Way to Clean Code</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1548200356/Untitled_xfahmy.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/csharp-functional-programming/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you improve the quality of your code.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;C# is supposed to be an object-oriented language, but it’s possible that you, as a .NET/C# developer, have been using functional programming concepts without even knowing it.&lt;/p&gt;
+
+&lt;p&gt;And that’s what today’s post is about. I’ll just first briefly cover the attractions of functional programming and why it makes sense to apply it even when using a so-called object-oriented language. Then I’ll show you how you’ve already been using some functional style in your C# code, even if you’re not aware of it. I’ll tell you how you can apply functional thinking to your code in order to make it cleaner, safer, and more expressive.&lt;/p&gt;
+
+&lt;h2 id=&quot;c-functional-programming-why&quot;&gt;C# Functional Programming: Why?&lt;/h2&gt;
+
+&lt;p&gt;We know the .NET framework offers some functional capabilities in the form of the LINQ extension methods, but should you use them?&lt;/p&gt;
+
+&lt;p&gt;To really answer this, we need to go back a step and understand the attraction of functional programming itself.  The way I see it, the easiest path to start understanding the benefits of functional programming is to first understand two topics: &lt;strong&gt;pure functions&lt;/strong&gt; and &lt;strong&gt;immutable data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pure functions&lt;/strong&gt; are functions that can only access the data they receive as arguments and, as a consequence, can’t have any side effects. &lt;strong&gt;Immutable data&lt;/strong&gt; are just objects or data structures that, once initialized, can’t have their values changed, making them easier to reason about and automatically thread-safe.&lt;/p&gt;
+
+&lt;h2 id=&quot;fundamental-functional-programming-operations-and-how-to-perform-them-using-c&quot;&gt;Fundamental Functional Programming Operations and How to Perform Them Using C#&lt;/h2&gt;
+
+&lt;p&gt;With the &lt;em&gt;what&lt;/em&gt; and &lt;em&gt;why&lt;/em&gt; of functional programming out of the way, it’s time to get to the &lt;em&gt;how&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;l’ll be covering three fundamental functions: map, filter, and reduce. I’ll start by showing some use cases, then I’ll show a traditional, procedural way of solving the problem. And finally, I’ll present the functional way.&lt;/p&gt;
+
+&lt;h2 id=&quot;map&quot;&gt;Map&lt;/h2&gt;
+
+&lt;p&gt;In simple terms, the “map” operation takes a sequence of items, applies some transformation to each one of those items, and returns a new sequence with the resulting items. Let’s see some examples.&lt;/p&gt;
+
+&lt;p&gt;Suppose you wrote the following code, due to a customer’s demand:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AddThreeToEachElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	       &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s a function that adds three to each element of the given &lt;a href=&quot;https://blog.submain.com/c-array/&quot;&gt;array&lt;/a&gt; of integers. Pretty straightforward.&lt;/p&gt;
+
+&lt;p&gt;Now a request for a new function comes in. This time, it should add five to each element in an array. Ignoring the &lt;a href=&quot;https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)&quot;&gt;rule of three,&lt;/a&gt; you jump right ahead into a generalized version, parameterizing the number to be added:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AddNumberToEachElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++)&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then yet another request comes in. Now you must write a function that will multiply each element of the given array by, let’s say, three. I won’t add the code sample now because I’m sure you’ve got the picture. By now, you should know better than to hardcode the number, so you’d probably jump ahead to a general version right away. Even then, some duplication would still exist: the loop itself. Hmm…what if you could keep just the loop and instead parameterize the action to be applied on each item?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way&quot;&gt;The Functional Way&lt;/h3&gt;
+
+&lt;p&gt;Take into consideration what you’ve just read about pure functions—and also your previous knowledge of&lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;programming best practices&lt;/a&gt; in general—and think of ways the code could be improved.&lt;/p&gt;
+
+&lt;p&gt;From my perspective, the main problems are&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;The code is too specific&lt;/strong&gt;. It can’t be easily changed to accommodate other transformations being applied to the array elements. It just performs a sum, and that’s it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Too much boilerplate&lt;/strong&gt;. Look at the previous sample again. Count the lines. There are seven, of which only one really concerns itself with carrying through the business logic of the method.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How would the functional way improve on this? That’s the way I’d write the first example in F#, for instance:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I’m assuming here that “numbers” is a sequence of integers I’ve got somehow. Then I use the map function on the Seq module, passing the sequence as a parameter, along with a function that takes an int and adds three to it.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way-netc-flavor&quot;&gt;The Functional Way, .NET/C# Flavor&lt;/h3&gt;
+
+&lt;p&gt;.NET implements the map operation in the form of the “Select” LINQ extension method. So you could rewrite the F# example above like this:&lt;/p&gt;
+
+&lt;p&gt;var result = numbers.Select(x =&amp;gt; x + 3);&lt;/p&gt;
+
+&lt;p&gt;One important point that needs explaining is that the type of the resulting sequence doesn’t need to match the type of the source sequence. Do you have a list of ‘Employee’ and need a sequence of ints (containing, for instance, their IDs)? Easy peasy:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EmployeeRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;All&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;filter&quot;&gt;Filter&lt;/h2&gt;
+
+&lt;p&gt;I think filter is, hands down, the easiest operation of the bunch. It has a very intuitive name, and the need for filtering stuff is so common in programming that I bet you correctly guessed what it is just by its name (if you didn’t know it already).&lt;/p&gt;
+
+&lt;p&gt;For the sake of completeness, though, let’s define it. The filter operation…wait for it…filters a sequence, returning a new sequence containing just the items approved by some criteria.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-imperative-way&quot;&gt;The Imperative Way&lt;/h3&gt;
+
+&lt;p&gt;Since we’ve used employees in the previous section, let’s keep within the theme. Let’s say you need to come up with a list of the employees who have used at least three sick days.&lt;/p&gt;
+
+&lt;p&gt;In a more procedural style, you’d maybe write something along the following lines:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetEmployeesWithAtLeastNSickdays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+	
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sickdays&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I wouldn’t say there’s something &lt;em&gt;definitely&lt;/em&gt; wrong with this code. The method’s name is a bit too long, but it’s very descriptive. The code does what it promises. And it’s readable enough.&lt;/p&gt;
+
+&lt;p&gt;But similarly to the previous section, we can make the argument that the code is too noisy. We can say that, essentially, the only line that does something domain related is the &lt;em&gt;if&lt;/em&gt; test. All the other lines are basically boilerplate-y infrastructure code. Can a functional approach help us here?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way-1&quot;&gt;The Functional Way&lt;/h3&gt;
+
+&lt;p&gt;Let’s rewrite the method above by using LINQ:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetEmployeesWithAtLeastNSickdays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SickDays&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here we use the “Where” extension method, passing the filtering criterium as a delegate. To be honest, the outer method became not very useful since it just delegates the work. In real life, I’d get rid of it.&lt;/p&gt;
+
+&lt;h2 id=&quot;reduce&quot;&gt;Reduce&lt;/h2&gt;
+
+&lt;p&gt;Reduce is often the one many developers have some difficulty understanding. But it isn’t hard at all. Think of it like this: you have a sequence of something, and you also have a function that takes two of these “somethings” and returns one, after doing some processing.&lt;/p&gt;
+
+&lt;p&gt;Then you start applying the function. You apply it to the first two elements in the sequence and store the result. Then you apply it again to the result and the third element. Then you do it again to the result and the fourth item, and so forth.&lt;/p&gt;
+
+&lt;p&gt;The classical example of reduce is adding up a list of numbers, so that’s exactly what we’re going to do in our example.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-imperative-way-1&quot;&gt;The Imperative Way&lt;/h3&gt;
+
+&lt;p&gt;So, suppose we’re to sum a bunch of integers. We could do it like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;At this point, you’re probably familiar with what I have to say about this code: it isn’t necessarily wrong, but it’s inflexible and noisy. Can functional programming save us?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way-2&quot;&gt;The Functional Way&lt;/h3&gt;
+
+&lt;p&gt;In .NET/C#, the “Reduce” operation assumes the form of the “Aggregate” extension method. This time, I’ll just get rid of the enclosing method and write the LINQ solution right away:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Aggregate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Things look a little bit more complex here, but don’t get scared. In this case, we’re just passing a function that takes two parameters, instead of one, like in the previous examples. It has to be that way since the function must be applied to two elements of the sequence each time.&lt;/p&gt;
+
+&lt;p&gt;But as it turns out, there’s an even easier way of solving this particular problem (adding a bunch of numbers). Since summing a sequence of numbers is such a common use case, there’s a dedicated method to do just that. It’s called, not surprisingly, “Sum”:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What’s “Aggregate” good for, then? Well, adding a list of integers is just one of the applications for reduce, but you’re not in any way restricted to only that. You can use it with any binary operation, such as concatenating strings or summing custom types.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-verdict-is-the-functional-approach-better&quot;&gt;The Verdict: Is the Functional Approach Better?&lt;/h2&gt;
+
+&lt;p&gt;After these examples, you might be wondering if the “functional” way is any better? It’d be extremely hard to define what “better” is, so I won’t even bother. Let’s consider another criterion: readability.&lt;/p&gt;
+
+&lt;p&gt;Though we know that code readability &lt;a href=&quot;https://blog.submain.com/evaluate-code-readability/&quot;&gt;can also be highly subjective,&lt;/a&gt; I’d say that yes, the functional examples are more readable. Suppose we need to retrieve and sum all the salaries from employees with more than five years of company time. We could easily do that by writing a loop, in which we’d test the condition and accumulate the salary if the test turned out true.&lt;/p&gt;
+
+&lt;p&gt;Or we could just write this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CompanyTimeInYears&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Salary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I honestly believe this line to be more readable (and generally better) than the procedural approach. It’s more declarative; it shows the intention of &lt;strong&gt;what&lt;/strong&gt; we’re trying to get done without being too concerned with the &lt;strong&gt;how&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;It almost reads like natural language: “The list of employees where their time in the company is greater than five years, select their salary and sum them”.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-some-functional-spice-to-make-your-code-tastier&quot;&gt;Add Some Functional Spice to Make Your Code Tastier&lt;/h2&gt;
+
+&lt;p&gt;Many people use LINQ for years without even realizing they’re using functional programming concepts. I take this as proof that functional programming isn’t beyond the capabilities of the enterprise developer who lacks a strong background in math.&lt;/p&gt;
+
+&lt;p&gt;Some of the concepts presented here are neither new nor restricted to functional programming. The benefits of distinguishing between functions that produce side effects from those that don’t is the basis of principles like &lt;a href=&quot;https://en.wikipedia.org/wiki/Command%E2%80%93query_separation&quot;&gt;command-query separation (CQS)&lt;/a&gt;, for instance.&lt;/p&gt;
+
+&lt;p&gt;The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are &lt;a href=&quot;http://fsharpforfunandprofit.com&quot;&gt;awesome resources for that purpose if you want to learn more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Instead, what I wanted here is to give you a little taste of what a functional style can do for your code, which is to make it more expressive, concise, and declarative. Now it’s up to you to try to apply the functional mindset to the code you write.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Jan 2019 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/functional-programming-csharp/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/functional-programming-csharp/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        <category>functional-programming</category>
+        
+        
+      </item>
     
       <item>
         <title>Value Objects: A Tool for Self-Documented Code and Fewer Errors</title>
@@ -128,7 +326,7 @@
 
 &lt;p&gt;Value objects are a relatively low-cost technique that can greatly enhance the manageability and clarity of your code. By employing value objects, you can make your code easier to reason about, crafting APIs that are self-documenting, easy to understand, hard to use incorrectly, and inherently type-safe.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 24 Oct 2018 00:00:00 -0300</pubDate>
+        <pubDate>Wed, 24 Oct 2018 00:00:00 -0200</pubDate>
         <link>http://carlosschults.net/en/value-objects-tool/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/value-objects-tool/</guid>
         
@@ -1657,107 +1855,6 @@ Changes not staged for commit:
         <category>tfs</category>
         
         <category>tfvcs</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>C# 7 Features Worth Knowing - Part 1</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;C# 7 is finally among us. Time to check out some of its features.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;In my &lt;a href=&quot;http://carlosschults.net/en/csharp-6-features/&quot;&gt;last post&lt;/a&gt; I’ve written about some of the more interesting (for me, at least) features of C# 6. Visual Studio 2017 and C# 7 were officially released the following day, so I guess now it’s the perfect time for us to discuss the new version of the language.&lt;/p&gt;
-
-&lt;p&gt;I think it’s fair to say that the seventh version of C# continues the trend started by its predecessor. Instead of adding radically new capabilities to the language, the design team again chose to include features meant to make your code cleaner and more concise.&lt;/p&gt;
-
-&lt;p&gt;In this version, they “expanded” certain features that made their debut in C# 6. It seems that the previous version acted as a kind of rehearsal for some features; now that the design team knows that those features were well accepted, they can take them to their next level.&lt;/p&gt;
-
-&lt;p&gt;So, without further ado, let’s begin.&lt;/p&gt;
-
-&lt;h2 id=&quot;digit-separators-and-binary-literals&quot;&gt;Digit separators and binary literals&lt;/h2&gt;
-
-&lt;p&gt;Take a look at the code bellow:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/00e899d0f7611e3ca3b54f109f58619b.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;What are those underscores for? &lt;strong&gt;Readability&lt;/strong&gt;, that’s what.&lt;/p&gt;
-
-&lt;p&gt;Large numbers can become quite hard to read. To address this issue, C# 7 lets you to use the &lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; as a digit separator.&lt;/p&gt;
-
-&lt;p&gt;The separators make no difference on the value. You can place them wherever you like in the number, and in any quantity.&lt;/p&gt;
-
-&lt;p&gt;And in case you’re wondering, you’re not restricted to using them with integers only; they also work with the other numeric types as well.&lt;/p&gt;
-
-&lt;p&gt;The new version of C# also introduces binary literals, as seen in the third line of the example shown above. If you need to write a binary value, just put &lt;code class=&quot;highlighter-rouge&quot;&gt;0b&lt;/code&gt; at the beginning of the number, and that’s it!&lt;/p&gt;
-
-&lt;h2 id=&quot;out-variables&quot;&gt;Out variables&lt;/h2&gt;
-
-&lt;p&gt;In previous versions of C#, working with &lt;em&gt;out&lt;/em&gt; variables has been somewhat inconvenient. You’d have to split their declaration and usage into two steps.&lt;/p&gt;
-
-&lt;p&gt;Now, C# 7 allows you to declare the variable at the argument list:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/fbd60b4e31a09c1e0a4f19b431b10320.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Some important things to bear in mind:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Even though I’ve explicitly written the type name in the declaration, this is not always required. I could have used &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; and it would’ve worked just the same.&lt;/li&gt;
-  &lt;li&gt;You may think that the declared variable will go out of scope after we leave the &lt;code class=&quot;highlighter-rouge&quot;&gt;if/else&lt;/code&gt; block. That is &lt;strong&gt;not&lt;/strong&gt; the case. The variable continues to be accessible until going out of its normal scope.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/a23411376a6610e0e9081674faf1b0a5.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;more-expression-bodied-members&quot;&gt;(More) Expression-bodied members&lt;/h2&gt;
-
-&lt;p&gt;At the beginning of this post, I said that C# 7 expands some of its predecessor’s features, remember? Well, this is one of those cases.&lt;/p&gt;
-
-&lt;p&gt;In the last post, we’ve seen that &lt;a href=&quot;http://carlosschults.net/en/csharp-6-features/#expression-bodied-methods-and-properties&quot;&gt;C# 6 brought us Expression-bodied members&lt;/a&gt;, which is a nice and shorter way of writing members of the class, using the lambda expression syntax.&lt;/p&gt;
-
-&lt;p&gt;However, you could only use this feature with &lt;strong&gt;methods, read-only properties and indexers&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;C# 7 changes the game. Now you can use expression-bodied constructors, destructors, and writable properties.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/50512925b89eb8ee590190793846a724.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;throw-expressions&quot;&gt;throw Expressions&lt;/h2&gt;
-
-&lt;p&gt;This one is very simple. Consider the following code:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/8f89e4fff3cf3e6302bc8325d4df5617.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;That is 9 lines of code for just an assignment. And most of those lines are not performing the assignment itself; they’re just a guard clause. Of course, they’re important, but they tend to pollute your code. What if there was a better way?&lt;/p&gt;
-
-&lt;p&gt;Now there is.&lt;/p&gt;
-
-&lt;p&gt;In the previous versions of C#, &lt;code class=&quot;highlighter-rouge&quot;&gt;throw&lt;/code&gt; was a statement. Now, it is an &lt;strong&gt;expression&lt;/strong&gt;, which allows us to throw exceptions in places like the second hand of the Null Coalescing Operator and in conditional expressions.&lt;/p&gt;
-
-&lt;p&gt;Using a &lt;em&gt;throw expression&lt;/em&gt;, the example shown above becomes as simple as this:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/a10cfa584d08fda2d3497075926d073d.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Of course, there’s nothing stopping us from turning the constructor into an expression-bodied member:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/02548a3f2d735468518e6c00eea385a8.js&quot;&gt;&lt;/script&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;In this post, we’ve seen some of the new features from the seventh version of C#. This was just the fist part. More parts will come, in which I intend to cover all (or at least most) of the new features.&lt;/p&gt;
-
-&lt;p&gt;As I’ve said earlier, C# 7 kind of continues the path started by C# 6. The design team didn’t just include crazy new features just for the sake of it; instead, they carefully selected the ones that would help all of us to improve the quality of our code.&lt;/p&gt;
-
-&lt;p&gt;That being said, I do consider that this version is a little bit…less shy - for lack of a better word - than its predecessor. Some of the features that I didn’t talk about today show that the language is being pushed to interesting new directions, and I think there is a very exciting ride ahead of us.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading, and stay tuned for part 2!&lt;/p&gt;
-</description>
-        <pubDate>Mon, 13 Mar 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/csharp-7-features/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/csharp-7-features/</guid>
-        
-        <category>csharp</category>
-        
-        <category>beginners</category>
         
         
       </item>

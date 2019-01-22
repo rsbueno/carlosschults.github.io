@@ -82,6 +82,207 @@
   
   
   
+   <span class="post-meta">Jan 22, 2019</span>
+    <h2>
+          <a class="post-link" href="/en/functional-programming-csharp/">Functional Programming in C#: Map, Filter, and Reduce Your Way to Clean Code</a>
+    </h2>
+    <div class="post-content">
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1548200356/Untitled_xfahmy.jpg" alt="" /></p>
+
+<p><em>Editorial note: I originally wrote this post for the SubMain blog.  You can <a href="https://blog.submain.com/csharp-functional-programming/">check out the original here, at their site</a>. While you’re there, have a look at CodeIt.Right, which can help you improve the quality of your code.</em></p>
+
+<p>C# is supposed to be an object-oriented language, but it’s possible that you, as a .NET/C# developer, have been using functional programming concepts without even knowing it.</p>
+
+<p>And that’s what today’s post is about. I’ll just first briefly cover the attractions of functional programming and why it makes sense to apply it even when using a so-called object-oriented language. Then I’ll show you how you’ve already been using some functional style in your C# code, even if you’re not aware of it. I’ll tell you how you can apply functional thinking to your code in order to make it cleaner, safer, and more expressive.</p>
+
+<h2 id="c-functional-programming-why">C# Functional Programming: Why?</h2>
+
+<p>We know the .NET framework offers some functional capabilities in the form of the LINQ extension methods, but should you use them?</p>
+
+<p>To really answer this, we need to go back a step and understand the attraction of functional programming itself.  The way I see it, the easiest path to start understanding the benefits of functional programming is to first understand two topics: <strong>pure functions</strong> and <strong>immutable data</strong></p>
+
+<p><strong>Pure functions</strong> are functions that can only access the data they receive as arguments and, as a consequence, can’t have any side effects. <strong>Immutable data</strong> are just objects or data structures that, once initialized, can’t have their values changed, making them easier to reason about and automatically thread-safe.</p>
+
+<h2 id="fundamental-functional-programming-operations-and-how-to-perform-them-using-c">Fundamental Functional Programming Operations and How to Perform Them Using C#</h2>
+
+<p>With the <em>what</em> and <em>why</em> of functional programming out of the way, it’s time to get to the <em>how</em>.</p>
+
+<p>l’ll be covering three fundamental functions: map, filter, and reduce. I’ll start by showing some use cases, then I’ll show a traditional, procedural way of solving the problem. And finally, I’ll present the functional way.</p>
+
+<h2 id="map">Map</h2>
+
+<p>In simple terms, the “map” operation takes a sequence of items, applies some transformation to each one of those items, and returns a new sequence with the resulting items. Let’s see some examples.</p>
+
+<p>Suppose you wrote the following code, due to a customer’s demand:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">static</span> <span class="k">void</span> <span class="nf">AddThreeToEachElement</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">arr</span><span class="p">)</span>
+	<span class="p">{</span>
+	    <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+	    <span class="p">{</span>
+	       <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+=</span> <span class="m">3</span><span class="p">;</span>
+	    <span class="p">}</span>
+	<span class="p">}</span></code></pre></figure>
+
+<p>It’s a function that adds three to each element of the given <a href="https://blog.submain.com/c-array/">array</a> of integers. Pretty straightforward.</p>
+
+<p>Now a request for a new function comes in. This time, it should add five to each element in an array. Ignoring the <a href="https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)">rule of three,</a> you jump right ahead into a generalized version, parameterizing the number to be added:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">static</span> <span class="k">void</span> <span class="nf">AddNumberToEachElement</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n</span><span class="p">)</span>
+	<span class="p">{</span>
+	   <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span>
+	   <span class="p">{</span>
+	        <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">+=</span> <span class="n">n</span><span class="p">;</span>
+	   <span class="p">}</span>
+	<span class="p">}</span></code></pre></figure>
+
+<p>Then yet another request comes in. Now you must write a function that will multiply each element of the given array by, let’s say, three. I won’t add the code sample now because I’m sure you’ve got the picture. By now, you should know better than to hardcode the number, so you’d probably jump ahead to a general version right away. Even then, some duplication would still exist: the loop itself. Hmm…what if you could keep just the loop and instead parameterize the action to be applied on each item?</p>
+
+<h3 id="the-functional-way">The Functional Way</h3>
+
+<p>Take into consideration what you’ve just read about pure functions—and also your previous knowledge of<a href="https://blog.submain.com/coding-best-practices-short-time/">programming best practices</a> in general—and think of ways the code could be improved.</p>
+
+<p>From my perspective, the main problems are</p>
+
+<ul>
+  <li><strong>The code is too specific</strong>. It can’t be easily changed to accommodate other transformations being applied to the array elements. It just performs a sum, and that’s it.</li>
+  <li><strong>Too much boilerplate</strong>. Look at the previous sample again. Count the lines. There are seven, of which only one really concerns itself with carrying through the business logic of the method.</li>
+</ul>
+
+<p>How would the functional way improve on this? That’s the way I’d write the first example in F#, for instance:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">let</span> <span class="n">result</span> <span class="p">=</span> <span class="n">Seq</span><span class="p">.</span><span class="nf">map</span> <span class="p">(</span><span class="n">fun</span> <span class="n">x</span> <span class="p">-&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="m">3</span><span class="p">)</span> <span class="n">numbers</span></code></pre></figure>
+
+<p>I’m assuming here that “numbers” is a sequence of integers I’ve got somehow. Then I use the map function on the Seq module, passing the sequence as a parameter, along with a function that takes an int and adds three to it.</p>
+
+<h3 id="the-functional-way-netc-flavor">The Functional Way, .NET/C# Flavor</h3>
+
+<p>.NET implements the map operation in the form of the “Select” LINQ extension method. So you could rewrite the F# example above like this:</p>
+
+<p>var result = numbers.Select(x =&gt; x + 3);</p>
+
+<p>One important point that needs explaining is that the type of the resulting sequence doesn’t need to match the type of the source sequence. Do you have a list of ‘Employee’ and need a sequence of ints (containing, for instance, their IDs)? Easy peasy:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;</span> <span class="n">employees</span> <span class="p">=</span> <span class="n">EmployeeRepository</span><span class="p">.</span><span class="nf">All</span><span class="p">();</span>
+	<span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">ids</span> <span class="p">=</span> <span class="n">employees</span><span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">Id</span><span class="p">);</span></code></pre></figure>
+
+<h2 id="filter">Filter</h2>
+
+<p>I think filter is, hands down, the easiest operation of the bunch. It has a very intuitive name, and the need for filtering stuff is so common in programming that I bet you correctly guessed what it is just by its name (if you didn’t know it already).</p>
+
+<p>For the sake of completeness, though, let’s define it. The filter operation…wait for it…filters a sequence, returning a new sequence containing just the items approved by some criteria.</p>
+
+<h3 id="the-imperative-way">The Imperative Way</h3>
+
+<p>Since we’ve used employees in the previous section, let’s keep within the theme. Let’s say you need to come up with a list of the employees who have used at least three sick days.</p>
+
+<p>In a more procedural style, you’d maybe write something along the following lines:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">public</span> <span class="k">static</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;</span> <span class="nf">GetEmployeesWithAtLeastNSickdays</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;</span> <span class="n">employees</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+	<span class="p">{</span>
+	    <span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;</span> <span class="n">result</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;();</span>
+	
+	    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">e</span> <span class="k">in</span> <span class="n">employees</span><span class="p">)</span>
+	    <span class="p">{</span>
+	        <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Sickdays</span> <span class="p">&gt;=</span> <span class="n">number</span><span class="p">)</span>
+	        <span class="p">{</span>
+	            <span class="n">result</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+	        <span class="p">}</span>   
+	    <span class="p">}</span>
+	
+	    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+	<span class="p">}</span></code></pre></figure>
+
+<p>I wouldn’t say there’s something <em>definitely</em> wrong with this code. The method’s name is a bit too long, but it’s very descriptive. The code does what it promises. And it’s readable enough.</p>
+
+<p>But similarly to the previous section, we can make the argument that the code is too noisy. We can say that, essentially, the only line that does something domain related is the <em>if</em> test. All the other lines are basically boilerplate-y infrastructure code. Can a functional approach help us here?</p>
+
+<h3 id="the-functional-way-1">The Functional Way</h3>
+
+<p>Let’s rewrite the method above by using LINQ:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">public</span> <span class="k">static</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;</span> <span class="nf">GetEmployeesWithAtLeastNSickdays</span><span class="p">(</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Employee</span><span class="p">&gt;</span> <span class="n">employees</span><span class="p">,</span> <span class="kt">int</span> <span class="n">number</span><span class="p">)</span>
+	<span class="p">{</span>
+	    <span class="k">return</span> <span class="n">employees</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">SickDays</span> <span class="p">&gt;=</span> <span class="n">n</span><span class="p">).</span><span class="nf">ToList</span><span class="p">();</span>
+	<span class="p">}</span></code></pre></figure>
+
+<p>Here we use the “Where” extension method, passing the filtering criterium as a delegate. To be honest, the outer method became not very useful since it just delegates the work. In real life, I’d get rid of it.</p>
+
+<h2 id="reduce">Reduce</h2>
+
+<p>Reduce is often the one many developers have some difficulty understanding. But it isn’t hard at all. Think of it like this: you have a sequence of something, and you also have a function that takes two of these “somethings” and returns one, after doing some processing.</p>
+
+<p>Then you start applying the function. You apply it to the first two elements in the sequence and store the result. Then you apply it again to the result and the third element. Then you do it again to the result and the fourth item, and so forth.</p>
+
+<p>The classical example of reduce is adding up a list of numbers, so that’s exactly what we’re going to do in our example.</p>
+
+<h3 id="the-imperative-way-1">The Imperative Way</h3>
+
+<p>So, suppose we’re to sum a bunch of integers. We could do it like this:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="k">public</span> <span class="kt">int</span> <span class="nf">Sum</span><span class="p">(</span><span class="n">IEnumerable</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">numbers</span><span class="p">)</span>
+	<span class="p">{</span>
+	    <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+	    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">number</span> <span class="k">in</span> <span class="n">numbers</span><span class="p">)</span>
+	    <span class="p">{</span>
+	        <span class="n">result</span> <span class="p">+=</span> <span class="n">number</span><span class="p">;</span>
+	    <span class="p">}</span>
+	
+	    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+	<span class="p">}</span></code></pre></figure>
+
+<p>At this point, you’re probably familiar with what I have to say about this code: it isn’t necessarily wrong, but it’s inflexible and noisy. Can functional programming save us?</p>
+
+<h3 id="the-functional-way-2">The Functional Way</h3>
+
+<p>In .NET/C#, the “Reduce” operation assumes the form of the “Aggregate” extension method. This time, I’ll just get rid of the enclosing method and write the LINQ solution right away:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">sum</span> <span class="p">=</span> <span class="n">number</span><span class="p">.</span><span class="nf">Aggregate</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="n">x</span> <span class="p">+</span> <span class="n">y</span><span class="p">);</span></code></pre></figure>
+
+<p>Things look a little bit more complex here, but don’t get scared. In this case, we’re just passing a function that takes two parameters, instead of one, like in the previous examples. It has to be that way since the function must be applied to two elements of the sequence each time.</p>
+
+<p>But as it turns out, there’s an even easier way of solving this particular problem (adding a bunch of numbers). Since summing a sequence of numbers is such a common use case, there’s a dedicated method to do just that. It’s called, not surprisingly, “Sum”:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">sum</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">Sum</span><span class="p">();</span></code></pre></figure>
+
+<p>What’s “Aggregate” good for, then? Well, adding a list of integers is just one of the applications for reduce, but you’re not in any way restricted to only that. You can use it with any binary operation, such as concatenating strings or summing custom types.</p>
+
+<h2 id="the-verdict-is-the-functional-approach-better">The Verdict: Is the Functional Approach Better?</h2>
+
+<p>After these examples, you might be wondering if the “functional” way is any better? It’d be extremely hard to define what “better” is, so I won’t even bother. Let’s consider another criterion: readability.</p>
+
+<p>Though we know that code readability <a href="https://blog.submain.com/evaluate-code-readability/">can also be highly subjective,</a> I’d say that yes, the functional examples are more readable. Suppose we need to retrieve and sum all the salaries from employees with more than five years of company time. We could easily do that by writing a loop, in which we’d test the condition and accumulate the salary if the test turned out true.</p>
+
+<p>Or we could just write this:</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">sum</span> <span class="p">=</span> <span class="n">employees</span><span class="p">.</span><span class="nf">Where</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">CompanyTimeInYears</span> <span class="p">&gt;</span> <span class="m">5</span><span class="p">).</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">Salary</span><span class="p">).</span><span class="nf">Sum</span><span class="p">();</span></code></pre></figure>
+
+<p>I honestly believe this line to be more readable (and generally better) than the procedural approach. It’s more declarative; it shows the intention of <strong>what</strong> we’re trying to get done without being too concerned with the <strong>how</strong>.</p>
+
+<p>It almost reads like natural language: “The list of employees where their time in the company is greater than five years, select their salary and sum them”.</p>
+
+<h2 id="add-some-functional-spice-to-make-your-code-tastier">Add Some Functional Spice to Make Your Code Tastier</h2>
+
+<p>Many people use LINQ for years without even realizing they’re using functional programming concepts. I take this as proof that functional programming isn’t beyond the capabilities of the enterprise developer who lacks a strong background in math.</p>
+
+<p>Some of the concepts presented here are neither new nor restricted to functional programming. The benefits of distinguishing between functions that produce side effects from those that don’t is the basis of principles like <a href="https://en.wikipedia.org/wiki/Command%E2%80%93query_separation">command-query separation (CQS)</a>, for instance.</p>
+
+<p>The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are <a href="http://fsharpforfunandprofit.com">awesome resources for that purpose if you want to learn more</a>.</p>
+
+<p>Instead, what I wanted here is to give you a little taste of what a functional style can do for your code, which is to make it more expressive, concise, and declarative. Now it’s up to you to try to apply the functional mindset to the code you write.</p>
+
+    <a href="/en/functional-programming-csharp/">read more...</a>
+   </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
    <span class="post-meta">Oct 24, 2018</span>
     <h2>
           <a class="post-link" href="/en/value-objects-tool/">Value Objects: A Tool for Self-Documented Code and Fewer Errors</a>
