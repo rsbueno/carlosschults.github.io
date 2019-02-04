@@ -3,8 +3,24 @@
   
     
       <url>
+        <loc>/pt/programacao-funcional-csharp/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/programacao-funcional-csharp/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/functional-programming-csharp/" />
+        
+        <lastmod>2019-01-22T00:00:00-02:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/functional-programming-csharp/</loc>
         
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/programacao-funcional-csharp/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/en/functional-programming-csharp/" />
         
@@ -812,6 +828,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/functional-programming/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -909,6 +927,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tempo/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1056,6 +1076,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/functional-programming/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1153,6 +1175,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tempo/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1300,6 +1324,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/functional-programming/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1397,6 +1423,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tempo/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1544,6 +1572,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/functional-programming/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1641,6 +1671,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tempo/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -2320,6 +2352,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/programacao%20funcional/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -2950,6 +2995,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/functional-programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/programacao%20funcional/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
         
         <changefreq>weekly</changefreq>
       </url>
