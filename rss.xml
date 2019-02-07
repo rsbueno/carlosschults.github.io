@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 04 Feb 2019 21:37:15 -0200</pubDate>
-    <lastBuildDate>Mon, 04 Feb 2019 21:37:15 -0200</lastBuildDate>
+    <pubDate>Thu, 07 Feb 2019 19:44:45 -0200</pubDate>
+    <lastBuildDate>Thu, 07 Feb 2019 19:44:45 -0200</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
     
@@ -26,7 +26,7 @@
 
 &lt;p&gt;Para responder bem essa pergunta, precisamos voltar um passo e entender os atrativos da programação funcional em si. Na minha opinião, para começar a entender os benefícios da programação funcional você precisa primeiro entender dois tópicos: &lt;strong&gt;funções puras&lt;/strong&gt; e &lt;strong&gt;imutabilidade&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Funções puras são funções que apenas podem acessar os valores que receberam por argumentos e, como consequência, não podem ter nenhum efeito colateral. **Imutabilidade&lt;/strong&gt; se refere a objetos ou estruturas de dados que, uma vez inicializados, não podem sofrer nenhuma mudança em seus valores. Isso os torna mais fáceis de entender e seguros para serem usados em código com múltiplas threads.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Funções puras&lt;/strong&gt; são funções que apenas podem acessar os valores que receberam por argumentos e, como consequência, não podem ter nenhum efeito colateral. &lt;strong&gt;Imutabilidade&lt;/strong&gt; se refere a objetos ou estruturas de dados que, uma vez inicializados, não podem sofrer nenhuma mudança em seus valores. Isso os torna mais fáceis de entender e seguros para serem usados em código com múltiplas threads.&lt;/p&gt;
 
 &lt;h2 id=&quot;operações-fundamentais-da-programação-funcional-e-como-executá-las-usando-c&quot;&gt;Operações Fundamentais da Programação Funcional e Como Executá-las Usando C#&lt;/h2&gt;
 
