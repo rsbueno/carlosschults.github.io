@@ -1,0 +1,1863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>carlos schults / blog</title>
+    <description>Articles on software development, databases and several tech related subjects.</description>
+    <link>http://carlosschults.net/</link>
+    <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 07 Feb 2019 19:56:53 -0200</pubDate>
+    <lastBuildDate>Thu, 07 Feb 2019 19:56:53 -0200</lastBuildDate>
+    <generator>Jekyll v3.8.4</generator>
+    
+    
+      <item>
+        <title>Functional Programming in C#: Map, Filter, and Reduce Your Way to Clean Code</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1548200356/Untitled_xfahmy.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/csharp-functional-programming/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you improve the quality of your code.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;C# is supposed to be an object-oriented language, but it’s possible that you, as a .NET/C# developer, have been using functional programming concepts without even knowing it.&lt;/p&gt;
+
+&lt;p&gt;And that’s what today’s post is about. I’ll just first briefly cover the attractions of functional programming and why it makes sense to apply it even when using a so-called object-oriented language. Then I’ll show you how you’ve already been using some functional style in your C# code, even if you’re not aware of it. I’ll tell you how you can apply functional thinking to your code in order to make it cleaner, safer, and more expressive.&lt;/p&gt;
+
+&lt;h2 id=&quot;c-functional-programming-why&quot;&gt;C# Functional Programming: Why?&lt;/h2&gt;
+
+&lt;p&gt;We know the .NET framework offers some functional capabilities in the form of the LINQ extension methods, but should you use them?&lt;/p&gt;
+
+&lt;p&gt;To really answer this, we need to go back a step and understand the attraction of functional programming itself.  The way I see it, the easiest path to start understanding the benefits of functional programming is to first understand two topics: &lt;strong&gt;pure functions&lt;/strong&gt; and &lt;strong&gt;immutable data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Pure functions&lt;/strong&gt; are functions that can only access the data they receive as arguments and, as a consequence, can’t have any side effects. &lt;strong&gt;Immutable data&lt;/strong&gt; are just objects or data structures that, once initialized, can’t have their values changed, making them easier to reason about and automatically thread-safe.&lt;/p&gt;
+
+&lt;h2 id=&quot;fundamental-functional-programming-operations-and-how-to-perform-them-using-c&quot;&gt;Fundamental Functional Programming Operations and How to Perform Them Using C#&lt;/h2&gt;
+
+&lt;p&gt;With the &lt;em&gt;what&lt;/em&gt; and &lt;em&gt;why&lt;/em&gt; of functional programming out of the way, it’s time to get to the &lt;em&gt;how&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;l’ll be covering three fundamental functions: map, filter, and reduce. I’ll start by showing some use cases, then I’ll show a traditional, procedural way of solving the problem. And finally, I’ll present the functional way.&lt;/p&gt;
+
+&lt;h2 id=&quot;map&quot;&gt;Map&lt;/h2&gt;
+
+&lt;p&gt;In simple terms, the “map” operation takes a sequence of items, applies some transformation to each one of those items, and returns a new sequence with the resulting items. Let’s see some examples.&lt;/p&gt;
+
+&lt;p&gt;Suppose you wrote the following code, due to a customer’s demand:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AddThreeToEachElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	       &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s a function that adds three to each element of the given &lt;a href=&quot;https://blog.submain.com/c-array/&quot;&gt;array&lt;/a&gt; of integers. Pretty straightforward.&lt;/p&gt;
+
+&lt;p&gt;Now a request for a new function comes in. This time, it should add five to each element in an array. Ignoring the &lt;a href=&quot;https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)&quot;&gt;rule of three,&lt;/a&gt; you jump right ahead into a generalized version, parameterizing the number to be added:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AddNumberToEachElement&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;++)&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Then yet another request comes in. Now you must write a function that will multiply each element of the given array by, let’s say, three. I won’t add the code sample now because I’m sure you’ve got the picture. By now, you should know better than to hardcode the number, so you’d probably jump ahead to a general version right away. Even then, some duplication would still exist: the loop itself. Hmm…what if you could keep just the loop and instead parameterize the action to be applied on each item?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way&quot;&gt;The Functional Way&lt;/h3&gt;
+
+&lt;p&gt;Take into consideration what you’ve just read about pure functions—and also your previous knowledge of&lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;programming best practices&lt;/a&gt; in general—and think of ways the code could be improved.&lt;/p&gt;
+
+&lt;p&gt;From my perspective, the main problems are&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;The code is too specific&lt;/strong&gt;. It can’t be easily changed to accommodate other transformations being applied to the array elements. It just performs a sum, and that’s it.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Too much boilerplate&lt;/strong&gt;. Look at the previous sample again. Count the lines. There are seven, of which only one really concerns itself with carrying through the business logic of the method.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How would the functional way improve on this? That’s the way I’d write the first example in F#, for instance:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Seq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fun&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I’m assuming here that “numbers” is a sequence of integers I’ve got somehow. Then I use the map function on the Seq module, passing the sequence as a parameter, along with a function that takes an int and adds three to it.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way-netc-flavor&quot;&gt;The Functional Way, .NET/C# Flavor&lt;/h3&gt;
+
+&lt;p&gt;.NET implements the map operation in the form of the “Select” LINQ extension method. So you could rewrite the F# example above like this:&lt;/p&gt;
+
+&lt;p&gt;var result = numbers.Select(x =&amp;gt; x + 3);&lt;/p&gt;
+
+&lt;p&gt;One important point that needs explaining is that the type of the resulting sequence doesn’t need to match the type of the source sequence. Do you have a list of ‘Employee’ and need a sequence of ints (containing, for instance, their IDs)? Easy peasy:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;EmployeeRepository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;All&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ids&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;filter&quot;&gt;Filter&lt;/h2&gt;
+
+&lt;p&gt;I think filter is, hands down, the easiest operation of the bunch. It has a very intuitive name, and the need for filtering stuff is so common in programming that I bet you correctly guessed what it is just by its name (if you didn’t know it already).&lt;/p&gt;
+
+&lt;p&gt;For the sake of completeness, though, let’s define it. The filter operation…wait for it…filters a sequence, returning a new sequence containing just the items approved by some criteria.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-imperative-way&quot;&gt;The Imperative Way&lt;/h3&gt;
+
+&lt;p&gt;Since we’ve used employees in the previous section, let’s keep within the theme. Let’s say you need to come up with a list of the employees who have used at least three sick days.&lt;/p&gt;
+
+&lt;p&gt;In a more procedural style, you’d maybe write something along the following lines:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetEmployeesWithAtLeastNSickdays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+	
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Sickdays&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;   
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I wouldn’t say there’s something &lt;em&gt;definitely&lt;/em&gt; wrong with this code. The method’s name is a bit too long, but it’s very descriptive. The code does what it promises. And it’s readable enough.&lt;/p&gt;
+
+&lt;p&gt;But similarly to the previous section, we can make the argument that the code is too noisy. We can say that, essentially, the only line that does something domain related is the &lt;em&gt;if&lt;/em&gt; test. All the other lines are basically boilerplate-y infrastructure code. Can a functional approach help us here?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way-1&quot;&gt;The Functional Way&lt;/h3&gt;
+
+&lt;p&gt;Let’s rewrite the method above by using LINQ:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;GetEmployeesWithAtLeastNSickdays&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Employee&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SickDays&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here we use the “Where” extension method, passing the filtering criterium as a delegate. To be honest, the outer method became not very useful since it just delegates the work. In real life, I’d get rid of it.&lt;/p&gt;
+
+&lt;h2 id=&quot;reduce&quot;&gt;Reduce&lt;/h2&gt;
+
+&lt;p&gt;Reduce is often the one many developers have some difficulty understanding. But it isn’t hard at all. Think of it like this: you have a sequence of something, and you also have a function that takes two of these “somethings” and returns one, after doing some processing.&lt;/p&gt;
+
+&lt;p&gt;Then you start applying the function. You apply it to the first two elements in the sequence and store the result. Then you apply it again to the result and the third element. Then you do it again to the result and the fourth item, and so forth.&lt;/p&gt;
+
+&lt;p&gt;The classical example of reduce is adding up a list of numbers, so that’s exactly what we’re going to do in our example.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-imperative-way-1&quot;&gt;The Imperative Way&lt;/h3&gt;
+
+&lt;p&gt;So, suppose we’re to sum a bunch of integers. We could do it like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;IEnumerable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	        &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;At this point, you’re probably familiar with what I have to say about this code: it isn’t necessarily wrong, but it’s inflexible and noisy. Can functional programming save us?&lt;/p&gt;
+
+&lt;h3 id=&quot;the-functional-way-2&quot;&gt;The Functional Way&lt;/h3&gt;
+
+&lt;p&gt;In .NET/C#, the “Reduce” operation assumes the form of the “Aggregate” extension method. This time, I’ll just get rid of the enclosing method and write the LINQ solution right away:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Aggregate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Things look a little bit more complex here, but don’t get scared. In this case, we’re just passing a function that takes two parameters, instead of one, like in the previous examples. It has to be that way since the function must be applied to two elements of the sequence each time.&lt;/p&gt;
+
+&lt;p&gt;But as it turns out, there’s an even easier way of solving this particular problem (adding a bunch of numbers). Since summing a sequence of numbers is such a common use case, there’s a dedicated method to do just that. It’s called, not surprisingly, “Sum”:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What’s “Aggregate” good for, then? Well, adding a list of integers is just one of the applications for reduce, but you’re not in any way restricted to only that. You can use it with any binary operation, such as concatenating strings or summing custom types.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-verdict-is-the-functional-approach-better&quot;&gt;The Verdict: Is the Functional Approach Better?&lt;/h2&gt;
+
+&lt;p&gt;After these examples, you might be wondering if the “functional” way is any better? It’d be extremely hard to define what “better” is, so I won’t even bother. Let’s consider another criterion: readability.&lt;/p&gt;
+
+&lt;p&gt;Though we know that code readability &lt;a href=&quot;https://blog.submain.com/evaluate-code-readability/&quot;&gt;can also be highly subjective,&lt;/a&gt; I’d say that yes, the functional examples are more readable. Suppose we need to retrieve and sum all the salaries from employees with more than five years of company time. We could easily do that by writing a loop, in which we’d test the condition and accumulate the salary if the test turned out true.&lt;/p&gt;
+
+&lt;p&gt;Or we could just write this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;employees&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CompanyTimeInYears&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Salary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I honestly believe this line to be more readable (and generally better) than the procedural approach. It’s more declarative; it shows the intention of &lt;strong&gt;what&lt;/strong&gt; we’re trying to get done without being too concerned with the &lt;strong&gt;how&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;It almost reads like natural language: “The list of employees where their time in the company is greater than five years, select their salary and sum them”.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-some-functional-spice-to-make-your-code-tastier&quot;&gt;Add Some Functional Spice to Make Your Code Tastier&lt;/h2&gt;
+
+&lt;p&gt;Many people use LINQ for years without even realizing they’re using functional programming concepts. I take this as proof that functional programming isn’t beyond the capabilities of the enterprise developer who lacks a strong background in math.&lt;/p&gt;
+
+&lt;p&gt;Some of the concepts presented here are neither new nor restricted to functional programming. The benefits of distinguishing between functions that produce side effects from those that don’t is the basis of principles like &lt;a href=&quot;https://en.wikipedia.org/wiki/Command%E2%80%93query_separation&quot;&gt;command-query separation (CQS)&lt;/a&gt;, for instance.&lt;/p&gt;
+
+&lt;p&gt;The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are &lt;a href=&quot;http://fsharpforfunandprofit.com&quot;&gt;awesome resources for that purpose if you want to learn more&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Instead, what I wanted here is to give you a little taste of what a functional style can do for your code, which is to make it more expressive, concise, and declarative. Now it’s up to you to try to apply the functional mindset to the code you write.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 22 Jan 2019 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/functional-programming-csharp/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/functional-programming-csharp/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        <category>functional-programming</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Value Objects: A Tool for Self-Documented Code and Fewer Errors</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1540385528/value-object-tool/value-object-tool-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, take a look at NDepend.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Have you ever heard of value objects? I bet you have. Even though they’re talked about a lot less than I’d like, they’re still talked about &lt;em&gt;enough &lt;/em&gt;that many developers have at least some passing familiarity with the term.&lt;/p&gt;
+
+&lt;p&gt;“Passing familiarity” isn’t good enough, though. So that’s what we’re fixing with this post. Today you’re going to learn what value objects are and how you, as a C# developer, can harness their power to make your code clearer, self-documenting, and less error-prone.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-arevalue-objects&quot;&gt;What Are Value Objects?&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Value objects&lt;/em&gt; are one of the building blocks of domain-driven design, as proposed by Eric Evans on his seminal book &lt;a href=&quot;https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215&quot;&gt;Domain-Driven Design: Tackling Complexity in the Heart of Software.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Simply put, a value object is an object that represents a value. And I’m aware that sounds excruciatingly obvious and even boring when said this way. So, what’s all the fuss about it?&lt;/p&gt;
+
+&lt;h2 id=&quot;some-properties&quot;&gt;Some Properties&lt;/h2&gt;
+
+&lt;p&gt;I think it’s easier to understand value objects when we quit trying to explain what they are and talk about their characteristics instead.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-dont-have-identity&quot;&gt;Value Objects Don’t Have Identity&lt;/h3&gt;
+
+&lt;p&gt;I think it’s fair to say that the main characteristic of a value object is that it lacks &lt;em&gt;identity&lt;/em&gt;.  But what does that really mean in practice?&lt;/p&gt;
+
+&lt;p&gt;Let’s say you go to the nearest ATM and deposit a $50 bill into your checking account. Then you drive a couple of hours to another town, go to a bank there, and withdraw $50.&lt;/p&gt;
+
+&lt;p&gt;Now comes the question: does it matter to you that the bill you’ve got in your hands now isn’t the same one you deposited earlier? Of course not!  And why is that? Well, the thing we generally care about, as it concerns money, is its &lt;em&gt;value,&lt;/em&gt; not the vessel that holds that value&lt;em&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;In other words, we couldn’t care less about the &lt;em&gt;identity&lt;/em&gt; of that particular bill. The only thing that matters is its value.&lt;/p&gt;
+
+&lt;p&gt;It’s no coincidence that money is a classic example of a value object.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-are-immutable&quot;&gt;Value Objects Are Immutable&lt;/h3&gt;
+
+&lt;p&gt;Can you change the number five? No, you can’t. There’s nothing you (or anyone else) can do to &lt;em&gt;mutate&lt;/em&gt; the value of the number five. If you add one to it, it doesn’t change; instead, you get six, which is &lt;em&gt;another&lt;/em&gt; number.&lt;/p&gt;
+
+&lt;p&gt;Could you alter a date? Nope, you also can’t do that. If you start with “2018-01-9” and add one day to it, you get “2018-01-10.” You don’t change the original date at all. In fact, the immutability aspect of a value object is a direct consequence of the previous point; since a value object doesn’t have identity, we can say the value object &lt;em&gt;is&lt;/em&gt; its value. Therefore, it doesn’t even make sense to talk about changing it.&lt;/p&gt;
+
+&lt;p&gt;The implication of this for you as a developer is that value objects are inherently safer and easier to reason about. There’s no risk of changing them by accident since they can’t be changed at all.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-have-structural-equality&quot;&gt;Value Objects Have Structural Equality&lt;/h3&gt;
+
+&lt;p&gt;Imagine you could magically teleport people to anywhere you wish, and you’ve decided to swap two men called “John Smith” during the night. How do you think their respective partners would react to see a total stranger in their beds instead of their husbands?&lt;/p&gt;
+
+&lt;p&gt;People are obviously not interchangeable, despite sharing one or more characteristics. Even if our two Johns had not only the same name but also the same height, weight, skin color, and hair color, they would still be two completely different people. Even identical twins (or, on a slightly Black Mirror note, clones) continue to be different people, despite being as equal to one another as you can get.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, people change continuously during their lives, but they are still the same people (as long as we don’t get philosophical here, as in “&lt;a href=&quot;https://www.brainyquote.com/quotes/heraclitus_107157&quot;&gt;a man can’t step into the same river twice&lt;/a&gt;” type of thing).&lt;/p&gt;
+
+&lt;p&gt;You may be wondering if I’ve gotten off track here, but I haven’t. This only serves to illustrate the crucial differences between entities and value objects. With entities, we care about identity, not about the value of its attributes.  With value objects, we care only about the value itself.&lt;/p&gt;
+
+&lt;p&gt;The implication of this, in programming terms, is that value objects typically present structural equality. It makes sense to compare them by their values, not their references or identities. So, when implementing a value object, you’ll want to override “Equals” and “GetHashCode.”&lt;/p&gt;
+
+&lt;h2 id=&quot;whats-in-it-for-me&quot;&gt;What’s in It for Me?&lt;/h2&gt;
+
+&lt;p&gt;By now you should have a pretty good idea of what value objects are. What’s not clear yet is why you should use them.  To answer this, let’s consider the following line of code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Is there something wrong with this? Well, I could &lt;em&gt;&lt;a href=&quot;http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi&quot;&gt;Ben Kenobi&lt;/a&gt; &lt;/em&gt;you and say that it might be wrong “from a certain point of view.” But I won’t. Instead, I’ll say it’s definitely wrong. It doesn’t matter that it compiles. It also doesn’t matter that it actually works some or even most of the time.&lt;/p&gt;
+
+&lt;p&gt;The problem here is the code smell known as “primitive obsession,” i.e., modeling domain concepts using primitive types. The next few sections will dive in into why is this such a problem and how the use of value objects can help.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-provide-context&quot;&gt;Value Objects Provide Context&lt;/h3&gt;
+
+&lt;p&gt;OK, so why is &lt;a href=&quot;https://blog.ndepend.com/easy-miss-code-smells/&quot;&gt;primitive obsession a bad thing&lt;/a&gt;? There are in fact several reasons, but one of the main problems with the code snippet presented in the previous section is that it lacks a critical piece of information. As you can see, the code assigns the value 4.5 to the variable. But 4.5 what? Meters? Kilometers? Miles? Parsecs? In other words, we don’t have the &lt;strong&gt;unit of measurement&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This can be a recipe for disaster. It just takes a developer fetching a value from a database or a file, thinking it’s supposed to represent meters but it’s in fact kilometers. When they then proceed to use the value in a calculation, say, adding kilometers to miles…silence. Instead of failing fast, you’d get a program that silently misbehaves while corrupting data and providing inconsistent results.&lt;/p&gt;
+
+&lt;p&gt;Well, at least you’re using &lt;a href=&quot;https://blog.ndepend.com/unit-testing-affect-codebases/&quot;&gt;unit tests&lt;/a&gt;…right?&lt;/p&gt;
+
+&lt;p&gt;Sure, nothing prevents you from encoding that information in the variable name itself:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distanceInKilometers&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Yeah, this is slightly better than the previous version, but it’s still a very brittle solution. At any moment, the value can be assigned to another variable or even passed as an argument to some function, and then the information is lost.&lt;/p&gt;
+
+&lt;p&gt;By using value objects, you can eliminate this problem easily. You’d just have to choose a unit to be the internal representation of the type—for distance, it probably makes sense to use meter, since it’s an SI unit. And then you can provide several static factory methods for each necessary unit:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FromMeters&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance2&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FromKilometers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;If you go on to overload the “+” operator (or create a “Plus” method), you can safely add two distances that originate from different units of measurement since the internal representation is the same.&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-are-type-safe&quot;&gt;Value Objects Are Type Safe&lt;/h3&gt;
+
+&lt;p&gt;Let’s say you have a method with this signature:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;nf&quot;&gt;PerformSomeImportantCalculation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What would happen if you made a mistake and inverted the values when calling the method? The program would silently misbehave, and you wouldn’t even be aware. Hopefully, you’d have a good QA process in place that would catch this bug before it hits production, but hope isn’t exactly a strategy, right?&lt;/p&gt;
+
+&lt;p&gt;Well, as it turns out, that’s the exact kind of problem value types are great at preventing. You’d just have to use custom types for each concept instead of relying on primitives:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;nf&quot;&gt;PerformSomeImportantCalculation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Temperature&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temperature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;That way, you can’t just pass the parameters in the wrong order: the compiler won’t let you!&lt;/p&gt;
+
+&lt;h3 id=&quot;value-objects-prevent-duplication-of-domain-logic&quot;&gt;Value Objects Prevent Duplication of Domain Logic&lt;/h3&gt;
+
+&lt;p&gt;When you model domain concepts using primitive types, you tend to have a lot of code related to that concept spread throughout the whole application. Let’s say you’re building an application that has the concept of a license plate, and you’re using strings to represent those. Of course, not all strings are valid license plates. So your code ends up with format validations for license plates everywhere.&lt;/p&gt;
+
+&lt;p&gt;This could be prevented by creating a “LicensePlate” class and performing the necessary validations on its constructor. That way you’d consolidate the validation code in one place; should it ever change in the future, you’d only have to change it in this one place.&lt;/p&gt;
+
+&lt;h2 id=&quot;value-objects-and-value-types-arent-synonymous&quot;&gt;Value Objects and Value Types Aren’t Synonymous&lt;/h2&gt;
+
+&lt;p&gt;This section is necessary in order to clarify a common misconception, which is to mix up value objects with the concept of value types in C#. See, in C#, we have &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;two categories of types: reference types and value types.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;While you certainly can use structs (value types) to implement value objects—examples in the BCL would be DateTime or the primitive numeric types— there’s nothing preventing you from using classes.&lt;/p&gt;
+
+&lt;p&gt;On the other hand, structs are not automatically value objects. For instance, while it’s considered good practice to keep structs immutable, they’re not immutable by default.&lt;/p&gt;
+
+&lt;p&gt;In short, value type is an implementation detail in C#/.NET while value object is a design pattern. Keep that in mind and consult the &lt;a href=&quot;https://docs.microsoft.com/EN-US/dotnet/standard/design-guidelines/choosing-between-class-and-struct&quot;&gt;Microsoft design guidelines&lt;/a&gt; and you should be fine.&lt;/p&gt;
+
+&lt;h2 id=&quot;value-objects-are-worth-it&quot;&gt;Value Objects Are Worth It!&lt;/h2&gt;
+
+&lt;p&gt;Value objects are a relatively low-cost technique that can greatly enhance the manageability and clarity of your code. By employing value objects, you can make your code easier to reason about, crafting APIs that are self-documenting, easy to understand, hard to use incorrectly, and inherently type-safe.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 24 Oct 2018 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/value-objects-tool/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/value-objects-tool/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Coding Best Practices When You’re Short On Time</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1539703469/coding-best-practices-1038x437_ugnhab.jpg&quot; alt=&quot;&quot; /&gt;
+Photo by Ales Nesetril on Unsplash&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download and try their CodeIt.Right product.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;One topic in software development that really fascinates me is coding best practices. I’m always searching for ways to improve my work and deliver value in a fast and consistent manner.&lt;/p&gt;
+
+&lt;p&gt;It can be tricky to define what a “&lt;a href=&quot;https://www.daedtech.com/what-is-a-best-practice-in-software-development/&quot;&gt;coding best practice” is&lt;/a&gt;. Some people are even in favor of &lt;a href=&quot;https://dzone.com/articles/death-best-practices&quot;&gt;downright retiring the term!&lt;/a&gt; But one thing pretty much everyone agrees upon is this: coming up with and implementing strategies—by whatever name you call them—to improve the output of one’s work is something that any developer worth his or her salt should be continuously doing.&lt;/p&gt;
+
+&lt;p&gt;Of course, there’s no free lunch. The adoption of a best practice takes time…and sometimes you just don’t have much of that to begin with. And then there’s management, whose buy-in is not always guaranteed.&lt;/p&gt;
+
+&lt;p&gt;So, what to do if your development team is struggling with the poor quality of a codebase while lacking time to implement best practices that would help?&lt;/p&gt;
+
+&lt;p&gt;The answer I offer you today is what I’ll call the “coding best practices emergency pack”: &lt;em&gt;a small list of coding best practices that you can adopt on relatively short notice to get your team and your codebase from utter chaos to a more manageable state&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Because there’s lots of advice on coding best practices out there, to the point where it’s hard not to feel overwhelmed, I narrowed down my list of emergency-pack best practices by requiring they meet three criteria:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;They must be fundamental, in the sense that they’re the building blocks with which you can implement more sophisticated practices later.&lt;/li&gt;
+  &lt;li&gt;You can adopt them in relatively short notice. (I’d say a week is feasible.)&lt;/li&gt;
+  &lt;li&gt;Their cost is free or very low.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The practices that follow all fit these parameters. And without further ado, here it is: my coding best practices emergency pack, with items listed in the order they should be implemented and starting with the most critical one.&lt;/p&gt;
+
+&lt;h2 id=&quot;version-control-system&quot;&gt;Version Control System&lt;/h2&gt;
+
+&lt;p&gt;I once worked for a software development shop where no version control system was used. The source files were placed in a shared folder that every developer could access. What was the process we used when editing a file? Yeah, you guessed it:  we’d simply create a copy of the file and rename it to “filename_old.ext” or something like that.&lt;/p&gt;
+
+&lt;p&gt;This was about eight or nine years ago. So maybe things have improved, right? Well, they certainly have, to some extent, but not completely. There are still &lt;a href=&quot;https://twitter.com/_m_b_j_/status/938785388268806146&quot;&gt;companies out there that don’t use a VCS&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-proceed&quot;&gt;How to Proceed?&lt;/h3&gt;
+
+&lt;p&gt;From now on, I’ll just assume you agree that a VCS is a fundamental coding best practice. If that’s not the case, there’s plenty of resources out there explaining &lt;a href=&quot;https://www.git-tower.com/learn/git/ebook/en/desktop-gui/basics/what-is-version-control#start&quot;&gt;what a VCS is&lt;/a&gt; and &lt;a href=&quot;https://www.atlassian.com/git/tutorials/what-is-version-control#benefits-of-version-control&quot;&gt;why should you use one.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With that out of the way, it’s time to get to specifics. Which tool should you use? How to go about its adoption?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; is a solid choice. And despite having a steeper learning curve for &lt;a href=&quot;http://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;those more used to centralized version control systems, such as Subversion or TFVC&lt;/a&gt;, it’s &lt;em&gt;de facto&lt;/em&gt; standard in our industry. So by all means, learn it, since not doing so can harm your career in the future.&lt;/p&gt;
+
+&lt;p&gt;But it’s possible that Git is not the best choice for your team &lt;strong&gt;right now&lt;/strong&gt;. Remember, you’re short on time. So we need to get your team to adopt these coding best practices ASAP.&lt;/p&gt;
+
+&lt;p&gt;How do we do this? So, let’s say you have experience with &lt;a href=&quot;https://subversion.apache.org/&quot;&gt;Subversion&lt;/a&gt;, having used it at your previous company, but you have no experience with Git at all. If that’s the case, I’d say Subversion is the best choice for you. The overhead of learning a new system and teaching it to your co-workers while putting it into production would be too great.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-review&quot;&gt;Code Review&lt;/h2&gt;
+
+&lt;p&gt;I’m not going to lie: I &lt;em&gt;love &lt;/em&gt;code reviews—and &lt;a href=&quot;http://www.codinghorror.com/blog/archives/000495.html&quot;&gt;I’m not alone in that&lt;/a&gt;. I’ve witnessed firsthand how a good code review can reduce the number of bugs in a codebase, make the code look and feel more consistent, and perhaps best of all, spread knowledge throughout a development team.&lt;/p&gt;
+
+&lt;p&gt;And here’s a major selling point: a code review practice is relatively easy to implement. Start as simple as you can, and then tweak and experiment with your approach as the need arises.&lt;/p&gt;
+
+&lt;h3 id=&quot;what-do-i-mean-by-code-review&quot;&gt;What Do I Mean by Code Review?&lt;/h3&gt;
+
+&lt;p&gt;Talking about “code review” can be tricky. People sometimes mean widely different things when they use the term, so I think it warrants further clarification.&lt;/p&gt;
+
+&lt;p&gt;I’m not in favor of a highly stressful and bureaucratic code review process, where your code is scrutinized and criticized in public for hours. I don’t believe in public shaming as a tool for achieving quality. On the contrary, &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;the type of code review I advocate for&lt;/a&gt; is a lightweight and low-stress process, usually initiated by submitting a pull request or using your favorite IDE.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-proceed-1&quot;&gt;How to Proceed &lt;/h3&gt;
+
+&lt;p&gt;Since we’re now on the same page about what a code review should look like, how would one go about implementing the practice? My answer is, not surprisingly, “the simplest way that could possibly work.” &lt;/p&gt;
+
+&lt;p&gt;For instance, if yours is a .NET shop using TFS/TFVC, you can start by &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=ColinD.ColinsALMCheckinPoliciesVS2017&quot;&gt;installing a check-in policy&lt;/a&gt; that requires a code review for each check-in. If your team uses GitHub, you can use &lt;a href=&quot;https://help.github.com/articles/about-pull-requests/&quot;&gt;pull requests&lt;/a&gt;. Just start performing reviews so you and your team can get used to it. Then, with time, start tuning and perfecting your approach.&lt;/p&gt;
+
+&lt;p&gt;Here are some of the questions that can appear as you refine your process for this:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;What’s the goal of a code review?&lt;/strong&gt; Are we looking for bugs? Trying to improve readability? Checking adherence to the company’s coding standard?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Where do we draw the line between “suggestions” and “impediments”?&lt;/strong&gt; Is it OK to give a thumbs-down to someone’s code for bad indentation or a slightly off variable name?&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;What do when reviewer and reviewee can’t come to a consensus?&lt;/strong&gt; Bring in a mediator to give the final word? And who should be this mediator? The lead developer?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The answer to all of these questions can be found in &lt;strong&gt;automation&lt;/strong&gt;. Much of the awkwardness of a code review can be removed when you employ a &lt;a href=&quot;https://blog.submain.com/different-styles-code-analyzer/&quot;&gt;code analyzer&lt;/a&gt; to handle the automatable portions of the process.&lt;/p&gt;
+
+&lt;p&gt;For instance, &lt;a href=&quot;https://submain.com/codeit.right/features&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; will give you real-time feedback from inside Visual Studio, alerting you of possible coding issues and even automatically fix code smells and violations for you.&lt;/p&gt;
+
+&lt;p&gt;By employing automation, you set your developers free to worry about higher level concerns when performing reviews, such as code clarity or architectural decisions.&lt;/p&gt;
+
+&lt;h2 id=&quot;automated-builds&quot;&gt;Automated Builds&lt;/h2&gt;
+
+&lt;p&gt;You may be thinking that I’ve got it wrong. After all, does it even make sense to talk about automated builds without mentioning automated tests?&lt;/p&gt;
+
+&lt;p&gt;Well, I’m going argue that yes, it does make sense, and for one very simple reason: it eliminates “&lt;a href=&quot;https://blog.codinghorror.com/the-works-on-my-machine-certification-program/&quot;&gt;it works on my machine&lt;/a&gt;” syndrome. &lt;/p&gt;
+
+&lt;p&gt;By having a central place where builds are performed, you shed light on all kinds of problems, from poor management of dependencies to bad test discipline.&lt;/p&gt;
+
+&lt;h3 id=&quot;how-to-proceed-2&quot;&gt;How to Proceed&lt;/h3&gt;
+
+&lt;p&gt;My advice here is the same as before: do the simplest thing that could work.&lt;/p&gt;
+
+&lt;p&gt;If your team already uses TFS, then learn how to create a &lt;a href=&quot;https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1&quot;&gt;build definition and you’re good to go&lt;/a&gt;. On the other hand, if you host your projects on GitHub, you might be interested in taking a look at &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;With time, you should improve your strategy. Remember the static code analyzers I mentioned earlier? You can integrate them into your build process. Unit testing and other kinds of automated tests are a very important addition as well.&lt;/p&gt;
+
+&lt;p&gt;Speaking of which…&lt;/p&gt;
+
+&lt;h2 id=&quot;notable-absences&quot;&gt;Notable Absences&lt;/h2&gt;
+
+&lt;p&gt;You might be surprised to see that I haven’t included unit testing in the list of coding best practices, &lt;a href=&quot;http://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;despite being myself a firm believer in the importance of automated testing&lt;/a&gt; to the overall quality of a codebase. And why is that?&lt;/p&gt;
+
+&lt;p&gt;Adding unit tests to a legacy application, unfortunately, is &lt;em&gt;hard&lt;/em&gt;, to the point that there’s even &lt;a href=&quot;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&amp;amp;qid=1515443597&amp;amp;sr=8-1&amp;amp;keywords=working+effectively+with+legacy+code&quot;&gt;a famous book&lt;/a&gt;that focuses solely on this. It’s just not a feasible task for you to tackle quickly.&lt;/p&gt;
+
+&lt;p&gt;In a similar fashion, it’s possible that a portion of readers expected me to talk about clean code or the &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)&quot;&gt;SOLID&lt;/a&gt;principles. I do encourage you to research and learn about these topics,  but I don’t think they’re a good fit for the purpose of this post. They are, as the name already points out, principles. Think of them as philosophical guidelines—useful, but not as easy to break down into simple, actionable advice.&lt;/p&gt;
+
+&lt;h2 id=&quot;deploy-your-package-asap&quot;&gt;Deploy Your Package ASAP!&lt;/h2&gt;
+
+&lt;p&gt;It’s possible that some of you found these practices to be extremely basic and not post-worthy. “Who doesn’t use version control in twenty-freaking-eighteen???” I hear you saying.&lt;/p&gt;
+
+&lt;p&gt;Well, it really doesn’t take long to find evidence (anecdotal, but still) that &lt;a href=&quot;http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;things are not all sunshine and rainbows&lt;/a&gt;. To believe that even basic coding best practices, such as using version control or automated testing, are universally applied is probably more wishful thinking than what we’d like to believe.&lt;/p&gt;
+
+&lt;p&gt;For the rest of you, I hope this list proves useful.&lt;/p&gt;
+
+&lt;p&gt;You know what they say. “When in a hole, stop digging.” And that’s exactly the type of help I wanted to offer with this post: a quick and easy fix, meant to give you and your teammates just enough sanity that you can focus and regain control of your application, ensuring its long-term health.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Oct 2018 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/coding-best-practices-short-time/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/coding-best-practices-short-time/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>4 Common Datetime Mistakes in C# — And How to Avoid Them</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/4-common-datetime-mistakes-c-avoid/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you with time-related issues and much more.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Do you remember the “falsehoods programmers believe about &lt;em&gt;X&lt;/em&gt;”  meme that became popular among software blogs a few years ago? The first one was about &lt;a href=&quot;http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;names&lt;/a&gt;, but several others soon followed, covering topics such as &lt;a href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;addresses&lt;/a&gt;, &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;geography,&lt;/a&gt; and &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=22201&quot;&gt;online shopping&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;My favorite was &lt;a href=&quot;http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;the one about time&lt;/a&gt;. I hadn’t thought deeply about time and its intricacies up until that point, and I was intrigued by how a fundamental domain could be such a fertile ground for misunderstandings.&lt;/p&gt;
+
+&lt;p&gt;Now even though I like the post, I have a problem with it: it lists wrong assumptions, and then it basically stops there. The reader is likely to leave the article wondering:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Why are these assumptions falsehoods?&lt;/li&gt;
+  &lt;li&gt;How likely is it that I’ll get in trouble due to one of these assumptions?&lt;/li&gt;
+  &lt;li&gt;What’s the proper way of dealing with these issues?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The article is interesting food for thought, but I think it’d make sense to provide more actionable information.&lt;/p&gt;
+
+&lt;p&gt;That’s what today’s post is about. I’m going to show you four common mistakes C#/.NET developers make when dealing with time. And that’s not all. I’ll also show what you should do to avoid them and make your code safer and easier to reason about.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-naively-calculating-durations&quot;&gt;1. Naively Calculating Durations&lt;/h2&gt;
+
+&lt;p&gt;Consider the code below:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3e18612b9a9238382b6d4fa3c574a231.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Will this code work? It depends on where and when it’s going to run.&lt;/p&gt;
+
+&lt;p&gt;When you use &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.Now&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; you get represents the current date and time local to your machine (i.e., it has the &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; property set to &lt;code class=&quot;highlighter-rouge&quot;&gt;Local&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;If you live in an area that observes DST (Daylight Saving Time), you know there’s one day in the year when all clocks must be moved forward a certain amount of time (generally one hour, but there are places that adjust by other offsets). Of course, there’s also the day when the opposite happens.&lt;/p&gt;
+
+&lt;p&gt;Now picture this: today is March 12th, 2017, and you live in New York City. You start using the program above. The &lt;code class=&quot;highlighter-rouge&quot;&gt;StartMatch()&lt;/code&gt; method runs at exactly 01:00 AM.  One hour and 15 minutes later, the &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch()&lt;/code&gt; method runs. The calculation is performed, and the following text is shown:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Duration of the match: 00:02:15&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I bet you’ve correctly guessed what just happened here: when clocks were about to hit 2 AM, DST just kicked in and moved them straight to 3 AM. Then &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; got back the current time, effectively adding a whole hour to the calculation. If the same had happened at the end of DST, the result would’ve been just 15 minutes!&lt;/p&gt;
+
+&lt;p&gt;Sure, the code above is just a toy example, but what if it were a payroll application? Would you like to pay an employee the wrong amount?&lt;/p&gt;
+
+&lt;h3 id=&quot;what-to-do&quot;&gt;What to Do?&lt;/h3&gt;
+
+&lt;p&gt;When calculating the duration of human activities, use UTC for the start and end dates. That way, you’ll be able to** unambiguously point to an instant in time**. Instead of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;Now&lt;/code&gt; property on &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt;, use `UtcNow to retrieve the date time already in UTC to perform the calculations:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/82492845edaa8f8fc16c646ed2bbcf2a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;What if the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; objects you already have are set to Local? In that case, you should use the ToUniversalTime() method to convert them to UTC:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;a-little-warning-about-touniversaltime&quot;&gt;A Little Warning About ToUniversalTime()&lt;/h3&gt;
+
+&lt;p&gt;The usage of &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; — and its sibling, &lt;code class=&quot;highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt;— can be a little tricky. The problem is that these methods make assumptions about what you want based on the value of the Kind property of your date, and that can cause unexpected results.&lt;/p&gt;
+
+&lt;p&gt;When calling &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;, one of the following things will happen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;If &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; is set to UTC, then the same value is returned.&lt;/li&gt;
+  &lt;li&gt;On the other hand, if it’s set to Local, the corresponding value in UTC is returned.&lt;/li&gt;
+  &lt;li&gt;Finally, if Kind is set to Unspecified,** then it’s assumed the datetime is meant to be local, **and the corresponding UTC datetime is returned.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The problem we have here is &lt;a href=&quot;https://codeofmatt.com/2013/04/25/the-case-against-datetime-now/#localkindsdontroundtrip&quot;&gt;that local times don’t roundtrip&lt;/a&gt;. They’re local as long as they don’t leave the context of your machine. If you save a local datetime to a database and then retrieve it back, the information that’s supposed to be local is lost: now it’s unspecified.&lt;/p&gt;
+
+&lt;p&gt;So, the following scenario can happen:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You retrieve the current date and time using &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.UtcNow&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;You save it to the database.&lt;/li&gt;
+  &lt;li&gt;Another part of the code retrieves this value and, unaware that it’s supposed to already be in UTC, calls &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; on it.&lt;/li&gt;
+  &lt;li&gt;Since the datetime is unspecified, the method will treat it as Local and perform an unnecessary conversion, generating a wrong value.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;How do you prevent this? It’s a recommended practice to use UTC to record the time when an event happened. My suggestion here is to follow this advice and also to make it explicit that you’re doing so. Append the “UTC” suffix to every database column and class property that holds a UTC datetime. Instead of Created, change it to CreatedUTC and so on. It’s not as pretty, but it’s definitely more clear.&lt;/p&gt;
+
+&lt;h2 id=&quot;2-not-using-utc-when-it-should-be-used-and-vice-versa&quot;&gt;2. Not Using UTC When It Should Be Used (and Vice Versa)&lt;/h2&gt;
+
+&lt;p&gt;We could define this as a universal rule: use UTC to record the time when events &lt;em&gt;happened&lt;/em&gt;. When logging, auditing, and recording all types of timestamps in your application, UTC is the way to go.&lt;/p&gt;
+
+&lt;p&gt;So, use UTC everywhere! …Right? Nope, not so fast.&lt;/p&gt;
+
+&lt;p&gt;Let’s say you need to be able to reconstruct the local datetime — to the user’s perspective — of when something happened, and the only information you have is a timestamp in UTC. That’s a piece of bad luck.&lt;/p&gt;
+
+&lt;p&gt;In cases like this, it’d make more sense to either (a) store the datetime in UTC along with the user’s time zone or (b) use the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTimeOffset&lt;/code&gt; type, which will record the local date along with the UTC offset, enabling you to reconstruct the UTC date from it when you need it.&lt;/p&gt;
+
+&lt;p&gt;Another common use case where UTC is not the right solution is &lt;a href=&quot;https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;amp;lq=1&quot;&gt;scheduling future local events&lt;/a&gt;. You wouldn’t want to wake up one hour later or earlier in the days of DST transitions, right? That’s exactly what would happen if you’d set your alarm clock by UTC.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-not-validating-user-input&quot;&gt;3. Not Validating User Input&lt;/h2&gt;
+
+&lt;p&gt;Let’s say you’ve created a simple Windows desktop app that lets users set reminders for themselves. The user enters the date and time at which they want to receive the reminder, clicks a button, and that’s it.&lt;/p&gt;
+
+&lt;p&gt;Everything seems to be working fine until a user from Brazil emails you, complaining the reminder she set for October 15th at 12:15 AM didn’t work. What happened?&lt;/p&gt;
+
+&lt;h3 id=&quot;dst-strikes-back&quot;&gt;DST Strikes Back&lt;/h3&gt;
+
+&lt;p&gt;The villain here is good old Daylight Saving Time again. In 2017, DST in Brazil started at midnight on October 15th. (Remember that Brazil is in the southern hemisphere.) So, the date-time combination the user supplied &lt;strong&gt;simply didn’t exist in her time zone!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Of course, the opposite problem is also possible. When DST ends and clocks turn backward by one hour, this &lt;strong&gt;generates ambiguous times.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;what-is-the-remedy&quot;&gt;What Is the Remedy?&lt;/h3&gt;
+
+&lt;p&gt;How do you deal with those issues as a C# developer? The &lt;code class=&quot;highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; class has got you covered. It not only represents a time zone but it also provides methods to check for a datetime validity:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/2b94d57390b3518294730c01003f159c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;What should you do then? What should replace the “do something” comments in the snippets above?&lt;/p&gt;
+
+&lt;p&gt;You could show the user a message saying the input date is invalid. Or you could preemptively choose another date for the user.&lt;/p&gt;
+
+&lt;p&gt;Let’s talk about invalid times first. Your options: move forward or backward. It’s somewhat of an arbitrary decision, so which one should you pick? For instance, the Google Calendar app on Android chooses the former. And it makes sense when you think about it. That’s exactly what your clocks already did due to DST. Why shouldn’t you do the same?&lt;/p&gt;
+
+&lt;p&gt;And what about ambiguous times? You also have two options: choose between the first and second occurrences. Then again, it’s somewhat arbitrary, but my advice is to pick the first one. Since you have to choose one, why not make things simpler?&lt;/p&gt;
+
+&lt;h2 id=&quot;4-mistaking-an-offset-for-a-time-zone&quot;&gt;4. Mistaking an Offset for a Time Zone&lt;/h2&gt;
+
+&lt;p&gt;Consider the following timestamp: 1995-07-14T13:05:00.0000000-03:00. When asked what the -03:00 at the end is called, many developers answer, “a time zone.”&lt;/p&gt;
+
+&lt;p&gt;Here’s the thing. They probably correctly assume that the number represents the offset from UTC. Also, they’d probably see that you can get the corresponding time in UTC from the offset. (Many developers fail to understand that in a string like this, the offset is already applied: to get the UTC time, you should invert the offset sign. Only then should you add it to the time.)&lt;/p&gt;
+
+&lt;p&gt;The mistake is in thinking that the offset is all there is to a time zone. It’s not.  A time zone is a geographical area, and it consists of many pieces of information, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;One or more offsets. (DST is a thing, after all.)&lt;/li&gt;
+  &lt;li&gt;The dates when DST transitions happen. (These can and do change whenever governments feel like it.)&lt;/li&gt;
+  &lt;li&gt;The amount of time applied when transitions happened. (It’s not one hour everywhere.)&lt;/li&gt;
+  &lt;li&gt;The historical records of changes to the above rules.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In short: don’t try to guess a time zone by the offset. You’ll be wrong most of the time.&lt;/p&gt;
+
+&lt;h2 id=&quot;its-about-timeyou-learn-about-time&quot;&gt;It’s About Time…You Learn About Time!&lt;/h2&gt;
+
+&lt;p&gt;This list is by no means exhaustive. I only wanted to give you a quick start in the fascinating and somewhat bizarre world of datetime issues. There are plenty of valuable resources out there for you to learn from, such as the &lt;a href=&quot;https://stackoverflow.com/tags/timezone/info&quot;&gt;time zone tag on Stack Overflow&lt;/a&gt; or blogs such as &lt;a href=&quot;https://codeblog.jonskeet.uk/&quot;&gt;Jon Skeet’s&lt;/a&gt; and &lt;a href=&quot;https://codeofmatt.com/&quot;&gt;Matt Johnson’s,&lt;/a&gt; who are authors of the popular NodaTime library.&lt;/p&gt;
+
+&lt;p&gt;And of course, always use the tools at your disposal. For instance, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; has a rule to force you to specify a &lt;code class=&quot;highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; in situations where it’s optional, which can save you from nasty bugs when parsing dates.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 11 Jul 2018 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        <category>time</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Code Review vs Pair-Programming: Which One Should Your Team Pick?</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you with automated code reviews.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Some weeks ago, I was browsing Twitter when I saw this:&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Pair Programming &amp;gt; Code Review&lt;/p&gt;&amp;mdash; Rafael Ponte (@rponte) &lt;a href=&quot;https://twitter.com/rponte/status/932390250848178176?ref_src=twsrc%5Etfw&quot;&gt;November 19, 2017&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This prompted a brief discussion between the author and me. He made good arguments, but I left unconvinced that pair programming was the obvious winner.&lt;/p&gt;
+
+&lt;p&gt;As someone who’s implemented code review with success and also paired to some extent, I could see how both practices can be valuable. But is one of them clearly &lt;em&gt;better&lt;/em&gt; than the other? Are code review and pair programming interchangeable, or are there scenarios in which one clearly shines?&lt;/p&gt;
+
+&lt;p&gt;That’s what I’m going to answer today. Let’s dive in.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-i-mean-by-code-review&quot;&gt;What I Mean By Code Review&lt;/h2&gt;
+
+&lt;p&gt;Picture this: you’re a young programmer on your first development job. After you finish your first assignment, they call you to a meeting room; there you find your tech lead and three senior developers. There’s also a large monitor displaying your code. Time for review!&lt;/p&gt;
+
+&lt;p&gt;For two-and-a-half excruciating hours, they scrutinize your work while you sweat profusely. From criticizing your high-level design decisions to nitpicking over the most trivial stylistic preferences, nothing gets a free pass.&lt;/p&gt;
+
+&lt;p&gt;Is this the scene your mind conjures when you see the words “code review”?&lt;/p&gt;
+
+&lt;p&gt;Good news, then. That’s &lt;em&gt;not&lt;/em&gt; the kind of review I’m talking about. Instead, think of a very informal and lightweight process. You submit your code for review by creating a pull request or maybe using some embedded functionality on your IDE.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-good&quot;&gt;The Good&lt;/h3&gt;
+
+&lt;p&gt;After touching briefly on the &lt;em&gt;what&lt;/em&gt; and &lt;em&gt;how&lt;/em&gt; of a code review, let’s get to the &lt;em&gt;why&lt;/em&gt;. Why should your team adopt this practice? What are the benefits?&lt;/p&gt;
+
+&lt;p&gt;The first reason is, not surprisingly, &lt;strong&gt;to catch bugs&lt;/strong&gt;. I’d bet you’re familiar with that old piece of software wisdom that says &lt;a href=&quot;https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf&quot;&gt;that the later a defect is found, the higher the cost of fixing it&lt;/a&gt;. Then why not use a relatively cheap process &lt;a href=&quot;https://www.cs.umd.edu/projects/SoftEng/ESEG/papers/82.78.pdf&quot;&gt;that can catch up to 60% of defects&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Here’s another reason your company should perform code reviews: to &lt;strong&gt;improve the readability of the code&lt;/strong&gt;. Trying to read and understand some new piece of code frequently leads to the discovery of issues such as&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Poor naming.&lt;/li&gt;
+  &lt;li&gt;Bad indentation.&lt;/li&gt;
+  &lt;li&gt;Instances of &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;cargo cult programming&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Non-idiomatic code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The reviewer could also spot overlooked corner cases or help the author assess how performative their code is.&lt;/p&gt;
+
+&lt;p&gt;And here’s one last reason. A well-done code review can &lt;strong&gt;spread knowledge throughout the team.&lt;/strong&gt; This improves the product’s quality by destroying knowledge silos.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-bad&quot;&gt;The Bad&lt;/h3&gt;
+
+&lt;p&gt;While some say code reviews are &lt;a href=&quot;https://blog.codinghorror.com/code-reviews-just-do-it/&quot;&gt;the number one practice you should adopt&lt;/a&gt; to improve your code, &lt;a href=&quot;https://blog.nelhage.com/2010/06/i-hate-code-review/&quot;&gt;this kind of enthusiasm is not universal&lt;/a&gt;. So, what are the potential drawbacks?&lt;/p&gt;
+
+&lt;p&gt;For the most part, their complaint is &lt;strong&gt;time&lt;/strong&gt;. When you submit some code for review, you’ll have to wait until the reviewer is done.&lt;/p&gt;
+
+&lt;p&gt;What should you do while waiting? Ideally, your team should break up the available work in small, discrete units so it can work on these pieces somewhat independently. That’s not always feasible, though. And by the way, the &lt;strong&gt;constant switching of tasks might be detrimental to the developer’s focus and productivity&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s say Bob spends &lt;em&gt;x&lt;/em&gt; hours implementing a feature. Then Alice reviews his work and says his implementation is completely wrong, and he needs to start from scratch. &lt;strong&gt;Those &lt;em&gt;x&lt;/em&gt; development hours were just thrown away&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally, people sometimes will waste ridiculous amounts of time &lt;strong&gt;arguing on pointless stylistic details&lt;/strong&gt;, such as the position of braces or whether or not to include an underscore before a private field’s name. These debates can unfortunately escalate to levels that turn the workplace toxic.&lt;/p&gt;
+
+&lt;h2 id=&quot;pair-programming-not-just-a-super-code-review&quot;&gt;Pair Programming: Not Just a Super Code Review&lt;/h2&gt;
+
+&lt;p&gt;Pair programming is a technique in which two developers collaborate on the code together, sitting at one workstation.&lt;/p&gt;
+
+&lt;p&gt;They periodically take turns in two roles. The &lt;em&gt;driver&lt;/em&gt; writes the code, thinking out loud in order to explain their design decisions and thought process. The &lt;em&gt;navigator&lt;/em&gt; observes the driver’s work, giving real-time feedback and advice.&lt;/p&gt;
+
+&lt;p&gt;So, is it just “code review on steroids”, &lt;a href=&quot;https://blog.codinghorror.com/pair-programming-vs-code-reviews/&quot;&gt;as put by Jeff Atwood&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;Maybe not. One of the basic principles of agile methodologies is the shorter your feedback loop, the better you are. You can see how getting someone to review your code sooner rather than later works in harmony with the principles that make agile so successful.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-good-1&quot;&gt;The Good&lt;/h3&gt;
+
+&lt;p&gt;Well, it should be no surprise that many benefits of pair programming are also benefits of code reviews, such as fewer bugs, improvement in code readability, and knowledge dispersion throughout the team.&lt;/p&gt;
+
+&lt;p&gt;Pair programming may provide exclusive benefits as well, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Higher focus&lt;/strong&gt;. The presence of a peer may exert some pressure to stay motivated to solve the task at hand.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Shorter feedback cycle&lt;/strong&gt;. Since your pair is reviewing your code in real time, there’s a lot less risk of wasting time due to delayed feedback.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Increase in usage of other good engineering practices&lt;/strong&gt;. As suggested in a study done at North Carolina State University, &lt;a href=&quot;https://collaboration.csc.ncsu.edu/laurie/Papers/ESE%20WilliamsPairProgramming_V2.pdf&quot;&gt;teams using pair programming tend to increasingly use development practices such as unit testing, continuous integration, and establishing coding standards&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-bad-1&quot;&gt;The Bad&lt;/h3&gt;
+
+&lt;p&gt;As in the case of the code review, pair programming is far from being a universally accepted practice. While many developers love it, &lt;a href=&quot;https://web.archive.org/web/20110101145142/https://tersesystems.com/2010/12/29/where-pair-programming-fails-for-me&quot;&gt;others don’t have such happy stories to tell&lt;/a&gt;. So, what are some of the most cited problems with pairing?&lt;/p&gt;
+
+&lt;p&gt;Let’s start with one common complaint: pair programming &lt;strong&gt;can be exhausting&lt;/strong&gt;. In fact, many claim that &lt;a href=&quot;https://softwareengineering.stackexchange.com/a/9518&quot;&gt;pairing is more effective when used for shorter blocks of time—from one and a half to two and a half hours.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Obviously, an odd number of team members doesn’t work well for pair programming. But a shifting number of available personnel is inevitable.&lt;/p&gt;
+
+&lt;p&gt;Next on our list of problems is the fact that paring isn’t very remote friendly. You can better imagine the issue after hearing what Daniel Kaplan, who wrote “&lt;a href=&quot;https://builttoadapt.io/what-its-like-to-pair-for-a-year-86d048494324&quot;&gt;What It’s Like to Pair for a Year&lt;/a&gt;,” had to say about pairing:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;These scheduling interruptions happen, but on a typical day we avoid them by having the pairs show up at the same time (for breakfast and standup), go to lunch at the same time, and leave at the same time. This maximizes the time the pairs are pairing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So, pairing &lt;strong&gt;requires synchronicity&lt;/strong&gt;, which might make it a non-option for remote teams (or even co-located teams with flexible hours).&lt;/p&gt;
+
+&lt;p&gt;Some people argue that pairing can &lt;strong&gt;undermine creativity and prevent experimentation.&lt;/strong&gt; While pairing, it’d be rude to waste your pair’s time trying some experimental approach that might ultimately end up not working. So, the safest possible design tends to always prevail, even if it’s not the best possible one.&lt;/p&gt;
+
+&lt;p&gt;Finally, pairing doesn’t really provide one of the key benefits of the after-the-fact code review: a person with zero context analyzing the code. The two developers &lt;strong&gt;share a context from the beginning of the session&lt;/strong&gt;, and the effect this has cannot be underestimated. People tend to &lt;a href=&quot;https://en.wikipedia.org/wiki/IKEA_effect&quot;&gt;overvalue their contributions and get emotionally attached to what they create&lt;/a&gt;; that’s why it’s so important to get a second person that doesn’t have this attachment and is thus able to provide a clearer judgment.&lt;/p&gt;
+
+&lt;h2 id=&quot;code-review-vs-pair-programming-the-verdict&quot;&gt;Code Review vs Pair Programming: The Verdict?&lt;/h2&gt;
+
+&lt;p&gt;I’ve reached the conclusion that, although code review and pair programming &lt;em&gt;seem&lt;/em&gt; equivalent, they’re really not. There is some overlap, but each practice also presents some unique benefits and challenges.&lt;/p&gt;
+
+&lt;p&gt;There’s no getting around that pair programming, despite its benefits, requires an even number of people, working at the same time. If your team consists of developers living across several time zones (or even a co-located team with extremely flexible hours), then it’s a no-brainer: code review to the rescue.&lt;/p&gt;
+
+&lt;p&gt;If your team doesn’t fit the above description, then give pair programming a try. As long as you work hard to accommodate and have empathy for &lt;a href=&quot;https://www.amazon.com/Quiet-Power-Introverts-World-Talking/dp/0307352153/ref=asap_bc?ie=UTF8&quot;&gt;different kinds of personalities&lt;/a&gt; and don’t make it mandatory, it can be beneficial to your team.&lt;/p&gt;
+
+&lt;p&gt;Finally, there’s nothing stopping you from using &lt;em&gt;both&lt;/em&gt;. You could adopt pair programming as the default MO and leave soloing and code review to fill in the gaps where pair programming doesn’t quite fit so well.&lt;/p&gt;
+
+&lt;h2 id=&quot;no-matter-what-you-do-embrace-automation&quot;&gt;No Matter What You Do, Embrace Automation&lt;/h2&gt;
+
+&lt;p&gt;Imagine you write for a publication, such as a magazine. After you have a draft, you submit it for review. Would it make sense for the editor to spend all their time looking for spelling errors? Of course not! We have automated spell-check for that, freeing the editor to look for more &lt;em&gt;high-level&lt;/em&gt; problems, such as poorly chosen words, lack of cohesion, inappropriate tone, and all those things your English teacher kept nagging you about in high school.&lt;/p&gt;
+
+&lt;p&gt;With software, things should not be so different. By using &lt;a href=&quot;https://submain.com/products/codeit.right.aspx&quot;&gt;an automated code review tool&lt;/a&gt;, you can eliminate a lot of the bickering that often occurs in code reviews or pair programming sessions. There will be no arguing about naming and formatting conventions, the position of brackets, and others pointless trivia.&lt;/p&gt;
+
+&lt;p&gt;You can also employ a static analysis tool to warn you about potential bugs and opportunities for refactoring. That way, the reviewer/navigator is free to focus on the high-level stuff that requires human creativity, intelligence, and empathy.&lt;/p&gt;
+
+&lt;h2 id=&quot;trust-and-respect&quot;&gt;Trust and Respect&lt;/h2&gt;
+
+&lt;p&gt;While researching for this post, one theme kept reappearing: that code review emerges from a lack of trust in our developers or that pair programming infantilizes them.&lt;/p&gt;
+
+&lt;p&gt;I couldn’t disagree more.&lt;/p&gt;
+
+&lt;p&gt;Precisely because we respect our developers—and our clients—we should employ techniques and tools at our disposal to improve the quality of our work.&lt;/p&gt;
+
+&lt;p&gt;It’s not about lack of trust. It’s about recognizing that programming is hard and sometimes, just one brain isn’t up to the task.&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 24 Jan 2018 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/code-review-vs-pair-programming/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/code-review-vs-pair-programming/</guid>
+        
+        <category>pair programming</category>
+        
+        <category>best practices</category>
+        
+        <category>code review</category>
+        
+        <category>agile</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Cargo Cult Programming Is The Art of Programming by Coincidence</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/cargo-cult-programming/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download NDepend and give it a try.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;I first learned about cargo cult programming a few years ago. I remember thinking back then, “What a strange name for a programming-related concept.”&lt;/p&gt;
+
+&lt;p&gt;If you share my past self’s astonishment, then today’s post is for you!&lt;/p&gt;
+
+&lt;p&gt;First, you’ll see what cargo cult programming is and why you should care. Then, we’re going to look at some practical examples, using the C# language. Finally, we’ll close with advice about what you can do, as a developer, to avoid falling into this trap.&lt;/p&gt;
+
+&lt;h2 id=&quot;cargo-cult-programming-doing-stuff-just-because&quot;&gt;Cargo Cult Programming: Doing Stuff Just Because&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;According to Wikipedia&lt;/a&gt;, “Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose.”&lt;/p&gt;
+
+&lt;p&gt;In other words, it’s when a developer writes code without really understanding it. The developer may use a very trial-and-error approach—maybe copy and paste some code from somewhere else and then tweak it and test it until works, or sort of works. Then the developer will stop tweaking the code, for fear it will stop working. In the process, maybe they leave some lines of code that don’t do anything.&lt;/p&gt;
+
+&lt;p&gt;Or maybe they tried to use an idiom they picked up from another developer while failing to understand that the contexts are different and it’s useless in the current situation.&lt;/p&gt;
+
+&lt;p&gt;Finally, it might just be lack of education: maybe the developer has a poor mental model of how the tools they’re using really work.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-is-cargo-cult-programming-a-problem&quot;&gt;Why is Cargo Cult Programming a Problem?&lt;/h2&gt;
+&lt;p&gt;As Eric Lippert puts it, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/&quot;&gt;cargo cult programmers struggle to make meaningful changes to a program&lt;/a&gt; and end up using a trial-and-error approach since they don’t understand the inner workings of the code they’re about to change.&lt;/p&gt;
+
+&lt;p&gt;This is not so different from what the &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;Pragmatic Bookshelf calls “programming by coincidence”&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Fred doesn’t know why the code is failing because he didn’t know why it worked in the first place. It seemed to work, given the limited “testing” that Fred did, but that was just a coincidence.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That single sentence pretty much sums it up for me: if you don’t know how or why your code works, neither will you understand what happened when it no longer works.&lt;/p&gt;
+
+&lt;h2 id=&quot;origin-of-the-term&quot;&gt;Origin of the Term&lt;/h2&gt;
+&lt;p&gt;Although practices that are considered cargo cult today &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult#First_occurrences&quot;&gt;have been recorded as early as the late 19th century&lt;/a&gt;, the term itself dates from 1945, when it was first used to describe practices that emerged during and after World War II between Melanesian islanders.&lt;/p&gt;
+
+&lt;p&gt;These islanders would mimic the soldiers’ behavior, such as dressing up as flight controllers and waving sticks, hoping that airplanes would descend from the skies with a lot of cargo.&lt;/p&gt;
+
+&lt;p&gt;Since then, the term cargo cult has been used in a variety of contexts to mean &lt;strong&gt;to imitate form without content&lt;/strong&gt;—to perfectly copy the superficial elements while failing to understand the deeper meanings and workings of whatever one’s trying to emulate.&lt;/p&gt;
+
+&lt;h2 id=&quot;talk-is-cheap-show-me-the-code&quot;&gt;Talk is Cheap; Show Me the Code!&lt;/h2&gt;
+&lt;p&gt;Enough with the history lesson. Time to see some code! I’m going to show you five examples of cargo cult programming in the C# language.&lt;/p&gt;
+
+&lt;h3 id=&quot;checking-a-non-nullable-value-type-for-null&quot;&gt;Checking a Non-Nullable Value Type for Null&lt;/h3&gt;
+&lt;p&gt;This one is a pet peeve of mine since I see it a lot in production code. It goes like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this check is useless&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	       &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This line will always get reached.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+	
+	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here we have a developer that probably doesn’t grok the &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;difference between value and reference types&lt;/a&gt;. It would be completely forgivable, in the case of a junior developer, except for the fact that the compiler warns you about that.&lt;/p&gt;
+
+&lt;p&gt;You could argue that I’m nitpicking. After all, the code will run fine in spite of this. In fact, the check won’t even be included in the resulting IL, as you can see from this print of a decompiling tool:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;An image depicting a code excerpt that does not contain the null check.&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see in this code snippet that the compiler has optimized the null check out.&lt;/p&gt;
+
+&lt;p&gt;There are plenty of worse problems, granted. Yes, the application won’t &lt;em&gt;crash&lt;/em&gt; because of this. So what’s the big deal?&lt;/p&gt;
+
+&lt;p&gt;Well, for starters, I’d be worried about a development shop where the sole quality measure was “it runs without crashing.” But the real problem is that this type of code shows a lack of understanding of some fundamental characteristics of the language and platform that can bite you in the future.&lt;/p&gt;
+
+&lt;h3 id=&quot;unnecessary-use-of-tolist-in-linq-to-object-queries&quot;&gt;Unnecessary Use of ToList() in LINQ to Object Queries&lt;/h3&gt;
+&lt;p&gt;Like the previous one, this is something I routinely see in production code. Consider the code below:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The problem we have here is that these calls to &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; are completely unnecessary (except maybe the last one, if you really needed the result to be a &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt; and not only an &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;In my experience, this happens when the developer doesn’t understand the nature of LINQ; they erroneously think that the LINQ methods belong to the concrete type &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; instead of being extension methods that can be used with any &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt; implementation.&lt;/p&gt;
+
+&lt;p&gt;By calling &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; several times like this, the developer creates several new lists, which can be detrimental to the performance of the application.&lt;/p&gt;
+
+&lt;p&gt;You could rewrite the code above like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;unnecessary-conversions&quot;&gt;Unnecessary Conversions&lt;/h3&gt;
+&lt;p&gt;Consider the following line:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Here we have not only one but two unnecessary conversions. First, the developer creates a new string and then parses it to &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; when a simple cast would have sufficed:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This example assumes that the underlying database type is some specific type for dealing with dates (for instance, &lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;datetime&lt;/code&gt; in SQL Server). Of course, if you were using an inadequate type (such as &lt;code class=&quot;highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) then this would be a problem of its own.&lt;/p&gt;
+
+&lt;h3 id=&quot;try-catch-everywhere&quot;&gt;Try-Catch Everywhere&lt;/h3&gt;
+&lt;p&gt;Also known as Pokémon syndrome (“Gotta catch ’em all!”), the anti-pattern here is to add a try-catch block to every single line that could possibly throw an exception.&lt;/p&gt;
+
+&lt;p&gt;Bonus points if the code is attempting to catch &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; instead of a more specific exception, thus blurring the distinction between expected and unexpected errors.&lt;/p&gt;
+
+&lt;p&gt;More bonus points if the catch block doesn’t contain any code at all!&lt;/p&gt;
+
+&lt;p&gt;The general advice here is this: never catch unless you have a very specific reason for doing so. Otherwise, just the let the exception bubble up until it’s dealt with by the top-level exception handler.&lt;/p&gt;
+
+&lt;p&gt;If this advice seems vague (“How would I know if I have the right reason for catching an exception?”), that’s because it is vague. It’s beyond the scope of this post to go deeper into this matter, but &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;Eric Lippert’s excellent article called “Vexing Exceptions”&lt;/a&gt; will greatly improve your understanding of exception handling.&lt;/p&gt;
+
+&lt;h3 id=&quot;using-stringbuilder-everywhere&quot;&gt;Using StringBuilder Everywhere&lt;/h3&gt;
+&lt;p&gt;It’s the stuff of superhero movies: after reading somewhere that concatenating strings by using the ‘+’ operator is incredibly inefficient, the well-meaning developer takes upon themselves the Herculean task of updating every single concatenation in the codebase to &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The reasoning for this is, of course, that &lt;code class=&quot;highlighter-rouge&quot;&gt;System.String&lt;/code&gt; is immutable. So every time you “modify” a string, you’re in fact creating a new instance in memory, which can hurt performance pretty badly.&lt;/p&gt;
+
+&lt;p&gt;Well, guess what? The compiler is pretty smart. Let’s say you have the following line:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This, in fact, gets translated to&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The fast rule of thumb is it’s fine to use the simple concatenation when you know the number of strings to append in compile time. Otherwise, a &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; probably makes more sense&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Of course, some scenarios aren’t that clear-cut. The only advice worth giving here is to do your homework. When in doubt, research and benchmark to your heart’s content.&lt;/p&gt;
+
+&lt;p&gt;I’ll leave you with more sound advice from Eric Lippert:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unnecessary code changes are expensive and dangerous; &lt;strong&gt;don’t make performance-based changes unless you’ve identified a performance problem.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;is-there-a-remedy&quot;&gt;Is There a Remedy?&lt;/h2&gt;
+&lt;p&gt;I’d say it’s fair to assume that more inexperienced developers are more prone to commit mistakes due to cargo cult programming. But no developer is really immune to it, independent of their knowledge or experience.&lt;/p&gt;
+
+&lt;p&gt;We’re only human after all. Tiredness, deadlines, cognitive biases, and (to be really honest) the eventual laziness can turn even the best developer into a cargo cult programmer.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, there’s no 100%  guaranteed way of preventing this from happening. Yet there are some measures you could take to, at least, decrease the odds.&lt;/p&gt;
+
+&lt;p&gt;Let’s take a look at some of them.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-code-reviewpair-programming&quot;&gt;Use Code Review/Pair Programming&lt;/h3&gt;
+&lt;p&gt;The first measure you could take to avoid cargo cult programming is to simply get a second pair of eyes on your code. The benefits of having a second person reviewing each line of code before it goes to production can’t be overstated. And while code review and pair programming aren’t perfect equivalents, both of these practices will bring you this benefit.&lt;/p&gt;
+
+&lt;h3 id=&quot;always-test-your-hypothesis&quot;&gt;Always Test Your Hypothesis&lt;/h3&gt;
+&lt;p&gt;Write unit tests (and other types of tests as well). Monitor your application in production. If something doesn’t perform well, benchmark the heck out of it. Don’t just assume things. Testing your hypothesis can bring valuable insights and save you when your intuition gets it wrong.&lt;/p&gt;
+
+&lt;h3 id=&quot;read-other-peoples-code&quot;&gt;Read Other People’s Code&lt;/h3&gt;
+&lt;p&gt;Reading other people’s code is a great way to learn. It’s a perfect tool to compare your own ideas and assumptions against what other developers are doing, exposing you to novel concepts that can force you to gain a deeper understanding of the issues at hand.&lt;/p&gt;
+
+&lt;p&gt;In the era of &lt;a href=&quot;http://github.com/&quot;&gt;GitHub&lt;/a&gt;, there isn’t much of an excuse for not doing that.&lt;/p&gt;
+
+&lt;h3 id=&quot;learn-from-your-tools&quot;&gt;Learn From Your Tools&lt;/h3&gt;
+&lt;p&gt;There are currently a plethora of tools that can help &lt;a href=&quot;https://www.ndepend.com/&quot;&gt;your team improve the quality of their code&lt;/a&gt;. Here’s the thing, though: you shouldn’t just use these tools. You should also learn from them. If you use NDepend, &lt;a href=&quot;https://www.ndepend.com/default-rules/webframe.html&quot;&gt;read about its rules&lt;/a&gt;. Try and understand the rationale behind them. What are the principles and best practices that guided its authors when coming up with the rules?&lt;/p&gt;
+
+&lt;p&gt;The same goes for other types of tools—and even the warnings the compiler gives you.&lt;/p&gt;
+
+&lt;h2 id=&quot;computer-science-not-computer-superstition&quot;&gt;Computer Science, Not Computer &lt;em&gt;Superstition&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Even though no one is immune to cargo cult programming, we should strive to overcome it. There’s hard-earned industry wisdom at our disposal, slowly generated over more than seven decades. Let’s use it. Let’s understand our tools and our craft and write better software.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 17 Jan 2018 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/cargo-cult-programming/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/cargo-cult-programming/</guid>
+        
+        <category>csharp</category>
+        
+        <category>best practices</category>
+        
+        <category>cargo cult programming</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>C# 8.0 Features: A Glimpse of the Future</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;C# 8.0 is coming and will bring some great new features. Let’s check out what the future holds for us.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/c-8-0-features-glimpse-future/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download NDepend and give it a try.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s been almost 20 years since Microsoft released the first version of the C# language. From its inception—when some unjustly deemed it a mere Java copycat—until now, C# has had a remarkable evolution.&lt;/p&gt;
+
+&lt;p&gt;Nowadays, it’s frequently featured in both &lt;a href=&quot;https://insights.stackoverflow.com/survey/2017#technology-programming-languages&quot;&gt;most used&lt;/a&gt; and &lt;a href=&quot;https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted&quot;&gt;most loved&lt;/a&gt; programming languages lists. You can use it to develop desktop, web, and mobile apps, and you can write code that will run in all the major operating systems. Or you can jump right onto the IOT bandwagon and write code to “smarten” your house. We live in interesting times to be a C# developer indeed.&lt;/p&gt;
+
+&lt;p&gt;If the present is already exciting, what about the future? Would it be possible for us to get a glimpse of what lies ahead for the language?&lt;/p&gt;
+
+&lt;p&gt;Of course it is. Microsoft has developed C# “in the open” for quite a while now. You can just &lt;a href=&quot;https://github.com/dotnet/csharplang&quot;&gt;take a look at the GitHub repo&lt;/a&gt; to read (and participate—why not?) in the discussions and proposals.&lt;/p&gt;
+
+&lt;p&gt;Today, we’ve selected three feature proposals for C# 8.0 to talk about here: &lt;strong&gt;extension everything&lt;/strong&gt;, &lt;strong&gt;default implementations on interfaces,&lt;/strong&gt; and &lt;strong&gt;nullable reference types&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;extension-everything&quot;&gt;Extension Everything&lt;/h2&gt;
+
+&lt;p&gt;Extension everything is probably the least controversial of these three feature proposals, and in a certain way, it’s the least fleshed out also. So I figured it’d make a good starting point.&lt;/p&gt;
+
+&lt;p&gt;You’re probably familiar with extension methods, introduced in C# 3.0 in 2007. &lt;a href=&quot;https://www.daedtech.com/why-i-dont-like-c-extension-methods/&quot;&gt;And while it’s totally possible for them to be abused&lt;/a&gt;, there’s no denying that extension methods, if used wisely, can be an awesome addition to the C# developer’s toolkit—not to mention they’re essential for LINQ.&lt;/p&gt;
+
+&lt;p&gt;At some point you may have wondered, though: why only extension &lt;em&gt;methods&lt;/em&gt;? And you wouldn’t be alone. Extension properties, for instance, have been a desire of C# developers for quite a long time, as evidenced by &lt;a href=&quot;https://stackoverflow.com/questions/619033/does-c-sharp-have-extension-properties&quot;&gt;this 2009 Stack Overflow question&lt;/a&gt; or this &lt;a href=&quot;https://channel9.msdn.com/forums/Coffeehouse/257556-C-Extension-Properties/&quot;&gt;even older 2007(!) forum thread&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But now it seems the wait is finally coming to an end. According to Mads Torgersen, the program manager for the C# design team, &lt;a href=&quot;https://channel9.msdn.com/Blogs/Seth-Juarez/A-Preview-of-C-8-with-Mads-Torgersen&quot;&gt;a Microsoft intern proposed a new syntax for extension methods that will also allow “extension &lt;em&gt;other things&lt;/em&gt;”&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;lets-see-the-code&quot;&gt;Let’s See the Code&lt;/h3&gt;
+
+&lt;p&gt;Well, if I were you, I’d be itching to see some code. Here’s an example of an extension method using current syntax:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/d6ec153b7274ac699634d5dadb2e9644.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Nothing surprising here, right? In the original syntax, an extension method is just a static method in a static class, with the &lt;em&gt;this&lt;/em&gt; keyword before the first parameter.&lt;/p&gt;
+
+&lt;p&gt;The thing is this syntax only works with methods (and, really, how could it be otherwise, since what would be the first “parameter” of a property?)&lt;/p&gt;
+
+&lt;p&gt;Here comes “extension everything.” This proposal suggests a new type declaration called an “extension”:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/5c1afca9c8fbc6837257cc5d289df2e9.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code above is an example; as of the date of this writing, the C# team is yet to settle on a syntax.&lt;/p&gt;
+
+&lt;p&gt;Regardless, the example shows the creation of an extension class that extends “int.” We then declare a property as we normally do, and we’re done.&lt;/p&gt;
+
+&lt;p&gt;Now the caller code would be able to use the property normally:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/d401d37e182647b253fa721425eec828.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This new feature is meant to support methods, properties, operators, and static members, at least in the beginning; events and constructors may come later.&lt;/p&gt;
+
+&lt;p&gt;You won’t be able to add additional state to the original instance, i.e., creating a private field in the extension class. According to Torgersen, this would add undesirable complexity in order to keep track of this new state.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;You can &lt;a href=&quot;https://github.com/dotnet/csharplang/issues/192&quot;&gt;follow the feature development on its GitHub issue.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;default-implementation-on-interfaces&quot;&gt;Default Implementation on Interfaces&lt;/h2&gt;
+
+&lt;p&gt;I admit I was surprised—and not exactly happy—when I first heard about default implementation on interfaces &lt;a href=&quot;https://channel9.msdn.com/Events/Build/2017/B8104&quot;&gt;in a talk Mads Torgersen gave in May 2017, at the Build 2017 Conference.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;“What about record types?” I thought. “What about immutable objects? What we’re really getting is implementation on &lt;em&gt;interfaces&lt;/em&gt;?”&lt;/p&gt;
+
+&lt;p&gt;You can safely guess what this feature is by its name: we’ll be able to add method implementations on interfaces. For instance:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/efde91de1a54a1bc4f44c1a7a748d70c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In C# 8.0, the code above would be perfectly legal. A class implementing the interface wouldn’t need to implement the method. If some implementation of the interface decides that the default implementation doesn’t fit its needs, then it can provide its own implementation.&lt;/p&gt;
+
+&lt;p&gt;Besides methods, you’ll also be allowed to add bodies for indexers, properties, and event accessors. Static members such as methods, properties, and indexers will be allowed as well.&lt;/p&gt;
+
+&lt;p&gt;Instance state will not be allowed in interfaces, though. You’ll be able to use static fields but not instance fields. As a consequence of this, auto-implement properties won’t be allowed as well, since they automatically declare a hidden backing-field.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-cases&quot;&gt;Use Cases&lt;/h3&gt;
+
+&lt;p&gt;As stated in the feature &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;proposal&lt;/a&gt;, the primary use case for default interface methods is to enable the developer to safely evolve an interface. You could add new methods to it and, as long as you provided a default implementation, existing clients of the interface wouldn’t be forced to implement it.&lt;/p&gt;
+
+&lt;p&gt;Currently, you could solve this problem with an extension method. This approach is limited, though: what if you wanted to provide a specialized version of the method for one of the implementations? Good luck with that.&lt;/p&gt;
+
+&lt;p&gt;That’s when default implementation shines.&lt;/p&gt;
+
+&lt;p&gt;Another important value proposition of default implementation on interfaces relates to Android and iOS. Since both Java and Swift offer this feature, it’s tricky to use C# to wrap Android/iOS APIs that make use of it. C# 8.0 will make it possible to wrap those APIs more faithfully.&lt;/p&gt;
+
+&lt;h3 id=&quot;will-interfaces-become-abstract-classes&quot;&gt;Will Interfaces Become Abstract Classes?&lt;/h3&gt;
+
+&lt;p&gt;Sort of, but not really. As you know, there’s no multiple inheritance in languages like C# and Java, which means you can’t inherit from more than one class. On the other hand, a class is (and will continue to be) able to implement several interfaces.&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status-1&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;This feature is currently being prototyped. &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;You can follow its development on the GitHub issue.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;nullable-reference-types&quot;&gt;Nullable Reference Types&lt;/h2&gt;
+
+&lt;p&gt;“What?” you may be wondering. “Shouldn’t it be ‘&lt;strong&gt;non&lt;/strong&gt;-nullable reference types’?” The name of this feature can be a bit confusing, indeed. I’ll get back to that soon, but first, let me address why this is even a thing.&lt;/p&gt;
+
+&lt;p&gt;I bet you’re familiar with the phrase “the billion dollar mistake.” On the off-chance you’re not, the phrase refers to the null reference, and it &lt;a href=&quot;https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions&quot;&gt;was coined by none other than Sir Tony Hoare, the inventor of the null reference himself.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;but-why-is-that-why-is-null-so-bad&quot;&gt;But why is that? Why is null so bad?&lt;/h3&gt;
+
+&lt;p&gt;You could make several arguments as to why, but the biggest problem is, of course, the risk of getting the infamous null-reference exception (aka null-pointer exception in Java-land). Since everything (“everything” in the context of C# meaning all &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;reference types&lt;/a&gt;) can be null, you always run the risk of getting an exception when you try to access some member of the object.&lt;/p&gt;
+
+&lt;p&gt;One of the biggest issues here is that the language itself lacks a syntax that would allow the author to express their intent. It isn’t possible for you to say “This parameter can never be null” or “This property may be null sometimes, and that’s ok.”&lt;/p&gt;
+
+&lt;p&gt;It’s common for functional languages to deal with this by having some type that represents the concept of a potential absent value, often called “Maybe” or “Option.”&lt;/p&gt;
+
+&lt;p&gt;The C# team decided against something like this since, according to them, it’d be the same as adding a new kind of null to the language and it’d probably make things more complex.&lt;/p&gt;
+
+&lt;p&gt;Let’s go back now to the naming issue. You may be thinking that I’ve got it backwards. It makes sense to talk about nullable value types since value types are non-nullable by default. But in the case of reference types, it shouldn’t, right? After all, they’ve been nullable from the beginning.&lt;/p&gt;
+
+&lt;p&gt;Here’s the catch: the C# design team—in a move not free of controversy—intends to make non-nullability the new default for reference types. In that sense, the “new” thing would be the nullable types.&lt;/p&gt;
+
+&lt;p&gt;To keep the language consistent, they propose to use the same syntax that already exists for nullable reference types—in other words, the question mark.&lt;/p&gt;
+
+&lt;h3 id=&quot;enough-talking-lets-see-some-code&quot;&gt;Enough talking. Let’s see some code!&lt;/h3&gt;
+
+&lt;p&gt;I suppose using the infamous “Person” class in an example is the software equivalent of playing “Stairway to Heaven” in a musical instruments store—it may be a little overdone. But using a more elaborate example would be both distracting and unnecessary, so please bear with me.&lt;/p&gt;
+
+&lt;p&gt;Suppose we have a “Person” class with an “Age” property of type “int.” Then, we write the following method:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/9b09f0572e737569e6f97315e5028411.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Even though the code above will gladly compile, it’s fragile since “p” could be null. You probably should add an “if” statement to account for that possibility, but no one will make you do that. You’re completely free to leave the code as it is.&lt;/p&gt;
+
+&lt;p&gt;C# 8 promises to change that by making reference types non-nullable by default. In the example above, trying to access the “Age” property would be safe, since “p” would never be null.&lt;/p&gt;
+
+&lt;p&gt;If you wanted “p” to be nullable, then you’d have to add a question mark to the type, as I’ve mentioned before:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/8554d8863882955b554b486797b83726.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now that “p” can be null, trying to access Age isn’t safe anymore: you’ll get a warning for doing that. Want to get rid of the warning?&lt;/p&gt;
+
+&lt;p&gt;Just do what you (hopefully) already do today and perform a null check:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/edc992560bf6c005c6be821103e160a3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;That way, a flow analysis will be performed; if the assignment line is reached, the compiler will know for a fact that “p” can’t possibly be null and will leave you alone.&lt;/p&gt;
+
+&lt;p&gt;Here’s another possibility:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/518c1b35560cafe17fca829aa2aef27b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;In short, you have several options. As soon as you convince the compiler that your code offers no risk of throwing a null reference exception, the warning goes away.&lt;/p&gt;
+
+&lt;h3 id=&quot;preventing-assignment-from-nullable-to-non-nullable&quot;&gt;Preventing Assignment from Nullable to Non-Nullable&lt;/h3&gt;
+
+&lt;p&gt;The new version of C# will also prevent assigning from a nullable variable to a non-nullable, so the code below will result in a warning as well:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/98f91bc50c924a8bd47897b874a7be89.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;This feature will come along with a new operator called the null-ignoring operator. You’ll basically use this operator to tell the compiler that “I, the developer, know best.” There will be situations when a variable can’t possibly be null, but the compiler won’t be able to infer that.&lt;/p&gt;
+
+&lt;p&gt;One such example would be the use of the “string.IsNullOrEmpty()” method:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/7f0f2f7470f810d228f1d68559b1d6b7.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The code above will generate a warning, despite it not being possible for “bar” to be null. That’s when this operator comes in handy:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/008709a0b9ff6a72abc8fc4882a467d3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Keep in my mind that, by using this operator, you’re basically telling the compiler: “Trust me! I know what I’m doing.” So you’d better really know what you’re doing!&lt;/p&gt;
+
+&lt;h3 id=&quot;what-about-backward-compatibility&quot;&gt;What about backward compatibility?&lt;/h3&gt;
+
+&lt;p&gt;I know what you’re probably thinking by now. “That sounds nice and all, but wouldn’t this change break a lot of existing code?”&lt;/p&gt;
+
+&lt;p&gt;Well, of course it would. That’s why this will be an &lt;strong&gt;opt-in&lt;/strong&gt; change, activated on a per-project basis&lt;/p&gt;
+
+&lt;h3 id=&quot;current-status-2&quot;&gt;Current Status&lt;/h3&gt;
+
+&lt;p&gt;This one is already prototyped. If you’re interested, &lt;a href=&quot;https://github.com/dotnet/csharplang/wiki/Nullable-Reference-Types-Preview&quot;&gt;you can download, install, and test a preview for nullable reference types right away.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As with the previous features, you can stay tuned by &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/nullable-reference-types.md&quot;&gt;following the relevant proposal in GitHub.&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;c-has-a-future-and-it-looks-awesome&quot;&gt;C# Has a Future. And It Looks Awesome&lt;/h2&gt;
+
+&lt;p&gt;So now you know a bit more about three of the features we’re probably getting with the next major version of the C# language.&lt;/p&gt;
+
+&lt;p&gt;As you can see, evolving the language is hard work. The language has to remain compatible with the millions (billions?) of lines of code written with it in the last 17 years. At the same time, in order to continue being relevant, it must meet the needs of developers that are facing challenges that were unimaginable years ago. And it must do all of this without losing its essence: being an easy and approachable object-oriented C-like language.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 20 Dec 2017 00:00:00 -0200</pubDate>
+        <link>http://carlosschults.net/en/csharp-8-features/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/csharp-8-features/</guid>
+        
+        <category>csharp</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Unit testing for beginners - Part 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Better late than later! Time to continue our series on unit testing for beginners. Today you’re going to write your first unit test.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;In the &lt;a href=&quot;http://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;previous article&lt;/a&gt; you learned what unit tests are and what are the motivations for writing them.&lt;/p&gt;
+
+&lt;p&gt;Today you’re going to learn how to create unit tests. I’ll show you how to install and use the a unit test framework called &lt;strong&gt;NUnit&lt;/strong&gt;. Together, we’re going to write some tests in order for you to know some of its features.&lt;/p&gt;
+
+&lt;h2 id=&quot;nunit-installation&quot;&gt;NUnit Installation&lt;/h2&gt;
+
+&lt;p&gt;If you recall my &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;previous article&lt;/a&gt;, you’ll remember that, in order to write and run unit tests, you need a &lt;strong&gt;unit testing framework.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The framework we’re going to use is &lt;strong&gt;NUnit&lt;/strong&gt;, based on &lt;strong&gt;JUnit&lt;/strong&gt;, which is a test framework for the Java language. There are other testing frameworks available in the .Net world, such as MS Test, developed by Microsoft itself.
+Feel free to try other frameworks later on.&lt;/p&gt;
+
+&lt;p&gt;Ok, let’s begin. For this project I’m going to use Visual Studio 2017. &lt;a href=&quot;https://www.visualstudio.com/pt-br/downloads/&quot;&gt;Download the Community version here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Create a new solution of the &lt;strong&gt;Class Library&lt;/strong&gt; type, with the name &lt;strong&gt;LearningUnitTesting&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Whenever I create a new solution on Visual Studio I delete the &lt;code class=&quot;highlighter-rouge&quot;&gt;Class1&lt;/code&gt; class that is created by default. You could rename it, of course, it makes no difference.&lt;/p&gt;
+
+&lt;p&gt;Now, let’s rename the default project to &lt;strong&gt;Application&lt;/strong&gt;. This project will store the &lt;em&gt;production code&lt;/em&gt; in our solution.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;In the context of unit testing, we use the term &lt;strong&gt;Production Code&lt;/strong&gt; when we’re talking about the “real code” in our application, in contrast to the &lt;strong&gt;Test Code&lt;/strong&gt; we also write.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Next step! Now we &lt;strong&gt;create the test project&lt;/strong&gt;. There are several different opinions regarding &lt;em&gt;where&lt;/em&gt; should the test class be kept: along with production code, or in a different location. I usually create another project, which I name using the scheme &lt;em&gt;[ProductionProject]Test&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, the new project will be called &lt;strong&gt;ApplicationTest&lt;/strong&gt;, and it’ll be of type &lt;strong&gt;Class Library&lt;/strong&gt; as well.
+After creating the project, I delete the default class, same as before.&lt;/p&gt;
+
+&lt;p&gt;Your solution should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s install NUnit. Fortunately, NUnit is available as a Nuget package, which makes its installation a breeze.&lt;/p&gt;
+
+&lt;p&gt;First, open the &lt;strong&gt;Package Manager Console&lt;/strong&gt;. Go to: &lt;strong&gt;Tools&lt;/strong&gt; &amp;gt; &lt;strong&gt;Nuget Package Manager&lt;/strong&gt; &amp;gt; &lt;strong&gt;Package Manager Console&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Then type or copy-paste the following command:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Install-Package NUnit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Double-check that you’ve got the right project selected, like in the image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And then press &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
+
+&lt;p&gt;We are not done yet, though. We need to install another package, the &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;, which we’ll let us run NUnit tests in Visual Studio. The process is the same, the only difference is the package’s name:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Install-Package NUnit3TestAdapter&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Don’t forget to check if the right project is selected before pressing &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
+
+&lt;p&gt;This is it.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-and-running-the-first-test&quot;&gt;Creating and running the first test&lt;/h2&gt;
+
+&lt;p&gt;Let’s create some tests. First, let’s add a new class to our production project. The class’s name will be &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; and its code will look like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I think the class is simple enough to not require additional explanation. Now, it’s time to create our test class. Add a new class called &lt;code class=&quot;highlighter-rouge&quot;&gt;EmployeeTest&lt;/code&gt; to the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is another naming convention I like to use: to name the test class after the production class, adding the word &lt;em&gt;Test&lt;/em&gt; at the end.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After the class is created, add the &lt;em&gt;NUnit.Framework&lt;/em&gt; namespace to its using declarations. Then, create a new void returning public method called &lt;strong&gt;MyFirstTestMethod&lt;/strong&gt; and add the &lt;code class=&quot;highlighter-rouge&quot;&gt;[Test]&lt;/code&gt; attribute to it.&lt;/p&gt;
+
+&lt;p&gt;By now, your code should look like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/406525bd23d3ee2ecba4f7592c0f8af3.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The skeleton for the test is ready. It’s time for you to write your first &lt;strong&gt;assertion&lt;/strong&gt;. In the context of unit testing, an assertion is an affirmation about how a unit of your system should behave. If the affirmation turns out to be true, we say the test has &lt;em&gt;passed&lt;/em&gt;. In case it proves to be false, we say the test has &lt;em&gt;failed&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;In NUnit we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class to write our assertions. This class has a large number of methods that allow us to express our expectations about the behavior of our units.&lt;/p&gt;
+
+&lt;p&gt;Add the following line of code to the test method:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assert.Pass();&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Pass&lt;/code&gt; method, not surprisingly, just forces the test to pass. Now you’re going to run this test in order to see it passing. First of all, open the &lt;strong&gt;Test Explorer&lt;/strong&gt;. Use the menu bar: &lt;strong&gt;Test&lt;/strong&gt; &amp;gt; &lt;strong&gt;Windows&lt;/strong&gt; &amp;gt; &lt;strong&gt;Test Explorer&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;When the window is show, click on &lt;em&gt;Run All&lt;/em&gt;. If everything goes right, you’ll see this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When you click on the test’s name, some additional information is shown, such as the test file and elapsed time:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice the use of green to indicate the test’s success.&lt;/p&gt;
+
+&lt;p&gt;Now let’s do the opposite: force the test to fail. Replace the previous line for the following one:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Assert.Fail();&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Run the test again and you’ll see the failure message, this time with the red bar:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now that you’re getting the hang of it, we’re start testing our &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; class. Don’t forget to switch the test method back to &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass()&lt;/code&gt;, otherwise it will continue to fail.&lt;/p&gt;
+
+&lt;p&gt;Now add a new method called &lt;code class=&quot;highlighter-rouge&quot;&gt;IntroduceMethodShouldWorkCorrectly&lt;/code&gt;. In this method we’ll create a new instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; and verify that the &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; method is working properly.&lt;/p&gt;
+
+&lt;p&gt;Before we do that, though, we must add a reference from the production project to our test project. Otherwise, our test class won’t be able to see the classes it is supposed to test!&lt;/p&gt;
+
+&lt;p&gt;To do that, right-click the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project, then go to &lt;strong&gt;Add&lt;/strong&gt;, then &lt;strong&gt;Reference&lt;/strong&gt;. In the opened window, choose the project, according to the following image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, click on &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Back to the test class. Edit the code so it looks like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You will notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; is marked as an error. If you hover over it, you’ll see a message saying that the name &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; couldn’t be found and asking if there is some reference or &lt;em&gt;using&lt;/em&gt; directive missing.&lt;/p&gt;
+
+&lt;p&gt;Of course there is a using directive missing, related to the reference we’ve just added. To fix this problem, just add the line &lt;code class=&quot;highlighter-rouge&quot;&gt;using Application;&lt;/code&gt; to the namespace declarations, right at the start of the file.&lt;/p&gt;
+
+&lt;p&gt;Now that our code compiles, let’s go through this method, line by line.&lt;/p&gt;
+
+&lt;p&gt;In the first line, we create a new instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;, specifying name, profession and salary. In the following line, we assign to a variable the value we &lt;strong&gt;expect&lt;/strong&gt; the method to return. Then we assign to another variable the obtained result from the method.&lt;/p&gt;
+
+&lt;p&gt;Finally, we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; method from the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class to verify the equality of the two values. This method is, probably, the one you’ll use the most during your tests.&lt;/p&gt;
+
+&lt;p&gt;Now it’s time to run the test. Use the shortcut &lt;strong&gt;CTRL + R, A&lt;/strong&gt; or click on &lt;strong&gt;Run All&lt;/strong&gt; in the Test Explorer window. If everything goes smoothly, you should see the green bar and the message indicating that both tests have passed.&lt;/p&gt;
+
+&lt;p&gt;Time to test our test! We’re going to deliberately ruin the &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; method to see if the test fails as expected. Back to the production class, edit the method like this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;As you’ve seen, we’ve just removed the square brackets before and after “JobTitle”. This way, the string interpolation won’t work, hard-coding the string instead of replacing it by the value of the variable.&lt;/p&gt;
+
+&lt;p&gt;When we run the tests again, we got the following result:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mensagem:   Expected string length 48 but was 46. Strings differ at index 37.
+Expected: “Hi! My name is Alice and I work as a Programmer.”
+But was:  “Hi! My name is Alice and I work as a JobTitle.”
+————————————————^&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As you can see, the message is very detailed. It not only lets us know that the strings differed, but it also tells us exactly where they differ. It also shows the expected string and what we really got. It is important to notice that the parameter’s orders in the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; matters a lot, since it is used in the failure message.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;The parameters’ order in the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; is very important. First specify the expected value, and then the actual result.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Great. Now you can switch the method back to the correct implementation and run the tests again, so the test can be green again.&lt;/p&gt;
+
+&lt;p&gt;As you can see, a unit test consists in a well defined sequence of steps: we &lt;strong&gt;prepare&lt;/strong&gt; the scenario, then &lt;strong&gt;execute&lt;/strong&gt; the action and &lt;strong&gt;verify&lt;/strong&gt; the results. This sequence of steps, or phases, is sometimes called AAA: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A typical unit test has the three phases: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Even though there are another naming conventions for the phases of a unit test, we’ll adopt &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; , at least for now.&lt;/p&gt;
+
+&lt;p&gt;You may be wondering why I gave the name “sut” to the variable at the start of the method. This is a naming convention that I learned while reading &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;Mark Seeman’s blog&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; stands for &lt;em&gt;System Under Test&lt;/em&gt;, i.e. the thing you’re testing.&lt;/p&gt;
+
+&lt;p&gt;There is nothing preventing you from naming the variable whatever you want. I really like to follow this convention, though, since it makes really clear what is being tested.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Tip: Try to use naming conventions that improve the readability of your code and make the author’s intention clear for anyone who reads the code.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Take a look at the same test method, but this time with comments delimiting each test phase:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a91d41ff7ac732fc9c57e63c03a6be07.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Even though it isn’t really need, I suggest you use comments like the ones above to indicate the test phases, at least in the beginning of your learning.&lt;/p&gt;
+
+&lt;h2 id=&quot;testing-the-giveraise-method&quot;&gt;Testing the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method&lt;/h2&gt;
+
+&lt;p&gt;A salary raise is always welcome, wouldn’t you agree? Let’s test the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method to see if it’s working properly. Add the following method to your test class:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Run the test and you should see the familiar green bar. Did it work? Great. Time to &lt;strong&gt;test the test&lt;/strong&gt;: we’re going to sabotage the implementation of &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; and hope our test catches the error.&lt;/p&gt;
+
+&lt;p&gt;In the production class, edit the method this way:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/fba5901aaa2f542bcd8528de0e96afff.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Now the method is obviously wrong; the test should fail. Let’s run it?&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Mensagem:   Expected: 110
+   But was:  5m&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Ok, as we can see, the test did fail. Switch the method back to the correct implementation.&lt;/p&gt;
+
+&lt;h2 id=&quot;one-last-test&quot;&gt;One last test&lt;/h2&gt;
+
+&lt;p&gt;Let’s say the Product Owner just showed up with a new requirement: the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method should ignore negative raise rates. First, let’s edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method to deal with this scenario:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;We’ve just made a change in production code. Our top priority right now is &lt;strong&gt;to guarantee that we haven’t broken anything&lt;/strong&gt;.
+Run the test to be sure that all of them are passing.&lt;/p&gt;
+
+&lt;p&gt;Everything still green? Great, let’s go ahead. Now we need to create a new test to document the “negative raise attempt” scenario.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unit tests are also a type of documentation.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In the test class, add the following method:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/a474698655450da6547dbfa6b9dbcb8c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Nothing really surprising here, right? At this point I’m sure you’ve already got this. So, now it is up to you to &lt;strong&gt;test the test&lt;/strong&gt;: ruin the production code in one or more ways to see if the test fails as expected.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-quick-recap&quot;&gt;A quick recap&lt;/h2&gt;
+
+&lt;p&gt;Today’s article was more dense than the previous one. We’ve managed to cover several topics::&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Installation of &lt;strong&gt;NUnit&lt;/strong&gt; and &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;;&lt;/li&gt;
+  &lt;li&gt;Creation of a test;&lt;/li&gt;
+  &lt;li&gt;Introduction to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class;&lt;/li&gt;
+  &lt;li&gt;Test execution, via &lt;em&gt;Test Explorer&lt;/em&gt; and keyboard shortcuts;&lt;/li&gt;
+  &lt;li&gt;Reading and interpretation of test results;&lt;/li&gt;
+  &lt;li&gt;Phases of a unit test (&lt;em&gt;Arrange-Act-Assert&lt;/em&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides these topics, we’ve also enlarged our test related vocabulary with terms like &lt;em&gt;SUT&lt;/em&gt;, &lt;em&gt;assertion&lt;/em&gt; and &lt;em&gt;test code vs production code&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some naming conventions were covered as well, for both classes and methods.&lt;/p&gt;
+
+&lt;p&gt;Last but not least, you’ve learned about the importance of seeing the test fail, and how we can gain confidence in our tests by deliberately sabotaging the production code.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-notes&quot;&gt;Some notes&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You’ve probably noticed that my Visual Studio is not in English in the screen-captures. That is because I’m Brazilian and my Visual Studio is configured in Portuguese (and I first wrote this post in pt-br). I apologize for that.&lt;/li&gt;
+  &lt;li&gt;All of the code for today’s post &lt;a href=&quot;https://github.com/carlosschults/learning-unit-testing/&quot;&gt;can be found on Github&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Once again, I thank my friend Gunter Italiano Ribeiro for proof-reading this post.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This was my second article in the series about unit testing. As I already mentioned, it is deliberately longer and more practical than the previous one. Still, all we’ve covered today is just the tip of the iceberg. Whole books were written about unit testing; by the way I’m indicating some in the following articles, along with more references.&lt;/p&gt;
+
+&lt;p&gt;For the tests we wrote today, we used the more intuitive - and probably more common - approach of creating the tests after the production code. However, many people and teams work differently: they write the tests &lt;em&gt;before&lt;/em&gt; the production code.&lt;/p&gt;
+
+&lt;p&gt;I know it may sound strange, at first, but working this way can bring many benefits to your project. This and other topics will be covered in the next article.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading! See you soon.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Aug 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/unit-testing-for-beginners-part2/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/unit-testing-for-beginners-part2/</guid>
+        
+        <category>software testing</category>
+        
+        <category>unit testing</category>
+        
+        <category>automated tests</category>
+        
+        <category>agile</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>C# 7 Features Worth Knowing - Part 2</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this post we’ll see some more new features from C# 7.0.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;http://carlosschults.net/en/csharp-7-features/&quot;&gt;the first part of this series&lt;/a&gt;, we talked about some new features from C#, namely: literal improvements, out variables, more &lt;em&gt;expression-bodied&lt;/em&gt; members and throw expressions.&lt;/p&gt;
+
+&lt;p&gt;Today we’ll see: &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;. But before we go on, I’d like to thank my friend Gunter Italiano Ribeiro for reviewing this article.&lt;/p&gt;
+
+&lt;h2 id=&quot;tuples&quot;&gt;Tuples&lt;/h2&gt;
+
+&lt;p&gt;Have you ever felt the need to write a method that returned more than one value? I’d bet you have. In previous versions of the C# language, there were some options available. You could use an out parameter, or even create a type for that, but each one of these had their own problems. Out parameters are non-intuitive and can complicate the design; creating a custom type just for this can be overkill.&lt;/p&gt;
+
+&lt;p&gt;In C# 7.0 you have a new option, by using &lt;strong&gt;tuple types&lt;/strong&gt; and &lt;strong&gt;tuple literals&lt;/strong&gt;. With this feature you can easily declare a method that returns more than one value. Let’s see an example:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/37689aeb84ed4fdff067eab72690a035.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You’re probably familiar with the &lt;code class=&quot;highlighter-rouge&quot;&gt;TryXXX&lt;/code&gt; pattern, used, for instance, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt; BCL type. These sort of methods generally use an out parameter to return the resulting value (or the type default value, in case the parsing operation does not succeed).&lt;/p&gt;
+
+&lt;p&gt;The method above contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; method in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; class. Take a look at the method’s signature.&lt;/p&gt;
+
+&lt;p&gt;When you write more than one type in the method’s return, you’re using a &lt;em&gt;tuple type&lt;/em&gt;.  Don’t worry, you’re going to get used to it.&lt;/p&gt;
+
+&lt;p&gt;Right at the start of the method, we pass the specified text for a private method that actually performs the validation and returns a boolean value.&lt;/p&gt;
+
+&lt;p&gt;After the validation, we return a &lt;em&gt;tuple literal&lt;/em&gt;, which consists in a new instance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; class and a boolean flag indicating whether the parsing operation succeeded.&lt;/p&gt;
+
+&lt;p&gt;Nice, but what about the other side? How the function caller deals with this sort of return value? Let’s see:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/81b46fd01a187d866a41c0a74c8fc430.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;If you hover over the variable name, you’ll see its type described, unsurprisingly, as &lt;code class=&quot;highlighter-rouge&quot;&gt;(ZipCode, bool)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can access each tuple element by using &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item2&lt;/code&gt;, and son on.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/f4a1cf2fea5808474fb126888c436f55.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;However, you’re not forced to use the default names. There’s nothing stopping you from using more descritive naems:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/eb3d649160d4a72a8d94b8ae79eefa2c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;The calling code becomes more readable:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/5f5c85d832af66094a68c4a59bdb23d7.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;There’s still another way of accessing a tuple’s items. By using a functionality called &lt;strong&gt;Deconstruction&lt;/strong&gt;, you can easily split a tuple’s elements into variables.&lt;/p&gt;
+
+&lt;p&gt;You can declare the variables by using their types:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/cccbc00f7b154bb897c332e4f8ed614c.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Type inference also works here, and you have two options: you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; keyword for each variable, or to use it just once for all variables, placing it outside the parenthesis.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/225e608c7b844df46084b6a7af5b6ac2.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You don’t even need to declare the variables at the deconstruction moment. It’s perfectly valid to deconstruct a tuple into already existent variables.&lt;/p&gt;
+
+&lt;h3 id=&quot;some-notes&quot;&gt;Some notes&lt;/h3&gt;
+
+&lt;p&gt;Tuples are &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp//&quot;&gt;&lt;em&gt;Value Types&lt;/em&gt;&lt;/a&gt;. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same &lt;code class=&quot;highlighter-rouge&quot;&gt;HashCode&lt;/code&gt;. The names of the items are not relevant&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/c8200f265b19c59a117d8ad5c347805b.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Assignment also works in the intuitive way. As long as they’re assignable to each other, two tuples can freely be assigned to one another. As in the previous case, the item’s names don’t matter.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/feb631d45a4d8b067c502a14eb4730ea.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Currently, for this feature to work, you must install a nuget package called &lt;code class=&quot;highlighter-rouge&quot;&gt;System.ValueTuple&lt;/code&gt;. In Visual Studio, go to &lt;strong&gt;Tools&lt;/strong&gt; &amp;gt; &lt;strong&gt;NuGet Package Manager&lt;/strong&gt; &amp;gt; &lt;strong&gt;Package Manager Console.&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Package Manager Console Windows will be shown. Type &lt;code class=&quot;highlighter-rouge&quot;&gt;Install-Package System.ValueTuple&lt;/code&gt; and press &lt;code class=&quot;highlighter-rouge&quot;&gt;ENTER&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;but-what-about-systemtuple&quot;&gt;But what about &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt;?&lt;/h3&gt;
+
+&lt;p&gt;Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; reference type since its 4.0 version? Why don’t we just stick to the older type?&lt;/p&gt;
+
+&lt;p&gt;Well, &lt;a href=&quot;http://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple&quot;&gt;this Stack Overflow answers it pretty well&lt;/a&gt;, but I’ll try to summarize it here.&lt;/p&gt;
+
+&lt;p&gt;Firstly, as already mentioned, the older type is a &lt;em&gt;reference type&lt;/em&gt;, and the new one is a &lt;em&gt;value type&lt;/em&gt;, with all the usual implications.&lt;/p&gt;
+
+&lt;p&gt;But the really important differences have to do with convenience and readability. If you use &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; there is no deconstruction; you can only access the items by using the default names, which makes the code harder to read and understand.&lt;/p&gt;
+
+&lt;h2 id=&quot;local-functions&quot;&gt;Local Functions&lt;/h2&gt;
+
+&lt;p&gt;A &lt;strong&gt;Local Function&lt;/strong&gt; is exactly what its name suggests: a function that can be declared inside another function.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/0aebfaf7d900d3b47a2d142a676dbb01.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;As you’ve noticed, the inner function can access the values available for the outer function.&lt;/p&gt;
+
+&lt;p&gt;Of course, the example shown above is deliberately simple; in production, you’d probably just write the code in &lt;code class=&quot;highlighter-rouge&quot;&gt;Log()&lt;/code&gt; in the external methods and be done with it.&lt;/p&gt;
+
+&lt;p&gt;It’d also be possible to use a &lt;code class=&quot;highlighter-rouge&quot;&gt;delegate&lt;/code&gt; for that:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/045204806458c6563cd3a8b20a63133f.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;It seems that everything we can do with a local function is also possible to do with private methods or delegates. Do we really need this feature?&lt;/p&gt;
+
+&lt;p&gt;Giovani Bassi give us some reasons to use this feature:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Sintaxe consistente com a já utilizada em métodos;&lt;/li&gt;
+    &lt;li&gt;Não há necessidade de criar um delegate, ou referenciar Func, Action, ou algo parecido;&lt;/li&gt;
+    &lt;li&gt;Lambdas e delegates causam alocações extras, funções locais não;&lt;/li&gt;
+    &lt;li&gt;Ref e out são permitidos;&lt;/li&gt;
+    &lt;li&gt;Tipos genéricos são permitidos;&lt;/li&gt;
+    &lt;li&gt;É possível referenciar funções ainda não declaradas.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In free translation:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Sintaxe consistent with the one already used in methods;&lt;/li&gt;
+    &lt;li&gt;No need to create a delegate, or reference Func, Action, or something like that;&lt;/li&gt;
+    &lt;li&gt;Lambdas and delegates cause extra allocations, local functions don’t;&lt;/li&gt;
+    &lt;li&gt;Ref and out are allowed;&lt;/li&gt;
+    &lt;li&gt;Generic types are allowed;&lt;/li&gt;
+    &lt;li&gt;It’s possible to reference functions not yet declared.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Of course you could just use a private method. But the local function has this nice property of not being acessible to the rest of your class, making it impossible to be accidentally called.&lt;/p&gt;
+
+&lt;p&gt;Mads Torgersen shows us a situation for which local functions are the perfect solution:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;As an example, methods implemented as iterators commonly need a non-iterator wrapper method for eagerly checking the arguments at the time of the call. (The iterator itself doesn’t start running until MoveNext is called). Local functions are perfect for this scenario:&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;script src=&quot;https://gist.github.com/carlosschults/34b77038c058f261f615e739c7f9ea2a.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;You could turn &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator()&lt;/code&gt; into a private method, sure, but that would be: 1) redundant and not very elegant, since it would require you to repeat the same signature from the outer function; and 2) less safe, because another part of the code could call the method without performing the validation.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Today we’ve talked about &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;, two new features from C# that, at first sight, can look harmless, but have potential to change the way you write code in interesting ways.&lt;/p&gt;
+
+&lt;p&gt;Local functions? At first, I didn’t really liked it, I must admit. Or rather: I couldn’t understand what would they be useful for. After some research, I understood their use cases.&lt;/p&gt;
+
+&lt;p&gt;With tuples, it’s a whole other story. I believe every C# developer with some experience under their belt has felt the need to return more than one value from a method and was frustrated with the available options. Now using tuples we finally have an elegant, easy-to-use solution, that makes the code less clumsy and more readable.&lt;/p&gt;
+
+&lt;p&gt;Not everything is perfect though. Some developers already express concerns with these features. For instance, local functions could encourage the creation of large methods.&lt;/p&gt;
+
+&lt;p&gt;Tuples, on the other hand, could be over-used in situations that require &lt;em&gt;objects&lt;/em&gt;, making the code more procedural.&lt;/p&gt;
+
+&lt;p&gt;My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in &lt;a href=&quot;http://carlosschults.net/en/are-private-methods-a-code-smell/&quot;&gt;my article about private methods&lt;/a&gt;, code review and/or pair-programming can be of invaluable help in situations like these.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading. See you next time.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&quot;&gt;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&quot;&gt;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&lt;/a&gt; (pt-br)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Mon, 05 Jun 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/csharp-7-features-part-2/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/csharp-7-features-part-2/</guid>
+        
+        <category>csharp</category>
+        
+        <category>beginners</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>Git basics for TFS/TFVC users</title>
+        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491343925/git-for-tfs-users-1038x437_ios03n.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Learning Git can be a bit challenging for developers with a background in centralized version control systems. But it doesn’t have to be that way.
+&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Git is becoming (or &lt;em&gt;has already become&lt;/em&gt;, many would say) the &lt;em&gt;de facto&lt;/em&gt; standard version control system of the industry. It was created in 2005 by Linus Torvalds to manage the source code from the Linux kernel, and since then its adoption has been growing phenomenally, specially after &lt;a href=&quot;github.com&quot;&gt;Github&lt;/a&gt; showed up.&lt;/p&gt;
+
+&lt;p&gt;However, even after all this time, there are some myths about Git that just won’t die. One of them is that Git is super hard to learn. From my experience, I can say that this isn’t true.&lt;/p&gt;
+
+&lt;p&gt;Git was meant to provide a lot of power and flexibility to its users. It certainly allows you to use it in more complex or sophisticate ways. But in practice, the basic commands you will use to get your daily work done are not that hard to learn.&lt;/p&gt;
+
+&lt;p&gt;That being said, Git’s learning curve &lt;em&gt;may&lt;/em&gt; present some challenging to people that are used to centralized systems. I think it’s human nature to try to find patterns and to map concepts between what you already know and what you’re trying to learn; but there are significant differences and this “mapping” often results in frustration.&lt;/p&gt;
+
+&lt;p&gt;With that in mind, I’ve decided to write a series of posts to try to help developers who are coming from centralized systems (specifically TFS/TFVC) and trying to learn Git. I don’t intend by any means to exhaust the subject. Quite the opposite: when necessary, I’ll provide links for more in-depth explanations of certain topics.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-quick-note-about-naming&quot;&gt;A quick note about naming&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;TFS&lt;/strong&gt; stands for Team Foundation Server. It is a Microsoft product that offers capabilities such as project management, requirement management, build automation and release management.&lt;/p&gt;
+
+&lt;p&gt;TFS also offers version control capabilities. Since TFS 2013 there has been native support for Git, but before that it was only possible by using TFS’s own version control system, which is called &lt;strong&gt;Team Foundation Version Control (TFVC)&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;So, &lt;strong&gt;TFS&lt;/strong&gt; refers to the complete application life-cycle management solution. The version control system itself is called &lt;strong&gt;TFVC&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;However, in this article I’ll be calling the version control system “TFS” since many developers colloquially call it that way.&lt;/p&gt;
+
+&lt;h2 id=&quot;commit--check-in&quot;&gt;Commit != Check-in&lt;/h2&gt;
+
+&lt;p&gt;Being a centralized system, TFS presents a reasonably simple workflow, which usually consists of three steps:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Get the most updated version of the source code;&lt;/li&gt;
+  &lt;li&gt;Make the necessary changes;&lt;/li&gt;
+  &lt;li&gt;Send the code with the changes back to the server.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;So, you can see that the “check-in” command in practice has two meaning associated with it: “saving” changes and “sending” those changes to the server.&lt;/p&gt;
+
+&lt;p&gt;What I notice is that this notion of “&lt;strong&gt;I’m going to send my changes to the server&lt;/strong&gt;” is a little bit hard to let go when you’re making the transition.&lt;/p&gt;
+
+&lt;p&gt;Remember: &lt;strong&gt;In Git there is no such thing as a central server&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;What you have instead are &lt;em&gt;remote repositories&lt;/em&gt;, usually called just &lt;em&gt;remotes&lt;/em&gt;. You can have as much remotes as you want to. And they don’t necessarily have to be that remote. Yes, they could be on GitHub or something similar. But they could also be located on your coworker’s machine, on some network drive, or even on another folder in your own machine.&lt;/p&gt;
+
+&lt;p&gt;When your work in a team it’s common to set up a repository that is considered, for organization means, the official repository, which holds the code’s true and current state.&lt;/p&gt;
+
+&lt;p&gt;One more time: in Git doesn’t have a technical concept of a central repository; what’s described above is a &lt;strong&gt;convention&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;With that in mind, let’s practice some Git commands so you can get used to them. Today we’re not seeing anything regarding remotes, server, nothing like that: just local commands.&lt;/p&gt;
+
+&lt;h2 id=&quot;downloading-and-installing&quot;&gt;Downloading and installing&lt;/h2&gt;
+
+&lt;p&gt;Some people say that using Git on Windows used to be a pain. Fortunately, that isn’t the case anymore, as you’ll see.&lt;/p&gt;
+
+&lt;p&gt;First, &lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;download Git for Windows&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Double-click, next, next, you know the drill. There shouldn’t be a problem if you just choose all the default options. However, the following option might be useful:
+&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491350434/git1_xek0vv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When you get to this screen, choosing the second option you allow you to use Git from the Windows command prompt, and not only from Git Bash.&lt;/p&gt;
+
+&lt;h2 id=&quot;basic-configuration&quot;&gt;Basic Configuration&lt;/h2&gt;
+
+&lt;p&gt;After you’re done installing Git, it’s time to configure your identity, which consists in telling Git your name and email so it can associate them with each commit you make.&lt;/p&gt;
+
+&lt;p&gt;In order to do that, let’s use Git Bash. Locate “Git Bash” on Start Menu and run it. Git Bash’s window will be shown.&lt;/p&gt;
+
+&lt;p&gt;Type the following commands:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git config –global user.name “Your Name”&lt;/p&gt;
+
+  &lt;p&gt;git config –global user.email “email@example.com”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There are a lot of other configurations available, but this is enough for you to be able to explore Git.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-your-first-repository&quot;&gt;Creating your first repository&lt;/h2&gt;
+
+&lt;p&gt;Using Git Bash, let’s create a folder and access it:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;mkdir repo&lt;/p&gt;
+
+  &lt;p&gt;cd repo&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now it’s time to create the repo:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git init&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;After running this command, you’ll see the following message:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Initialized empty Git repository in C:/Users/your-name/repo/.git/&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Git Bash prompt should be showing you something like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;User@Machine MINGW64 ~/repo (master)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nothing mysterious: logged user, current location and current branch. In Git, the standard branch is called &lt;em&gt;master&lt;/em&gt;. In the next post we’ll learn some basic operations in branches, but for now we’ll be using just master.&lt;/p&gt;
+
+&lt;h2 id=&quot;some-commands&quot;&gt;Some commands&lt;/h2&gt;
+
+&lt;p&gt;OK, now you’ve got your repository, time to learn some commands. Let’s starting with one that you’ll probably use a lot: &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;. This command allow you to visualize the current status of your repo.&lt;/p&gt;
+
+&lt;p&gt;When you run it you should see the following message:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On branch master&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Initial commit&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;nothing to commit (create/copy files and use “git add” to track)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That is:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;current branch;&lt;/li&gt;
+  &lt;li&gt;which is waiting for your first commit;&lt;/li&gt;
+  &lt;li&gt;it shows what will go in the commit - which in this case is nothing, since we haven’t made any changes.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Git even tell us what the next possible step is, i.e. create or copy files and the use &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; to track them (don’t worry for now about what this “tracking” thing means).&lt;/p&gt;
+
+&lt;p&gt;Let’s create a file.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;echo test &amp;gt; arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again and you’ll see that this time the message is different:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Untracked files:
+(use “git add &lt;file&gt;...&quot; to include in what will be committed)&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;arq1.txt&lt;/p&gt;
+
+  &lt;p&gt;nothing added to commit but untracked files present (use “git add” to track)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Some new concepts here, starting with “Untracked files”. Git can see our new file but it will not include it in the next commit.&lt;/p&gt;
+
+&lt;p&gt;Again, Git tell us what to do next. Follow its advice and run the following command:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git add arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again and look at the response:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Changes to be committed:&lt;/p&gt;
+
+  &lt;p&gt;(use “git rm –cached &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;new file:   arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;For now ignore this:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now we can see that the added file is ready to be commited. So, let’s do it!&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git commit -m “First commit”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The command below creates our first commit. The &lt;code class=&quot;highlighter-rouge&quot;&gt;-m&lt;/code&gt; parameter is used to specify a commit message, which is essential for understanding the history of the project.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On branch master&lt;/p&gt;
+
+  &lt;p&gt;nothing to commit, working directory clean&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let’s now edit our file. Open it using notepad or another text editor of your preference and add the following line:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;adding a new line&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;On branch master
+Changes not staged for commit:
+(use “git add &lt;file&gt;...&quot; to update what will be committed)
+ (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)&lt;/file&gt;&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
+
+  &lt;p&gt;no changes added to commit (use “git add” and/or “git commit -a”)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The message is familiar, but slightly different from the the previous ones. As you’re probably expecting by now, she ends offering us a suggestion for the next step. Let’s follow the suggestion:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git add arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As you can see, this is the same &lt;code class=&quot;highlighter-rouge&quot;&gt;add&lt;/code&gt; command we’ve already used, when the file was still in the “untracked” phase. Even tough the command is the same, its meaning is slightly different here. We’ll cover this difference in the future as well.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again, message, you should know the drill by now:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Changes to be committed:
+(use “git reset HEAD &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
+
+  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The message is very similar with one we’ve already seen, but notice that our file now is in the “modified” stage, instead of “new file”, which makes perfect sense.&lt;/p&gt;
+
+&lt;p&gt;It’s not hard to guess what’s coming next:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;git commit -m “Second commit: add second line”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To wrap things up, run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; and you’ll see a familiar message: working directory clean, nothing to commit.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;I kept this article extremely simple, and that was by design. My intention was to show you some basic Git commands, so you can get the “feel” of what using Git is like.&lt;/p&gt;
+
+&lt;p&gt;Notice that there is an easily perceptible pattern in the commands we ran:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;you create an file&lt;/li&gt;
+  &lt;li&gt;“add it”&lt;/li&gt;
+  &lt;li&gt;commit&lt;/li&gt;
+  &lt;li&gt;edit it&lt;/li&gt;
+  &lt;li&gt;“add it”&lt;/li&gt;
+  &lt;li&gt;commit again&lt;/li&gt;
+  &lt;li&gt;and son on&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Where I’ve wrote “add it”, you know I’m talking about the &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; command. You might have noticed that this particular command has two different usages, which is clearly evidenced by the different messages that &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; shows us after running it.&lt;/p&gt;
+
+&lt;p&gt;You’ve probably also noticed the different stags that a file can be in: “untracked”, “new file”, “modified”. they progress from one stage to the next one, like in a pipeline.&lt;/p&gt;
+
+&lt;p&gt;In the next article of the series we’ll go a little more deep in this issues. We’ll understand the different “areas” that exist in a Git repository. We’ll understand Git’s basic workflow, and the stages our files can be in.&lt;/p&gt;
+
+&lt;p&gt;We’ll also start to see one of the more important Git’s concepts: branches. We’ll see some common operations involving branches, and you’ll also learn how Git branches are different from those in TFS.&lt;/p&gt;
+
+&lt;p&gt;See you soon!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 04 Apr 2017 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/git-basics-for-tfs-users</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/git-basics-for-tfs-users</guid>
+        
+        <category>version-control-system</category>
+        
+        <category>git</category>
+        
+        <category>tfs</category>
+        
+        <category>tfvcs</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
