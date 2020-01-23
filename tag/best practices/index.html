@@ -268,7 +268,7 @@
 
 <p>Some of the concepts presented here are neither new nor restricted to functional programming. The benefits of distinguishing between functions that produce side effects from those that don’t is the basis of principles like <a href="https://en.wikipedia.org/wiki/Command%E2%80%93query_separation">command-query separation (CQS)</a>, for instance.</p>
 
-<p>The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are <a href="http://fsharpforfunandprofit.com">awesome resources for that purpose if you want to learn more</a>.</p>
+<p>The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are <a href="https://fsharpforfunandprofit.com">awesome resources for that purpose if you want to learn more</a>.</p>
 
 <p>Instead, what I wanted here is to give you a little taste of what a functional style can do for your code, which is to make it more expressive, concise, and declarative. Now it’s up to you to try to apply the functional mindset to the code you write.</p>
 
@@ -346,7 +346,7 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">double</span>  <span class="n">distance</span>  <span class="p">=</span>  <span class="m">4.5</span><span class="p">;</span></code></pre></figure>
 
-<p>Is there something wrong with this? Well, I could <em><a href="http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi">Ben Kenobi</a> </em>you and say that it might be wrong “from a certain point of view.” But I won’t. Instead, I’ll say it’s definitely wrong. It doesn’t matter that it compiles. It also doesn’t matter that it actually works some or even most of the time.</p>
+<p>Is there something wrong with this? Well, I could <em><a href="https://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi">Ben Kenobi</a> </em>you and say that it might be wrong “from a certain point of view.” But I won’t. Instead, I’ll say it’s definitely wrong. It doesn’t matter that it compiles. It also doesn’t matter that it actually works some or even most of the time.</p>
 
 <p>The problem here is the code smell known as “primitive obsession,” i.e., modeling domain concepts using primitive types. The next few sections will dive in into why is this such a problem and how the use of value objects can help.</p>
 
@@ -394,7 +394,7 @@
 
 <h2 id="value-objects-and-value-types-arent-synonymous">Value Objects and Value Types Aren’t Synonymous</h2>
 
-<p>This section is necessary in order to clarify a common misconception, which is to mix up value objects with the concept of value types in C#. See, in C#, we have <a href="http://carlosschults.net/en/value-reference-types-in-csharp/">two categories of types: reference types and value types.</a></p>
+<p>This section is necessary in order to clarify a common misconception, which is to mix up value objects with the concept of value types in C#. See, in C#, we have <a href="https://carlosschults.net/en/value-reference-types-in-csharp/">two categories of types: reference types and value types.</a></p>
 
 <p>While you certainly can use structs (value types) to implement value objects—examples in the BCL would be DateTime or the primitive numeric types— there’s nothing preventing you from using classes.</p>
 
@@ -459,7 +459,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <p>With that out of the way, it’s time to get to specifics. Which tool should you use? How to go about its adoption?</p>
 
-<p><a href="https://git-scm.com/">Git</a> is a solid choice. And despite having a steeper learning curve for <a href="http://carlosschults.net/en/git-basics-for-tfs-users">those more used to centralized version control systems, such as Subversion or TFVC</a>, it’s <em>de facto</em> standard in our industry. So by all means, learn it, since not doing so can harm your career in the future.</p>
+<p><a href="https://git-scm.com/">Git</a> is a solid choice. And despite having a steeper learning curve for <a href="https://carlosschults.net/en/git-basics-for-tfs-users">those more used to centralized version control systems, such as Subversion or TFVC</a>, it’s <em>de facto</em> standard in our industry. So by all means, learn it, since not doing so can harm your career in the future.</p>
 
 <p>But it’s possible that Git is not the best choice for your team <strong>right now</strong>. Remember, you’re short on time. So we need to get your team to adopt these coding best practices ASAP.</p>
 
@@ -467,7 +467,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <h2 id="code-review">Code Review</h2>
 
-<p>I’m not going to lie: I <em>love </em>code reviews—and <a href="http://www.codinghorror.com/blog/archives/000495.html">I’m not alone in that</a>. I’ve witnessed firsthand how a good code review can reduce the number of bugs in a codebase, make the code look and feel more consistent, and perhaps best of all, spread knowledge throughout a development team.</p>
+<p>I’m not going to lie: I <em>love </em>code reviews—and <a href="https://www.codinghorror.com/blog/archives/000495.html">I’m not alone in that</a>. I’ve witnessed firsthand how a good code review can reduce the number of bugs in a codebase, make the code look and feel more consistent, and perhaps best of all, spread knowledge throughout a development team.</p>
 
 <p>And here’s a major selling point: a code review practice is relatively easy to implement. Start as simple as you can, and then tweak and experiment with your approach as the need arises.</p>
 
@@ -517,7 +517,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <h2 id="notable-absences">Notable Absences</h2>
 
-<p>You might be surprised to see that I haven’t included unit testing in the list of coding best practices, <a href="http://carlosschults.net/en/unit-testing-for-beginners-part1/">despite being myself a firm believer in the importance of automated testing</a> to the overall quality of a codebase. And why is that?</p>
+<p>You might be surprised to see that I haven’t included unit testing in the list of coding best practices, <a href="https://carlosschults.net/en/unit-testing-for-beginners-part1/">despite being myself a firm believer in the importance of automated testing</a> to the overall quality of a codebase. And why is that?</p>
 
 <p>Adding unit tests to a legacy application, unfortunately, is <em>hard</em>, to the point that there’s even <a href="https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&amp;qid=1515443597&amp;sr=8-1&amp;keywords=working+effectively+with+legacy+code">a famous book</a>that focuses solely on this. It’s just not a feasible task for you to tackle quickly.</p>
 
@@ -527,7 +527,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <p>It’s possible that some of you found these practices to be extremely basic and not post-worthy. “Who doesn’t use version control in twenty-freaking-eighteen???” I hear you saying.</p>
 
-<p>Well, it really doesn’t take long to find evidence (anecdotal, but still) that <a href="http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr">things are not all sunshine and rainbows</a>. To believe that even basic coding best practices, such as using version control or automated testing, are universally applied is probably more wishful thinking than what we’d like to believe.</p>
+<p>Well, it really doesn’t take long to find evidence (anecdotal, but still) that <a href="https://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr">things are not all sunshine and rainbows</a>. To believe that even basic coding best practices, such as using version control or automated testing, are universally applied is probably more wishful thinking than what we’d like to believe.</p>
 
 <p>For the rest of you, I hope this list proves useful.</p>
 
@@ -549,13 +549,13 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/en/4-common-datetime-mistakes-csharp/">4 Common Datetime Mistakes in C# — And How to Avoid Them</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg" alt="" /></p>
 
 <p><em>Editorial note: I originally wrote this post for the SubMain blog.  You can <a href="https://blog.submain.com/4-common-datetime-mistakes-c-avoid/">check out the original here, at their site</a>. While you’re there, have a look at CodeIt.Right, which can help you with time-related issues and much more.</em></p>
 
-<p>Do you remember the “falsehoods programmers believe about <em>X</em>”  meme that became popular among software blogs a few years ago? The first one was about <a href="http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">names</a>, but several others soon followed, covering topics such as <a href="https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/">addresses</a>, <a href="https://wiesmann.codiferes.net/wordpress/?p=15187&amp;lang=en">geography,</a> and <a href="https://wiesmann.codiferes.net/wordpress/?p=22201">online shopping</a>.</p>
+<p>Do you remember the “falsehoods programmers believe about <em>X</em>”  meme that became popular among software blogs a few years ago? The first one was about <a href="https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">names</a>, but several others soon followed, covering topics such as <a href="https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/">addresses</a>, <a href="https://wiesmann.codiferes.net/wordpress/?p=15187&amp;lang=en">geography,</a> and <a href="https://wiesmann.codiferes.net/wordpress/?p=22201">online shopping</a>.</p>
 
-<p>My favorite was <a href="http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">the one about time</a>. I hadn’t thought deeply about time and its intricacies up until that point, and I was intrigued by how a fundamental domain could be such a fertile ground for misunderstandings.</p>
+<p>My favorite was <a href="https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">the one about time</a>. I hadn’t thought deeply about time and its intricacies up until that point, and I was intrigued by how a fundamental domain could be such a fertile ground for misunderstandings.</p>
 
 <p>Now even though I like the post, I have a problem with it: it lists wrong assumptions, and then it basically stops there. The reader is likely to leave the article wondering:</p>
 
@@ -703,7 +703,7 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/en/code-review-vs-pair-programming/">Code Review vs Pair-Programming: Which One Should Your Team Pick?</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg" alt="" /></p>
 
 <p><em>Editorial note: I originally wrote this post for the SubMain blog.  You can <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">check out the original here, at their site</a>. While you’re there, have a look at CodeIt.Right, which can help you with automated code reviews.</em></p>
 
@@ -850,7 +850,7 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/en/cargo-cult-programming/">Cargo Cult Programming Is The Art of Programming by Coincidence</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" alt="" /></p>
 
 <p><em>Editorial note: I originally wrote this post for the NDepend blog.  You can <a href="https://blog.ndepend.com/cargo-cult-programming/">check out the original here, at their site</a>. While you’re there, download NDepend and give it a try.</em></p>
 
@@ -904,11 +904,11 @@ Photo by Ales Nesetril on Unsplash</p>
 	   <span class="k">return</span> <span class="k">new</span> <span class="nf">Product</span><span class="p">();</span>
 	<span class="p">}</span></code></pre></figure>
 
-<p>Here we have a developer that probably doesn’t grok the <a href="http://carlosschults.net/en/value-reference-types-in-csharp/">difference between value and reference types</a>. It would be completely forgivable, in the case of a junior developer, except for the fact that the compiler warns you about that.</p>
+<p>Here we have a developer that probably doesn’t grok the <a href="https://carlosschults.net/en/value-reference-types-in-csharp/">difference between value and reference types</a>. It would be completely forgivable, in the case of a junior developer, except for the fact that the compiler warns you about that.</p>
 
 <p>You could argue that I’m nitpicking. After all, the code will run fine in spite of this. In fact, the check won’t even be included in the resulting IL, as you can see from this print of a decompiling tool:</p>
 
-<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png" alt="An image depicting a code excerpt that does not contain the null check." /></p>
+<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png" alt="An image depicting a code excerpt that does not contain the null check." /></p>
 
 <p>You can see in this code snippet that the compiler has optimized the null check out.</p>
 
@@ -998,7 +998,7 @@ Photo by Ales Nesetril on Unsplash</p>
 <h3 id="read-other-peoples-code">Read Other People’s Code</h3>
 <p>Reading other people’s code is a great way to learn. It’s a perfect tool to compare your own ideas and assumptions against what other developers are doing, exposing you to novel concepts that can force you to gain a deeper understanding of the issues at hand.</p>
 
-<p>In the era of <a href="http://github.com/">GitHub</a>, there isn’t much of an excuse for not doing that.</p>
+<p>In the era of <a href="https://github.com/">GitHub</a>, there isn’t much of an excuse for not doing that.</p>
 
 <h3 id="learn-from-your-tools">Learn From Your Tools</h3>
 <p>There are currently a plethora of tools that can help <a href="https://www.ndepend.com/">your team improve the quality of their code</a>. Here’s the thing, though: you shouldn’t just use these tools. You should also learn from them. If you use NDepend, <a href="https://www.ndepend.com/default-rules/webframe.html">read about its rules</a>. Try and understand the rationale behind them. What are the principles and best practices that guided its authors when coming up with the rules?</p>
@@ -1068,7 +1068,7 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/en/types-of-comments-to-avoid/">Learn which types of comments should be avoided</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1488499558/comments-1038x437.jpg" alt="" /></p>
 
 <p>Spoiler Alert: You should avoid most of them.</p>
 
@@ -1091,7 +1091,7 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/en/are-private-methods-a-code-smell/">Are private methods a code smell?</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg" alt="" /></p>
 
 <p>Some people believe private methods should be avoided. Are they right?</p>
 
@@ -1117,16 +1117,12 @@ Photo by Ales Nesetril on Unsplash</p>
   
   
   
-  
-  
-  
-  
    <span class="post-meta">May 22, 2016</span>
     <h2>
           <a class="post-link" href="/en/how-to-choose-good-names/">Ten tips to help you choose good names</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1462225938/baby-name-min_nosetz.png" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1462225938/baby-name-min_nosetz.png" alt="" /></p>
 
 <blockquote>
   <p>There are only two hard things in Computer Science: cache invalidation and naming things.</p>

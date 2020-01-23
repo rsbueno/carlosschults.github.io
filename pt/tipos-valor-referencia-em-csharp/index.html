@@ -23,12 +23,12 @@
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="pt_BR">  
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png" />  
+  <meta property="og:image" content="https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png" />  
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1038"> 
   <meta property="og:image:height" content="437">  
   
-  <meta property="og:article:published_time" content="2016-01-30T00:00:00-02:00" />  
+  <meta property="og:article:published_time" content="2016-01-30T00:00:00-03:00" />  
   <meta property="og:article:author" content="Carlos Schults" />
   
   <meta property="og:article:tag" content="csharp" />
@@ -92,14 +92,14 @@
   <header class="post-header">    
     <h2 class="postTitle" itemprop="headline">Tipos de valor e referência em C#</h2>
     <p class="post-meta">   
-    <time datetime="2016-01-30T00:00:00-02:00" itemprop="datePublished">30/01/2016
+    <time datetime="2016-01-30T00:00:00-03:00" itemprop="datePublished">30/01/2016
     </time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Carlos Schults</span></span>
   <span class="tags" itemprop="keywords"> • Tags: <a href="/tag_ptbr/csharp">csharp </a> <a href="/tag_ptbr/iniciantes">iniciantes </a> <a href="/tag_ptbr/orientacao-a-objetos">orientacao-a-objetos </a> <a href="/tag_ptbr/tipagem">tipagem </a> </span>
   </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png" alt="" /></p>
 
 <p>Este é o meu primeiro post pra valer aqui no meu blog, e eu decidi escrever sobre tipos de valor e tipos de referência em C#. Isso é um assunto relativamente básico, no sentido de que é algo que você já deveria entender caso você programe em C# profissionalmente. Mas ao mesmo tempo, é algo que pode ser um pouco contra-intuitivo caso você não seja um desenvolvedor experiente.
 <!--more--></p>
@@ -148,23 +148,23 @@ Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.<
 
 <p>Lembra do primeiro exemplo? Vamos dar uma olhada nele novamente, dessa vez passo-a-passo:</p>
 
-<p><img alt="A figura mostra um trecho de código C# no qual a variável é criada e lhe é atribuído o valor 10" src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1454161625/fig1_czxki5.png" /></p>
+<p><img alt="A figura mostra um trecho de código C# no qual a variável é criada e lhe é atribuído o valor 10" src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1454161625/fig1_czxki5.png" /></p>
 
 <p>Nós declaramos a primeira variável e atribuímos o valor 10 a ela. Agora, em algum lugar dentro da memória do computador, existe uma “caixa” com o nome de x, e dentro dessa caixa tem o valor 10.</p>
 
-<p><img alt="A figura mostra um trecho de código C# no qual a variável y é criada e recebe o valor da variável x" src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165139/fig2_de8azi.png" /></p>
+<p><img alt="A figura mostra um trecho de código C# no qual a variável y é criada e recebe o valor da variável x" src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1454165139/fig2_de8azi.png" /></p>
 
 <p>Nós declaramos a segunda variável e atribuímos a ela o valor da primeira variável. Note que o valor é copiado de x para y. Agora nós temos duas caixas, uma chamada x e a outra y, e ambas guardam o valor 10.</p>
 
-<p><img alt="A figura mostra um trecho de código em C# no qual o valor da variável y é incrementado em 1" src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165134/fig3_sdjbze.png" /></p>
+<p><img alt="A figura mostra um trecho de código em C# no qual o valor da variável y é incrementado em 1" src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1454165134/fig3_sdjbze.png" /></p>
 
 <p>Finalmente, nós incrementamos o valor da variável y em 1. Note que o valor de x permanece inalterado. Claro, por que eles realmente não tem nada a ver um com outro! Por outro lado, algo bem diferente acontece quando você está lidando com tipos de referência. Para entender isso, vamos repassar o segundo exemplo, também passo-a-passo:</p>
 
-<p><img alt="A figura mostra um trecho de código C# no qual a variável pessoa é criada e recebe uma nova instância da classe Pessoa" src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165141/fig4_xivrng.png" /></p>
+<p><img alt="A figura mostra um trecho de código C# no qual a variável pessoa é criada e recebe uma nova instância da classe Pessoa" src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1454165141/fig4_xivrng.png" /></p>
 
 <p>Primeiramente, nós criamos uma variável chamada pessoa e atribuímos a ela uma nova instância da classe Pessoa. Agora, em algum lugar na memória do computador vive uma caixa chamada “pessoa”. Note, porém que nossa variável pessoa guarda <strong>uma referência que aponta para a instância da classe Pessoa, ao invés de guardar a própria instância!</strong></p>
 
-<p><img alt="A figura mostra a criação da variável pessoa2, que logo em seguida recebe o valor da variável pessoa" src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1454165138/fig5_i21mgj.png" /></p>
+<p><img alt="A figura mostra a criação da variável pessoa2, que logo em seguida recebe o valor da variável pessoa" src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1454165138/fig5_i21mgj.png" /></p>
 
 <p>No segundo passo, criamos a variável “pessoa2” e atribuímos a ela o valor da variável “pessoa.” Assim como no exemplo anterior, o valor de uma variável é copiado para a outra. Nesse caso, <strong>o valor que é copiado é a referência que aponta para a instância de pessoa</strong>. Então agora nós temos duas variáveis cujos valores são referências que apontam para a mesma instância da classe Pessoa.</p>
 
@@ -200,12 +200,12 @@ Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.<
 
 <p>Talvez você tenha se surpreendido em ver String listada como um tipo de referência. Afinal de contas, ela parece se comportar como um tipo de valor. Bom, a razão para isso é que a string é um tipo <strong>imutável</strong>. Como eu disse antes, não vou falar sobre isso hoje, mas em breve teremos um post inteiro sobre System.String.</p>
 
-<p>Bom, por hoje é só. Espero que tenham gostado do post, e eu adoraria ter o feedback de vocês. Eu me expressei claramente? Eu disse algo um pouco impreciso - ou mesmo totalmente errado? Deixe um comentário aqui embaixo ou <a href="http://twitter.com/carlosschults">me chame no twitter</a>.</p>
+<p>Bom, por hoje é só. Espero que tenham gostado do post, e eu adoraria ter o feedback de vocês. Eu me expressei claramente? Eu disse algo um pouco impreciso - ou mesmo totalmente errado? Deixe um comentário aqui embaixo ou <a href="https://twitter.com/carlosschults">me chame no twitter</a>.</p>
 
 <h2 id="referências-em-inglês">Referências (em inglês):</h2>
 
 <ul>
-  <li><a href="http://jonskeet.uk/csharp/references.html">http://jonskeet.uk/csharp/references.html</a></li>
+  <li><a href="https://jonskeet.uk/csharp/references.html">https://jonskeet.uk/csharp/references.html</a></li>
   <li><a href="https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx">https://msdn.microsoft.com/en-us/library/t63sy5hs.aspx</a></li>
 </ul>
 
@@ -237,13 +237,6 @@ Vou escrever sobre essas coisas no futuro, mas por hoje vamos focar no básico.<
         
         	    
             <a rel="next" class="next" href="/pt/resenha-livro-programador-pragmatico/">Resenha de Livro: O Programador Pragmático &rarr;</a>
-                
-         
-        
-        
-                
-        
-        
                 
          
         

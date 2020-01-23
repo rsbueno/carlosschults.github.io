@@ -274,7 +274,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 <p>Alguns dos conceitos apresentados aqui não são novos nem restritos à programação funcional. Os benefícios de distinguir entre funções que causam efeitos colaterais e as que não causam é a base de princípios como <a href="https://en.wikipedia.org/wiki/Command%E2%80%93query_separation">command-query separation (CQS)</a>, por exemplo.</p>
 
-<p>O objetivo desse post não é ensinar programação funcional para ninguém. Isso está além das minhas capacidades, já que eu ainda estou aprendendo. E além disso, <a href="http://fsharpforfunandprofit.com">existem ótimos recursos para aprender programação funcional, para aqueles que se interessarem</a>.</p>
+<p>O objetivo desse post não é ensinar programação funcional para ninguém. Isso está além das minhas capacidades, já que eu ainda estou aprendendo. E além disso, <a href="https://fsharpforfunandprofit.com">existem ótimos recursos para aprender programação funcional, para aqueles que se interessarem</a>.</p>
 
 <p>Ao contrário, o que eu queria fazer aqui era mostrar um pouco do que um estilo funcional pode fazer com seu código: torná-lo mais expressivo, conciso e declarativo. Agora depende de você aplicar o estilo funcional ao código que você escreve.</p>
 
@@ -349,7 +349,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">double</span>  <span class="n">distance</span>  <span class="p">=</span>  <span class="m">4.5</span><span class="p">;</span></code></pre></figure>
 
-<p>Tem algo errado com a linha acima? Bom, eu poderia dar uma de <em><a href="http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi">Ben Kenobi</a> </em>e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.</p>
+<p>Tem algo errado com a linha acima? Bom, eu poderia dar uma de <em><a href="https://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi">Ben Kenobi</a> </em>e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.</p>
 
 <p>O problema aqui é o <em>code smell</em> conhecido como “obsessão primitiva”, isto é, a modelagem de conceitos de domínio usando tipos primitivos. As próximas seções vão explicar melhor porque isso é um problema tão sério e como o uso de <em>value objects</em> podem ajudar.</p>
 
@@ -395,7 +395,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 <h2 id="value-objects-e-tipos-de-valor-não-são-sinônimos">Value Objects e Tipos de Valor Não São Sinônimos</h2>
 
-<p>Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos <a href="http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">duas categorias de tipos: tipos de referência e tipos de valor.</a></p>
+<p>Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">duas categorias de tipos: tipos de referência e tipos de valor.</a></p>
 
 <p>Sim, não há nada que impeça você de usar structs (tipos de valor) para implementar value objects - exemplos na Base Class Library (BCL) seriam o tipo <code class="highlighter-rouge">DateTime</code> ou os tipos numéricos primitivos. Mas você também pode usar classes tranquilamente.</p>
 
@@ -459,7 +459,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <p>Com isso resolvido, é hora de sermos mais específicos. Qual ferramenta usar? Como proceder com a sua adoção?</p>
 
-<p><a href="https://git-scm.com/">Git</a> é uma escolha sólida. E apesar de ter uma curva de aprendizado mais acentuada para<a href="http://carlosschults.net/en/git-basics-for-tfs-users">quem já está mais acostumado com sistemas de controle de versão centralizados, como Subversion ou TFVC</a>, Git é o padrão <em>de facto</em> da indústria. Então, sem sombra de dúvidas, você deve aprender git. Não fazê-lo pode prejudicar a sua carreira no futuro.</p>
+<p><a href="https://git-scm.com/">Git</a> é uma escolha sólida. E apesar de ter uma curva de aprendizado mais acentuada para<a href="https://carlosschults.net/en/git-basics-for-tfs-users">quem já está mais acostumado com sistemas de controle de versão centralizados, como Subversion ou TFVC</a>, Git é o padrão <em>de facto</em> da indústria. Então, sem sombra de dúvidas, você deve aprender git. Não fazê-lo pode prejudicar a sua carreira no futuro.</p>
 
 <p>Mas é possível que o Git não seja a melhor escolha para o seu time <strong>agora</strong>. Lembre-se, você não tem muito tempo. Nós precisamos que a sua equipe adote as boas práticas o mais rápido possível.</p>
 
@@ -467,7 +467,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <h2 id="revisão-de-código">Revisão de Código</h2>
 
-<p>Eu não vou mentir: eu sou um grande fã de revisão de código. E <a href="http://www.codinghorror.com/blog/archives/000495.html">eu não estou sozinho nisso.</a>. Eu já testemunhei em primeira mão como um bom processo de revisão de código pode reduzir o número de problemas em uma aplicação, tornar o código mais consistente e, mais importante ainda, espalhar conhecimento por todo o time de desenvolvimento.</p>
+<p>Eu não vou mentir: eu sou um grande fã de revisão de código. E <a href="https://www.codinghorror.com/blog/archives/000495.html">eu não estou sozinho nisso.</a>. Eu já testemunhei em primeira mão como um bom processo de revisão de código pode reduzir o número de problemas em uma aplicação, tornar o código mais consistente e, mais importante ainda, espalhar conhecimento por todo o time de desenvolvimento.</p>
 
 <p>E aqui vai uma ótima vantagem dessa prática: revisão de código é algo relativamente fácil de ser implementado. Comece da maneira mais simples possível, e então faça adaptações na sua abordagem conforme as necessidades aparecerem.</p>
 
@@ -475,7 +475,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <p>Falar de revisão de código pode ser complicado. As pessoas às vezes tem ideias totalmente diferentes sobre o que a expressão significa. Então eu acho que uma clarificação se faz necessária.</p>
 
-<p>Eu <strong>não</strong> sou a favor de um processo de revisão de código altamente burocrático e estressante, no qual o seu código é esmiuçado, em público, durante horas. Eu não acredito que envergonhar as pessoas em público é uma forma eficaz de aumentar a qualidade de um projeto. Ao contrário, <a href="http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/">o tipo de revisão de código que eu defendo</a> é um processo simples, geralmente iniciado ao submeter um pull request ou usando sua IDE favorita.</p>
+<p>Eu <strong>não</strong> sou a favor de um processo de revisão de código altamente burocrático e estressante, no qual o seu código é esmiuçado, em público, durante horas. Eu não acredito que envergonhar as pessoas em público é uma forma eficaz de aumentar a qualidade de um projeto. Ao contrário, <a href="https://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/">o tipo de revisão de código que eu defendo</a> é um processo simples, geralmente iniciado ao submeter um pull request ou usando sua IDE favorita.</p>
 
 <h3 id="como-proceder-1">Como Proceder</h3>
 
@@ -511,7 +511,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <p>Se sua equipe já usa TFS, aprenda como <a href="https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1">criar uma definição de build</a>. Se os seus projetos estão no GitHub, dê uma olhada no <a href="https://travis-ci.org/">Travis CI.</a></p>
 
-<p>Com o tempo, você vai melhorando a sua estratégia. Lembra dos analisadores de código que eu mencionei anteriormente? É possível integrá-los no seu processo de build. <a href="http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">Testes unitários</a> e outros tipos de testes automatizados também são uma valiosa adição.</p>
+<p>Com o tempo, você vai melhorando a sua estratégia. Lembra dos analisadores de código que eu mencionei anteriormente? É possível integrá-los no seu processo de build. <a href="https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">Testes unitários</a> e outros tipos de testes automatizados também são uma valiosa adição.</p>
 
 <p>E por falar nisso…</p>
 
@@ -527,7 +527,7 @@ Photo by Ales Nesetril on Unsplash</p>
 
 <p>É possível que vários de vocês tenha achado essas práticas extremamente básicas e não dignas de um post. “Quem é que não usa controle de versão em 2018???”</p>
 
-<p>Bom, não é tão difícil assim encontrar evidência (anedótica, mas ainda assim) que <a href="http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr">as coisas ainda não são tão perfeitas</a>.</p>
+<p>Bom, não é tão difícil assim encontrar evidência (anedótica, mas ainda assim) que <a href="https://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr">as coisas ainda não são tão perfeitas</a>.</p>
 
 <p>Acreditar que mesmo práticas tão fundamentais como versionamento de código ou testes automatizados são aplicadas universalmente é mais ingenuidade do que talvez queremos admitir.</p>
 
@@ -550,13 +550,13 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/pt/4-erros-comuns-datetime-csharp/">4 Erros Comuns Com Data e Hora no C# — E como evitá-los</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg" alt="" /></p>
 
 <p><em>NOTA: Eu escrevi este post originalmente para o blog da SubMain.  Você pode <a href="https://blog.submain.com/4-common-datetime-mistakes-c-avoid/">conferir o original no site deles, em inglês</a>. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com problemas relacionados a tempo e muitos outros.</em></p>
 
-<p>Você se lembra daqueles posts no estilo “inverdades que programadores acreditam sobre <em>X</em>” que ficaram bastante populares em blogs de software há alguns anos? O primeiro foi sobre <a href="http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">nomes</a>, mas logo apareceram vários outros, cobrindo tópicos como <a href="https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/">endereços</a>, <a href="https://wiesmann.codiferes.net/wordpress/?p=15187&amp;lang=en">geografia</a> e <a href="https://wiesmann.codiferes.net/wordpress/?p=22201">compras online</a>.</p>
+<p>Você se lembra daqueles posts no estilo “inverdades que programadores acreditam sobre <em>X</em>” que ficaram bastante populares em blogs de software há alguns anos? O primeiro foi sobre <a href="https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/">nomes</a>, mas logo apareceram vários outros, cobrindo tópicos como <a href="https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/">endereços</a>, <a href="https://wiesmann.codiferes.net/wordpress/?p=15187&amp;lang=en">geografia</a> e <a href="https://wiesmann.codiferes.net/wordpress/?p=22201">compras online</a>.</p>
 
-<p>O meu favorito era <a href="http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">o post sobre tempo</a>. Até esse ponto, eu não havia pensado profundamente sobre tempo e e suas intricacies, e eu fiquei intrigado em saber que um domínio tão fundamental pudesse ser um terreno tão fértil para bugs e confusões.</p>
+<p>O meu favorito era <a href="https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">o post sobre tempo</a>. Até esse ponto, eu não havia pensado profundamente sobre tempo e e suas intricacies, e eu fiquei intrigado em saber que um domínio tão fundamental pudesse ser um terreno tão fértil para bugs e confusões.</p>
 
 <p>Agora, mesmo eu tendo gostado do post, eu vejo um problema com ele: o post lista vários suposições erradas, e basicamente para por aí. Quem lê o artigo provavelmente termina se perguntando:</p>
 
@@ -703,7 +703,7 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/pt/revisao-codigo-vs-programacao-em-par/">Revisão de Código vs Programação em Par: Qual a sua equipe deve escolher?</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg" alt="" /></p>
 
 <p><em>NOTA: Eu escrevi este post originalmente para o blog da SubMain. Você pode <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">conferir o artigo original no site deles, em inglês</a>. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.</em></p>
 
@@ -854,7 +854,7 @@ Photo by Ales Nesetril on Unsplash</p>
           <a class="post-link" href="/pt/cargo-cult-programming/">Programação Cargo Cult É A Arte de Programar Por Coincidência</a>
     </h2>
     <div class="post-content">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" alt="" /></p>
 
 <p><em>NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode <a href="https://blog.ndepend.com/cargo-cult-programming/">clicar aqui para ler o artigo original no site deles, em inglês</a>. Enquanto estiver por lá, baixe e experimente o NDepend.</em></p>
 
@@ -924,11 +924,11 @@ Photo by Ales Nesetril on Unsplash</p>
 	   <span class="k">return</span> <span class="k">new</span> <span class="nf">Product</span><span class="p">();</span>
 	<span class="p">}</span></code></pre></figure>
 
-<p>Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a <a href="http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">diferença entre tipos de valor e referência</a>. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.</p>
+<p>Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">diferença entre tipos de valor e referência</a>. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.</p>
 
 <p>Você pode achar isso um exagero da minha parte. Afinal de contas, o código vai rodar perfeitamente mesmo assim. Na verdade, a verificação não será nem ao mesma incluída no IL resultante, como você pode ver nesse print de uma ferramenta de descompilação:</p>
 
-<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png" alt="Uma imagem mostrando um trecho de código que não contem a checagem de nulo." /></p>
+<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png" alt="Uma imagem mostrando um trecho de código que não contem a checagem de nulo." /></p>
 
 <p>Você pode ver no trecho de código acima que o compilador otimizou o código, removendo a checagem por nulo.</p>
 
@@ -1013,12 +1013,12 @@ Photo by Ales Nesetril on Unsplash</p>
 <p>A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">revisão de código e programação em par não são exatamente equivalentes</a>, ambas as práticas podem lhe trazer esse benefício.</p>
 
 <h3 id="sempre-teste-suas-hipóteses">Sempre Teste Suas Hipóteses</h3>
-<p>Escreva <a href="http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">testes de unidade</a> (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça <em>benchmarks</em> exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer <em>insights</em> valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.</p>
+<p>Escreva <a href="https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">testes de unidade</a> (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça <em>benchmarks</em> exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer <em>insights</em> valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.</p>
 
 <h3 id="leia-código-de-outras-pessoas">Leia Código de Outras Pessoas</h3>
 <p>Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.</p>
 
-<p>Na era do <a href="http://github.com/">GitHub</a>, não tem muita desculpa para não fazer isso.</p>
+<p>Na era do <a href="https://github.com/">GitHub</a>, não tem muita desculpa para não fazer isso.</p>
 
 <h3 id="aprenda-com-suas-ferramentas">Aprenda Com Suas Ferramentas</h3>
 <p>Existe um número enorme de ferramentas que podem ajudar <a href="https://www.ndepend.com/">sua equipe com a qualidade do seu código</a>. Aqui vai a dica principal: você não deve só usar essas ferramentas. Você deve também aprender com elas. Se você usa NDepend, <a href="https://www.ndepend.com/default-rules/webframe.html">leia sobre suas regras</a>. Tente entender a justificativa por trás de cada uma delas. Quais são os princípios e boas práticas que guiaram seus autores durante a criação delas?</p>
@@ -1030,10 +1030,6 @@ Photo by Ales Nesetril on Unsplash</p>
 
     <a href="/pt/cargo-cult-programming/">leia mais...</a>
    </div>
-  
-  
-  
-  
   
   
   

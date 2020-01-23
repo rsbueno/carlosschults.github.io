@@ -23,12 +23,12 @@
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="pt_BR">  
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" />  
+  <meta property="og:image" content="https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" />  
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1038"> 
   <meta property="og:image:height" content="437">  
   
-  <meta property="og:article:published_time" content="2018-01-17T00:00:00-02:00" />  
+  <meta property="og:article:published_time" content="2018-01-17T00:00:00-03:00" />  
   <meta property="og:article:author" content="Carlos Schults" />
   
   <meta property="og:article:tag" content="csharp" />
@@ -91,14 +91,14 @@
   <header class="post-header">    
     <h2 class="postTitle" itemprop="headline">Programação Cargo Cult É A Arte de Programar Por Coincidência</h2>
     <p class="post-meta">   
-    <time datetime="2018-01-17T00:00:00-02:00" itemprop="datePublished">17/01/2018
+    <time datetime="2018-01-17T00:00:00-03:00" itemprop="datePublished">17/01/2018
     </time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Carlos Schults</span></span>
   <span class="tags" itemprop="keywords"> • Tags: <a href="/tag_ptbr/csharp">csharp </a> <a href="/tag_ptbr/boas praticas">boas praticas </a> <a href="/tag_ptbr/programacao cargo cult">programacao cargo cult </a> </span>
   </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg" alt="" /></p>
 
 <p><em>NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode <a href="https://blog.ndepend.com/cargo-cult-programming/">clicar aqui para ler o artigo original no site deles, em inglês</a>. Enquanto estiver por lá, baixe e experimente o NDepend.</em></p>
 
@@ -168,11 +168,11 @@
 	   <span class="k">return</span> <span class="k">new</span> <span class="nf">Product</span><span class="p">();</span>
 	<span class="p">}</span></code></pre></figure>
 
-<p>Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a <a href="http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">diferença entre tipos de valor e referência</a>. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.</p>
+<p>Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">diferença entre tipos de valor e referência</a>. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.</p>
 
 <p>Você pode achar isso um exagero da minha parte. Afinal de contas, o código vai rodar perfeitamente mesmo assim. Na verdade, a verificação não será nem ao mesma incluída no IL resultante, como você pode ver nesse print de uma ferramenta de descompilação:</p>
 
-<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png" alt="Uma imagem mostrando um trecho de código que não contem a checagem de nulo." /></p>
+<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png" alt="Uma imagem mostrando um trecho de código que não contem a checagem de nulo." /></p>
 
 <p>Você pode ver no trecho de código acima que o compilador otimizou o código, removendo a checagem por nulo.</p>
 
@@ -257,12 +257,12 @@
 <p>A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora <a href="https://blog.submain.com/code-review-vs-pair-programming-2/">revisão de código e programação em par não são exatamente equivalentes</a>, ambas as práticas podem lhe trazer esse benefício.</p>
 
 <h3 id="sempre-teste-suas-hipóteses">Sempre Teste Suas Hipóteses</h3>
-<p>Escreva <a href="http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">testes de unidade</a> (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça <em>benchmarks</em> exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer <em>insights</em> valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.</p>
+<p>Escreva <a href="https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">testes de unidade</a> (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça <em>benchmarks</em> exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer <em>insights</em> valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.</p>
 
 <h3 id="leia-código-de-outras-pessoas">Leia Código de Outras Pessoas</h3>
 <p>Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.</p>
 
-<p>Na era do <a href="http://github.com/">GitHub</a>, não tem muita desculpa para não fazer isso.</p>
+<p>Na era do <a href="https://github.com/">GitHub</a>, não tem muita desculpa para não fazer isso.</p>
 
 <h3 id="aprenda-com-suas-ferramentas">Aprenda Com Suas Ferramentas</h3>
 <p>Existe um número enorme de ferramentas que podem ajudar <a href="https://www.ndepend.com/">sua equipe com a qualidade do seu código</a>. Aqui vai a dica principal: você não deve só usar essas ferramentas. Você deve também aprender com elas. Se você usa NDepend, <a href="https://www.ndepend.com/default-rules/webframe.html">leia sobre suas regras</a>. Tente entender a justificativa por trás de cada uma delas. Quais são os princípios e boas práticas que guiaram seus autores durante a criação delas?</p>
@@ -276,13 +276,6 @@
     
       
     
-         
-        
-        
-                
-        
-        
-                
          
         
         

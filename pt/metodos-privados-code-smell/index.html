@@ -23,12 +23,12 @@
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="pt_BR">  
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg" />  
+  <meta property="og:image" content="https://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg" />  
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1038"> 
   <meta property="og:image:height" content="437">  
   
-  <meta property="og:article:published_time" content="2017-01-29T00:00:00-02:00" />  
+  <meta property="og:article:published_time" content="2017-01-29T00:00:00-03:00" />  
   <meta property="og:article:author" content="Carlos Schults" />
   
   <meta property="og:article:tag" content="code smell" />
@@ -91,23 +91,23 @@
   <header class="post-header">    
     <h2 class="postTitle" itemprop="headline">Métodos privados são um 'Code Smell'?</h2>
     <p class="post-meta">   
-    <time datetime="2017-01-29T00:00:00-02:00" itemprop="datePublished">29/01/2017
+    <time datetime="2017-01-29T00:00:00-03:00" itemprop="datePublished">29/01/2017
     </time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Carlos Schults</span></span>
   <span class="tags" itemprop="keywords"> • Tags: <a href="/tag_ptbr/code smell">code smell </a> <a href="/tag_ptbr/boas práticas">boas práticas </a> <a href="/tag_ptbr/orientacao-a-objetos">orientacao-a-objetos </a> </span>
   </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1485700794/capa-min_no1cci.jpg" alt="" /></p>
 
 <p>Algumas pessoas acham que métodos privados devem ser evitados. Será que elas estão certas?
 <!--more--></p>
 
-<p>Há uns dois meses, <a href="https://twitter.com/mdbs99">Marcos Douglas</a> publicou um post <a href="http://objectpascalprogramming.com/posts/menos-e-mais/">sobre como o uso de regras e restrições pode melhorar seu código</a>. Essa <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db#.rptqu89ec">premissa</a> costuma aparecer <a href="http://blog.ploeh.dk/2015/04/13/less-is-more-language-features/">de novo</a> e <a href="https://robots.thoughtbot.com/sandi-metz-rules-for-developers">de novo</a> pela web, e eu concordo totalmente com ela.</p>
+<p>Há uns dois meses, <a href="https://twitter.com/mdbs99">Marcos Douglas</a> publicou um post <a href="https://objectpascalprogramming.com/posts/menos-e-mais/">sobre como o uso de regras e restrições pode melhorar seu código</a>. Essa <a href="https://medium.com/@cscalfani/why-programmers-need-limits-3d96e1a0a6db#.rptqu89ec">premissa</a> costuma aparecer <a href="https://blog.ploeh.dk/2015/04/13/less-is-more-language-features/">de novo</a> e <a href="https://robots.thoughtbot.com/sandi-metz-rules-for-developers">de novo</a> pela web, e eu concordo totalmente com ela.</p>
 
 <p>Marcos mostra várias orientações úteis, tais como o número ideal de argumentos em um método, o número ideal de métodos, em uma classe, e assim por diante. O artigo é muito bom, e eu recomendo a todos vocês que o <a href="https://gist.github.com/carlosschults/5f4ba7cfb2453977c8d11424b2926686">leiam </a>, mas ele não é o foco do meu post hoje.</p>
 
-<p>Hoje, o que eu realmente quero falar é de um assunto que surgiu na área de comentários do artigo do Marcos: que diversas pessoas consideram métodos privados como um <a href="http://www.pedromendes.com.br/2013/11/04/code-smells/"><em>Code Smell</em> (algo como “mau-cheiro de código”)</a>.</p>
+<p>Hoje, o que eu realmente quero falar é de um assunto que surgiu na área de comentários do artigo do Marcos: que diversas pessoas consideram métodos privados como um <a href="https://www.pedromendes.com.br/2013/11/04/code-smells/"><em>Code Smell</em> (algo como “mau-cheiro de código”)</a>.</p>
 
 <p>Como eu nunca tinha ouvido ou lido nada nesse sentido antes, fiquei bastante surpreso e decidi pesquisar mais.</p>
 
@@ -122,7 +122,7 @@
 <blockquote>
   <p>Private helper methods indicate classes are doing too many things. Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.</p>
 
-  <p>Kent R Spillner, em <a href="http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html">Private Methods are a Code Smell</a></p>
+  <p>Kent R Spillner, em <a href="https://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html">Private Methods are a Code Smell</a></p>
 </blockquote>
 
 <p>Em tradução livre:</p>
@@ -136,7 +136,7 @@
 <blockquote>
   <p>Private methods are not inherently bad, but they are a sign that you might be missing out on an opportunity to make a useful abstraction. If you have a private method that calls another private method, then there is almost certainly an area of responsibility that remains unidentified.</p>
 
-  <p>John McDowall, em <a href="http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/">Break. It. Up! – Private Method Access Modifiers as Code Smells</a></p>
+  <p>John McDowall, em <a href="https://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/">Break. It. Up! – Private Method Access Modifiers as Code Smells</a></p>
 </blockquote>
 
 <p>Em tradução livre:</p>
@@ -172,7 +172,7 @@
 <blockquote>
   <p>Functional programming teaches that state (in the form of member variables) is evil, because it makes your code more complex and harder to test.</p>
 
-  <p>Ryan Ginstrom, em <a href="http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/">Three reasons to avoid private class members</a></p>
+  <p>Ryan Ginstrom, em <a href="https://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/">Three reasons to avoid private class members</a></p>
 </blockquote>
 
 <p>Em tradução livre:</p>
@@ -314,14 +314,14 @@ Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no 
 <h2 id="veja-também">Veja também</h2>
 
 <ul>
-  <li><a href="http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented">http://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented</a></li>
-  <li><a href="http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html">http://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html</a></li>
-  <li><a href="http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/">http://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/</a></li>
+  <li><a href="https://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented">https://stackoverflow.com/questions/2620699/why-private-methods-in-the-object-oriented</a></li>
+  <li><a href="https://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html">https://kent.spillner.org/blog/work/2009/11/12/private-methods-stink.html</a></li>
+  <li><a href="https://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/">https://blog.stormid.com/2015/03/method-access-modifiers-as-code-smells/</a></li>
   <li><a href="https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/">https://jasonmbaker.wordpress.com/2009/01/08/enemies-of-test-driven-development-part-i-encapsulation/</a></li>
   <li><a href="https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct">https://medium.com/i-m-h-o/private-methods-smelly-ish-435e93ff8c39#.cl06rkgct</a></li>
-  <li><a href="http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/">http://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/</a></li>
-  <li><a href="http://rc3.org/2010/01/26/the-argument-against-private-methods/">http://rc3.org/2010/01/26/the-argument-against-private-methods/</a></li>
-  <li><a href="http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html">http://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html</a></li>
+  <li><a href="https://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/">https://ginstrom.com/scribbles/2007/11/12/three-reasons-to-avoid-private-class-members/</a></li>
+  <li><a href="https://rc3.org/2010/01/26/the-argument-against-private-methods/">https://rc3.org/2010/01/26/the-argument-against-private-methods/</a></li>
+  <li><a href="https://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html">https://naildrivin5.com/blog/2010/05/26/is-private-a-code-smell.html</a></li>
 </ul>
 
     
@@ -381,15 +381,8 @@ Esse termo pode significar várias coisas, mas no nosso contexto aqui, pense no 
         
         
                 
-        
-        
-                
-         
-        
-        
-                
                     
-            <a rel="previous" class="previous" href="/pt/resenha-livro-soft-skills/">&larr; Resenha de Livro: Soft Skills </a>
+            <a rel="previous" class="previous" href="/pt/tipos-valor-referencia-em-csharp-parte-2/">&larr; Tipos de valor e referência em C#, Parte 2 - Por que DateTime não pode ser nulo? </a>
         
         
                 

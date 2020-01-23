@@ -5,8 +5,8 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Feb 2019 20:06:48 -0200</pubDate>
-    <lastBuildDate>Thu, 07 Feb 2019 20:06:48 -0200</lastBuildDate>
+    <pubDate>Thu, 23 Jan 2020 15:36:15 -0300</pubDate>
+    <lastBuildDate>Thu, 23 Jan 2020 15:36:15 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
     
@@ -191,11 +191,11 @@
 
 &lt;p&gt;Some of the concepts presented here are neither new nor restricted to functional programming. The benefits of distinguishing between functions that produce side effects from those that don’t is the basis of principles like &lt;a href=&quot;https://en.wikipedia.org/wiki/Command%E2%80%93query_separation&quot;&gt;command-query separation (CQS)&lt;/a&gt;, for instance.&lt;/p&gt;
 
-&lt;p&gt;The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are &lt;a href=&quot;http://fsharpforfunandprofit.com&quot;&gt;awesome resources for that purpose if you want to learn more&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The goal of this post was not to teach you functional programming. This is honestly beyond my capabilities, as I’m still studying it myself. And besides, there are &lt;a href=&quot;https://fsharpforfunandprofit.com&quot;&gt;awesome resources for that purpose if you want to learn more&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Instead, what I wanted here is to give you a little taste of what a functional style can do for your code, which is to make it more expressive, concise, and declarative. Now it’s up to you to try to apply the functional mindset to the code you write.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 22 Jan 2019 00:00:00 -0200</pubDate>
+        <pubDate>Tue, 22 Jan 2019 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/en/functional-programming-csharp/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/functional-programming-csharp/</guid>
         
@@ -266,7 +266,7 @@
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Is there something wrong with this? Well, I could &lt;em&gt;&lt;a href=&quot;http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi&quot;&gt;Ben Kenobi&lt;/a&gt; &lt;/em&gt;you and say that it might be wrong “from a certain point of view.” But I won’t. Instead, I’ll say it’s definitely wrong. It doesn’t matter that it compiles. It also doesn’t matter that it actually works some or even most of the time.&lt;/p&gt;
+&lt;p&gt;Is there something wrong with this? Well, I could &lt;em&gt;&lt;a href=&quot;https://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi&quot;&gt;Ben Kenobi&lt;/a&gt; &lt;/em&gt;you and say that it might be wrong “from a certain point of view.” But I won’t. Instead, I’ll say it’s definitely wrong. It doesn’t matter that it compiles. It also doesn’t matter that it actually works some or even most of the time.&lt;/p&gt;
 
 &lt;p&gt;The problem here is the code smell known as “primitive obsession,” i.e., modeling domain concepts using primitive types. The next few sections will dive in into why is this such a problem and how the use of value objects can help.&lt;/p&gt;
 
@@ -314,7 +314,7 @@
 
 &lt;h2 id=&quot;value-objects-and-value-types-arent-synonymous&quot;&gt;Value Objects and Value Types Aren’t Synonymous&lt;/h2&gt;
 
-&lt;p&gt;This section is necessary in order to clarify a common misconception, which is to mix up value objects with the concept of value types in C#. See, in C#, we have &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;two categories of types: reference types and value types.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This section is necessary in order to clarify a common misconception, which is to mix up value objects with the concept of value types in C#. See, in C#, we have &lt;a href=&quot;https://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;two categories of types: reference types and value types.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;While you certainly can use structs (value types) to implement value objects—examples in the BCL would be DateTime or the primitive numeric types— there’s nothing preventing you from using classes.&lt;/p&gt;
 
@@ -326,7 +326,7 @@
 
 &lt;p&gt;Value objects are a relatively low-cost technique that can greatly enhance the manageability and clarity of your code. By employing value objects, you can make your code easier to reason about, crafting APIs that are self-documenting, easy to understand, hard to use incorrectly, and inherently type-safe.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 24 Oct 2018 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 24 Oct 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/en/value-objects-tool/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/value-objects-tool/</guid>
         
@@ -376,7 +376,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;With that out of the way, it’s time to get to specifics. Which tool should you use? How to go about its adoption?&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; is a solid choice. And despite having a steeper learning curve for &lt;a href=&quot;http://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;those more used to centralized version control systems, such as Subversion or TFVC&lt;/a&gt;, it’s &lt;em&gt;de facto&lt;/em&gt; standard in our industry. So by all means, learn it, since not doing so can harm your career in the future.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; is a solid choice. And despite having a steeper learning curve for &lt;a href=&quot;https://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;those more used to centralized version control systems, such as Subversion or TFVC&lt;/a&gt;, it’s &lt;em&gt;de facto&lt;/em&gt; standard in our industry. So by all means, learn it, since not doing so can harm your career in the future.&lt;/p&gt;
 
 &lt;p&gt;But it’s possible that Git is not the best choice for your team &lt;strong&gt;right now&lt;/strong&gt;. Remember, you’re short on time. So we need to get your team to adopt these coding best practices ASAP.&lt;/p&gt;
 
@@ -384,7 +384,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h2 id=&quot;code-review&quot;&gt;Code Review&lt;/h2&gt;
 
-&lt;p&gt;I’m not going to lie: I &lt;em&gt;love &lt;/em&gt;code reviews—and &lt;a href=&quot;http://www.codinghorror.com/blog/archives/000495.html&quot;&gt;I’m not alone in that&lt;/a&gt;. I’ve witnessed firsthand how a good code review can reduce the number of bugs in a codebase, make the code look and feel more consistent, and perhaps best of all, spread knowledge throughout a development team.&lt;/p&gt;
+&lt;p&gt;I’m not going to lie: I &lt;em&gt;love &lt;/em&gt;code reviews—and &lt;a href=&quot;https://www.codinghorror.com/blog/archives/000495.html&quot;&gt;I’m not alone in that&lt;/a&gt;. I’ve witnessed firsthand how a good code review can reduce the number of bugs in a codebase, make the code look and feel more consistent, and perhaps best of all, spread knowledge throughout a development team.&lt;/p&gt;
 
 &lt;p&gt;And here’s a major selling point: a code review practice is relatively easy to implement. Start as simple as you can, and then tweak and experiment with your approach as the need arises.&lt;/p&gt;
 
@@ -434,7 +434,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h2 id=&quot;notable-absences&quot;&gt;Notable Absences&lt;/h2&gt;
 
-&lt;p&gt;You might be surprised to see that I haven’t included unit testing in the list of coding best practices, &lt;a href=&quot;http://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;despite being myself a firm believer in the importance of automated testing&lt;/a&gt; to the overall quality of a codebase. And why is that?&lt;/p&gt;
+&lt;p&gt;You might be surprised to see that I haven’t included unit testing in the list of coding best practices, &lt;a href=&quot;https://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;despite being myself a firm believer in the importance of automated testing&lt;/a&gt; to the overall quality of a codebase. And why is that?&lt;/p&gt;
 
 &lt;p&gt;Adding unit tests to a legacy application, unfortunately, is &lt;em&gt;hard&lt;/em&gt;, to the point that there’s even &lt;a href=&quot;https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=sr_1_1?ie=UTF8&amp;amp;qid=1515443597&amp;amp;sr=8-1&amp;amp;keywords=working+effectively+with+legacy+code&quot;&gt;a famous book&lt;/a&gt;that focuses solely on this. It’s just not a feasible task for you to tackle quickly.&lt;/p&gt;
 
@@ -444,7 +444,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;It’s possible that some of you found these practices to be extremely basic and not post-worthy. “Who doesn’t use version control in twenty-freaking-eighteen???” I hear you saying.&lt;/p&gt;
 
-&lt;p&gt;Well, it really doesn’t take long to find evidence (anecdotal, but still) that &lt;a href=&quot;http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;things are not all sunshine and rainbows&lt;/a&gt;. To believe that even basic coding best practices, such as using version control or automated testing, are universally applied is probably more wishful thinking than what we’d like to believe.&lt;/p&gt;
+&lt;p&gt;Well, it really doesn’t take long to find evidence (anecdotal, but still) that &lt;a href=&quot;https://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;things are not all sunshine and rainbows&lt;/a&gt;. To believe that even basic coding best practices, such as using version control or automated testing, are universally applied is probably more wishful thinking than what we’d like to believe.&lt;/p&gt;
 
 &lt;p&gt;For the rest of you, I hope this list proves useful.&lt;/p&gt;
 
@@ -463,13 +463,13 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>4 Common Datetime Mistakes in C# — And How to Avoid Them</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/4-common-datetime-mistakes-c-avoid/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you with time-related issues and much more.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Do you remember the “falsehoods programmers believe about &lt;em&gt;X&lt;/em&gt;”  meme that became popular among software blogs a few years ago? The first one was about &lt;a href=&quot;http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;names&lt;/a&gt;, but several others soon followed, covering topics such as &lt;a href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;addresses&lt;/a&gt;, &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;geography,&lt;/a&gt; and &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=22201&quot;&gt;online shopping&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Do you remember the “falsehoods programmers believe about &lt;em&gt;X&lt;/em&gt;”  meme that became popular among software blogs a few years ago? The first one was about &lt;a href=&quot;https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;names&lt;/a&gt;, but several others soon followed, covering topics such as &lt;a href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;addresses&lt;/a&gt;, &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;geography,&lt;/a&gt; and &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=22201&quot;&gt;online shopping&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;My favorite was &lt;a href=&quot;http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;the one about time&lt;/a&gt;. I hadn’t thought deeply about time and its intricacies up until that point, and I was intrigued by how a fundamental domain could be such a fertile ground for misunderstandings.&lt;/p&gt;
+&lt;p&gt;My favorite was &lt;a href=&quot;https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;the one about time&lt;/a&gt;. I hadn’t thought deeply about time and its intricacies up until that point, and I was intrigued by how a fundamental domain could be such a fertile ground for misunderstandings.&lt;/p&gt;
 
 &lt;p&gt;Now even though I like the post, I have a problem with it: it lists wrong assumptions, and then it basically stops there. The reader is likely to leave the article wondering:&lt;/p&gt;
 
@@ -614,7 +614,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Code Review vs Pair-Programming: Which One Should Your Team Pick?</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, which can help you with automated code reviews.&lt;/em&gt;&lt;/p&gt;
 
@@ -741,7 +741,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;It’s not about lack of trust. It’s about recognizing that programming is hard and sometimes, just one brain isn’t up to the task.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 24 Jan 2018 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 24 Jan 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/en/code-review-vs-pair-programming/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/code-review-vs-pair-programming/</guid>
         
@@ -758,7 +758,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Cargo Cult Programming Is The Art of Programming by Coincidence</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/cargo-cult-programming/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download NDepend and give it a try.&lt;/em&gt;&lt;/p&gt;
 
@@ -812,11 +812,11 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Here we have a developer that probably doesn’t grok the &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;difference between value and reference types&lt;/a&gt;. It would be completely forgivable, in the case of a junior developer, except for the fact that the compiler warns you about that.&lt;/p&gt;
+&lt;p&gt;Here we have a developer that probably doesn’t grok the &lt;a href=&quot;https://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;difference between value and reference types&lt;/a&gt;. It would be completely forgivable, in the case of a junior developer, except for the fact that the compiler warns you about that.&lt;/p&gt;
 
 &lt;p&gt;You could argue that I’m nitpicking. After all, the code will run fine in spite of this. In fact, the check won’t even be included in the resulting IL, as you can see from this print of a decompiling tool:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;An image depicting a code excerpt that does not contain the null check.&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;An image depicting a code excerpt that does not contain the null check.&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can see in this code snippet that the compiler has optimized the null check out.&lt;/p&gt;
 
@@ -906,7 +906,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;h3 id=&quot;read-other-peoples-code&quot;&gt;Read Other People’s Code&lt;/h3&gt;
 &lt;p&gt;Reading other people’s code is a great way to learn. It’s a perfect tool to compare your own ideas and assumptions against what other developers are doing, exposing you to novel concepts that can force you to gain a deeper understanding of the issues at hand.&lt;/p&gt;
 
-&lt;p&gt;In the era of &lt;a href=&quot;http://github.com/&quot;&gt;GitHub&lt;/a&gt;, there isn’t much of an excuse for not doing that.&lt;/p&gt;
+&lt;p&gt;In the era of &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;, there isn’t much of an excuse for not doing that.&lt;/p&gt;
 
 &lt;h3 id=&quot;learn-from-your-tools&quot;&gt;Learn From Your Tools&lt;/h3&gt;
 &lt;p&gt;There are currently a plethora of tools that can help &lt;a href=&quot;https://www.ndepend.com/&quot;&gt;your team improve the quality of their code&lt;/a&gt;. Here’s the thing, though: you shouldn’t just use these tools. You should also learn from them. If you use NDepend, &lt;a href=&quot;https://www.ndepend.com/default-rules/webframe.html&quot;&gt;read about its rules&lt;/a&gt;. Try and understand the rationale behind them. What are the principles and best practices that guided its authors when coming up with the rules?&lt;/p&gt;
@@ -916,7 +916,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;h2 id=&quot;computer-science-not-computer-superstition&quot;&gt;Computer Science, Not Computer &lt;em&gt;Superstition&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;Even though no one is immune to cargo cult programming, we should strive to overcome it. There’s hard-earned industry wisdom at our disposal, slowly generated over more than seven decades. Let’s use it. Let’s understand our tools and our craft and write better software.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 17 Jan 2018 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 17 Jan 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/en/cargo-cult-programming/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/cargo-cult-programming/</guid>
         
@@ -931,7 +931,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>C# 8.0 Features: A Glimpse of the Future</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;C# 8.0 is coming and will bring some great new features. Let’s check out what the future holds for us.
 &lt;!--more--&gt;&lt;/p&gt;
@@ -1030,7 +1030,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h3 id=&quot;but-why-is-that-why-is-null-so-bad&quot;&gt;But why is that? Why is null so bad?&lt;/h3&gt;
 
-&lt;p&gt;You could make several arguments as to why, but the biggest problem is, of course, the risk of getting the infamous null-reference exception (aka null-pointer exception in Java-land). Since everything (“everything” in the context of C# meaning all &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;reference types&lt;/a&gt;) can be null, you always run the risk of getting an exception when you try to access some member of the object.&lt;/p&gt;
+&lt;p&gt;You could make several arguments as to why, but the biggest problem is, of course, the risk of getting the infamous null-reference exception (aka null-pointer exception in Java-land). Since everything (“everything” in the context of C# meaning all &lt;a href=&quot;https://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;reference types&lt;/a&gt;) can be null, you always run the risk of getting an exception when you try to access some member of the object.&lt;/p&gt;
 
 &lt;p&gt;One of the biggest issues here is that the language itself lacks a syntax that would allow the author to express their intent. It isn’t possible for you to say “This parameter can never be null” or “This property may be null sometimes, and that’s ok.”&lt;/p&gt;
 
@@ -1110,7 +1110,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;As you can see, evolving the language is hard work. The language has to remain compatible with the millions (billions?) of lines of code written with it in the last 17 years. At the same time, in order to continue being relevant, it must meet the needs of developers that are facing challenges that were unimaginable years ago. And it must do all of this without losing its essence: being an easy and approachable object-oriented C-like language.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 20 Dec 2017 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 20 Dec 2017 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/en/csharp-8-features/</link>
         <guid isPermaLink="true">http://carlosschults.net/en/csharp-8-features/</guid>
         
@@ -1121,20 +1121,20 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Unit testing for beginners - Part 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Better late than later! Time to continue our series on unit testing for beginners. Today you’re going to write your first unit test.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
 
-&lt;p&gt;In the &lt;a href=&quot;http://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;previous article&lt;/a&gt; you learned what unit tests are and what are the motivations for writing them.&lt;/p&gt;
+&lt;p&gt;In the &lt;a href=&quot;https://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;previous article&lt;/a&gt; you learned what unit tests are and what are the motivations for writing them.&lt;/p&gt;
 
 &lt;p&gt;Today you’re going to learn how to create unit tests. I’ll show you how to install and use the a unit test framework called &lt;strong&gt;NUnit&lt;/strong&gt;. Together, we’re going to write some tests in order for you to know some of its features.&lt;/p&gt;
 
 &lt;h2 id=&quot;nunit-installation&quot;&gt;NUnit Installation&lt;/h2&gt;
 
-&lt;p&gt;If you recall my &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;previous article&lt;/a&gt;, you’ll remember that, in order to write and run unit tests, you need a &lt;strong&gt;unit testing framework.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you recall my &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;previous article&lt;/a&gt;, you’ll remember that, in order to write and run unit tests, you need a &lt;strong&gt;unit testing framework.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The framework we’re going to use is &lt;strong&gt;NUnit&lt;/strong&gt;, based on &lt;strong&gt;JUnit&lt;/strong&gt;, which is a test framework for the Java language. There are other testing frameworks available in the .Net world, such as MS Test, developed by Microsoft itself.
 Feel free to try other frameworks later on.&lt;/p&gt;
@@ -1158,7 +1158,7 @@ After creating the project, I delete the default class, same as before.&lt;/p&gt
 
 &lt;p&gt;Your solution should look like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Let’s install NUnit. Fortunately, NUnit is available as a Nuget package, which makes its installation a breeze.&lt;/p&gt;
 
@@ -1172,7 +1172,7 @@ After creating the project, I delete the default class, same as before.&lt;/p&gt
 
 &lt;p&gt;Double-check that you’ve got the right project selected, like in the image:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;And then press &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
 
@@ -1218,11 +1218,11 @@ After creating the project, I delete the default class, same as before.&lt;/p&gt
 
 &lt;p&gt;When the window is show, click on &lt;em&gt;Run All&lt;/em&gt;. If everything goes right, you’ll see this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you click on the test’s name, some additional information is shown, such as the test file and elapsed time:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Notice the use of green to indicate the test’s success.&lt;/p&gt;
 
@@ -1234,7 +1234,7 @@ After creating the project, I delete the default class, same as before.&lt;/p&gt
 
 &lt;p&gt;Run the test again and you’ll see the failure message, this time with the red bar:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Now that you’re getting the hang of it, we’re start testing our &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; class. Don’t forget to switch the test method back to &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass()&lt;/code&gt;, otherwise it will continue to fail.&lt;/p&gt;
 
@@ -1244,7 +1244,7 @@ After creating the project, I delete the default class, same as before.&lt;/p&gt
 
 &lt;p&gt;To do that, right-click the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project, then go to &lt;strong&gt;Add&lt;/strong&gt;, then &lt;strong&gt;Reference&lt;/strong&gt;. In the opened window, choose the project, according to the following image:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Then, click on &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;
 
@@ -1295,7 +1295,7 @@ But was:  “Hi! My name is Alice and I work as a JobTitle.”
 
 &lt;p&gt;Even though there are another naming conventions for the phases of a unit test, we’ll adopt &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; , at least for now.&lt;/p&gt;
 
-&lt;p&gt;You may be wondering why I gave the name “sut” to the variable at the start of the method. This is a naming convention that I learned while reading &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;Mark Seeman’s blog&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; stands for &lt;em&gt;System Under Test&lt;/em&gt;, i.e. the thing you’re testing.&lt;/p&gt;
+&lt;p&gt;You may be wondering why I gave the name “sut” to the variable at the start of the method. This is a naming convention that I learned while reading &lt;a href=&quot;https://blog.ploeh.dk/&quot;&gt;Mark Seeman’s blog&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; stands for &lt;em&gt;System Under Test&lt;/em&gt;, i.e. the thing you’re testing.&lt;/p&gt;
 
 &lt;p&gt;There is nothing preventing you from naming the variable whatever you want. I really like to follow this convention, though, since it makes really clear what is being tested.&lt;/p&gt;
 
@@ -1405,12 +1405,12 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
     
       <item>
         <title>C# 7 Features Worth Knowing - Part 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;In this post we’ll see some more new features from C# 7.0.
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;In &lt;a href=&quot;http://carlosschults.net/en/csharp-7-features/&quot;&gt;the first part of this series&lt;/a&gt;, we talked about some new features from C#, namely: literal improvements, out variables, more &lt;em&gt;expression-bodied&lt;/em&gt; members and throw expressions.&lt;/p&gt;
+&lt;p&gt;In &lt;a href=&quot;https://carlosschults.net/en/csharp-7-features/&quot;&gt;the first part of this series&lt;/a&gt;, we talked about some new features from C#, namely: literal improvements, out variables, more &lt;em&gt;expression-bodied&lt;/em&gt; members and throw expressions.&lt;/p&gt;
 
 &lt;p&gt;Today we’ll see: &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;. But before we go on, I’d like to thank my friend Gunter Italiano Ribeiro for reviewing this article.&lt;/p&gt;
 
@@ -1438,7 +1438,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
 
 &lt;p&gt;If you hover over the variable name, you’ll see its type described, unsurprisingly, as &lt;code class=&quot;highlighter-rouge&quot;&gt;(ZipCode, bool)&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;You can access each tuple element by using &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item2&lt;/code&gt;, and son on.&lt;/p&gt;
 
@@ -1466,7 +1466,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
 
 &lt;h3 id=&quot;some-notes&quot;&gt;Some notes&lt;/h3&gt;
 
-&lt;p&gt;Tuples are &lt;a href=&quot;http://carlosschults.net/en/value-reference-types-in-csharp//&quot;&gt;&lt;em&gt;Value Types&lt;/em&gt;&lt;/a&gt;. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same &lt;code class=&quot;highlighter-rouge&quot;&gt;HashCode&lt;/code&gt;. The names of the items are not relevant&lt;/p&gt;
+&lt;p&gt;Tuples are &lt;a href=&quot;https://carlosschults.net/en/value-reference-types-in-csharp//&quot;&gt;&lt;em&gt;Value Types&lt;/em&gt;&lt;/a&gt;. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same &lt;code class=&quot;highlighter-rouge&quot;&gt;HashCode&lt;/code&gt;. The names of the items are not relevant&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/c8200f265b19c59a117d8ad5c347805b.js&quot;&gt;&lt;/script&gt;
 
@@ -1482,7 +1482,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
 
 &lt;p&gt;Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; reference type since its 4.0 version? Why don’t we just stick to the older type?&lt;/p&gt;
 
-&lt;p&gt;Well, &lt;a href=&quot;http://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple&quot;&gt;this Stack Overflow answers it pretty well&lt;/a&gt;, but I’ll try to summarize it here.&lt;/p&gt;
+&lt;p&gt;Well, &lt;a href=&quot;https://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple&quot;&gt;this Stack Overflow answers it pretty well&lt;/a&gt;, but I’ll try to summarize it here.&lt;/p&gt;
 
 &lt;p&gt;Firstly, as already mentioned, the older type is a &lt;em&gt;reference type&lt;/em&gt;, and the new one is a &lt;em&gt;value type&lt;/em&gt;, with all the usual implications.&lt;/p&gt;
 
@@ -1556,7 +1556,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
 
 &lt;p&gt;Tuples, on the other hand, could be over-used in situations that require &lt;em&gt;objects&lt;/em&gt;, making the code more procedural.&lt;/p&gt;
 
-&lt;p&gt;My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in &lt;a href=&quot;http://carlosschults.net/en/are-private-methods-a-code-smell/&quot;&gt;my article about private methods&lt;/a&gt;, code review and/or pair-programming can be of invaluable help in situations like these.&lt;/p&gt;
+&lt;p&gt;My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in &lt;a href=&quot;https://carlosschults.net/en/are-private-methods-a-code-smell/&quot;&gt;my article about private methods&lt;/a&gt;, code review and/or pair-programming can be of invaluable help in situations like these.&lt;/p&gt;
 
 &lt;p&gt;Thanks for reading. See you next time.&lt;/p&gt;
 
@@ -1580,7 +1580,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
     
       <item>
         <title>Git basics for TFS/TFVC users</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491343925/git-for-tfs-users-1038x437_ios03n.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1491343925/git-for-tfs-users-1038x437_ios03n.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Learning Git can be a bit challenging for developers with a background in centralized version control systems. But it doesn’t have to be that way.
 &lt;!--more--&gt;&lt;/p&gt;
@@ -1638,7 +1638,7 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
 &lt;p&gt;First, &lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;download Git for Windows&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Double-click, next, next, you know the drill. There shouldn’t be a problem if you just choose all the default options. However, the following option might be useful:
-&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1491350434/git1_xek0vv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1491350434/git1_xek0vv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When you get to this screen, choosing the second option you allow you to use Git from the Windows command prompt, and not only from Git Bash.&lt;/p&gt;
 

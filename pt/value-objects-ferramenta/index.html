@@ -28,7 +28,7 @@
   <meta property="og:image:width" content="1038"> 
   <meta property="og:image:height" content="437">  
   
-  <meta property="og:article:published_time" content="2018-10-24T00:00:00-02:00" />  
+  <meta property="og:article:published_time" content="2018-10-24T00:00:00-03:00" />  
   <meta property="og:article:author" content="Carlos Schults" />
   
   <meta property="og:article:tag" content="csharp" />
@@ -90,7 +90,7 @@
   <header class="post-header">    
     <h2 class="postTitle" itemprop="headline">Value Objects: Uma Técnica Para Código Auto-Documentado E Menos Erros</h2>
     <p class="post-meta">   
-    <time datetime="2018-10-24T00:00:00-02:00" itemprop="datePublished">24/10/2018
+    <time datetime="2018-10-24T00:00:00-03:00" itemprop="datePublished">24/10/2018
     </time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Carlos Schults</span></span>
   <span class="tags" itemprop="keywords"> • Tags: <a href="/tag_ptbr/csharp">csharp </a> <a href="/tag_ptbr/boas praticas">boas praticas </a> </span>
   </p>
@@ -151,7 +151,7 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">    <span class="kt">double</span>  <span class="n">distance</span>  <span class="p">=</span>  <span class="m">4.5</span><span class="p">;</span></code></pre></figure>
 
-<p>Tem algo errado com a linha acima? Bom, eu poderia dar uma de <em><a href="http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi">Ben Kenobi</a> </em>e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.</p>
+<p>Tem algo errado com a linha acima? Bom, eu poderia dar uma de <em><a href="https://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi">Ben Kenobi</a> </em>e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.</p>
 
 <p>O problema aqui é o <em>code smell</em> conhecido como “obsessão primitiva”, isto é, a modelagem de conceitos de domínio usando tipos primitivos. As próximas seções vão explicar melhor porque isso é um problema tão sério e como o uso de <em>value objects</em> podem ajudar.</p>
 
@@ -197,7 +197,7 @@
 
 <h2 id="value-objects-e-tipos-de-valor-não-são-sinônimos">Value Objects e Tipos de Valor Não São Sinônimos</h2>
 
-<p>Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos <a href="http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">duas categorias de tipos: tipos de referência e tipos de valor.</a></p>
+<p>Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">duas categorias de tipos: tipos de referência e tipos de valor.</a></p>
 
 <p>Sim, não há nada que impeça você de usar structs (tipos de valor) para implementar value objects - exemplos na Base Class Library (BCL) seriam o tipo <code class="highlighter-rouge">DateTime</code> ou os tipos numéricos primitivos. Mas você também pode usar classes tranquilamente.</p>
 
@@ -213,13 +213,6 @@
     
       
     
-         
-        
-        
-                
-        
-        
-                
          
         
         

@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 07 Feb 2019 20:06:48 -0200</pubDate>
-    <lastBuildDate>Thu, 07 Feb 2019 20:06:48 -0200</lastBuildDate>
+    <pubDate>Thu, 23 Jan 2020 15:36:15 -0300</pubDate>
+    <lastBuildDate>Thu, 23 Jan 2020 15:36:15 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
     
@@ -198,11 +198,11 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;p&gt;Alguns dos conceitos apresentados aqui não são novos nem restritos à programação funcional. Os benefícios de distinguir entre funções que causam efeitos colaterais e as que não causam é a base de princípios como &lt;a href=&quot;https://en.wikipedia.org/wiki/Command%E2%80%93query_separation&quot;&gt;command-query separation (CQS)&lt;/a&gt;, por exemplo.&lt;/p&gt;
 
-&lt;p&gt;O objetivo desse post não é ensinar programação funcional para ninguém. Isso está além das minhas capacidades, já que eu ainda estou aprendendo. E além disso, &lt;a href=&quot;http://fsharpforfunandprofit.com&quot;&gt;existem ótimos recursos para aprender programação funcional, para aqueles que se interessarem&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O objetivo desse post não é ensinar programação funcional para ninguém. Isso está além das minhas capacidades, já que eu ainda estou aprendendo. E além disso, &lt;a href=&quot;https://fsharpforfunandprofit.com&quot;&gt;existem ótimos recursos para aprender programação funcional, para aqueles que se interessarem&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Ao contrário, o que eu queria fazer aqui era mostrar um pouco do que um estilo funcional pode fazer com seu código: torná-lo mais expressivo, conciso e declarativo. Agora depende de você aplicar o estilo funcional ao código que você escreve.&lt;/p&gt;
 </description>
-        <pubDate>Tue, 22 Jan 2019 00:00:00 -0200</pubDate>
+        <pubDate>Tue, 22 Jan 2019 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/programacao-funcional-csharp/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/programacao-funcional-csharp/</guid>
         
@@ -271,7 +271,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;    &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;m&quot;&gt;4.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Tem algo errado com a linha acima? Bom, eu poderia dar uma de &lt;em&gt;&lt;a href=&quot;http://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi&quot;&gt;Ben Kenobi&lt;/a&gt; &lt;/em&gt;e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.&lt;/p&gt;
+&lt;p&gt;Tem algo errado com a linha acima? Bom, eu poderia dar uma de &lt;em&gt;&lt;a href=&quot;https://starwars.wikia.com/wiki/Wookieepedia:Quote_of_the_Day/Archive/Obi-Wan_Kenobi&quot;&gt;Ben Kenobi&lt;/a&gt; &lt;/em&gt;e dizer que está errada “de um certo ponto de vista.” Mas eu não vou. Ao invés disso, vou dizer que está definitivamente, sem sombra de dúvidas, errada. Não importa que compila corretamente. Também não importa que funciona um pouco (ou até na maioria) do tempo.&lt;/p&gt;
 
 &lt;p&gt;O problema aqui é o &lt;em&gt;code smell&lt;/em&gt; conhecido como “obsessão primitiva”, isto é, a modelagem de conceitos de domínio usando tipos primitivos. As próximas seções vão explicar melhor porque isso é um problema tão sério e como o uso de &lt;em&gt;value objects&lt;/em&gt; podem ajudar.&lt;/p&gt;
 
@@ -317,7 +317,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;h2 id=&quot;value-objects-e-tipos-de-valor-não-são-sinônimos&quot;&gt;Value Objects e Tipos de Valor Não São Sinônimos&lt;/h2&gt;
 
-&lt;p&gt;Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;duas categorias de tipos: tipos de referência e tipos de valor.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos &lt;a href=&quot;https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;duas categorias de tipos: tipos de referência e tipos de valor.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Sim, não há nada que impeça você de usar structs (tipos de valor) para implementar value objects - exemplos na Base Class Library (BCL) seriam o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; ou os tipos numéricos primitivos. Mas você também pode usar classes tranquilamente.&lt;/p&gt;
 
@@ -329,7 +329,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;p&gt;O uso de value objects é uma técnica com um custo relativamente baixo que pode aumentar bastante a manutenibilidade e claridade do seu código. Colocando value objects em prática, você pode tornar seu código mais fácil de ser compreendido, criando interfaces que são auto-documentáveis, difíceis de serem usadas da maneira errada, e intrinsecamente &lt;em&gt;type-safe&lt;/em&gt;.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 24 Oct 2018 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 24 Oct 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/value-objects-ferramenta/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/value-objects-ferramenta/</guid>
         
@@ -379,7 +379,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Com isso resolvido, é hora de sermos mais específicos. Qual ferramenta usar? Como proceder com a sua adoção?&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; é uma escolha sólida. E apesar de ter uma curva de aprendizado mais acentuada para&lt;a href=&quot;http://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;quem já está mais acostumado com sistemas de controle de versão centralizados, como Subversion ou TFVC&lt;/a&gt;, Git é o padrão &lt;em&gt;de facto&lt;/em&gt; da indústria. Então, sem sombra de dúvidas, você deve aprender git. Não fazê-lo pode prejudicar a sua carreira no futuro.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt; é uma escolha sólida. E apesar de ter uma curva de aprendizado mais acentuada para&lt;a href=&quot;https://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;quem já está mais acostumado com sistemas de controle de versão centralizados, como Subversion ou TFVC&lt;/a&gt;, Git é o padrão &lt;em&gt;de facto&lt;/em&gt; da indústria. Então, sem sombra de dúvidas, você deve aprender git. Não fazê-lo pode prejudicar a sua carreira no futuro.&lt;/p&gt;
 
 &lt;p&gt;Mas é possível que o Git não seja a melhor escolha para o seu time &lt;strong&gt;agora&lt;/strong&gt;. Lembre-se, você não tem muito tempo. Nós precisamos que a sua equipe adote as boas práticas o mais rápido possível.&lt;/p&gt;
 
@@ -387,7 +387,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h2 id=&quot;revisão-de-código&quot;&gt;Revisão de Código&lt;/h2&gt;
 
-&lt;p&gt;Eu não vou mentir: eu sou um grande fã de revisão de código. E &lt;a href=&quot;http://www.codinghorror.com/blog/archives/000495.html&quot;&gt;eu não estou sozinho nisso.&lt;/a&gt;. Eu já testemunhei em primeira mão como um bom processo de revisão de código pode reduzir o número de problemas em uma aplicação, tornar o código mais consistente e, mais importante ainda, espalhar conhecimento por todo o time de desenvolvimento.&lt;/p&gt;
+&lt;p&gt;Eu não vou mentir: eu sou um grande fã de revisão de código. E &lt;a href=&quot;https://www.codinghorror.com/blog/archives/000495.html&quot;&gt;eu não estou sozinho nisso.&lt;/a&gt;. Eu já testemunhei em primeira mão como um bom processo de revisão de código pode reduzir o número de problemas em uma aplicação, tornar o código mais consistente e, mais importante ainda, espalhar conhecimento por todo o time de desenvolvimento.&lt;/p&gt;
 
 &lt;p&gt;E aqui vai uma ótima vantagem dessa prática: revisão de código é algo relativamente fácil de ser implementado. Comece da maneira mais simples possível, e então faça adaptações na sua abordagem conforme as necessidades aparecerem.&lt;/p&gt;
 
@@ -395,7 +395,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Falar de revisão de código pode ser complicado. As pessoas às vezes tem ideias totalmente diferentes sobre o que a expressão significa. Então eu acho que uma clarificação se faz necessária.&lt;/p&gt;
 
-&lt;p&gt;Eu &lt;strong&gt;não&lt;/strong&gt; sou a favor de um processo de revisão de código altamente burocrático e estressante, no qual o seu código é esmiuçado, em público, durante horas. Eu não acredito que envergonhar as pessoas em público é uma forma eficaz de aumentar a qualidade de um projeto. Ao contrário, &lt;a href=&quot;http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/&quot;&gt;o tipo de revisão de código que eu defendo&lt;/a&gt; é um processo simples, geralmente iniciado ao submeter um pull request ou usando sua IDE favorita.&lt;/p&gt;
+&lt;p&gt;Eu &lt;strong&gt;não&lt;/strong&gt; sou a favor de um processo de revisão de código altamente burocrático e estressante, no qual o seu código é esmiuçado, em público, durante horas. Eu não acredito que envergonhar as pessoas em público é uma forma eficaz de aumentar a qualidade de um projeto. Ao contrário, &lt;a href=&quot;https://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/&quot;&gt;o tipo de revisão de código que eu defendo&lt;/a&gt; é um processo simples, geralmente iniciado ao submeter um pull request ou usando sua IDE favorita.&lt;/p&gt;
 
 &lt;h3 id=&quot;como-proceder-1&quot;&gt;Como Proceder&lt;/h3&gt;
 
@@ -431,7 +431,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Se sua equipe já usa TFS, aprenda como &lt;a href=&quot;https://docs.microsoft.com/en-us/vsts/build-release/actions/ci-cd-part-1&quot;&gt;criar uma definição de build&lt;/a&gt;. Se os seus projetos estão no GitHub, dê uma olhada no &lt;a href=&quot;https://travis-ci.org/&quot;&gt;Travis CI.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Com o tempo, você vai melhorando a sua estratégia. Lembra dos analisadores de código que eu mencionei anteriormente? É possível integrá-los no seu processo de build. &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;Testes unitários&lt;/a&gt; e outros tipos de testes automatizados também são uma valiosa adição.&lt;/p&gt;
+&lt;p&gt;Com o tempo, você vai melhorando a sua estratégia. Lembra dos analisadores de código que eu mencionei anteriormente? É possível integrá-los no seu processo de build. &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;Testes unitários&lt;/a&gt; e outros tipos de testes automatizados também são uma valiosa adição.&lt;/p&gt;
 
 &lt;p&gt;E por falar nisso…&lt;/p&gt;
 
@@ -447,7 +447,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;É possível que vários de vocês tenha achado essas práticas extremamente básicas e não dignas de um post. “Quem é que não usa controle de versão em 2018???”&lt;/p&gt;
 
-&lt;p&gt;Bom, não é tão difícil assim encontrar evidência (anedótica, mas ainda assim) que &lt;a href=&quot;http://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;as coisas ainda não são tão perfeitas&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Bom, não é tão difícil assim encontrar evidência (anedótica, mas ainda assim) que &lt;a href=&quot;https://softwareengineering.stackexchange.com/questions/65931/are-there-serious-companies-that-dont-use-version-control-and-continuous-integr&quot;&gt;as coisas ainda não são tão perfeitas&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Acreditar que mesmo práticas tão fundamentais como versionamento de código ou testes automatizados são aplicadas universalmente é mais ingenuidade do que talvez queremos admitir.&lt;/p&gt;
 
@@ -468,13 +468,13 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>4 Erros Comuns Com Data e Hora no C# — E como evitá-los</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1531165684/4-datetime-mistakes-1038x437_nm6csc.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da SubMain.  Você pode &lt;a href=&quot;https://blog.submain.com/4-common-datetime-mistakes-c-avoid/&quot;&gt;conferir o original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com problemas relacionados a tempo e muitos outros.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Você se lembra daqueles posts no estilo “inverdades que programadores acreditam sobre &lt;em&gt;X&lt;/em&gt;” que ficaram bastante populares em blogs de software há alguns anos? O primeiro foi sobre &lt;a href=&quot;http://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;nomes&lt;/a&gt;, mas logo apareceram vários outros, cobrindo tópicos como &lt;a href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;endereços&lt;/a&gt;, &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;geografia&lt;/a&gt; e &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=22201&quot;&gt;compras online&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Você se lembra daqueles posts no estilo “inverdades que programadores acreditam sobre &lt;em&gt;X&lt;/em&gt;” que ficaram bastante populares em blogs de software há alguns anos? O primeiro foi sobre &lt;a href=&quot;https://www.kalzumeus.com/2010/06/17/falsehoods-programmers-believe-about-names/&quot;&gt;nomes&lt;/a&gt;, mas logo apareceram vários outros, cobrindo tópicos como &lt;a href=&quot;https://www.mjt.me.uk/posts/falsehoods-programmers-believe-about-addresses/&quot;&gt;endereços&lt;/a&gt;, &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=15187&amp;amp;lang=en&quot;&gt;geografia&lt;/a&gt; e &lt;a href=&quot;https://wiesmann.codiferes.net/wordpress/?p=22201&quot;&gt;compras online&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;O meu favorito era &lt;a href=&quot;http://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;o post sobre tempo&lt;/a&gt;. Até esse ponto, eu não havia pensado profundamente sobre tempo e e suas intricacies, e eu fiquei intrigado em saber que um domínio tão fundamental pudesse ser um terreno tão fértil para bugs e confusões.&lt;/p&gt;
+&lt;p&gt;O meu favorito era &lt;a href=&quot;https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time&quot;&gt;o post sobre tempo&lt;/a&gt;. Até esse ponto, eu não havia pensado profundamente sobre tempo e e suas intricacies, e eu fiquei intrigado em saber que um domínio tão fundamental pudesse ser um terreno tão fértil para bugs e confusões.&lt;/p&gt;
 
 &lt;p&gt;Agora, mesmo eu tendo gostado do post, eu vejo um problema com ele: o post lista vários suposições erradas, e basicamente para por aí. Quem lê o artigo provavelmente termina se perguntando:&lt;/p&gt;
 
@@ -619,7 +619,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Revisão de Código vs Programação em Par: Qual a sua equipe deve escolher?</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1516470435/code-review-vs-pair-programming1038x437_w99q2t.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da SubMain. Você pode &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;conferir o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, dê uma conferida no CodeIt.Right, uma ferramenta que pode lhe ajudar com automação de revisões de código.&lt;/em&gt;&lt;/p&gt;
 
@@ -751,7 +751,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;Não é falta de confiança. É reconhecer que programar é difícil e às vezes, só um cérebro pode não dar conta do recado.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 24 Jan 2018 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 24 Jan 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</guid>
         
@@ -768,7 +768,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Programação Cargo Cult É A Arte de Programar Por Coincidência</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/cargo-cult-programming/&quot;&gt;clicar aqui para ler o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, baixe e experimente o NDepend.&lt;/em&gt;&lt;/p&gt;
 
@@ -838,11 +838,11 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;diferença entre tipos de valor e referência&lt;/a&gt;. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.&lt;/p&gt;
+&lt;p&gt;Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a &lt;a href=&quot;https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;diferença entre tipos de valor e referência&lt;/a&gt;. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.&lt;/p&gt;
 
 &lt;p&gt;Você pode achar isso um exagero da minha parte. Afinal de contas, o código vai rodar perfeitamente mesmo assim. Na verdade, a verificação não será nem ao mesma incluída no IL resultante, como você pode ver nesse print de uma ferramenta de descompilação:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;Uma imagem mostrando um trecho de código que não contem a checagem de nulo.&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;Uma imagem mostrando um trecho de código que não contem a checagem de nulo.&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Você pode ver no trecho de código acima que o compilador otimizou o código, removendo a checagem por nulo.&lt;/p&gt;
 
@@ -927,12 +927,12 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;revisão de código e programação em par não são exatamente equivalentes&lt;/a&gt;, ambas as práticas podem lhe trazer esse benefício.&lt;/p&gt;
 
 &lt;h3 id=&quot;sempre-teste-suas-hipóteses&quot;&gt;Sempre Teste Suas Hipóteses&lt;/h3&gt;
-&lt;p&gt;Escreva &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;testes de unidade&lt;/a&gt; (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça &lt;em&gt;benchmarks&lt;/em&gt; exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer &lt;em&gt;insights&lt;/em&gt; valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.&lt;/p&gt;
+&lt;p&gt;Escreva &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;testes de unidade&lt;/a&gt; (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça &lt;em&gt;benchmarks&lt;/em&gt; exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer &lt;em&gt;insights&lt;/em&gt; valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.&lt;/p&gt;
 
 &lt;h3 id=&quot;leia-código-de-outras-pessoas&quot;&gt;Leia Código de Outras Pessoas&lt;/h3&gt;
 &lt;p&gt;Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.&lt;/p&gt;
 
-&lt;p&gt;Na era do &lt;a href=&quot;http://github.com/&quot;&gt;GitHub&lt;/a&gt;, não tem muita desculpa para não fazer isso.&lt;/p&gt;
+&lt;p&gt;Na era do &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;, não tem muita desculpa para não fazer isso.&lt;/p&gt;
 
 &lt;h3 id=&quot;aprenda-com-suas-ferramentas&quot;&gt;Aprenda Com Suas Ferramentas&lt;/h3&gt;
 &lt;p&gt;Existe um número enorme de ferramentas que podem ajudar &lt;a href=&quot;https://www.ndepend.com/&quot;&gt;sua equipe com a qualidade do seu código&lt;/a&gt;. Aqui vai a dica principal: você não deve só usar essas ferramentas. Você deve também aprender com elas. Se você usa NDepend, &lt;a href=&quot;https://www.ndepend.com/default-rules/webframe.html&quot;&gt;leia sobre suas regras&lt;/a&gt;. Tente entender a justificativa por trás de cada uma delas. Quais são os princípios e boas práticas que guiaram seus autores durante a criação delas?&lt;/p&gt;
@@ -942,7 +942,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;h2 id=&quot;ciência-da-computação-não-superstição-da-computação&quot;&gt;Ciência da Computação, Não &lt;em&gt;Superstição&lt;/em&gt; da Computação&lt;/h2&gt;
 &lt;p&gt;Embora ninguém seja imune à programação cargo cult, nós devemos nos esforçar para superá-la. Há sabedoria na nossa área à nossa disposição, acumulada lentamente ao longo de mais de 7 década. Vamos usá-la. Vamos entender melhor nossas ferramentas e nossa profissão e escrever software de qualidade.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 17 Jan 2018 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 17 Jan 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/cargo-cult-programming/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/cargo-cult-programming/</guid>
         
@@ -957,7 +957,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Funcionalidades do C# 8.0: Um Vislumbre do Futuro</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;C# 8.0 está chegando e vai trazer algumas funcionalidades muito interessantes. Vamos dar uma olhada no que o futuro reserva.
 &lt;!--more--&gt;&lt;/p&gt;
@@ -1056,7 +1056,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h3 id=&quot;mas-por-que-null-é-tão-ruim&quot;&gt;Mas por que &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; é tão ruim?&lt;/h3&gt;
 
-&lt;p&gt;Existem várias possíveis respostas para essa pergunta mas o maior problema é, claro, o risco da famosa &lt;em&gt;null-reference exception&lt;/em&gt; (também conhecida como &lt;em&gt;null-pointer exception&lt;/em&gt; na Java-lândia). Já que tudo (“tudo” no contexto do C# significa tipos os &lt;a href=&quot;http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;tipos de referência&lt;/a&gt;) pode ser nulo, você sempre corre o risco de receber uma exceção quando tenta acessar algum membro de um objeto.&lt;/p&gt;
+&lt;p&gt;Existem várias possíveis respostas para essa pergunta mas o maior problema é, claro, o risco da famosa &lt;em&gt;null-reference exception&lt;/em&gt; (também conhecida como &lt;em&gt;null-pointer exception&lt;/em&gt; na Java-lândia). Já que tudo (“tudo” no contexto do C# significa tipos os &lt;a href=&quot;https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;tipos de referência&lt;/a&gt;) pode ser nulo, você sempre corre o risco de receber uma exceção quando tenta acessar algum membro de um objeto.&lt;/p&gt;
 
 &lt;p&gt;Um dos piores problemas que temos aqui é que a própria linguagem não oferece uma sintaxe que permita ao autor do código expressar sua intenção. Não tem como você dizer: “Este parâmetro nunca vai ser &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;” ou “Essa propriedade talvez seja &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; às vezes, e isso é OK”.&lt;/p&gt;
 
@@ -1136,7 +1136,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Como você pode ver, desenvolver a linguagem é um trabalho duro. Ela precisa permanecer compatível com as milhões (bilhões) de linhas de código escritas com ela nos últimos 17 anos. Ao mesmo tempo, para continuar sendo relevante, ela precisa suprir as necessidades de desenvolvedores que estão encarando desafiados que eram inimagináveis anos atrás. E o C# precisa fazer tudo isso sem perder sua essência: ser uma linguagem orientada a objeto, fácil e acessível.&lt;/p&gt;
 </description>
-        <pubDate>Wed, 20 Dec 2017 00:00:00 -0200</pubDate>
+        <pubDate>Wed, 20 Dec 2017 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/funcionalidades-csharp8/</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp8/</guid>
         
@@ -1147,12 +1147,12 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
     
       <item>
         <title>Como aprender inglês: Um guia para desenvolvedores, Parte 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Parte 2: Pratique diariamente. Áudio em primeiro lugar.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;No &lt;a href=&quot;http://carlosschults.net/pt/como-aprender-ingles-parte-1&quot;&gt;post anterior&lt;/a&gt; eu expliquei quais são, na minha opinião, os principais erros que as pessoas cometem ao tentar aprender inglês.&lt;/p&gt;
+&lt;p&gt;No &lt;a href=&quot;https://carlosschults.net/pt/como-aprender-ingles-parte-1&quot;&gt;post anterior&lt;/a&gt; eu expliquei quais são, na minha opinião, os principais erros que as pessoas cometem ao tentar aprender inglês.&lt;/p&gt;
 
 &lt;p&gt;Agora chegou a hora de fazer o oposto: vou detalhar o que você &lt;em&gt;deve&lt;/em&gt; fazer para aprender inglês da forma correta, gastando pouco e se divertindo no processo.&lt;/p&gt;
 
@@ -1215,7 +1215,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;A TV era outra fonte de pequenos momentos de contato com o inglês, através de filmes e desenhos. Sim, eu assistia tudo dublado, claro (TV a cabo? O que é isso?). Mas ainda sim oportunidades surgiam; o exemplo típico é quando aparecia algo escrito em inglês no filme/desenho (letreiro de loja, rótulo de algum produto, sinal de trânsito, título do episódio) e o locutor falava em português a tradução.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we're closed&amp;quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we're closed&amp;quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Foi em 2001, mas eu me lembro bem como estava ansioso para o início da quinta série. &lt;strong&gt;Finalmente&lt;/strong&gt; iria ter aulas de inglês!&lt;/p&gt;
 
@@ -1229,7 +1229,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;Algo assim:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512430827/dictionary-min_vxoqp5.jpg&quot; alt=&quot;Página do dicionário de inglês&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1512430827/dictionary-min_vxoqp5.jpg&quot; alt=&quot;Página do dicionário de inglês&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Isso me ajudou a aprender a pronúncia aproximada de várias palavras, e ver que elas eram bem diferentes do que eu imaginava (e do que muitas pessoas pronunciavam).&lt;/p&gt;
 
@@ -1243,7 +1243,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;p&gt;Com cerca de 14, 15 anos, uma nova paixão surgiu na minha vida: a música (ou para ser específico, o &lt;em&gt;rock&lt;/em&gt;). Mais aprendizado veio na forma de tradução das letras das músicas nos encartes dos CD’s.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD's e DVD's de Rock&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD's e DVD's de Rock&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;No final de 2006 eu consegui meu primeiro estágio na área da informática. Depois de algum tempo (provavelmente no começo do ano seguinte) comprei meu primeiro computador: um Positivo, com configurações risíveis. Mas era um sonho que eu tive por boa parte da minha vida e finalmente havia conseguido realizá-lo.&lt;/p&gt;
 
@@ -1268,7 +1268,7 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 
 &lt;h3 id=&quot;podcasts&quot;&gt;Podcasts!&lt;/h3&gt;
 
-&lt;p&gt;O primeiro podcast que passei a consumir regularmente foi o &lt;a href=&quot;http://eslpod.com/&quot;&gt;ESL Podcast&lt;/a&gt;. Eu ouvia os episódios durante o horário do almoço, acompanhando a transcrição. O texto geralmente consistia de um diálogo entre dois personagens. Os leitores liam bem devagar e de maneira bem articulada, de modo que era fácil de entender o que eles estavam dizendo.&lt;/p&gt;
+&lt;p&gt;O primeiro podcast que passei a consumir regularmente foi o &lt;a href=&quot;https://eslpod.com/&quot;&gt;ESL Podcast&lt;/a&gt;. Eu ouvia os episódios durante o horário do almoço, acompanhando a transcrição. O texto geralmente consistia de um diálogo entre dois personagens. Os leitores liam bem devagar e de maneira bem articulada, de modo que era fácil de entender o que eles estavam dizendo.&lt;/p&gt;
 
 &lt;p&gt;Não demorou muito tempo na verdade para que eu desse o próximo passo na minha evolução: &lt;strong&gt;passei a conseguir entender 100% do áudio sem as transcrições&lt;/strong&gt;.&lt;/p&gt;
 
@@ -1308,13 +1308,13 @@ Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola.
 &lt;p&gt;Estude com o Duolingo todo dia, até terminar o curso. Após isso, continue reforçando os pontos nos quais não estiver tão bem.&lt;/p&gt;
 
 &lt;h4 id=&quot;curso-inglês-online&quot;&gt;Curso Inglês Online&lt;/h4&gt;
-&lt;p&gt;Depois do Duolingo, eu recomendo o &lt;a href=&quot;http://www.cursoinglesonline.com.br/curso-basico-informacoes/&quot;&gt;curso básico do site Inglês Online, da Ana Luiza&lt;/a&gt;. O curso é pago, mas é um valor que considero acessível e vale muito a pena.&lt;/p&gt;
+&lt;p&gt;Depois do Duolingo, eu recomendo o &lt;a href=&quot;https://www.cursoinglesonline.com.br/curso-basico-informacoes/&quot;&gt;curso básico do site Inglês Online, da Ana Luiza&lt;/a&gt;. O curso é pago, mas é um valor que considero acessível e vale muito a pena.&lt;/p&gt;
 
 &lt;h3 id=&quot;prática-diária-do-listening&quot;&gt;Prática diária do listening&lt;/h3&gt;
 
 &lt;p&gt;O próximo passo é integrar o áudio no seu dia-a-dia. Como já disse anteriormente, a situação ideal é chegar ao ponto de não precisar mais de transcrições, pois assim você terá liberdade para ouvir inglês praticamente em qualquer situação que sobrar um tempo.&lt;/p&gt;
 
-&lt;p&gt;Chegar até esse ponto vai demandar um certo trabalho, no entanto. Para isso, eu sugiro a leitura da série de artigos &lt;a href=&quot;http://www.inglesonline.com.br/como-falar-ingles-as-dicas-essenciais/&quot;&gt;“Como Falar Inglês - As Dicas Essenciais”&lt;/a&gt;, escrita pela Ana Luiza do site Inglês Online. É uma série um pouco extensa, mas que detalha passo a passo como evoluir no &lt;em&gt;listening&lt;/em&gt;, inclusive com fontes de áudio adequados para cada nível do aprendizado.&lt;/p&gt;
+&lt;p&gt;Chegar até esse ponto vai demandar um certo trabalho, no entanto. Para isso, eu sugiro a leitura da série de artigos &lt;a href=&quot;https://www.inglesonline.com.br/como-falar-ingles-as-dicas-essenciais/&quot;&gt;“Como Falar Inglês - As Dicas Essenciais”&lt;/a&gt;, escrita pela Ana Luiza do site Inglês Online. É uma série um pouco extensa, mas que detalha passo a passo como evoluir no &lt;em&gt;listening&lt;/em&gt;, inclusive com fontes de áudio adequados para cada nível do aprendizado.&lt;/p&gt;
 
 &lt;h3 id=&quot;não-esqueça-das-outras-áreas&quot;&gt;Não esqueça das outras áreas&lt;/h3&gt;
 
@@ -1345,13 +1345,13 @@ Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (
 
 &lt;p&gt;Espero ter conseguido, através da minha história, mostrar que aprender inglês é possível sim, ainda que haja dificuldades. O meu aprendizado foi longo e inconsistente, por não ter tido as facilidades que existem hoje em dia.&lt;/p&gt;
 
-&lt;p&gt;Para te ajudar ainda mais, eu &lt;a href=&quot;http://carlosschults.net/como-aprender-ingles&quot;&gt;criei uma página com recursos para estudar inglês online&lt;/a&gt;. Vou mantê-la atualizada constantemente.&lt;/p&gt;
+&lt;p&gt;Para te ajudar ainda mais, eu &lt;a href=&quot;https://carlosschults.net/como-aprender-ingles&quot;&gt;criei uma página com recursos para estudar inglês online&lt;/a&gt;. Vou mantê-la atualizada constantemente.&lt;/p&gt;
 
 &lt;p&gt;Agradeço pelo seu tempo, e estou à disposição caso precise de mais alguma ajuda. A área de comentários está aí para isso.&lt;/p&gt;
 
 &lt;p&gt;See you later!&lt;/p&gt;
 </description>
-        <pubDate>Tue, 05 Dec 2017 00:00:00 -0200</pubDate>
+        <pubDate>Tue, 05 Dec 2017 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/como-aprender-ingles-parte-2</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-2</guid>
         
@@ -1364,16 +1364,16 @@ Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (
     
       <item>
         <title>Como aprender inglês: Um guia para desenvolvedores</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Parte 1: Não faça o que todo mundo faz.&lt;/em&gt;
 &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;Esta é a primeira parte de uma série de dois posts. Veja &lt;a href=&quot;http://carlosschults.net/pt/como-aprender-ingles-parte-2&quot;&gt;a segunda parte&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Esta é a primeira parte de uma série de dois posts. Veja &lt;a href=&quot;https://carlosschults.net/pt/como-aprender-ingles-parte-2&quot;&gt;a segunda parte&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;usar português ou inglês para nomear classes, variáveis, e demais artefatos no código&lt;/a&gt;. Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.&lt;/p&gt;
+&lt;p&gt;Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: &lt;a href=&quot;https://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;usar português ou inglês para nomear classes, variáveis, e demais artefatos no código&lt;/a&gt;. Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.&lt;/p&gt;
 
-&lt;p&gt;Minha opinião atual continua praticamente a mesma da época. Prefiro que você &lt;a href=&quot;http://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;leia o post completo&lt;/a&gt;, mas aqui vai a versão resumida: tente usar inglês o máximo possível, porém vão existir situações nas quais o português faz mais sentido. Decida de acordo com as características do seu projeto e equipe.&lt;/p&gt;
+&lt;p&gt;Minha opinião atual continua praticamente a mesma da época. Prefiro que você &lt;a href=&quot;https://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;leia o post completo&lt;/a&gt;, mas aqui vai a versão resumida: tente usar inglês o máximo possível, porém vão existir situações nas quais o português faz mais sentido. Decida de acordo com as características do seu projeto e equipe.&lt;/p&gt;
 
 &lt;p&gt;Outra coisa que ainda não mudou é a minha opinião de que quem trabalha desenvolvendo software &lt;strong&gt;definitivamente deve aprender inglês&lt;/strong&gt;.
 Se você tem uma lista de coisas para estudar, remova Kotlin/programação funcional/framework javascript da moda do topo da lista e coloque inglês no lugar.&lt;/p&gt;
@@ -1388,7 +1388,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;h2 id=&quot;por-que-você-deve-aprender-inglês-spoiler-não-é-para-ganhar-mais&quot;&gt;Por que você deve aprender inglês (SPOILER: não é para “ganhar mais”)&lt;/h2&gt;
 
-&lt;p&gt;Quando o assunto é o aprendizado de inglês, uma das razões mais citadas é o aumento de renda. Embora &lt;a href=&quot;http://g1.globo.com/concursos-e-emprego/noticia/2016/04/salario-e-ate-61-maior-entre-quem-fala-ingles-fluente-diz-pesquisa.html&quot;&gt;existam estudos que sugerem aumento de salário para quem domina o idioma&lt;/a&gt;, este não deveria ser o seu maior (ou único) motivador.&lt;/p&gt;
+&lt;p&gt;Quando o assunto é o aprendizado de inglês, uma das razões mais citadas é o aumento de renda. Embora &lt;a href=&quot;https://g1.globo.com/concursos-e-emprego/noticia/2016/04/salario-e-ate-61-maior-entre-quem-fala-ingles-fluente-diz-pesquisa.html&quot;&gt;existam estudos que sugerem aumento de salário para quem domina o idioma&lt;/a&gt;, este não deveria ser o seu maior (ou único) motivador.&lt;/p&gt;
 
 &lt;p&gt;Outro argumento bastante usado é de que o inglês torna mais fácil conseguir um emprego. Intuitivamente, parece fazer sentido, embora eu desconheça algum estudo demonstrando isso (fique a vontade para postar um link nos comentários, caso conheça). Como &lt;a href=&quot;https://pt.wikipedia.org/wiki/Evid%C3%AAncia_aned%C3%B3tica&quot;&gt;evidência anedótica&lt;/a&gt;, acredito que todos nós conhecemos muitas pessoas que são profissionais competentes e não dominam o idioma. Quanto a isso, pode se tranquilizar: &lt;strong&gt;sabendo programar minimamente bem, você vai conseguir um emprego mesmo sem saber inglês&lt;/strong&gt; (excluindo-se, obviamente, empresas no exterior ou cargos em empresas brasileiras que requerem comunicação com pessoas de fora). Poderíamos argumentar sobre a qualidade desses empregos, ou o salário que você poderá conseguir, mas não pretendo entrar neste mérito por enquanto.&lt;/p&gt;
 
@@ -1398,7 +1398,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 
 &lt;p&gt;O inglês é, para todos os efeitos, a língua franca da tecnologia. E isto facilita muitas coisas.&lt;/p&gt;
 
-&lt;p&gt;Um exemplo: eu gosto muito do &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;blog do Mark Seeman&lt;/a&gt; e fico feliz por ele escrever em inglês, mesmo sendo da Dinamarca. &lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net&quot;&gt;Também aprendi bastante coisa com seu livro sobre injeção de dependência&lt;/a&gt;. Até onde eu sei, este livro nunca foi traduzido para português, apesar da primeira edição ter sido lançada em 2011 (&lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net-second-edition&quot;&gt;a segunda edição está prevista para janeiro de 2018&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;Um exemplo: eu gosto muito do &lt;a href=&quot;https://blog.ploeh.dk/&quot;&gt;blog do Mark Seeman&lt;/a&gt; e fico feliz por ele escrever em inglês, mesmo sendo da Dinamarca. &lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net&quot;&gt;Também aprendi bastante coisa com seu livro sobre injeção de dependência&lt;/a&gt;. Até onde eu sei, este livro nunca foi traduzido para português, apesar da primeira edição ter sido lançada em 2011 (&lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net-second-edition&quot;&gt;a segunda edição está prevista para janeiro de 2018&lt;/a&gt;).&lt;/p&gt;
 
 &lt;p&gt;O criador do Ruby On Rails, David Heinemeier Hansson, também é dinamarquês, o que não o impede de &lt;a href=&quot;https://medium.com/@dhh&quot;&gt;postar em inglês com frequência&lt;/a&gt;.&lt;/p&gt;
 
@@ -1425,7 +1425,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 &lt;p&gt;E quem consegue entender o inglês falado? Esta pessoa já tem &lt;em&gt;muito&lt;/em&gt; mais vantagens, pois pode assistir palestras no Youtube, &lt;a href=&quot;https://www.pluralsight.com/&quot;&gt;cursos no Pluralsight&lt;/a&gt; e similares, &lt;strong&gt;ouvir a excelentes podcasts de tecnologia&lt;/strong&gt;, e muito mais.&lt;/p&gt;
 
 &lt;h2 id=&quot;por-que-as-pessoas-não-aprendem-inglês&quot;&gt;Por que as pessoas não aprendem inglês?&lt;/h2&gt;
-&lt;p&gt;Não é raro vermos &lt;a href=&quot;https://exame.abril.com.br/brasil/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking/&quot;&gt;matérias&lt;/a&gt; retratando o &lt;a href=&quot;http://jovempan.uol.com.br/programas/jornal-da-manha/brasil-cai-de-posicao-e-sai-do-top-40-no-ranking-mundial-de-proficiencia-em-ingles.html&quot;&gt;péssimo desempenho&lt;/a&gt; do Brasil nos rankings de proficiência no inglês.&lt;/p&gt;
+&lt;p&gt;Não é raro vermos &lt;a href=&quot;https://exame.abril.com.br/brasil/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking/&quot;&gt;matérias&lt;/a&gt; retratando o &lt;a href=&quot;https://jovempan.uol.com.br/programas/jornal-da-manha/brasil-cai-de-posicao-e-sai-do-top-40-no-ranking-mundial-de-proficiencia-em-ingles.html&quot;&gt;péssimo desempenho&lt;/a&gt; do Brasil nos rankings de proficiência no inglês.&lt;/p&gt;
 
 &lt;p&gt;Ao mesmo tempo, &lt;a href=&quot;https://g1.globo.com/economia/negocios/noticia/carlos-wizard-compra-35-da-wizeup-e-retoma-ao-setor-de-educacao.ghtml&quot;&gt;redes de escolas de idiomas são negociadas por bilhões&lt;/a&gt;.&lt;/p&gt;
 
@@ -1452,7 +1452,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 &lt;h3 id=&quot;falta-de-prática&quot;&gt;Falta de prática&lt;/h3&gt;
 &lt;p&gt;Qualquer pessoa que já estudou algum instrumento musical sabe que não basta frequentar as aulas; é preciso praticar em casa, de acordo com o plano de estudos recebido. Fazer exercícios, treinar escalas, praticar percepção musical, &lt;strong&gt;todos os dias&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511625841/musician.jpg&quot; alt=&quot;Músico tocando violino&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511625841/musician.jpg&quot; alt=&quot;Músico tocando violino&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;É claro que a necessidade de praticar não se aplica somente à música, mas também aos esportes, à programação e muitas outras áreas.&lt;/p&gt;
 
@@ -1461,11 +1461,11 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 &lt;p&gt;&lt;a href=&quot;https://forum.wordreference.com/threads/i-hate-to-break-it-to-you.1910645/&quot;&gt;Sorry to break it to you&lt;/a&gt;, mas não vão.&lt;/p&gt;
 
 &lt;h3 id=&quot;não-integrar-o-áudio-ao-aprendizado-ou-integrá-lo-tardiamente&quot;&gt;Não integrar o áudio ao aprendizado (ou integrá-lo tardiamente)&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.inglesonline.com.br/2014/01/22/o-perigo-de-aprender-ingles-so-lendo/&quot;&gt;Este é um problema comum na área de TI&lt;/a&gt;. Inclusive, eu cometi este erro em uma etapa do meu aprendizado. Como precisamos constantemente ler textos técnicos em inglês, como manuais e documentações, muitos de nós conseguem ter um domínio razoável do inglês escrito ao longo dos anos.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.inglesonline.com.br/2014/01/22/o-perigo-de-aprender-ingles-so-lendo/&quot;&gt;Este é um problema comum na área de TI&lt;/a&gt;. Inclusive, eu cometi este erro em uma etapa do meu aprendizado. Como precisamos constantemente ler textos técnicos em inglês, como manuais e documentações, muitos de nós conseguem ter um domínio razoável do inglês escrito ao longo dos anos.&lt;/p&gt;
 
 &lt;p&gt;O problema é quando chega a hora de &lt;em&gt;falar&lt;/em&gt;, principalmente por conta da pronúncia do inglês, que é totalmente não intuitiva para nós falantes de português.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1511826587/practice-listening-min_lzgqcr.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511826587/practice-listening-min_lzgqcr.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Na maioria das vezes, sem ter a referência da pronúncia correta, a pessoa acaba “aportuguesando” a pronúncia da palavra. Quantas pessoas você conhece que pronunciam 4Shared como “Quatro Xarédi”, ou algo do tipo?&lt;/p&gt;
 
@@ -1516,7 +1516,7 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
 &lt;p&gt;Thanks for reading! See you next time!&lt;/p&gt;
 
 </description>
-        <pubDate>Mon, 27 Nov 2017 00:00:00 -0200</pubDate>
+        <pubDate>Mon, 27 Nov 2017 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/como-aprender-ingles-parte-1</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-1</guid>
         
@@ -1529,20 +1529,20 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
     
       <item>
         <title>Testes Unitários Para Iniciantes - Parte 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Antes tarde do que mais tarde! Hora de continuar nossa série sobre testes unitários para iniciantes. Hoje você vai escrever seu primeiro teste unitário.
 &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
 
-&lt;p&gt;No &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro artigo nesta série&lt;/a&gt; eu defini o que são testes unitários, e também falei dos benefícios de sua utilização.&lt;/p&gt;
+&lt;p&gt;No &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro artigo nesta série&lt;/a&gt; eu defini o que são testes unitários, e também falei dos benefícios de sua utilização.&lt;/p&gt;
 
 &lt;p&gt;Hoje você vai aprender, na prática, como criar testes unitários. Vou mostrar como instalar e utilizar o framework de testes &lt;strong&gt;NUnit&lt;/strong&gt;. E depois vamos criar alguns testes para você conhecer algumas das features deste framework.&lt;/p&gt;
 
 &lt;h2 id=&quot;instalando-o-nunit&quot;&gt;Instalando o NUnit&lt;/h2&gt;
 
-&lt;p&gt;Como eu expliquei no &lt;a href=&quot;http://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro post da série&lt;/a&gt;, para utilizar testes unitários na sua aplicação você necessita de um &lt;strong&gt;Framework de Testes&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Como eu expliquei no &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro post da série&lt;/a&gt;, para utilizar testes unitários na sua aplicação você necessita de um &lt;strong&gt;Framework de Testes&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;O framework que vamos utilizar é o &lt;strong&gt;NUnit&lt;/strong&gt;, que é baseado no JUnit, um framework de testes desenvolvido para a linguagem Java. Existem outros frameworks de teste disponíveis no mundo .Net, como o MS Test, desenvolvido pela própria Microsoft.
 Se for do seu interesse, você poderá experimentar os outros frameworks por conta própria mais tarde.&lt;/p&gt;
@@ -1566,7 +1566,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 &lt;p&gt;Sua solução deveria estar desta forma:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Chegou a hora de instalarmos o NUnit. Felizmente, o framework é disponibilizado como um pacote do Nuget, o que torna sua instalação trivial.&lt;/p&gt;
 
@@ -1580,7 +1580,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 &lt;p&gt;Verifique que o projeto de testes é o que está selecionado, como na imagem:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;E pressione &lt;em&gt;ENTER&lt;/em&gt;. A instalação será realizada em poucos segundos.&lt;/p&gt;
 
@@ -1626,11 +1626,11 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 &lt;p&gt;Na janela exibida, clique em &lt;em&gt;Executar Tudo&lt;/em&gt;. Caso tudo tenha funcionado da maneira correta, você verá isso:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Ao clicar no nome do teste, serão exibidas algumas informações adicionais, como o arquivo do teste e tempo decorrido:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Note o uso da cor verde para indicar o sucesso do teste.&lt;/p&gt;
 
@@ -1642,7 +1642,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 &lt;p&gt;Execute o teste novamente e verá a mensagem de falha, dessa vez com a barra vermelha:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Agora que você já está pegando o jeito, vamos começar a testar a nossa classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;. Não esqueça de voltar o método de teste que fizemos para &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass&lt;/code&gt; para que ele não fique falhando.&lt;/p&gt;
 
@@ -1652,7 +1652,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 &lt;p&gt;Para isso, clique com o botão direito no projeto &lt;strong&gt;ApplicationTest&lt;/strong&gt; &amp;gt; &lt;strong&gt;Adicionar&lt;/strong&gt; &amp;gt; &lt;strong&gt;Referência…&lt;/strong&gt;. Na janela exibida, selecione o projeto, conforme a imagem a seguir:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;E depois clique em OK.&lt;/p&gt;
 
@@ -1711,7 +1711,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
 
 &lt;p&gt;Embora existam outras nomenclaturas para as fases do teste de unidade, vamos adotar &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; como nossa nomenclatura padrão, ao menos por enquanto.&lt;/p&gt;
 
-&lt;p&gt;Você talvez esteja se perguntando por qual motivo eu de o nome de “sut” à variável declarada no início do método. Este é um padrão de nomenclatura que aprendi lendo o blog do &lt;a href=&quot;http://blog.ploeh.dk/&quot;&gt;Mark Seeman&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; significa &lt;em&gt;System Under Test&lt;/em&gt;, ou “Sistema Sob Teste”, em tradução livre. É um termo usado para se referir à classe sendo testada no teste atual. Não há nada que obrigue a utilização de &lt;code class=&quot;highlighter-rouge&quot;&gt;sut&lt;/code&gt; como o nome da variável, mas eu gosto de usar dessa forma, pois deixa evidente no teste quem é que está sendo testado.&lt;/p&gt;
+&lt;p&gt;Você talvez esteja se perguntando por qual motivo eu de o nome de “sut” à variável declarada no início do método. Este é um padrão de nomenclatura que aprendi lendo o blog do &lt;a href=&quot;https://blog.ploeh.dk/&quot;&gt;Mark Seeman&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; significa &lt;em&gt;System Under Test&lt;/em&gt;, ou “Sistema Sob Teste”, em tradução livre. É um termo usado para se referir à classe sendo testada no teste atual. Não há nada que obrigue a utilização de &lt;code class=&quot;highlighter-rouge&quot;&gt;sut&lt;/code&gt; como o nome da variável, mas eu gosto de usar dessa forma, pois deixa evidente no teste quem é que está sendo testado.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;&lt;strong&gt;Dica: Procure utilizar padrões de codificação que melhorem a legibilidade e deixem a intenção do autor explícita para o leitor do código.&lt;/strong&gt;&lt;/p&gt;

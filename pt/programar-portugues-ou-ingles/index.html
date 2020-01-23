@@ -92,25 +92,25 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1458429920/portugues-ou-ingles-1038x437_izhi3i.png" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1458429920/portugues-ou-ingles-1038x437_izhi3i.png" alt="" /></p>
 
 <p>No contexto de boas práticas de desenvolvimento, um ponto que gera controvérsia é a escolha do idioma no qual codificar. Uma rápida busca no Google por “programar em português ou inglês” retorna 535 mil resultados, o que mostra que o tema realmente causa bastante discussão. 
 <!--more-->
 Recentemente conversei com um colega de trabalho e também com meu chefe a respeito desse assunto. Esse post é consequência dessas conversas e das pesquisas que fiz depois.</p>
 
-<p>Parece ser uma visão bastante comum na nossa área que programar em inglês é a melhor opção. Fabio Akita, grande referência na comunidade Ruby On Rails do Brasil, <a href="http://www.akitaonrails.com/2013/03/24/quais-sao-algumas-das-piores-praticas-para-aplicacoes-ruby-on-rails--2">inclui codificar em português - ou melhor dizendo, qualquer idioma que não o inglês - na sua lista de piores práticas de desenvolvimento</a>:</p>
+<p>Parece ser uma visão bastante comum na nossa área que programar em inglês é a melhor opção. Fabio Akita, grande referência na comunidade Ruby On Rails do Brasil, <a href="https://www.akitaonrails.com/2013/03/24/quais-sao-algumas-das-piores-praticas-para-aplicacoes-ruby-on-rails--2">inclui codificar em português - ou melhor dizendo, qualquer idioma que não o inglês - na sua lista de piores práticas de desenvolvimento</a>:</p>
 
 <blockquote>
   <p>Escreva nomes em inglês dentro do seu código. Não me importo se você é brasileiro, italiano, francês ou o que   for. Nomes de classes, de variáveis, de métodos, tudo deve ser em inglês. Estamos num mundo globalizado, não é pensar muito longe que amanhã um americano vai mexer no seu código todo em português. Além do problema de consistência: a sintaxe da linguagem, todas as bibliotecas padrão, é tudo em inglês. É uma enorme dissonância cognitiva ter nomes em português no meio. É como você estar lendo uma revista em português com diversos parágrafos em inglês no meio. Não faz nenhum sentido.</p>
 </blockquote>
 
-<p>Carlos Brando, outro nome conhecido no mundo Rails, <a href="http://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/">deu opinião semelhante em um post de 2009</a>:</p>
+<p>Carlos Brando, outro nome conhecido no mundo Rails, <a href="https://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/">deu opinião semelhante em um post de 2009</a>:</p>
 
 <blockquote>
   <p>Embora não exista uma regra escrita para isto, também sou contra nomear variáveis, métodos ou classe em português. Acho que como todo o código já está em inglês, graças as palavras chaves do Ruby, devemos manter absolutamente tudo em inglês também. Isto não é tão difícil assim, já que você pode fazer uso de tradutores e dicionários (online) para encontrar a melhor descrição para eles.</p>
 </blockquote>
 
-<p>Um exemplo de como esse tema é inflamável: <a href="http://blog.stackoverflow.com/2014/01/ola-mundo-announcing-stack-overflow-in-portuguese/">há cerca de dois anos foi lançada a versão em português do Stack Overflow</a>, famoso site de perguntas e respostas pra programadores. Pare aqui e vá lá dar uma olhada no post. Viu a quantidade de comentários criticando a iniciativa? A controvérsia foi tanta que duas semanas depois a equipe do Stack Overflow publicou um novo post, dessa vez em inglês, justificando a decisão.</p>
+<p>Um exemplo de como esse tema é inflamável: <a href="https://blog.stackoverflow.com/2014/01/ola-mundo-announcing-stack-overflow-in-portuguese/">há cerca de dois anos foi lançada a versão em português do Stack Overflow</a>, famoso site de perguntas e respostas pra programadores. Pare aqui e vá lá dar uma olhada no post. Viu a quantidade de comentários criticando a iniciativa? A controvérsia foi tanta que duas semanas depois a equipe do Stack Overflow publicou um novo post, dessa vez em inglês, justificando a decisão.</p>
 
 <p>Eu acredito que a discussão é necessária e saudável e que existem bons argumentos nos dois lados. Assim, vou  examinar opiniões a favor do uso de cada idioma, e ao final do post, expressar minha conclusão.</p>
 
@@ -136,7 +136,7 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
 
 <blockquote>
   <p>Da mesma forma, uma regra de negócio traduzida para o inglês pode ser mal traduzida por quem não domina o idioma. Falsos cognatos existem e podem ser utilizados nessa tradução cotidiana. Imagine que, ao invés de criar classes chamadas Funcionario e Empregador você crie classes chamadas Employee e Employer. Isso seria tão confuso para um desenvolvedor que não domina o inglês, quanto para um desenvolvedor que domina o inglês. Na hora de programar, os termos podem misturar-se.
-<a href="http://www.ventron.com.br/programar-em-portugues-ou-ingles/">Gustavo Gondim</a></p>
+<a href="https://www.ventron.com.br/programar-em-portugues-ou-ingles/">Gustavo Gondim</a></p>
 </blockquote>
 
 <blockquote>
@@ -146,7 +146,7 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
 
 <p>Resumindo: uma equipe que tem domínio superficial do inglês necessariamente produz inglês de baixa qualidade, por não estar ciente das “pegadinhas” que o idioma pode apresentar (por exemplo: falsos cognatos). Mas ainda tem mais: é de conhecimento geral que programadores passam mais tempo lendo código do que escrevendo. E qualquer programador com alguma experiência vai concordar que ler código é bem mais difícil do que escrever. Ao forçar uma equipe sem desenvoltura na língua inglesa a trabalhar com uma base de código escrita nessa língua, estaríamos aumentando a barreira necessária para a compreensão do código, dificultando a manutenção e aumentando a chance de criação de bugs.</p>
 
-<p>O <a href="http://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html">Tiago Albineli Motta, do blog “Programando Sem Cafeína”</a>, traz um argumento bem interessante: de que o uso de idiomas diferentes prejudica a comunicação entre cliente e a equipe de desenvolvimento, principalmente quando o domínio do negócio é bastante específico. Para justificar, ele cita o exemplo de quando trabalhava em uma empresa que estava desenvolvimento um sistema para um laboratório geológico. Como os funcionários do laboratório usavam termos em português e a equipe de desenvolvimento em inglês, havia ruídos na comunicação.</p>
+<p>O <a href="https://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html">Tiago Albineli Motta, do blog “Programando Sem Cafeína”</a>, traz um argumento bem interessante: de que o uso de idiomas diferentes prejudica a comunicação entre cliente e a equipe de desenvolvimento, principalmente quando o domínio do negócio é bastante específico. Para justificar, ele cita o exemplo de quando trabalhava em uma empresa que estava desenvolvimento um sistema para um laboratório geológico. Como os funcionários do laboratório usavam termos em português e a equipe de desenvolvimento em inglês, havia ruídos na comunicação.</p>
 
 <p>Destaco um trecho interessante abaixo (destaque meu):</p>
 
@@ -168,7 +168,7 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
 
 <h3 id="e-não-é-tão-difícil-de-se-aprender-quanto-parece">E não é tão difícil de se aprender quanto parece</h3>
 
-<p>Estou convencido de que uma enorme inteligência não é requisito para aprender inglês. Muito menos pagar cursos caros em escolas renomadas, ou fazer intercâmbio. Então por que há tantas pessoas que querem aprender inglês e <a href="http://exame.abril.com.br/brasil/noticias/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking">tão poucas conseguem</a>?</p>
+<p>Estou convencido de que uma enorme inteligência não é requisito para aprender inglês. Muito menos pagar cursos caros em escolas renomadas, ou fazer intercâmbio. Então por que há tantas pessoas que querem aprender inglês e <a href="https://exame.abril.com.br/brasil/noticias/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking">tão poucas conseguem</a>?</p>
 
 <p>Em minha opinião, o primeiro motivo é que a maioria dessas pessoas não <em>querem</em> realmente. E o segundo…é simplesmente que elas estudam errado, colocando o foco, tempo e energia no lugar onde não deviam.</p>
 
@@ -212,13 +212,13 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
 
 <h2 id="referências">Referências</h2>
 <ul>
-  <li><a href="http://pt.stackoverflow.com/questions/301/devo-escrever-meu-programa-em-ingl%C3%AAs-ou-portugu%C3%AAs">http://pt.stackoverflow.com/questions/301/devo-escrever-meu-programa-em-ingl%C3%AAs-ou-portugu%C3%AAs</a></li>
-  <li><a href="http://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html">http://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html</a></li>
-  <li><a href="http://nsigustavo.blogspot.com.br/2009/09/que-idioma-devemos-utilizar-em-nosso.html">http://nsigustavo.blogspot.com.br/2009/09/que-idioma-devemos-utilizar-em-nosso.html</a></li>
+  <li><a href="https://pt.stackoverflow.com/questions/301/devo-escrever-meu-programa-em-ingl%C3%AAs-ou-portugu%C3%AAs">https://pt.stackoverflow.com/questions/301/devo-escrever-meu-programa-em-ingl%C3%AAs-ou-portugu%C3%AAs</a></li>
+  <li><a href="https://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html">https://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html</a></li>
+  <li><a href="https://nsigustavo.blogspot.com.br/2009/09/que-idioma-devemos-utilizar-em-nosso.html">https://nsigustavo.blogspot.com.br/2009/09/que-idioma-devemos-utilizar-em-nosso.html</a></li>
   <li><a href="https://blogdofernandocorreia.wordpress.com/2011/09/21/que-lingua-usar-para-nomes-do-dominio-de-negocio/">https://blogdofernandocorreia.wordpress.com/2011/09/21/que-lingua-usar-para-nomes-do-dominio-de-negocio/</a></li>
-  <li><a href="http://www.dev.mayogax.com/2014/02/a-polemica-questao-do-stack-overflow-em-portugues/">http://www.dev.mayogax.com/2014/02/a-polemica-questao-do-stack-overflow-em-portugues/</a></li>
-  <li><a href="http://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/">http://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/</a></li>
-  <li><a href="http://www.ventron.com.br/programar-em-portugues-ou-ingles/">http://www.ventron.com.br/programar-em-portugues-ou-ingles/</a></li>
+  <li><a href="https://www.dev.mayogax.com/2014/02/a-polemica-questao-do-stack-overflow-em-portugues/">https://www.dev.mayogax.com/2014/02/a-polemica-questao-do-stack-overflow-em-portugues/</a></li>
+  <li><a href="https://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/">https://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/</a></li>
+  <li><a href="https://www.ventron.com.br/programar-em-portugues-ou-ingles/">https://www.ventron.com.br/programar-em-portugues-ou-ingles/</a></li>
 </ul>
 
     
@@ -263,13 +263,6 @@ Recentemente conversei com um colega de trabalho e também com meu chefe a respe
         
         	    
             <a rel="next" class="next" href="/pt/testes-unitarios-iniciantes-parte1">Testes unitários para iniciantes - Parte 1 &rarr;</a>
-                
-         
-        
-        
-                
-        
-        
                 
          
         

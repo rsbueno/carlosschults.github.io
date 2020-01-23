@@ -23,7 +23,7 @@
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="pt_BR">  
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" />  
+  <meta property="og:image" content="https://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" />  
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1038"> 
   <meta property="og:image:height" content="437">  
@@ -97,12 +97,12 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" alt="" /></p>
 
 <p>Neste artigo, vamos continuar a ver algumas das features mais interessantes do C# 7.
 <!--more--></p>
 
-<p>Na <a href="http://carlosschults.net/pt/funcionalidades-csharp-7/">primeira parte da série</a>, nós falamos sobre algumas das novas features do C#, a saber: melhorias em literais, variáveis de saída, mais membros “<em>expression-bodied</em>” e throw expressions.</p>
+<p>Na <a href="https://carlosschults.net/pt/funcionalidades-csharp-7/">primeira parte da série</a>, nós falamos sobre algumas das novas features do C#, a saber: melhorias em literais, variáveis de saída, mais membros “<em>expression-bodied</em>” e throw expressions.</p>
 
 <p>Hoje nós veremos: <strong>Tuplas</strong> e <strong>Funções locais</strong>. Mas antes de continuarmos, quero deixar meu agradecimento ao amigo Gunter Italiano Ribeiro, que gentilmente revisou este artigo.</p>
 
@@ -130,7 +130,7 @@
 
 <p>Se você colocar o cursor sobre o nome da variável, você verá seu tipo descrito, não surpreendentemente, como <code class="highlighter-rouge">(ZipCode, bool)</code>.</p>
 
-<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png" alt="" /></p>
+<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png" alt="" /></p>
 
 <p>Você pode acessar cada elemento da tupla utilizando <code class="highlighter-rouge">zipParsingResult.Item1</code>, <code class="highlighter-rouge">zipParsingResult.Item2</code>, e assim por diante.</p>
 
@@ -158,7 +158,7 @@
 
 <h3 id="algumas-notas">Algumas notas</h3>
 
-<p>Tuplas são <a href="http://carlosschults.net/pt/tipos-valor-referencia-em-csharp/"><em>Tipos de Valor</em></a>. A igualdade nas tuplas é implementada da maneira que você provavelmente esperaria: duas tuplas são iguais se seus valores são iguais e elas retornam o mesmo <code class="highlighter-rouge">HashCode</code>. O nome dos elementos não é relevante.</p>
+<p>Tuplas são <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/"><em>Tipos de Valor</em></a>. A igualdade nas tuplas é implementada da maneira que você provavelmente esperaria: duas tuplas são iguais se seus valores são iguais e elas retornam o mesmo <code class="highlighter-rouge">HashCode</code>. O nome dos elementos não é relevante.</p>
 
 <script src="https://gist.github.com/carlosschults/4da3e29f9346a45aab9b5d9a583c6ac1.js"></script>
 
@@ -174,7 +174,7 @@
 
 <p>Você talvez esteja se perguntando: qual a razão de tanto barulho sobre tuplas, já que o .Net Framework tem o tipo de referência <code class="highlighter-rouge">System.Tuple</code> desde a versão 4.0? Por que não continuamos com o tipo mais antigo?</p>
 
-<p>Bem, <a href="http://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple">esta resposta no Stack Overflow explica muito bem (em inglês)</a>, então eu vou tentar resumir aqui.</p>
+<p>Bem, <a href="https://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple">esta resposta no Stack Overflow explica muito bem (em inglês)</a>, então eu vou tentar resumir aqui.</p>
 
 <p>Primeiramente, conforme já mencionado, o tipo mais antigo é um tipo de referência, e o novo tipo é um tipo de valor, com todas as implicações usuais que isso traz.</p>
 
@@ -240,7 +240,7 @@
 
 <p>As tuplas, por sua vez, podem ser exageradamente utilizadas em situações que requerem <em>objetos</em>, tornando o código mais procedural.</p>
 
-<p>Minha opinião com relação à isso é simples: toda e qualquer feature pode ser abusada. Cada a nós, profissionais, e às nossas equipe, exercermos o senso crítico na hora de utilizar essas (e outras) funcionalidades. Aliás, conforme mencionei no <a href="http://carlosschults.net/pt/metodos-privados-code-smell/">meu artigo sobre métodos privados</a>, revisão de código e/ou programação em par são de ótima ajuda em momentos como esse.</p>
+<p>Minha opinião com relação à isso é simples: toda e qualquer feature pode ser abusada. Cada a nós, profissionais, e às nossas equipe, exercermos o senso crítico na hora de utilizar essas (e outras) funcionalidades. Aliás, conforme mencionei no <a href="https://carlosschults.net/pt/metodos-privados-code-smell/">meu artigo sobre métodos privados</a>, revisão de código e/ou programação em par são de ótima ajuda em momentos como esse.</p>
 
 <p>Obrigado pela leitura, e até a próxima.</p>
 
@@ -255,13 +255,6 @@
     
       
     
-         
-        
-        
-                
-        
-        
-                
          
         
         

@@ -23,7 +23,7 @@
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="en_US">  
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" />  
+  <meta property="og:image" content="https://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" />  
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1038"> 
   <meta property="og:image:height" content="437">  
@@ -97,12 +97,12 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" alt="" /></p>
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg" alt="" /></p>
 
 <p>In this post we’ll see some more new features from C# 7.0.
 <!--more--></p>
 
-<p>In <a href="http://carlosschults.net/en/csharp-7-features/">the first part of this series</a>, we talked about some new features from C#, namely: literal improvements, out variables, more <em>expression-bodied</em> members and throw expressions.</p>
+<p>In <a href="https://carlosschults.net/en/csharp-7-features/">the first part of this series</a>, we talked about some new features from C#, namely: literal improvements, out variables, more <em>expression-bodied</em> members and throw expressions.</p>
 
 <p>Today we’ll see: <strong>Tuples</strong> and <strong>Local Functions</strong>. But before we go on, I’d like to thank my friend Gunter Italiano Ribeiro for reviewing this article.</p>
 
@@ -130,7 +130,7 @@
 
 <p>If you hover over the variable name, you’ll see its type described, unsurprisingly, as <code class="highlighter-rouge">(ZipCode, bool)</code>.</p>
 
-<p><img src="http://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png" alt="" /></p>
+<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png" alt="" /></p>
 
 <p>You can access each tuple element by using <code class="highlighter-rouge">zipParsingResult.Item1</code>, <code class="highlighter-rouge">zipParsingResult.Item2</code>, and son on.</p>
 
@@ -158,7 +158,7 @@
 
 <h3 id="some-notes">Some notes</h3>
 
-<p>Tuples are <a href="http://carlosschults.net/en/value-reference-types-in-csharp//"><em>Value Types</em></a>. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same <code class="highlighter-rouge">HashCode</code>. The names of the items are not relevant</p>
+<p>Tuples are <a href="https://carlosschults.net/en/value-reference-types-in-csharp//"><em>Value Types</em></a>. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same <code class="highlighter-rouge">HashCode</code>. The names of the items are not relevant</p>
 
 <script src="https://gist.github.com/carlosschults/c8200f265b19c59a117d8ad5c347805b.js"></script>
 
@@ -174,7 +174,7 @@
 
 <p>Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the <code class="highlighter-rouge">System.Tuple</code> reference type since its 4.0 version? Why don’t we just stick to the older type?</p>
 
-<p>Well, <a href="http://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple">this Stack Overflow answers it pretty well</a>, but I’ll try to summarize it here.</p>
+<p>Well, <a href="https://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple">this Stack Overflow answers it pretty well</a>, but I’ll try to summarize it here.</p>
 
 <p>Firstly, as already mentioned, the older type is a <em>reference type</em>, and the new one is a <em>value type</em>, with all the usual implications.</p>
 
@@ -248,7 +248,7 @@
 
 <p>Tuples, on the other hand, could be over-used in situations that require <em>objects</em>, making the code more procedural.</p>
 
-<p>My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in <a href="http://carlosschults.net/en/are-private-methods-a-code-smell/">my article about private methods</a>, code review and/or pair-programming can be of invaluable help in situations like these.</p>
+<p>My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in <a href="https://carlosschults.net/en/are-private-methods-a-code-smell/">my article about private methods</a>, code review and/or pair-programming can be of invaluable help in situations like these.</p>
 
 <p>Thanks for reading. See you next time.</p>
 
@@ -263,13 +263,6 @@
     
       
     
-         
-        
-        
-                
-        
-        
-                
          
         
         
