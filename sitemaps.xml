@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/en/sharpen-the-saw/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/sharpen-the-saw/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/afiando-a-serra/" />
+        
+        <lastmod>2020-06-16T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/pt/afiando-a-serra/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/sharpen-the-saw/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/afiando-a-serra/" />
+        
+        <lastmod>2020-06-16T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/programacao-funcional-csharp/</loc>
         
         
@@ -806,6 +834,22 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -905,6 +949,22 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1058,6 +1118,22 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1157,6 +1233,22 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1310,6 +1402,22 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1409,6 +1517,22 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1588,6 +1712,22 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1687,6 +1827,22 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/functional-programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -2379,6 +2535,110 @@
   
     
       <url>
+        <loc>/tag_ptbr/engenharia-de-software/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/engenharia-de-software/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/boas-pr%C3%A1ticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-pr%C3%A1ticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/programa%C3%A7%C3%A3o/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programa%C3%A7%C3%A3o/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/carreira/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/carreira/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/software-engineering/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software-engineering/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/best-practices/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best-practices/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/career-advice/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -3022,6 +3282,110 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao%20funcional/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao%20funcional/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/engenharia-de-software/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/engenharia-de-software/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/engenharia-de-software/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/boas-pr%C3%A1ticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-pr%C3%A1ticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/programa%C3%A7%C3%A3o/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programa%C3%A7%C3%A3o/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programa%C3%A7%C3%A3o/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/carreira/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/carreira/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/carreira/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/software-engineering/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/software-engineering/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/software-engineering/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/best-practices/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best-practices/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/best-practices/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/programming/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programming/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/career-advice/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
         <changefreq>weekly</changefreq>
       </url>

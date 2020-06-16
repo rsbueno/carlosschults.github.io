@@ -5,10 +5,137 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Mar 2020 20:56:16 -0300</pubDate>
-    <lastBuildDate>Tue, 10 Mar 2020 20:56:16 -0300</lastBuildDate>
+    <pubDate>Tue, 16 Jun 2020 13:14:51 -0300</pubDate>
+    <lastBuildDate>Tue, 16 Jun 2020 13:14:51 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Sharpen the Saw: 4 Quick Tips for Your Dev Team</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1592314350/sharpen-the-saw-1038x437_z9ermr.jpg&quot; alt=&quot;&quot; /&gt;
+Photo by Sven Brandsma on Unsplash&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the SubMain blog.  You can &lt;a href=&quot;https://blog.submain.com/sharpen-saw/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, have a look at CodeIt.Right, their automated code review tool.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Are you familiar with the expression “sharpen the saw” in the context of learning and continuous improvement? If you’ve read Stephen Covey’s &lt;a href=&quot;https://en.wikipedia.org/wiki/The_7_Habits_of_Highly_Effective_People&quot; title=&quot;The 7 Habits of Highly Effective People&quot;&gt;The 7 Habits of Highly Effective People&lt;/a&gt;, then I’m sure you are. For those unfamiliar with the term, it basically means to engage in practices that will make you better at your craft without necessarily involving the craft itself.&lt;/p&gt;
+
+&lt;p&gt;What can you as a tech lead, lead developer, or software architect do to encourage the developers on your team to sharpen their saws? That’s what we’ll to answer with this post. We’ll show you four quick, easy ways your team can improve their skills and deliver more value.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-sharpening-the-saw-by-reading-create-a-technical-book-club&quot;&gt;1. Sharpening the Saw by Reading: Create a Technical Book Club&lt;/h2&gt;
+
+&lt;p&gt;Wouldn’t it be awesome to have a team made up of incredibly well-informed people, who are up to date with the relevant, shiny new things and have solid knowledge on the fundamentals of our industry? Yeah, I thought so. And there’s no better way of achieving that than by reading.&lt;/p&gt;
+
+&lt;p&gt;What I suggest here is something very simple. Every month, you and your team choose an assigned read for the dev team. On which subject, you ask? Design patterns, concurrency, refactoring, unit testing—I’d say virtually anything is fair game, as long as the developers themselves are interested.&lt;/p&gt;
+
+&lt;p&gt;Oh, and before I forget: this probably goes without mentioning, but your company should &lt;em&gt;buy&lt;/em&gt; the developers copies of the chosen books. If you feel you can’t afford that, well, I don’t believe you’re going to have a company for very long, I’m afraid.&lt;/p&gt;
+
+&lt;p&gt;A less ideal solution would be to buy a copy of the book for one developer. Have them study the book in their spare time and then present their findings to the rest of the team by giving one or more internal talks. Then, select another book and another team member, and have that developer give the internal talk next month.&lt;/p&gt;
+
+&lt;p&gt;Now, speaking of internal talks…&lt;/p&gt;
+
+&lt;h2 id=&quot;2-sharpening-the-saw-by-talking-internal-presentations&quot;&gt;2. Sharpening the Saw by Talking: Internal Presentations&lt;/h2&gt;
+
+&lt;p&gt;Having the developers deliver internal talks to each other is a great way to spread knowledge throughout the company. For the developers giving the talk, it’s the perfect opportunity to get some hands-on practice with several skills, such as&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Coming up with a subject and doing the necessary research.&lt;/li&gt;
+  &lt;li&gt;Creating an appealing slide deck.&lt;/li&gt;
+  &lt;li&gt;Speaking in public, which can be a tough experience for many of us.&lt;/li&gt;
+  &lt;li&gt;Answering questions.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I could go on and on, but in short, they’ll be practicing the general skill of communication. That’s simply priceless. Giving internal talks can be great practice for speaking at conferences, for example.&lt;/p&gt;
+
+&lt;p&gt;And what’s on the table for the audience? Obviously, the learning opportunity. But I’ll add that, in the case of internal company talks, the probability of actually putting that knowledge you gained into use is much higher. Since the speakers are actually your coworkers—people who share context with you every day and are aware of the problems and challenges your company is facing—I’d say it’s very likely that they pick a topic that relates to the company.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-sharpening-the-saw-by-writing-create-and-maintain-an-engineering-blog&quot;&gt;3. Sharpening the Saw by Writing: Create and Maintain an Engineering Blog&lt;/h2&gt;
+
+&lt;p&gt;When your developers give internal talks, they’re teaching one another, which is fantastic. But what if they could spread this knowledge beyond just your shop, while at the same time improving their writing skills and ability to articulate an argument? What if they could do so while learning about things like content marketing and SEO? And while they’re at it, what if they could demonstrate the technical know-how of your company, positioning it as an expert on its domain area?&lt;/p&gt;
+
+&lt;p&gt;There’s a way to do just that, and it’s called blogging.&lt;/p&gt;
+
+&lt;p&gt;Start an engineering blog. Decide on the specifics, such as:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;What topics should be covered?&lt;/li&gt;
+  &lt;li&gt;How frequently will you publish?&lt;/li&gt;
+  &lt;li&gt;Who will the authors be?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;It would make sense if, at least at the beginning, the developers who are naturally better writers were the blog’s authors. But since the goal here is to learn—to sharpen the saw—the ideal scenario is one in which every developer gets a chance to hone their writing chops.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-sharpening-the-saw-by-programming-hold-in-company-coding-dojos&quot;&gt;4. Sharpening the Saw by Programming: Hold In-Company Coding Dojos&lt;/h2&gt;
+
+&lt;p&gt;A &lt;a href=&quot;http://codingdojo.org/&quot;&gt;coding dojo&lt;/a&gt;is a kind of training session for programmers in which they rotate in pairs, working in a collaborative manner on the same problem. The inspiration for the name comes from the martial arts. The goal of a coding dojo isn’t necessarily to solve the problem?but to develop both engineering skills, such as unit testing/TDD, and social skills, such as &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;pair programming.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To hold a coding dojo, you’re going to need the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Space.&lt;/strong&gt; You need a?room large enough to hold from five to 15 people. (Some people say 20 people for a coding dojo is acceptable, but IMHO, this is way too much). Since we’re talking about sharpening your team’s saws, an office or meeting room at your company will probably do.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A computer&lt;/strong&gt;. It could be a desktop computer or laptop; it doesn’t matter, as long as it’s placed on a desk with two chairs, where two people can sit and collaborate comfortably together.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;A projector or a large monitor&lt;/strong&gt;. All of the participants need to watch what’s going on at any given moment.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Snacks and beverages!&lt;/strong&gt; A coding dojo should be a bonding experience, and human beings love to connect over food and drink. And &lt;a href=&quot;https://www.artima.com/weblogs/viewpost.jsp?thread=4414&quot;&gt;programmers are human beings&lt;/a&gt;, last time I checked. Just be considerate of those with dietary restrictions, and you should be good.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So, let’s say you’re actually doing this thing. You’ve assembled the needed gear, and people have shown up at the agreed-upon location. What now?&lt;/p&gt;
+
+&lt;p&gt;Well, first things first. You need a problem! But not all programming challenges make a good coding dojo problem. As I said earlier, solving the problem isn’t necessarily the goal—rather, it’s more about practicing engineering skills such as TDD and pair programming. So, writing a compiler from scratch isn’t going to cut it. But implementing a converter to roman numerals might work quite well.&lt;/p&gt;
+
+&lt;p&gt;What makes for a good coding dojo problem?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;It’s small, so it’s feasible to solve it in a relatively short time.&lt;/li&gt;
+  &lt;li&gt;It lends itself well to TDD.&lt;/li&gt;
+  &lt;li&gt;It’s finite and well-defined. Vague, open-ended challenges won’t do.&lt;/li&gt;
+  &lt;li&gt;It’s based on a real-world problem, not an abstract one.&lt;/li&gt;
+  &lt;li&gt;It’s different from the challenges you solve at your day job.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You don’t really need to worry about finding good problems, though. The &lt;a href=&quot;http://codingdojo.org/KataCatalogue/&quot;&gt;web’s got your back.?&lt;/a&gt;There are &lt;a href=&quot;http://codekata.pragprog.com/&quot;&gt;plenty&lt;/a&gt; of &lt;a href=&quot;https://sites.google.com/site/tddproblems/&quot;&gt;sources&lt;/a&gt; for &lt;a href=&quot;https://code.joejag.com/coding-dojo/example-katas/&quot;&gt;problems&lt;/a&gt; out there.&lt;/p&gt;
+
+&lt;p&gt;With choosing the problem out of the way, it’s time to pick a language to work on. You don’t need to use the same language you use every day at your job. In fact, it’s nice to use the coding dojo as an opportunity to try out different languages. This can help make things fresh and more challenging. Just don’t forget to have a person who’s knowledgeable about this language around so they can help when the group hits obstacles.&lt;/p&gt;
+
+&lt;p&gt;Now,?to start, you’ll need two volunteers: one to be the driver and one to be the co-pilot. These terms come from pair programming. The driver is the person who’s typing, and the co-pilot gives advice and feedback. The remaining people are the audience, at least for now. Ideally, everyone in a coding dojo session should write code.&lt;/p&gt;
+
+&lt;p&gt;So, with everyone in their places, the fun begins. The driver starts coding, using TDD’s red-green-refactor cycle:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;First, they write a failing test.&lt;/li&gt;
+  &lt;li&gt;Then, they write just the smallest possible amount of code that will make the test pass.&lt;/li&gt;
+  &lt;li&gt;When the test is passing, it’s time to refactor. Only in this phase?are people in the audience are allowed to speak, giving advice and feedback to help the driver better refactor the code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;At the end of a?previously-established time period (five to ten?minutes), the driver stops coding and returns to the audience. The copilot becomes the driver, and a new member of the audience becomes the copilot.&lt;/p&gt;
+
+&lt;p&gt;This cycle continues until everyone in the room had written code or the allotted time for the session expires—whatever comes first.&lt;/p&gt;
+
+&lt;h3 id=&quot;retrospective&quot;&gt;Retrospective&lt;/h3&gt;
+
+&lt;p&gt;As soon as the coding session itself is done, take some time to do a retrospective. Ask the participants about the things they liked and didn’t like about the session, and write it all down. These two lists will serve as a guideline for what to do and not to do in your future coding dojos.&lt;/p&gt;
+
+&lt;h2 id=&quot;start-sharpening-your-sawand-your-teams-sawright-away&quot;&gt;Start Sharpening Your Saw—and Your Team’s Saw—Right Away!&lt;/h2&gt;
+
+&lt;p&gt;Software development is a profession of practice. It requires continuous learning—or should I say, continuous saw-sharpening. Beyond the tips I’ve just given you, there are plenty of other ways to sharpen your saw. In fact, you’re doing one of them right now. You’re reading a tech blog!&lt;/p&gt;
+
+&lt;p&gt;From &lt;a href=&quot;https://blog.submain.com/category/rulesexplained/&quot;&gt;in-depth tutorials on tools like CodeIt.Right&lt;/a&gt; that can help your team write better code?to &lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;insights about best practices&lt;/a&gt;?to even tips about things &lt;a href=&quot;https://blog.submain.com/4-common-datetime-mistakes-c-avoid/&quot;&gt;you might have taken for granted&lt;/a&gt;, there’s no shortage of interesting and useful topics you can learn about by reading a good tech blog.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading, and happy sharpening!&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 16 Jun 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/sharpen-the-saw/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/sharpen-the-saw/</guid>
+        
+        <category>software-engineering</category>
+        
+        <category>best-practices</category>
+        
+        <category>programming</category>
+        
+        <category>career-advice</category>
+        
+        
+      </item>
     
       <item>
         <title>Functional Programming in C#: Map, Filter, and Reduce Your Way to Clean Code</title>
@@ -1574,287 +1701,6 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
         <category>csharp</category>
         
         <category>beginners</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Git basics for TFS/TFVC users</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1491343925/git-for-tfs-users-1038x437_ios03n.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Learning Git can be a bit challenging for developers with a background in centralized version control systems. But it doesn’t have to be that way.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;Git is becoming (or &lt;em&gt;has already become&lt;/em&gt;, many would say) the &lt;em&gt;de facto&lt;/em&gt; standard version control system of the industry. It was created in 2005 by Linus Torvalds to manage the source code from the Linux kernel, and since then its adoption has been growing phenomenally, specially after &lt;a href=&quot;github.com&quot;&gt;Github&lt;/a&gt; showed up.&lt;/p&gt;
-
-&lt;p&gt;However, even after all this time, there are some myths about Git that just won’t die. One of them is that Git is super hard to learn. From my experience, I can say that this isn’t true.&lt;/p&gt;
-
-&lt;p&gt;Git was meant to provide a lot of power and flexibility to its users. It certainly allows you to use it in more complex or sophisticate ways. But in practice, the basic commands you will use to get your daily work done are not that hard to learn.&lt;/p&gt;
-
-&lt;p&gt;That being said, Git’s learning curve &lt;em&gt;may&lt;/em&gt; present some challenging to people that are used to centralized systems. I think it’s human nature to try to find patterns and to map concepts between what you already know and what you’re trying to learn; but there are significant differences and this “mapping” often results in frustration.&lt;/p&gt;
-
-&lt;p&gt;With that in mind, I’ve decided to write a series of posts to try to help developers who are coming from centralized systems (specifically TFS/TFVC) and trying to learn Git. I don’t intend by any means to exhaust the subject. Quite the opposite: when necessary, I’ll provide links for more in-depth explanations of certain topics.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-quick-note-about-naming&quot;&gt;A quick note about naming&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;TFS&lt;/strong&gt; stands for Team Foundation Server. It is a Microsoft product that offers capabilities such as project management, requirement management, build automation and release management.&lt;/p&gt;
-
-&lt;p&gt;TFS also offers version control capabilities. Since TFS 2013 there has been native support for Git, but before that it was only possible by using TFS’s own version control system, which is called &lt;strong&gt;Team Foundation Version Control (TFVC)&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, &lt;strong&gt;TFS&lt;/strong&gt; refers to the complete application life-cycle management solution. The version control system itself is called &lt;strong&gt;TFVC&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;However, in this article I’ll be calling the version control system “TFS” since many developers colloquially call it that way.&lt;/p&gt;
-
-&lt;h2 id=&quot;commit--check-in&quot;&gt;Commit != Check-in&lt;/h2&gt;
-
-&lt;p&gt;Being a centralized system, TFS presents a reasonably simple workflow, which usually consists of three steps:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Get the most updated version of the source code;&lt;/li&gt;
-  &lt;li&gt;Make the necessary changes;&lt;/li&gt;
-  &lt;li&gt;Send the code with the changes back to the server.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;So, you can see that the “check-in” command in practice has two meaning associated with it: “saving” changes and “sending” those changes to the server.&lt;/p&gt;
-
-&lt;p&gt;What I notice is that this notion of “&lt;strong&gt;I’m going to send my changes to the server&lt;/strong&gt;” is a little bit hard to let go when you’re making the transition.&lt;/p&gt;
-
-&lt;p&gt;Remember: &lt;strong&gt;In Git there is no such thing as a central server&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;What you have instead are &lt;em&gt;remote repositories&lt;/em&gt;, usually called just &lt;em&gt;remotes&lt;/em&gt;. You can have as much remotes as you want to. And they don’t necessarily have to be that remote. Yes, they could be on GitHub or something similar. But they could also be located on your coworker’s machine, on some network drive, or even on another folder in your own machine.&lt;/p&gt;
-
-&lt;p&gt;When your work in a team it’s common to set up a repository that is considered, for organization means, the official repository, which holds the code’s true and current state.&lt;/p&gt;
-
-&lt;p&gt;One more time: in Git doesn’t have a technical concept of a central repository; what’s described above is a &lt;strong&gt;convention&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;With that in mind, let’s practice some Git commands so you can get used to them. Today we’re not seeing anything regarding remotes, server, nothing like that: just local commands.&lt;/p&gt;
-
-&lt;h2 id=&quot;downloading-and-installing&quot;&gt;Downloading and installing&lt;/h2&gt;
-
-&lt;p&gt;Some people say that using Git on Windows used to be a pain. Fortunately, that isn’t the case anymore, as you’ll see.&lt;/p&gt;
-
-&lt;p&gt;First, &lt;a href=&quot;https://git-scm.com/download/win&quot;&gt;download Git for Windows&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Double-click, next, next, you know the drill. There shouldn’t be a problem if you just choose all the default options. However, the following option might be useful:
-&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1491350434/git1_xek0vv.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When you get to this screen, choosing the second option you allow you to use Git from the Windows command prompt, and not only from Git Bash.&lt;/p&gt;
-
-&lt;h2 id=&quot;basic-configuration&quot;&gt;Basic Configuration&lt;/h2&gt;
-
-&lt;p&gt;After you’re done installing Git, it’s time to configure your identity, which consists in telling Git your name and email so it can associate them with each commit you make.&lt;/p&gt;
-
-&lt;p&gt;In order to do that, let’s use Git Bash. Locate “Git Bash” on Start Menu and run it. Git Bash’s window will be shown.&lt;/p&gt;
-
-&lt;p&gt;Type the following commands:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git config –global user.name “Your Name”&lt;/p&gt;
-
-  &lt;p&gt;git config –global user.email “email@example.com”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;There are a lot of other configurations available, but this is enough for you to be able to explore Git.&lt;/p&gt;
-
-&lt;h2 id=&quot;creating-your-first-repository&quot;&gt;Creating your first repository&lt;/h2&gt;
-
-&lt;p&gt;Using Git Bash, let’s create a folder and access it:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;mkdir repo&lt;/p&gt;
-
-  &lt;p&gt;cd repo&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now it’s time to create the repo:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git init&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After running this command, you’ll see the following message:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Initialized empty Git repository in C:/Users/your-name/repo/.git/&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Git Bash prompt should be showing you something like this:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;User@Machine MINGW64 ~/repo (master)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Nothing mysterious: logged user, current location and current branch. In Git, the standard branch is called &lt;em&gt;master&lt;/em&gt;. In the next post we’ll learn some basic operations in branches, but for now we’ll be using just master.&lt;/p&gt;
-
-&lt;h2 id=&quot;some-commands&quot;&gt;Some commands&lt;/h2&gt;
-
-&lt;p&gt;OK, now you’ve got your repository, time to learn some commands. Let’s starting with one that you’ll probably use a lot: &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt;. This command allow you to visualize the current status of your repo.&lt;/p&gt;
-
-&lt;p&gt;When you run it you should see the following message:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On branch master&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Initial commit&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;nothing to commit (create/copy files and use “git add” to track)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That is:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;current branch;&lt;/li&gt;
-  &lt;li&gt;which is waiting for your first commit;&lt;/li&gt;
-  &lt;li&gt;it shows what will go in the commit - which in this case is nothing, since we haven’t made any changes.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Git even tell us what the next possible step is, i.e. create or copy files and the use &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; to track them (don’t worry for now about what this “tracking” thing means).&lt;/p&gt;
-
-&lt;p&gt;Let’s create a file.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;echo test &amp;gt; arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again and you’ll see that this time the message is different:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Untracked files:
-(use “git add &lt;file&gt;...&quot; to include in what will be committed)&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;arq1.txt&lt;/p&gt;
-
-  &lt;p&gt;nothing added to commit but untracked files present (use “git add” to track)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Some new concepts here, starting with “Untracked files”. Git can see our new file but it will not include it in the next commit.&lt;/p&gt;
-
-&lt;p&gt;Again, Git tell us what to do next. Follow its advice and run the following command:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git add arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again and look at the response:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Changes to be committed:&lt;/p&gt;
-
-  &lt;p&gt;(use “git rm –cached &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;new file:   arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;For now ignore this:&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;use “git rm –cached &lt;file&gt;...&quot; to unstage&lt;/file&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Now we can see that the added file is ready to be commited. So, let’s do it!&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git commit -m “First commit”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The command below creates our first commit. The &lt;code class=&quot;highlighter-rouge&quot;&gt;-m&lt;/code&gt; parameter is used to specify a commit message, which is essential for understanding the history of the project.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On branch master&lt;/p&gt;
-
-  &lt;p&gt;nothing to commit, working directory clean&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Let’s now edit our file. Open it using notepad or another text editor of your preference and add the following line:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;adding a new line&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;On branch master
-Changes not staged for commit:
-(use “git add &lt;file&gt;...&quot; to update what will be committed)
- (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)&lt;/file&gt;&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
-
-  &lt;p&gt;no changes added to commit (use “git add” and/or “git commit -a”)&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The message is familiar, but slightly different from the the previous ones. As you’re probably expecting by now, she ends offering us a suggestion for the next step. Let’s follow the suggestion:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git add arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;As you can see, this is the same &lt;code class=&quot;highlighter-rouge&quot;&gt;add&lt;/code&gt; command we’ve already used, when the file was still in the “untracked” phase. Even tough the command is the same, its meaning is slightly different here. We’ll cover this difference in the future as well.&lt;/p&gt;
-
-&lt;p&gt;Run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; again, message, you should know the drill by now:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Changes to be committed:
-(use “git reset HEAD &lt;file&gt;...&quot; to unstage)&lt;/file&gt;&lt;/p&gt;
-
-  &lt;p&gt;modified:   arq1.txt&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The message is very similar with one we’ve already seen, but notice that our file now is in the “modified” stage, instead of “new file”, which makes perfect sense.&lt;/p&gt;
-
-&lt;p&gt;It’s not hard to guess what’s coming next:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;git commit -m “Second commit: add second line”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;To wrap things up, run &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; and you’ll see a familiar message: working directory clean, nothing to commit.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;I kept this article extremely simple, and that was by design. My intention was to show you some basic Git commands, so you can get the “feel” of what using Git is like.&lt;/p&gt;
-
-&lt;p&gt;Notice that there is an easily perceptible pattern in the commands we ran:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;you create an file&lt;/li&gt;
-  &lt;li&gt;“add it”&lt;/li&gt;
-  &lt;li&gt;commit&lt;/li&gt;
-  &lt;li&gt;edit it&lt;/li&gt;
-  &lt;li&gt;“add it”&lt;/li&gt;
-  &lt;li&gt;commit again&lt;/li&gt;
-  &lt;li&gt;and son on&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Where I’ve wrote “add it”, you know I’m talking about the &lt;code class=&quot;highlighter-rouge&quot;&gt;git add&lt;/code&gt; command. You might have noticed that this particular command has two different usages, which is clearly evidenced by the different messages that &lt;code class=&quot;highlighter-rouge&quot;&gt;git status&lt;/code&gt; shows us after running it.&lt;/p&gt;
-
-&lt;p&gt;You’ve probably also noticed the different stags that a file can be in: “untracked”, “new file”, “modified”. they progress from one stage to the next one, like in a pipeline.&lt;/p&gt;
-
-&lt;p&gt;In the next article of the series we’ll go a little more deep in this issues. We’ll understand the different “areas” that exist in a Git repository. We’ll understand Git’s basic workflow, and the stages our files can be in.&lt;/p&gt;
-
-&lt;p&gt;We’ll also start to see one of the more important Git’s concepts: branches. We’ll see some common operations involving branches, and you’ll also learn how Git branches are different from those in TFS.&lt;/p&gt;
-
-&lt;p&gt;See you soon!&lt;/p&gt;
-</description>
-        <pubDate>Tue, 04 Apr 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/git-basics-for-tfs-users</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/git-basics-for-tfs-users</guid>
-        
-        <category>version-control-system</category>
-        
-        <category>git</category>
-        
-        <category>tfs</category>
-        
-        <category>tfvcs</category>
         
         
       </item>

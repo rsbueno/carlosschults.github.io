@@ -5,10 +5,137 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 10 Mar 2020 20:56:16 -0300</pubDate>
-    <lastBuildDate>Tue, 10 Mar 2020 20:56:16 -0300</lastBuildDate>
+    <pubDate>Tue, 16 Jun 2020 13:14:51 -0300</pubDate>
+    <lastBuildDate>Tue, 16 Jun 2020 13:14:51 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Afiando a Serra: 4 Dicas Rápidas Para Sua Equipe</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1592314350/sharpen-the-saw-1038x437_z9ermr.jpg&quot; alt=&quot;&quot; /&gt;
+Photo de Sven Brandsma no Unsplash&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da SubMain. Caso lhe interesse, você pode &lt;a href=&quot;https://blog.submain.com/sharpen-saw/&quot;&gt;ler o post original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, aproveite para dar uma olhada no CodeIt.Right, uma ferramenta para automatizar revisões de código.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Você está familiarizado com a expressão “afiar a serra” no contexto de aprendizagem e melhoria contínua? Se você leu o livro de Stephen Covey chamado &lt;a href=&quot;https://pt.wikipedia.org/wiki/Os_Sete_H%C3%A1bitos_das_Pessoas_Altamente_Eficazes&quot; title=&quot;Os Sete Hábitos das Pessoas Altamente Eficazes&quot;&gt;“Os Sete Hábitos das Pessoas Altamente Eficazes”&lt;/a&gt;, então tenho certeza que você está. Para quem não está familiarizado com o termo, significa basicamente se engajar em práticas que o tornarão melhor em sua profissão ou arte.&lt;/p&gt;
+
+&lt;p&gt;O que você como líder técnico, desenvolvedor líder ou arquiteto de software pode fazer para incentivar os desenvolvedores de sua equipe a “afiar suas serra”? Isso é o que vamos responder com este post. Vamos mostrar a você quatro maneiras rápidas e fáceis de sua equipe melhorar suas habilidades e agregar mais valor.&lt;/p&gt;
+
+&lt;h2 id=&quot;1-afiando-a-serra-pela-leitura-criar-um-clube-do-livro-técnico&quot;&gt;1. Afiando a Serra pela Leitura: Criar um Clube do Livro Técnico&lt;/h2&gt;
+
+&lt;p&gt;Não seria fantástico ter uma equipe formada por pessoas incrivelmente bem informadas, atualizadas com as novidades relevantes, e com sólidos conhecimentos sobre os fundamentos da nossa indústria? Sim, eu pensei que sim. E não há melhor maneira de conseguir isso do que lendo.&lt;/p&gt;
+
+&lt;p&gt;O que eu sugiro aqui é algo muito simples. Todos os meses, você e sua equipe escolhem uma leitura designada para a equipe de desenvolvimento. Sobre que assunto, você pergunta? Padrões de design, concorrência, refatoração, teste unitário - eu diria que praticamente tudo é jogo justo, desde que os próprios desenvolvedores estejam interessados.&lt;/p&gt;
+
+&lt;p&gt;Ah, e antes que eu esqueça: isso provavelmente não precisa ser mencionado, mas sua empresa deve &lt;em&gt;comprar&lt;/em&gt; aos desenvolvedores cópias dos livros escolhidos. Se você sente que não pode pagar isso, bem, eu não acredito que você vai ter uma empresa por muito tempo, pra ser sincero.&lt;/p&gt;
+
+&lt;p&gt;Uma solução menos ideal seria comprar uma cópia do livro para um desenvolvedor. Peça que estudem o livro em seu tempo livre e depois apresentem suas descobertas para o resto da equipe, dando uma ou mais palestras internas. Em seguida, selecione outro livro e outro membro da equipe, e peça a esse desenvolvedor que dê a palestra interna no próximo mês.&lt;/p&gt;
+
+&lt;p&gt;Agora, falando em conversas internas…&lt;/p&gt;
+
+&lt;h2 id=&quot;2-afiando-a-serra-através-de-palestras-apresentações-internas&quot;&gt;2. Afiando a Serra Através de Palestras: Apresentações Internas&lt;/h2&gt;
+
+&lt;p&gt;Fazer com que os desenvolvedores façam palestras internas uns com os outros é uma ótima maneira de disseminar o conhecimento por toda a empresa. Para os desenvolvedores que dão a palestra, é a oportunidade perfeita para praticar várias habilidades, tais como:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Aprender um assunto e fazer as pesquisas necessárias.&lt;/li&gt;
+  &lt;li&gt;Criar slides bem feitos.&lt;/li&gt;
+  &lt;li&gt;Falar em público, o que pode ser uma experiência difícil para muitos de nós.&lt;/li&gt;
+  &lt;li&gt;Responder perguntas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Eu poderia continuar, mas em resumo, eles estarão praticando a habilidade geral de comunicação. Isso simplesmente não tem preço. Dar palestras internas pode ser uma ótima prática para falar em conferências, por exemplo.&lt;/p&gt;
+
+&lt;p&gt;E qual a vantagem para quem assiste a palestra? Obviamente, a oportunidade de aprendizado. Mas vou acrescentar que, no caso das conversas internas da empresa, a probabilidade de realmente colocar em uso esse conhecimento que você adquiriu é muito maior. Como os palestrantes são na verdade seus colegas de trabalho - pessoas que compartilham o contexto com você todos os dias e estão cientes dos problemas e desafios que sua empresa está enfrentando - eu diria que é muito provável que eles escolham um tópico que se relacione com a empresa.&lt;/p&gt;
+
+&lt;h2 id=&quot;3-afiando-a-serra-com-a-escrita-criar-e-manter-um-blog-de-tecnologia&quot;&gt;3. Afiando a Serra Com a Escrita: Criar e Manter um Blog de Tecnologia&lt;/h2&gt;
+
+&lt;p&gt;Quando seus desenvolvedores dão palestras internas, eles estão ensinando uns aos outros, o que é fantástico. Mas e se eles pudessem disseminar esse conhecimento para além da sua empersa, ao mesmo tempo em que melhoram a sua capacidade de escrita e de articular um argumento? E se eles pudessem fazer isso enquanto aprendem sobre coisas como marketing de conteúdo e SEO? Melhor ainda, e se eles pudessem demonstrar o know-how técnico de sua empresa, posicionando-a como especialista em sua área de domínio?&lt;/p&gt;
+
+&lt;p&gt;Há uma maneira de fazer exatamente isso, e chama-se blogging.&lt;/p&gt;
+
+&lt;p&gt;Inicie um blog de engenharia de software. Decida sobre as especificidades, como por exemplo:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quais tópicos devem ser abordados?&lt;/li&gt;
+  &lt;li&gt;Com que freqüência você vai publicar?&lt;/li&gt;
+  &lt;li&gt;Quem serão os autores?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Faria sentido se, pelo menos no início, os desenvolvedores que são naturalmente melhores escritores fossem os autores do blog. Mas como o objetivo aqui é aprender a afiar a serra - o cenário ideal é aquele em que todo desenvolvedor tem a chance de afiar suas costeletas de escrita.&lt;/p&gt;
+
+&lt;h2 id=&quot;4-afiação-da-serra-por-programação-coding-dojos-na-empresa&quot;&gt;4. Afiação da Serra por Programação: Coding Dojos Na Empresa&lt;/h2&gt;
+
+&lt;p&gt;Um &lt;a href=&quot;http://codingdojo.org/&quot;&gt;coding dojo&lt;/a&gt; é uma espécie de sessão de treinamento na qual as pessoas revezam em pares, trabalhando de forma colaborativa sobre o mesmo problema. A inspiração para o nome vem das artes marciais. O objetivo de um dojo não é necessariamente resolver o problema… mas desenvolver tanto habilidades de engenharia, como testes unitários/TDD, quanto habilidades sociais, como &lt;a href=&quot;https://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/&quot;&gt;programação em pares&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Para realizar um dojo de codificação, você vai precisar do seguinte:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Espaço.&lt;/strong&gt; Você precisa de um lugar grande o suficiente para acomodar de 5 a 15 pessoas. (Algumas pessoas dizem que 20 pessoas para um dojo codificador é aceitável, mas IMHO, isso é demais). Já que estamos falando em afiar as serras da sua equipe, um escritório ou sala de reuniões na sua empresa provavelmente serve.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;em&gt;Um computador&lt;/em&gt;**. Pode ser um computador desktop ou laptop; não importa, desde que seja colocado em uma mesa com duas cadeiras, onde duas pessoas possam sentar-se e colaborar confortavelmente juntas.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Um projetor ou um monitor grande&lt;/em&gt;**. Todos os participantes precisam observar o que está acontecendo em um determinado momento.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;Lanches!&lt;/em&gt; Um dojo codificador deve ser uma experiência de união, e os seres humanos adoram se conectar sobre a comida e a bebida. E &lt;a href=&quot;https://www.artima.com/weblogs/viewpost.jsp?thread=4414&quot;&gt;os programadores são seres humanos&lt;/a&gt;, da última vez que verifiquei. Basta ser atencioso com aqueles com restrições alimentares e tudo vai dar certo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Então, você resolveu fazer isso. Você montou o equipamento necessário, e as pessoas apareceram no local combinado. E agora?&lt;/p&gt;
+
+&lt;p&gt;Bem, começando do começo. Você precisa de um problema! Mas nem todos os desafios de programação são um bom problema de codificação do dojo. Como eu disse anteriormente, resolver o problema não é necessariamente o objetivo, mas sim praticar habilidades de engenharia como TDD e programação em pares. Então, escrever um compilador a partir do zero não rola. Mas implementar um conversor para numerais romanos pode funcionar muito bem.&lt;/p&gt;
+
+&lt;p&gt;Quais são as características de um bom problema para um coding dojo?&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;É pequeno, então é viável resolvê-lo em um tempo relativamente curto.&lt;/li&gt;
+  &lt;li&gt;Empresta-se bem à TDD.&lt;/li&gt;
+  &lt;li&gt;É finito e bem definido. Desafios vagos e em aberto não servem.&lt;/li&gt;
+  &lt;li&gt;É baseado em um problema do mundo real, não um problema abstrato.&lt;/li&gt;
+  &lt;li&gt;É diferente dos desafios que você resolve no seu trabalho diário.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Você não precisa se preocupar em encontrar bons problemas, no entanto. A &lt;a href=&quot;http://codingdojo.org/KataCatalogue/&quot;&gt;web resolve seu problema&lt;/a&gt;Ela &lt;a href=&quot;http://codekata.pragprog.com/&quot;&gt;está cheia&lt;/a&gt; de &lt;a href=&quot;https://sites.google.com/site/tddproblems/&quot;&gt;fontes&lt;/a&gt; para &lt;a href=&quot;https://code.joejag.com/coding-dojo/example-katas/&quot;&gt;problemas&lt;/a&gt; lá fora.&lt;/p&gt;
+
+&lt;p&gt;Com a escolha do problema fora do caminho, é hora de escolher uma linguagem de programação. Você não precisa usar a mesma linguagem que você usa todos os dias em seu trabalho. Na verdade, é bom usar o dojo como uma oportunidade para experimentar diferentes linguagens. Isso pode ajudar a tornar as coisas novas e mais desafiadoras. Só não se esqueça de ter por perto uma pessoa que conheça bem essa linguagem para que ela possa ajudar quando o grupo tiver dúvidas.&lt;/p&gt;
+
+&lt;p&gt;Agora, para começar, você vai precisar de dois voluntários: um para ser o motorista e outro para ser o co-piloto. Estes termos vêm da programação em pares. O motorista é a pessoa que está digitando, e o co-piloto dá conselhos e feedback. As demais pessoas são o público, pelo menos por enquanto. O ideal seria que todos em uma sessão de dojo escrevessem código.&lt;/p&gt;
+
+&lt;p&gt;Então, com todos em seus lugares, a diversão começa. O motorista começa a codificar, usando o ciclo vermelho-verde-refatorar da TDD:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Primeiro, a pessoa que está na posição de motorista escreve um teste que falha.&lt;/li&gt;
+  &lt;li&gt;Então, ela escreve apenas a menor quantidade possível de código que vai fazer o teste passar.&lt;/li&gt;
+  &lt;li&gt;Quando o teste está passando, é hora de refatorar. Somente nesta fase as pessoas na platéia têm permissão para falar, dando conselhos e feedback para ajudar o motorista a refatorar melhor o código.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Ao final de um período de tempo previamente estabelecido (cinco a dez minutos), o motorista pára de codificar e retorna à audiência. O co-piloto torna-se o motorista, e um novo membro da audiência torna-se o co-piloto.&lt;/p&gt;
+
+&lt;p&gt;Este ciclo continua até que todos na sala tenham escrito o código ou até que o tempo previsto para a sessão expire - o que vier primeiro.&lt;/p&gt;
+
+&lt;h3 id=&quot;retrospectiva&quot;&gt;Retrospectiva&lt;/h3&gt;
+
+&lt;p&gt;Assim que a sessão de codificação propriamente dita estiver concluída, dedique algum tempo para fazer uma retrospectiva. Pergunte aos participantes sobre as coisas que eles gostaram e não gostaram da sessão, e escreva tudo isso. Estas duas listas servirão como uma diretriz para o que fazer e não fazer em seus futuros dojos de codificação.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;O desenvolvimento de software é uma profissão de prática. Requer aprendizagem contínua - ou melhor, afiação contínua da serra. Além das dicas que acabei de lhe dar, há muitas outras maneiras de afiar sua serra. Na verdade, você está fazendo um deles agora mesmo. Você está lendo um blog técnico!&lt;/p&gt;
+
+&lt;p&gt;Desde &lt;a href=&quot;https://blog.submain.com/category/rulesexplained/&quot;&gt;tutoriais aprofundados sobre ferramentas como CodeIt.Right&lt;/a&gt; que podem ajudar sua equipe a escrever melhor código?até &lt;a href=&quot;https://blog.submain.com/coding-best-practices-short-time/&quot;&gt;insights sobre melhores práticas&lt;/a&gt;?até mesmo dicas sobre coisas &lt;a href=&quot;https://blog.submain.com/4-common-datetime-mistakes-c-avoid/&quot;&gt;você pode ter tomado como certo&lt;/a&gt;, não faltam tópicos interessantes e úteis que você pode aprender lendo um bom blog sobre tecnologia.&lt;/p&gt;
+
+&lt;p&gt;Obrigado pela leitura!&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 16 Jun 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/afiando-a-serra/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/afiando-a-serra/</guid>
+        
+        <category>engenharia-de-software</category>
+        
+        <category>boas-práticas</category>
+        
+        <category>programação</category>
+        
+        <category>carreira</category>
+        
+        
+      </item>
     
       <item>
         <title>Programação Funcional em C#: Mapeando, Filtrando e Reduzindo Em Busca de Código Limpo</title>
@@ -1523,300 +1650,6 @@ Se você tem uma lista de coisas para estudar, remova Kotlin/programação funci
         <category>boas práticas</category>
         
         <category>inglês</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Testes Unitários Para Iniciantes - Parte 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Antes tarde do que mais tarde! Hora de continuar nossa série sobre testes unitários para iniciantes. Hoje você vai escrever seu primeiro teste unitário.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introdução&quot;&gt;Introdução&lt;/h2&gt;
-
-&lt;p&gt;No &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro artigo nesta série&lt;/a&gt; eu defini o que são testes unitários, e também falei dos benefícios de sua utilização.&lt;/p&gt;
-
-&lt;p&gt;Hoje você vai aprender, na prática, como criar testes unitários. Vou mostrar como instalar e utilizar o framework de testes &lt;strong&gt;NUnit&lt;/strong&gt;. E depois vamos criar alguns testes para você conhecer algumas das features deste framework.&lt;/p&gt;
-
-&lt;h2 id=&quot;instalando-o-nunit&quot;&gt;Instalando o NUnit&lt;/h2&gt;
-
-&lt;p&gt;Como eu expliquei no &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;primeiro post da série&lt;/a&gt;, para utilizar testes unitários na sua aplicação você necessita de um &lt;strong&gt;Framework de Testes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;O framework que vamos utilizar é o &lt;strong&gt;NUnit&lt;/strong&gt;, que é baseado no JUnit, um framework de testes desenvolvido para a linguagem Java. Existem outros frameworks de teste disponíveis no mundo .Net, como o MS Test, desenvolvido pela própria Microsoft.
-Se for do seu interesse, você poderá experimentar os outros frameworks por conta própria mais tarde.&lt;/p&gt;
-
-&lt;p&gt;Ok, vamos começar. Para este projeto, eu vou utilizar o Visual Studio 2017. &lt;a href=&quot;https://www.visualstudio.com/pt-br/downloads/&quot;&gt;Clique aqui para baixar a versão Community&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Crie uma nova solução do tipo &lt;strong&gt;Class Library&lt;/strong&gt;, com o nome de &lt;strong&gt;LearningUnitTesting&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Uma coisa que eu sempre costumo fazer ao criar uma nova solução é excluir a classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Class1&lt;/code&gt; que vem criada por padrão. Você também poderia renomeá-la, é claro, mas fica totalmente ao seu critério.&lt;/p&gt;
-
-&lt;p&gt;Agora, vamos renomear o projeto padrão que foi criado para &lt;strong&gt;Application&lt;/strong&gt;. Este projeto vai servir para guardar o &lt;em&gt;código de produção&lt;/em&gt; em nossa solução.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;No contexto de testes unitários, usamos o termo &lt;strong&gt;Código de Produção&lt;/strong&gt; para nos referirmos ao código “real” da nossa aplicação, em contraste ao &lt;strong&gt;Código de Testes&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;O próximo passo é &lt;strong&gt;criar o projeto de testes&lt;/strong&gt;. Existem algumas opiniões diferentes a respeito de &lt;em&gt;onde&lt;/em&gt; devem ficar as classes de teste: se junto às classes de produção, ou em um local separado. Eu particularmente prefiro criar um projeto à parte, e o sistema de nomenclatura que eu costumo usar é: o mesmo nome do projeto de produção, mais a palavra &lt;em&gt;Test&lt;/em&gt; no final.&lt;/p&gt;
-
-&lt;p&gt;O nome do projeto será, portanto, &lt;strong&gt;ApllicationTest&lt;/strong&gt;, e também será do tipo &lt;strong&gt;Class Library&lt;/strong&gt;. 
-Após a criação do projeto, vou remover a classe adicionada por padrão, assim como fiz com o projeto de produção.&lt;/p&gt;
-
-&lt;p&gt;Sua solução deveria estar desta forma:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Chegou a hora de instalarmos o NUnit. Felizmente, o framework é disponibilizado como um pacote do Nuget, o que torna sua instalação trivial.&lt;/p&gt;
-
-&lt;p&gt;Pimeiro, abra o &lt;strong&gt;Console do Gerenciador de Pacotes&lt;/strong&gt;. Vá para: &lt;strong&gt;Ferramentas&lt;/strong&gt; &amp;gt; &lt;strong&gt;Gerenciador de Pacotes do Nuget&lt;/strong&gt; &amp;gt; &lt;strong&gt;Console do Gerenciador de Pacotes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Quando o console estiver aberto, digite ou copie e cole o seguinte comando:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Install-Package NUnit&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Verifique que o projeto de testes é o que está selecionado, como na imagem:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;E pressione &lt;em&gt;ENTER&lt;/em&gt;. A instalação será realizada em poucos segundos.&lt;/p&gt;
-
-&lt;p&gt;Entretanto, isto não é tudo. Precisamos instalar um outro pacote, o &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;, para que sejamos capazes de executar os testes do NUnit com o Visual Studio. O processo é o mesmo, o que muda é o comando:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Install-Package NUnit3TestAdapter&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Assim como no passo anterior, verifique que o projeto correto está selecionado antes de confirmar. A instalação deve terminar em poucos segundos.&lt;/p&gt;
-
-&lt;p&gt;É isto.&lt;/p&gt;
-
-&lt;h2 id=&quot;criando-e-executando-o-primeiro-teste&quot;&gt;Criando e executando o primeiro teste&lt;/h2&gt;
-
-&lt;p&gt;Vamos começar a criar alguns testes. Primeiro, vamos adicionar uma nova classe ao nosso projeto de Produção. A classe se chamará &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; e terá o seguinte código:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Eu imagino que a classe seja simples o suficiente e não necessita de explicação. Agora, vamos criar nossa classe de teste. No projeto &lt;strong&gt;ApplicationTest&lt;/strong&gt;, adicione uma nova classe com o nome de &lt;strong&gt;EmployeeTest&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Este é um dos padrões de nomenclatura que eu também utilizo: nomear a classe de teste com o mesmo nome da classe de produção, acrescentando &lt;em&gt;Test&lt;/em&gt; no final.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Após a criação da classe, adicione o namespace &lt;em&gt;NUnit.Framework&lt;/em&gt; na lista de usings da classe. Em seguida, crie um novo método público de retorno &lt;em&gt;void&lt;/em&gt; chamado &lt;strong&gt;MyFirstTestMethod&lt;/strong&gt; e adicione o atributo &lt;code class=&quot;highlighter-rouge&quot;&gt;[Test]&lt;/code&gt; a ele.&lt;/p&gt;
-
-&lt;p&gt;Nesse ponto, o código da classe deve estar assim:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/406525bd23d3ee2ecba4f7592c0f8af3.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;O esqueleto do teste já está pronto. Então vamos escrever nossa primeira &lt;strong&gt;asserção&lt;/strong&gt;. Uma asserção é uma &lt;em&gt;afirmação&lt;/em&gt; sobre como um determinado método deveria se comportar. Caso a afirmação se prove verdadeira, dizemos que o teste &lt;em&gt;passou&lt;/em&gt;. Caso a afirmação se prove falsa, dizemos que o teste &lt;em&gt;falhou&lt;/em&gt;, ou quebrou.&lt;/p&gt;
-
-&lt;p&gt;No NUnit, utilizamos a classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; para escrevermos nossas asserções. Esta classe possui um número grande de métodos que nos permitem expressar nossas expectativas com relação ao comportamento das unidades que estamos testando.&lt;/p&gt;
-
-&lt;p&gt;Adicione a seguinte linha de código ao método de teste:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Assert.Pass();&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Esta é uma asserção que serve para forçar o teste a passar. Vamos agora rodar esse teste para vê-lo passando. Primeiro, precisamos abrir o &lt;strong&gt;Gerenciador de Testes&lt;/strong&gt;. Vá para: &lt;strong&gt;Testar&lt;/strong&gt; &amp;gt; &lt;strong&gt;Janelas&lt;/strong&gt; &amp;gt; &lt;strong&gt;Gerenciador de Testes&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Na janela exibida, clique em &lt;em&gt;Executar Tudo&lt;/em&gt;. Caso tudo tenha funcionado da maneira correta, você verá isso:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Ao clicar no nome do teste, serão exibidas algumas informações adicionais, como o arquivo do teste e tempo decorrido:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Note o uso da cor verde para indicar o sucesso do teste.&lt;/p&gt;
-
-&lt;p&gt;Vamos agora fazer o contrário: forçar a falha do teste. Substitua a linha no método por:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Assert.Fail();&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Execute o teste novamente e verá a mensagem de falha, dessa vez com a barra vermelha:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Agora que você já está pegando o jeito, vamos começar a testar a nossa classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;. Não esqueça de voltar o método de teste que fizemos para &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass&lt;/code&gt; para que ele não fique falhando.&lt;/p&gt;
-
-&lt;p&gt;Em seguida, adicione um novo método de teste chamado &lt;code class=&quot;highlighter-rouge&quot;&gt;IntroduceMethodShouldWorkCorrectly&lt;/code&gt;. Nele, vamos criar uma nova instância do objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; e verificar que o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; está funcionando como deveria.&lt;/p&gt;
-
-&lt;p&gt;Antes de fazermos isso, porém, precisamos adicionar uma referência do projeto de produção ao nosso projeto de testes. Do contrário, nossa classe de teste não conseguirá enxergar as classes que deveria testar!&lt;/p&gt;
-
-&lt;p&gt;Para isso, clique com o botão direito no projeto &lt;strong&gt;ApplicationTest&lt;/strong&gt; &amp;gt; &lt;strong&gt;Adicionar&lt;/strong&gt; &amp;gt; &lt;strong&gt;Referência…&lt;/strong&gt;. Na janela exibida, selecione o projeto, conforme a imagem a seguir:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;E depois clique em OK.&lt;/p&gt;
-
-&lt;p&gt;De volta à classe de teste, modifique o método de teste para que fique da forma abaixo:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Você vai notar que &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; está marcado como erro. Ao passar o cursor em cima, você verá uma mensagem avisando que o nome &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; não pode ser encontrado e perguntando se não tem alguma referência ou diretiva &lt;em&gt;using&lt;/em&gt; faltando.&lt;/p&gt;
-
-&lt;p&gt;É claro que tem uma diretiva &lt;em&gt;using&lt;/em&gt; faltando, relativa à referência que acabamos de adicionar. Para corrigir o problema, basta adicionar a linha &lt;code class=&quot;highlighter-rouge&quot;&gt;using Application;&lt;/code&gt; no começo do arquivo.&lt;/p&gt;
-
-&lt;p&gt;Agora que o código compila, vamos entender este método, linha a linha.&lt;/p&gt;
-
-&lt;p&gt;Na primeira linha, instanciamos nossa classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;, definindo nome, profissão e salário. Na linha seguinte, atribuímos a uma variável o valor que &lt;strong&gt;esperamos&lt;/strong&gt; que o método retorne. Em seguida, atribuímos a outra variável o resultado da execução do método.&lt;/p&gt;
-
-&lt;p&gt;Finalmente, utilizamos o método &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; da classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; para verificar se os dois valores são iguais. Este método é, provavelmente, o que você mais vai utilizar durante seus testes.&lt;/p&gt;
-
-&lt;p&gt;Agora é hora de executar o teste. Utilize o atalho &lt;strong&gt;CTRL + R, A&lt;/strong&gt; ou clique em &lt;strong&gt;Executar Tudo&lt;/strong&gt; na janela do Gerenciador de Teste. Se tudo der certo, você verá a barra verde e a mensagem indicando que os dois testes passaram.&lt;/p&gt;
-
-&lt;p&gt;Vamos agora testar o teste: vamos “estragar” o método &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; e ver se o método falha como deveria. De volta à classe de produção, vamos modificar o método da seguinte forma:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Como você viu, nós retiramos os colchetes ao redor de JobTitle. Desta forma, a interpolação de string não será realizada, fixando o texto “JobTitle” ao invés de substituí-lo pelo valor da variável.&lt;/p&gt;
-
-&lt;p&gt;Ao rodar os testes novamente, obtemos o seguinte resultado:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mensagem:   Expected string length 48 but was 46. Strings differ at index 37.
-Expected: “Hi! My name is Alice and I work as a Programmer.”
-But was:  “Hi! My name is Alice and I work as a JobTitle.”
-————————————————^&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre, seria algo como:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;O comprimento esperado da string era 48 mas o obtido foi 46. As string diferem a partir do índice 37.
-Esperado: “Hi! My name is Alice and I work as a Programmer.”
-Mas foi: “Hi! My name is Alice and I work as a JobTitle.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Como podemos ver, a mensagem é bem explicativa. Ela nos informa não apenas que as string divergiram mas exatamente em que parte elas começaram a divergir. Também nos informa exatamente o texto esperado e o que realmente foi obtido. É importante salientar que a ordem dos parâmetros do método &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; importa, pois isso influi na mensagem exibida quando o teste falha.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;A ordem dos parâmetros no método &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; é muito importante. Passe primeiro o resultado esperado, e depois o que realmente foi obtido.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ótimo. Podemos voltar o método para sua implementação anterior e executar os testes novamente, para ver que o teste volte a passar.&lt;/p&gt;
-
-&lt;p&gt;Como você pode ver, um teste de unidade envolve uma sequência de passos bem definida: &lt;strong&gt;preparamos&lt;/strong&gt; o cenário, &lt;strong&gt;executamos&lt;/strong&gt; a ação, e &lt;strong&gt;verificamos&lt;/strong&gt; o resultado. Essa sequência de passos - ou fases - é muitas vezes chamada de AAA: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Um teste de unidade típico envolve as fases &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Embora existam outras nomenclaturas para as fases do teste de unidade, vamos adotar &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; como nossa nomenclatura padrão, ao menos por enquanto.&lt;/p&gt;
-
-&lt;p&gt;Você talvez esteja se perguntando por qual motivo eu de o nome de “sut” à variável declarada no início do método. Este é um padrão de nomenclatura que aprendi lendo o blog do &lt;a href=&quot;https://blog.ploeh.dk/&quot;&gt;Mark Seeman&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; significa &lt;em&gt;System Under Test&lt;/em&gt;, ou “Sistema Sob Teste”, em tradução livre. É um termo usado para se referir à classe sendo testada no teste atual. Não há nada que obrigue a utilização de &lt;code class=&quot;highlighter-rouge&quot;&gt;sut&lt;/code&gt; como o nome da variável, mas eu gosto de usar dessa forma, pois deixa evidente no teste quem é que está sendo testado.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Dica: Procure utilizar padrões de codificação que melhorem a legibilidade e deixem a intenção do autor explícita para o leitor do código.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Logo abaixo temos o método de teste, dessa vez com comentários demonstrando cada fase do teste:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/a91d41ff7ac732fc9c57e63c03a6be07.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Embora não seja realmente necessário, eu sugiro que você use comentários para demarcar as fases do teste como no exemplo acima, ao menos no início de seu aprendizado.&lt;/p&gt;
-
-&lt;h2 id=&quot;mais-um-teste-método-giveraise&quot;&gt;Mais um teste: método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;Um aumento no salário é sempre bem-vindo, concordam? Vamos testar que o método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; funciona como deveria. Na sua classe de teste, adicione o método a seguir:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Execute o teste e você deverá ver a familiar barra verde de sucesso. Deu certo? Ótimo. Hora de &lt;strong&gt;testar o teste:&lt;/strong&gt; vamos “sabotar” a implementação do método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; e ver se o teste falha.&lt;/p&gt;
-
-&lt;p&gt;Na classe de produção, vamos deixar o método assim:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/fba5901aaa2f542bcd8528de0e96afff.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Agora que o método está obviamente errado, o teste deveria falhar. Vamos executá-lo?&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mensagem:   Expected: 110
-   But was:  5m&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ok, podemos ver que o teste realmente falhou. Podemos voltar o método ao normal e ver que agora tudo passa como deveria.&lt;/p&gt;
-
-&lt;h2 id=&quot;um-último-teste&quot;&gt;Um último teste&lt;/h2&gt;
-
-&lt;p&gt;Digamos que surgiu um novo requisito: se a porcentagem de aumento passada for negativa, o salário deve permanecer o mesmo. Vamos então alterar o método &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; para tratar este caso:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Fizemos uma alteração no código de produção. Nossa prioridade agora é &lt;strong&gt;verificar que nada quebrou&lt;/strong&gt;. Execute os testes para verificar se todos ainda estão passando normalmente.&lt;/p&gt;
-
-&lt;p&gt;Tudo ainda está verde? Ótimo, vamos em frente. Agora precisamos criar um novo teste para documentar o caso da tentativa de aumento negativo.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Testes de unidade também são uma forma de documentação.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Na classe de teste, adicione o método a seguir:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/a474698655450da6547dbfa6b9dbcb8c.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Nada de surpreendente aqui, certo? À esta altura, você já deve ter pegado o jeito da coisa. Assim, vou deixar por sua conta o &lt;strong&gt;teste do teste:&lt;/strong&gt; sabote o método de uma ou mais maneiras e confira que o teste falhou conforme deveria.&lt;/p&gt;
-
-&lt;h2 id=&quot;recapitulando&quot;&gt;Recapitulando&lt;/h2&gt;
-
-&lt;p&gt;O artigo de hoje foi bem mais prático que o anterior. Conseguimos abordar diversos tópicos:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Instalação do &lt;strong&gt;NUnit&lt;/strong&gt; e &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;Criação de caso de teste;&lt;/li&gt;
-  &lt;li&gt;Conceito de &lt;em&gt;asserção&lt;/em&gt; e classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt;;&lt;/li&gt;
-  &lt;li&gt;Execução dos testes, tanto por meio do &lt;em&gt;Gerenciador de Testes&lt;/em&gt; quanto por teclas de atalho;&lt;/li&gt;
-  &lt;li&gt;Interpretação da mensagem de erro do teste;&lt;/li&gt;
-  &lt;li&gt;Fases do teste unitário (&lt;em&gt;Arrange-Act-Assert&lt;/em&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Além desses tópicos, também ampliamos nosso vocabulário relativo à testes, com os termos &lt;em&gt;SUT&lt;/em&gt;, &lt;em&gt;asserção&lt;/em&gt;, &lt;em&gt;código de teste x código de produção&lt;/em&gt;, entre outros.&lt;/p&gt;
-
-&lt;p&gt;Também foram abordados alguns padrões de nomenclatura, tanto para classes quanto para métodos de teste.&lt;/p&gt;
-
-&lt;p&gt;Finalmente, você aprendeu sobre a importância de ver o teste falhar, e como podemos “testar o teste” através de uma sabotagem deliberada do código de produção.&lt;/p&gt;
-
-&lt;h2 id=&quot;notas&quot;&gt;Notas&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;O código do post de hoje &lt;a href=&quot;https://github.com/carlosschults/learning-unit-testing/&quot;&gt;está no Github&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Agradeço novamente ao amigo Gunter Italiano Ribeiro por revisar este artigo.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
-
-&lt;p&gt;Este foi o segundo artigo da minha série sobre testes unitários. Como já mencionei, ele é propositalmente maior e mais prático que o artigo inicial da série. Ainda assim, tudo o que foi abordado é apenas a ponta do iceberg do que existe a respeito de testes de unidade. Livros inteiros poderiam foram escritos sobre este assunto. Nos artigos futuros indicarei alguns, além de outros materiais para estudo.&lt;/p&gt;
-
-&lt;p&gt;Nos testes que escrevemos hoje, utilizamos a abordagem mais intuitiva - e provavelmente mais comum - de se criar os testes após o código de produção. Porém, muitas pessoas e equipes trabalham com uma metodologia diferente: eles escrevem os testes &lt;em&gt;antes&lt;/em&gt; do código de produção.&lt;/p&gt;
-
-&lt;p&gt;Pode parecer estranho, à princípio, mas trabalhar desta forma pode trazer diversos benefícios para seu projeto. Este e outros tópicos serão abordados no próximo artigo.&lt;/p&gt;
-
-&lt;p&gt;Até lá!&lt;/p&gt;
-</description>
-        <pubDate>Tue, 08 Aug 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/testes-unitarios-iniciantes-parte-2</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/testes-unitarios-iniciantes-parte-2</guid>
-        
-        <category>csharp</category>
-        
-        <category>iniciantes</category>
-        
-        <category>testes de software</category>
-        
-        <category>testes unitários</category>
-        
-        <category>testes automatizados</category>
-        
-        <category>csharp</category>
-        
-        <category>metodologias ágeis</category>
         
         
       </item>
