@@ -89,6 +89,179 @@
   
   
   
+   <span class="post-meta">Jul 2, 2020</span>
+    <h2>
+          <a class="post-link" href="/en/null-is-evil">Null Is Evil. What's The Best Alternative? Null.</a>
+    </h2>
+    <div class="post-content">
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1593715153/null-evill-1068x437_ztikwf.jpg" alt="" />
+<span>Photo by <a href="https://unsplash.com/@benhershey?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ben Hershey</a> on <a href="https://unsplash.com/s/photos/null?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
+
+<p><em>Editorial note: I originally wrote this post for the NDepend blog.  You can <a href="https://blog.ndepend.com/null-evil/">check out the original here, at their site</a>.</em></p>
+
+<p>“Null is evil.” If you’ve been a software developer for any reasonable length of time, I bet you’ve come across that statement several times.</p>
+
+<p>I’d say it’s also very likely that you agree with the sentiment, i.e., that the null reference is a feature our programming languages would be better off without. Even its creator has expressed regret over the null reference, <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">famously calling it his “billion-dollar mistake.”</a></p>
+
+<p>Bashing poor old null tends to get old, so authors don’t do just that. They also offer alternatives. And while I do believe that many of the presented alternatives have their merits, I also think we may have overlooked the best solution for the whole thing.</p>
+
+<p>In this post, we’re going to examine some of the common alternatives for returning null before making the argument that the best alternative is null itself. Let’s get started!</p>
+
+<h2 id="null-is-toxic">Null Is Toxic…</h2>
+
+<p>I won’t dwell too much on the whole “null is evil” thing, since a lot has been written about it already. Some examples:</p>
+
+<p><a href="&quot;https://sidburn.github.io/blog/2016/03/20/null-is-evil&quot;&gt;Null is Evil">Null Is Evil</a>
+<a href="&quot;http://blog.ploeh.dk/2015/11/13/null-has-no-type-but-maybe-has/&quot;&gt;">Null has no type, but Maybe has</a></p>
+
+<p><a href="https://softwareengineering.stackexchange.com/questions/12777/are-null-references-really-a-bad-thing">This Stack Overflow answer</a> also has some valuable information.</p>
+
+<h2 id="but-useful-what-are-the-alternatives">…But Useful. What Are the Alternatives?</h2>
+
+<p>Now, I hope we’re on the same page regarding null’s status as a problematic language feature. But toxic or not, null serves some purposes. People use it to represent an absent, invalid, or unknown piece of data, or even to indicate that an error has occurred.</p>
+
+<p>What should they be doing instead?</p>
+
+<h3 id="throw-an-exception">Throw an Exception</h3>
+
+<p>In some situations in which people return null, the reasonable thing to do is to throw an exception. Think of it this way: if a method promises to perform something and fails to do so, it should throw. In other words: when a method fails to fulfill its contract, then it is reasonable to throw.</p>
+
+<p>Of course, you should reserve exceptions for scenarios that are truly exceptional. If a certain situation happens often, then an exception is not the best solution.</p>
+
+<h3 id="null-object-pattern">Null Object Pattern</h3>
+
+<p>Consider the following lines of code:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span>
+<span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
+
+<p>What should happen if there isn’t a contract with ID equals to 42? If the “Find” method returns null, then you’re in for a nasty NullReferenceException. As I’ve said earlier, null makes your code lie. If we were to be really pedantic about it, the method “Find” should be renamed to “FindOrReturnNull”. Too verbose, but more honest.</p>
+
+<p>Anyway, the <a href="https://en.wikipedia.org/wiki/Null_object_pattern">null object pattern</a> is an attempt to solve this problem. And how does it do that? By creating its own kind of null.</p>
+
+<p>To implement the pattern, we create a new class  ** ** (let’s call it “NullContract”) that represents the case when a contract is missing. We make this new class fulfill the same contract as the original class, but we do nothing in the methods. So, if we imagine that “Contract” implements “IContract”, our NullContract class could look something like this:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">NullContract</span> <span class="p">:</span> <span class="n">IContract</span>
+<span class="p">{</span>
+	<span class="c1">// ctor, properties, etc </span>
+	
+	<span class="k">public</span> <span class="k">void</span> <span class="nf">Extend</span><span class="p">(</span><span class="kt">int</span> <span class="n">months</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// deliberately does nothing</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>By employing the null object pattern you could—theoretically, at least—be sure that you’ll always get an object that fulfills the contract you expect it to honor without blowing up in your face.</p>
+
+<h3 id="maybeoption">Maybe/Option</h3>
+
+<p>Finally, we have a very interesting alternative that is often found in <a href="https://blog.ndepend.com/functional-programming-makes-code-not-oo/">functional programming</a> languages. This alternative is the use of a dedicated type meant to represent the use case of a potentially absent value. For instance, <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options">in F# this is called the option type</a>; Haskell calls it <a href="https://hackage.haskell.org/package/base-4.11.0.0/docs/Data-Maybe.html">Maybe</a>. Starting in version 8, Java introduced the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Optional</a> class.</p>
+
+<p>At this time, C# doesn’t offer something along those lines natively.</p>
+
+<h2 id="alternatives-to-null-are-they-any-good">Alternatives to Null: Are They Any Good?</h2>
+
+<p>Having presented the more commonly used alternatives for null, it’s time for the final verdict. Let’s start with the “throw exception” option.</p>
+
+<h3 id="exceptions">Exceptions</h3>
+
+<p>If the caller fails to supply the correct arguments for the function they’re calling, then we could say they’re breaking the function’s contract. Throwing an exception is the correct thing do to in this situation.</p>
+
+<p>The following code is a good example of what  <strong>not</strong>  to do:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Foo</span> <span class="nf">Bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">string</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">a</span> <span class="p">&lt;=</span> <span class="m">100</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// all is fine with the world; let's do what must be done and return some Foo!</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Foo</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+ 
+    <span class="c1">// uh-oh! Something wrong with the input parameters. Let's return null. Sounds like a good idea!</span>
+    <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>I see code like this all the time in production. Nested ifs are awful. They should have at least used an “and” to fit the whole thing in just one if. But what should really happen is something like this:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Foo</span> <span class="nf">Bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">string</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">||</span> <span class="n">a</span> <span class="p">&gt;</span> <span class="m">100</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span>
+        <span class="k">nameof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+        <span class="s">"The value should be in the range of 1 to 100, inclusive"</span><span class="p">);</span>
+    <span class="p">}</span>
+ 
+    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentException</span><span class="p">(</span>
+             <span class="s">"The value should be a valid string."</span><span class="p">,</span>
+             <span class="k">nameof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+             <span class="p">);</span>
+    <span class="p">}</span>
+ 
+    <span class="c1">// all is fine with the world; let's do what must be done and return some Foo!</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Foo</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Also, <a href="https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/">don’t catch exogenous exceptions</a> that might happen inside your method and return null; instead, just let them bubble up since these type of exceptions represent problems outside of your control. Issues like a failure in the network are problems that you couldn’t have prevented anyway, code-wise.</p>
+
+<h3 id="null-object-pattern-1">Null Object Pattern</h3>
+
+<p>Let’s consider the null object pattern, which I’m certainly not a huge fan of. One problem with this pattern is that you should only use it when the calling code doesn’t care about the outcome of whatever it’s trying to accomplish. Consider again our contract example:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span><span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
+
+<p>This line of code is not “aware” (nor does it care) if the “Contract” variable refers to a valid contract or an instance of NullContract. If it’s a valid contract, it will be extended by 12 months. If it’s not, then nothing will happen. Sometimes, that’s exactly what you want, but not always. In this example, if a contract with ID equals to 42 really was supposed to exist but did not…maybe throwing an exception would work best.</p>
+
+<p>All I’ve said so far is that the null object pattern isn’t well suited for every scenario. This isn’t that bad of a problem; you could say the same about pretty much anything.</p>
+
+<p>My main issue with the null object pattern is that it amounts to little more than creating a new type of null without really solving the problem. You see,  <strong>using the pattern doesn’t prevent you from returning null</strong>. If I consume some method written by a third party that claims to use the pattern, I should be able to assume that whatever it returns is safe for me to deference. But I can’t know for sure. I have three options:</p>
+
+<ul>
+  <li>Trust the author of the code;</li>
+  <li>Inspect the source code, if possible; or</li>
+  <li>Continue to check for null, which completely defeats the purpose of using the pattern.</li>
+</ul>
+
+<p>You could argue that these problems aren’t relevant in the context of a single team working with the same codebase. The developers could agree on using the pattern correctly. But if everything amounts to trust and convention at the end of the day, you might as well just agree to never return null and you’d have the same result.</p>
+
+<h3 id="maybeoption-1">Maybe/Option</h3>
+
+<p>Last but not least, what about Maybe/Option types? This is an alternative that’s both elegant and robust, especially in languages such as F# where you’re actually forced, in a sense, to handle both cases by using pattern matching.</p>
+
+<p>But the sad reality is this: while maybe/option types are amazing approaches, they can’t change the fact that null exists and will continue existing. You can’t really stop people from using it, nor can you remove it from all the lines of code people have been writing since the dawn of C#.</p>
+
+<p>So, even though they are great approaches, they still suffer from the problem of being yet another type of null for the developers to deal with.</p>
+
+<h2 id="the-solution-for-null-null-itself">The Solution for Null: Null Itself</h2>
+
+<p>Do you know the old saying “When in a hole, stop digging?” For better or worse, null exists. Toxic or not, it’s a feature people use. So maybe the solution for this whole thing is just to fix null.</p>
+
+<p>The <a href="https://kotlinlang.org/">kotlin</a> language got it right by having different nullable and non-nullable types and adding all kinds of checks to prevent the developer from doing things that would end badly, like dereferencing a nullable type without checking it for null or assigning a nullable value to a non-nullable variable.</p>
+
+<p>C# gave us the first step in the right direction many years ago with <a href="https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/nullable-types/">nullable value types</a>. After a long wait, <a href="https://blog.ndepend.com/c-8-0-features-glimpse-future/">reference types will finally get the same benefit with C# 8.0</a>.</p>
+
+<p>The alternative for null is null itself… <strong>when done properly</strong>.</p>
+
+    <a href="/en/null-is-evil">read more...</a>
+   </div>   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

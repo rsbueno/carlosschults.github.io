@@ -84,6 +84,180 @@
   
   
   
+    <span class="post-meta"><time datetime='02-07-2020'>02/07/2020</time></span> 
+    <h2>
+          <a class="post-link" href="/pt/null-problematico">Null É Ruim. Qual A Melhor Alternativa? Null.</a>
+    </h2>
+    <div class="post-content">
+    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1593715153/null-evill-1068x437_ztikwf.jpg" alt="" />
+<span>Foto por <a href="https://unsplash.com/@benhershey?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ben Hershey</a> on <a href="https://unsplash.com/s/photos/null?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
+
+<p><em>Nota editorial: Eu escrevi originalmente este post para o blog da NDepend. Você pode <a href="https://blog.ndepend.com/null-evil/">conferir o original aqui, em inglês, no site deles</a>.</em></p>
+
+<p>“Null é maligno”. Se você tem sido um desenvolvedor de software por qualquer período de tempo razoável, aposto que já se deparou com essa afirmação várias vezes.</p>
+
+<p>Eu diria também que é muito provável que você concorde com o sentimento, ou seja, que a referência nula é uma característica sem a qual nossas linguagens de programação ficariam melhor. Até mesmo seu criador expressou seu pesar pela referência nula, <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">chamando-a de seu “erro de um bilhão de dólares”</a></p>
+
+<p>Criticar null tende a ficar chato rapidamente, portanto, os autores não fazem só isso. Eles também oferecem alternativas. E embora eu acredite que muitas das alternativas apresentadas têm seus méritos, também acho que talvez tenhamos negligenciado a melhor solução para tudo isso.</p>
+
+<p>Neste post, vamos examinar algumas das alternativas comuns para o retorno nulo antes de fazer o argumento de que a melhor alternativa é a própria nulidade. Vamos começar!</p>
+
+<h2 id="null-é-tóxico">Null é Tóxico…</h2>
+
+<p>Não vou me deter muito em toda essa coisa do “nulo é mal”, já que muito já foi escrito sobre isso. Alguns exemplos (em inglês):</p>
+
+<p><a href="&quot;https://sidburn.github.io/blog/2016/03/20/null-is-evil&quot;&gt;Null is Evil">Null Is Evil</a>
+<a href="&quot;http://blog.ploeh.dk/2015/11/13/null-has-no-type-but-maybe-has/&quot;&gt;">Null has no type, but Maybe has</a></p>
+
+<p><a href="https://softwareengineering.stackexchange.com/questions/12777/are-null-references-really-a-bad-thing">Esta resposta de Stack Overflow</a> também tem algumas informações valiosas.</p>
+
+<h2 id="mas-útil-quais-são-as-alternativas">…Mas útil. Quais são as Alternativas?</h2>
+
+<p>Agora, espero que estejamos na mesma página no que diz respeito ao status de nulo como um recurso de linguagem problemática. Mas tóxico ou não, o nulo serve a alguns propósitos. As pessoas o usam para representar um dado ausente, inválido ou desconhecido, ou mesmo para indicar que ocorreu um erro.</p>
+
+<p>O que deveriam estar fazendo ao invés disso?</p>
+
+<h3 id="lançar-uma-exceção">Lançar uma Exceção</h3>
+
+<p>Em algumas situações em que as pessoas retornam null, a coisa razoável a fazer é lançar uma exceção. Pense desta maneira: se um método promete realizar algo e não o faz, ele deve lançar uma exceção. Em outras palavras: quando um método não cumpre seu contrato, então é razoável disparar uma exceção.</p>
+
+<p>É claro que você deve reservar exceções para cenários que sejam verdadeiramente excepcionais. Se uma determinada situação acontece com freqüência, então uma exceção não é a melhor solução.</p>
+
+<h3 id="padrão-de-objeto-null">Padrão de Objeto Null</h3>
+
+<p>Considere as seguintes linhas de código:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span>
+<span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
+
+<p>O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável <code class="highlighter-rouge">NullReferenceException</code>. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.</p>
+
+<p>De qualquer forma, o <a href="https://en.wikipedia.org/wiki/Null_object_pattern">padrão de objeto nulo</a> é uma tentativa de resolver este problema. E como ele faz isso? Criando seu próprio tipo de nulo.</p>
+
+<p>Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa <code class="highlighter-rouge">IContract</code>, nossa classe NullContract poderia ser algo parecido com isto:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">NullContract</span> <span class="p">:</span> <span class="n">IContract</span>
+<span class="p">{</span>
+	<span class="c1">// construtor, propriedades, etc </span>
+	
+	<span class="k">public</span> <span class="k">void</span> <span class="nf">Extend</span><span class="p">(</span><span class="kt">int</span> <span class="n">months</span><span class="p">)</span>
+	<span class="p">{</span>
+		<span class="c1">// não faz nada aqui, propositalmente</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Ao empregar o padrão de objeto nulo você poderia - teoricamente, pelo menos - ter a certeza de que sempre receberá um objeto que cumpre o contrato que você espera que ele honre sem explodir na sua cara.</p>
+
+<h3 id="maybeoption">Maybe/Option</h3>
+
+<p>Finalmente, temos uma alternativa muito interessante que muitas vezes é encontrada na <a href="https://blog.ndepend.com/functional-programming-makes-code-not-oo/">programação funcional</a> linguagens. Esta alternativa é o uso de um tipo dedicado, destinado a representar o caso de uso de um valor potencialmente ausente. Por exemplo, <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options">em F# isto é chamado de tipo de option</a>; Haskell a chama de <a href="https://hackage.haskell.org/package/base-4.11.0.0/docs/Data-Maybe.html">Maybe</a>. A partir da versão 8, Java introduziu a classe <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Optional</a>.</p>
+
+<p>Neste momento, o C# não oferece algo parecido com este tipo nativamente.</p>
+
+<h2 id="alternativas-ao-null-elas-são-boas">Alternativas ao Null: Elas são boas?</h2>
+
+<p>Tendo apresentado as alternativas mais comumente usadas para nulo, é hora do veredicto final. Vamos começar com a opção “lançar exceção”.</p>
+
+<h3 id="exceções">Exceções</h3>
+
+<p>Se o chamador não fornecer os argumentos corretos para a função que está chamando, então poderíamos dizer que ele está quebrando o contrato da função. Lançar uma exceção é a coisa correta a fazer nesta situação.</p>
+
+<p>O código a seguir é um bom exemplo do que <strong>não</strong>* deve ser feito:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Foo</span> <span class="nf">Bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">string</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">a</span> <span class="p">&lt;=</span> <span class="m">100</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+        <span class="p">{</span>
+            <span class="c1">// tá tudo certo: vamos fazer o que precisa ser feito e retornar</span>
+            <span class="c1">// um novo objeto!</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="nf">Foo</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+ 
+    <span class="c1">// Tem coisa errada com os parâmetros recebidos. Já sei! Vamos retornar null!</span>
+    <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Eu vejo códigos como este o tempo todo em produção. Os ifs aninhados são horríveis. Eles deveriam pelo menos ter usado um “and” para encaixar tudo em apenas um “if”. Mas o que realmente deveria acontecer é algo assim:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Foo</span> <span class="nf">Bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">string</span> <span class="n">b</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">||</span> <span class="n">a</span> <span class="p">&gt;</span> <span class="m">100</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span>
+        <span class="k">nameof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
+        <span class="s">"O valor deve estar no intervalo de 1 a 100, inclusive."</span><span class="p">);</span>
+    <span class="p">}</span>
+ 
+    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentException</span><span class="p">(</span>
+             <span class="s">"O valor deve ser uma string válida."</span><span class="p">,</span>
+             <span class="k">nameof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+             <span class="p">);</span>
+    <span class="p">}</span>
+ 
+    <span class="c1">// tá tudo certo: vamos fazer o que precisa ser feito e retornar</span>
+    <span class="c1">// um novo objeto!</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">Foo</span><span class="p">();</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>Além disso, <a href="https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/">não capture exceções exógenas</a> que possam acontecer dentro de seu método e retorne nulo; em vez disso, deixe-as subir, pois este tipo de exceções representam problemas fora de seu controle. Problemas como uma falha na rede são problemas que você não poderia ter evitado de qualquer forma, em código.</p>
+
+<h3 id="padrão-null-object">Padrão Null Object</h3>
+
+<p>Vamos considerar o padrão de objeto nulo, do qual certamente não sou um grande fã. Um problema com este padrão é que você só deve usá-lo quando o código de chamada não se importa com o resultado do que quer que ele esteja tentando realizar. Considere novamente nosso exemplo de contrato:</p>
+
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span><span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
+
+<p>Esta linha de código não é “consciente” (nem se importa) se a variável “Contrato” se refere a um contrato válido ou a uma instância da NullContract. Se for um contrato válido, ele será prorrogado por 12 meses. Se não for, então nada acontecerá. Às vezes, é exatamente isso que você quer, mas nem sempre. Neste exemplo, se um contrato com ID equivale a 42 realmente deveria existir, mas não… talvez lançar uma exceção funcionaria melhor.</p>
+
+<p>Tudo o que eu disse até agora é que o padrão de objeto nulo não é bem adequado para cada cenário. Isto não é um problema tão ruim assim; você poderia dizer o mesmo sobre praticamente qualquer coisa.</p>
+
+<p>Meu principal problema com o padrão de objeto nulo é que ele equivale a pouco mais do que criar um novo tipo de objeto nulo sem realmente resolver o problema. Veja, <strong>utilizar o padrão não impede que você retorne nulo</strong>. Se eu consumir algum método escrito por um terceiro que afirma usar o padrão, devo ser capaz de assumir que o que quer que seja que ele retorne é seguro. Mas eu não posso ter certeza. Eu tenho três opções:</p>
+
+<ul>
+  <li>Confiar no autor do código;</li>
+  <li>Inspecionar o código-fonte, se possível; ou</li>
+  <li>Continuar a verificar a nulidade, o que derrota completamente o propósito de usar o padrão.</li>
+</ul>
+
+<p>Pode-se argumentar que estes problemas não são relevantes no contexto de uma única equipe que trabalha com a mesma base de código. Os desenvolvedores poderiam concordar em usar o padrão corretamente. Mas se tudo equivale a confiança e convenção no final do dia, você poderia muito bem concordar em nunca retornar nulo e teria o mesmo resultado.</p>
+
+<h4 id="maybeoption-1">Maybe/Option</h4>
+
+<p>Por último, mas não menos importante, e quanto aos tipos Maybe/Option? Esta é uma alternativa ao mesmo tempo elegante e robusta, especialmente em linguagens como o F#, onde você é forçado, de certa forma, a lidar com ambos os casos usando <em>pattern matching.</em></p>
+
+<p>Mas a triste realidade é a seguinte: embora <code class="highlighter-rouge">Maybe/Option</code> sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.</p>
+
+<p>Portanto, mesmo sendo grandes abordagens, elas ainda sofrem com o problema de serem mais um tipo de nulo para os desenvolvedores lidarem.</p>
+
+<h2 id="a-solução-para-null-o-próprio-null">A solução para Null: O próprio Null</h2>
+
+<p>Você conhece o velho ditado “Quando em um buraco, pare de cavar”? Para o melhor ou para o pior, existe o nulo. Tóxico ou não, é uma característica que as pessoas usam. Portanto, talvez a solução para tudo isso seja apenas consertar o nulo.</p>
+
+<p>A linguagem <a href="https://kotlinlang.org/">kotlin</a> acertou ao ter diferentes tipos de nulos e não nulos e adicionar todos os tipos de verificações para evitar que o desenvolvedor faça coisas que acabariam mal, como desreferenciar um tipo nulo sem verificá-lo ou atribuir um valor nulo a uma variável não nula.</p>
+
+<p>O C# nos deu o primeiro passo na direção certa há muitos anos com <a href="https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/nullable-types/">tipos de valor nulo</a>. Após uma longa espera, <a href="https://blog.ndepend.com/c-8-0-features-glimpse-future/">tipos de referência finalmente obterão o mesmo benefício com C# 8.0</a>.</p>
+
+<p>A alternativa para o nulo é o próprio nulo… <strong>quando feito corretamente</strong>.</p>
+
+    <a href="/pt/null-problematico">leia mais...</a>
+   </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   

@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/null-problematico</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/null-problematico" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/null-is-evil" />
+        
+        <lastmod>2020-07-02T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/null-is-evil</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/null-problematico" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/null-is-evil" />
+        
+        <lastmod>2020-07-02T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/sharpen-the-saw/</loc>
         
         
@@ -850,6 +878,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -965,6 +995,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1134,6 +1166,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1249,6 +1283,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1418,6 +1454,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1533,6 +1571,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1728,6 +1768,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1843,6 +1885,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programming/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -2639,6 +2683,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/programacao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -3386,6 +3443,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/career-advice/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/programacao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
         
         <changefreq>weekly</changefreq>
       </url>

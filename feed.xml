@@ -5,10 +5,180 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Jun 2020 13:14:51 -0300</pubDate>
-    <lastBuildDate>Tue, 16 Jun 2020 13:14:51 -0300</lastBuildDate>
+    <pubDate>Thu, 02 Jul 2020 16:37:42 -0300</pubDate>
+    <lastBuildDate>Thu, 02 Jul 2020 16:37:42 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Null Is Evil. What's The Best Alternative? Null.</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1593715153/null-evill-1068x437_ztikwf.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;span&gt;Photo by &lt;a href=&quot;https://unsplash.com/@benhershey?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Ben Hershey&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/null?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/null-evil/&quot;&gt;check out the original here, at their site&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;“Null is evil.” If you’ve been a software developer for any reasonable length of time, I bet you’ve come across that statement several times.&lt;/p&gt;
+
+&lt;p&gt;I’d say it’s also very likely that you agree with the sentiment, i.e., that the null reference is a feature our programming languages would be better off without. Even its creator has expressed regret over the null reference, &lt;a href=&quot;https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions&quot;&gt;famously calling it his “billion-dollar mistake.”&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Bashing poor old null tends to get old, so authors don’t do just that. They also offer alternatives. And while I do believe that many of the presented alternatives have their merits, I also think we may have overlooked the best solution for the whole thing.&lt;/p&gt;
+
+&lt;p&gt;In this post, we’re going to examine some of the common alternatives for returning null before making the argument that the best alternative is null itself. Let’s get started!&lt;/p&gt;
+
+&lt;h2 id=&quot;null-is-toxic&quot;&gt;Null Is Toxic…&lt;/h2&gt;
+
+&lt;p&gt;I won’t dwell too much on the whole “null is evil” thing, since a lot has been written about it already. Some examples:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;&amp;quot;https://sidburn.github.io/blog/2016/03/20/null-is-evil&amp;quot;&amp;gt;Null is Evil&quot;&gt;Null Is Evil&lt;/a&gt;
+&lt;a href=&quot;&amp;quot;http://blog.ploeh.dk/2015/11/13/null-has-no-type-but-maybe-has/&amp;quot;&amp;gt;&quot;&gt;Null has no type, but Maybe has&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://softwareengineering.stackexchange.com/questions/12777/are-null-references-really-a-bad-thing&quot;&gt;This Stack Overflow answer&lt;/a&gt; also has some valuable information.&lt;/p&gt;
+
+&lt;h2 id=&quot;but-useful-what-are-the-alternatives&quot;&gt;…But Useful. What Are the Alternatives?&lt;/h2&gt;
+
+&lt;p&gt;Now, I hope we’re on the same page regarding null’s status as a problematic language feature. But toxic or not, null serves some purposes. People use it to represent an absent, invalid, or unknown piece of data, or even to indicate that an error has occurred.&lt;/p&gt;
+
+&lt;p&gt;What should they be doing instead?&lt;/p&gt;
+
+&lt;h3 id=&quot;throw-an-exception&quot;&gt;Throw an Exception&lt;/h3&gt;
+
+&lt;p&gt;In some situations in which people return null, the reasonable thing to do is to throw an exception. Think of it this way: if a method promises to perform something and fails to do so, it should throw. In other words: when a method fails to fulfill its contract, then it is reasonable to throw.&lt;/p&gt;
+
+&lt;p&gt;Of course, you should reserve exceptions for scenarios that are truly exceptional. If a certain situation happens often, then an exception is not the best solution.&lt;/p&gt;
+
+&lt;h3 id=&quot;null-object-pattern&quot;&gt;Null Object Pattern&lt;/h3&gt;
+
+&lt;p&gt;Consider the following lines of code:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;What should happen if there isn’t a contract with ID equals to 42? If the “Find” method returns null, then you’re in for a nasty NullReferenceException. As I’ve said earlier, null makes your code lie. If we were to be really pedantic about it, the method “Find” should be renamed to “FindOrReturnNull”. Too verbose, but more honest.&lt;/p&gt;
+
+&lt;p&gt;Anyway, the &lt;a href=&quot;https://en.wikipedia.org/wiki/Null_object_pattern&quot;&gt;null object pattern&lt;/a&gt; is an attempt to solve this problem. And how does it do that? By creating its own kind of null.&lt;/p&gt;
+
+&lt;p&gt;To implement the pattern, we create a new class  ** ** (let’s call it “NullContract”) that represents the case when a contract is missing. We make this new class fulfill the same contract as the original class, but we do nothing in the methods. So, if we imagine that “Contract” implements “IContract”, our NullContract class could look something like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NullContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IContract&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// ctor, properties, etc &lt;/span&gt;
+	
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;months&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// deliberately does nothing&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;By employing the null object pattern you could—theoretically, at least—be sure that you’ll always get an object that fulfills the contract you expect it to honor without blowing up in your face.&lt;/p&gt;
+
+&lt;h3 id=&quot;maybeoption&quot;&gt;Maybe/Option&lt;/h3&gt;
+
+&lt;p&gt;Finally, we have a very interesting alternative that is often found in &lt;a href=&quot;https://blog.ndepend.com/functional-programming-makes-code-not-oo/&quot;&gt;functional programming&lt;/a&gt; languages. This alternative is the use of a dedicated type meant to represent the use case of a potentially absent value. For instance, &lt;a href=&quot;https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options&quot;&gt;in F# this is called the option type&lt;/a&gt;; Haskell calls it &lt;a href=&quot;https://hackage.haskell.org/package/base-4.11.0.0/docs/Data-Maybe.html&quot;&gt;Maybe&lt;/a&gt;. Starting in version 8, Java introduced the &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html&quot;&gt;Optional&lt;/a&gt; class.&lt;/p&gt;
+
+&lt;p&gt;At this time, C# doesn’t offer something along those lines natively.&lt;/p&gt;
+
+&lt;h2 id=&quot;alternatives-to-null-are-they-any-good&quot;&gt;Alternatives to Null: Are They Any Good?&lt;/h2&gt;
+
+&lt;p&gt;Having presented the more commonly used alternatives for null, it’s time for the final verdict. Let’s start with the “throw exception” option.&lt;/p&gt;
+
+&lt;h3 id=&quot;exceptions&quot;&gt;Exceptions&lt;/h3&gt;
+
+&lt;p&gt;If the caller fails to supply the correct arguments for the function they’re calling, then we could say they’re breaking the function’s contract. Throwing an exception is the correct thing do to in this situation.&lt;/p&gt;
+
+&lt;p&gt;The following code is a good example of what  &lt;strong&gt;not&lt;/strong&gt;  to do:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsNullOrWhiteSpace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// all is fine with the world; let's do what must be done and return some Foo!&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;c1&quot;&gt;// uh-oh! Something wrong with the input parameters. Let's return null. Sounds like a good idea!&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;I see code like this all the time in production. Nested ifs are awful. They should have at least used an “and” to fit the whole thing in just one if. But what should really happen is something like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ArgumentOutOfRangeException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;nameof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;The value should be in the range of 1 to 100, inclusive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsNullOrWhiteSpace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+             &lt;span class=&quot;s&quot;&gt;&quot;The value should be a valid string.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;k&quot;&gt;nameof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;c1&quot;&gt;// all is fine with the world; let's do what must be done and return some Foo!&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Also, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;don’t catch exogenous exceptions&lt;/a&gt; that might happen inside your method and return null; instead, just let them bubble up since these type of exceptions represent problems outside of your control. Issues like a failure in the network are problems that you couldn’t have prevented anyway, code-wise.&lt;/p&gt;
+
+&lt;h3 id=&quot;null-object-pattern-1&quot;&gt;Null Object Pattern&lt;/h3&gt;
+
+&lt;p&gt;Let’s consider the null object pattern, which I’m certainly not a huge fan of. One problem with this pattern is that you should only use it when the calling code doesn’t care about the outcome of whatever it’s trying to accomplish. Consider again our contract example:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This line of code is not “aware” (nor does it care) if the “Contract” variable refers to a valid contract or an instance of NullContract. If it’s a valid contract, it will be extended by 12 months. If it’s not, then nothing will happen. Sometimes, that’s exactly what you want, but not always. In this example, if a contract with ID equals to 42 really was supposed to exist but did not…maybe throwing an exception would work best.&lt;/p&gt;
+
+&lt;p&gt;All I’ve said so far is that the null object pattern isn’t well suited for every scenario. This isn’t that bad of a problem; you could say the same about pretty much anything.&lt;/p&gt;
+
+&lt;p&gt;My main issue with the null object pattern is that it amounts to little more than creating a new type of null without really solving the problem. You see,  &lt;strong&gt;using the pattern doesn’t prevent you from returning null&lt;/strong&gt;. If I consume some method written by a third party that claims to use the pattern, I should be able to assume that whatever it returns is safe for me to deference. But I can’t know for sure. I have three options:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Trust the author of the code;&lt;/li&gt;
+  &lt;li&gt;Inspect the source code, if possible; or&lt;/li&gt;
+  &lt;li&gt;Continue to check for null, which completely defeats the purpose of using the pattern.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You could argue that these problems aren’t relevant in the context of a single team working with the same codebase. The developers could agree on using the pattern correctly. But if everything amounts to trust and convention at the end of the day, you might as well just agree to never return null and you’d have the same result.&lt;/p&gt;
+
+&lt;h3 id=&quot;maybeoption-1&quot;&gt;Maybe/Option&lt;/h3&gt;
+
+&lt;p&gt;Last but not least, what about Maybe/Option types? This is an alternative that’s both elegant and robust, especially in languages such as F# where you’re actually forced, in a sense, to handle both cases by using pattern matching.&lt;/p&gt;
+
+&lt;p&gt;But the sad reality is this: while maybe/option types are amazing approaches, they can’t change the fact that null exists and will continue existing. You can’t really stop people from using it, nor can you remove it from all the lines of code people have been writing since the dawn of C#.&lt;/p&gt;
+
+&lt;p&gt;So, even though they are great approaches, they still suffer from the problem of being yet another type of null for the developers to deal with.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-solution-for-null-null-itself&quot;&gt;The Solution for Null: Null Itself&lt;/h2&gt;
+
+&lt;p&gt;Do you know the old saying “When in a hole, stop digging?” For better or worse, null exists. Toxic or not, it’s a feature people use. So maybe the solution for this whole thing is just to fix null.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://kotlinlang.org/&quot;&gt;kotlin&lt;/a&gt; language got it right by having different nullable and non-nullable types and adding all kinds of checks to prevent the developer from doing things that would end badly, like dereferencing a nullable type without checking it for null or assigning a nullable value to a non-nullable variable.&lt;/p&gt;
+
+&lt;p&gt;C# gave us the first step in the right direction many years ago with &lt;a href=&quot;https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/nullable-types/&quot;&gt;nullable value types&lt;/a&gt;. After a long wait, &lt;a href=&quot;https://blog.ndepend.com/c-8-0-features-glimpse-future/&quot;&gt;reference types will finally get the same benefit with C# 8.0&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The alternative for null is null itself… &lt;strong&gt;when done properly&lt;/strong&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jul 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/null-is-evil</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/null-is-evil</guid>
+        
+        <category>software-engineering</category>
+        
+        <category>best-practices</category>
+        
+        <category>programming</category>
+        
+        <category>csharp</category>
+        
+        
+      </item>
     
       <item>
         <title>Sharpen the Saw: 4 Quick Tips for Your Dev Team</title>
@@ -1526,181 +1696,6 @@ Run the test to be sure that all of them are passing.&lt;/p&gt;
         <category>automated tests</category>
         
         <category>agile</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>C# 7 Features Worth Knowing - Part 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1489452722/charp7-features-cover_ciekql.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;In this post we’ll see some more new features from C# 7.0.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;In &lt;a href=&quot;https://carlosschults.net/en/csharp-7-features/&quot;&gt;the first part of this series&lt;/a&gt;, we talked about some new features from C#, namely: literal improvements, out variables, more &lt;em&gt;expression-bodied&lt;/em&gt; members and throw expressions.&lt;/p&gt;
-
-&lt;p&gt;Today we’ll see: &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;. But before we go on, I’d like to thank my friend Gunter Italiano Ribeiro for reviewing this article.&lt;/p&gt;
-
-&lt;h2 id=&quot;tuples&quot;&gt;Tuples&lt;/h2&gt;
-
-&lt;p&gt;Have you ever felt the need to write a method that returned more than one value? I’d bet you have. In previous versions of the C# language, there were some options available. You could use an out parameter, or even create a type for that, but each one of these had their own problems. Out parameters are non-intuitive and can complicate the design; creating a custom type just for this can be overkill.&lt;/p&gt;
-
-&lt;p&gt;In C# 7.0 you have a new option, by using &lt;strong&gt;tuple types&lt;/strong&gt; and &lt;strong&gt;tuple literals&lt;/strong&gt;. With this feature you can easily declare a method that returns more than one value. Let’s see an example:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/37689aeb84ed4fdff067eab72690a035.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;You’re probably familiar with the &lt;code class=&quot;highlighter-rouge&quot;&gt;TryXXX&lt;/code&gt; pattern, used, for instance, in the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt; BCL type. These sort of methods generally use an out parameter to return the resulting value (or the type default value, in case the parsing operation does not succeed).&lt;/p&gt;
-
-&lt;p&gt;The method above contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; method in the &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; class. Take a look at the method’s signature.&lt;/p&gt;
-
-&lt;p&gt;When you write more than one type in the method’s return, you’re using a &lt;em&gt;tuple type&lt;/em&gt;.  Don’t worry, you’re going to get used to it.&lt;/p&gt;
-
-&lt;p&gt;Right at the start of the method, we pass the specified text for a private method that actually performs the validation and returns a boolean value.&lt;/p&gt;
-
-&lt;p&gt;After the validation, we return a &lt;em&gt;tuple literal&lt;/em&gt;, which consists in a new instance of the &lt;code class=&quot;highlighter-rouge&quot;&gt;ZipCode&lt;/code&gt; class and a boolean flag indicating whether the parsing operation succeeded.&lt;/p&gt;
-
-&lt;p&gt;Nice, but what about the other side? How the function caller deals with this sort of return value? Let’s see:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/81b46fd01a187d866a41c0a74c8fc430.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;If you hover over the variable name, you’ll see its type described, unsurprisingly, as &lt;code class=&quot;highlighter-rouge&quot;&gt;(ZipCode, bool)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You can access each tuple element by using &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item1&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;zipParsingResult.Item2&lt;/code&gt;, and son on.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/f4a1cf2fea5808474fb126888c436f55.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;However, you’re not forced to use the default names. There’s nothing stopping you from using more descritive naems:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/eb3d649160d4a72a8d94b8ae79eefa2c.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;The calling code becomes more readable:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/5f5c85d832af66094a68c4a59bdb23d7.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;There’s still another way of accessing a tuple’s items. By using a functionality called &lt;strong&gt;Deconstruction&lt;/strong&gt;, you can easily split a tuple’s elements into variables.&lt;/p&gt;
-
-&lt;p&gt;You can declare the variables by using their types:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/cccbc00f7b154bb897c332e4f8ed614c.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Type inference also works here, and you have two options: you can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; keyword for each variable, or to use it just once for all variables, placing it outside the parenthesis.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/225e608c7b844df46084b6a7af5b6ac2.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;You don’t even need to declare the variables at the deconstruction moment. It’s perfectly valid to deconstruct a tuple into already existent variables.&lt;/p&gt;
-
-&lt;h3 id=&quot;some-notes&quot;&gt;Some notes&lt;/h3&gt;
-
-&lt;p&gt;Tuples are &lt;a href=&quot;https://carlosschults.net/en/value-reference-types-in-csharp//&quot;&gt;&lt;em&gt;Value Types&lt;/em&gt;&lt;/a&gt;. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same &lt;code class=&quot;highlighter-rouge&quot;&gt;HashCode&lt;/code&gt;. The names of the items are not relevant&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/c8200f265b19c59a117d8ad5c347805b.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Assignment also works in the intuitive way. As long as they’re assignable to each other, two tuples can freely be assigned to one another. As in the previous case, the item’s names don’t matter.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/feb631d45a4d8b067c502a14eb4730ea.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Currently, for this feature to work, you must install a nuget package called &lt;code class=&quot;highlighter-rouge&quot;&gt;System.ValueTuple&lt;/code&gt;. In Visual Studio, go to &lt;strong&gt;Tools&lt;/strong&gt; &amp;gt; &lt;strong&gt;NuGet Package Manager&lt;/strong&gt; &amp;gt; &lt;strong&gt;Package Manager Console.&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The Package Manager Console Windows will be shown. Type &lt;code class=&quot;highlighter-rouge&quot;&gt;Install-Package System.ValueTuple&lt;/code&gt; and press &lt;code class=&quot;highlighter-rouge&quot;&gt;ENTER&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;but-what-about-systemtuple&quot;&gt;But what about &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt;?&lt;/h3&gt;
-
-&lt;p&gt;Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; reference type since its 4.0 version? Why don’t we just stick to the older type?&lt;/p&gt;
-
-&lt;p&gt;Well, &lt;a href=&quot;https://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple&quot;&gt;this Stack Overflow answers it pretty well&lt;/a&gt;, but I’ll try to summarize it here.&lt;/p&gt;
-
-&lt;p&gt;Firstly, as already mentioned, the older type is a &lt;em&gt;reference type&lt;/em&gt;, and the new one is a &lt;em&gt;value type&lt;/em&gt;, with all the usual implications.&lt;/p&gt;
-
-&lt;p&gt;But the really important differences have to do with convenience and readability. If you use &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Tuple&lt;/code&gt; there is no deconstruction; you can only access the items by using the default names, which makes the code harder to read and understand.&lt;/p&gt;
-
-&lt;h2 id=&quot;local-functions&quot;&gt;Local Functions&lt;/h2&gt;
-
-&lt;p&gt;A &lt;strong&gt;Local Function&lt;/strong&gt; is exactly what its name suggests: a function that can be declared inside another function.&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/0aebfaf7d900d3b47a2d142a676dbb01.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;As you’ve noticed, the inner function can access the values available for the outer function.&lt;/p&gt;
-
-&lt;p&gt;Of course, the example shown above is deliberately simple; in production, you’d probably just write the code in &lt;code class=&quot;highlighter-rouge&quot;&gt;Log()&lt;/code&gt; in the external methods and be done with it.&lt;/p&gt;
-
-&lt;p&gt;It’d also be possible to use a &lt;code class=&quot;highlighter-rouge&quot;&gt;delegate&lt;/code&gt; for that:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/045204806458c6563cd3a8b20a63133f.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;It seems that everything we can do with a local function is also possible to do with private methods or delegates. Do we really need this feature?&lt;/p&gt;
-
-&lt;p&gt;Giovani Bassi give us some reasons to use this feature:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;Sintaxe consistente com a já utilizada em métodos;&lt;/li&gt;
-    &lt;li&gt;Não há necessidade de criar um delegate, ou referenciar Func, Action, ou algo parecido;&lt;/li&gt;
-    &lt;li&gt;Lambdas e delegates causam alocações extras, funções locais não;&lt;/li&gt;
-    &lt;li&gt;Ref e out são permitidos;&lt;/li&gt;
-    &lt;li&gt;Tipos genéricos são permitidos;&lt;/li&gt;
-    &lt;li&gt;É possível referenciar funções ainda não declaradas.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In free translation:&lt;/p&gt;
-
-&lt;blockquote&gt;
-
-  &lt;ul&gt;
-    &lt;li&gt;Sintaxe consistent with the one already used in methods;&lt;/li&gt;
-    &lt;li&gt;No need to create a delegate, or reference Func, Action, or something like that;&lt;/li&gt;
-    &lt;li&gt;Lambdas and delegates cause extra allocations, local functions don’t;&lt;/li&gt;
-    &lt;li&gt;Ref and out are allowed;&lt;/li&gt;
-    &lt;li&gt;Generic types are allowed;&lt;/li&gt;
-    &lt;li&gt;It’s possible to reference functions not yet declared.&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Of course you could just use a private method. But the local function has this nice property of not being acessible to the rest of your class, making it impossible to be accidentally called.&lt;/p&gt;
-
-&lt;p&gt;Mads Torgersen shows us a situation for which local functions are the perfect solution:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;As an example, methods implemented as iterators commonly need a non-iterator wrapper method for eagerly checking the arguments at the time of the call. (The iterator itself doesn’t start running until MoveNext is called). Local functions are perfect for this scenario:&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/34b77038c058f261f615e739c7f9ea2a.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;You could turn &lt;code class=&quot;highlighter-rouge&quot;&gt;Iterator()&lt;/code&gt; into a private method, sure, but that would be: 1) redundant and not very elegant, since it would require you to repeat the same signature from the outer function; and 2) less safe, because another part of the code could call the method without performing the validation.&lt;/p&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;Today we’ve talked about &lt;strong&gt;Tuples&lt;/strong&gt; and &lt;strong&gt;Local Functions&lt;/strong&gt;, two new features from C# that, at first sight, can look harmless, but have potential to change the way you write code in interesting ways.&lt;/p&gt;
-
-&lt;p&gt;Local functions? At first, I didn’t really liked it, I must admit. Or rather: I couldn’t understand what would they be useful for. After some research, I understood their use cases.&lt;/p&gt;
-
-&lt;p&gt;With tuples, it’s a whole other story. I believe every C# developer with some experience under their belt has felt the need to return more than one value from a method and was frustrated with the available options. Now using tuples we finally have an elegant, easy-to-use solution, that makes the code less clumsy and more readable.&lt;/p&gt;
-
-&lt;p&gt;Not everything is perfect though. Some developers already express concerns with these features. For instance, local functions could encourage the creation of large methods.&lt;/p&gt;
-
-&lt;p&gt;Tuples, on the other hand, could be over-used in situations that require &lt;em&gt;objects&lt;/em&gt;, making the code more procedural.&lt;/p&gt;
-
-&lt;p&gt;My opinion about all of this is very simple: every tool can be abused. It’s up to us, professionals, and to our teams, to exercise our common-sense while using these (and other) features. By the way, as I mentioned in &lt;a href=&quot;https://carlosschults.net/en/are-private-methods-a-code-smell/&quot;&gt;my article about private methods&lt;/a&gt;, code review and/or pair-programming can be of invaluable help in situations like these.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading. See you next time.&lt;/p&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&quot;&gt;https://blogs.msdn.microsoft.com/dotnet/2017/03/09/new-features-in-c-7-0/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&quot;&gt;https://www.lambda3.com.br/2016/04/novidades-do-c-7-local-functions/&lt;/a&gt; (pt-br)&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Mon, 05 Jun 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/csharp-7-features-part-2/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/csharp-7-features-part-2/</guid>
-        
-        <category>csharp</category>
-        
-        <category>beginners</category>
         
         
       </item>

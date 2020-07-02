@@ -5,10 +5,182 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 16 Jun 2020 13:14:51 -0300</pubDate>
-    <lastBuildDate>Tue, 16 Jun 2020 13:14:51 -0300</lastBuildDate>
+    <pubDate>Thu, 02 Jul 2020 16:37:42 -0300</pubDate>
+    <lastBuildDate>Thu, 02 Jul 2020 16:37:42 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Null É Ruim. Qual A Melhor Alternativa? Null.</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1593715153/null-evill-1068x437_ztikwf.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;span&gt;Foto por &lt;a href=&quot;https://unsplash.com/@benhershey?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Ben Hershey&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/null?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Nota editorial: Eu escrevi originalmente este post para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/null-evil/&quot;&gt;conferir o original aqui, em inglês, no site deles&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;“Null é maligno”. Se você tem sido um desenvolvedor de software por qualquer período de tempo razoável, aposto que já se deparou com essa afirmação várias vezes.&lt;/p&gt;
+
+&lt;p&gt;Eu diria também que é muito provável que você concorde com o sentimento, ou seja, que a referência nula é uma característica sem a qual nossas linguagens de programação ficariam melhor. Até mesmo seu criador expressou seu pesar pela referência nula, &lt;a href=&quot;https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions&quot;&gt;chamando-a de seu “erro de um bilhão de dólares”&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Criticar null tende a ficar chato rapidamente, portanto, os autores não fazem só isso. Eles também oferecem alternativas. E embora eu acredite que muitas das alternativas apresentadas têm seus méritos, também acho que talvez tenhamos negligenciado a melhor solução para tudo isso.&lt;/p&gt;
+
+&lt;p&gt;Neste post, vamos examinar algumas das alternativas comuns para o retorno nulo antes de fazer o argumento de que a melhor alternativa é a própria nulidade. Vamos começar!&lt;/p&gt;
+
+&lt;h2 id=&quot;null-é-tóxico&quot;&gt;Null é Tóxico…&lt;/h2&gt;
+
+&lt;p&gt;Não vou me deter muito em toda essa coisa do “nulo é mal”, já que muito já foi escrito sobre isso. Alguns exemplos (em inglês):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;&amp;quot;https://sidburn.github.io/blog/2016/03/20/null-is-evil&amp;quot;&amp;gt;Null is Evil&quot;&gt;Null Is Evil&lt;/a&gt;
+&lt;a href=&quot;&amp;quot;http://blog.ploeh.dk/2015/11/13/null-has-no-type-but-maybe-has/&amp;quot;&amp;gt;&quot;&gt;Null has no type, but Maybe has&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://softwareengineering.stackexchange.com/questions/12777/are-null-references-really-a-bad-thing&quot;&gt;Esta resposta de Stack Overflow&lt;/a&gt; também tem algumas informações valiosas.&lt;/p&gt;
+
+&lt;h2 id=&quot;mas-útil-quais-são-as-alternativas&quot;&gt;…Mas útil. Quais são as Alternativas?&lt;/h2&gt;
+
+&lt;p&gt;Agora, espero que estejamos na mesma página no que diz respeito ao status de nulo como um recurso de linguagem problemática. Mas tóxico ou não, o nulo serve a alguns propósitos. As pessoas o usam para representar um dado ausente, inválido ou desconhecido, ou mesmo para indicar que ocorreu um erro.&lt;/p&gt;
+
+&lt;p&gt;O que deveriam estar fazendo ao invés disso?&lt;/p&gt;
+
+&lt;h3 id=&quot;lançar-uma-exceção&quot;&gt;Lançar uma Exceção&lt;/h3&gt;
+
+&lt;p&gt;Em algumas situações em que as pessoas retornam null, a coisa razoável a fazer é lançar uma exceção. Pense desta maneira: se um método promete realizar algo e não o faz, ele deve lançar uma exceção. Em outras palavras: quando um método não cumpre seu contrato, então é razoável disparar uma exceção.&lt;/p&gt;
+
+&lt;p&gt;É claro que você deve reservar exceções para cenários que sejam verdadeiramente excepcionais. Se uma determinada situação acontece com freqüência, então uma exceção não é a melhor solução.&lt;/p&gt;
+
+&lt;h3 id=&quot;padrão-de-objeto-null&quot;&gt;Padrão de Objeto Null&lt;/h3&gt;
+
+&lt;p&gt;Considere as seguintes linhas de código:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável &lt;code class=&quot;highlighter-rouge&quot;&gt;NullReferenceException&lt;/code&gt;. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.&lt;/p&gt;
+
+&lt;p&gt;De qualquer forma, o &lt;a href=&quot;https://en.wikipedia.org/wiki/Null_object_pattern&quot;&gt;padrão de objeto nulo&lt;/a&gt; é uma tentativa de resolver este problema. E como ele faz isso? Criando seu próprio tipo de nulo.&lt;/p&gt;
+
+&lt;p&gt;Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa &lt;code class=&quot;highlighter-rouge&quot;&gt;IContract&lt;/code&gt;, nossa classe NullContract poderia ser algo parecido com isto:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NullContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IContract&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;c1&quot;&gt;// construtor, propriedades, etc &lt;/span&gt;
+	
+	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;months&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;c1&quot;&gt;// não faz nada aqui, propositalmente&lt;/span&gt;
+	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Ao empregar o padrão de objeto nulo você poderia - teoricamente, pelo menos - ter a certeza de que sempre receberá um objeto que cumpre o contrato que você espera que ele honre sem explodir na sua cara.&lt;/p&gt;
+
+&lt;h3 id=&quot;maybeoption&quot;&gt;Maybe/Option&lt;/h3&gt;
+
+&lt;p&gt;Finalmente, temos uma alternativa muito interessante que muitas vezes é encontrada na &lt;a href=&quot;https://blog.ndepend.com/functional-programming-makes-code-not-oo/&quot;&gt;programação funcional&lt;/a&gt; linguagens. Esta alternativa é o uso de um tipo dedicado, destinado a representar o caso de uso de um valor potencialmente ausente. Por exemplo, &lt;a href=&quot;https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options&quot;&gt;em F# isto é chamado de tipo de option&lt;/a&gt;; Haskell a chama de &lt;a href=&quot;https://hackage.haskell.org/package/base-4.11.0.0/docs/Data-Maybe.html&quot;&gt;Maybe&lt;/a&gt;. A partir da versão 8, Java introduziu a classe &lt;a href=&quot;https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html&quot;&gt;Optional&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Neste momento, o C# não oferece algo parecido com este tipo nativamente.&lt;/p&gt;
+
+&lt;h2 id=&quot;alternativas-ao-null-elas-são-boas&quot;&gt;Alternativas ao Null: Elas são boas?&lt;/h2&gt;
+
+&lt;p&gt;Tendo apresentado as alternativas mais comumente usadas para nulo, é hora do veredicto final. Vamos começar com a opção “lançar exceção”.&lt;/p&gt;
+
+&lt;h3 id=&quot;exceções&quot;&gt;Exceções&lt;/h3&gt;
+
+&lt;p&gt;Se o chamador não fornecer os argumentos corretos para a função que está chamando, então poderíamos dizer que ele está quebrando o contrato da função. Lançar uma exceção é a coisa correta a fazer nesta situação.&lt;/p&gt;
+
+&lt;p&gt;O código a seguir é um bom exemplo do que &lt;strong&gt;não&lt;/strong&gt;* deve ser feito:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsNullOrWhiteSpace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// tá tudo certo: vamos fazer o que precisa ser feito e retornar&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// um novo objeto!&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;c1&quot;&gt;// Tem coisa errada com os parâmetros recebidos. Já sei! Vamos retornar null!&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Eu vejo códigos como este o tempo todo em produção. Os ifs aninhados são horríveis. Eles deveriam pelo menos ter usado um “and” para encaixar tudo em apenas um “if”. Mas o que realmente deveria acontecer é algo assim:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Foo&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ArgumentOutOfRangeException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;nameof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;O valor deve estar no intervalo de 1 a 100, inclusive.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;IsNullOrWhiteSpace&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+             &lt;span class=&quot;s&quot;&gt;&quot;O valor deve ser uma string válida.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+             &lt;span class=&quot;k&quot;&gt;nameof&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+             &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+    &lt;span class=&quot;c1&quot;&gt;// tá tudo certo: vamos fazer o que precisa ser feito e retornar&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// um novo objeto!&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Além disso, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;não capture exceções exógenas&lt;/a&gt; que possam acontecer dentro de seu método e retorne nulo; em vez disso, deixe-as subir, pois este tipo de exceções representam problemas fora de seu controle. Problemas como uma falha na rede são problemas que você não poderia ter evitado de qualquer forma, em código.&lt;/p&gt;
+
+&lt;h3 id=&quot;padrão-null-object&quot;&gt;Padrão Null Object&lt;/h3&gt;
+
+&lt;p&gt;Vamos considerar o padrão de objeto nulo, do qual certamente não sou um grande fã. Um problema com este padrão é que você só deve usá-lo quando o código de chamada não se importa com o resultado do que quer que ele esteja tentando realizar. Considere novamente nosso exemplo de contrato:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Esta linha de código não é “consciente” (nem se importa) se a variável “Contrato” se refere a um contrato válido ou a uma instância da NullContract. Se for um contrato válido, ele será prorrogado por 12 meses. Se não for, então nada acontecerá. Às vezes, é exatamente isso que você quer, mas nem sempre. Neste exemplo, se um contrato com ID equivale a 42 realmente deveria existir, mas não… talvez lançar uma exceção funcionaria melhor.&lt;/p&gt;
+
+&lt;p&gt;Tudo o que eu disse até agora é que o padrão de objeto nulo não é bem adequado para cada cenário. Isto não é um problema tão ruim assim; você poderia dizer o mesmo sobre praticamente qualquer coisa.&lt;/p&gt;
+
+&lt;p&gt;Meu principal problema com o padrão de objeto nulo é que ele equivale a pouco mais do que criar um novo tipo de objeto nulo sem realmente resolver o problema. Veja, &lt;strong&gt;utilizar o padrão não impede que você retorne nulo&lt;/strong&gt;. Se eu consumir algum método escrito por um terceiro que afirma usar o padrão, devo ser capaz de assumir que o que quer que seja que ele retorne é seguro. Mas eu não posso ter certeza. Eu tenho três opções:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Confiar no autor do código;&lt;/li&gt;
+  &lt;li&gt;Inspecionar o código-fonte, se possível; ou&lt;/li&gt;
+  &lt;li&gt;Continuar a verificar a nulidade, o que derrota completamente o propósito de usar o padrão.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Pode-se argumentar que estes problemas não são relevantes no contexto de uma única equipe que trabalha com a mesma base de código. Os desenvolvedores poderiam concordar em usar o padrão corretamente. Mas se tudo equivale a confiança e convenção no final do dia, você poderia muito bem concordar em nunca retornar nulo e teria o mesmo resultado.&lt;/p&gt;
+
+&lt;h4 id=&quot;maybeoption-1&quot;&gt;Maybe/Option&lt;/h4&gt;
+
+&lt;p&gt;Por último, mas não menos importante, e quanto aos tipos Maybe/Option? Esta é uma alternativa ao mesmo tempo elegante e robusta, especialmente em linguagens como o F#, onde você é forçado, de certa forma, a lidar com ambos os casos usando &lt;em&gt;pattern matching.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Mas a triste realidade é a seguinte: embora &lt;code class=&quot;highlighter-rouge&quot;&gt;Maybe/Option&lt;/code&gt; sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.&lt;/p&gt;
+
+&lt;p&gt;Portanto, mesmo sendo grandes abordagens, elas ainda sofrem com o problema de serem mais um tipo de nulo para os desenvolvedores lidarem.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-solução-para-null-o-próprio-null&quot;&gt;A solução para Null: O próprio Null&lt;/h2&gt;
+
+&lt;p&gt;Você conhece o velho ditado “Quando em um buraco, pare de cavar”? Para o melhor ou para o pior, existe o nulo. Tóxico ou não, é uma característica que as pessoas usam. Portanto, talvez a solução para tudo isso seja apenas consertar o nulo.&lt;/p&gt;
+
+&lt;p&gt;A linguagem &lt;a href=&quot;https://kotlinlang.org/&quot;&gt;kotlin&lt;/a&gt; acertou ao ter diferentes tipos de nulos e não nulos e adicionar todos os tipos de verificações para evitar que o desenvolvedor faça coisas que acabariam mal, como desreferenciar um tipo nulo sem verificá-lo ou atribuir um valor nulo a uma variável não nula.&lt;/p&gt;
+
+&lt;p&gt;O C# nos deu o primeiro passo na direção certa há muitos anos com &lt;a href=&quot;https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/nullable-types/&quot;&gt;tipos de valor nulo&lt;/a&gt;. Após uma longa espera, &lt;a href=&quot;https://blog.ndepend.com/c-8-0-features-glimpse-future/&quot;&gt;tipos de referência finalmente obterão o mesmo benefício com C# 8.0&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A alternativa para o nulo é o próprio nulo… &lt;strong&gt;quando feito corretamente&lt;/strong&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 02 Jul 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/null-problematico</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/null-problematico</guid>
+        
+        <category>engenharia-de-software</category>
+        
+        <category>boas-praticas</category>
+        
+        <category>programacao</category>
+        
+        <category>csharp</category>
+        
+        
+      </item>
     
       <item>
         <title>Afiando a Serra: 4 Dicas Rápidas Para Sua Equipe</title>
@@ -1481,171 +1653,6 @@ Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (
         <pubDate>Tue, 05 Dec 2017 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/como-aprender-ingles-parte-2</link>
         <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-2</guid>
-        
-        <category>boas práticas</category>
-        
-        <category>inglês</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Como aprender inglês: Um guia para desenvolvedores</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Parte 1: Não faça o que todo mundo faz.&lt;/em&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Esta é a primeira parte de uma série de dois posts. Veja &lt;a href=&quot;https://carlosschults.net/pt/como-aprender-ingles-parte-2&quot;&gt;a segunda parte&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: &lt;a href=&quot;https://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;usar português ou inglês para nomear classes, variáveis, e demais artefatos no código&lt;/a&gt;. Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.&lt;/p&gt;
-
-&lt;p&gt;Minha opinião atual continua praticamente a mesma da época. Prefiro que você &lt;a href=&quot;https://carlosschults.net/pt/programar-portugues-ou-ingles/&quot;&gt;leia o post completo&lt;/a&gt;, mas aqui vai a versão resumida: tente usar inglês o máximo possível, porém vão existir situações nas quais o português faz mais sentido. Decida de acordo com as características do seu projeto e equipe.&lt;/p&gt;
-
-&lt;p&gt;Outra coisa que ainda não mudou é a minha opinião de que quem trabalha desenvolvendo software &lt;strong&gt;definitivamente deve aprender inglês&lt;/strong&gt;.
-Se você tem uma lista de coisas para estudar, remova Kotlin/programação funcional/framework javascript da moda do topo da lista e coloque inglês no lugar.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.englishexperts.com.br/qual-e-o-significado-de-i-mean-it/&quot;&gt;I mean it.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;O que pretendo fazer agora  é compartilhar minha experiência ao aprender inglês de maneira autodidata, dando dicas para que a sua jornada seja mais fácil e rápida que a minha.&lt;/p&gt;
-
-&lt;p&gt;Este será um guia em duas partes. Nesta primeira parte, vou falar sobre os principais motivos que, em minha visão, dificultam o aprendizado das pessoas.&lt;/p&gt;
-
-&lt;p&gt;Mas talvez você ainda precise de convencimento sobre a importância do inglês. Se este é seu caso, a próxima seção é para você.&lt;/p&gt;
-
-&lt;h2 id=&quot;por-que-você-deve-aprender-inglês-spoiler-não-é-para-ganhar-mais&quot;&gt;Por que você deve aprender inglês (SPOILER: não é para “ganhar mais”)&lt;/h2&gt;
-
-&lt;p&gt;Quando o assunto é o aprendizado de inglês, uma das razões mais citadas é o aumento de renda. Embora &lt;a href=&quot;https://g1.globo.com/concursos-e-emprego/noticia/2016/04/salario-e-ate-61-maior-entre-quem-fala-ingles-fluente-diz-pesquisa.html&quot;&gt;existam estudos que sugerem aumento de salário para quem domina o idioma&lt;/a&gt;, este não deveria ser o seu maior (ou único) motivador.&lt;/p&gt;
-
-&lt;p&gt;Outro argumento bastante usado é de que o inglês torna mais fácil conseguir um emprego. Intuitivamente, parece fazer sentido, embora eu desconheça algum estudo demonstrando isso (fique a vontade para postar um link nos comentários, caso conheça). Como &lt;a href=&quot;https://pt.wikipedia.org/wiki/Evid%C3%AAncia_aned%C3%B3tica&quot;&gt;evidência anedótica&lt;/a&gt;, acredito que todos nós conhecemos muitas pessoas que são profissionais competentes e não dominam o idioma. Quanto a isso, pode se tranquilizar: &lt;strong&gt;sabendo programar minimamente bem, você vai conseguir um emprego mesmo sem saber inglês&lt;/strong&gt; (excluindo-se, obviamente, empresas no exterior ou cargos em empresas brasileiras que requerem comunicação com pessoas de fora). Poderíamos argumentar sobre a qualidade desses empregos, ou o salário que você poderá conseguir, mas não pretendo entrar neste mérito por enquanto.&lt;/p&gt;
-
-&lt;p&gt;Certo, mas… e aí? O que sobra? Colocando da maneira mais simples possível: você deve aprender inglês porque é &lt;strong&gt;útil&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;o-inglês-como-língua-franca&quot;&gt;O inglês como língua franca&lt;/h3&gt;
-
-&lt;p&gt;O inglês é, para todos os efeitos, a língua franca da tecnologia. E isto facilita muitas coisas.&lt;/p&gt;
-
-&lt;p&gt;Um exemplo: eu gosto muito do &lt;a href=&quot;https://blog.ploeh.dk/&quot;&gt;blog do Mark Seeman&lt;/a&gt; e fico feliz por ele escrever em inglês, mesmo sendo da Dinamarca. &lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net&quot;&gt;Também aprendi bastante coisa com seu livro sobre injeção de dependência&lt;/a&gt;. Até onde eu sei, este livro nunca foi traduzido para português, apesar da primeira edição ter sido lançada em 2011 (&lt;a href=&quot;https://www.manning.com/books/dependency-injection-in-dot-net-second-edition&quot;&gt;a segunda edição está prevista para janeiro de 2018&lt;/a&gt;).&lt;/p&gt;
-
-&lt;p&gt;O criador do Ruby On Rails, David Heinemeier Hansson, também é dinamarquês, o que não o impede de &lt;a href=&quot;https://medium.com/@dhh&quot;&gt;postar em inglês com frequência&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Como estamos no assunto de aprender um idioma, você deve conhecer um aplicativo chamado &lt;a href=&quot;https://pt.duolingo.com/&quot;&gt;Duolingo&lt;/a&gt;. Pois bem, o fundador e CEO do Duolingo (e também do &lt;a href=&quot;https://www.google.com/recaptcha&quot;&gt;reCaptcha&lt;/a&gt;) é o pesquisador &lt;a href=&quot;https://twitter.com/luisvonahn&quot;&gt;Luís von Ahn&lt;/a&gt;, da Guatemala. Embora de vez em quando poste algo em espanhol, o inglês é usado na maioria das comunicações dele nas redes sociais.&lt;/p&gt;
-
-&lt;p&gt;Por último mas não menos importante, vou citar o brasileiro &lt;a href=&quot;https://zenorocha.com/&quot;&gt;Zeno Rocha&lt;/a&gt;, referência no desenvolvimento front-end e que se comunica principalmente em inglês no seu site e diversas mídias sociais.&lt;/p&gt;
-
-&lt;p&gt;Vamos falar um pouco de Open Source agora. Recentemente eu comecei a contribuir com um projeto chamado &lt;a href=&quot;https://github.com/nodatime/nodatime/&quot;&gt;Noda Time&lt;/a&gt;. Se você der uma olhada na área de discussão do projeto, verá que todas elas são em inglês, apesar de haver contribuidores de diversas países (Brasil, Estados Unidos, Inglaterra e Rússia, só para citar alguns).&lt;/p&gt;
-
-&lt;p&gt;Poderia ficar aqui o dia citando exemplos, mas você pegou a ideia. Seria impraticável todos aprenderem os idiomas de todos. Consolidar em apenas um idioma é a solução óbvia.&lt;/p&gt;
-
-&lt;h3 id=&quot;o-inglês-como-facilitador-do-aprendizado&quot;&gt;O inglês como facilitador do aprendizado&lt;/h3&gt;
-
-&lt;p&gt;Acho que não é difícil convencer alguém de que, pelo menos na área de desenvolvimento de software, há muito mais material em inglês que em outros idiomas. Aliás, eu arriscaria que isto também é verdade para outras áreas.&lt;/p&gt;
-
-&lt;p&gt;Uma forma relativamente fácil de demonstrar isso é fazer uma busca no Google ou Youtube em português e depois em inglês, com os mesmos termos, e comparar o número de resultados retornados.&lt;/p&gt;
-
-&lt;p&gt;Outro site cuja diferença entre as versões em inglês e português é gritante é a famosa Wikipédia. Por exemplo, &lt;a href=&quot;https://pt.wikipedia.org/wiki/Bubble_sort&quot;&gt;compare o artigo sobre o algoritmo de ordenação BubbleSort em português&lt;/a&gt; com &lt;a href=&quot;https://en.wikipedia.org/wiki/Bubble_sort&quot;&gt;a versão em inglês&lt;/a&gt;. Nem precisa falar muita coisa, certo?&lt;/p&gt;
-
-&lt;p&gt;É claro que estes são apenas exemplos bobos, usando uma “metodologia” que não tem nada de científica, mas eu acredito que é suficiente. Também não estou de forma alguma afirmando que não existe conteúdo de qualidade em português - eu sei que existe. Aliás, a própria existência deste blog é prova de que acredito na importância do conteúdo em português.&lt;/p&gt;
-
-&lt;p&gt;Mas é inegável que &lt;strong&gt;é mais fácil encontrar material em qualidade e quantidade em inglês&lt;/strong&gt;. Não apenas na forma de tutoriais e blog posts, mas também em livros; assim como o já citado &lt;strong&gt;Dependency Injection in .Net&lt;/strong&gt;, do Mark Seeman, existem muitos outros livros que nunca foram traduzidos para o nosso idioma. Alguns livros &lt;em&gt;são&lt;/em&gt; traduzidos, eventualmente, mas a qualidade da tradução muitas vezes deixa a desejar.&lt;/p&gt;
-
-&lt;p&gt;E quem consegue entender o inglês falado? Esta pessoa já tem &lt;em&gt;muito&lt;/em&gt; mais vantagens, pois pode assistir palestras no Youtube, &lt;a href=&quot;https://www.pluralsight.com/&quot;&gt;cursos no Pluralsight&lt;/a&gt; e similares, &lt;strong&gt;ouvir a excelentes podcasts de tecnologia&lt;/strong&gt;, e muito mais.&lt;/p&gt;
-
-&lt;h2 id=&quot;por-que-as-pessoas-não-aprendem-inglês&quot;&gt;Por que as pessoas não aprendem inglês?&lt;/h2&gt;
-&lt;p&gt;Não é raro vermos &lt;a href=&quot;https://exame.abril.com.br/brasil/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking/&quot;&gt;matérias&lt;/a&gt; retratando o &lt;a href=&quot;https://jovempan.uol.com.br/programas/jornal-da-manha/brasil-cai-de-posicao-e-sai-do-top-40-no-ranking-mundial-de-proficiencia-em-ingles.html&quot;&gt;péssimo desempenho&lt;/a&gt; do Brasil nos rankings de proficiência no inglês.&lt;/p&gt;
-
-&lt;p&gt;Ao mesmo tempo, &lt;a href=&quot;https://g1.globo.com/economia/negocios/noticia/carlos-wizard-compra-35-da-wizeup-e-retoma-ao-setor-de-educacao.ghtml&quot;&gt;redes de escolas de idiomas são negociadas por bilhões&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Embora muitas pessoas tentem aprender inglês, poucas conseguem. Por quê?&lt;/p&gt;
-
-&lt;p&gt;Há pessoas que têm a resposta na ponta da língua para isso:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;“Precisa começar a estudar na infância”.&lt;/li&gt;
-  &lt;li&gt;“Precisa ter muito dinheiro”.&lt;/li&gt;
-  &lt;li&gt;“Precisa morar fora/fazer intercâmbio”.&lt;/li&gt;
-  &lt;li&gt;“Precisa ter uma inteligência muito acima da média”.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Eu acredito que estas pessoas estão &lt;em&gt;erradas&lt;/em&gt;. Embora essas coisas ajudem, nenhuma delas é &lt;em&gt;essencial&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Vou agora falar sobre o que eu considero os motivos principais que impedem as pessoas de aprender inglês.&lt;/p&gt;
-
-&lt;h3 id=&quot;excesso-de-foco-em-gramática-em-detrimento-de-todo-o-resto&quot;&gt;Excesso de foco em gramática em detrimento de todo o resto&lt;/h3&gt;
-&lt;p&gt;Durante a faculdade, havia um colega que sempre me pedia ajuda nas provas de inglês, apesar dele ter estudado SETE anos em uma escola de idiomas famosa. E eu sempre comentava: “Cara, mas não te ensinaram isso no curso?” E sua resposta, invariavelmente, era: “Ah, eles não passavam muito vocabulário, era mais gramática).&lt;/p&gt;
-
-&lt;p&gt;Agora pense. E se esse meu amigo fosse abordado por um americano na rua perguntando “&lt;strong&gt;Excuse me? How do I get to the nearest subway station?&lt;/strong&gt;”? O que ele iria fazer? Abrir um livro de gramática? Recitar a lista de verbos regulares e irregulares?&lt;/p&gt;
-
-&lt;h3 id=&quot;falta-de-prática&quot;&gt;Falta de prática&lt;/h3&gt;
-&lt;p&gt;Qualquer pessoa que já estudou algum instrumento musical sabe que não basta frequentar as aulas; é preciso praticar em casa, de acordo com o plano de estudos recebido. Fazer exercícios, treinar escalas, praticar percepção musical, &lt;strong&gt;todos os dias&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511625841/musician.jpg&quot; alt=&quot;Músico tocando violino&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;É claro que a necessidade de praticar não se aplica somente à música, mas também aos esportes, à programação e muitas outras áreas.&lt;/p&gt;
-
-&lt;p&gt;Agora, quando o assunto é inglês, algumas pessoas parecem pensar que elas vão aprender por osmose, por contágio, algo assim. Que basta ficar perto do(a) professor(a) por uma (ou na melhor das hipóteses, duas) horas e depois ir embora para casa e não ter nenhum contato com o idioma por uma semana e vão aprender assim mesmo.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://forum.wordreference.com/threads/i-hate-to-break-it-to-you.1910645/&quot;&gt;Sorry to break it to you&lt;/a&gt;, mas não vão.&lt;/p&gt;
-
-&lt;h3 id=&quot;não-integrar-o-áudio-ao-aprendizado-ou-integrá-lo-tardiamente&quot;&gt;Não integrar o áudio ao aprendizado (ou integrá-lo tardiamente)&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.inglesonline.com.br/2014/01/22/o-perigo-de-aprender-ingles-so-lendo/&quot;&gt;Este é um problema comum na área de TI&lt;/a&gt;. Inclusive, eu cometi este erro em uma etapa do meu aprendizado. Como precisamos constantemente ler textos técnicos em inglês, como manuais e documentações, muitos de nós conseguem ter um domínio razoável do inglês escrito ao longo dos anos.&lt;/p&gt;
-
-&lt;p&gt;O problema é quando chega a hora de &lt;em&gt;falar&lt;/em&gt;, principalmente por conta da pronúncia do inglês, que é totalmente não intuitiva para nós falantes de português.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511826587/practice-listening-min_lzgqcr.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Na maioria das vezes, sem ter a referência da pronúncia correta, a pessoa acaba “aportuguesando” a pronúncia da palavra. Quantas pessoas você conhece que pronunciam 4Shared como “Quatro Xarédi”, ou algo do tipo?&lt;/p&gt;
-
-&lt;p&gt;Outro problema é que a pronúncia do inglês é bastante “imprevisível”. É perigoso você assumir que existem regrinhas infalíveis para a pronúncia e sair aplicando. Você pode até acertar algumas vezes, mas vai errar muitas outras. Veja as três palavras a seguir:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;em&gt;Book&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Door&lt;/em&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;em&gt;Blood&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Agora ouça a pronúncia de cada uma:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://forvo.com/_ext/ext-prons.js?id=1507143&quot;&gt;&lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://forvo.com/_ext/ext-prons.js?id=6800&quot;&gt;&lt;/script&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://forvo.com/_ext/ext-prons.js?id=1436811&quot;&gt;&lt;/script&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;É provável que você tenha se surpreendido com a pronúncia de pelo menos uma delas.&lt;/p&gt;
-
-&lt;p&gt;Vamos a mais um exemplo. Desta vez, uma palavra que você conhece e usa com frequência: &lt;em&gt;Query&lt;/em&gt;. Você sabe a pronúncia desta palavra? &lt;strong&gt;Tem certeza?&lt;/strong&gt; Se você acha que rima com &lt;em&gt;very&lt;/em&gt;, então errou:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;https://pt.forvo.com/_ext/ext-prons.js?id=681194&quot;&gt;&lt;/script&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Resumidamente, pessoas que só tiveram contato com inglês escrito vão inevitavelmente internalizar pronúncias erradas devido à falta de exposição a áudios com as pronúncias corretas, o que acarretará em dificuldades na conversação.&lt;/p&gt;
-
-&lt;h2 id=&quot;o-que-fazer-então&quot;&gt;O que fazer então?&lt;/h2&gt;
-
-&lt;p&gt;Basicamente, o contrário do que foi listado acima. Colocando em uma frase, seria algo do tipo:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Estude/pratique consistentemente (de preferência todos os dias), utilizando uma estratégia de estudos que integre o uso de áudio desde o início, e não privilegia a gramática em detrimento de todas as outras áreas.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Sim, é um pouco abstrato, eu admito. Corrigiremos isso no próximo post, no qual eu vou contar a história do meu aprendizado no inglês, detalhando meus erros e acertos, para que sua jornada seja menos longa que a minha.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading! See you next time!&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 27 Nov 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/como-aprender-ingles-parte-1</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-1</guid>
         
         <category>boas práticas</category>
         
