@@ -5,10 +5,465 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jul 2020 16:37:42 -0300</pubDate>
-    <lastBuildDate>Thu, 02 Jul 2020 16:37:42 -0300</lastBuildDate>
+    <pubDate>Wed, 08 Jul 2020 19:54:53 -0300</pubDate>
+    <lastBuildDate>Wed, 08 Jul 2020 19:54:53 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Testes Unitários em C#: Iniciando Com TDD</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Este post faz parte de uma série. &lt;a href=&quot;http://carlosschults.net/tag_ptbr/serie-testes-unitarios/&quot;&gt;Veja os outros artigos.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Hoje eu trago outro post para ajudá-los a começar com os testes da unidade C#. Já cobri o &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;básico de testes unitários&lt;/a&gt;, explicando o que eles são e por que são tão importantes. Depois disso, mostrei &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte-2&quot;&gt;como começar com os testes unitários&lt;/a&gt; com um exemplo prático. Hoje, vamos um passo adiante, explorando a metodologia TDD.&lt;/p&gt;
+
+&lt;p&gt;Você provavelmente já ouviu falar de TDD, mas pode ficar confuso quanto ao que é. A propósito, isto não é culpa sua. Há muitos equívocos em torno desta sigla. Algumas pessoas até a usam de forma intercambiável com os testes unitários. Neste post, você vai aprender por que eles estão errados, e mais.&lt;/p&gt;
+
+&lt;p&gt;Começamos o post com uma breve definição de TDD. Você aprenderá não apenas que TDD significa Desenvolvimento Orientado por Testes, mas também que não é uma técnica de teste, apesar do nome. Depois disso, eu explico o que é TDD e quais são seus benefícios.&lt;/p&gt;
+
+&lt;p&gt;Após o “o quê” e o “porquê” estarem ambos fora do nosso caminho, estaremos prontos para nos divertir um pouco. Vou lhes mostrar, na prática, como começar com a TDD, desenvolvendo uma solução para um famoso exercício de programação. Soa bem? Então, vamos cavar.&lt;/p&gt;
+
+&lt;h2 id=&quot;testes-unitários-em-c--tdd-começando-pelo-básico&quot;&gt;Testes Unitários em C# &amp;amp; TDD: Começando Pelo Básico&lt;/h2&gt;
+
+&lt;p&gt;Já mencionei anteriormente que o TDD não é uma técnica de teste. Mas o que é isso? E como está relacionado ao teste de unidade C# (ou teste de unidade em geral, já agora?)&lt;/p&gt;
+
+&lt;h3 id=&quot;definindo-tdd&quot;&gt;Definindo TDD&lt;/h3&gt;
+
+&lt;p&gt;Como você já viu, TDD significa “Test-Driven Development”, ou “Desenvolvimento guiado por testes.” É uma técnica ou metodologia de desenvolvimento de software que utiliza testes unitários para guiar ou dirigir o desenvolvimento da aplicação.&lt;/p&gt;
+
+&lt;p&gt;Em vez de fazer a coisa mais intuitiva, que seria escrever testes unitários após o código de produção, a metodologia TDD afirma que você deve começar escrevendo um teste unitário falho. Depois você escreve o código de produção, mas apenas o necessário para que o teste seja aprovado.&lt;/p&gt;
+
+&lt;p&gt;Acho que agora você está se perguntando pelo menos duas coisas:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Como isso funciona na prática?&lt;/li&gt;
+  &lt;li&gt;Por que escrever o código de uma maneira tão estranha?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;É o que vamos ver a seguir.&lt;/p&gt;
+
+&lt;h3 id=&quot;as-fases-do-tdd&quot;&gt;As fases do TDD&lt;/h3&gt;
+
+&lt;p&gt;O desenvolvimento orientado por testes depende da repetição de um ciclo incrivelmente curto. Este ciclo é composto de três fases:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Primeiro, você escreve um teste que representa um requisito específico da funcionalidade que você está tentando implementar.&lt;/li&gt;
+  &lt;li&gt;Em seguida, você faz o teste passar, escrevendo a quantidade mínima de código de produção com a qual você pode escapar.&lt;/li&gt;
+  &lt;li&gt;Se necessário, você refatoria o código para eliminar duplicações ou outros problemas.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Como a funcionalidade ainda não existe, o teste que você escreve no passo nº 1 falhará. Ou seja, em linguagens como Python ou Ruby. No caso de linguagens estaticamente digitadas, como Java ou C#, o código nem sequer será compilado. Para nossos propósitos, a não compilação do código conta como falha no teste.&lt;/p&gt;
+
+&lt;p&gt;No passo 2, você tem que fazer o teste passar, mas nada além disso. O que eu quero dizer é que seu objetivo aqui não é resolver o problema, pelo menos ainda não. Ao invés disso, seu único trabalho é fazer o teste passar, escrevendo a menor quantidade possível de código. Fazer batota - por exemplo, devolver um valor codificado - não só é OK, mas encorajado, como você logo verá.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, a terceira fase é a única que permite a você escrever o código de produção sem ter que criar primeiro um teste de reprovação. Mas você não pode criar novas classes ou funções; você só pode refatorar o código que você escreveu na etapa anterior, para torná-lo mais legível, para eliminar a duplicação ou para resolver outro problema. E, é claro, o teste ainda deve ser aprovado.&lt;/p&gt;
+
+&lt;p&gt;As pessoas freqüentemente usam o TDD como “red green-refactor” porque a maioria das ferramentas de teste de unidade usa vermelho para denotar testes fracassados e verde para passar nos testes.&lt;/p&gt;
+
+&lt;h3 id=&quot;por-que-usar-o-tdd&quot;&gt;Por que usar o TDD?&lt;/h3&gt;
+
+&lt;p&gt;O difícil de entender quando se começa a usar o TDD não é o como. O “como” é trivial: escrever um teste, faze-lo passar, talvez refatorar, enxaguar, repetir. A parte preocupante é o “por quê”. Por que desenvolver software de uma maneira tão não-intuitiva?&lt;/p&gt;
+
+&lt;p&gt;Vou falar mais sobre a filosofia TDD em artigos futuros. Em poucas palavras, aplicar TDD garante que você terá um código testável desde o início. Ele o incentivará a projetar seu código de uma maneira simples e modular.&lt;/p&gt;
+
+&lt;p&gt;Mas talvez a principal vantagem do TDD seja aumentar a confiança do desenvolvedor em seu código. Ao desenvolver um pequeno passo de cada vez, você nunca será capaz de errar muito, já que está fazendo muito pouco. Saber que você está apenas a um teste de reprovação de ter um código de trabalho é reconfortante.&lt;/p&gt;
+
+&lt;h2 id=&quot;testes-unitários-em-c--tdd-o-guia-mão-na-massa&quot;&gt;Testes Unitários em C# &amp;amp; TDD: O Guia Mão-Na-Massa&lt;/h2&gt;
+
+&lt;p&gt;Eu cobri como começar com os testes de unidade C# no passado. Eu também cobri as ferramentas necessárias e como começar. Entretanto, não vou assumir que você tenha lido esses artigos. Em vez disso, vou cobrir tudo a partir do zero. Assim, você será capaz de seguir o tutorial mesmo que tenha zero de experiência com testes unitários.&lt;/p&gt;
+
+&lt;h3 id=&quot;nosso-problema-o-kata-string-calculator&quot;&gt;Nosso problema: O Kata String Calculator&lt;/h3&gt;
+
+&lt;p&gt;Para nosso tutorial, escreveremos uma solução para o &lt;a href=&quot;https://osherove.com/tdd-kata-1&quot;&gt;coding kata String Calculator&lt;/a&gt;, idealizado pelo Roy Osherov. Um kata de codificação é um exercício de programação, destinado a permitir que os desenvolvedores pratiquem práticas de engenharia de software ágeis fundamentais, como a refatoração, e - você adivinhou - TDD.&lt;/p&gt;
+
+&lt;p&gt;Para simplificar, vou ignorar algumas das exigências do kata. O que se segue são as exigências que vamos utilizar:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Vamos criar uma classe chamada StringCalculator, com um único método estático com a assinatura estática int Add(string numbers);&lt;/li&gt;
+  &lt;li&gt;O método pega uma string representando números separados por uma vírgula, e retorna sua soma.&lt;/li&gt;
+  &lt;li&gt;Se passarmos uma string vazia, o método deve retornar zero.&lt;/li&gt;
+  &lt;li&gt;A passagem de um único número deve resultar no próprio número.&lt;/li&gt;
+  &lt;li&gt;Se passarmos números negativos, o método deve lançar uma ArgumentException, com a mensagem “Números negativos não permitidos:” seguida dos negativos que foram especificados.&lt;/li&gt;
+  &lt;li&gt;O método deve ignorar números maiores que 1000 devem. Portanto, “1.2.1000” deve resultar em 1003, mas “1.2.1001” deve resultar em 3.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;criando-o-projeto-de-produção&quot;&gt;Criando o Projeto de Produção&lt;/h3&gt;
+
+&lt;p&gt;Para este tutorial, estarei usando a edição comunitária do Visual Studio 2019. Se você ainda não o tem, pode baixá-lo e instalá-lo de graça.&lt;/p&gt;
+
+&lt;p&gt;Abra o VS e clique em “Criar um novo projeto”, como na imagem a seguir:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/img1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Na janela aberta, escolha Biblioteca de Classes (.NET Core) como modelo para o novo projeto. Em seguida, clique em “Next” (Próximo):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/img2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A tela seguinte simplesmente pede um nome para o projeto e a solução. Eu escolhi” StringCalculatorKata” tanto para o projeto quanto para a solução. Você também terá que fornecer um local para salvar os arquivos do projeto. Quando terminar, basta clicar em “Criar”.&lt;/p&gt;
+
+&lt;p&gt;Se tudo correr bem, você deverá ver a classe padrão aberta para você no Visual Studio. Vá ao Solution Explorer e exclua essa classe; não vamos precisar dela.&lt;/p&gt;
+
+&lt;h3 id=&quot;criando-o-projeto-de-teste&quot;&gt;Criando o Projeto de Teste&lt;/h3&gt;
+
+&lt;p&gt;Agora, é hora de criar o projeto de teste. Poderíamos fazer isso de duas maneiras: criando um projeto regular de “Biblioteca de Classe” e depois adicionando as dependências necessárias a ele, ou criando um projeto de teste de unidade imediatamente. Iremos com este último, já que facilita tudo isso.&lt;/p&gt;
+
+&lt;p&gt;Você conhece o procedimento: clique com o botão direito do mouse na solução, vá para “Adicionar”,depois para “Novo Projeto…”. Em seguida, escolha o modelo “NUnit Test Project (.NET Core)”.&lt;/p&gt;
+
+&lt;p&gt;Em seguida, você deverá fornecer um nome e um local para o projeto. Gosto de seguir a convenção de nomear o projeto de teste após o projeto de produção, com um “.Test” adicionado. Portanto, escolho “StringCalculatorKata.Test”. Terminar a criação do projeto.&lt;/p&gt;
+
+&lt;p&gt;Se tudo correr bem, você deve ver agora uma nova classe que se parece com esta:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tests&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Pass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Vamos fazer algumas coisas. Primeiro, livre-se do método &lt;code class=&quot;highlighter-rouge&quot;&gt;Setup()&lt;/code&gt;. Não vamos precisar dele. Depois, acrescente um novo método com o código abaixo:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Portanto, agora temos dois testes, um que deve passar e outro que deve falhar. Vamos examiná-los para ver se eles estão funcionando corretamente. Vá ao menu “Executar” e clique em “Executar todos os testes”.&lt;/p&gt;
+
+&lt;p&gt;Agora, abra a janela Test Explorer (View -&amp;gt; Test Explorer). Deve ser parecido com isto:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/tests-running.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Parece que tudo está funcionando bem! Mas antes de começarmos a fazer nosso exercício de codificação do kata, há dois passos finais que precisamos dar. Primeiro, vamos renomear a classe de teste. Ir para o explorador de soluções, expandir o projeto de teste de unidade, e excluir sua classe de teste padrão. Depois, clique com o botão direito do mouse no projeto de teste, vá para “Adicionar”, depois para “Nova classe…” e adicione uma nova classe chamada “StringCalculatorKata”. Alternativamente, você pode renomear a classe existente.&lt;/p&gt;
+
+&lt;p&gt;A segunda coisa que temos que fazer é garantir que nosso projeto de teste possa ver nosso projeto de produção. Para resolver isso, estamos acrescentando uma referência.&lt;/p&gt;
+
+&lt;p&gt;Vá até o explorador de soluções novamente, clique com o botão direito do mouse no projeto de teste, depois vá até “Adicionar” e clique em “Referência…”.&lt;/p&gt;
+
+&lt;p&gt;Na nova janela, selecione “Projetos” no painel esquerdo, e depois selecione o projeto StringCalculatorKata, que deve ser o único disponível:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/add-reference.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Depois, basta clicar em “OK”, e agora você está pronto para continuar.&lt;/p&gt;
+
+&lt;h2 id=&quot;iniciando-nosso-kata-de-codificação&quot;&gt;Iniciando nosso Kata de Codificação&lt;/h2&gt;
+
+&lt;p&gt;Agora, estamos prontos para escrever nosso primeiro teste de reprovação. Portanto, abra a classe StringCalculatorTest e acrescente a ela o seguinte método&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_EmptyStringAsParam_ReturnsZero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Em nosso primeiro caso de teste, testamos o cenário mais simples possível. Ou seja, chamamos o método Add de passar uma string vazia, que, de acordo com os requisitos que você viu antes, deve resultar em 0. É claro que nem o método Add nem a classe StringCalculator existem, portanto nosso código nem sequer é compilado. Bem, parabéns! Você realizou com sucesso o primeiro passo no ciclo vermelho-verde-refator, escrevendo um teste de reprovação! Lembre-se: em idiomas estaticamente digitados como C#, a falha em compilar conta como um teste reprovado.&lt;/p&gt;
+
+&lt;p&gt;Portanto, nosso primeiro passo é nos livrarmos do erro de compilação. Se você pairar sobre “StringCalculator”, você deve ver um pequeno pop-up explicando o erro e oferecendo possíveis correções:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594238110/unit3/hover-tip.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Clique em “Mostrar correções potenciais” e depois em “Gerar novo tipo…”. Você deve então ver uma janela solicitando os detalhes e a localização do novo tipo. Mude o “acesso” para “público” e a localização para o projeto de produção, que é “StringCalculatorKata”. A janela deve ser parecida com esta:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594238213/unit3/create-production-class.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Clique em “OK”. Agora, se você abrir o explorador de soluções e expandir o projeto StringCalculatorKata, você deve ver a classe StringCalculator.cs à espreita por lá. Legal.&lt;/p&gt;
+
+&lt;p&gt;Entretanto, nosso código ainda não está compilado. E isso porque, apesar de termos criado a classe de produção, não adicionamos o método Add a ela. Então, vamos fazer da mesma forma que fizemos com a classe.&lt;/p&gt;
+
+&lt;p&gt;Passe o mouse sobre a palavra “Adicionar” até que a ajuda apareça com a mensagem “’ StringCalculator’ não contém uma definição para ‘Adicionar’”. Clique em Mostrar correções potenciais, e depois clique em “Gerar método ‘StringCalculator.Add’”.&lt;/p&gt;
+
+&lt;p&gt;Você verá que a classe de produção agora contém um método chamado Add, com o dobro como um tipo de retorno. Queremos que o método retorne int, então vamos mudar isso. Vamos também mudar o nome do parâmetro para “números” para corresponder aos requisitos do kata de codificação. Neste ponto, sua classe StringCalculator completa deve ser parecida com esta:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringCalculator&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotImplementedException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Agora seu código deve ser compilado. Faça o teste novamente, e você verá que ele falha, com uma mensagem como esta:&lt;/p&gt;
+
+&lt;pre&gt;
+Add_EmptyStringAsParam_ReturnsZero
+   Source: StringCalculatorTest.cs line 8
+   Duration: 43 ms
+
+  Message: 
+    System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace: 
+    StringCalculator.Add(String numbers) line 9
+    StringCalculatorTest.Add_EmptyStringAsParam_ReturnsZero() line 10
+
+&lt;/pre&gt;
+
+&lt;p&gt;Temos uma falha de teste verdadeira. Estamos prontos para escrever o código de produção? Não tão rápido. Claro, nosso teste falha, mas falha da maneira errada. Como nosso teste contém uma asserção, esperávamos uma asserção fracassada. Em vez disso, o que temos é uma falha devido ao método em teste, lançando uma exceção.&lt;/p&gt;
+
+&lt;p&gt;A correção aqui é simples. Vamos apenas mudar o método Add, para que ele retorne qualquer número diferente de zero:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Agora, faça o teste novamente, e você verá que a mensagem de erro é esta:&lt;/p&gt;
+
+&lt;pre&gt;
+Add_EmptyStringAsParam_ReturnsZero
+   Source: StringCalculatorTest.cs line 8
+   Duration: 76 ms
+
+  Message: 
+      Expected: 0
+      But was:  -1
+&lt;/pre&gt;
+
+&lt;h3 id=&quot;fazendo-o-teste-passar&quot;&gt;Fazendo o teste passar&lt;/h3&gt;
+
+&lt;p&gt;Estamos agora finalmente prontos para fazer o teste passar. Como disse anteriormente, para passar no teste, você não só é permitido, mas também encorajado a fazer batota. Em nosso caso, podemos simplesmente fazer com que o método Add retorne zero:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;escrevendo-o-segundo-teste-um-único-número&quot;&gt;Escrevendo o segundo teste: Um único número&lt;/h3&gt;
+
+&lt;p&gt;Os requisitos dizem que a passagem de um único número deve retornar o próprio número. Isso soa como uma coisa útil para testar:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingSingleNumber_ReturnsTheNumberItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O teste falha com a seguinte mensagem:&lt;/p&gt;
+
+&lt;pre&gt;
+Add_StringContainingSingleNumber_ReturnsTheNumberItself
+   Source: StringCalculatorTest.cs line 14
+   Duration: 56 ms
+
+  Message: 
+      Expected: 5
+      But was:  0
+
+&lt;/pre&gt;
+
+&lt;p&gt;Como podemos fazer o teste acima passar da maneira mais preguiçosa possível? Que tal assim?&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;testando-dois-números&quot;&gt;Testando Dois Números&lt;/h3&gt;
+
+&lt;p&gt;Como já testamos o método Add passando por números zero (uma seqüência vazia) e um único número, parece que o próximo passo natural para nós agora seria escrever um teste para o cenário de adição de dois números. Então, vamos fazer exatamente isso.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_TwoNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;7,8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedResult&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O teste acima naturalmente falha uma vez que nosso método atualmente retorna 0 quando recebe um fio vazio e cinco de outra forma. Como podemos mudá-lo, para que este novo teste passe, os testes mais antigos continuem a passar, de uma forma que não resolve o problema em geral?&lt;/p&gt;
+
+&lt;p&gt;Esta é uma idéia:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;testando-três-números&quot;&gt;Testando Três Números&lt;/h3&gt;
+
+&lt;p&gt;Você já notou que, até agora, não fizemos nenhuma refatoração? Bem, estamos nos aproximando do ponto em que nossos testes nos levam a incluir alguma duplicação desagradável em nosso código. Então, usaremos a refatoração para alterar o código de uma forma que se aproxime de uma solução geral.&lt;/p&gt;
+
+&lt;p&gt;Vamos ver se podemos fazer isso testando o cenário com três números:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_ThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O teste naturalmente falhará. Como a corda fornecida contém vírgulas, caímos no ramo condicional que retorna 15. Nosso desafio agora é mudar o método de produção de forma a fazer este teste passar. Podemos fazê-lo sem ir à solução geral do problema? Vamos ver.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Comparando o parâmetro especificado com a entrada exata usada no teste, podemos fazer o teste passar, evitando ir para a solução geral. Entretanto, agora conseguimos criar uma duplicação de código. Você consegue ver isso? Estamos fazendo duas comparações contra o valor dos números, uma logo após a outra. Vamos ver se conseguimos nos livrar dessa duplicação.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryParse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Aproveitando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt;, consegui me livrar do primeiro if. Também usamos um recurso introduzido no &lt;a href=&quot;https://carlosschults.net/pt/funcionalidades-csharp-7/&quot;&gt;C# 7&lt;/a&gt; chamado “out variables”. Este recurso nos permite utilizar parâmetros sem ter que declará-los previamente.&lt;/p&gt;
+
+&lt;p&gt;Todos os testes ainda passam, portanto, não posso escrever mais código de produção. Qual deve ser o próximo teste?&lt;/p&gt;
+
+&lt;h3 id=&quot;testando-mais-de-três-números&quot;&gt;Testando Mais de Três Números&lt;/h3&gt;
+
+&lt;p&gt;Os requisitos não dizem que devemos ser capazes de lidar apenas com três números. Portanto, vamos criar outro caso de teste para cobrir os cenários com 4, 5, ou mais números. Já que estamos nisso, podemos também incluir a exigência de ignorar números maiores que 1000.&lt;/p&gt;
+
+&lt;p&gt;Para fazer isso sem ter que criar muitos métodos de teste, vamos aproveitar o recurso NUnit [testes parametrizados] (https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html), adicionando um único método com vários casos de teste:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4&quot;, 10)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;8,7,20&quot;, 35)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1001&quot;, 9)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1000&quot;, 1009)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;26,6,90&quot;, 122)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_MoreThanThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Observe que o terceiro caso de teste exemplifica a exigência que diz que devemos ignorar números superiores a 1000. O próximo caso de teste, no entanto, mostra que 1000 não deve ser ignorado. Se você executar os testes, verá que o test explorer mostra cada caso de teste como um teste distinto.&lt;/p&gt;
+
+&lt;p&gt;Como podemos fazer este teste passar? Honestamente, por este posto, é muito mais fácil ir para a implementação correta do que trapacear. Então, vamos fazer exatamente isso:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;part&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryParse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;part&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;O código acima deve ser fácil de entender. Nós apenas dividimos o fio em partes usando a vírgula como delimitador. Então, para cada parte, nós a dividimos em um inteiro, verificamos se é igual ou inferior a mil e, se for o caso, adicionamo-la à variável de resultado. Finalmente, retornamos o resultado.&lt;/p&gt;
+
+&lt;h2 id=&quot;ainda-não-terminamos&quot;&gt;Ainda não terminamos&lt;/h2&gt;
+
+&lt;p&gt;Os requisitos dizem que números negativos não devem ser permitidos. Vamos acrescentar um teste para isso! Por uma questão de brevidade, acrescentaremos um único método de teste com vários casos de teste, de modo que somos forçados a ir imediatamente para a implementação correta:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4,5,-5&quot;)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;-1,1,2,9&quot;)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,6,8,-5&quot;)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingNegativeNumbers_Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Para este teste, afirmamos que não estamos contra um valor de retorno. Ao invés disso, estamos verificando se o método em teste abre uma exceção.&lt;/p&gt;
+
+&lt;p&gt;Lembre-se que os requisitos dizem que devemos lançar uma exceção com uma mensagem dizendo que os negativos não são permitidos. Devemos também incluir uma lista dos negativos que foram aprovados. Isto exigirá algumas mudanças em nosso método:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;part&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryParse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;part&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;elseif&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;negativesList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exceptionMessage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&quot;Negative numbers not allowed: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;negativesList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exceptionMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Como você pode ver, logo no início, nós definimos uma instância de &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;int&amp;gt;&lt;/code&gt; para armazenar os negativos que encontramos enquanto iteramos sobre todos os números. Dentro do laço, verificamos se o número atual é negativo. Se for, adicionamo-lo à lista. Se não for, verificamos se é menor ou igual a 1000, caso em que o adicionamos à variável de resultado.&lt;/p&gt;
+
+&lt;p&gt;Após o loop, verificamos se a lista negativa tem algum elemento. Se tiver, criamos uma mensagem de exceção que inclui os negativos especificados e, em seguida, lançamos uma nova ArgumentException. Caso contrário, devolvemos o resultado.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusão&quot;&gt;Conclusão&lt;/h2&gt;
+
+&lt;p&gt;Este posto foi um guia prático sobre como começar com o TDD em C#. Então, para onde você vai a partir daqui?&lt;/p&gt;
+
+&lt;p&gt;Bem, a maioria das coisas na vida você aprende fazendo. A programação é certamente uma dessas coisas. Portanto, se você quer que os conceitos que você viu hoje realmente se afundem, você tem que praticar.&lt;/p&gt;
+
+&lt;p&gt;O código que escrevi durante este post está disponível como &lt;a href=&quot;https://github.com/carlosschults/string-calculator-kata&quot;&gt;um repositório público no GitHub.&lt;/a&gt; Vá lá, clone-o usando &lt;a href=&quot;https://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;Git,&lt;/a&gt;, e comece a brincar com ele.&lt;/p&gt;
+
+&lt;p&gt;Você verá que eu criei um compromisso para cada etapa do ciclo TDD. Dessa forma, torna-se mais fácil para os futuros leitores visualizar todas as etapas do processo, percorrendo a história do projeto, um compromisso de cada vez.&lt;/p&gt;
+
+&lt;p&gt;Finalmente, fique atento a este blog. Este post é parte de uma série, à qual pretendo acrescentar mais partes.&lt;/p&gt;
+
+&lt;p&gt;Obrigado pela leitura, e até a próxima!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 08 Jul 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/</guid>
+        
+        <category>csharp</category>
+        
+        <category>iniciantes</category>
+        
+        <category>testes-de-software</category>
+        
+        <category>testes-unitarios</category>
+        
+        <category>testes-automatizados</category>
+        
+        <category>csharp</category>
+        
+        <category>metodologias-ageis</category>
+        
+        <category>serie-testes-unitarios</category>
+        
+        
+      </item>
     
       <item>
         <title>Null É Ruim. Qual A Melhor Alternativa? Null.</title>
@@ -1440,223 +1895,6 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
         <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp8/</guid>
         
         <category>csharp</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Como aprender inglês: Um guia para desenvolvedores, Parte 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1511826279/como-aprender-ingles-1038x437-min_cw47uj.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Parte 2: Pratique diariamente. Áudio em primeiro lugar.&lt;/em&gt;
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;No &lt;a href=&quot;https://carlosschults.net/pt/como-aprender-ingles-parte-1&quot;&gt;post anterior&lt;/a&gt; eu expliquei quais são, na minha opinião, os principais erros que as pessoas cometem ao tentar aprender inglês.&lt;/p&gt;
-
-&lt;p&gt;Agora chegou a hora de fazer o oposto: vou detalhar o que você &lt;em&gt;deve&lt;/em&gt; fazer para aprender inglês da forma correta, gastando pouco e se divertindo no processo.&lt;/p&gt;
-
-&lt;h2 id=&quot;antes-um-disclaimer&quot;&gt;Antes, um disclaimer&lt;/h2&gt;
-
-&lt;p&gt;Apenas para deixar claro. Eu não sou de forma alguma uma autoridade em aprendizado de idiomas. Não sou formado em Linguística ou algo do tipo. Não tenho credenciais.&lt;/p&gt;
-
-&lt;p&gt;Também não estou fazendo promessas mágicas, do tipo “fique fluente em três meses”. Desconfie de qualquer um que venda esse tipo de coisa. Aprender inglês é mais fácil do que a maioria das pessoas pensam, &lt;strong&gt;mas ainda sim leva tempo e demanda esforço&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Este post e o anterior têm o objetivo de compartilhar a minha experiência no aprendizado do inglês, detalhando o que funcionou ou não
-para mim. Também é minha intenção que você aprenda com meus erros, de modo que sua jornada não precise demorar tanto quanto a minha.&lt;/p&gt;
-
-&lt;h2 id=&quot;se-eu-aprendi-inglês-você-também-pode&quot;&gt;Se eu aprendi inglês, você também pode&lt;/h2&gt;
-
-&lt;p&gt;Eu nunca fiz curso de inglês em escola particular. Com exceção de uma vez que fui à Wizard da minha cidade entregar currículo para o
-cargo de professor de informática, eu nunca &lt;strong&gt;entrei&lt;/strong&gt; em uma escola de inglês. Também estudei em escola pública a vida toda. Nunca fiz intercâmbio (aliás, nunca saí do país). Durante a maior parte da vida, não tive computador e internet em casa. Smartphone? Só aos 22 anos.&lt;/p&gt;
-
-&lt;p&gt;E eu tenho confiança para dizer que o meu inglês é melhor que várias pessoas que conheço que tiveram uma ou mais dessas oportunidades.
-Sei que corro o risco de soar arrogante dizendo este tipo de coisa, mas garanto que esta não é a intenção. Muito pelo contrário, 
-estou tentando usar meu exemplo pessoal para tentar derrubar alguns mitos.&lt;/p&gt;
-
-&lt;p&gt;Não, não precisa sair do país para aprender inglês. Não, não precisa estudar em escola de inglês famosa. Não, não precisa ter muito
-dinheiro.&lt;/p&gt;
-
-&lt;p&gt;Tudo isso é &lt;em&gt;nice to have&lt;/em&gt;, não &lt;em&gt;must have&lt;/em&gt;. Se você tiver oportunidade de fazer intercâmbio, então é claro que você deve ir. Se você teve a oportunidade de estudar inglês desde cedo, meus parabéns. Se você tem muito dinheiro…bora dividir um pouco? ;)&lt;/p&gt;
-
-&lt;p&gt;Apenas não use a falta de uma ou mais destas coisas como desculpa para não se dedicar.&lt;/p&gt;
-
-&lt;h2 id=&quot;minha-jornada-com-o-inglês&quot;&gt;Minha jornada com o inglês&lt;/h2&gt;
-
-&lt;p&gt;Se eu tivesse que listar de forma resumida o meu trajeto no inglês, seria algo assim:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Fase informal
-    &lt;ul&gt;
-      &lt;li&gt;Vários anos de contato contínuo, porém limitado, com o inglês &lt;strong&gt;escrito&lt;/strong&gt;.&lt;/li&gt;
-      &lt;li&gt;Exposição ao inglês falado por meio de filmes e músicas.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Fase formal
-    &lt;ul&gt;
-      &lt;li&gt;Leitura de dicas de vocabulário e expressões&lt;/li&gt;
-      &lt;li&gt;Prática consistente de listening&lt;/li&gt;
-      &lt;li&gt;Conversação com professor nativo&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Vou agora expandir esses tópicos e contar em detalhes a história do meu aprendizado em inglês.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-fase-informal&quot;&gt;A “fase informal”&lt;/h2&gt;
-&lt;p&gt;Eu sempre gostei e tive vontade de aprender inglês. Mas minha família não tinha condições de pagar um curso; eu também não tinha videogame, videocassete (sim, você não leu errado) ou outras amenidades que poderiam de alguma forma me dar mais exposição ao inglês.&lt;/p&gt;
-
-&lt;p&gt;Computador só em sonho. Naquela época (meados dos anos 90) o custo de um computador era proibitivo para a maior parcela da população (que era exatamente a &lt;em&gt;minha&lt;/em&gt; parcela).&lt;/p&gt;
-
-&lt;p&gt;Para piorar, nesta época não havia aulas de inglês para ensino fundamental antes da quinta série, pelo menos no ensino público. 
-Atualmente parece que as crianças recebem aulas de inglês desde a pré-escola. Antes tarde que nunca, certo?&lt;/p&gt;
-
-&lt;p&gt;Sendo assim, minha exposição ao inglês era rara e em doses minúsculas. Por exemplo, eu lia tudo em inglês que encontrava em embalagens e manuais de instruções de aparelhos que meus pais compravam; eu lia as coisas em inglês nos próprios aparelhos; eu mudava o idioma do menu da TV para inglês (e espanhol também) só para ver como era.&lt;/p&gt;
-
-&lt;p&gt;A TV era outra fonte de pequenos momentos de contato com o inglês, através de filmes e desenhos. Sim, eu assistia tudo dublado, claro (TV a cabo? O que é isso?). Mas ainda sim oportunidades surgiam; o exemplo típico é quando aparecia algo escrito em inglês no filme/desenho (letreiro de loja, rótulo de algum produto, sinal de trânsito, título do episódio) e o locutor falava em português a tradução.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1512431198/closed-min_fg1oge.jpg&quot; alt=&quot;Vitrine de loja com o sinal dizendo &amp;quot;Sorry, we're closed&amp;quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Foi em 2001, mas eu me lembro bem como estava ansioso para o início da quinta série. &lt;strong&gt;Finalmente&lt;/strong&gt; iria ter aulas de inglês!&lt;/p&gt;
-
-&lt;p&gt;Imagine o grau da minha decepção quando as aulas de fato começaram.&lt;/p&gt;
-
-&lt;p&gt;Não quero causar polêmica mas acredito que não é segredo nenhum que as aulas de inglês do ensino público…deixam a desejar.&lt;/p&gt;
-
-&lt;p&gt;Seria injusto (e mentiroso) dizer que eu não aprendi algo. Eu aprendi os dias da semana, os meses do ano, os números (até um certo ponto), o básico do verbo to be. Tudo isso, claro, com uma pronúncia que passava longe da correta, mas depois vou voltar a esse assunto.&lt;/p&gt;
-
-&lt;p&gt;Em algum momento eu comprei um minidicionário de inglês, que embora fosse bem limitado, tinha uma &lt;em&gt;feature&lt;/em&gt; muito útil: na frente de cada entrada do dicionário, havia a pronúncia “aportuguesada” da palavra.&lt;/p&gt;
-
-&lt;p&gt;Algo assim:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1512430827/dictionary-min_vxoqp5.jpg&quot; alt=&quot;Página do dicionário de inglês&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Isso me ajudou a aprender a pronúncia aproximada de várias palavras, e ver que elas eram bem diferentes do que eu imaginava (e do que muitas pessoas pronunciavam).&lt;/p&gt;
-
-&lt;p&gt;Minha exposição ao inglês ia lentamente crescendo. Acho que foi mais ou menos nesta época que eu finalmente ganhei um video-game: o lendário &lt;a href=&quot;https://jogos.uol.com.br/ultimas-noticias/2013/05/10/uol-jogos-testa-o-polystation-videogame-que-mais-engana-os-pais.htm&quot;&gt;Polystation&lt;/a&gt;!&lt;/p&gt;
-
-&lt;p&gt;Não era o que eu realmente queria, claro, mas ainda sim me proporcionou muitas horas de diversão e um pouco mais de aprendizado.&lt;/p&gt;
-
-&lt;p&gt;Foi por volta de 2004 que eu finalmente realizei outro sonho: comprei um aparelho de DVD. \o/&lt;/p&gt;
-
-&lt;p&gt;Eu privilegiava alugar filmes mais antigos, que eram mais baratos que os lançamentos. E ainda assim, eu alugava relativamente poucos filmes, às vezes só um. Então, eu queria aproveitar ao máximo: eu assistia dublado, depois novamente legendado, via todos os materiais extras disponíveis, como documentários, cenas excluídas, comentários de diretor, este tipo de coisa. Um ponto importante é que &lt;strong&gt;o material extra era apenas legendado&lt;/strong&gt;, o que me forçava a assistir com legendas, mesmo não gostando muito na época.&lt;/p&gt;
-
-&lt;p&gt;Com cerca de 14, 15 anos, uma nova paixão surgiu na minha vida: a música (ou para ser específico, o &lt;em&gt;rock&lt;/em&gt;). Mais aprendizado veio na forma de tradução das letras das músicas nos encartes dos CD’s.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1512431618/rock_bmkbmu.jpg&quot; alt=&quot;Vários CD's e DVD's de Rock&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;No final de 2006 eu consegui meu primeiro estágio na área da informática. Depois de algum tempo (provavelmente no começo do ano seguinte) comprei meu primeiro computador: um Positivo, com configurações risíveis. Mas era um sonho que eu tive por boa parte da minha vida e finalmente havia conseguido realizá-lo.&lt;/p&gt;
-
-&lt;p&gt;Eu continuava não tendo acesso à internet, porém. Sinceramente não lembro bem a razão; deve ter sido uma mistura de custo proibitivo e falta de cobertura em nosso bairro, provavelmente. Mas eu tinha acesso à internet no próprio estágio, então eu aproveitava os momentos livres para ler, principalmente artigos na Wikipédia.&lt;/p&gt;
-
-&lt;p&gt;Lá para meados de 2007 finalmente consegui ter acesso à internet em minha casa, por meio de um provedor local, via rádio. Era uma conexão bem precária, com a velocidade apenas um pouco maior do que internet discada, mas já era alguma coisa.&lt;/p&gt;
-
-&lt;p&gt;Interessante salientar que nesta época minha leitura já era boa; &lt;strong&gt;eu conseguia entender com facilidade a maior parte dos textos que me propunha a ler&lt;/strong&gt;. Todos os anos de exposição contínua ao inglês, ainda que limitada, estavam dando fruto.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-fase-formal&quot;&gt;A fase “formal”&lt;/h2&gt;
-&lt;h3 id=&quot;aprendendo-a-estudar-inglês&quot;&gt;Aprendendo a estudar inglês&lt;/h3&gt;
-
-&lt;p&gt;Em 2010, eu iniciei o bacharelado em Ciência da Computação. Também comecei a fazer estágio em uma pequena firma de desenvolvimento de software da cidade.&lt;/p&gt;
-
-&lt;p&gt;Nesta época, eu já tinha criado vários hábitos para ampliar meu contato com o inglês. Por exemplo, eu só assistia filmes e séries com áudio &lt;em&gt;E&lt;/em&gt; legenda em inglês. Passei a usar o inglês quando fazia anotações. Mudei o idioma do sistema operacional para inglês. E assim por diante.&lt;/p&gt;
-
-&lt;p&gt;No entanto, eu ainda não estava satisfeito. Foi quando resolvi realmente estudar inglês, com método, com um plano de estudos diário, coisa que eu não havia feito até então. E é esta a razão da divisão entre fase formal e fase informal no nome dos tópicos.&lt;/p&gt;
-
-&lt;p&gt;Até então, eu nunca tinha tentado &lt;em&gt;falar&lt;/em&gt; inglês. Eu estava satisfeito em conseguir ler razoavelmente bem, mas a conversação, por algum motivo, não me interessava. Talvez eu achasse que estivesse além da minha capacidade ou algo assim. Sinceramente, não me lembro.&lt;/p&gt;
-
-&lt;p&gt;Foi nesta época que eu comecei a acompanhar sites de dicas de aprendizado de inglês (no fim deste post vou listar vários). Esses sites me apresentaram à noção de praticar o &lt;em&gt;listening&lt;/em&gt;, ou seja, ouvir o áudio em inglês. Eu já era fã de &lt;a href=&quot;https://en.wikipedia.org/wiki/Podcast&quot;&gt;podcasts&lt;/a&gt;, principalmente voltados a filmes, quadrinhos, games, esse tipo de coisa. Então, foi um passo natural passar a ouvir podcasts de aprendizado de inglês.&lt;/p&gt;
-
-&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts!&lt;/h3&gt;
-
-&lt;p&gt;O primeiro podcast que passei a consumir regularmente foi o &lt;a href=&quot;https://eslpod.com/&quot;&gt;ESL Podcast&lt;/a&gt;. Eu ouvia os episódios durante o horário do almoço, acompanhando a transcrição. O texto geralmente consistia de um diálogo entre dois personagens. Os leitores liam bem devagar e de maneira bem articulada, de modo que era fácil de entender o que eles estavam dizendo.&lt;/p&gt;
-
-&lt;p&gt;Não demorou muito tempo na verdade para que eu desse o próximo passo na minha evolução: &lt;strong&gt;passei a conseguir entender 100% do áudio sem as transcrições&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Eu diria que esse é um passo decisivo no progresso do seu aprendizado. Não depender de transcrições te dá uma liberdade sem precedentes para praticar o &lt;em&gt;listening&lt;/em&gt;. Você pode ouvir:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;fazendo exercícios;&lt;/li&gt;
-  &lt;li&gt;indo ou vindo do trabalho;&lt;/li&gt;
-  &lt;li&gt;na fila ou sala de espera do banco/correio/dentista/etc;&lt;/li&gt;
-  &lt;li&gt;lavando a louça, limpando a casa ou fazendo outro tipo de trabalho manual.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Em resumo, ouvir sem depender da transcrição &lt;strong&gt;deixa suas mãos livres&lt;/strong&gt;, o que te permite &lt;strong&gt;integrar o inglês na sua rotina&lt;/strong&gt;, ocupando intervalos de tempo que em outra situação seriam desperdiçados.&lt;/p&gt;
-
-&lt;p&gt;Toda essa prática surtiu efeito e a minha compreensão do inglês falado foi melhorando consideravelmente. Aos poucos, eu fui abandonando os podcasts de “aprendizado de inglês” e passei apenas a ouvir podcasts de assuntos variados (inclusive de programação).&lt;/p&gt;
-
-&lt;p&gt;Toda essa prática surtiu efeito e a minha compreensão do inglês falado aumentou consideravelmente. Só faltava uma coisa: como arrumar alguém para conversar?&lt;/p&gt;
-
-&lt;h3 id=&quot;skype-to-the-rescue&quot;&gt;Skype to the rescue&lt;/h3&gt;
-
-&lt;p&gt;Por volta de 2014, se não me engano, eu vim a saber de um americano chamado &lt;a href=&quot;https://www.linkedin.com/in/blakewind/&quot;&gt;Blake Wind&lt;/a&gt; que dava aulas de inglês por Skype, e cobrava mais barato que muitos outros professores da época.&lt;/p&gt;
-
-&lt;p&gt;Fiz diversas aulas com o Blake em 2014 e 2015, e depois de um tempo parei devido à alta do dólar. Desde então, faço aulas esporadicamente quando sinto que preciso de prática em algum ponto específico.&lt;/p&gt;
-
-&lt;h2 id=&quot;roadmap&quot;&gt;Roadmap&lt;/h2&gt;
-
-&lt;p&gt;Se eu tivesse que aprender inglês novamente hoje - ou aprender outro idioma - como eu faria? É basicamente disso que esta seção se trata. Vou usar a minha experiência e os erros cometidos como base para criar um “roteiro” para você seguir.&lt;/p&gt;
-
-&lt;h3 id=&quot;aprender-o-básico&quot;&gt;Aprender o básico&lt;/h3&gt;
-
-&lt;p&gt;Assim como uma casa precisa de um alicerce, você necessita de uma base de conhecimentos sobre a qual construir seu aprendizado. Como fazer isso?&lt;/p&gt;
-
-&lt;h4 id=&quot;duolingo&quot;&gt;Duolingo&lt;/h4&gt;
-&lt;p&gt;Algo que não existia na minha época que teria ajudado muito é o &lt;a href=&quot;https://www.duolingo.com/&quot;&gt;Duolingo&lt;/a&gt;. Eu estou atualmente usando esse aplicativo para estudar Espanhol e Francês, e eu posso dizer que ele funciona &lt;strong&gt;caso seu objetivo seja avançar do zero até um conhecimento básico&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Você não vai sair falando inglês apenas com ele, mas você vai conseguir praticar as quatro habilidades. Você vai conseguir construir um vocabulário, aprendendo não apenas palavras soltas mas também frases comuns e expressões, &lt;strong&gt;e integrando o áudio e a pronúncia correta desde o início&lt;/strong&gt;, o que é fundamental.&lt;/p&gt;
-
-&lt;p&gt;Estude com o Duolingo todo dia, até terminar o curso. Após isso, continue reforçando os pontos nos quais não estiver tão bem.&lt;/p&gt;
-
-&lt;h4 id=&quot;curso-inglês-online&quot;&gt;Curso Inglês Online&lt;/h4&gt;
-&lt;p&gt;Depois do Duolingo, eu recomendo o &lt;a href=&quot;https://www.cursoinglesonline.com.br/curso-basico-informacoes/&quot;&gt;curso básico do site Inglês Online, da Ana Luiza&lt;/a&gt;. O curso é pago, mas é um valor que considero acessível e vale muito a pena.&lt;/p&gt;
-
-&lt;h3 id=&quot;prática-diária-do-listening&quot;&gt;Prática diária do listening&lt;/h3&gt;
-
-&lt;p&gt;O próximo passo é integrar o áudio no seu dia-a-dia. Como já disse anteriormente, a situação ideal é chegar ao ponto de não precisar mais de transcrições, pois assim você terá liberdade para ouvir inglês praticamente em qualquer situação que sobrar um tempo.&lt;/p&gt;
-
-&lt;p&gt;Chegar até esse ponto vai demandar um certo trabalho, no entanto. Para isso, eu sugiro a leitura da série de artigos &lt;a href=&quot;https://www.inglesonline.com.br/como-falar-ingles-as-dicas-essenciais/&quot;&gt;“Como Falar Inglês - As Dicas Essenciais”&lt;/a&gt;, escrita pela Ana Luiza do site Inglês Online. É uma série um pouco extensa, mas que detalha passo a passo como evoluir no &lt;em&gt;listening&lt;/em&gt;, inclusive com fontes de áudio adequados para cada nível do aprendizado.&lt;/p&gt;
-
-&lt;h3 id=&quot;não-esqueça-das-outras-áreas&quot;&gt;Não esqueça das outras áreas&lt;/h3&gt;
-
-&lt;p&gt;O &lt;em&gt;listening&lt;/em&gt; deve ser o protagonista da sua estratégia de aprendizado. O que não significa que as outras habilidades devem ser negligenciadas.&lt;/p&gt;
-
-&lt;p&gt;Aqui vão algumas estratégias para deixá-las em dia:&lt;/p&gt;
-
-&lt;h4 id=&quot;reading&quot;&gt;&lt;em&gt;Reading&lt;/em&gt;&lt;/h4&gt;
-
-&lt;p&gt;Favoreça o inglês na leitura de qualquer material. Favoreça sempre a Wikipédia em inglês, assim como documentação de linguagens ou frameworks. Siga pessoas influentes da área no Twitter; leia seus blogs e quaisquer outras publicações. Além de praticar o seu inglês, você vai estar antenado(a) com o que acontece de importante na área.&lt;/p&gt;
-
-&lt;h4 id=&quot;writing&quot;&gt;&lt;em&gt;Writing&lt;/em&gt;&lt;/h4&gt;
-
-&lt;p&gt;Invente oportunidades para escrever em inglês. Crie um blog. Comece um diário. Encontre algum projeto Open Source que você ache interessante (de preferência, algo que você usa) e se envolva! Entre no &lt;a href=&quot;&quot;&gt;chat do projeto no Gitter&lt;/a&gt;; procure as issues no GitHub e participe das discussões; puxe assunto no Twitter com alguma daquelas pessoas influentes que você seguiu no passo anterior. Talvez você se surpreenda com a frequência com que elas respondem!&lt;/p&gt;
-
-&lt;p&gt;#### &lt;em&gt;Speaking&lt;/em&gt;
-Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (ou áudio) curto, de até um minuto, no qual você fala sobre seu dia (ou qualquer assunto).&lt;/p&gt;
-
-&lt;p&gt;Outra dica interessante é ler em voz alta. Encontre um texto, de preferência sobre um assunto que ache interessante, e leia em voz alta. Melhor ainda é gravar a sua leitura e depois pedir a opinião de uma pessoa que saiba inglês.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;DICA IMPORTANTE&lt;/strong&gt;: jamais tente adivinhar a pronúncia de uma palavra. Quando encontrar uma palavra que você jamais ouviu, ao invés de tentar pronunciá-la, ouça sua pronúncia correta antes. Uma ótima ferramenta para isso &lt;a href=&quot;https://pt.forvo.com/&quot;&gt;é o site Forvo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Falar sozinho e ler em voz alta sejam técnicas úteis, mas têm uma limitação importante e óbvia: a falta de interação com outra pessoa. Para resolver isso, temos sites de language exchange, &lt;a href=&quot;https://www.italki.com/home?hl=pt&quot;&gt;como o italki&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Finalmente, aulas com professores nativos sempre é uma opção, caso esteja dentro das suas possibilidades.&lt;/p&gt;
-
-&lt;h2 id=&quot;aprender-inglês-é-possível-o-que-você-está-esperando&quot;&gt;Aprender inglês é possível. O que você está esperando?&lt;/h2&gt;
-
-&lt;p&gt;Espero ter conseguido, através da minha história, mostrar que aprender inglês é possível sim, ainda que haja dificuldades. O meu aprendizado foi longo e inconsistente, por não ter tido as facilidades que existem hoje em dia.&lt;/p&gt;
-
-&lt;p&gt;Para te ajudar ainda mais, eu &lt;a href=&quot;https://carlosschults.net/como-aprender-ingles&quot;&gt;criei uma página com recursos para estudar inglês online&lt;/a&gt;. Vou mantê-la atualizada constantemente.&lt;/p&gt;
-
-&lt;p&gt;Agradeço pelo seu tempo, e estou à disposição caso precise de mais alguma ajuda. A área de comentários está aí para isso.&lt;/p&gt;
-
-&lt;p&gt;See you later!&lt;/p&gt;
-</description>
-        <pubDate>Tue, 05 Dec 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/como-aprender-ingles-parte-2</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/como-aprender-ingles-parte-2</guid>
-        
-        <category>boas práticas</category>
-        
-        <category>inglês</category>
         
         
       </item>

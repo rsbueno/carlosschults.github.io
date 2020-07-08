@@ -5,10 +5,463 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jul 2020 16:37:42 -0300</pubDate>
-    <lastBuildDate>Thu, 02 Jul 2020 16:37:42 -0300</lastBuildDate>
+    <pubDate>Wed, 08 Jul 2020 19:54:53 -0300</pubDate>
+    <lastBuildDate>Wed, 08 Jul 2020 19:54:53 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>C# Unit Testing: Getting Started With TDD</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This post is part of a series. &lt;a href=&quot;http://carlosschults.net/tag/unit-testing-series/&quot;&gt;See all the articles in the series.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Today I bring you another post to help you get started with C# unit testing. I’ve already covered the &lt;a href=&quot;https://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;basics of unit tests&lt;/a&gt;, explaining what they are and why they’re so important. After that, I showed you &lt;a href=&quot;https://carlosschults.net/en/unit-testing-for-beginners-part2/&quot;&gt;how to get started with unit testing&lt;/a&gt; with a practical example. Today, we go one step further, exploring the TDD methodology.&lt;/p&gt;
+
+&lt;p&gt;You’ve probably have heard of TDD, but you might be confused as to what it is. This isn’t your fault, by the way. There’s quite a lot of misconception surrounding this acronym. Some people even use it interchangeably with unit testing. In this post, you’re going to learn why they’re wrong, and more.&lt;/p&gt;
+
+&lt;p&gt;We start the post with a brief definition of TDD. You’ll learn not only that TDD stands for Test-Driven Development, but also that it’s not a testing technique, despite the name. After that, I explain what TDD is and what its benefits are.&lt;/p&gt;
+
+&lt;p&gt;After the “what” and “why” are both out of our way, we’ll be ready to have some fun. I’m going to show you, in practice, how to get started with TDD, developing a solution for a famous programming exercise. Sounds good? Then, let’s dig in.&lt;/p&gt;
+
+&lt;h2 id=&quot;c-unit-testing--tdd-basics&quot;&gt;C# Unit Testing &amp;amp; TDD Basics&lt;/h2&gt;
+
+&lt;p&gt;I’ve mentioned earlier that TDD is not a testing technique. What is it, though? And how it’s related to C# unit testing (or unit testing in general, for that matter?)&lt;/p&gt;
+
+&lt;h3 id=&quot;defining-tdd&quot;&gt;Defining TDD&lt;/h3&gt;
+
+&lt;p&gt;As you’ve seen, TDD stands for Test-Driven Development. It is a technique or methodology of software development that uses unit tests to drive the development of the application.&lt;/p&gt;
+
+&lt;p&gt;Instead of doing the more intuitive thing, which would be writing unit tests after the production code, the TDD methodology states that you should start by writing a failing unit test. Then you write the production code, but only what’s necessary to make the test pass.&lt;/p&gt;
+
+&lt;p&gt;I guess you’re now wondering at least two things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;How does that work in practice?&lt;/li&gt;
+  &lt;li&gt;Why write code in such a weird way?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That’s what we’re going to see next.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-tdd-phases&quot;&gt;The TDD Phases&lt;/h3&gt;
+
+&lt;p&gt;Test-driven development relies on the repetition of an incredibly short cycle. This cycle is composed of three phases:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;First, you write a test that represents a specific requirement of the functionality you’re trying to implement.&lt;/li&gt;
+  &lt;li&gt;You then make the test pass, writing the minimum amount of production code you can get away with.&lt;/li&gt;
+  &lt;li&gt;If necessary, you refactor the code to eliminate duplication or other problems.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Since the functionality doesn’t exist yet, the test you write in step #1 will fail. That is, in languages such as Python or Ruby. In the case of statically typed languages such as Java or C#, the code won’t even compile. For our purposes, code not compiling counts as a test failure.&lt;/p&gt;
+
+&lt;p&gt;In step #2, you have to make the test pass, but nothing beyond that. What I mean is that your goal here isn’t to solve the problem, at least not yet. Instead, your only job is to make the test pass, writing the least possible amount of code. Cheating—for instance, returning a hard-coded value—is not only OK but encouraged, as you’ll soon see.&lt;/p&gt;
+
+&lt;p&gt;Finally, the third phase is the only one that allows you to write production code without having to create a failing test first. But you can’t create new classes or functions; you can only refactor the code you wrote in the previous step, to make it more readable, to eliminate duplication, or to solve another problem. And, of course, the test should still pass.&lt;/p&gt;
+
+&lt;p&gt;People often use refer to the TDD as “red-green-refactor” because most unit testing tools use red to denote failing tests and green for passing tests.&lt;/p&gt;
+
+&lt;h3 id=&quot;why-use-tdd&quot;&gt;Why Use TDD?&lt;/h3&gt;
+
+&lt;p&gt;The hard thing to understand when getting started with TDD isn’t the how. The “how” is trivial: write a test, make it pass, maybe refactor, rinse, repeat. The troubling part is the “why.” Why develop software in such a non-intuitive way?&lt;/p&gt;
+
+&lt;p&gt;I’ll talk more of the TDD philosophy in future articles. In a nutshell, applying TDD ensures you’ll have testable code from the beginning. It will encourage you to design your code in a simple and modular way.&lt;/p&gt;
+
+&lt;p&gt;But perhaps, the main advantage of TDD is increasing the developer’s confidence on their code. By developing one tiny step at a time, you’ll never be able to get a lot wrong, since you’re doing too little. Knowing that you’re only one failing test away from having working code is reassuring.&lt;/p&gt;
+
+&lt;h2 id=&quot;c-unit-testing--tdd-the-hands-on-guide-to-get-started&quot;&gt;C# Unit Testing &amp;amp; TDD: The Hands-On Guide To Get Started&lt;/h2&gt;
+
+&lt;p&gt;I’ve covered how to get started with C# unit testing in the past. I’ve also covered the required tools and how to get started. However, I won’t assume you’ve read those articles. Instead, I’ll cover everything from scratch. So, you’ll be able to follow the tutorial even if you have zero experience with unit testing.&lt;/p&gt;
+
+&lt;h3 id=&quot;our-problem-the-string-calculator-kata&quot;&gt;Our Problem: The String Calculator Kata&lt;/h3&gt;
+
+&lt;p&gt;For our tutorial, we’ll write a solution for Roy Osherov’s &lt;a href=&quot;https://osherove.com/tdd-kata-1&quot;&gt;String Calculator kata&lt;/a&gt;. A coding kata is a programming exercise, meant to allow developers to practice fundamental agile software-engineering practices, such as refactoring, and—you’ve guessed it—TDD.&lt;/p&gt;
+
+&lt;p&gt;For simplicity’s sake, I’ll ignore some of the kata’s requirements. What follows are the requirements we’re going to use:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We’re going to create a class called StringCalculator, with a single static method with the signature static int Add(string numbers);&lt;/li&gt;
+  &lt;li&gt;The method takes a string representing numbers separated by a comma, and return their sum.&lt;/li&gt;
+  &lt;li&gt;If we pass an empty string, the method should return zero.&lt;/li&gt;
+  &lt;li&gt;Passing a single number should result in the number itself.&lt;/li&gt;
+  &lt;li&gt;If we pass negative numbers, the method should throw an ArgumentException, with the message “Negative numbers not allowed:” followed by the negatives that were specified.&lt;/li&gt;
+  &lt;li&gt;The method should ignore numbers greater than 1000 should. So, “1,2,1000” should result in 1003, but “1,2,1001” should result in 3.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;creating-the-production-project&quot;&gt;Creating The Production Project&lt;/h3&gt;
+
+&lt;p&gt;For this tutorial, I’ll be using the community edition of Visual Studio 2019. If you don’t already have it, you can download it and install it from free.&lt;/p&gt;
+
+&lt;p&gt;Open VS and click on “Create a new project,” like in the following image:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/img1.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the opened window, choose Class Library (.NET Core) as the template for the new project. Then, click on “Next”:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/img2.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The next screen simply asks you for a name for the project and the solution. I chose” StringCalculatorKata” for both the project and the solution. You’ll also have to provide a location for saving the project files. When you’re done, just click “Create.”&lt;/p&gt;
+
+&lt;p&gt;If everything went well, you should see the default class open for you in Visual Studio. Go to Solution Explorer and delete that class; we’re not going to need it.&lt;/p&gt;
+
+&lt;h3 id=&quot;creating-the-test-project&quot;&gt;Creating The Test Project&lt;/h3&gt;
+
+&lt;p&gt;Now, it’s time to create the test project. We could this in two ways: creating a regular “Class Library” project and then adding the necessary dependencies to it, or creating a unit test project right away. We’ll go with the latter since it makes the whole thing easier.&lt;/p&gt;
+
+&lt;p&gt;You know the drill: right-click the solution, go to “Add,” then “New Project…”. Then, choose the template “NUnit Test Project (.NET Core).”&lt;/p&gt;
+
+&lt;p&gt;Then, you’ll be required to provide a name and a location for the project. I like to follow the naming convention of naming the test project after the production project, with a “.Test” added. So, I pick “StringCalculatorKata.Test.” Finish the creation of the project.&lt;/p&gt;
+
+&lt;p&gt;If everything went right, you should now see a new class that looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Tests&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SetUp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Setup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Pass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Let’s do a few things. First, get rid of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Setup()&lt;/code&gt; method. We won’t need it. Then, add a new method with the code below:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;So, we now have two tests, one that should pass and another that should fail. Let’s run them to see if they’re working correctly. Go to the “Run” menu and click on “Run All Tests.”&lt;/p&gt;
+
+&lt;p&gt;Now, open the Test Explorer window (View -&amp;gt; Test Explorer). It should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/tests-running.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It looks like everything is working fine! But before we start doing our coding kata exercise, there are two final steps we need to take. First, let’s rename the test class. Go to the solution explorer, expand the unit test project, and delete its default test class. Then, right-click the test project, go to “Add,” then “New class…” and add a new class called “StringCalculatorKata.” Alternatively, you can rename the existing class.&lt;/p&gt;
+
+&lt;p&gt;The second thing we have to do is to ensure our test project can see our production project. To solve that, we’re adding a reference.&lt;/p&gt;
+
+&lt;p&gt;Go to the solution explorer again, right-click the test project, then go to “Add” and click on “Reference…”.&lt;/p&gt;
+
+&lt;p&gt;In the new window, select “Projects” on the left panel, and then select the StringCalculatorKata project, which should be the only one available:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/add-reference.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then, you just have to click on “OK,” and now you’re ready to go.&lt;/p&gt;
+
+&lt;h2 id=&quot;starting-our-coding-kata&quot;&gt;Starting Our Coding Kata&lt;/h2&gt;
+
+&lt;p&gt;Now, we’re ready to write our first failing test. So, open the StringCalculatorTest class and add the following method to it:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_EmptyStringAsParam_ReturnsZero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In our first test case, we test the simplest possible scenario. That is, we call the Add method passing an empty string, which, according to the requirements you saw before, should result in 0. Of course, neither the Add method nor the StringCalculator class exists, so our code doesn’t even compile. Well, congratulations! You’ve successfully performed the first step in the red-green-refactor cycle by writing a failing test! Remember: in statically-typed languages such as C#, failure to compile counts as a failed test.&lt;/p&gt;
+
+&lt;p&gt;So, our first step is to get rid of the compilation error. If you hover over “StringCalculator,” you should see a little pop-up explaining the error and offering possible fixes:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594238110/unit3/hover-tip.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on “Show potential fixes” and then on “Generate new type…”. You should then see a window prompting you for the details and location of the new type. Change the “access” to “public” and the location to the production project, which is “StringCalculatorKata.” The window should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1594238213/unit3/create-production-class.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Click on “OK.” Now, if you open solution explorer and expand the StringCalculatorKata project, you should see the StringCalculator.cs class lurking around there. Cool.&lt;/p&gt;
+
+&lt;p&gt;However, our code still doesn’t compile. And that’s because, despite creating the production class, we didn’t add the Add method to it. So, let’s do it in the same way we did with the class.&lt;/p&gt;
+
+&lt;p&gt;Hover over the “Add” word until the help pop-up shows up with the message “’ StringCalculator’ does not contain a definition for ‘Add.’” Click on Show potential fixes, and then click on “Generate method ‘StringCalculator.Add’.”&lt;/p&gt;
+
+&lt;p&gt;You’ll see that the production class now contains a method called Add, with double as a return type. We want the method to return int, so let’s change that. Let’s also change the parameter name to “numbers” to match the coding kata’s requirements. At this point, your complete StringCalculator class should look like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringCalculator&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NotImplementedException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now your code should compile. Run the test again, and you’ll see that it fails, with a message like this:&lt;/p&gt;
+
+&lt;pre&gt;
+Add_EmptyStringAsParam_ReturnsZero
+   Source: StringCalculatorTest.cs line 8
+   Duration: 43 ms
+
+  Message: 
+    System.NotImplementedException : The method or operation is not implemented.
+  Stack Trace: 
+    StringCalculator.Add(String numbers) line 9
+    StringCalculatorTest.Add_EmptyStringAsParam_ReturnsZero() line 10
+
+&lt;/pre&gt;
+
+&lt;p&gt;We have a truly failing test. Are we ready to write production code? Not so fast. Sure, our test fails, but it fails in the wrong way. Since our test contains an assertion, we expected a failed assertion. Instead, what we’ve got is a failure due to the method under test throwing an exception.&lt;/p&gt;
+
+&lt;p&gt;The fix here is simple. Let’s just change the Add method, so it returns any number different from zero:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Now, run the test again, and you’ll see the error message is now this:&lt;/p&gt;
+
+&lt;pre&gt;
+Add_EmptyStringAsParam_ReturnsZero
+   Source: StringCalculatorTest.cs line 8
+   Duration: 76 ms
+
+  Message: 
+      Expected: 0
+      But was:  -1
+&lt;/pre&gt;
+
+&lt;h3 id=&quot;making-the-test-pass&quot;&gt;Making The Test Pass&lt;/h3&gt;
+
+&lt;p&gt;We’re now finally ready to make the test pass. As I’ve said earlier, to make a test pass, you’re not only allowed but encouraged to cheat. In our case, we can simply make the Add method return zero:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;writing-the-second-test-a-single-number&quot;&gt;Writing The Second Test: A Single Number&lt;/h3&gt;
+
+&lt;p&gt;The requirements say that passing a single number should return the number itself. That’s sound like a useful thing to test:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingSingleNumber_ReturnsTheNumberItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The test fails with the following message:&lt;/p&gt;
+
+&lt;pre&gt;
+Add_StringContainingSingleNumber_ReturnsTheNumberItself
+   Source: StringCalculatorTest.cs line 14
+   Duration: 56 ms
+
+  Message: 
+      Expected: 5
+      But was:  0
+
+&lt;/pre&gt;
+
+&lt;p&gt;How can we make the test above pass in the laziest possible way? How about this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;testing-two-numbers&quot;&gt;Testing Two Numbers&lt;/h3&gt;
+
+&lt;p&gt;Since we’ve already tested the Add method by passing zero numbers (an empty string) and a single number, it feels like the next natural step for us now would be to write a test for the scenario of adding two numbers. So, let’s do just that.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_TwoNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;7,8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expectedResult&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expectedResult&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The test above naturally fails since our method currently returns 0 when it gets an empty string and five otherwise. How can we change it, so this new test passes, the older tests continue to pass, in a way that doesn’t solve the problem generally?&lt;/p&gt;
+
+&lt;p&gt;This is an idea:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;testing-three-numbers&quot;&gt;Testing Three Numbers&lt;/h3&gt;
+
+&lt;p&gt;Have you noticed that, up until now, we haven’t done any refactoring? Well, we’re getting closer to the point when our tests drive us to include some nasty duplication to our code. Then, we’ll use refactoring to change the code in a way that gets closer to a general solution.&lt;/p&gt;
+
+&lt;p&gt;Let’s see if we can do that by testing the scenario with three numbers:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_ThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;expected&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;expected&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The test will naturally fail. Since the provided string contains commas, we fall into the conditional branch that returns 15. Our challenge now is to change the production method in a way that makes this test pass. Can we do it without going to the general solution to the problem?Let’s see.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;By comparing the specified param with the exact input used in the test, we can make the test pass while avoiding going for the general solution. However, now we have managed to create code duplication. Can you see it? We’re making two comparisons against the value of numbers, one right after the other. Let’s see if we can get rid of that duplication.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Contains&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryParse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;By leveraging the &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; method from the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt; type, I’ve managed to get rid of the first if instruction. We’ve also used a feature introduced in &lt;a href=&quot;https://carlosschults.net/en/csharp-7-features/&quot;&gt;C# 7&lt;/a&gt; called “out variables.” This feature allows us to use out parameters without having to declare them beforehand.&lt;/p&gt;
+
+&lt;p&gt;All tests still pass, so I can’t write more production code. What should the next test be?&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-more-than-three-numbers&quot;&gt;Testing More Than Three Numbers&lt;/h3&gt;
+
+&lt;p&gt;The requirements don’t say we should only be able to handle three numbers. So, let’s create another test case to cover the scenarios with 4, 5, or more numbers. While we’re at it, we can also include the requirement of ignoring numbers greater than 1000.&lt;/p&gt;
+
+&lt;p&gt;To do this without having to create a lot of test methods, we’re going to leverage NUnit’s &lt;a href=&quot;https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html&quot;&gt;parametrized tests&lt;/a&gt; feature, adding a single method with several test cases:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4&quot;, 10)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;8,7,20&quot;, 35)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1001&quot;, 9)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1000&quot;, 1009)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;26,6,90&quot;, 122)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_MoreThanThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Notice that the third test case exemplifies the requirement that says we should ignore numbers greater than 1000. The next test case, however, shows that 1000 should not be ignored. If you run the tests, you’ll see that test explorer shows each test case as a distinct test.&lt;/p&gt;
+
+&lt;p&gt;How can we make this test pass? Honestly, by this post, it’s way easier to go for the correct implementation than it is to cheat. So, let’s do just that:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;part&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryParse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;part&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The code above should be easy to understand. We just split the string into parts using the comma as the delimiter. Then, for each part, we parse it to an integer, verify whether it’s equal or less than a thousand, and, if so, we add it to the result variable. Finally, we return the result.&lt;/p&gt;
+
+&lt;h2 id=&quot;were-not-done-yet&quot;&gt;We’re Not Done Yet&lt;/h2&gt;
+
+&lt;p&gt;The requirements say that negative numbers shouldn’t be allowed. Let’s add a test for that! For brevity’s sake, we’ll add a single test method with several test cases, so we’re forced to go for the correct implementation right away:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4,5,-5&quot;)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;-1,1,2,9&quot;)]&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,6,8,-5&quot;)]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingNegativeNumbers_Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;For this test, we’re asserting not against a return value. Rather, we’re checking whether the method under test throws an exception.&lt;/p&gt;
+
+&lt;p&gt;Remember that the requirements say we should throw an exception with a message saying that negatives are not allowed. We should also include a list of the negatives that were passed. This will require some changes in our method:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;();&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;part&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TryParse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;part&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;outint&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;elseif&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;number&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;number&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Count&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;negativesList&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sc&quot;&gt;','&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;negatives&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;exceptionMessage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;$&quot;Negative numbers not allowed: &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;negativesList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;throw&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;exceptionMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;As you can see, right at the beginning, we define a &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;int&amp;gt;&lt;/code&gt; to store the negatives we find while iterating over all the numbers. Inside the loop, we verify whether the current number is negative. If it is, we add it to the list. If it isn’t, we verify whether it’s less than or equals to 1000, in which we case we add it to the result variable.&lt;/p&gt;
+
+&lt;p&gt;After the loop, we verify whether the negatives list has any elements. If it has, we create an exception message that includes the specified negatives and then throw a new ArgumentException. Otherwise, we return the result.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;This post was a practical guide on how to get started with TDD in C#. So, where do you go from here?&lt;/p&gt;
+
+&lt;p&gt;Well, most things in life you learn by doing. Programming is certainly one of those things. So, if you want the concepts you’ve seen today to really sink in, you’ve got to practice.&lt;/p&gt;
+
+&lt;p&gt;The code I’ve written during this post is available as &lt;a href=&quot;https://github.com/carlosschults/string-calculator-kata&quot;&gt;a public repository on GitHub.&lt;/a&gt; Go there, clone it using &lt;a href=&quot;https://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;Git,&lt;/a&gt;, and start playing with it.&lt;/p&gt;
+
+&lt;p&gt;You’ll see that I created one commit for each step in the TDD cycle. That way, it becomes easier for future readers to visualize all the steps in the process by going through the project’s history, one commit at a time.&lt;/p&gt;
+
+&lt;p&gt;Finally, stay tuned to this blog. This post is part of a series, to which I intend to add more parts.&lt;/p&gt;
+
+&lt;p&gt;Thanks for reading, and until the next time!&lt;/p&gt;
+</description>
+        <pubDate>Wed, 08 Jul 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/csharp-unit-testing-intro-tdd/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/csharp-unit-testing-intro-tdd/</guid>
+        
+        <category>software-testing</category>
+        
+        <category>beginners</category>
+        
+        <category>unit-testing</category>
+        
+        <category>unit-testing-series</category>
+        
+        <category>automated-tests</category>
+        
+        <category>csharp</category>
+        
+        <category>agile</category>
+        
+        
+      </item>
     
       <item>
         <title>Null Is Evil. What's The Best Alternative? Null.</title>
@@ -1412,290 +1865,6 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
         <guid isPermaLink="true">http://carlosschults.net/en/csharp-8-features/</guid>
         
         <category>csharp</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Unit testing for beginners - Part 2</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Better late than later! Time to continue our series on unit testing for beginners. Today you’re going to write your first unit test.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-&lt;p&gt;In the &lt;a href=&quot;https://carlosschults.net/en/unit-testing-for-beginners-part1/&quot;&gt;previous article&lt;/a&gt; you learned what unit tests are and what are the motivations for writing them.&lt;/p&gt;
-
-&lt;p&gt;Today you’re going to learn how to create unit tests. I’ll show you how to install and use the a unit test framework called &lt;strong&gt;NUnit&lt;/strong&gt;. Together, we’re going to write some tests in order for you to know some of its features.&lt;/p&gt;
-
-&lt;h2 id=&quot;nunit-installation&quot;&gt;NUnit Installation&lt;/h2&gt;
-
-&lt;p&gt;If you recall my &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;previous article&lt;/a&gt;, you’ll remember that, in order to write and run unit tests, you need a &lt;strong&gt;unit testing framework.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;The framework we’re going to use is &lt;strong&gt;NUnit&lt;/strong&gt;, based on &lt;strong&gt;JUnit&lt;/strong&gt;, which is a test framework for the Java language. There are other testing frameworks available in the .Net world, such as MS Test, developed by Microsoft itself.
-Feel free to try other frameworks later on.&lt;/p&gt;
-
-&lt;p&gt;Ok, let’s begin. For this project I’m going to use Visual Studio 2017. &lt;a href=&quot;https://www.visualstudio.com/pt-br/downloads/&quot;&gt;Download the Community version here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Create a new solution of the &lt;strong&gt;Class Library&lt;/strong&gt; type, with the name &lt;strong&gt;LearningUnitTesting&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Whenever I create a new solution on Visual Studio I delete the &lt;code class=&quot;highlighter-rouge&quot;&gt;Class1&lt;/code&gt; class that is created by default. You could rename it, of course, it makes no difference.&lt;/p&gt;
-
-&lt;p&gt;Now, let’s rename the default project to &lt;strong&gt;Application&lt;/strong&gt;. This project will store the &lt;em&gt;production code&lt;/em&gt; in our solution.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;In the context of unit testing, we use the term &lt;strong&gt;Production Code&lt;/strong&gt; when we’re talking about the “real code” in our application, in contrast to the &lt;strong&gt;Test Code&lt;/strong&gt; we also write.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Next step! Now we &lt;strong&gt;create the test project&lt;/strong&gt;. There are several different opinions regarding &lt;em&gt;where&lt;/em&gt; should the test class be kept: along with production code, or in a different location. I usually create another project, which I name using the scheme &lt;em&gt;[ProductionProject]Test&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;So, the new project will be called &lt;strong&gt;ApplicationTest&lt;/strong&gt;, and it’ll be of type &lt;strong&gt;Class Library&lt;/strong&gt; as well.
-After creating the project, I delete the default class, same as before.&lt;/p&gt;
-
-&lt;p&gt;Your solution should look like this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503229/unit2-img1_ugbo3b.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Let’s install NUnit. Fortunately, NUnit is available as a Nuget package, which makes its installation a breeze.&lt;/p&gt;
-
-&lt;p&gt;First, open the &lt;strong&gt;Package Manager Console&lt;/strong&gt;. Go to: &lt;strong&gt;Tools&lt;/strong&gt; &amp;gt; &lt;strong&gt;Nuget Package Manager&lt;/strong&gt; &amp;gt; &lt;strong&gt;Package Manager Console&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Then type or copy-paste the following command:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Install-Package NUnit&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Double-check that you’ve got the right project selected, like in the image:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498503359/unit2-img2_nzedn5.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;And then press &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
-
-&lt;p&gt;We are not done yet, though. We need to install another package, the &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;, which we’ll let us run NUnit tests in Visual Studio. The process is the same, the only difference is the package’s name:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Install-Package NUnit3TestAdapter&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Don’t forget to check if the right project is selected before pressing &lt;em&gt;ENTER&lt;/em&gt;. The installation will be done in a few seconds.&lt;/p&gt;
-
-&lt;p&gt;This is it.&lt;/p&gt;
-
-&lt;h2 id=&quot;creating-and-running-the-first-test&quot;&gt;Creating and running the first test&lt;/h2&gt;
-
-&lt;p&gt;Let’s create some tests. First, let’s add a new class to our production project. The class’s name will be &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; and its code will look like this:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;I think the class is simple enough to not require additional explanation. Now, it’s time to create our test class. Add a new class called &lt;code class=&quot;highlighter-rouge&quot;&gt;EmployeeTest&lt;/code&gt; to the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;This is another naming convention I like to use: to name the test class after the production class, adding the word &lt;em&gt;Test&lt;/em&gt; at the end.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;After the class is created, add the &lt;em&gt;NUnit.Framework&lt;/em&gt; namespace to its using declarations. Then, create a new void returning public method called &lt;strong&gt;MyFirstTestMethod&lt;/strong&gt; and add the &lt;code class=&quot;highlighter-rouge&quot;&gt;[Test]&lt;/code&gt; attribute to it.&lt;/p&gt;
-
-&lt;p&gt;By now, your code should look like this:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/406525bd23d3ee2ecba4f7592c0f8af3.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;The skeleton for the test is ready. It’s time for you to write your first &lt;strong&gt;assertion&lt;/strong&gt;. In the context of unit testing, an assertion is an affirmation about how a unit of your system should behave. If the affirmation turns out to be true, we say the test has &lt;em&gt;passed&lt;/em&gt;. In case it proves to be false, we say the test has &lt;em&gt;failed&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;In NUnit we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class to write our assertions. This class has a large number of methods that allow us to express our expectations about the behavior of our units.&lt;/p&gt;
-
-&lt;p&gt;Add the following line of code to the test method:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Assert.Pass();&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;Pass&lt;/code&gt; method, not surprisingly, just forces the test to pass. Now you’re going to run this test in order to see it passing. First of all, open the &lt;strong&gt;Test Explorer&lt;/strong&gt;. Use the menu bar: &lt;strong&gt;Test&lt;/strong&gt; &amp;gt; &lt;strong&gt;Windows&lt;/strong&gt; &amp;gt; &lt;strong&gt;Test Explorer&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;When the window is show, click on &lt;em&gt;Run All&lt;/em&gt;. If everything goes right, you’ll see this:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498507514/MyFirstTestPass_atkrjl.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;When you click on the test’s name, some additional information is shown, such as the test file and elapsed time:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508050/MyFirstTestPass2_ageqqm.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Notice the use of green to indicate the test’s success.&lt;/p&gt;
-
-&lt;p&gt;Now let’s do the opposite: force the test to fail. Replace the previous line for the following one:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Assert.Fail();&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Run the test again and you’ll see the failure message, this time with the red bar:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Now that you’re getting the hang of it, we’re start testing our &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; class. Don’t forget to switch the test method back to &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert.Pass()&lt;/code&gt;, otherwise it will continue to fail.&lt;/p&gt;
-
-&lt;p&gt;Now add a new method called &lt;code class=&quot;highlighter-rouge&quot;&gt;IntroduceMethodShouldWorkCorrectly&lt;/code&gt;. In this method we’ll create a new instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; and verify that the &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; method is working properly.&lt;/p&gt;
-
-&lt;p&gt;Before we do that, though, we must add a reference from the production project to our test project. Otherwise, our test class won’t be able to see the classes it is supposed to test!&lt;/p&gt;
-
-&lt;p&gt;To do that, right-click the &lt;strong&gt;ApplicationTest&lt;/strong&gt; project, then go to &lt;strong&gt;Add&lt;/strong&gt;, then &lt;strong&gt;Reference&lt;/strong&gt;. In the opened window, choose the project, according to the following image:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1498509304/Captura_de_tela_2017-06-26_17.34.04_hgianj.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Then, click on &lt;strong&gt;OK&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;Back to the test class. Edit the code so it looks like this:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;You will notice that &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; is marked as an error. If you hover over it, you’ll see a message saying that the name &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt; couldn’t be found and asking if there is some reference or &lt;em&gt;using&lt;/em&gt; directive missing.&lt;/p&gt;
-
-&lt;p&gt;Of course there is a using directive missing, related to the reference we’ve just added. To fix this problem, just add the line &lt;code class=&quot;highlighter-rouge&quot;&gt;using Application;&lt;/code&gt; to the namespace declarations, right at the start of the file.&lt;/p&gt;
-
-&lt;p&gt;Now that our code compiles, let’s go through this method, line by line.&lt;/p&gt;
-
-&lt;p&gt;In the first line, we create a new instance of &lt;code class=&quot;highlighter-rouge&quot;&gt;Employee&lt;/code&gt;, specifying name, profession and salary. In the following line, we assign to a variable the value we &lt;strong&gt;expect&lt;/strong&gt; the method to return. Then we assign to another variable the obtained result from the method.&lt;/p&gt;
-
-&lt;p&gt;Finally, we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; method from the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class to verify the equality of the two values. This method is, probably, the one you’ll use the most during your tests.&lt;/p&gt;
-
-&lt;p&gt;Now it’s time to run the test. Use the shortcut &lt;strong&gt;CTRL + R, A&lt;/strong&gt; or click on &lt;strong&gt;Run All&lt;/strong&gt; in the Test Explorer window. If everything goes smoothly, you should see the green bar and the message indicating that both tests have passed.&lt;/p&gt;
-
-&lt;p&gt;Time to test our test! We’re going to deliberately ruin the &lt;code class=&quot;highlighter-rouge&quot;&gt;Introduce&lt;/code&gt; method to see if the test fails as expected. Back to the production class, edit the method like this:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;As you’ve seen, we’ve just removed the square brackets before and after “JobTitle”. This way, the string interpolation won’t work, hard-coding the string instead of replacing it by the value of the variable.&lt;/p&gt;
-
-&lt;p&gt;When we run the tests again, we got the following result:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mensagem:   Expected string length 48 but was 46. Strings differ at index 37.
-Expected: “Hi! My name is Alice and I work as a Programmer.”
-But was:  “Hi! My name is Alice and I work as a JobTitle.”
-————————————————^&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;As you can see, the message is very detailed. It not only lets us know that the strings differed, but it also tells us exactly where they differ. It also shows the expected string and what we really got. It is important to notice that the parameter’s orders in the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; matters a lot, since it is used in the failure message.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;The parameters’ order in the &lt;code class=&quot;highlighter-rouge&quot;&gt;AreEqual&lt;/code&gt; is very important. First specify the expected value, and then the actual result.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Great. Now you can switch the method back to the correct implementation and run the tests again, so the test can be green again.&lt;/p&gt;
-
-&lt;p&gt;As you can see, a unit test consists in a well defined sequence of steps: we &lt;strong&gt;prepare&lt;/strong&gt; the scenario, then &lt;strong&gt;execute&lt;/strong&gt; the action and &lt;strong&gt;verify&lt;/strong&gt; the results. This sequence of steps, or phases, is sometimes called AAA: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;A typical unit test has the three phases: &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Even though there are another naming conventions for the phases of a unit test, we’ll adopt &lt;strong&gt;Arrange-Act-Assert&lt;/strong&gt; , at least for now.&lt;/p&gt;
-
-&lt;p&gt;You may be wondering why I gave the name “sut” to the variable at the start of the method. This is a naming convention that I learned while reading &lt;a href=&quot;https://blog.ploeh.dk/&quot;&gt;Mark Seeman’s blog&lt;/a&gt;. &lt;strong&gt;SUT&lt;/strong&gt; stands for &lt;em&gt;System Under Test&lt;/em&gt;, i.e. the thing you’re testing.&lt;/p&gt;
-
-&lt;p&gt;There is nothing preventing you from naming the variable whatever you want. I really like to follow this convention, though, since it makes really clear what is being tested.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Tip: Try to use naming conventions that improve the readability of your code and make the author’s intention clear for anyone who reads the code.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Take a look at the same test method, but this time with comments delimiting each test phase:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/a91d41ff7ac732fc9c57e63c03a6be07.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Even though it isn’t really need, I suggest you use comments like the ones above to indicate the test phases, at least in the beginning of your learning.&lt;/p&gt;
-
-&lt;h2 id=&quot;testing-the-giveraise-method&quot;&gt;Testing the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method&lt;/h2&gt;
-
-&lt;p&gt;A salary raise is always welcome, wouldn’t you agree? Let’s test the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method to see if it’s working properly. Add the following method to your test class:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Run the test and you should see the familiar green bar. Did it work? Great. Time to &lt;strong&gt;test the test&lt;/strong&gt;: we’re going to sabotage the implementation of &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; and hope our test catches the error.&lt;/p&gt;
-
-&lt;p&gt;In the production class, edit the method this way:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/fba5901aaa2f542bcd8528de0e96afff.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Now the method is obviously wrong; the test should fail. Let’s run it?&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Mensagem:   Expected: 110
-   But was:  5m&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Ok, as we can see, the test did fail. Switch the method back to the correct implementation.&lt;/p&gt;
-
-&lt;h2 id=&quot;one-last-test&quot;&gt;One last test&lt;/h2&gt;
-
-&lt;p&gt;Let’s say the Product Owner just showed up with a new requirement: the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method should ignore negative raise rates. First, let’s edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;GiveRaise&lt;/code&gt; method to deal with this scenario:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;We’ve just made a change in production code. Our top priority right now is &lt;strong&gt;to guarantee that we haven’t broken anything&lt;/strong&gt;.
-Run the test to be sure that all of them are passing.&lt;/p&gt;
-
-&lt;p&gt;Everything still green? Great, let’s go ahead. Now we need to create a new test to document the “negative raise attempt” scenario.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Unit tests are also a type of documentation.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;In the test class, add the following method:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/a474698655450da6547dbfa6b9dbcb8c.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Nothing really surprising here, right? At this point I’m sure you’ve already got this. So, now it is up to you to &lt;strong&gt;test the test&lt;/strong&gt;: ruin the production code in one or more ways to see if the test fails as expected.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-quick-recap&quot;&gt;A quick recap&lt;/h2&gt;
-
-&lt;p&gt;Today’s article was more dense than the previous one. We’ve managed to cover several topics::&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Installation of &lt;strong&gt;NUnit&lt;/strong&gt; and &lt;strong&gt;NUnit Test Adapter&lt;/strong&gt;;&lt;/li&gt;
-  &lt;li&gt;Creation of a test;&lt;/li&gt;
-  &lt;li&gt;Introduction to the &lt;code class=&quot;highlighter-rouge&quot;&gt;Assert&lt;/code&gt; class;&lt;/li&gt;
-  &lt;li&gt;Test execution, via &lt;em&gt;Test Explorer&lt;/em&gt; and keyboard shortcuts;&lt;/li&gt;
-  &lt;li&gt;Reading and interpretation of test results;&lt;/li&gt;
-  &lt;li&gt;Phases of a unit test (&lt;em&gt;Arrange-Act-Assert&lt;/em&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Besides these topics, we’ve also enlarged our test related vocabulary with terms like &lt;em&gt;SUT&lt;/em&gt;, &lt;em&gt;assertion&lt;/em&gt; and &lt;em&gt;test code vs production code&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;Some naming conventions were covered as well, for both classes and methods.&lt;/p&gt;
-
-&lt;p&gt;Last but not least, you’ve learned about the importance of seeing the test fail, and how we can gain confidence in our tests by deliberately sabotaging the production code.&lt;/p&gt;
-
-&lt;h2 id=&quot;some-notes&quot;&gt;Some notes&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;You’ve probably noticed that my Visual Studio is not in English in the screen-captures. That is because I’m Brazilian and my Visual Studio is configured in Portuguese (and I first wrote this post in pt-br). I apologize for that.&lt;/li&gt;
-  &lt;li&gt;All of the code for today’s post &lt;a href=&quot;https://github.com/carlosschults/learning-unit-testing/&quot;&gt;can be found on Github&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Once again, I thank my friend Gunter Italiano Ribeiro for proof-reading this post.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
-
-&lt;p&gt;This was my second article in the series about unit testing. As I already mentioned, it is deliberately longer and more practical than the previous one. Still, all we’ve covered today is just the tip of the iceberg. Whole books were written about unit testing; by the way I’m indicating some in the following articles, along with more references.&lt;/p&gt;
-
-&lt;p&gt;For the tests we wrote today, we used the more intuitive - and probably more common - approach of creating the tests after the production code. However, many people and teams work differently: they write the tests &lt;em&gt;before&lt;/em&gt; the production code.&lt;/p&gt;
-
-&lt;p&gt;I know it may sound strange, at first, but working this way can bring many benefits to your project. This and other topics will be covered in the next article.&lt;/p&gt;
-
-&lt;p&gt;Thanks for reading! See you soon.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 08 Aug 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/unit-testing-for-beginners-part2/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/unit-testing-for-beginners-part2/</guid>
-        
-        <category>software testing</category>
-        
-        <category>unit testing</category>
-        
-        <category>automated tests</category>
-        
-        <category>agile</category>
         
         
       </item>
