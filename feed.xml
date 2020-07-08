@@ -5,8 +5,8 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Jul 2020 19:54:53 -0300</pubDate>
-    <lastBuildDate>Wed, 08 Jul 2020 19:54:53 -0300</lastBuildDate>
+    <pubDate>Wed, 08 Jul 2020 20:18:07 -0300</pubDate>
+    <lastBuildDate>Wed, 08 Jul 2020 20:18:07 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
     
@@ -437,6 +437,8 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 &lt;p&gt;The code I’ve written during this post is available as &lt;a href=&quot;https://github.com/carlosschults/string-calculator-kata&quot;&gt;a public repository on GitHub.&lt;/a&gt; Go there, clone it using &lt;a href=&quot;https://carlosschults.net/en/git-basics-for-tfs-users&quot;&gt;Git,&lt;/a&gt;, and start playing with it.&lt;/p&gt;
 
 &lt;p&gt;You’ll see that I created one commit for each step in the TDD cycle. That way, it becomes easier for future readers to visualize all the steps in the process by going through the project’s history, one commit at a time.&lt;/p&gt;
+
+&lt;p&gt;There are improvements that can be made to the code I shared today. For instance, the final &lt;code class=&quot;highlighter-rouge&quot;&gt;Add&lt;/code&gt; method could be written in a shorter, clearer, more efficient way, using &lt;a href=&quot;https://carlosschults.net/en/functional-programming-csharp/&quot;&gt;LINQ&lt;/a&gt;. You could add more test cases. Also, the kata requirements ask for a specific exception message in the case of negative numbers. Even though we’ve implemented the message as specified, we didn’t write a test for it. We could do that as part of your practice.&lt;/p&gt;
 
 &lt;p&gt;Finally, stay tuned to this blog. This post is part of a series, to which I intend to add more parts.&lt;/p&gt;
 
