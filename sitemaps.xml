@@ -824,9 +824,9 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-software/" />
         
@@ -854,6 +854,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
@@ -864,8 +866,6 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/git/" />
@@ -875,6 +875,8 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cargo%20cult%20programming/" />
         
@@ -952,9 +954,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-software/" />
         
@@ -982,6 +984,8 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
@@ -992,8 +996,6 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/git/" />
@@ -1003,6 +1005,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/cargo%20cult%20programming/" />
         
@@ -1132,9 +1136,9 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-software/" />
         
@@ -1162,6 +1166,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
@@ -1172,8 +1178,6 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/git/" />
@@ -1183,6 +1187,8 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cargo%20cult%20programming/" />
         
@@ -1260,9 +1266,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-software/" />
         
@@ -1290,6 +1296,8 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
@@ -1300,8 +1308,6 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/git/" />
@@ -1311,6 +1317,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/cargo%20cult%20programming/" />
         
@@ -1440,9 +1448,9 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-software/" />
         
@@ -1470,6 +1478,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
@@ -1480,8 +1490,6 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/git/" />
@@ -1491,6 +1499,8 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cargo%20cult%20programming/" />
         
@@ -1568,9 +1578,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-software/" />
         
@@ -1598,6 +1608,8 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
@@ -1608,8 +1620,6 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/git/" />
@@ -1619,6 +1629,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/cargo%20cult%20programming/" />
         
@@ -1774,9 +1786,9 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-software/" />
         
@@ -1804,6 +1816,8 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code%20smell/" />
@@ -1814,8 +1828,6 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/git/" />
@@ -1825,6 +1837,8 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cargo%20cult%20programming/" />
         
@@ -1902,9 +1916,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/metodologias%20%C3%A1geis/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-software/" />
         
@@ -1932,6 +1946,8 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/testes%20automatizados/" />
         
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/best%20practices/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/code%20smell/" />
@@ -1942,8 +1958,6 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/traducoes/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
-        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/controle-de-versao/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/git/" />
@@ -1953,6 +1967,8 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/tfvcs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/cargo%20cult%20programming/" />
         
@@ -2258,12 +2274,12 @@
   
     
       <url>
-        <loc>/tag_ptbr/boas%20pr%C3%A1ticas/</loc>
+        <loc>/tag_ptbr/boas-praticas/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -2271,12 +2287,12 @@
   
     
       <url>
-        <loc>/tag_ptbr/ingl%C3%AAs/</loc>
+        <loc>/tag_ptbr/ingles/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -2453,6 +2469,19 @@
   
     
       <url>
+        <loc>/tag_ptbr/boas%20pr%C3%A1ticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag_ptbr/best%20practices/</loc>
         
         
@@ -2518,19 +2547,6 @@
   
     
       <url>
-        <loc>/tag_ptbr/boas-praticas/</loc>
-        
-        
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
-        
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
-        
-        <changefreq>weekly</changefreq>
-      </url>
-    
-  
-    
-      <url>
         <loc>/tag_ptbr/controle-de-versao/</loc>
         
         
@@ -2589,6 +2605,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/ingl%C3%AAs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -3090,12 +3119,12 @@
   
     
       <url>
-        <loc>/tag/boas%20pr%C3%A1ticas/</loc>
+        <loc>/tag/boas-praticas/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -3103,12 +3132,12 @@
   
     
       <url>
-        <loc>/tag/ingl%C3%AAs/</loc>
+        <loc>/tag/ingles/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingles/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingles/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -3285,6 +3314,19 @@
   
     
       <url>
+        <loc>/tag/boas%20pr%C3%A1ticas/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas%20pr%C3%A1ticas/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas%20pr%C3%A1ticas/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/best%20practices/</loc>
         
         
@@ -3350,19 +3392,6 @@
   
     
       <url>
-        <loc>/tag/boas-praticas/</loc>
-        
-        
-          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/boas-praticas/" />
-        
-          <xhtml:link rel="alternate" hreflang="en" href="/tag/boas-praticas/" />
-        
-        <changefreq>weekly</changefreq>
-      </url>
-    
-  
-    
-      <url>
         <loc>/tag/controle-de-versao/</loc>
         
         
@@ -3421,6 +3450,19 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/version-control-system/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/version-control-system/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/ingl%C3%AAs/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/ingl%C3%AAs/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/ingl%C3%AAs/" />
         
         <changefreq>weekly</changefreq>
       </url>
