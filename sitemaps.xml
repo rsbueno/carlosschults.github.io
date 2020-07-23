@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/testes-de-mutacao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/testes-de-mutacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/mutation-testing/" />
+        
+        <lastmod>2020-07-23T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/mutation-testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/testes-de-mutacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/mutation-testing/" />
+        
+        <lastmod>2020-07-23T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/en/csharp-unit-testing-intro-tdd/</loc>
         
         
@@ -920,6 +948,18 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-mutacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1049,6 +1089,18 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-mutacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1232,6 +1284,18 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-mutacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1361,6 +1425,18 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-mutacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1544,6 +1620,18 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-mutacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -1673,6 +1761,18 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-mutacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1882,6 +1982,18 @@
         
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
         
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-mutacao/" />
+        
           <xhtml:link rel="alternate" hreflang="en" href="/tag/blog/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/compartilhar/" />
@@ -2011,6 +2123,18 @@
           <xhtml:link rel="alternate" hreflang="en" href="/tag/career-advice/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-mutacao/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -2898,6 +3022,84 @@
   
     
       <url>
+        <loc>/tag_ptbr/automated-testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated-testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/code-coverage/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code-coverage/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/mutation-testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/mutation-testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/tdd/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tdd/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/cobertura-de-codigo/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cobertura-de-codigo/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag_ptbr/testes-de-mutacao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-mutacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-mutacao/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/tag/blog/</loc>
         
         
@@ -3736,6 +3938,84 @@
           <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/programacao/" />
         
           <xhtml:link rel="alternate" hreflang="en" href="/tag/programacao/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/automated-testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/automated-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/automated-testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/code-coverage/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/code-coverage/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/code-coverage/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/mutation-testing/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/mutation-testing/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/mutation-testing/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/tdd/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/tdd/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/tdd/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/cobertura-de-codigo/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/cobertura-de-codigo/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/cobertura-de-codigo/" />
+        
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/tag/testes-de-mutacao/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/tag_ptbr/testes-de-mutacao/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/tag/testes-de-mutacao/" />
         
         <changefreq>weekly</changefreq>
       </url>

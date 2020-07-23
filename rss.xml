@@ -5,10 +5,106 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 21 Jul 2020 13:34:24 -0300</pubDate>
-    <lastBuildDate>Tue, 21 Jul 2020 13:34:24 -0300</lastBuildDate>
+    <pubDate>Thu, 23 Jul 2020 16:25:16 -0300</pubDate>
+    <lastBuildDate>Thu, 23 Jul 2020 16:25:16 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
+    
+      <item>
+        <title>Testes de Mutação: O Que São e Como Tornam A Cobertura de Código Relevante</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1595528879/mutation/mutation-testing-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span&gt;Photo by &lt;a href=&quot;https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Christina @ wocintechchat.com&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/software-testing?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA: Este post foi originalmente escrito para o blog da NCrunch. Você pode ler o &lt;a href=&quot;https://blog.ncrunch.net/post/mutation-testing-code-coverage.aspx&quot;&gt;artigo original, em inglês, no site deles&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;NOTA #2: Ainda não consegue ler em inglês? Meu curso &lt;a href=&quot;https://ingles4devs.com&quot;&gt;Inglês Para Desenvolvedores&lt;/a&gt; foi feito para você. Vai lá, cadastre seu e-mail e garanta a sua vaga assim que as inscrições forem abertas ;)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Sou fascinado com o conceito de testes de mutação desde que os conheci. Pensei finalmente ter encontrado a resposta para tantos problemas que tive ao escrever testes. Com os testes de mutação, agora eu tinha uma maneira de realmente confiar em meus testes. Finalmente, a cobertura de código tinha significado novamente.&lt;/p&gt;
+
+&lt;p&gt;Então, fiquei atônito ao perceber que muito poucos desenvolvedores compartilhavam meu interesse em testes de mutação. Na verdade, ouso dizer que a maioria dos desenvolvedores ainda nem sequer ouviu falar sobre isso. E isso é uma pena porque eles - e nós, como uma indústria - estamos perdendo tantos benefícios.&lt;/p&gt;
+
+&lt;p&gt;Portanto, este posto é minha humilde tentativa de remediar a situação. Vou começar por explicar os atuais dilemas que os desenvolvedores enfrentam em relação à confiabilidade dos testes que escrevem. Em seguida, vou prosseguir para lhe mostrar como os testes de mutação são a resposta a estes dilemas. Explicarei o que é, como pode tornar seus testes mais confiáveis, e como pode transformar a cobertura de código na valiosa métrica que deve ser.&lt;/p&gt;
+
+&lt;h2 id=&quot;o-problema-a-confiabilidade-dos-testes&quot;&gt;O problema: a confiabilidade dos testes&lt;/h2&gt;
+
+&lt;p&gt;Ao aprender sobre &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1/&quot;&gt;testes unitários&lt;/a&gt; - ou testes automatizados em geral - a maioria das pessoas fará a mesma pergunta ou uma pergunta semelhante: Como sei que meus testes estão corretos? Essa é uma preocupação legítima. Se seus testes não são confiáveis, então talvez você esteja melhor sem nenhum teste.&lt;/p&gt;
+
+&lt;p&gt;Então, qual é a resposta? Como as pessoas lidam com o problema da confiabilidade dos testes sem depender de testes de mutação?&lt;/p&gt;
+
+&lt;h2 id=&quot;tornando-os-testes-confiáveis-sem-testes-de-mutação&quot;&gt;Tornando os testes confiáveis sem testes de mutação&lt;/h2&gt;
+
+&lt;p&gt;Há técnicas que os desenvolvedores empregam para melhorar a confiabilidade de seus testes, e cobriremos brevemente algumas delas nesta seção. Se você tem experiência com testes unitários, provavelmente está familiarizado com essas técnicas. Vamos lá.&lt;/p&gt;
+
+&lt;h3 id=&quot;manter-os-testes-simples&quot;&gt;Manter os testes simples&lt;/h3&gt;
+
+&lt;p&gt;A primeira técnica que cobriremos aqui para melhorar a confiabilidade de seus testes é apenas mantê-los simples. E por “simples” quero dizer com menos complexidade ciclomática. Quanto menor a &lt;a href=&quot;https://pt.wikipedia.org/wiki/Complexidade_ciclom%C3%A1tica&quot;&gt;complexidade ciclomática&lt;/a&gt; de um determinado código, mais provável é que ele realmente faz o que você pensa que faz. O código simples é mais fácil de entender, que é uma propriedade que você definitivamente quer que seus testes unitários tenham.&lt;/p&gt;
+
+&lt;p&gt;Mantenha o código de teste simples ao ponto de ser óbvio. Isso significa, por exemplo, evitar loops ou estruturas de decisão. Além disso, evite fazer qualquer coisa para computar o resultado esperado (mais sobre isso na próxima seção). Em vez disso, codifique-o de maneira fixa.&lt;/p&gt;
+
+&lt;h3 id=&quot;não-duplique-o-código-de-implementação&quot;&gt;Não Duplique o Código de Implementação&lt;/h3&gt;
+
+&lt;p&gt;Digamos que você esteja praticando o &lt;a href=&quot;https://codingdojo.org/kata/RomanNumerals/&quot;&gt;Coding Kata dos números romanos&lt;/a&gt;. Resista à tentação de gerar automaticamente os valores esperados (“I” para 1, “II” para 2, e assim por diante). Em vez disso, codifique os valores de forma fixa. Se a repetição realmente o incomoda e sua ferramenta de teste o permite, use testes parametrizados.&lt;/p&gt;
+
+&lt;p&gt;Por que isso seria um problema? Simples: Quanto mais sofisticado for o código de teste, mais provável é que seja uma duplicação do código de produção. Se este for o caso, você pode ter o azar de se encontrar na situação em que seu código de produção está errado (não resolve o problema como deveria fazer), mas os testes passam. Esse é um dos piores cenários possíveis. É ainda pior do que não ter nenhum teste.&lt;/p&gt;
+
+&lt;h3 id=&quot;garanta-que-você-veja-o-teste-falhar&quot;&gt;Garanta que você veja o teste falhar&lt;/h3&gt;
+
+&lt;p&gt;Garantir que cada teste falhe pelo menos uma vez antes de ser aprovado. Se você vê o teste falhar quando acha que deveria estar falhando e vice-versa, isso é um sinal de que você está se movendo na direção certa. Não garante nada, mas diminui a probabilidade de o teste estar passando devido a uma coincidência.&lt;/p&gt;
+
+&lt;p&gt;Como fazer isso? Assim que você chegar à fase verde, danifique o código de implementação de tal maneira que um ou mais testes devem falhar. Você poderia inverter os condicionantes, substituir strings ou literais numéricos por valores aleatórios, ou mesmo apagar um if. Se você conseguir sabotar o código de produção e se safar, isso não é um bom sinal. Seu conjunto de testes ou está errado ou incompleto. Em certo sentido, você está testando os testes.&lt;/p&gt;
+
+&lt;p&gt;Desenvolvedores que empregam &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/&quot;&gt;TDD (desenvolvimento orientado a testes)&lt;/a&gt; já fazem isso, por definição. Uma vez que você escreve um teste falho e depois procede para que ele seja aprovado, você está vendo o teste falhar. É claro, o teste deve falhar da maneira esperada. Isso significa que se você estiver realizando uma asserção, o teste deve falhar devido a uma falha na asserção e não, digamos, porque o método sob teste lança uma exceção. Sim, isto é melhor do que nada, mas ainda assim pode não ser suficiente. Como um teste unitário representa um caso de uso único, é totalmente possível introduzir um defeito no código de produção de tal forma que este teste em particular ainda passe.&lt;/p&gt;
+
+&lt;h2 id=&quot;temos-que-fazer-melhor-é-aí-que-entra-o-teste-de-mutação&quot;&gt;Temos que fazer melhor: É Aí Que Entra o Teste de Mutação&lt;/h2&gt;
+
+&lt;p&gt;Então, você acabou de aplicar a técnica descrita na última seção. Ótimo! Não é perfeita, porém. Aí vem um problema. Você não pode simplesmente inserir muitos defeitos e executar os testes, pois não seria capaz de identificar qual defeito foi responsável pelo fracasso dos testes. A maneira correta de fazer isso é inserir um único defeito deliberado, executar todos os testes, verificar seu resultado e &lt;em&gt;então&lt;/em&gt; reverter a mudança. Depois disso, você pode introduzir outro erro, executar todos os testes novamente, verificar o resultado, reverter a mudança…e repetir, muitas vezes. Nem precisa dizer que tal abordagem é extremamente lenta, entediante e propensa a erros.&lt;/p&gt;
+
+&lt;p&gt;É aí que entram os testes de mutação.&lt;/p&gt;
+
+&lt;h3 id=&quot;o-que-é-teste-de-mutação-afinal&quot;&gt;O que é teste de mutação, afinal?&lt;/h3&gt;
+
+&lt;p&gt;O teste de mutação é nada mais, nada menos, do que automatizar todo o processo de “sabotar o código de produção e executar testes para ver se eles falham” que você acabou de ver. Para usar o teste de mutação, você precisa de um framework, ou ferramenta, de teste de mutação. O framework irá alterar o código de produção, introduzindo defeitos que são chamados de “mutações”. Para cada mutação introduzida, o framework executará novamente o conjunto de testes unitários. Se todos os testes forem aprovados, dizemos que a mutação sobreviveu. Isso é uma coisa ruim. Significa que ou seu conjunto de testes está faltando ou os testes existentes estão errados.&lt;/p&gt;
+
+&lt;p&gt;Se, por outro lado, um ou mais testes falharem, isso significa que a mutação foi morta, o que é uma coisa boa. A ferramenta repetirá esse processo até que se teste a parte relevante da base de código. Quando tudo estiver feito, você poderá verificar os resultados, que conterão o número de mutações introduzidas, assim como a proporção de mutantes sobreviventes vs. mutantes mortos.&lt;/p&gt;
+
+&lt;h3 id=&quot;os-testes-de-mutação-melhoram-a-cobertura-do-código&quot;&gt;Os testes de mutação melhoram a cobertura do código&lt;/h3&gt;
+
+&lt;p&gt;Um dos tópicos mais controversos no mundo dos testes de unidade é o argumento sobre a cobertura de código. Alguns desenvolvedores dizem que chegar à cobertura total é essencial; outros argumentarão que é uma métrica inútil. Quem está certo?&lt;/p&gt;
+
+&lt;p&gt;Primeiro de tudo, é preciso entender que esta questão não é preto no branco. Como é o caso de praticamente tudo em software, há alguma nuance. É claro que a cobertura de código não é inútil. Saber que sua base de código tem, digamos, 10% de cobertura de teste é definitivamente um dado útil. Tal cobertura é muito baixa: ver a barra verde não lhes oferecerá nenhuma confiança. Isso não quer dizer que ter 100% de cobertura é necessariamente uma coisa boa em si mesmo. Você poderia ter testes que não têm afirmações, por exemplo. Sim, este é um exemplo elaborado, mas algo assim poderia (e às vezes acontece) acontecer.&lt;/p&gt;
+
+&lt;p&gt;Uma ocorrência mais comum seria ter apenas testes que não exercitam suficientemente os caminhos no software. Em resumo: baixa cobertura de código é definitivamente uma coisa ruim, mas alta (ou total) cobertura de código não é &lt;em&gt;necessariamente&lt;/em&gt; uma coisa boa, uma vez que não diz nada sobre a qualidade dos testes na suíte.&lt;/p&gt;
+
+&lt;p&gt;Como os testes de mutação verificam a qualidade da suíte de testes, é a peça que falta no quebra-cabeça. Se sua base de código tem uma alta cobertura de código e os resultados dos testes de mutação mostram que a maioria ou todas as mutações introduzidas estão sendo mortas, então sorria! Você provavelmente tem uma ótima suíte de teste no lugar!&lt;/p&gt;
+
+&lt;h2 id=&quot;testes-de-mutação-abrace-hoje&quot;&gt;Testes de Mutação Abrace Hoje&lt;/h2&gt;
+
+&lt;p&gt;No post de hoje, falamos sobre o problema da confiabilidade dos testes, depois procedemos a uma revisão de algumas técnicas e diretrizes que você pode usar para superar esse desafio. Finalmente, vimos como o teste de mutação é a abordagem superior para resolver esse problema.&lt;/p&gt;
+
+&lt;p&gt;Eis o seguinte: As técnicas que abordamos são boas diretrizes a serem seguidas ao escrever testes unitários. Seus testes serão beneficiados por cumpri-los, quer você empregue ou não testes de mutação. Mas as diretrizes só podem levá-lo até agora. Elas dependem muito da força de vontade e disciplina humanas, e todos nós temos quantidades limitadas delas. A fim de levar a qualidade de seus testes ao próximo nível, você precisa adotar a automação.&lt;/p&gt;
+
+&lt;p&gt;São necessários apenas alguns minutos de pesquisa no Google para encontrar uma ferramenta de teste de mutação para a plataforma de sua preferência. Faça isso hoje e comece a aproveitar os benefícios que os testes de mutação podem oferecer a você e à sua equipe!&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 23 Jul 2020 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/testes-de-mutacao/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/testes-de-mutacao/</guid>
+        
+        <category>testes-de-software</category>
+        
+        <category>testes-unitarios</category>
+        
+        <category>testes-automatizados</category>
+        
+        <category>cobertura-de-codigo</category>
+        
+        <category>testes-de-mutacao</category>
+        
+        <category>tdd</category>
+        
+        
+      </item>
     
       <item>
         <title>Testes Unitários em C#: Iniciando Com TDD</title>
@@ -1707,196 +1803,6 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
         <category>boas praticas</category>
         
         <category>programacao cargo cult</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Funcionalidades do C# 8.0: Um Vislumbre do Futuro</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1513817072/csharp8-1037x438_skogpz.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;C# 8.0 está chegando e vai trazer algumas funcionalidades muito interessantes. Vamos dar uma olhada no que o futuro reserva.
-&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/c-8-0-features-glimpse-future/&quot;&gt;clicar aqui para ler o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, baixe e experimente o NDepend.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Faz quase 20 anos desde que a Microsoft lançou a primeira versão da linguagem C#. De suas origens - quando muitos injustamente a consideravam uma mera cópia do Java - até agora, C# teve uma evolução notável.&lt;/p&gt;
-
-&lt;p&gt;Hoje em dia, o C# frequentemente aparece em listas das linguagens &lt;a href=&quot;https://insights.stackoverflow.com/survey/2017#technology-programming-languages&quot;&gt;mais usadas&lt;/a&gt; e &lt;a href=&quot;https://insights.stackoverflow.com/survey/2017#most-loved-dreaded-and-wanted&quot;&gt;mais amadas&lt;/a&gt;. Você pode usá-lo para desenvolver aplicações para PC, dispositivos móveis e Web; você pode escrever código que será executado em todos os principais sistemas operacionais. Ou você pode entrar na onda da Internet das Coisas e escrever código para tornar sua casa inteligente. Nós vivemos em tempos interessantes para ser um desenvolvedor C#.&lt;/p&gt;
-
-&lt;p&gt;Se o presente já é animador, e o futuro? Será que é possível termos um vislumbre do que o futuro reserva para a linguagem?&lt;/p&gt;
-
-&lt;p&gt;É claro que sim. A Microsoft tem desenvolvido o C# de maneira transparante já faz um bom tempo. Você pode &lt;a href=&quot;https://github.com/dotnet/csharplang&quot;&gt;acessar o repositório do GitHub&lt;/a&gt; para ler (e participar, por que não?) nas discussões.&lt;/p&gt;
-
-&lt;p&gt;Hoje, nó abordaremos três propostas de funcionalidades para o C# 8.0: &lt;strong&gt;extension everything&lt;/strong&gt;, &lt;strong&gt;implementações default em interfaces,&lt;/strong&gt; e &lt;strong&gt;tipos de referência nuláveis&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;extension-everything&quot;&gt;Extension Everything&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;Extension everything&lt;/em&gt; - em tradução livre seria algo como “extensão em tudo” - é provavelmente a menos controversa das três propostas e também, de certa forma, a menos desenvolvida. Então eu achei que ela daria um bom ponto de partida.&lt;/p&gt;
-
-&lt;p&gt;Você provavelmente conhece métodos de extensão, introduzidos no C# 3.0, em 2017. &lt;a href=&quot;https://www.daedtech.com/why-i-dont-like-c-extension-methods/&quot;&gt;Embora seja possível abusá-los&lt;/a&gt;, não há como negar que métodos de extensão, quando usados sabiamente, podem ser uma incrível adição ao kit de ferramentas do desenvolvedor C# - isso sem mencionar que eles são essenciais para o LINQ.&lt;/p&gt;
-
-&lt;p&gt;Porém, em algum momento você deve ter se perguntado: por que apenas &lt;em&gt;métodos&lt;/em&gt; de extensão? E você não estaria só. Propriedades de extensão, por exemplo, tem sido um desejo dos desenvolvedores C# por muito tempo, como mostra &lt;a href=&quot;https://stackoverflow.com/questions/619033/does-c-sharp-have-extension-properties&quot;&gt;esta questão de 2009 no Stack Overflow&lt;/a&gt; ou este &lt;a href=&quot;https://channel9.msdn.com/forums/Coffeehouse/257556-C-Extension-Properties/&quot;&gt;tópico em um fórum de 2007(!)&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Mas agora parece que a espera está finalmente chegando ao fim. Segundo Mads Torgersen, o &lt;em&gt;program manager&lt;/em&gt; do time de design do C#, &lt;a href=&quot;https://channel9.msdn.com/Blogs/Seth-Juarez/A-Preview-of-C-8-with-Mads-Torgersen&quot;&gt;um estagiário da Microsoft propôs uma nova sintaxe para métodos de extensão que também possibilitará “outras coisas de extensão”&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;vamos-ver-o-código&quot;&gt;Vamos ver o código&lt;/h3&gt;
-
-&lt;p&gt;Se eu fosse você estaria ansioso para ver algum código Logo abaixo temos um exemplo de um método de extensão, utilizando a sintaxe atual:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/d6ec153b7274ac699634d5dadb2e9644.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Nada surpreendente aqui, certo? Na sintaxe original, um método de extensão é apenas um método estático em uma classe estática, com a palavra-chave &lt;em&gt;this&lt;/em&gt; antes do primeiro parâmetro.&lt;/p&gt;
-
-&lt;p&gt;O problema é que esta sintaxe apenas funciona para métodos (e como poderia ser de outra forma, já que falar de “primeiro parâmetro” de uma propriedade nem sequer faz sentido).&lt;/p&gt;
-
-&lt;p&gt;É aqui que &lt;em&gt;extension everything&lt;/em&gt; entra. A proposta apresenta é uma nova declaração de tipo chamada de “extension”:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/5c1afca9c8fbc6837257cc5d289df2e9.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;O código acima é um exemplo; na data em que escrevo este post, o time do C# ainda não havia chegado à uma sintaxe definitiva.&lt;/p&gt;
-
-&lt;p&gt;Enfim, o exemplo mostra a criação de uma classe de extensão para o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;. Então nós declaramos uma propriedade do jeito que estamos acostumados, e é isso.&lt;/p&gt;
-
-&lt;p&gt;Agora o código chamador pode usar a propriedade normalmente:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/d401d37e182647b253fa721425eec828.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Essa nova funcionalidade deverá suportar métodos, propriedades, operadores e membros estáticos, pelo menos no início; suporte a eventos e construtores pode ser adicionado posteriormente.&lt;/p&gt;
-
-&lt;p&gt;Você não será capaz de criar estado adicional para a instância original, i.e. criar um campo privado na classe de extensão. De acordo com Torgersen, isso iria requerer uma complexidade indesejada para rastrear o valor desse novo estado.&lt;/p&gt;
-
-&lt;h3 id=&quot;status-atual&quot;&gt;Status atual&lt;/h3&gt;
-
-&lt;p&gt;Você pode &lt;a href=&quot;https://github.com/dotnet/csharplang/issues/192&quot;&gt;acompanhar o desenvolvimento da feature na sua issue no GitHub.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;implementação-default-em-interfaces&quot;&gt;Implementação default em interfaces.&lt;/h2&gt;
-
-&lt;p&gt;Eu admito que fiquei surpreso - e não muito feliz - quando ouvi sobre essa feature pela primeira vez, &lt;a href=&quot;https://channel9.msdn.com/Events/Build/2017/B8104&quot;&gt;em uma palestra Mads Torgersen ministrou em maio, na conferência Build 2017.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;“E &lt;em&gt;record types&lt;/em&gt;?”eu pensei. “E objetos imutáveis? O que nós vamos realmente ganhar são implementações em &lt;em&gt;interfaces&lt;/em&gt;?”&lt;/p&gt;
-
-&lt;p&gt;Você provavelmente pode adivinhar o que essa funcionalidade é pelo seu nome: nós seremos capazes de adicionar implementações de métodos nas interfaces. Por exemplo:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/efde91de1a54a1bc4f44c1a7a748d70c.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Em C# 8.0, o código acima seria perfeitamente legal. Uma classe implementando a interface não precisaria disponibilizar uma implementação para o método. Se alguma implementação da interface decidir, em algum momento, que a implementação padrão não atende mais suas necessidades, então ela pode fazer sua própria implementação.&lt;/p&gt;
-
-&lt;p&gt;Além de métodos, também será permitido adicionar implementações em indexadores, propriedades e assessores de eventos. Membros estáticos como métodos, propriedades e indexadores também serão permitidos.&lt;/p&gt;
-
-&lt;p&gt;Estado de instância não será permitido nas interfaces, no entanto. Você será capaz de usar campos estáticos mas não campos de instância. Como consequência disso, propriedades automáticas também não serão permitidas, já que elas declaram um campo privado implicitamente.&lt;/p&gt;
-
-&lt;h3 id=&quot;casos-de-uso&quot;&gt;Casos de uso&lt;/h3&gt;
-
-&lt;p&gt;Conforme declarado na &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;proposta da feature&lt;/a&gt;, o principal caso de uso para implementações padrão nas interfaces é possibilitar que uma interface possa evoluir de maneira segura. Você vai poder adicionar novos membros à interface, contato que você forneça uma implementação padrão, clientes existentes não serão forçados à implementá-los.&lt;/p&gt;
-
-&lt;p&gt;Atualmente, você poderia solucionar isso com um método de extensão, mas essa abordagem tem limites: e se você depois decidisse fornecer uma versão especializada do método para uma das implementações? Boa sorte.&lt;/p&gt;
-
-&lt;p&gt;É aí que as implementações padrão brilham.&lt;/p&gt;
-
-&lt;p&gt;Outra proposta de valor importação dessa feature tem relação com os sistemas Android e iOs. Já que tanto Java e Swift oferecem implementações padrão em interfaces, pode ser complicado &lt;em&gt;envelopar&lt;/em&gt; APIs do Android e iOs que fazem uso desta funcionalidade. Com a oitava versão do C#, será possível adaptar tais APIs de maneira mais fiel.&lt;/p&gt;
-
-&lt;h3 id=&quot;as-interfaces-vão-virar-classes-abstratas&quot;&gt;As interfaces vão virar classes abstratas?&lt;/h3&gt;
-
-&lt;p&gt;Mais ou menos, mas não realmente. Como você sabe, não há herança múltipla em linguagens coo C# e Java, o que significa que não é possível herdar de mais de uma classe. Por outro lado, uma classe é (e continuará sendo) capaz de implementar várias interfaces.&lt;/p&gt;
-
-&lt;h3 id=&quot;status-atual-1&quot;&gt;Status atual&lt;/h3&gt;
-
-&lt;p&gt;Essa funcionalidade está sendo prototipada. &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/default-interface-methods.md&quot;&gt;Você pode seguir seu desenvolvimento na issue no GitHub.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;tipos-de-referência-nuláveis&quot;&gt;Tipos de Referência Nuláveis&lt;/h2&gt;
-
-&lt;p&gt;“O quê?”, você talvez esteja pensando. “Não seria ‘tipos de referência &lt;strong&gt;não&lt;/strong&gt;-nuláveis’?” O nome dessa funcionalidade pode realmente confundir um pouco. Vou voltar a isso mais tarde, mas antes, vamos explicar a razão de uma feature como essa ser sequer considerada.&lt;/p&gt;
-
-&lt;p&gt;Eu aposto que você conhece a frase “o erro de um bilhão de dólares”. Na remota possibilidade de que você não conheça, ela ser refere à referência nula, e foi &lt;a href=&quot;https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions&quot;&gt;criada por ninguém mais ninguém menos que Sir Tony Hoare, o próprio criador da referência nula.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;mas-por-que-null-é-tão-ruim&quot;&gt;Mas por que &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; é tão ruim?&lt;/h3&gt;
-
-&lt;p&gt;Existem várias possíveis respostas para essa pergunta mas o maior problema é, claro, o risco da famosa &lt;em&gt;null-reference exception&lt;/em&gt; (também conhecida como &lt;em&gt;null-pointer exception&lt;/em&gt; na Java-lândia). Já que tudo (“tudo” no contexto do C# significa tipos os &lt;a href=&quot;https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;tipos de referência&lt;/a&gt;) pode ser nulo, você sempre corre o risco de receber uma exceção quando tenta acessar algum membro de um objeto.&lt;/p&gt;
-
-&lt;p&gt;Um dos piores problemas que temos aqui é que a própria linguagem não oferece uma sintaxe que permita ao autor do código expressar sua intenção. Não tem como você dizer: “Este parâmetro nunca vai ser &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;” ou “Essa propriedade talvez seja &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; às vezes, e isso é OK”.&lt;/p&gt;
-
-&lt;p&gt;É comum que linguagens funcionais solucionem isso oferendo um tipo que representa o conceito de um valor potencialmente ausente, geralmente chamado de &lt;code class=&quot;highlighter-rouge&quot;&gt;Maybe&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;Option&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;O time de design do C# decidiu contra uma abordagem desse tipo pois, de segundo eles, seria o mesmo que adicionar um novo tipo de &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt; à linguagem, o que poderia tornar as coisas ainda mais complexas.&lt;/p&gt;
-
-&lt;p&gt;Vamos retomar a questão do nome. Você talvez esteja pensando que eu entendi ao contrário. Faz sentido falar sobre tipos de valor nuláveis, já que os tipos de valor são não-nuláveis por padrão. Mas no caso dos tipos de referência, não deveria, certo? Afinal de coisas, eles sempre foram nuláveis desde o início.&lt;/p&gt;
-
-&lt;p&gt;O pulo do gato é o seguinte: o time de design do C# - em uma decisão com uma boa dose de controvérsia - pretende tornar não-nulabilidade o novo padrão para os tipos de referência. Interpretando assim, a “nova” coisa seriam os tipos nuláveis.&lt;/p&gt;
-
-&lt;p&gt;Para manter a linguagem consistente, a proposta é que seja usada a mesma sintaxe que já existe para tipos de valor nuláveis - em outras palavras, o ponto de interrogação.&lt;/p&gt;
-
-&lt;h3 id=&quot;chega-de-falar-vamos-ver-código&quot;&gt;Chega de falar. Vamos ver código!&lt;/h3&gt;
-
-&lt;p&gt;Eu imagino que usar uma classe “Pessoa” como exemplo é o equivalente de tocar “Stairway to Heaven” numa loja de instrumentos musicais: originalidade zero. Mas usar um exemplo mais elaborado seria uma distração desnecessária, então me dá um desconto desta vez.&lt;/p&gt;
-
-&lt;p&gt;Imagine que nós temos uma classe &lt;code class=&quot;highlighter-rouge&quot;&gt;Person&lt;/code&gt; com uma propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt; do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;int&lt;/code&gt;. Então, nós escrevemos o método a seguir:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/9b09f0572e737569e6f97315e5028411.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Apesar do código acima compilar normalmente, ele é frágil já que &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; pode ser &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;. Você provavelmente faria bem em adicionar um if para tratar essa possibilidade, mas ninguém vai lhe obrigar a fazer isso. Você está complemente livre para deixar o código da forma como está.&lt;/p&gt;
-
-&lt;p&gt;C# 8 promete mudar isso ao tornar tipos de referência não-nuláveis por padrão. No mesmo exemplo, tentar acessar a propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt; seria seguro, já que &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; não poderia ser &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Caso queira que &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; seja nulável, aí você teria que adicionar um ponto de interrogação, como eu já mencionei antes:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/8554d8863882955b554b486797b83726.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Agora que &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; pode ser &lt;code class=&quot;highlighter-rouge&quot;&gt;null&lt;/code&gt;, tentar acessar &lt;code class=&quot;highlighter-rouge&quot;&gt;Age&lt;/code&gt; não é mais seguro: você receberá um &lt;em&gt;warning&lt;/em&gt; ao tentar fazer isso. Quer se livrar do aviso?&lt;/p&gt;
-
-&lt;p&gt;Apenas faça o que você (na melhor das hipóteses)já faz hoje e cheque por nulo::&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/edc992560bf6c005c6be821103e160a3.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Assim, uma análise de fluxo será realizada; caso a linha da atribuição seja alcançada, o compilador vai saber que &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; não pode ser nulo e vai te deixar em paz.&lt;/p&gt;
-
-&lt;p&gt;Outra possibilidade:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/518c1b35560cafe17fca829aa2aef27b.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Em resumo, você tem várias opções. Assim que você conseguir convencer o compilador que seu código não tem risco de disparar uma &lt;em&gt;null reference exception&lt;/em&gt;, o aviso vai embora.&lt;/p&gt;
-
-&lt;h3 id=&quot;impedindo-atribuição-de-nulável-para-não-nulável&quot;&gt;Impedindo atribuição de nulável para não-nulável&lt;/h3&gt;
-
-&lt;p&gt;A nova versão do C# também vai impedir atribuição de uma variável nulável para uma não-nulável, então o código a seguir também vai resultar em um aviso:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/98f91bc50c924a8bd47897b874a7be89.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;Essa funcionalidade virá acompanhada de um novo operador chamado de &lt;em&gt;null-ignoring operator&lt;/em&gt;. Você vai usá-lo para dizer ao compilador: “Eu sei o que estou fazendo”. Haverá situações nas quais uma variável não pode ser nula de forma alguma, mas o compilador não vai ser capaz de inferir isso.&lt;/p&gt;
-
-&lt;p&gt;Um exemplo desses seria o uso do método &lt;code class=&quot;highlighter-rouge&quot;&gt;string.IsNullOrEmpty()&lt;/code&gt;:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/7f0f2f7470f810d228f1d68559b1d6b7.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;O código acima vai gerar um &lt;em&gt;warning&lt;/em&gt;, apesar de não ser possível que &lt;code class=&quot;highlighter-rouge&quot;&gt;bar&lt;/code&gt; seja nula. É aí que esse operador vai ser útil:&lt;/p&gt;
-
-&lt;script src=&quot;https://gist.github.com/carlosschults/008709a0b9ff6a72abc8fc4882a467d3.js&quot;&gt;&lt;/script&gt;
-
-&lt;p&gt;É importante lembrar que quando usar esse operador, você basicamente está dizendo ao compilador: “Confie em mim! Eu sei o que eu estou fazendo.” Então, é bom você realmente saber o que está fazendo!&lt;/p&gt;
-
-&lt;h3 id=&quot;e-retro-compatibilidade&quot;&gt;E retro-compatibilidade?&lt;/h3&gt;
-
-&lt;p&gt;Eu sei o que você deve estar pensando agora. “Isso parece legal e tal, mas não vai dar problema com um monte de código existente?”&lt;/p&gt;
-
-&lt;p&gt;Bom, é claro que vai. E é por isso que essa será uma alteração &lt;strong&gt;opt-in&lt;/strong&gt;, ativada a nível de cada projeto.&lt;/p&gt;
-
-&lt;h3 id=&quot;status-atual-2&quot;&gt;Status atual&lt;/h3&gt;
-
-&lt;p&gt;Esta já está com o protótipo pronto. Caso se interesse, &lt;a href=&quot;https://github.com/dotnet/csharplang/wiki/Nullable-Reference-Types-Preview&quot;&gt;você pode baixar, instalar, e testar um preview agora mesmo.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Assim como as outras funcionalidades, você pode se &lt;a href=&quot;https://github.com/dotnet/csharplang/blob/master/proposals/nullable-reference-types.md&quot;&gt;antenar com o que está acontecendo por meio da issue no GitHub.&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;c-tem-um-futuro-e-vai-ser-incrível&quot;&gt;C# tem um futuro. E vai ser incrível.&lt;/h2&gt;
-
-&lt;p&gt;Agora você sabe um pouco mais sobre três das funcionalidades que nós provavelmente ganharemos com a próxima versão da linguagem C#.&lt;/p&gt;
-
-&lt;p&gt;Como você pode ver, desenvolver a linguagem é um trabalho duro. Ela precisa permanecer compatível com as milhões (bilhões) de linhas de código escritas com ela nos últimos 17 anos. Ao mesmo tempo, para continuar sendo relevante, ela precisa suprir as necessidades de desenvolvedores que estão encarando desafiados que eram inimagináveis anos atrás. E o C# precisa fazer tudo isso sem perder sua essência: ser uma linguagem orientada a objeto, fácil e acessível.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 20 Dec 2017 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/funcionalidades-csharp8/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/funcionalidades-csharp8/</guid>
-        
-        <category>csharp</category>
         
         
       </item>
