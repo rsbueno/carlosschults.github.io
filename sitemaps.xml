@@ -806,9 +806,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/search/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/services/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/my-work/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/servicos/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/meu-trabalho/" />
         
           <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
         
@@ -1142,9 +1142,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/search/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/services/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/my-work/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/servicos/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/meu-trabalho/" />
         
           <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
         
@@ -1478,9 +1478,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/search/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/services/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/my-work/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/servicos/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/meu-trabalho/" />
         
           <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
         
@@ -1793,12 +1793,12 @@
   
     
       <url>
-        <loc>/services/</loc>
+        <loc>/my-work/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="en" href="/services/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/my-work/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/servicos/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/meu-trabalho/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1806,12 +1806,12 @@
   
     
       <url>
-        <loc>/servicos/</loc>
+        <loc>/meu-trabalho/</loc>
         
         
-          <xhtml:link rel="alternate" hreflang="en" href="/services/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/my-work/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/servicos/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/meu-trabalho/" />
         
         <changefreq>weekly</changefreq>
       </url>
@@ -1840,9 +1840,9 @@
         
           <xhtml:link rel="alternate" hreflang="en" href="/search/" />
         
-          <xhtml:link rel="alternate" hreflang="en" href="/services/" />
+          <xhtml:link rel="alternate" hreflang="en" href="/my-work/" />
         
-          <xhtml:link rel="alternate" hreflang="pt" href="/servicos/" />
+          <xhtml:link rel="alternate" hreflang="pt" href="/meu-trabalho/" />
         
           <xhtml:link rel="alternate" hreflang="" href="/sitemaps.xml" />
         
