@@ -5,27 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Tag: boas-praticas</title>
-  <meta name="description" content="Veja os posts marcados com 'boas-praticas'">
+  <title>Tag: boas-praticas | carlos schults / blog</title>
+  <meta name="description" content="Post marcados com 'boas-praticas'">
   
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:creator" content="@carlosschults">
   <meta name="twitter:site" content="@carlosschults">
   <meta name="twitter:domain" content="carlosschults.net">
-  <meta name="twitter:title" content="Tag: boas-praticas">
-  <meta name="twitter:description" content="Veja os posts marcados com 'boas-praticas'">
+  <meta name="twitter:title" content="Tag: boas-praticas | carlos schults / blog">
+  <meta name="twitter:description" content="Post marcados com 'boas-praticas'">
 
    <!-- Facebook meta -->
   
   
-  <meta property="og:title" content="Tag: boas-praticas">
+  <meta property="og:title" content="Tag: boas-praticas | carlos schults / blog">
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="pt_BR">  
   <meta property="og:type" content="website" />
   
   <meta property="og:url" content="http://carlosschults.net/tag_ptbr/boas-praticas/"/>
-  <meta property="og:description" content="Veja os posts marcados com 'boas-praticas'">
+  <meta property="og:description" content="Post marcados com 'boas-praticas'">
   <link rel="stylesheet" href="/css/main.css">  
   
    <link rel="canonical" href="http://carlosschults.net/tag_ptbr/boas-praticas/">
@@ -38,7 +38,6 @@
 </head>
 
   <body>
-
     <header class="site-header">
   <div class="wrapper">    
     <a class="site-title" href="/pt/">carlos schults / blog</a>
@@ -76,589 +75,285 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <h2 class="post_title">Tag: boas-praticas</h2>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='02-07-2020'>02/07/2020</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/null-problematico">Null É Ruim. Qual A Melhor Alternativa? Null.</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1593715153/null-evill-1068x437_ztikwf.jpg" alt="" />
-<span>Foto por <a href="https://unsplash.com/@benhershey?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ben Hershey</a> on <a href="https://unsplash.com/s/photos/null?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
-
-<p><em>Nota editorial: Eu escrevi originalmente este post para o blog da NDepend. Você pode <a href="https://blog.ndepend.com/null-evil/">conferir o original aqui, em inglês, no site deles</a>.</em></p>
-
-<p>“Null é maligno”. Se você tem sido um desenvolvedor de software por qualquer período de tempo razoável, aposto que já se deparou com essa afirmação várias vezes.</p>
-
-<p>Eu diria também que é muito provável que você concorde com o sentimento, ou seja, que a referência nula é uma característica sem a qual nossas linguagens de programação ficariam melhor. Até mesmo seu criador expressou seu pesar pela referência nula, <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">chamando-a de seu “erro de um bilhão de dólares”</a></p>
-
-<p>Criticar null tende a ficar chato rapidamente, portanto, os autores não fazem só isso. Eles também oferecem alternativas. E embora eu acredite que muitas das alternativas apresentadas têm seus méritos, também acho que talvez tenhamos negligenciado a melhor solução para tudo isso.</p>
-
-<p>Neste post, vamos examinar algumas das alternativas comuns para o retorno nulo antes de fazer o argumento de que a melhor alternativa é a própria nulidade. Vamos começar!</p>
-
-<h2 id="null-é-tóxico">Null é Tóxico…</h2>
-
-<p>Não vou me deter muito em toda essa coisa do “nulo é mal”, já que muito já foi escrito sobre isso. Alguns exemplos (em inglês):</p>
-
-<p><a href="&quot;https://sidburn.github.io/blog/2016/03/20/null-is-evil&quot;&gt;Null is Evil">Null Is Evil</a>
-<a href="&quot;http://blog.ploeh.dk/2015/11/13/null-has-no-type-but-maybe-has/&quot;&gt;">Null has no type, but Maybe has</a></p>
-
-<p><a href="https://softwareengineering.stackexchange.com/questions/12777/are-null-references-really-a-bad-thing">Esta resposta de Stack Overflow</a> também tem algumas informações valiosas.</p>
-
-<h2 id="mas-útil-quais-são-as-alternativas">…Mas útil. Quais são as Alternativas?</h2>
-
-<p>Agora, espero que estejamos na mesma página no que diz respeito ao status de nulo como um recurso de linguagem problemática. Mas tóxico ou não, o nulo serve a alguns propósitos. As pessoas o usam para representar um dado ausente, inválido ou desconhecido, ou mesmo para indicar que ocorreu um erro.</p>
-
-<p>O que deveriam estar fazendo ao invés disso?</p>
-
-<h3 id="lançar-uma-exceção">Lançar uma Exceção</h3>
-
-<p>Em algumas situações em que as pessoas retornam null, a coisa razoável a fazer é lançar uma exceção. Pense desta maneira: se um método promete realizar algo e não o faz, ele deve lançar uma exceção. Em outras palavras: quando um método não cumpre seu contrato, então é razoável disparar uma exceção.</p>
-
-<p>É claro que você deve reservar exceções para cenários que sejam verdadeiramente excepcionais. Se uma determinada situação acontece com freqüência, então uma exceção não é a melhor solução.</p>
-
-<h3 id="padrão-de-objeto-null">Padrão de Objeto Null</h3>
-
-<p>Considere as seguintes linhas de código:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span>
-<span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
-
-<p>O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável <code class="highlighter-rouge">NullReferenceException</code>. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.</p>
-
-<p>De qualquer forma, o <a href="https://en.wikipedia.org/wiki/Null_object_pattern">padrão de objeto nulo</a> é uma tentativa de resolver este problema. E como ele faz isso? Criando seu próprio tipo de nulo.</p>
-
-<p>Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa <code class="highlighter-rouge">IContract</code>, nossa classe NullContract poderia ser algo parecido com isto:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">NullContract</span> <span class="p">:</span> <span class="n">IContract</span>
-<span class="p">{</span>
-	<span class="c1">// construtor, propriedades, etc </span>
-	
-	<span class="k">public</span> <span class="k">void</span> <span class="nf">Extend</span><span class="p">(</span><span class="kt">int</span> <span class="n">months</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="c1">// não faz nada aqui, propositalmente</span>
-	<span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Ao empregar o padrão de objeto nulo você poderia - teoricamente, pelo menos - ter a certeza de que sempre receberá um objeto que cumpre o contrato que você espera que ele honre sem explodir na sua cara.</p>
-
-<h3 id="maybeoption">Maybe/Option</h3>
-
-<p>Finalmente, temos uma alternativa muito interessante que muitas vezes é encontrada na <a href="https://blog.ndepend.com/functional-programming-makes-code-not-oo/">programação funcional</a> linguagens. Esta alternativa é o uso de um tipo dedicado, destinado a representar o caso de uso de um valor potencialmente ausente. Por exemplo, <a href="https://docs.microsoft.com/en-us/dotnet/fsharp/language-reference/options">em F# isto é chamado de tipo de option</a>; Haskell a chama de <a href="https://hackage.haskell.org/package/base-4.11.0.0/docs/Data-Maybe.html">Maybe</a>. A partir da versão 8, Java introduziu a classe <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html">Optional</a>.</p>
-
-<p>Neste momento, o C# não oferece algo parecido com este tipo nativamente.</p>
-
-<h2 id="alternativas-ao-null-elas-são-boas">Alternativas ao Null: Elas são boas?</h2>
-
-<p>Tendo apresentado as alternativas mais comumente usadas para nulo, é hora do veredicto final. Vamos começar com a opção “lançar exceção”.</p>
-
-<h3 id="exceções">Exceções</h3>
-
-<p>Se o chamador não fornecer os argumentos corretos para a função que está chamando, então poderíamos dizer que ele está quebrando o contrato da função. Lançar uma exceção é a coisa correta a fazer nesta situação.</p>
-
-<p>O código a seguir é um bom exemplo do que <strong>não</strong>* deve ser feito:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Foo</span> <span class="nf">Bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">string</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&gt;</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">a</span> <span class="p">&lt;=</span> <span class="m">100</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(!</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-        <span class="p">{</span>
-            <span class="c1">// tá tudo certo: vamos fazer o que precisa ser feito e retornar</span>
-            <span class="c1">// um novo objeto!</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nf">Foo</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// Tem coisa errada com os parâmetros recebidos. Já sei! Vamos retornar null!</span>
-    <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Eu vejo códigos como este o tempo todo em produção. Os ifs aninhados são horríveis. Eles deveriam pelo menos ter usado um “and” para encaixar tudo em apenas um “if”. Mas o que realmente deveria acontecer é algo assim:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="n">Foo</span> <span class="nf">Bar</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">string</span> <span class="n">b</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">||</span> <span class="n">a</span> <span class="p">&gt;</span> <span class="m">100</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentOutOfRangeException</span><span class="p">(</span>
-        <span class="k">nameof</span><span class="p">(</span><span class="n">a</span><span class="p">),</span>
-        <span class="s">"O valor deve estar no intervalo de 1 a 100, inclusive."</span><span class="p">);</span>
-    <span class="p">}</span>
- 
-    <span class="k">if</span> <span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="nf">IsNullOrWhiteSpace</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-    <span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentException</span><span class="p">(</span>
-             <span class="s">"O valor deve ser uma string válida."</span><span class="p">,</span>
-             <span class="k">nameof</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-             <span class="p">);</span>
-    <span class="p">}</span>
- 
-    <span class="c1">// tá tudo certo: vamos fazer o que precisa ser feito e retornar</span>
-    <span class="c1">// um novo objeto!</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nf">Foo</span><span class="p">();</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Além disso, <a href="https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/">não capture exceções exógenas</a> que possam acontecer dentro de seu método e retorne nulo; em vez disso, deixe-as subir, pois este tipo de exceções representam problemas fora de seu controle. Problemas como uma falha na rede são problemas que você não poderia ter evitado de qualquer forma, em código.</p>
-
-<h3 id="padrão-null-object">Padrão Null Object</h3>
-
-<p>Vamos considerar o padrão de objeto nulo, do qual certamente não sou um grande fã. Um problema com este padrão é que você só deve usá-lo quando o código de chamada não se importa com o resultado do que quer que ele esteja tentando realizar. Considere novamente nosso exemplo de contrato:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span><span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
-
-<p>Esta linha de código não é “consciente” (nem se importa) se a variável “Contrato” se refere a um contrato válido ou a uma instância da NullContract. Se for um contrato válido, ele será prorrogado por 12 meses. Se não for, então nada acontecerá. Às vezes, é exatamente isso que você quer, mas nem sempre. Neste exemplo, se um contrato com ID equivale a 42 realmente deveria existir, mas não… talvez lançar uma exceção funcionaria melhor.</p>
-
-<p>Tudo o que eu disse até agora é que o padrão de objeto nulo não é bem adequado para cada cenário. Isto não é um problema tão ruim assim; você poderia dizer o mesmo sobre praticamente qualquer coisa.</p>
-
-<p>Meu principal problema com o padrão de objeto nulo é que ele equivale a pouco mais do que criar um novo tipo de objeto nulo sem realmente resolver o problema. Veja, <strong>utilizar o padrão não impede que você retorne nulo</strong>. Se eu consumir algum método escrito por um terceiro que afirma usar o padrão, devo ser capaz de assumir que o que quer que seja que ele retorne é seguro. Mas eu não posso ter certeza. Eu tenho três opções:</p>
-
+        <h2 class="post_title">Post marcados com 'boas-praticas'</h2>
+<div class="post-content">
 <ul>
-  <li>Confiar no autor do código;</li>
-  <li>Inspecionar o código-fonte, se possível; ou</li>
-  <li>Continuar a verificar a nulidade, o que derrota completamente o propósito de usar o padrão.</li>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <li>
+          <a href="/pt/null-problematico">Null É Ruim. Qual A Melhor Alternativa? Null.</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <li>
+          <a href="/pt/escrevendo-codigo-bom/">Escrevendo código bom: como reduzir a carga cognitiva do seu código</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <li>
+          <a href="/pt/programar-portugues-ou-ingles/">Programar em português ou inglês? That's the question!</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
 </ul>
-
-<p>Pode-se argumentar que estes problemas não são relevantes no contexto de uma única equipe que trabalha com a mesma base de código. Os desenvolvedores poderiam concordar em usar o padrão corretamente. Mas se tudo equivale a confiança e convenção no final do dia, você poderia muito bem concordar em nunca retornar nulo e teria o mesmo resultado.</p>
-
-<h4 id="maybeoption-1">Maybe/Option</h4>
-
-<p>Por último, mas não menos importante, e quanto aos tipos Maybe/Option? Esta é uma alternativa ao mesmo tempo elegante e robusta, especialmente em linguagens como o F#, onde você é forçado, de certa forma, a lidar com ambos os casos usando <em>pattern matching.</em></p>
-
-<p>Mas a triste realidade é a seguinte: embora <code class="highlighter-rouge">Maybe/Option</code> sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.</p>
-
-<p>Portanto, mesmo sendo grandes abordagens, elas ainda sofrem com o problema de serem mais um tipo de nulo para os desenvolvedores lidarem.</p>
-
-<h2 id="a-solução-para-null-o-próprio-null">A solução para Null: O próprio Null</h2>
-
-<p>Você conhece o velho ditado “Quando em um buraco, pare de cavar”? Para o melhor ou para o pior, existe o nulo. Tóxico ou não, é uma característica que as pessoas usam. Portanto, talvez a solução para tudo isso seja apenas consertar o nulo.</p>
-
-<p>A linguagem <a href="https://kotlinlang.org/">kotlin</a> acertou ao ter diferentes tipos de nulos e não nulos e adicionar todos os tipos de verificações para evitar que o desenvolvedor faça coisas que acabariam mal, como desreferenciar um tipo nulo sem verificá-lo ou atribuir um valor nulo a uma variável não nula.</p>
-
-<p>O C# nos deu o primeiro passo na direção certa há muitos anos com <a href="https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/nullable-types/">tipos de valor nulo</a>. Após uma longa espera, <a href="https://blog.ndepend.com/c-8-0-features-glimpse-future/">tipos de referência finalmente obterão o mesmo benefício com C# 8.0</a>.</p>
-
-<p>A alternativa para o nulo é o próprio nulo… <strong>quando feito corretamente</strong>.</p>
-
-    <a href="/pt/null-problematico">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='25-03-2017'>25/03/2017</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/escrevendo-codigo-bom/">Escrevendo código bom: como reduzir a carga cognitiva do seu código</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1490471059/escrevendo-codigo-bom-1038x437_e4oy0i.jpg" alt="" /></p>
-
-<p><strong>NOTA</strong>: O artigo a seguir foi originalmente escrito por <a href="https://chrismm.com/">Christian Maioli M.</a>, que gentilmente me autorizou a fazer esta tradução. Caso seja do seu interesse, <a href="https://chrismm.com/blog/writing-good-code-reduce-the-cognitive-load/">confira o artigo original</a>.</p>
-
-
-    <a href="/pt/escrevendo-codigo-bom/">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='29-03-2016'>29/03/2016</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/programar-portugues-ou-ingles/">Programar em português ou inglês? That's the question!</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1458429920/portugues-ou-ingles-1038x437_izhi3i.png" alt="" /></p>
-
-<p><strong>UPDATE 2020: Em breve estarei lançando meu curso <em>Inglês Para Desenvolvedores.</em> <a href="https://ingles4devs.com/">Acesse o site</a> e assine a newsletter para ser avisado(a) assim que as incrições forem abertas.</strong></p>
-
-<p>No contexto de boas práticas de desenvolvimento, um ponto que gera controvérsia é a escolha do idioma no qual codificar. Uma rápida busca no Google por “programar em português ou inglês” retorna 535 mil resultados, o que mostra que o tema realmente causa bastante discussão.</p>
-
-<p>Recentemente conversei com um colega de trabalho e também com meu chefe a respeito desse assunto. Esse post é consequência dessas conversas e das pesquisas que fiz depois.</p>
-
-<p>Parece ser uma visão bastante comum na nossa área que programar em inglês é a melhor opção. Fabio Akita, grande referência na comunidade Ruby On Rails do Brasil, <a href="https://www.akitaonrails.com/2013/03/24/quais-sao-algumas-das-piores-praticas-para-aplicacoes-ruby-on-rails--2">inclui codificar em português - ou melhor dizendo, qualquer idioma que não o inglês - na sua lista de piores práticas de desenvolvimento</a>:</p>
-
-<blockquote>
-  <p>Escreva nomes em inglês dentro do seu código. Não me importo se você é brasileiro, italiano, francês ou o que   for. Nomes de classes, de variáveis, de métodos, tudo deve ser em inglês. Estamos num mundo globalizado, não é pensar muito longe que amanhã um americano vai mexer no seu código todo em português. Além do problema de consistência: a sintaxe da linguagem, todas as bibliotecas padrão, é tudo em inglês. É uma enorme dissonância cognitiva ter nomes em português no meio. É como você estar lendo uma revista em português com diversos parágrafos em inglês no meio. Não faz nenhum sentido.</p>
-</blockquote>
-
-<p>Carlos Brando, outro nome conhecido no mundo Rails, <a href="https://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/">deu opinião semelhante em um post de 2009</a>:</p>
-
-<blockquote>
-  <p>Embora não exista uma regra escrita para isto, também sou contra nomear variáveis, métodos ou classe em português. Acho que como todo o código já está em inglês, graças as palavras chaves do Ruby, devemos manter absolutamente tudo em inglês também. Isto não é tão difícil assim, já que você pode fazer uso de tradutores e dicionários (online) para encontrar a melhor descrição para eles.</p>
-</blockquote>
-
-<p>Um exemplo de como esse tema é inflamável: <a href="https://blog.stackoverflow.com/2014/01/ola-mundo-announcing-stack-overflow-in-portuguese/">há cerca de dois anos foi lançada a versão em português do Stack Overflow</a>, famoso site de perguntas e respostas pra programadores. Pare aqui e vá lá dar uma olhada no post. Viu a quantidade de comentários criticando a iniciativa? A controvérsia foi tanta que duas semanas depois a equipe do Stack Overflow publicou um novo post, dessa vez em inglês, justificando a decisão.</p>
-
-<p>Eu acredito que a discussão é necessária e saudável e que existem bons argumentos nos dois lados. Assim, vou  examinar opiniões a favor do uso de cada idioma, e ao final do post, expressar minha conclusão.</p>
-
-<h2 id="argumentos-a-favor-do-inglês">Argumentos a favor do inglês</h2>
-
-<p>Um dos argumentos mais comuns usados a favor do inglês é que seria estranho ou feio misturar dois idiomas na codificação. Como as palavras reservadas das linguagens de programação/frameworks/SGBD’s já são em inglês, utilizar a língua portuguesa para nomear variáveis e outras coisas acaba gerando híbridos como <em>getNome</em>, <em>ProdutosController</em>, <em>clientes.ForEach</em>, <em>CodigoNaoEncontradoException</em> e assim por diante. No trecho citado logo ali acima, Fabio Akita afirma que a mistura dos idiomas causa uma dissonância cognitiva, seria como ler uma página escrita em um idioma e de repente se deparar com parágrafos escrito em outro.</p>
-
-<p>Outro argumento comum, também utilizado pelo Akita no trecho citado, é a possibilidade de um programador não-brasileiro vir a trabalhar no projeto. Imagine um projeto que conte com desenvolvedores da França, Alemanha, Brasil, Estados Unidos. Se cada um resolve programar no seu idioma, a comunicação se tornará impossível, a menos que todos os membros da equipe sejam proficientes nos idiomas de todos os outros membros, o que seria bastante improvável.</p>
-
-<p>Um ponto bem parecido com o anterior é que a utilização do português prejudicaria uma eventual venda do produto para uma empresa de outro país, o que é de fato inegável.</p>
-
-<p>O fato de que o inglês é a língua franca da tecnologia também figura constantemente entre os argumentos dos defensores do uso dessa língua na codificação. Segundo eles, qualquer desenvolvedor que se preze <strong>precisa</strong> ter um domínio avançado da língua inglesa. Sendo assim, o uso da inglês na verdade facilitaria o desenvolvimento, e não o contrário.</p>
-
-<p>Outro ponto interessante a favor do inglês é que os identificadores nesse idioma tendem a ser menores, o que incentiva a um código mais limpo e conciso. Por exemplo, compare <em>setName</em> com <em>atribuirNome</em>.</p>
-
-<p>Uma consequência do ponto anterior é que o uso de um único idioma ajuda a consolidar um vocabulário compartilhado entre todos os programadores. <em>Get</em> e <em>Set</em>, por exemplo, são palavras-chaves familiares para a maioria dos desenvolvedores, por serem extremamente comuns em API’s e bibliotecas diversas. Digamos que um programador recém-chegado à sua empresa recebe a tarefa de dar manutenção em uma biblioteca que vocês desenvolveram para trabalhar com XML. Ele provavelmente teria mais facilidade em encontrar um método chamado <em>GetChildren()</em> do que se fosse chamado ObterFilhos().</p>
-
-<p>Outra vantagem da utilização do inglês seria…que ela melhora o seu conhecimento de inglês. Já que programadores precisam dominar esse idioma de qualquer forma, toda e qualquer oportunidade de praticá-lo é válida.</p>
-
-<h2 id="argumentos-a-favor-do-português">Argumentos a favor do português</h2>
-
-<p>Um argumento a favor do uso do português é a baixa proficiência em inglês apresentada pelos desenvolvedores brasileiros em geral, e como isso pode prejudicar a comunicação não apenas entre os desenvolvedores, mais também entre os desenvolvedores e as pessoas de negócio:</p>
-
-<blockquote>
-  <p>Da mesma forma, uma regra de negócio traduzida para o inglês pode ser mal traduzida por quem não domina o idioma. Falsos cognatos existem e podem ser utilizados nessa tradução cotidiana. Imagine que, ao invés de criar classes chamadas Funcionario e Empregador você crie classes chamadas Employee e Employer. Isso seria tão confuso para um desenvolvedor que não domina o inglês, quanto para um desenvolvedor que domina o inglês. Na hora de programar, os termos podem misturar-se.
-<a href="https://www.ventron.com.br/programar-em-portugues-ou-ingles/">Gustavo Gondim</a></p>
-</blockquote>
-
-<blockquote>
-  <p>Eu já vi tantas atrocidades na transliteração de português para inglês usando Google Translator… Na falta da compreensão, pega-se a primeira palavra que aparece. Ou cria-se expressões com termos em inglês usando a sintaxe do português. Confunde-se a forma de usar substantivos, verbos e adjetivos. A língua resultante pode ser inglês de índio, mas não é inglês. O ponto é que em uma equipe que não fala inglês nativamente, usar os termos de negócio em inglês pode complicar até o entendimento entre os programadores.[…]
-<a href="https://blogdofernandocorreia.wordpress.com/2011/09/21/que-lingua-usar-para-nomes-do-dominio-de-negocio/">Fernando Correia</a></p>
-</blockquote>
-
-<p>Resumindo: uma equipe que tem domínio superficial do inglês necessariamente produz inglês de baixa qualidade, por não estar ciente das “pegadinhas” que o idioma pode apresentar (por exemplo: falsos cognatos). Mas ainda tem mais: é de conhecimento geral que programadores passam mais tempo lendo código do que escrevendo. E qualquer programador com alguma experiência vai concordar que ler código é bem mais difícil do que escrever. Ao forçar uma equipe sem desenvoltura na língua inglesa a trabalhar com uma base de código escrita nessa língua, estaríamos aumentando a barreira necessária para a compreensão do código, dificultando a manutenção e aumentando a chance de criação de bugs.</p>
-
-<p>O <a href="https://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html">Tiago Albineli Motta, do blog “Programando Sem Cafeína”</a>, traz um argumento bem interessante: de que o uso de idiomas diferentes prejudica a comunicação entre cliente e a equipe de desenvolvimento, principalmente quando o domínio do negócio é bastante específico. Para justificar, ele cita o exemplo de quando trabalhava em uma empresa que estava desenvolvimento um sistema para um laboratório geológico. Como os funcionários do laboratório usavam termos em português e a equipe de desenvolvimento em inglês, havia ruídos na comunicação.</p>
-
-<p>Destaco um trecho interessante abaixo (destaque meu):</p>
-
-<blockquote>
-  <p>Eis então a pergunta: Será que um código que mistura termos em inglês e português causa mais problemas que os ruídos na comunicação com o cliente? Pode-se alegar que o código nem será mostrado ao usuário, <strong>mas na hora em que o desenvolvedor precisa se comunicar com o cliente, na mente dele ele não está trabalhando com amostras, ele está trabalhando com samples.</strong></p>
-</blockquote>
-
-<p>Ainda no tema do domínio, poderíamos imaginar o desenvolvimento de uma aplicação que se integra com a famigerada Nota Fiscal Eletrônica. Como o xml da nota já vem com os campos todos em português, utilizar nomes de variáveis em inglês poderia adicionar um esforço cognitivo desnecessário.</p>
-
-<h2 id="e-a-minha-opinião">E a minha opinião?</h2>
-
-<p>Acredito ter sido capaz de demonstrar que existem boas opiniões nos dois lados desse debate. Mas e aí? Vocês devem estar se perguntando qual a minha opinião, não é? Ok, não vou ficar em cima do muro. Mas antes, acho necessário fazer algumas considerações importantes.</p>
-
-<h3 id="o-inglês-é-a-língua-franca-da-tecnologia">O inglês é a língua franca da tecnologia</h3>
-
-<p>O inglês é a língua franca da tecnologia. E da ciência, das finanças, e de muitas outras coisas. Todo mundo tem o direito de gostar ou não do idioma que quiser, mas é simplesmente contra produtivo querer brigar com um fato da vida que não vai mudar tão cedo. Eu particularmente acho que deveríamos ser gratos que o “idioma obrigatório” é o inglês, e não o russo, árabe, ou mandarim, por exemplo.</p>
-
-<p>Então, independente do seu posicionamento no debate, aprender inglês é um investimento que vale muito a pena. O que nos leva ao próximo ponto.</p>
-
-<h3 id="e-não-é-tão-difícil-de-se-aprender-quanto-parece">E não é tão difícil de se aprender quanto parece</h3>
-
-<p>Estou convencido de que uma enorme inteligência não é requisito para aprender inglês. Muito menos pagar cursos caros em escolas renomadas, ou fazer intercâmbio. Então por que há tantas pessoas que querem aprender inglês e <a href="https://exame.abril.com.br/brasil/noticias/fluencia-do-brasileiro-no-ingles-so-piora-veja-ranking">tão poucas conseguem</a>?</p>
-
-<p>Em minha opinião, o primeiro motivo é que a maioria dessas pessoas não <em>querem</em> realmente. E o segundo…é simplesmente que elas estudam errado, colocando o foco, tempo e energia no lugar onde não deviam.</p>
-
-<p>Em breve vou fazer um post totalmente dedicado ao tema do aprendizado de inglês, onde vou expandir e explicar melhor o parágrafo anterior.</p>
-
-<h3 id="seu-projeto-tem-características-únicas-que-não-devem-ser-ignoradas">Seu projeto tem características únicas que não devem ser ignoradas</h3>
-
-<p>Seu projeto atual provavelmente tem características únicas, que nem eu, nem o Fabio Akita, nem o Tiago Motta, ou qualquer outra pessoa de fora sabe. Não conhecemos o nível de fluência no inglês da sua equipe, nem o domínio da sua aplicação.</p>
-
-<p>Também desconhecemos o escopo do seu projeto, se todos os colaboradores são brasileiros ou se há pessoas de outros países,os prospectos de venda da empresa para uma companhia multinacional, etc.</p>
-
-<p>Ou seja: há uma série de fatores que podem e devem ser levadas em conta no momento de se adotar essa ou aquela prática, essa ou aquela metodologia. Nessas horas, você tem que exercitar o senso crítico: mantenha a mente aberta na hora de ler, pesquisar e conhecer opiniões contrárias, mas use seu bom senso e experiência para filtrar o e decidir o que encaixa com a cultura da sua empresa, equipe e projeto.</p>
-
-<h3 id="tentar-prever-o-futuro-é-anti-ágil">Tentar prever o futuro é anti-ágil.</h3>
-
-<p>Eu costumo chamar isso de síndrome do “vai que um dia”, pois a conversa geralmente começa assim:</p>
-
-<p>“Vai que um dia o cliente precisa de [insira aqui funcionalidade que o cliente não precisa agora e provavelmente nunca vai precisar]? Vamos fazer!”</p>
-
-<p>E aí já viu: tabelas inúteis são criadas no banco de dados, classes e mais classes e formulários e telas e muito mais lixo entupindo seu projeto.</p>
-
-<p>Tentar prever toda e qualquer alteração no projeto é anti-ágil. Equipes ágeis dão pequenos passos, implementando as histórias priorizadas pelo cliente e nada mais. Quando os requisitos mudarem (e vão mudar) nós mudamos junto com eles.</p>
-
-<p>Entendeu onde eu quero chegar? “Vai que um dia uma empresa internacional resolve comprar nosso sistema? Vamos fazer todo o código e as tabelas em inglês!”</p>
-
-<h3 id="em-resumo-bom-senso-é-a-chave">Em resumo: bom-senso é a chave</h3>
-
-<p>Com base em tudo isso aí que você leu, minha opinião atualmente está assim: tentar utilizar o inglês sempre, <strong>exceto quando há ótimas razões para não utilizá-lo.</strong></p>
-
-<p>Projetos open-source? Tudo em inglês, <em>exceto em casos onde há benefícios claros em usar o português</em>.</p>
-
-<p>Em projetos particulares: se a equipe é fraca no inglês <strong>E/OU</strong> o domínio é muito específico e tem termos e jargões de difícil tradução <strong>E/OU</strong> há riscos claros de prejuízo na comunicação com o cliente, o português provavelmente é a melhor escolha.</p>
-
-<p>Se a situação é o contrário do descrito acima, inglês sem dúvida.</p>
-
-<p>Se desde o começo do projeto existe a certeza que a aplicação será disponibilizada para vários países, vocês vão precisar trabalhar em internacionalização, de tudo: especificações, ajuda, interface gráfica. Nesse caso, também não há motivo para não codificar em inglês.</p>
-
-<h2 id="e-você-o-que-acha">E você, o que acha?</h2>
-
-<p>Concorda, discorda, prefere não opinar? Deixe um comentário aí em baixo e vamos continuando a conversa!</p>
-
-<h2 id="referências">Referências</h2>
-<ul>
-  <li><a href="https://pt.stackoverflow.com/questions/301/devo-escrever-meu-programa-em-ingl%C3%AAs-ou-portugu%C3%AAs">https://pt.stackoverflow.com/questions/301/devo-escrever-meu-programa-em-ingl%C3%AAs-ou-portugu%C3%AAs</a></li>
-  <li><a href="https://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html">https://programandosemcafeina.blogspot.com.br/2009/03/nomes-de-metodos-e-variaveis-devem-ser.html</a></li>
-  <li><a href="https://nsigustavo.blogspot.com.br/2009/09/que-idioma-devemos-utilizar-em-nosso.html">https://nsigustavo.blogspot.com.br/2009/09/que-idioma-devemos-utilizar-em-nosso.html</a></li>
-  <li><a href="https://blogdofernandocorreia.wordpress.com/2011/09/21/que-lingua-usar-para-nomes-do-dominio-de-negocio/">https://blogdofernandocorreia.wordpress.com/2011/09/21/que-lingua-usar-para-nomes-do-dominio-de-negocio/</a></li>
-  <li><a href="https://www.dev.mayogax.com/2014/02/a-polemica-questao-do-stack-overflow-em-portugues/">https://www.dev.mayogax.com/2014/02/a-polemica-questao-do-stack-overflow-em-portugues/</a></li>
-  <li><a href="https://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/">https://nomedojogo.com/2009/02/13/rails-way-3-nomes-de-metodos-e-variaveis-devem-ser-obvios/</a></li>
-  <li><a href="https://www.ventron.com.br/programar-em-portugues-ou-ingles/">https://www.ventron.com.br/programar-em-portugues-ou-ingles/</a></li>
-</ul>
-
-    <a href="/pt/programar-portugues-ou-ingles/">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
+</div>
 
       </div>
     </div>

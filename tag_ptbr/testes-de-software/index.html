@@ -5,27 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Tag: testes-de-software</title>
-  <meta name="description" content="Veja os posts marcados com 'testes-de-software'">
+  <title>Tag: testes-de-software | carlos schults / blog</title>
+  <meta name="description" content="Post marcados com 'testes-de-software'">
   
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:creator" content="@carlosschults">
   <meta name="twitter:site" content="@carlosschults">
   <meta name="twitter:domain" content="carlosschults.net">
-  <meta name="twitter:title" content="Tag: testes-de-software">
-  <meta name="twitter:description" content="Veja os posts marcados com 'testes-de-software'">
+  <meta name="twitter:title" content="Tag: testes-de-software | carlos schults / blog">
+  <meta name="twitter:description" content="Post marcados com 'testes-de-software'">
 
    <!-- Facebook meta -->
   
   
-  <meta property="og:title" content="Tag: testes-de-software">
+  <meta property="og:title" content="Tag: testes-de-software | carlos schults / blog">
   <meta property="og:site_name" content="Carlos Schults / Blog" />
   <meta property="og:locale" content="pt_BR">  
   <meta property="og:type" content="website" />
   
   <meta property="og:url" content="http://carlosschults.net/tag_ptbr/testes-de-software/"/>
-  <meta property="og:description" content="Veja os posts marcados com 'testes-de-software'">
+  <meta property="og:description" content="Post marcados com 'testes-de-software'">
   <link rel="stylesheet" href="/css/main.css">  
   
    <link rel="canonical" href="http://carlosschults.net/tag_ptbr/testes-de-software/">
@@ -38,7 +38,6 @@
 </head>
 
   <body>
-
     <header class="site-header">
   <div class="wrapper">    
     <a class="site-title" href="/pt/">carlos schults / blog</a>
@@ -76,824 +75,289 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <h2 class="post_title">Tag: testes-de-software</h2>
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='23-07-2020'>23/07/2020</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/testes-de-mutacao/">Testes de Mutação: O Que São e Como Tornam A Cobertura de Código Relevante</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1595528879/mutation/mutation-testing-1038x437.jpg" alt="" /></p>
-
-<p><span>Photo by <a href="https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Christina @ wocintechchat.com</a> on <a href="https://unsplash.com/s/photos/software-testing?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
-
-<p><em>NOTA: Este post foi originalmente escrito para o blog da NCrunch. Você pode ler o <a href="https://blog.ncrunch.net/post/mutation-testing-code-coverage.aspx">artigo original, em inglês, no site deles</a>.</em></p>
-
-<p><em>NOTA #2: Ainda não consegue ler em inglês? Meu curso <a href="https://ingles4devs.com">Inglês Para Desenvolvedores</a> foi feito para você. Vai lá, cadastre seu e-mail e garanta a sua vaga assim que as inscrições forem abertas ;)</em></p>
-
-<p>Sou fascinado com o conceito de testes de mutação desde que os conheci. Pensei finalmente ter encontrado a resposta para tantos problemas que tive ao escrever testes. Com os testes de mutação, agora eu tinha uma maneira de realmente confiar em meus testes. Finalmente, a cobertura de código tinha significado novamente.</p>
-
-<p>Então, fiquei atônito ao perceber que muito poucos desenvolvedores compartilhavam meu interesse em testes de mutação. Na verdade, ouso dizer que a maioria dos desenvolvedores ainda nem sequer ouviu falar sobre isso. E isso é uma pena porque eles - e nós, como uma indústria - estamos perdendo tantos benefícios.</p>
-
-<p>Portanto, este posto é minha humilde tentativa de remediar a situação. Vou começar por explicar os atuais dilemas que os desenvolvedores enfrentam em relação à confiabilidade dos testes que escrevem. Em seguida, vou prosseguir para lhe mostrar como os testes de mutação são a resposta a estes dilemas. Explicarei o que é, como pode tornar seus testes mais confiáveis, e como pode transformar a cobertura de código na valiosa métrica que deve ser.</p>
-
-<h2 id="o-problema-a-confiabilidade-dos-testes">O problema: a confiabilidade dos testes</h2>
-
-<p>Ao aprender sobre <a href="https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1/">testes unitários</a> - ou testes automatizados em geral - a maioria das pessoas fará a mesma pergunta ou uma pergunta semelhante: Como sei que meus testes estão corretos? Essa é uma preocupação legítima. Se seus testes não são confiáveis, então talvez você esteja melhor sem nenhum teste.</p>
-
-<p>Então, qual é a resposta? Como as pessoas lidam com o problema da confiabilidade dos testes sem depender de testes de mutação?</p>
-
-<h2 id="tornando-os-testes-confiáveis-sem-testes-de-mutação">Tornando os testes confiáveis sem testes de mutação</h2>
-
-<p>Há técnicas que os desenvolvedores empregam para melhorar a confiabilidade de seus testes, e cobriremos brevemente algumas delas nesta seção. Se você tem experiência com testes unitários, provavelmente está familiarizado com essas técnicas. Vamos lá.</p>
-
-<h3 id="manter-os-testes-simples">Manter os testes simples</h3>
-
-<p>A primeira técnica que cobriremos aqui para melhorar a confiabilidade de seus testes é apenas mantê-los simples. E por “simples” quero dizer com menos complexidade ciclomática. Quanto menor a <a href="https://pt.wikipedia.org/wiki/Complexidade_ciclom%C3%A1tica">complexidade ciclomática</a> de um determinado código, mais provável é que ele realmente faz o que você pensa que faz. O código simples é mais fácil de entender, que é uma propriedade que você definitivamente quer que seus testes unitários tenham.</p>
-
-<p>Mantenha o código de teste simples ao ponto de ser óbvio. Isso significa, por exemplo, evitar loops ou estruturas de decisão. Além disso, evite fazer qualquer coisa para computar o resultado esperado (mais sobre isso na próxima seção). Em vez disso, codifique-o de maneira fixa.</p>
-
-<h3 id="não-duplique-o-código-de-implementação">Não Duplique o Código de Implementação</h3>
-
-<p>Digamos que você esteja praticando o <a href="https://codingdojo.org/kata/RomanNumerals/">Coding Kata dos números romanos</a>. Resista à tentação de gerar automaticamente os valores esperados (“I” para 1, “II” para 2, e assim por diante). Em vez disso, codifique os valores de forma fixa. Se a repetição realmente o incomoda e sua ferramenta de teste o permite, use testes parametrizados.</p>
-
-<p>Por que isso seria um problema? Simples: Quanto mais sofisticado for o código de teste, mais provável é que seja uma duplicação do código de produção. Se este for o caso, você pode ter o azar de se encontrar na situação em que seu código de produção está errado (não resolve o problema como deveria fazer), mas os testes passam. Esse é um dos piores cenários possíveis. É ainda pior do que não ter nenhum teste.</p>
-
-<h3 id="garanta-que-você-veja-o-teste-falhar">Garanta que você veja o teste falhar</h3>
-
-<p>Garantir que cada teste falhe pelo menos uma vez antes de ser aprovado. Se você vê o teste falhar quando acha que deveria estar falhando e vice-versa, isso é um sinal de que você está se movendo na direção certa. Não garante nada, mas diminui a probabilidade de o teste estar passando devido a uma coincidência.</p>
-
-<p>Como fazer isso? Assim que você chegar à fase verde, danifique o código de implementação de tal maneira que um ou mais testes devem falhar. Você poderia inverter os condicionantes, substituir strings ou literais numéricos por valores aleatórios, ou mesmo apagar um if. Se você conseguir sabotar o código de produção e se safar, isso não é um bom sinal. Seu conjunto de testes ou está errado ou incompleto. Em certo sentido, você está testando os testes.</p>
-
-<p>Desenvolvedores que empregam <a href="https://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/">TDD (desenvolvimento orientado a testes)</a> já fazem isso, por definição. Uma vez que você escreve um teste falho e depois procede para que ele seja aprovado, você está vendo o teste falhar. É claro, o teste deve falhar da maneira esperada. Isso significa que se você estiver realizando uma asserção, o teste deve falhar devido a uma falha na asserção e não, digamos, porque o método sob teste lança uma exceção. Sim, isto é melhor do que nada, mas ainda assim pode não ser suficiente. Como um teste unitário representa um caso de uso único, é totalmente possível introduzir um defeito no código de produção de tal forma que este teste em particular ainda passe.</p>
-
-<h2 id="temos-que-fazer-melhor-é-aí-que-entra-o-teste-de-mutação">Temos que fazer melhor: É Aí Que Entra o Teste de Mutação</h2>
-
-<p>Então, você acabou de aplicar a técnica descrita na última seção. Ótimo! Não é perfeita, porém. Aí vem um problema. Você não pode simplesmente inserir muitos defeitos e executar os testes, pois não seria capaz de identificar qual defeito foi responsável pelo fracasso dos testes. A maneira correta de fazer isso é inserir um único defeito deliberado, executar todos os testes, verificar seu resultado e <em>então</em> reverter a mudança. Depois disso, você pode introduzir outro erro, executar todos os testes novamente, verificar o resultado, reverter a mudança…e repetir, muitas vezes. Nem precisa dizer que tal abordagem é extremamente lenta, entediante e propensa a erros.</p>
-
-<p>É aí que entram os testes de mutação.</p>
-
-<h3 id="o-que-é-teste-de-mutação-afinal">O que é teste de mutação, afinal?</h3>
-
-<p>O teste de mutação é nada mais, nada menos, do que automatizar todo o processo de “sabotar o código de produção e executar testes para ver se eles falham” que você acabou de ver. Para usar o teste de mutação, você precisa de um framework, ou ferramenta, de teste de mutação. O framework irá alterar o código de produção, introduzindo defeitos que são chamados de “mutações”. Para cada mutação introduzida, o framework executará novamente o conjunto de testes unitários. Se todos os testes forem aprovados, dizemos que a mutação sobreviveu. Isso é uma coisa ruim. Significa que ou seu conjunto de testes está faltando ou os testes existentes estão errados.</p>
-
-<p>Se, por outro lado, um ou mais testes falharem, isso significa que a mutação foi morta, o que é uma coisa boa. A ferramenta repetirá esse processo até que se teste a parte relevante da base de código. Quando tudo estiver feito, você poderá verificar os resultados, que conterão o número de mutações introduzidas, assim como a proporção de mutantes sobreviventes vs. mutantes mortos.</p>
-
-<h3 id="os-testes-de-mutação-melhoram-a-cobertura-do-código">Os testes de mutação melhoram a cobertura do código</h3>
-
-<p>Um dos tópicos mais controversos no mundo dos testes de unidade é o argumento sobre a cobertura de código. Alguns desenvolvedores dizem que chegar à cobertura total é essencial; outros argumentarão que é uma métrica inútil. Quem está certo?</p>
-
-<p>Primeiro de tudo, é preciso entender que esta questão não é preto no branco. Como é o caso de praticamente tudo em software, há alguma nuance. É claro que a cobertura de código não é inútil. Saber que sua base de código tem, digamos, 10% de cobertura de teste é definitivamente um dado útil. Tal cobertura é muito baixa: ver a barra verde não lhes oferecerá nenhuma confiança. Isso não quer dizer que ter 100% de cobertura é necessariamente uma coisa boa em si mesmo. Você poderia ter testes que não têm afirmações, por exemplo. Sim, este é um exemplo elaborado, mas algo assim poderia (e às vezes acontece) acontecer.</p>
-
-<p>Uma ocorrência mais comum seria ter apenas testes que não exercitam suficientemente os caminhos no software. Em resumo: baixa cobertura de código é definitivamente uma coisa ruim, mas alta (ou total) cobertura de código não é <em>necessariamente</em> uma coisa boa, uma vez que não diz nada sobre a qualidade dos testes na suíte.</p>
-
-<p>Como os testes de mutação verificam a qualidade da suíte de testes, é a peça que falta no quebra-cabeça. Se sua base de código tem uma alta cobertura de código e os resultados dos testes de mutação mostram que a maioria ou todas as mutações introduzidas estão sendo mortas, então sorria! Você provavelmente tem uma ótima suíte de teste no lugar!</p>
-
-<h2 id="testes-de-mutação-abrace-hoje">Testes de Mutação Abrace Hoje</h2>
-
-<p>No post de hoje, falamos sobre o problema da confiabilidade dos testes, depois procedemos a uma revisão de algumas técnicas e diretrizes que você pode usar para superar esse desafio. Finalmente, vimos como o teste de mutação é a abordagem superior para resolver esse problema.</p>
-
-<p>Eis o seguinte: As técnicas que abordamos são boas diretrizes a serem seguidas ao escrever testes unitários. Seus testes serão beneficiados por cumpri-los, quer você empregue ou não testes de mutação. Mas as diretrizes só podem levá-lo até agora. Elas dependem muito da força de vontade e disciplina humanas, e todos nós temos quantidades limitadas delas. A fim de levar a qualidade de seus testes ao próximo nível, você precisa adotar a automação.</p>
-
-<p>São necessários apenas alguns minutos de pesquisa no Google para encontrar uma ferramenta de teste de mutação para a plataforma de sua preferência. Faça isso hoje e comece a aproveitar os benefícios que os testes de mutação podem oferecer a você e à sua equipe!</p>
-
-
-    <a href="/pt/testes-de-mutacao/">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='08-07-2020'>08/07/2020</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/testes-unitarios-csharp-intro-tdd/">Testes Unitários em C#: Iniciando Com TDD</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png" alt="" /></p>
-
-<p><em>Este post faz parte de uma série. <a href="http://carlosschults.net/tag_ptbr/serie-testes-unitarios/">Veja os outros artigos.</a></em></p>
-
-<p>Hoje eu trago outro post para ajudá-los a começar com os testes da unidade C#. Já cobri o <a href="https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1">básico de testes unitários</a>, explicando o que eles são e por que são tão importantes. Depois disso, mostrei <a href="https://carlosschults.net/pt/testes-unitarios-iniciantes-parte-2">como começar com os testes unitários</a> com um exemplo prático. Hoje, vamos um passo adiante, explorando a metodologia TDD.</p>
-
-<p>Você provavelmente já ouviu falar de TDD, mas pode ficar confuso quanto ao que é. A propósito, isto não é culpa sua. Há muitos equívocos em torno desta sigla. Algumas pessoas até a usam de forma intercambiável com os testes unitários. Neste post, você vai aprender por que eles estão errados, e mais.</p>
-
-<p>Começamos o post com uma breve definição de TDD. Você aprenderá não apenas que TDD significa Desenvolvimento Orientado por Testes, mas também que não é uma técnica de teste, apesar do nome. Depois disso, eu explico o que é TDD e quais são seus benefícios.</p>
-
-<p>Após o “o quê” e o “porquê” estarem ambos fora do nosso caminho, estaremos prontos para nos divertir um pouco. Vou lhes mostrar, na prática, como começar com a TDD, desenvolvendo uma solução para um famoso exercício de programação. Soa bem? Então, vamos começar.</p>
-
-<h2 id="testes-unitários-em-c--tdd-começando-pelo-básico">Testes Unitários em C# &amp; TDD: Começando Pelo Básico</h2>
-
-<p>Já mencionei anteriormente que o TDD não é uma técnica de teste. Mas o que é isso? E como está relacionado ao teste de unidade C# (ou teste de unidade em geral, já agora?)</p>
-
-<h3 id="definindo-tdd">Definindo TDD</h3>
-
-<p>Como você já viu, TDD significa “Test-Driven Development”, ou “Desenvolvimento guiado por testes.” É uma técnica ou metodologia de desenvolvimento de software que utiliza testes unitários para guiar ou dirigir o desenvolvimento da aplicação.</p>
-
-<p>Em vez de fazer a coisa mais intuitiva, que seria escrever testes unitários após o código de produção, a metodologia TDD afirma que você deve começar escrevendo um teste unitário falho. Depois você escreve o código de produção, mas apenas o necessário para que o teste seja aprovado.</p>
-
-<p>Acho que agora você está se perguntando pelo menos duas coisas:</p>
-
+        <h2 class="post_title">Post marcados com 'testes-de-software'</h2>
+<div class="post-content">
 <ul>
-  <li>Como isso funciona na prática?</li>
-  <li>Por que escrever o código de uma maneira tão estranha?</li>
+  
+  
+  
+  
+    <li>
+          <a href="/pt/testes-de-mutacao/">Testes de Mutação: O Que São e Como Tornam A Cobertura de Código Relevante</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <li>
+          <a href="/pt/testes-unitarios-csharp-intro-tdd/">Testes Unitários em C#: Iniciando Com TDD</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <li>
+          <a href="/pt/testes-unitarios-iniciantes-parte-2">Testes Unitários Para Iniciantes - Parte 2</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <li>
+          <a href="/pt/testes-unitarios-iniciantes-parte1">Testes unitários para iniciantes - Parte 1</a>
+    </li>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
 </ul>
-
-<p>É o que vamos ver a seguir.</p>
-
-<h3 id="as-fases-do-tdd">As fases do TDD</h3>
-
-<p>O desenvolvimento orientado por testes depende da repetição de um ciclo incrivelmente curto. Este ciclo é composto de três fases:</p>
-
-<ol>
-  <li>Primeiro, você escreve um teste que representa um requisito específico da funcionalidade que você está tentando implementar.</li>
-  <li>Em seguida, você faz o teste passar, escrevendo a quantidade mínima de código de produção com a qual você pode escapar.</li>
-  <li>Se necessário, você refatoria o código para eliminar duplicações ou outros problemas.</li>
-</ol>
-
-<p>Como a funcionalidade ainda não existe, o teste que você escreve no passo nº 1 falhará. Ou seja, em linguagens como Python ou Ruby. No caso de linguagens estaticamente digitadas, como Java ou C#, o código nem sequer será compilado. Para nossos propósitos, a não compilação do código conta como falha no teste.</p>
-
-<p>No passo 2, você tem que fazer o teste passar, mas nada além disso. O que eu quero dizer é que seu objetivo aqui não é resolver o problema, pelo menos ainda não. Ao invés disso, seu único trabalho é fazer o teste passar, escrevendo a menor quantidade possível de código. Fazer batota - por exemplo, devolver um valor codificado - não só é OK, mas encorajado, como você logo verá.</p>
-
-<p>Finalmente, a terceira fase é a única que permite a você escrever o código de produção sem ter que criar primeiro um teste de reprovação. Mas você não pode criar novas classes ou funções; você só pode refatorar o código que você escreveu na etapa anterior, para torná-lo mais legível, para eliminar a duplicação ou para resolver outro problema. E, é claro, o teste ainda deve ser aprovado.</p>
-
-<p>As pessoas freqüentemente usam o TDD como “red green-refactor” porque a maioria das ferramentas de teste de unidade usa vermelho para denotar testes fracassados e verde para passar nos testes.</p>
-
-<h3 id="por-que-usar-o-tdd">Por que usar o TDD?</h3>
-
-<p>O difícil de entender quando se começa a usar o TDD não é o como. O “como” é trivial: escrever um teste, faze-lo passar, talvez refatorar, enxaguar, repetir. A parte preocupante é o “por quê”. Por que desenvolver software de uma maneira tão não-intuitiva?</p>
-
-<p>Vou falar mais sobre a filosofia TDD em artigos futuros. Em poucas palavras, aplicar TDD garante que você terá um código testável desde o início. Ele o incentivará a projetar seu código de uma maneira simples e modular.</p>
-
-<p>Mas talvez a principal vantagem do TDD seja aumentar a confiança do desenvolvedor em seu código. Ao desenvolver um pequeno passo de cada vez, você nunca será capaz de errar muito, já que está fazendo muito pouco. Saber que você está apenas a um teste de reprovação de ter um código de trabalho é reconfortante.</p>
-
-<h2 id="testes-unitários-em-c--tdd-o-guia-mão-na-massa">Testes Unitários em C# &amp; TDD: O Guia Mão-Na-Massa</h2>
-
-<p>Eu cobri como começar com os testes de unidade C# no passado. Eu também cobri as ferramentas necessárias e como começar. Entretanto, não vou assumir que você tenha lido esses artigos. Em vez disso, vou cobrir tudo a partir do zero. Assim, você será capaz de seguir o tutorial mesmo que tenha zero de experiência com testes unitários.</p>
-
-<h3 id="nosso-problema-o-kata-string-calculator">Nosso problema: O Kata String Calculator</h3>
-
-<p>Para nosso tutorial, escreveremos uma solução para o <a href="https://osherove.com/tdd-kata-1">coding kata String Calculator</a>, idealizado pelo Roy Osherov. Um kata de codificação é um exercício de programação, destinado a permitir que os desenvolvedores pratiquem práticas de engenharia de software ágeis fundamentais, como a refatoração, e - você adivinhou - TDD.</p>
-
-<p>Para simplificar, vou ignorar algumas das exigências do kata. O que se segue são as exigências que vamos utilizar:</p>
-
-<ol>
-  <li>Vamos criar uma classe chamada StringCalculator, com um único método estático com a assinatura estática int Add(string numbers);</li>
-  <li>O método pega uma string representando números separados por uma vírgula, e retorna sua soma.</li>
-  <li>Se passarmos uma string vazia, o método deve retornar zero.</li>
-  <li>A passagem de um único número deve resultar no próprio número.</li>
-  <li>Se passarmos números negativos, o método deve lançar uma ArgumentException, com a mensagem “Números negativos não permitidos:” seguida dos negativos que foram especificados.</li>
-  <li>O método deve ignorar números maiores que 1000 devem. Portanto, “1.2.1000” deve resultar em 1003, mas “1.2.1001” deve resultar em 3.</li>
-</ol>
-
-<h3 id="criando-o-projeto-de-produção">Criando o Projeto de Produção</h3>
-
-<p>Para este tutorial, estarei usando a edição comunitária do Visual Studio 2019. Se você ainda não o tem, pode baixá-lo e instalá-lo de graça.</p>
-
-<p>Abra o VS e clique em “Criar um novo projeto”, como na imagem a seguir:</p>
-
-<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/img1.png" alt="" /></p>
-
-<p>Na janela aberta, escolha Biblioteca de Classes (.NET Core) como modelo para o novo projeto. Em seguida, clique em “Next” (Próximo):</p>
-
-<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/img2.png" alt="" /></p>
-
-<p>A tela seguinte simplesmente pede um nome para o projeto e a solução. Eu escolhi” StringCalculatorKata” tanto para o projeto quanto para a solução. Você também terá que fornecer um local para salvar os arquivos do projeto. Quando terminar, basta clicar em “Criar”.</p>
-
-<p>Se tudo correr bem, você deverá ver a classe padrão aberta para você no Visual Studio. Vá ao Solution Explorer e exclua essa classe; não vamos precisar dela.</p>
-
-<h3 id="criando-o-projeto-de-teste">Criando o Projeto de Teste</h3>
-
-<p>Agora, é hora de criar o projeto de teste. Poderíamos fazer isso de duas maneiras: criando um projeto regular de “Biblioteca de Classe” e depois adicionando as dependências necessárias a ele, ou criando um projeto de teste de unidade imediatamente. Iremos com este último, já que facilita tudo isso.</p>
-
-<p>Você conhece o procedimento: clique com o botão direito do mouse na solução, vá para “Adicionar”,depois para “Novo Projeto…”. Em seguida, escolha o modelo “NUnit Test Project (.NET Core)”.</p>
-
-<p>Em seguida, você deverá fornecer um nome e um local para o projeto. Gosto de seguir a convenção de nomear o projeto de teste após o projeto de produção, com um “.Test” adicionado. Portanto, escolho “StringCalculatorKata.Test”. Terminar a criação do projeto.</p>
-
-<p>Se tudo correr bem, você deve ver agora uma nova classe que se parece com esta:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Tests</span>
-<span class="p">{</span>
-    <span class="p">[</span><span class="n">SetUp</span><span class="p">]</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">Setup</span><span class="p">()</span>
-    <span class="p">{</span>
-    <span class="p">}</span>
-
-    <span class="p">[</span><span class="n">Test</span><span class="p">]</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">Test1</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">Assert</span><span class="p">.</span><span class="nf">Pass</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Vamos fazer algumas coisas. Primeiro, livre-se do método <code class="highlighter-rouge">Setup()</code>. Não vamos precisar dele. Depois, acrescente um novo método com o código abaixo:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Test2</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">Fail</span><span class="p">();</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Portanto, agora temos dois testes, um que deve passar e outro que deve falhar. Vamos examiná-los para ver se eles estão funcionando corretamente. Vá ao menu “Executar” e clique em “Executar todos os testes”.</p>
-
-<p>Agora, abra a janela Test Explorer (View -&gt; Test Explorer). Deve ser parecido com isto:</p>
-
-<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/tests-running.png" alt="" /></p>
-
-<p>Parece que tudo está funcionando bem! Mas antes de começarmos a fazer nosso exercício de codificação do kata, há dois passos finais que precisamos dar. Primeiro, vamos renomear a classe de teste. Ir para o explorador de soluções, expandir o projeto de teste de unidade, e excluir sua classe de teste padrão. Depois, clique com o botão direito do mouse no projeto de teste, vá para “Adicionar”, depois para “Nova classe…” e adicione uma nova classe chamada “StringCalculatorKata”. Alternativamente, você pode renomear a classe existente.</p>
-
-<p>A segunda coisa que temos que fazer é garantir que nosso projeto de teste possa ver nosso projeto de produção. Para resolver isso, estamos acrescentando uma referência.</p>
-
-<p>Vá até o explorador de soluções novamente, clique com o botão direito do mouse no projeto de teste, depois vá até “Adicionar” e clique em “Referência…”.</p>
-
-<p>Na nova janela, selecione “Projetos” no painel esquerdo, e depois selecione o projeto StringCalculatorKata, que deve ser o único disponível:</p>
-
-<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1594235427/unit3/add-reference.png" alt="" /></p>
-
-<p>Depois, basta clicar em “OK”, e agora você está pronto para continuar.</p>
-
-<h2 id="iniciando-nosso-kata-de-codificação">Iniciando nosso Kata de Codificação</h2>
-
-<p>Agora, estamos prontos para escrever nosso primeiro teste de reprovação. Portanto, abra a classe StringCalculatorTest e acrescente a ela o seguinte método</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Add_EmptyStringAsParam_ReturnsZero</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Em nosso primeiro caso de teste, testamos o cenário mais simples possível. Ou seja, chamamos o método Add de passar uma string vazia, que, de acordo com os requisitos que você viu antes, deve resultar em 0. É claro que nem o método Add nem a classe StringCalculator existem, portanto nosso código nem sequer é compilado. Bem, parabéns! Você realizou com sucesso o primeiro passo no ciclo vermelho-verde-refator, escrevendo um teste de reprovação! Lembre-se: em idiomas estaticamente digitados como C#, a falha em compilar conta como um teste reprovado.</p>
-
-<p>Portanto, nosso primeiro passo é nos livrarmos do erro de compilação. Se você pairar sobre “StringCalculator”, você deve ver um pequeno pop-up explicando o erro e oferecendo possíveis correções:</p>
-
-<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1594238110/unit3/hover-tip.png" alt="" /></p>
-
-<p>Clique em “Mostrar correções potenciais” e depois em “Gerar novo tipo…”. Você deve então ver uma janela solicitando os detalhes e a localização do novo tipo. Mude o “acesso” para “público” e a localização para o projeto de produção, que é “StringCalculatorKata”. A janela deve ser parecida com esta:</p>
-
-<p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1594238213/unit3/create-production-class.png" alt="" /></p>
-
-<p>Clique em “OK”. Agora, se você abrir o explorador de soluções e expandir o projeto StringCalculatorKata, você deve ver a classe StringCalculator.cs à espreita por lá. Legal.</p>
-
-<p>Entretanto, nosso código ainda não está compilado. E isso porque, apesar de termos criado a classe de produção, não adicionamos o método Add a ela. Então, vamos fazer da mesma forma que fizemos com a classe.</p>
-
-<p>Passe o mouse sobre a palavra “Adicionar” até que a ajuda apareça com a mensagem “’ StringCalculator’ não contém uma definição para ‘Adicionar’”. Clique em Mostrar correções potenciais, e depois clique em “Gerar método ‘StringCalculator.Add’”.</p>
-
-<p>Você verá que a classe de produção agora contém um método chamado Add, com o dobro como um tipo de retorno. Queremos que o método retorne int, então vamos mudar isso. Vamos também mudar o nome do parâmetro para “números” para corresponder aos requisitos do kata de codificação. Neste ponto, sua classe StringCalculator completa deve ser parecida com esta:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StringCalculator</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">NotImplementedException</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Agora seu código deve ser compilado. Faça o teste novamente, e você verá que ele falha, com uma mensagem como esta:</p>
-
-<pre>
-Add_EmptyStringAsParam_ReturnsZero
-   Source: StringCalculatorTest.cs line 8
-   Duration: 43 ms
-
-  Message: 
-    System.NotImplementedException : The method or operation is not implemented.
-  Stack Trace: 
-    StringCalculator.Add(String numbers) line 9
-    StringCalculatorTest.Add_EmptyStringAsParam_ReturnsZero() line 10
-
-</pre>
-
-<p>Temos uma falha de teste verdadeira. Estamos prontos para escrever o código de produção? Não tão rápido. Claro, nosso teste falha, mas falha da maneira errada. Como nosso teste contém uma asserção, esperávamos uma asserção fracassada. Em vez disso, o que temos é uma falha devido ao método em teste, lançando uma exceção.</p>
-
-<p>A correção aqui é simples. Vamos apenas mudar o método Add, para que ele retorne qualquer número diferente de zero:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Agora, faça o teste novamente, e você verá que a mensagem de erro é esta:</p>
-
-<pre>
-Add_EmptyStringAsParam_ReturnsZero
-   Source: StringCalculatorTest.cs line 8
-   Duration: 76 ms
-
-  Message: 
-      Expected: 0
-      But was:  -1
-</pre>
-
-<h3 id="fazendo-o-teste-passar">Fazendo o teste passar</h3>
-
-<p>Estamos agora finalmente prontos para fazer o teste passar. Como disse anteriormente, para passar no teste, você não só é permitido, mas também encorajado a fazer batota. Em nosso caso, podemos simplesmente fazer com que o método Add retorne zero:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<h3 id="escrevendo-o-segundo-teste-um-único-número">Escrevendo o segundo teste: Um único número</h3>
-
-<p>Os requisitos dizem que a passagem de um único número deve retornar o próprio número. Isso soa como uma coisa útil para testar:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Add_StringContainingSingleNumber_ReturnsTheNumberItself</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"5"</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>O teste falha com a seguinte mensagem:</p>
-
-<pre>
-Add_StringContainingSingleNumber_ReturnsTheNumberItself
-   Source: StringCalculatorTest.cs line 14
-   Duration: 56 ms
-
-  Message: 
-      Expected: 5
-      But was:  0
-
-</pre>
-
-<p>Como podemos fazer o teste acima passar da maneira mais preguiçosa possível? Que tal assim?</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span> <span class="p">==</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">)</span>
-        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="m">5</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<h3 id="testando-dois-números">Testando Dois Números</h3>
-
-<p>Como já testamos o método Add passando por números zero (uma seqüência vazia) e um único número, parece que o próximo passo natural para nós agora seria escrever um teste para o cenário de adição de dois números. Então, vamos fazer exatamente isso.</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Add_TwoNumbersSeparatedByComma_ReturnsTheirSum</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">numbers</span> <span class="p">=</span> <span class="s">"7,8"</span><span class="p">;</span>
-    <span class="kt">var</span> <span class="n">expectedResult</span> <span class="p">=</span> <span class="m">15</span><span class="p">;</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">expectedResult</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>O teste acima naturalmente falha uma vez que nosso método atualmente retorna 0 quando recebe um fio vazio e cinco de outra forma. Como podemos mudá-lo, para que este novo teste passe, os testes mais antigos continuem a passar, de uma forma que não resolve o problema em geral?</p>
-
-<p>Esta é uma idéia:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span> <span class="p">==</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">)</span>
-        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="sc">','</span><span class="p">))</span>
-        <span class="k">return</span> <span class="m">15</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="m">5</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<h3 id="testando-três-números">Testando Três Números</h3>
-
-<p>Você já notou que, até agora, não fizemos nenhuma refatoração? Bem, estamos nos aproximando do ponto em que nossos testes nos levam a incluir alguma duplicação desagradável em nosso código. Então, usaremos a refatoração para alterar o código de uma forma que se aproxime de uma solução geral.</p>
-
-<p>Vamos ver se podemos fazer isso testando o cenário com três números:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Add_ThreeNumbersSeparatedByComma_ReturnsTheirSum</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">numbers</span> <span class="p">=</span> <span class="s">"1, 2, 3"</span><span class="p">;</span>
-    <span class="kt">var</span> <span class="n">expected</span> <span class="p">=</span> <span class="m">6</span><span class="p">;</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>O teste naturalmente falhará. Como a corda fornecida contém vírgulas, caímos no ramo condicional que retorna 15. Nosso desafio agora é mudar o método de produção de forma a fazer este teste passar. Podemos fazê-lo sem ir à solução geral do problema? Vamos ver.</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span> <span class="p">==</span> <span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">)</span>
-        <span class="k">return</span> <span class="m">0</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span> <span class="p">==</span> <span class="s">"1, 2, 3"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="m">6</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="sc">','</span><span class="p">))</span>
-        <span class="k">return</span> <span class="m">15</span><span class="p">;</span>
-
-    <span class="k">return</span> <span class="m">5</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Comparando o parâmetro especificado com a entrada exata usada no teste, podemos fazer o teste passar, evitando ir para a solução geral. Entretanto, agora conseguimos criar uma duplicação de código. Você consegue ver isso? Estamos fazendo duas comparações contra o valor dos números, uma logo após a outra. Vamos ver se conseguimos nos livrar dessa duplicação.</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span> <span class="p">==</span> <span class="s">"1, 2, 3"</span><span class="p">)</span>
-        <span class="k">return</span> <span class="m">6</span><span class="p">;</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">numbers</span><span class="p">.</span><span class="nf">Contains</span><span class="p">(</span><span class="sc">','</span><span class="p">))</span>
-        <span class="k">return</span> <span class="m">15</span><span class="p">;</span>
-
-    <span class="kt">int</span><span class="p">.</span><span class="nf">TryParse</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">outint</span> <span class="n">result</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Aproveitando o método <code class="highlighter-rouge">TryParse</code> do tipo <code class="highlighter-rouge">System.Int32</code>, consegui me livrar do primeiro if. Também usamos um recurso introduzido no <a href="https://carlosschults.net/pt/funcionalidades-csharp-7/">C# 7</a> chamado “out variables”. Este recurso nos permite utilizar parâmetros sem ter que declará-los previamente.</p>
-
-<p>Todos os testes ainda passam, portanto, não posso escrever mais código de produção. Qual deve ser o próximo teste?</p>
-
-<h3 id="testando-mais-de-três-números">Testando Mais de Três Números</h3>
-
-<p>Os requisitos não dizem que devemos ser capazes de lidar apenas com três números. Portanto, vamos criar outro caso de teste para cobrir os cenários com 4, 5, ou mais números. Já que estamos nisso, podemos também incluir a exigência de ignorar números maiores que 1000.</p>
-
-<p>Para fazer isso sem ter que criar muitos métodos de teste, vamos aproveitar o recurso NUnit [testes parametrizados] (https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html), adicionando um único método com vários casos de teste:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[TestCase("1,2,3,4", 10)]</span>
-<span class="na">[TestCase("8,7,20", 35)]</span>
-<span class="na">[TestCase("5,0,4,1001", 9)]</span>
-<span class="na">[TestCase("5,0,4,1000", 1009)]</span>
-<span class="na">[TestCase("26,6,90", 122)]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Add_MoreThanThreeNumbersSeparatedByComma_ReturnsTheirSum</span><span class="p">(</span>
-    <span class="kt">string</span> <span class="n">input</span><span class="p">,</span> <span class="kt">int</span> <span class="n">result</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">input</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Observe que o terceiro caso de teste exemplifica a exigência que diz que devemos ignorar números superiores a 1000. O próximo caso de teste, no entanto, mostra que 1000 não deve ser ignorado. Se você executar os testes, verá que o test explorer mostra cada caso de teste como um teste distinto.</p>
-
-<p>Como podemos fazer este teste passar? Honestamente, a essa altura, é muito mais fácil ir para a implementação correta do que trapacear. Então, vamos fazer exatamente isso:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">parts</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="sc">','</span><span class="p">);</span>
-    <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
-
-    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">part</span> <span class="k">in</span> <span class="n">parts</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span><span class="p">.</span><span class="nf">TryParse</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="n">outint</span> <span class="n">number</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="p">&lt;=</span> <span class="m">1000</span><span class="p">)</span>
-            <span class="n">result</span> <span class="p">+=</span> <span class="n">number</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>O código acima deve ser fácil de entender. Nós apenas dividimos o fio em partes usando a vírgula como delimitador. Então, para cada parte, nós a dividimos em um inteiro, verificamos se é igual ou inferior a mil e, se for o caso, adicionamo-la à variável de resultado. Finalmente, retornamos o resultado.</p>
-
-<h2 id="ainda-não-terminamos">Ainda não terminamos</h2>
-
-<p>Os requisitos dizem que números negativos não devem ser permitidos. Vamos acrescentar um teste para isso! Por uma questão de brevidade, acrescentaremos um único método de teste com vários casos de teste, de modo que somos forçados a ir imediatamente para a implementação correta:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[TestCase("1,2,3,4,5,-5")]</span>
-<span class="na">[TestCase("-1,1,2,9")]</span>
-<span class="na">[TestCase("5,6,8,-5")]</span>
-<span class="k">public</span> <span class="k">void</span> <span class="nf">Add_StringContainingNegativeNumbers_Throws</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="p">&lt;</span><span class="n">ArgumentException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Para este teste, afirmamos que não estamos contra um valor de retorno. Ao invés disso, estamos verificando se o método em teste abre uma exceção.</p>
-
-<p>Lembre-se que os requisitos dizem que devemos lançar uma exceção com uma mensagem dizendo que os negativos não são permitidos. Devemos também incluir uma lista dos negativos que foram aprovados. Isto exigirá algumas mudanças em nosso método:</p>
-
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span> <span class="nf">Add</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
-<span class="p">{</span>
-    <span class="kt">var</span> <span class="n">parts</span> <span class="p">=</span> <span class="n">numbers</span><span class="p">.</span><span class="nf">Split</span><span class="p">(</span><span class="sc">','</span><span class="p">);</span>
-    <span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> 
-    <span class="kt">var</span> <span class="n">negatives</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
-
-    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">part</span> <span class="k">in</span> <span class="n">parts</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">int</span><span class="p">.</span><span class="nf">TryParse</span><span class="p">(</span><span class="n">part</span><span class="p">,</span> <span class="n">outint</span> <span class="n">number</span><span class="p">);</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">number</span> <span class="p">&lt;</span> <span class="m">0</span><span class="p">)</span>
-            <span class="n">negatives</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">number</span><span class="p">);</span>
-        <span class="nf">elseif</span> <span class="p">(</span><span class="n">number</span> <span class="p">&lt;=</span> <span class="m">1000</span><span class="p">)</span>
-            <span class="n">result</span> <span class="p">+=</span> <span class="n">number</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">negatives</span><span class="p">.</span><span class="n">Count</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">negativesList</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Join</span><span class="p">(</span><span class="sc">','</span><span class="p">,</span> <span class="n">negatives</span><span class="p">);</span>
-        <span class="kt">var</span> <span class="n">exceptionMessage</span> <span class="p">=</span> <span class="s">$"Negative numbers not allowed: </span><span class="p">{</span><span class="n">negativesList</span><span class="p">}</span><span class="s">."</span><span class="p">;</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">ArgumentException</span><span class="p">(</span><span class="n">exceptionMessage</span><span class="p">);</span>
-    <span class="p">}</span>
-    
-    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>Como você pode ver, logo no início, nós definimos uma instância de <code class="highlighter-rouge">List&lt;int&gt;</code> para armazenar os negativos que encontramos enquanto iteramos sobre todos os números. Dentro do laço, verificamos se o número atual é negativo. Se for, adicionamo-lo à lista. Se não for, verificamos se é menor ou igual a 1000, caso em que o adicionamos à variável de resultado.</p>
-
-<p>Após o loop, verificamos se a lista negativa tem algum elemento. Se tiver, criamos uma mensagem de exceção que inclui os negativos especificados e, em seguida, lançamos uma nova ArgumentException. Caso contrário, devolvemos o resultado.</p>
-
-<h2 id="conclusão">Conclusão</h2>
-
-<p>Este post foi um guia prático sobre como começar com o TDD em C#. Então, para onde você vai a partir daqui?</p>
-
-<p>Bem, a maioria das coisas na vida você aprende fazendo. A programação é certamente uma dessas coisas. Portanto, se você quer que os conceitos que você viu hoje realmente se afundem, você tem que praticar.</p>
-
-<p>O código que escrevi durante este post está disponível como <a href="https://github.com/carlosschults/string-calculator-kata">um repositório público no GitHub.</a> Vá lá, clone-o usando <a href="https://carlosschults.net/pt/basicos-do-git-usuarios-tfvc">Git,</a>, e comece a brincar com ele.</p>
-
-<p>Você verá que eu criei um compromisso para cada etapa do ciclo TDD. Dessa forma, torna-se mais fácil para os futuros leitores visualizar todas as etapas do processo, percorrendo a história do projeto, um compromisso de cada vez.</p>
-
-<p>É possível melhorar o código que eu usei hoje. Por exemplo, o código do método <code class="highlighter-rouge">Add</code> pode ser escrito de uma forma mais curta, clara e eficiente, usando <a href="https://carlosschults.net/pt/programacao-funcional-csharp/.">LINQ</a> Você pode criar mais testes. Os requisitos do exercício que apresentamos no início pedem por uma mensagem de erro específica ao lançar a exceção quando há números negativos na string. Apesar de termos implementado a mensagem como pedido, nós não criamos um teste pra isso. Você pode fazer isso, como forma de praticar.</p>
-
-<p>Finalmente, fique atento a este blog. Este post é parte de uma série, à qual pretendo acrescentar mais partes.</p>
-
-<p>Obrigado pela leitura, e até a próxima!</p>
-
-    <a href="/pt/testes-unitarios-csharp-intro-tdd/">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='08-08-2017'>08/08/2017</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/testes-unitarios-iniciantes-parte-2">Testes Unitários Para Iniciantes - Parte 2</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png" alt="" /></p>
-
-<p>Antes tarde do que mais tarde! Hora de continuar nossa série sobre testes unitários para iniciantes. Hoje você vai escrever seu primeiro teste unitário.</p>
-
-
-    <a href="/pt/testes-unitarios-iniciantes-parte-2">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    <span class="post-meta"><time datetime='09-04-2016'>09/04/2016</time></span> 
-    <h2>
-          <a class="post-link" href="/pt/testes-unitarios-iniciantes-parte1">Testes unitários para iniciantes - Parte 1</a>
-    </h2>
-    <div class="post-content">
-    <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1459979937/testes-unitarios-iniciantes-min_povcse.png" alt="" /></p>
-
-<p>Você já deve ter trabalhado em um sistema assim: incrivelmente complexo, com uma base de código gigantesca, mal documentada, cheia de gambiarras, acoplamentos desnecessários, com arquitetura confusa, especificações inexistentes, onde era quase considerado um milagre que o software chegasse a funcionar. Talvez eu tenha acabado de descrever seu projeto atual!</p>
-
-
-    <a href="/pt/testes-unitarios-iniciantes-parte1">leia mais...</a>
-   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
+</div>
 
       </div>
     </div>
