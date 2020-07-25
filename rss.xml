@@ -5,8 +5,8 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Jul 2020 19:58:37 -0300</pubDate>
-    <lastBuildDate>Fri, 24 Jul 2020 19:58:37 -0300</lastBuildDate>
+    <pubDate>Sat, 25 Jul 2020 08:07:51 -0300</pubDate>
+    <lastBuildDate>Sat, 25 Jul 2020 08:07:51 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
     
@@ -1071,7 +1071,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
         <title>Value Objects: Uma Técnica Para Código Auto-Documentado E Menos Erros</title>
         <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1540385528/value-object-tool/value-object-tool-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/&quot;&gt;conferir o artigo original, em inglês, no site deles&lt;/a&gt;. Aproveite que está lá e faça o download do NDepend.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/&quot;&gt;conferir o artigo original, em inglês, no site deles&lt;/a&gt;. Ainda não consegue ler em inglês? Então, o meu novo curso &lt;a href=&quot;https://ingles4devs.com&quot;&gt;Inglês Para Desenvolvedores&lt;/a&gt; pode ser o que você precisa. Acesse o site, cadastre-se na newsletter e fique por dentro das novidades!&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;Você já ouviu falar de &lt;em&gt;value objects&lt;/em&gt;? Eu imagino que sim. Apesar de não se falar tanto a respeito deles como eu gostaria, eles ainda são mencionados o bastante para que muitos desenvolvedores tenham no mínimo alguma familiaridade com o termo.&lt;/p&gt;
 
@@ -1131,7 +1131,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;p&gt;Por que &lt;a href=&quot;https://blog.ndepend.com/easy-miss-code-smells/&quot;&gt;obsessão primitiva é algo ruim&lt;/a&gt;? Há várias razões, mas um dos principais problemas com a linha de código que você viu na seção anterior é que há uma informação extremamente importante faltando. Como você pode ver, o código atribui o valor 4.5 à variável. Mas 4.5 o que? Metros? Quilômetros? Milhas? Parsecs? Em outras palavras, falta uma &lt;strong&gt;unidade de medida&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;Isso pode ser uma receita para o desastre. Tudo o que você precisa é alguém recuperar um valor do banco de dados ou de um arquivo, pensando que representa metros mas na verdade são quilômetros. Quando a pessoa resolve usar o valor em um cálculo, adicionando quilômetros com metros…silêncio. Você agora tem um programa que, no lugar de falhar rápido como deveria, se comporta de maneira errada silenciosamente enquanto corrompe dados e gera resultados inconsistentes. Ainda bem que você usa &lt;a href=&quot;https://blog.ndepend.com/unit-testing-affect-codebases/&quot;&gt;testes unitários&lt;/a&gt;…certo?&lt;/p&gt;
+&lt;p&gt;Isso pode ser uma receita para o desastre. Tudo o que você precisa é alguém recuperar um valor do banco de dados ou de um arquivo, pensando que representa metros mas na verdade são quilômetros. Quando a pessoa resolve usar o valor em um cálculo, adicionando quilômetros com metros…silêncio. Você agora tem um programa que, no lugar de falhar rápido como deveria, se comporta de maneira errada silenciosamente enquanto corrompe dados e gera resultados inconsistentes. Ainda bem que você usa &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/&quot;&gt;testes unitários&lt;/a&gt;…certo?&lt;/p&gt;
 
 &lt;p&gt;Tudo bem, nada impede você de colocar essa informação no próprio nome da variável:&lt;/p&gt;
 
@@ -1187,7 +1187,13 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
         
         <category>csharp</category>
         
-        <category>boas praticas</category>
+        <category>boas-praticas</category>
+        
+        <category>ddd</category>
+        
+        <category>orientacao-a-objetos</category>
+        
+        <category>modelagem-de-software</category>
         
         
       </item>

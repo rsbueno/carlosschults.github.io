@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Value Objects: Uma Técnica Para Código Auto-Documentado E Menos Erros</title>
-  <meta name="description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode conferir o artigo original, em inglês, no site deles. Aproveite que está lá e faça...">
+  <meta name="description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode conferir o artigo original, em inglês, no site deles. Ainda não consegue ler em in...">
   
   <!-- Twitter card -->
   <meta name="twitter:card" content="summary">
@@ -14,7 +14,7 @@
   <meta name="twitter:site" content="@carlosschults">
   <meta name="twitter:domain" content="carlosschults.net">
   <meta name="twitter:title" content="Value Objects: Uma Técnica Para Código Auto-Documentado E Menos Erros">
-  <meta name="twitter:description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode conferir o artigo original, em inglês, no site deles. Aproveite que está lá e faça...">
+  <meta name="twitter:description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode conferir o artigo original, em inglês, no site deles. Ainda não consegue ler em in...">
 
    <!-- Facebook meta -->
   
@@ -32,10 +32,13 @@
   <meta property="og:article:author" content="Carlos Schults" />
   
   <meta property="og:article:tag" content="csharp" />
-  <meta property="og:article:tag" content="boas praticas" />    
+  <meta property="og:article:tag" content="boas-praticas" />
+  <meta property="og:article:tag" content="ddd" />
+  <meta property="og:article:tag" content="orientacao-a-objetos" />
+  <meta property="og:article:tag" content="modelagem-de-software" />    
   
   <meta property="og:url" content="http://carlosschults.net/pt/value-objects-ferramenta/"/>
-  <meta property="og:description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode conferir o artigo original, em inglês, no site deles. Aproveite que está lá e faça...">
+  <meta property="og:description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode conferir o artigo original, em inglês, no site deles. Ainda não consegue ler em in...">
   <link rel="stylesheet" href="/css/main.css">  
   
    <link rel="canonical" href="http://carlosschults.net/pt/value-objects-ferramenta/">
@@ -92,14 +95,14 @@
     <p class="post-meta">   
     <time datetime="2018-10-24T00:00:00-03:00" itemprop="datePublished">24/10/2018
     </time> • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Carlos Schults</span></span>
-  <span class="tags" itemprop="keywords"> • Tags: <a href="/tag_ptbr/csharp">csharp </a> <a href="/tag_ptbr/boas praticas">boas praticas </a> </span>
+  <span class="tags" itemprop="keywords"> • Tags: <a href="/tag_ptbr/csharp">csharp </a> <a href="/tag_ptbr/boas-praticas">boas-praticas </a> <a href="/tag_ptbr/ddd">ddd </a> <a href="/tag_ptbr/orientacao-a-objetos">orientacao-a-objetos </a> <a href="/tag_ptbr/modelagem-de-software">modelagem-de-software </a> </span>
   </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
     <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1540385528/value-object-tool/value-object-tool-1038x437.jpg" alt="" /></p>
 
-<p><em>NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode <a href="https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/">conferir o artigo original, em inglês, no site deles</a>. Aproveite que está lá e faça o download do NDepend.</em></p>
+<p><em>NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode <a href="https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/">conferir o artigo original, em inglês, no site deles</a>. Ainda não consegue ler em inglês? Então, o meu novo curso <a href="https://ingles4devs.com">Inglês Para Desenvolvedores</a> pode ser o que você precisa. Acesse o site, cadastre-se na newsletter e fique por dentro das novidades!</em></p>
 
 <p>Você já ouviu falar de <em>value objects</em>? Eu imagino que sim. Apesar de não se falar tanto a respeito deles como eu gostaria, eles ainda são mencionados o bastante para que muitos desenvolvedores tenham no mínimo alguma familiaridade com o termo.</p>
 
@@ -159,7 +162,7 @@
 
 <p>Por que <a href="https://blog.ndepend.com/easy-miss-code-smells/">obsessão primitiva é algo ruim</a>? Há várias razões, mas um dos principais problemas com a linha de código que você viu na seção anterior é que há uma informação extremamente importante faltando. Como você pode ver, o código atribui o valor 4.5 à variável. Mas 4.5 o que? Metros? Quilômetros? Milhas? Parsecs? Em outras palavras, falta uma <strong>unidade de medida</strong>.</p>
 
-<p>Isso pode ser uma receita para o desastre. Tudo o que você precisa é alguém recuperar um valor do banco de dados ou de um arquivo, pensando que representa metros mas na verdade são quilômetros. Quando a pessoa resolve usar o valor em um cálculo, adicionando quilômetros com metros…silêncio. Você agora tem um programa que, no lugar de falhar rápido como deveria, se comporta de maneira errada silenciosamente enquanto corrompe dados e gera resultados inconsistentes. Ainda bem que você usa <a href="https://blog.ndepend.com/unit-testing-affect-codebases/">testes unitários</a>…certo?</p>
+<p>Isso pode ser uma receita para o desastre. Tudo o que você precisa é alguém recuperar um valor do banco de dados ou de um arquivo, pensando que representa metros mas na verdade são quilômetros. Quando a pessoa resolve usar o valor em um cálculo, adicionando quilômetros com metros…silêncio. Você agora tem um programa que, no lugar de falhar rápido como deveria, se comporta de maneira errada silenciosamente enquanto corrompe dados e gera resultados inconsistentes. Ainda bem que você usa <a href="https://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/">testes unitários</a>…certo?</p>
 
 <p>Tudo bem, nada impede você de colocar essa informação no próprio nome da variável:</p>
 

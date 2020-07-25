@@ -5,8 +5,8 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 24 Jul 2020 19:58:37 -0300</pubDate>
-    <lastBuildDate>Fri, 24 Jul 2020 19:58:37 -0300</lastBuildDate>
+    <pubDate>Sat, 25 Jul 2020 08:07:51 -0300</pubDate>
+    <lastBuildDate>Sat, 25 Jul 2020 08:07:51 -0300</lastBuildDate>
     <generator>Jekyll v3.8.4</generator>
     
     
@@ -1178,7 +1178,13 @@ Photo by Sven Brandsma on Unsplash&lt;/p&gt;
         
         <category>csharp</category>
         
-        <category>best practices</category>
+        <category>best-practices</category>
+        
+        <category>ddd</category>
+        
+        <category>oop</category>
+        
+        <category>software-design</category>
         
         
       </item>
