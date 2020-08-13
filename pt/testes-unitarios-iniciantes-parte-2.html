@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Testes Unitários Para Iniciantes - Parte 2</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Antes tarde do que mais tarde! Hora de continuar nossa série sobre testes unitários para iniciantes. Hoje você vai escrever seu primeiro teste unitário.">
   
   <!-- Twitter card -->
@@ -127,7 +144,7 @@ Se for do seu interesse, você poderá experimentar os outros frameworks por con
 
 <p>Crie uma nova solução do tipo <strong>Class Library</strong>, com o nome de <strong>LearningUnitTesting</strong>.</p>
 
-<p>Uma coisa que eu sempre costumo fazer ao criar uma nova solução é excluir a classe <code class="highlighter-rouge">Class1</code> que vem criada por padrão. Você também poderia renomeá-la, é claro, mas fica totalmente ao seu critério.</p>
+<p>Uma coisa que eu sempre costumo fazer ao criar uma nova solução é excluir a classe <code class="language-plaintext highlighter-rouge">Class1</code> que vem criada por padrão. Você também poderia renomeá-la, é claro, mas fica totalmente ao seu critério.</p>
 
 <p>Agora, vamos renomear o projeto padrão que foi criado para <strong>Application</strong>. Este projeto vai servir para guardar o <em>código de produção</em> em nossa solução.</p>
 
@@ -172,7 +189,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 <h2 id="criando-e-executando-o-primeiro-teste">Criando e executando o primeiro teste</h2>
 
-<p>Vamos começar a criar alguns testes. Primeiro, vamos adicionar uma nova classe ao nosso projeto de Produção. A classe se chamará <code class="highlighter-rouge">Employee</code> e terá o seguinte código:</p>
+<p>Vamos começar a criar alguns testes. Primeiro, vamos adicionar uma nova classe ao nosso projeto de Produção. A classe se chamará <code class="language-plaintext highlighter-rouge">Employee</code> e terá o seguinte código:</p>
 
 <script src="https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js"></script>
 
@@ -182,7 +199,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
   <p>Este é um dos padrões de nomenclatura que eu também utilizo: nomear a classe de teste com o mesmo nome da classe de produção, acrescentando <em>Test</em> no final.</p>
 </blockquote>
 
-<p>Após a criação da classe, adicione o namespace <em>NUnit.Framework</em> na lista de usings da classe. Em seguida, crie um novo método público de retorno <em>void</em> chamado <strong>MyFirstTestMethod</strong> e adicione o atributo <code class="highlighter-rouge">[Test]</code> a ele.</p>
+<p>Após a criação da classe, adicione o namespace <em>NUnit.Framework</em> na lista de usings da classe. Em seguida, crie um novo método público de retorno <em>void</em> chamado <strong>MyFirstTestMethod</strong> e adicione o atributo <code class="language-plaintext highlighter-rouge">[Test]</code> a ele.</p>
 
 <p>Nesse ponto, o código da classe deve estar assim:</p>
 
@@ -190,7 +207,7 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 <p>O esqueleto do teste já está pronto. Então vamos escrever nossa primeira <strong>asserção</strong>. Uma asserção é uma <em>afirmação</em> sobre como um determinado método deveria se comportar. Caso a afirmação se prove verdadeira, dizemos que o teste <em>passou</em>. Caso a afirmação se prove falsa, dizemos que o teste <em>falhou</em>, ou quebrou.</p>
 
-<p>No NUnit, utilizamos a classe <code class="highlighter-rouge">Assert</code> para escrevermos nossas asserções. Esta classe possui um número grande de métodos que nos permitem expressar nossas expectativas com relação ao comportamento das unidades que estamos testando.</p>
+<p>No NUnit, utilizamos a classe <code class="language-plaintext highlighter-rouge">Assert</code> para escrevermos nossas asserções. Esta classe possui um número grande de métodos que nos permitem expressar nossas expectativas com relação ao comportamento das unidades que estamos testando.</p>
 
 <p>Adicione a seguinte linha de código ao método de teste:</p>
 
@@ -220,9 +237,9 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png" alt="" /></p>
 
-<p>Agora que você já está pegando o jeito, vamos começar a testar a nossa classe <code class="highlighter-rouge">Employee</code>. Não esqueça de voltar o método de teste que fizemos para <code class="highlighter-rouge">Assert.Pass</code> para que ele não fique falhando.</p>
+<p>Agora que você já está pegando o jeito, vamos começar a testar a nossa classe <code class="language-plaintext highlighter-rouge">Employee</code>. Não esqueça de voltar o método de teste que fizemos para <code class="language-plaintext highlighter-rouge">Assert.Pass</code> para que ele não fique falhando.</p>
 
-<p>Em seguida, adicione um novo método de teste chamado <code class="highlighter-rouge">IntroduceMethodShouldWorkCorrectly</code>. Nele, vamos criar uma nova instância do objeto <code class="highlighter-rouge">Employee</code> e verificar que o método <code class="highlighter-rouge">Introduce</code> está funcionando como deveria.</p>
+<p>Em seguida, adicione um novo método de teste chamado <code class="language-plaintext highlighter-rouge">IntroduceMethodShouldWorkCorrectly</code>. Nele, vamos criar uma nova instância do objeto <code class="language-plaintext highlighter-rouge">Employee</code> e verificar que o método <code class="language-plaintext highlighter-rouge">Introduce</code> está funcionando como deveria.</p>
 
 <p>Antes de fazermos isso, porém, precisamos adicionar uma referência do projeto de produção ao nosso projeto de testes. Do contrário, nossa classe de teste não conseguirá enxergar as classes que deveria testar!</p>
 
@@ -236,19 +253,19 @@ Após a criação do projeto, vou remover a classe adicionada por padrão, assim
 
 <script src="https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js"></script>
 
-<p>Você vai notar que <code class="highlighter-rouge">Employee</code> está marcado como erro. Ao passar o cursor em cima, você verá uma mensagem avisando que o nome <code class="highlighter-rouge">Employee</code> não pode ser encontrado e perguntando se não tem alguma referência ou diretiva <em>using</em> faltando.</p>
+<p>Você vai notar que <code class="language-plaintext highlighter-rouge">Employee</code> está marcado como erro. Ao passar o cursor em cima, você verá uma mensagem avisando que o nome <code class="language-plaintext highlighter-rouge">Employee</code> não pode ser encontrado e perguntando se não tem alguma referência ou diretiva <em>using</em> faltando.</p>
 
-<p>É claro que tem uma diretiva <em>using</em> faltando, relativa à referência que acabamos de adicionar. Para corrigir o problema, basta adicionar a linha <code class="highlighter-rouge">using Application;</code> no começo do arquivo.</p>
+<p>É claro que tem uma diretiva <em>using</em> faltando, relativa à referência que acabamos de adicionar. Para corrigir o problema, basta adicionar a linha <code class="language-plaintext highlighter-rouge">using Application;</code> no começo do arquivo.</p>
 
 <p>Agora que o código compila, vamos entender este método, linha a linha.</p>
 
-<p>Na primeira linha, instanciamos nossa classe <code class="highlighter-rouge">Employee</code>, definindo nome, profissão e salário. Na linha seguinte, atribuímos a uma variável o valor que <strong>esperamos</strong> que o método retorne. Em seguida, atribuímos a outra variável o resultado da execução do método.</p>
+<p>Na primeira linha, instanciamos nossa classe <code class="language-plaintext highlighter-rouge">Employee</code>, definindo nome, profissão e salário. Na linha seguinte, atribuímos a uma variável o valor que <strong>esperamos</strong> que o método retorne. Em seguida, atribuímos a outra variável o resultado da execução do método.</p>
 
-<p>Finalmente, utilizamos o método <code class="highlighter-rouge">AreEqual</code> da classe <code class="highlighter-rouge">Assert</code> para verificar se os dois valores são iguais. Este método é, provavelmente, o que você mais vai utilizar durante seus testes.</p>
+<p>Finalmente, utilizamos o método <code class="language-plaintext highlighter-rouge">AreEqual</code> da classe <code class="language-plaintext highlighter-rouge">Assert</code> para verificar se os dois valores são iguais. Este método é, provavelmente, o que você mais vai utilizar durante seus testes.</p>
 
 <p>Agora é hora de executar o teste. Utilize o atalho <strong>CTRL + R, A</strong> ou clique em <strong>Executar Tudo</strong> na janela do Gerenciador de Teste. Se tudo der certo, você verá a barra verde e a mensagem indicando que os dois testes passaram.</p>
 
-<p>Vamos agora testar o teste: vamos “estragar” o método <code class="highlighter-rouge">Introduce</code> e ver se o método falha como deveria. De volta à classe de produção, vamos modificar o método da seguinte forma:</p>
+<p>Vamos agora testar o teste: vamos “estragar” o método <code class="language-plaintext highlighter-rouge">Introduce</code> e ver se o método falha como deveria. De volta à classe de produção, vamos modificar o método da seguinte forma:</p>
 
 <script src="https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js"></script>
 
@@ -271,10 +288,10 @@ Esperado: “Hi! My name is Alice and I work as a Programmer.”
 Mas foi: “Hi! My name is Alice and I work as a JobTitle.”</p>
 </blockquote>
 
-<p>Como podemos ver, a mensagem é bem explicativa. Ela nos informa não apenas que as string divergiram mas exatamente em que parte elas começaram a divergir. Também nos informa exatamente o texto esperado e o que realmente foi obtido. É importante salientar que a ordem dos parâmetros do método <code class="highlighter-rouge">AreEqual</code> importa, pois isso influi na mensagem exibida quando o teste falha.</p>
+<p>Como podemos ver, a mensagem é bem explicativa. Ela nos informa não apenas que as string divergiram mas exatamente em que parte elas começaram a divergir. Também nos informa exatamente o texto esperado e o que realmente foi obtido. É importante salientar que a ordem dos parâmetros do método <code class="language-plaintext highlighter-rouge">AreEqual</code> importa, pois isso influi na mensagem exibida quando o teste falha.</p>
 
 <blockquote>
-  <p><strong>A ordem dos parâmetros no método <code class="highlighter-rouge">AreEqual</code> é muito importante. Passe primeiro o resultado esperado, e depois o que realmente foi obtido.</strong></p>
+  <p><strong>A ordem dos parâmetros no método <code class="language-plaintext highlighter-rouge">AreEqual</code> é muito importante. Passe primeiro o resultado esperado, e depois o que realmente foi obtido.</strong></p>
 </blockquote>
 
 <p>Ótimo. Podemos voltar o método para sua implementação anterior e executar os testes novamente, para ver que o teste volte a passar.</p>
@@ -287,7 +304,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”</p>
 
 <p>Embora existam outras nomenclaturas para as fases do teste de unidade, vamos adotar <strong>Arrange-Act-Assert</strong> como nossa nomenclatura padrão, ao menos por enquanto.</p>
 
-<p>Você talvez esteja se perguntando por qual motivo eu de o nome de “sut” à variável declarada no início do método. Este é um padrão de nomenclatura que aprendi lendo o blog do <a href="https://blog.ploeh.dk/">Mark Seeman</a>. <strong>SUT</strong> significa <em>System Under Test</em>, ou “Sistema Sob Teste”, em tradução livre. É um termo usado para se referir à classe sendo testada no teste atual. Não há nada que obrigue a utilização de <code class="highlighter-rouge">sut</code> como o nome da variável, mas eu gosto de usar dessa forma, pois deixa evidente no teste quem é que está sendo testado.</p>
+<p>Você talvez esteja se perguntando por qual motivo eu de o nome de “sut” à variável declarada no início do método. Este é um padrão de nomenclatura que aprendi lendo o blog do <a href="https://blog.ploeh.dk/">Mark Seeman</a>. <strong>SUT</strong> significa <em>System Under Test</em>, ou “Sistema Sob Teste”, em tradução livre. É um termo usado para se referir à classe sendo testada no teste atual. Não há nada que obrigue a utilização de <code class="language-plaintext highlighter-rouge">sut</code> como o nome da variável, mas eu gosto de usar dessa forma, pois deixa evidente no teste quem é que está sendo testado.</p>
 
 <blockquote>
   <p><strong>Dica: Procure utilizar padrões de codificação que melhorem a legibilidade e deixem a intenção do autor explícita para o leitor do código.</strong></p>
@@ -299,13 +316,13 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”</p>
 
 <p>Embora não seja realmente necessário, eu sugiro que você use comentários para demarcar as fases do teste como no exemplo acima, ao menos no início de seu aprendizado.</p>
 
-<h2 id="mais-um-teste-método-giveraise">Mais um teste: método <code class="highlighter-rouge">GiveRaise</code></h2>
+<h2 id="mais-um-teste-método-giveraise">Mais um teste: método <code class="language-plaintext highlighter-rouge">GiveRaise</code></h2>
 
-<p>Um aumento no salário é sempre bem-vindo, concordam? Vamos testar que o método <code class="highlighter-rouge">GiveRaise</code> funciona como deveria. Na sua classe de teste, adicione o método a seguir:</p>
+<p>Um aumento no salário é sempre bem-vindo, concordam? Vamos testar que o método <code class="language-plaintext highlighter-rouge">GiveRaise</code> funciona como deveria. Na sua classe de teste, adicione o método a seguir:</p>
 
 <script src="https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js"></script>
 
-<p>Execute o teste e você deverá ver a familiar barra verde de sucesso. Deu certo? Ótimo. Hora de <strong>testar o teste:</strong> vamos “sabotar” a implementação do método <code class="highlighter-rouge">GiveRaise</code> e ver se o teste falha.</p>
+<p>Execute o teste e você deverá ver a familiar barra verde de sucesso. Deu certo? Ótimo. Hora de <strong>testar o teste:</strong> vamos “sabotar” a implementação do método <code class="language-plaintext highlighter-rouge">GiveRaise</code> e ver se o teste falha.</p>
 
 <p>Na classe de produção, vamos deixar o método assim:</p>
 
@@ -322,7 +339,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”</p>
 
 <h2 id="um-último-teste">Um último teste</h2>
 
-<p>Digamos que surgiu um novo requisito: se a porcentagem de aumento passada for negativa, o salário deve permanecer o mesmo. Vamos então alterar o método <code class="highlighter-rouge">GiveRaise</code> para tratar este caso:</p>
+<p>Digamos que surgiu um novo requisito: se a porcentagem de aumento passada for negativa, o salário deve permanecer o mesmo. Vamos então alterar o método <code class="language-plaintext highlighter-rouge">GiveRaise</code> para tratar este caso:</p>
 
 <script src="https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js"></script>
 
@@ -347,7 +364,7 @@ Mas foi: “Hi! My name is Alice and I work as a JobTitle.”</p>
 <ul>
   <li>Instalação do <strong>NUnit</strong> e <strong>NUnit Test Adapter</strong>;</li>
   <li>Criação de caso de teste;</li>
-  <li>Conceito de <em>asserção</em> e classe <code class="highlighter-rouge">Assert</code>;</li>
+  <li>Conceito de <em>asserção</em> e classe <code class="language-plaintext highlighter-rouge">Assert</code>;</li>
   <li>Execução dos testes, tanto por meio do <em>Gerenciador de Testes</em> quanto por teclas de atalho;</li>
   <li>Interpretação da mensagem de erro do teste;</li>
   <li>Fases do teste unitário (<em>Arrange-Act-Assert</em>).</li>

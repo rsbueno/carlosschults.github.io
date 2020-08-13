@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Funcionalidades do C# 8.0: Um Vislumbre do Futuro</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="C# 8.0 está chegando e vai trazer algumas funcionalidades muito interessantes. Vamos dar uma olhada no que o futuro reserva.">
   
   <!-- Twitter card -->
@@ -139,7 +156,7 @@
 
 <p>O código acima é um exemplo; na data em que escrevo este post, o time do C# ainda não havia chegado à uma sintaxe definitiva.</p>
 
-<p>Enfim, o exemplo mostra a criação de uma classe de extensão para o tipo <code class="highlighter-rouge">int</code>. Então nós declaramos uma propriedade do jeito que estamos acostumados, e é isso.</p>
+<p>Enfim, o exemplo mostra a criação de uma classe de extensão para o tipo <code class="language-plaintext highlighter-rouge">int</code>. Então nós declaramos uma propriedade do jeito que estamos acostumados, e é isso.</p>
 
 <p>Agora o código chamador pode usar a propriedade normalmente:</p>
 
@@ -193,15 +210,15 @@
 
 <p>Eu aposto que você conhece a frase “o erro de um bilhão de dólares”. Na remota possibilidade de que você não conheça, ela ser refere à referência nula, e foi <a href="https://en.wikipedia.org/wiki/Tony_Hoare#Apologies_and_retractions">criada por ninguém mais ninguém menos que Sir Tony Hoare, o próprio criador da referência nula.</a></p>
 
-<h3 id="mas-por-que-null-é-tão-ruim">Mas por que <code class="highlighter-rouge">null</code> é tão ruim?</h3>
+<h3 id="mas-por-que-null-é-tão-ruim">Mas por que <code class="language-plaintext highlighter-rouge">null</code> é tão ruim?</h3>
 
 <p>Existem várias possíveis respostas para essa pergunta mas o maior problema é, claro, o risco da famosa <em>null-reference exception</em> (também conhecida como <em>null-pointer exception</em> na Java-lândia). Já que tudo (“tudo” no contexto do C# significa tipos os <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">tipos de referência</a>) pode ser nulo, você sempre corre o risco de receber uma exceção quando tenta acessar algum membro de um objeto.</p>
 
-<p>Um dos piores problemas que temos aqui é que a própria linguagem não oferece uma sintaxe que permita ao autor do código expressar sua intenção. Não tem como você dizer: “Este parâmetro nunca vai ser <code class="highlighter-rouge">null</code>” ou “Essa propriedade talvez seja <code class="highlighter-rouge">null</code> às vezes, e isso é OK”.</p>
+<p>Um dos piores problemas que temos aqui é que a própria linguagem não oferece uma sintaxe que permita ao autor do código expressar sua intenção. Não tem como você dizer: “Este parâmetro nunca vai ser <code class="language-plaintext highlighter-rouge">null</code>” ou “Essa propriedade talvez seja <code class="language-plaintext highlighter-rouge">null</code> às vezes, e isso é OK”.</p>
 
-<p>É comum que linguagens funcionais solucionem isso oferendo um tipo que representa o conceito de um valor potencialmente ausente, geralmente chamado de <code class="highlighter-rouge">Maybe</code> ou <code class="highlighter-rouge">Option</code>.</p>
+<p>É comum que linguagens funcionais solucionem isso oferendo um tipo que representa o conceito de um valor potencialmente ausente, geralmente chamado de <code class="language-plaintext highlighter-rouge">Maybe</code> ou <code class="language-plaintext highlighter-rouge">Option</code>.</p>
 
-<p>O time de design do C# decidiu contra uma abordagem desse tipo pois, de segundo eles, seria o mesmo que adicionar um novo tipo de <code class="highlighter-rouge">null</code> à linguagem, o que poderia tornar as coisas ainda mais complexas.</p>
+<p>O time de design do C# decidiu contra uma abordagem desse tipo pois, de segundo eles, seria o mesmo que adicionar um novo tipo de <code class="language-plaintext highlighter-rouge">null</code> à linguagem, o que poderia tornar as coisas ainda mais complexas.</p>
 
 <p>Vamos retomar a questão do nome. Você talvez esteja pensando que eu entendi ao contrário. Faz sentido falar sobre tipos de valor nuláveis, já que os tipos de valor são não-nuláveis por padrão. Mas no caso dos tipos de referência, não deveria, certo? Afinal de coisas, eles sempre foram nuláveis desde o início.</p>
 
@@ -213,25 +230,25 @@
 
 <p>Eu imagino que usar uma classe “Pessoa” como exemplo é o equivalente de tocar “Stairway to Heaven” numa loja de instrumentos musicais: originalidade zero. Mas usar um exemplo mais elaborado seria uma distração desnecessária, então me dá um desconto desta vez.</p>
 
-<p>Imagine que nós temos uma classe <code class="highlighter-rouge">Person</code> com uma propriedade <code class="highlighter-rouge">Age</code> do tipo <code class="highlighter-rouge">int</code>. Então, nós escrevemos o método a seguir:</p>
+<p>Imagine que nós temos uma classe <code class="language-plaintext highlighter-rouge">Person</code> com uma propriedade <code class="language-plaintext highlighter-rouge">Age</code> do tipo <code class="language-plaintext highlighter-rouge">int</code>. Então, nós escrevemos o método a seguir:</p>
 
 <script src="https://gist.github.com/carlosschults/9b09f0572e737569e6f97315e5028411.js"></script>
 
-<p>Apesar do código acima compilar normalmente, ele é frágil já que <code class="highlighter-rouge">p</code> pode ser <code class="highlighter-rouge">null</code>. Você provavelmente faria bem em adicionar um if para tratar essa possibilidade, mas ninguém vai lhe obrigar a fazer isso. Você está complemente livre para deixar o código da forma como está.</p>
+<p>Apesar do código acima compilar normalmente, ele é frágil já que <code class="language-plaintext highlighter-rouge">p</code> pode ser <code class="language-plaintext highlighter-rouge">null</code>. Você provavelmente faria bem em adicionar um if para tratar essa possibilidade, mas ninguém vai lhe obrigar a fazer isso. Você está complemente livre para deixar o código da forma como está.</p>
 
-<p>C# 8 promete mudar isso ao tornar tipos de referência não-nuláveis por padrão. No mesmo exemplo, tentar acessar a propriedade <code class="highlighter-rouge">Age</code> seria seguro, já que <code class="highlighter-rouge">p</code> não poderia ser <code class="highlighter-rouge">null</code>.</p>
+<p>C# 8 promete mudar isso ao tornar tipos de referência não-nuláveis por padrão. No mesmo exemplo, tentar acessar a propriedade <code class="language-plaintext highlighter-rouge">Age</code> seria seguro, já que <code class="language-plaintext highlighter-rouge">p</code> não poderia ser <code class="language-plaintext highlighter-rouge">null</code>.</p>
 
-<p>Caso queira que <code class="highlighter-rouge">p</code> seja nulável, aí você teria que adicionar um ponto de interrogação, como eu já mencionei antes:</p>
+<p>Caso queira que <code class="language-plaintext highlighter-rouge">p</code> seja nulável, aí você teria que adicionar um ponto de interrogação, como eu já mencionei antes:</p>
 
 <script src="https://gist.github.com/carlosschults/8554d8863882955b554b486797b83726.js"></script>
 
-<p>Agora que <code class="highlighter-rouge">p</code> pode ser <code class="highlighter-rouge">null</code>, tentar acessar <code class="highlighter-rouge">Age</code> não é mais seguro: você receberá um <em>warning</em> ao tentar fazer isso. Quer se livrar do aviso?</p>
+<p>Agora que <code class="language-plaintext highlighter-rouge">p</code> pode ser <code class="language-plaintext highlighter-rouge">null</code>, tentar acessar <code class="language-plaintext highlighter-rouge">Age</code> não é mais seguro: você receberá um <em>warning</em> ao tentar fazer isso. Quer se livrar do aviso?</p>
 
 <p>Apenas faça o que você (na melhor das hipóteses)já faz hoje e cheque por nulo::</p>
 
 <script src="https://gist.github.com/carlosschults/edc992560bf6c005c6be821103e160a3.js"></script>
 
-<p>Assim, uma análise de fluxo será realizada; caso a linha da atribuição seja alcançada, o compilador vai saber que <code class="highlighter-rouge">p</code> não pode ser nulo e vai te deixar em paz.</p>
+<p>Assim, uma análise de fluxo será realizada; caso a linha da atribuição seja alcançada, o compilador vai saber que <code class="language-plaintext highlighter-rouge">p</code> não pode ser nulo e vai te deixar em paz.</p>
 
 <p>Outra possibilidade:</p>
 
@@ -247,11 +264,11 @@
 
 <p>Essa funcionalidade virá acompanhada de um novo operador chamado de <em>null-ignoring operator</em>. Você vai usá-lo para dizer ao compilador: “Eu sei o que estou fazendo”. Haverá situações nas quais uma variável não pode ser nula de forma alguma, mas o compilador não vai ser capaz de inferir isso.</p>
 
-<p>Um exemplo desses seria o uso do método <code class="highlighter-rouge">string.IsNullOrEmpty()</code>:</p>
+<p>Um exemplo desses seria o uso do método <code class="language-plaintext highlighter-rouge">string.IsNullOrEmpty()</code>:</p>
 
 <script src="https://gist.github.com/carlosschults/7f0f2f7470f810d228f1d68559b1d6b7.js"></script>
 
-<p>O código acima vai gerar um <em>warning</em>, apesar de não ser possível que <code class="highlighter-rouge">bar</code> seja nula. É aí que esse operador vai ser útil:</p>
+<p>O código acima vai gerar um <em>warning</em>, apesar de não ser possível que <code class="language-plaintext highlighter-rouge">bar</code> seja nula. É aí que esse operador vai ser útil:</p>
 
 <script src="https://gist.github.com/carlosschults/008709a0b9ff6a72abc8fc4882a467d3.js"></script>
 

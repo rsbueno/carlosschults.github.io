@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Introdução ao Git para usuários de TFS/TFVC</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Aprender Git pode ser desafiador para desenvolvedores com experiência em versionadores centralizados. Mas não precisa ser assim.">
   
   <!-- Twitter card -->
@@ -208,7 +225,7 @@
 
 <h2 id="primeiros-comandos">Primeiros comandos</h2>
 
-<p>OK, com o repositório criado, é hora de testarmos alguns comandos. Um dos comandos mais úteis e que você irá utilizar com mais frequência é o <code class="highlighter-rouge">git status</code>, que serve para visualizar o estado atual em que se encontra o repositório.</p>
+<p>OK, com o repositório criado, é hora de testarmos alguns comandos. Um dos comandos mais úteis e que você irá utilizar com mais frequência é o <code class="language-plaintext highlighter-rouge">git status</code>, que serve para visualizar o estado atual em que se encontra o repositório.</p>
 
 <p>Ao executá-lo, você deveria ver a seguinte mensagem:</p>
 
@@ -232,7 +249,7 @@
   <li>e indica o que entrará no commit - o que nesse caso é nada, já que ainda não há alterações em nosso repositório.</li>
 </ul>
 
-<p>Ele ainda indica qual é o próximo passo a tomar, i.e. criar ou copiar arquivos e depois usar o comando <code class="highlighter-rouge">git add</code> para rastreá-los. Por enquanto, não se preocupe com o que “rastrear” significa, pois isso será abordado no futuro.</p>
+<p>Ele ainda indica qual é o próximo passo a tomar, i.e. criar ou copiar arquivos e depois usar o comando <code class="language-plaintext highlighter-rouge">git add</code> para rastreá-los. Por enquanto, não se preocupe com o que “rastrear” significa, pois isso será abordado no futuro.</p>
 
 <p>Vamos então criar um arquivo.</p>
 
@@ -240,7 +257,7 @@
   <p>echo teste &gt; arq1.txt</p>
 </blockquote>
 
-<p>Execute novamente o comando <code class="highlighter-rouge">git status</code> e você verá que desta vez a mensagem está diferente:</p>
+<p>Execute novamente o comando <code class="language-plaintext highlighter-rouge">git status</code> e você verá que desta vez a mensagem está diferente:</p>
 
 <blockquote>
   <p>Untracked files:
@@ -259,7 +276,7 @@
   <p>git add arq1.txt</p>
 </blockquote>
 
-<p>Execute novamente <code class="highlighter-rouge">git status</code> e veja que a resposta mudou novamente:</p>
+<p>Execute novamente <code class="language-plaintext highlighter-rouge">git status</code> e veja que a resposta mudou novamente:</p>
 
 <blockquote>
   <p>Changes to be committed:</p>
@@ -280,9 +297,9 @@
   <p>git commit -m “Primeiro commit”</p>
 </blockquote>
 
-<p>O comando acima cria o nosso primeiro commit. O parâmetro <code class="highlighter-rouge">-m</code> serve para especificar uma mensagem de commit, o que é essencial para o futuro entendimento da evolução de um projeto.</p>
+<p>O comando acima cria o nosso primeiro commit. O parâmetro <code class="language-plaintext highlighter-rouge">-m</code> serve para especificar uma mensagem de commit, o que é essencial para o futuro entendimento da evolução de um projeto.</p>
 
-<p><code class="highlighter-rouge">git status</code> novamente:</p>
+<p><code class="language-plaintext highlighter-rouge">git status</code> novamente:</p>
 
 <blockquote>
   <p>On branch master</p>
@@ -296,7 +313,7 @@
   <p>acrescentando uma nova linha</p>
 </blockquote>
 
-<p><code class="highlighter-rouge">git status</code> novamente:</p>
+<p><code class="language-plaintext highlighter-rouge">git status</code> novamente:</p>
 
 <blockquote>
   <p>On branch master
@@ -317,7 +334,7 @@ Changes not staged for commit:
 
 <p>Perceba que é o mesmo comando que executamos lá atrás, quando o arquivo ainda estava no estado “untracked”. Embora o comando seja o mesmo, neste caso aqui ele tem um significado ligeiramente diferente. No futuro, entenderemos estas diferenças.</p>
 
-<p>Ao executar novamente <code class="highlighter-rouge">git status</code> recebemos, novamente, uma nova mensagem:</p>
+<p>Ao executar novamente <code class="language-plaintext highlighter-rouge">git status</code> recebemos, novamente, uma nova mensagem:</p>
 
 <blockquote>
   <p>Changes to be committed:
@@ -334,7 +351,7 @@ Changes not staged for commit:
   <p>git commit -m “Segundo commit: adicionamos segunda linha para testar alteração”</p>
 </blockquote>
 
-<p>Para terminar, execute novamente o <code class="highlighter-rouge">git status</code> e verá novamente a mensagem já familiar: diretório de trabalho limpo, nada a ser commitado.</p>
+<p>Para terminar, execute novamente o <code class="language-plaintext highlighter-rouge">git status</code> e verá novamente a mensagem já familiar: diretório de trabalho limpo, nada a ser commitado.</p>
 
 <h2 id="conclusão">Conclusão</h2>
 
@@ -352,7 +369,7 @@ Changes not staged for commit:
   <li>etc</li>
 </ul>
 
-<p>Nos lugares onde coloquei “adiciona”, você sabe que estou me referindo ao comando <code class="highlighter-rouge">git add</code>. Você talvez tenha percebido que este comando tem duas finalidades diferentes, evidenciado pelas diferentes mensagens que o <code class="highlighter-rouge">git status</code> retornou depois de sua execução.</p>
+<p>Nos lugares onde coloquei “adiciona”, você sabe que estou me referindo ao comando <code class="language-plaintext highlighter-rouge">git add</code>. Você talvez tenha percebido que este comando tem duas finalidades diferentes, evidenciado pelas diferentes mensagens que o <code class="language-plaintext highlighter-rouge">git status</code> retornou depois de sua execução.</p>
 
 <p>Você provavelmente também notou os diferentes estados que os arquivos em um repositório podem assumir: “untracked”, “new file”, “modified”. Eles caminham de um estado para o outro, como em uma pipeline.</p>
 

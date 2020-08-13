@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>It&#39;s about time you start using these C# 6 features</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="The 7th version of C# is coming, and it’s expected to bring some new and exciting features to our tool sets. Here’s the thing, though: Are you up to speed wi...">
   
   <!-- Twitter card -->
@@ -110,11 +127,11 @@
 
 <h2 id="string-interpolation">String Interpolation</h2>
 
-<p>Suppose we have a <code class="highlighter-rouge">Person</code> class, having <code class="highlighter-rouge">Name</code> and <code class="highlighter-rouge">Age</code> as read-only properties. Something like this:</p>
+<p>Suppose we have a <code class="language-plaintext highlighter-rouge">Person</code> class, having <code class="language-plaintext highlighter-rouge">Name</code> and <code class="language-plaintext highlighter-rouge">Age</code> as read-only properties. Something like this:</p>
 
 <script src="https://gist.github.com/carlosschults/84db03cd2a530530b72c4b9eeeb738d4.js"></script>
 
-<p>Then we have to add a method called <code class="highlighter-rouge">Introduce()</code>, to make our <code class="highlighter-rouge">Person</code> objects able to introduce themselves. For a person named “Mary” and aged 22, the method should return: “Hi! My name is Mary and I’m 22 years old.”</p>
+<p>Then we have to add a method called <code class="language-plaintext highlighter-rouge">Introduce()</code>, to make our <code class="language-plaintext highlighter-rouge">Person</code> objects able to introduce themselves. For a person named “Mary” and aged 22, the method should return: “Hi! My name is Mary and I’m 22 years old.”</p>
 
 <p>There are a few ways we could do that in C# 5, as you can see in the next listing:</p>
 
@@ -126,15 +143,15 @@
 
 <p>You put a dollar sign at the beginning of the string, place your variables inside curly braces - and that’s it!</p>
 
-<p>String interpolation doesn’t work for all occasions. If you need some special formatting on the values you still have to use <code class="highlighter-rouge">string.Format</code>, for instance.</p>
+<p>String interpolation doesn’t work for all occasions. If you need some special formatting on the values you still have to use <code class="language-plaintext highlighter-rouge">string.Format</code>, for instance.</p>
 
 <p>But on a day-to-day basis, I use interpolation most of the time when I need to concatenate strings. I find it way nicer and cleaner than the other options.</p>
 
 <h2 id="auto-property-initializer">Auto-Property Initializer</h2>
 
-<p>Continuing with our previous example. Let’s say that we need to provide a parameterless constructor in our class. Along with that, we need to provide default values for <code class="highlighter-rouge">Name</code> and <code class="highlighter-rouge">Age</code>.</p>
+<p>Continuing with our previous example. Let’s say that we need to provide a parameterless constructor in our class. Along with that, we need to provide default values for <code class="language-plaintext highlighter-rouge">Name</code> and <code class="language-plaintext highlighter-rouge">Age</code>.</p>
 
-<p>Otherwise, <code class="highlighter-rouge">Introduce</code> would return “Hi! My name is  and I’m 0 years old.” And we wouldn’t want that.</p>
+<p>Otherwise, <code class="language-plaintext highlighter-rouge">Introduce</code> would return “Hi! My name is  and I’m 0 years old.” And we wouldn’t want that.</p>
 
 <p>In C# 5, we’d have to initialize the properties inside the constructor:</p>
 
@@ -150,15 +167,15 @@
 
 <script src="https://gist.github.com/carlosschults/7fb5caff2e73f4130f4db982825adbe6.js"></script>
 
-<p>Nothing remarkable about it. But there’s a problem waiting to happen here. If <code class="highlighter-rouge">customer</code> is <code class="highlighter-rouge">null</code>, then this code will throw a <code class="highlighter-rouge">NullReferenceException</code>.</p>
+<p>Nothing remarkable about it. But there’s a problem waiting to happen here. If <code class="language-plaintext highlighter-rouge">customer</code> is <code class="language-plaintext highlighter-rouge">null</code>, then this code will throw a <code class="language-plaintext highlighter-rouge">NullReferenceException</code>.</p>
 
 <p>This is when the new “Null Conditional Operator” can come in handy:</p>
 
 <script src="https://gist.github.com/carlosschults/65bc4372a0e4fc3e8f38c0ee57905beb.js"></script>
 
-<p>How does that work? Simple: if <code class="highlighter-rouge">customer</code> is not <code class="highlighter-rouge">null</code>, the <code class="highlighter-rouge">Address</code> property is accessed, and its value is assigned to our local variable. However, if <code class="highlighter-rouge">customer</code> <em>is</em> <code class="highlighter-rouge">null</code>, then the whole expression evaluates to <code class="highlighter-rouge">null</code>. And that’s what is assigned to the variable.</p>
+<p>How does that work? Simple: if <code class="language-plaintext highlighter-rouge">customer</code> is not <code class="language-plaintext highlighter-rouge">null</code>, the <code class="language-plaintext highlighter-rouge">Address</code> property is accessed, and its value is assigned to our local variable. However, if <code class="language-plaintext highlighter-rouge">customer</code> <em>is</em> <code class="language-plaintext highlighter-rouge">null</code>, then the whole expression evaluates to <code class="language-plaintext highlighter-rouge">null</code>. And that’s what is assigned to the variable.</p>
 
-<p>Another nice thing about the Null Conditional Operator is that you can use it along with the <a href="https://msdn.microsoft.com/en-us/library/ms173224.aspx">null-coalescing operator</a> to easily provide a default value, instead of <code class="highlighter-rouge">null</code>:</p>
+<p>Another nice thing about the Null Conditional Operator is that you can use it along with the <a href="https://msdn.microsoft.com/en-us/library/ms173224.aspx">null-coalescing operator</a> to easily provide a default value, instead of <code class="language-plaintext highlighter-rouge">null</code>:</p>
 
 <script src="https://gist.github.com/carlosschults/e17d34ba939fb7c472e164010db56377.js"></script>
 

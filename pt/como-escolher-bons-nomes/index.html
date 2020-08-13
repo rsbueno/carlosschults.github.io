@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Dez dicas para lhe ajudar a escolher bons nomes</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="  Só existem duas coisas difíceis em Ciência da Computação: invalidação de cache e escolher nomes das coisas.  Phil KarltonVocê quer escrever um código muito...">
   
   <!-- Twitter card -->
@@ -161,19 +178,19 @@
   <p><a href="https://en.wikipedia.org/wiki/Hungarian_notation">Wikipedia: Hungarian Notation, em tradução livre</a></p>
 </blockquote>
 
-<p>Em resumo, notação húngara é colocar o tipo da variável no seu nome. Se eu tenho uma variável do tipo <code class="highlighter-rouge">int</code>, que vou usar pra guardar a idade de um estudante, eu poderia nomeá-la  <code class="highlighter-rouge">iIdadeEstudante</code> ou <code class="highlighter-rouge">intIdadeEstudante</code>. Do mesmo modo, uma variável string que armaze a descrição de um produto poderia ser chamada <code class="highlighter-rouge">sDescricaoProduto</code>, ou até mesmo <code class="highlighter-rouge">strDescricaoProduto</code>.</p>
+<p>Em resumo, notação húngara é colocar o tipo da variável no seu nome. Se eu tenho uma variável do tipo <code class="language-plaintext highlighter-rouge">int</code>, que vou usar pra guardar a idade de um estudante, eu poderia nomeá-la  <code class="language-plaintext highlighter-rouge">iIdadeEstudante</code> ou <code class="language-plaintext highlighter-rouge">intIdadeEstudante</code>. Do mesmo modo, uma variável string que armaze a descrição de um produto poderia ser chamada <code class="language-plaintext highlighter-rouge">sDescricaoProduto</code>, ou até mesmo <code class="language-plaintext highlighter-rouge">strDescricaoProduto</code>.</p>
 
 <p>E por que isso é ruim? Aqui estão algumas razões:</p>
 
 <ul>
   <li>Primeiro, é inútil. Se a sua variável tem um nome auto-explicativo (veja item #0), ela já vai te dar uma boa noção do seu tipo. Se você acha uma variável chamada “nomeProduto”, você acharia que ela é um número de ponto flutuante? Além disso, a maioria das IDEs modernas conseguem te mostrar não apenas o tipo da variável, mas também se ela é uma variável local, membro de instância ou parâmetro de método, e até quantas vezes ele foi referenciada no código da aplicação.</li>
-  <li>Pode causar confusões. Pessoas cometem erros, e é perfeitamente possível mudar o tipo da variável e esquecer de mudar o nome. Então agora você tem uma variável que o nome começa com “int”, mas ela é na verdade um <code class="highlighter-rouge">long</code>.</li>
+  <li>Pode causar confusões. Pessoas cometem erros, e é perfeitamente possível mudar o tipo da variável e esquecer de mudar o nome. Então agora você tem uma variável que o nome começa com “int”, mas ela é na verdade um <code class="language-plaintext highlighter-rouge">long</code>.</li>
   <li>Faz com que os nomes fiquem mais difíceis de pronunciar, e isso pode dificultar discussões sobre o código e a arquitetura da sua aplicação.</li>
 </ul>
 
 <h2 id="5-respeite-o-estilo-de-codificação-da-linguagem-framework-ou-projeto">5. Respeite o estilo de codificação da linguagem, framework, ou projeto</h2>
 
-<p>Desenvolvedores C# tendem a utilizar <code class="highlighter-rouge">CamelCase</code> para nomear variáveis locais, membros de instância e parâmetros de métodos, como em <code class="highlighter-rouge">nomeProduto</code>. Já em Ruby o estilo recomendado é o <code class="highlighter-rouge">snake_case</code>. A mesma variável ficaria: <code class="highlighter-rouge">nome_produto</code>.</p>
+<p>Desenvolvedores C# tendem a utilizar <code class="language-plaintext highlighter-rouge">CamelCase</code> para nomear variáveis locais, membros de instância e parâmetros de métodos, como em <code class="language-plaintext highlighter-rouge">nomeProduto</code>. Já em Ruby o estilo recomendado é o <code class="language-plaintext highlighter-rouge">snake_case</code>. A mesma variável ficaria: <code class="language-plaintext highlighter-rouge">nome_produto</code>.</p>
 
 <p>Frameworks, bibliotecas e projetos open-source podem ter suas próprias diretrizes e padrões também.</p>
 
@@ -183,19 +200,19 @@
 
 <h2 id="6-nomes-de-métodos-devem-começar-com-um-verbo">6. Nomes de métodos devem começar com um verbo</h2>
 
-<p>Essa dica é bem curta. Métodos são geralmente ações que um objeto pode realizar. Assim, seus nomes deveriam começar com um verbo que indica qual é essa ação, e.g. <code class="highlighter-rouge">ImprimirRelatorio()</code>, <code class="highlighter-rouge">ExibirPoligono(IPoligono poligono)</code>.</p>
+<p>Essa dica é bem curta. Métodos são geralmente ações que um objeto pode realizar. Assim, seus nomes deveriam começar com um verbo que indica qual é essa ação, e.g. <code class="language-plaintext highlighter-rouge">ImprimirRelatorio()</code>, <code class="language-plaintext highlighter-rouge">ExibirPoligono(IPoligono poligono)</code>.</p>
 
 <h2 id="7-nomes-de-classes-devem-ser-substantivos">7. Nomes de classes devem ser substantivos</h2>
 
-<p>Da mesma forma, nomes de classes deveriam ser substantivos, como <code class="highlighter-rouge">Produto</code>, <code class="highlighter-rouge">Cliente</code>, <code class="highlighter-rouge">Estudante</code>, e assim por diante. Tente evitar termos genéricos como <code class="highlighter-rouge">Manager</code>, porque eles não adicionam nenhum valor.</p>
+<p>Da mesma forma, nomes de classes deveriam ser substantivos, como <code class="language-plaintext highlighter-rouge">Produto</code>, <code class="language-plaintext highlighter-rouge">Cliente</code>, <code class="language-plaintext highlighter-rouge">Estudante</code>, e assim por diante. Tente evitar termos genéricos como <code class="language-plaintext highlighter-rouge">Manager</code>, porque eles não adicionam nenhum valor.</p>
 
 <h2 id="8-nomes-de-propriedades-devem-ser-substantivos-adjetivos-ou-frases-adjetivas">8. Nomes de propriedades devem ser substantivos, adjetivos ou frases adjetivas</h2>
 
-<p>Propriedades devem ser nomeadas com substantivos (<code class="highlighter-rouge">Nome</code>), frases adjetivas ou adjetivos (como no caso de propriedades do tipo <code class="highlighter-rouge">Boolean</code>, e.g. <code class="highlighter-rouge">Finalizado</code> ou <code class="highlighter-rouge">EstaFinalizado</code>).</p>
+<p>Propriedades devem ser nomeadas com substantivos (<code class="language-plaintext highlighter-rouge">Nome</code>), frases adjetivas ou adjetivos (como no caso de propriedades do tipo <code class="language-plaintext highlighter-rouge">Boolean</code>, e.g. <code class="language-plaintext highlighter-rouge">Finalizado</code> ou <code class="language-plaintext highlighter-rouge">EstaFinalizado</code>).</p>
 
-<p>Ainda com relação a propriedades booleanas, você pode usar os prefixos <code class="highlighter-rouge">Is</code>, <code class="highlighter-rouge">Can</code> ou <code class="highlighter-rouge">Get</code>, caso isso facilite o entendimento da propriedade.</p>
+<p>Ainda com relação a propriedades booleanas, você pode usar os prefixos <code class="language-plaintext highlighter-rouge">Is</code>, <code class="language-plaintext highlighter-rouge">Can</code> ou <code class="language-plaintext highlighter-rouge">Get</code>, caso isso facilite o entendimento da propriedade.</p>
 
-<p>Abrindo um parênteses. Aqui entramos mais uma vez <a href="(https://carlosschults.net/pt/programar-portugues-ou-ingles/)">naquela velha discussão sobre português x inglês</a>. Muita gente vai dizer que misturar português e inglês como em <code class="highlighter-rouge">IsValido</code> é algo horrível e que jamais deveria ser feito. Outros vão argumentar que o uso de <code class="highlighter-rouge">Is</code> é um idioma facilmente reconhecível por qualquer programador e que tentar aportuguesá-lo como em <code class="highlighter-rouge">EValido</code> ou <code class="highlighter-rouge">EhValido</code> é bem pior. É uma discussão que dá pano pra manga. <a href="https://carlosschults.net/pt/programar-portugues-ou-ingles/">Clique aqui para saber minha opinião a respeito.</a></p>
+<p>Abrindo um parênteses. Aqui entramos mais uma vez <a href="(https://carlosschults.net/pt/programar-portugues-ou-ingles/)">naquela velha discussão sobre português x inglês</a>. Muita gente vai dizer que misturar português e inglês como em <code class="language-plaintext highlighter-rouge">IsValido</code> é algo horrível e que jamais deveria ser feito. Outros vão argumentar que o uso de <code class="language-plaintext highlighter-rouge">Is</code> é um idioma facilmente reconhecível por qualquer programador e que tentar aportuguesá-lo como em <code class="language-plaintext highlighter-rouge">EValido</code> ou <code class="language-plaintext highlighter-rouge">EhValido</code> é bem pior. É uma discussão que dá pano pra manga. <a href="https://carlosschults.net/pt/programar-portugues-ou-ingles/">Clique aqui para saber minha opinião a respeito.</a></p>
 
 <h2 id="9-use-nomes-pronunciáveis-e-passíveis-de-busca">9. Use nomes pronunciáveis e passíveis de busca</h2>
 

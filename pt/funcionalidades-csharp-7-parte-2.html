@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Funcionalidades do C# 7 que vale a pena conhecer - Parte 2</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Neste artigo, vamos continuar a ver algumas das features mais interessantes do C# 7.">
   
   <!-- Twitter card -->
@@ -114,25 +131,25 @@
 
 <script src="https://gist.github.com/carlosschults/37689aeb84ed4fdff067eab72690a035.js"></script>
 
-<p>Você é provavelmente familiar com o padrão <code class="highlighter-rouge">TryXXX</code>, usado por exemplo no tipo <code class="highlighter-rouge">System.Int32</code>. Estes tipos de métodos geralmente utilizam um parâmetro de saída (<em>out</em>) para retornar o valor resultante (ou o valor default do tipo, no caso da operação de <em>parsing</em> não for bem sucedida.</p>
+<p>Você é provavelmente familiar com o padrão <code class="language-plaintext highlighter-rouge">TryXXX</code>, usado por exemplo no tipo <code class="language-plaintext highlighter-rouge">System.Int32</code>. Estes tipos de métodos geralmente utilizam um parâmetro de saída (<em>out</em>) para retornar o valor resultante (ou o valor default do tipo, no caso da operação de <em>parsing</em> não for bem sucedida.</p>
 
-<p>O exemplo acima contém um método <code class="highlighter-rouge">TryParse</code> na classe <code class="highlighter-rouge">ZipCode</code>. Observe a assinatura do método.</p>
+<p>O exemplo acima contém um método <code class="language-plaintext highlighter-rouge">TryParse</code> na classe <code class="language-plaintext highlighter-rouge">ZipCode</code>. Observe a assinatura do método.</p>
 
 <p>Quando você escreve mais de um tipo desta forma na declaração do método, você está usando um <em>tuple type</em>.  Não se preocupe, você vai se acostumar.</p>
 
 <p>Logo no início do método, nós passamos o texto recebido para um método privado que realizada a validação propriamente dita e retorna um valor lógico.</p>
 
-<p>Depois da validação, nós retornamos um <em>tuple literal</em>, que consiste em uma nova instância da classe <code class="highlighter-rouge">ZipCode</code> e o flag indicando se a operação de <em>parsing</em> foi bem sucedida.</p>
+<p>Depois da validação, nós retornamos um <em>tuple literal</em>, que consiste em uma nova instância da classe <code class="language-plaintext highlighter-rouge">ZipCode</code> e o flag indicando se a operação de <em>parsing</em> foi bem sucedida.</p>
 
 <p>Legal, mas e o outro lado? Como o chamador da função lida com este tipo de retorno? Vamos ver:</p>
 
 <script src="https://gist.github.com/carlosschults/81b46fd01a187d866a41c0a74c8fc430.js"></script>
 
-<p>Se você colocar o cursor sobre o nome da variável, você verá seu tipo descrito, não surpreendentemente, como <code class="highlighter-rouge">(ZipCode, bool)</code>.</p>
+<p>Se você colocar o cursor sobre o nome da variável, você verá seu tipo descrito, não surpreendentemente, como <code class="language-plaintext highlighter-rouge">(ZipCode, bool)</code>.</p>
 
 <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png" alt="" /></p>
 
-<p>Você pode acessar cada elemento da tupla utilizando <code class="highlighter-rouge">zipParsingResult.Item1</code>, <code class="highlighter-rouge">zipParsingResult.Item2</code>, e assim por diante.</p>
+<p>Você pode acessar cada elemento da tupla utilizando <code class="language-plaintext highlighter-rouge">zipParsingResult.Item1</code>, <code class="language-plaintext highlighter-rouge">zipParsingResult.Item2</code>, e assim por diante.</p>
 
 <script src="https://gist.github.com/carlosschults/f4a1cf2fea5808474fb126888c436f55.js"></script>
 
@@ -150,7 +167,7 @@
 
 <script src="https://gist.github.com/carlosschults/cccbc00f7b154bb897c332e4f8ed614c.js"></script>
 
-<p>É claro que inferência de tipo também funciona aqui, e neste caso você tem duas opções: usar a palavra-chave <code class="highlighter-rouge">var</code> para cada variável, ou usá-la uma vez só para todas as variáveis, colocando-a fora dos parênteses.</p>
+<p>É claro que inferência de tipo também funciona aqui, e neste caso você tem duas opções: usar a palavra-chave <code class="language-plaintext highlighter-rouge">var</code> para cada variável, ou usá-la uma vez só para todas as variáveis, colocando-a fora dos parênteses.</p>
 
 <script src="https://gist.github.com/carlosschults/225e608c7b844df46084b6a7af5b6ac2.js"></script>
 
@@ -158,7 +175,7 @@
 
 <h3 id="algumas-notas">Algumas notas</h3>
 
-<p>Tuplas são <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/"><em>Tipos de Valor</em></a>. A igualdade nas tuplas é implementada da maneira que você provavelmente esperaria: duas tuplas são iguais se seus valores são iguais e elas retornam o mesmo <code class="highlighter-rouge">HashCode</code>. O nome dos elementos não é relevante.</p>
+<p>Tuplas são <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/"><em>Tipos de Valor</em></a>. A igualdade nas tuplas é implementada da maneira que você provavelmente esperaria: duas tuplas são iguais se seus valores são iguais e elas retornam o mesmo <code class="language-plaintext highlighter-rouge">HashCode</code>. O nome dos elementos não é relevante.</p>
 
 <script src="https://gist.github.com/carlosschults/4da3e29f9346a45aab9b5d9a583c6ac1.js"></script>
 
@@ -168,17 +185,17 @@
 
 <p>Atualmente, para que esta funcionalidade funcione, você precisa instalar um pacote do nuget chamado “System.ValueTuple”. No Visual Studio, vá para <strong>Ferramentas</strong> &gt; <strong>Gerenciador de pacotes do NuGet</strong> &gt; <strong>Console do Gerenciador de Pacotes</strong>.</p>
 
-<p>A janela do Console do Gerenciador de Pacotes será exibida. Digite (ou copie e cole) <code class="highlighter-rouge">Install-Package System.ValueTuple</code> e pressione <code class="highlighter-rouge">ENTER</code>.</p>
+<p>A janela do Console do Gerenciador de Pacotes será exibida. Digite (ou copie e cole) <code class="language-plaintext highlighter-rouge">Install-Package System.ValueTuple</code> e pressione <code class="language-plaintext highlighter-rouge">ENTER</code>.</p>
 
-<h3 id="mas-e-o-tipo-systemtuple">Mas e o tipo <code class="highlighter-rouge">System.Tuple</code>?</h3>
+<h3 id="mas-e-o-tipo-systemtuple">Mas e o tipo <code class="language-plaintext highlighter-rouge">System.Tuple</code>?</h3>
 
-<p>Você talvez esteja se perguntando: qual a razão de tanto barulho sobre tuplas, já que o .Net Framework tem o tipo de referência <code class="highlighter-rouge">System.Tuple</code> desde a versão 4.0? Por que não continuamos com o tipo mais antigo?</p>
+<p>Você talvez esteja se perguntando: qual a razão de tanto barulho sobre tuplas, já que o .Net Framework tem o tipo de referência <code class="language-plaintext highlighter-rouge">System.Tuple</code> desde a versão 4.0? Por que não continuamos com o tipo mais antigo?</p>
 
 <p>Bem, <a href="https://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple">esta resposta no Stack Overflow explica muito bem (em inglês)</a>, então eu vou tentar resumir aqui.</p>
 
 <p>Primeiramente, conforme já mencionado, o tipo mais antigo é um tipo de referência, e o novo tipo é um tipo de valor, com todas as implicações usuais que isso traz.</p>
 
-<p>Mas as diferenças realmente importantes têm a ver com conveniência e legibilidade. Ao usar <code class="highlighter-rouge">System.Tuple</code> não há desconstrução; você só pode acessar os elementos usando os nomes padrão (Item1, Item2, etc), o que pode prejudicar a leitura e interpretação do código.</p>
+<p>Mas as diferenças realmente importantes têm a ver com conveniência e legibilidade. Ao usar <code class="language-plaintext highlighter-rouge">System.Tuple</code> não há desconstrução; você só pode acessar os elementos usando os nomes padrão (Item1, Item2, etc), o que pode prejudicar a leitura e interpretação do código.</p>
 
 <h2 id="funções-locais">Funções Locais</h2>
 
@@ -188,13 +205,13 @@
 
 <p>Como você notou, a função interna consegue acessar os valores disponíveis para a função mais externa.</p>
 
-<p>É claro que o exemplo acima é deliberadamente simples; em produção, você provavelmente escreveria o código em <code class="highlighter-rouge">Log()</code> dentro do próprio método exterior.</p>
+<p>É claro que o exemplo acima é deliberadamente simples; em produção, você provavelmente escreveria o código em <code class="language-plaintext highlighter-rouge">Log()</code> dentro do próprio método exterior.</p>
 
-<p>Você também poderia utilizar um <code class="highlighter-rouge">delegate</code>:</p>
+<p>Você também poderia utilizar um <code class="language-plaintext highlighter-rouge">delegate</code>:</p>
 
 <script src="https://gist.github.com/carlosschults/045204806458c6563cd3a8b20a63133f.js"></script>
 
-<p>Pelo visto, tudo que podemos fazer com funções locais já é possível de ser feito com métodos privados ou <code class="highlighter-rouge">delegates</code>. Será que precisamos mesmo desta feature?</p>
+<p>Pelo visto, tudo que podemos fazer com funções locais já é possível de ser feito com métodos privados ou <code class="language-plaintext highlighter-rouge">delegates</code>. Será que precisamos mesmo desta feature?</p>
 
 <p>Giovani Bassi nos mostra algumas razões para utilizar funções locais:</p>
 
@@ -221,12 +238,12 @@
 <p>Em tradução livre:</p>
 
 <blockquote>
-  <p>Como exemplo, é comum que métodos implementados como iteradores necessitem de um <em>wraper</em> sem iterador para checar os argumentos imediatamente na hora da chamada. (O iterador em si não começa a rodar até que <code class="highlighter-rouge">MoveNext</code> seja chamado). Funções locais são perfeitas para este cenário:</p>
+  <p>Como exemplo, é comum que métodos implementados como iteradores necessitem de um <em>wraper</em> sem iterador para checar os argumentos imediatamente na hora da chamada. (O iterador em si não começa a rodar até que <code class="language-plaintext highlighter-rouge">MoveNext</code> seja chamado). Funções locais são perfeitas para este cenário:</p>
 </blockquote>
 
 <script src="https://gist.github.com/carlosschults/34b77038c058f261f615e739c7f9ea2a.js"></script>
 
-<p>Você poderia transformar a função <code class="highlighter-rouge">Iterator()</code> acima em um método privado, mas seria: 1) redundante e pouco elegante, pois iria requerer repetir a mesma assinatura e argumentos da função externa; e 2) menos seguro, pois outra parte do código poderia chamar o método sem fazer a validação.</p>
+<p>Você poderia transformar a função <code class="language-plaintext highlighter-rouge">Iterator()</code> acima em um método privado, mas seria: 1) redundante e pouco elegante, pois iria requerer repetir a mesma assinatura e argumentos da função externa; e 2) menos seguro, pois outra parte do código poderia chamar o método sem fazer a validação.</p>
 
 <h2 id="conclusão">Conclusão</h2>
 

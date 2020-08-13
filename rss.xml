@@ -5,9 +5,9 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jul 2020 10:39:16 -0300</pubDate>
-    <lastBuildDate>Thu, 30 Jul 2020 10:39:16 -0300</lastBuildDate>
-    <generator>Jekyll v3.8.4</generator>
+    <pubDate>Thu, 13 Aug 2020 14:24:31 -0300</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2020 14:24:31 -0300</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
     
     
       <item>
@@ -224,9 +224,9 @@
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Vamos fazer algumas coisas. Primeiro, livre-se do método &lt;code class=&quot;highlighter-rouge&quot;&gt;Setup()&lt;/code&gt;. Não vamos precisar dele. Depois, acrescente um novo método com o código abaixo:&lt;/p&gt;
+&lt;p&gt;Vamos fazer algumas coisas. Primeiro, livre-se do método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Setup()&lt;/code&gt;. Não vamos precisar dele. Depois, acrescente um novo método com o código abaixo:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -254,7 +254,7 @@
 
 &lt;p&gt;Agora, estamos prontos para escrever nosso primeiro teste de reprovação. Portanto, abra a classe StringCalculatorTest e acrescente a ela o seguinte método&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_EmptyStringAsParam_ReturnsZero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -335,7 +335,7 @@ Add_EmptyStringAsParam_ReturnsZero
 
 &lt;p&gt;Os requisitos dizem que a passagem de um único número deve retornar o próprio número. Isso soa como uma coisa útil para testar:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingSingleNumber_ReturnsTheNumberItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -368,7 +368,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Como já testamos o método Add passando por números zero (uma seqüência vazia) e um único número, parece que o próximo passo natural para nós agora seria escrever um teste para o cenário de adição de dois números. Então, vamos fazer exatamente isso.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_TwoNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;7,8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -397,7 +397,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Vamos ver se podemos fazer isso testando o cenário com três números:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_ThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -435,7 +435,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Aproveitando o método &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt;, consegui me livrar do primeiro if. Também usamos um recurso introduzido no &lt;a href=&quot;https://carlosschults.net/pt/funcionalidades-csharp-7/&quot;&gt;C# 7&lt;/a&gt; chamado “out variables”. Este recurso nos permite utilizar parâmetros sem ter que declará-los previamente.&lt;/p&gt;
+&lt;p&gt;Aproveitando o método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; do tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt;, consegui me livrar do primeiro if. Também usamos um recurso introduzido no &lt;a href=&quot;https://carlosschults.net/pt/funcionalidades-csharp-7/&quot;&gt;C# 7&lt;/a&gt; chamado “out variables”. Este recurso nos permite utilizar parâmetros sem ter que declará-los previamente.&lt;/p&gt;
 
 &lt;p&gt;Todos os testes ainda passam, portanto, não posso escrever mais código de produção. Qual deve ser o próximo teste?&lt;/p&gt;
 
@@ -445,11 +445,11 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Para fazer isso sem ter que criar muitos métodos de teste, vamos aproveitar o recurso NUnit [testes parametrizados] (https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html), adicionando um único método com vários casos de teste:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4&quot;, 10)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;8,7,20&quot;, 35)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1001&quot;, 9)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1000&quot;, 1009)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;26,6,90&quot;, 122)]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1,2,3,4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;8,7,20&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5,0,4,1001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5,0,4,1000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1009&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;26,6,90&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;122&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_MoreThanThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -482,9 +482,9 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Os requisitos dizem que números negativos não devem ser permitidos. Vamos acrescentar um teste para isso! Por uma questão de brevidade, acrescentaremos um único método de teste com vários casos de teste, de modo que somos forçados a ir imediatamente para a implementação correta:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4,5,-5&quot;)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;-1,1,2,9&quot;)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,6,8,-5&quot;)]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1,2,3,4,5,-5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-1,1,2,9&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5,6,8,-5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingNegativeNumbers_Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -520,7 +520,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Como você pode ver, logo no início, nós definimos uma instância de &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;int&amp;gt;&lt;/code&gt; para armazenar os negativos que encontramos enquanto iteramos sobre todos os números. Dentro do laço, verificamos se o número atual é negativo. Se for, adicionamo-lo à lista. Se não for, verificamos se é menor ou igual a 1000, caso em que o adicionamos à variável de resultado.&lt;/p&gt;
+&lt;p&gt;Como você pode ver, logo no início, nós definimos uma instância de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;int&amp;gt;&lt;/code&gt; para armazenar os negativos que encontramos enquanto iteramos sobre todos os números. Dentro do laço, verificamos se o número atual é negativo. Se for, adicionamo-lo à lista. Se não for, verificamos se é menor ou igual a 1000, caso em que o adicionamos à variável de resultado.&lt;/p&gt;
 
 &lt;p&gt;Após o loop, verificamos se a lista negativa tem algum elemento. Se tiver, criamos uma mensagem de exceção que inclui os negativos especificados e, em seguida, lançamos uma nova ArgumentException. Caso contrário, devolvemos o resultado.&lt;/p&gt;
 
@@ -534,7 +534,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Você verá que eu criei um compromisso para cada etapa do ciclo TDD. Dessa forma, torna-se mais fácil para os futuros leitores visualizar todas as etapas do processo, percorrendo a história do projeto, um compromisso de cada vez.&lt;/p&gt;
 
-&lt;p&gt;É possível melhorar o código que eu usei hoje. Por exemplo, o código do método &lt;code class=&quot;highlighter-rouge&quot;&gt;Add&lt;/code&gt; pode ser escrito de uma forma mais curta, clara e eficiente, usando &lt;a href=&quot;https://carlosschults.net/pt/programacao-funcional-csharp/.&quot;&gt;LINQ&lt;/a&gt; Você pode criar mais testes. Os requisitos do exercício que apresentamos no início pedem por uma mensagem de erro específica ao lançar a exceção quando há números negativos na string. Apesar de termos implementado a mensagem como pedido, nós não criamos um teste pra isso. Você pode fazer isso, como forma de praticar.&lt;/p&gt;
+&lt;p&gt;É possível melhorar o código que eu usei hoje. Por exemplo, o código do método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt; pode ser escrito de uma forma mais curta, clara e eficiente, usando &lt;a href=&quot;https://carlosschults.net/pt/programacao-funcional-csharp/.&quot;&gt;LINQ&lt;/a&gt; Você pode criar mais testes. Os requisitos do exercício que apresentamos no início pedem por uma mensagem de erro específica ao lançar a exceção quando há números negativos na string. Apesar de termos implementado a mensagem como pedido, nós não criamos um teste pra isso. Você pode fazer isso, como forma de praticar.&lt;/p&gt;
 
 &lt;p&gt;Finalmente, fique atento a este blog. Este post é parte de uma série, à qual pretendo acrescentar mais partes.&lt;/p&gt;
 
@@ -606,11 +606,11 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;repository&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;contract&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Extend&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável &lt;code class=&quot;highlighter-rouge&quot;&gt;NullReferenceException&lt;/code&gt;. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.&lt;/p&gt;
+&lt;p&gt;O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NullReferenceException&lt;/code&gt;. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.&lt;/p&gt;
 
 &lt;p&gt;De qualquer forma, o &lt;a href=&quot;https://en.wikipedia.org/wiki/Null_object_pattern&quot;&gt;padrão de objeto nulo&lt;/a&gt; é uma tentativa de resolver este problema. E como ele faz isso? Criando seu próprio tipo de nulo.&lt;/p&gt;
 
-&lt;p&gt;Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa &lt;code class=&quot;highlighter-rouge&quot;&gt;IContract&lt;/code&gt;, nossa classe NullContract poderia ser algo parecido com isto:&lt;/p&gt;
+&lt;p&gt;Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IContract&lt;/code&gt;, nossa classe NullContract poderia ser algo parecido com isto:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NullContract&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;IContract&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -706,7 +706,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Por último, mas não menos importante, e quanto aos tipos Maybe/Option? Esta é uma alternativa ao mesmo tempo elegante e robusta, especialmente em linguagens como o F#, onde você é forçado, de certa forma, a lidar com ambos os casos usando &lt;em&gt;pattern matching.&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Mas a triste realidade é a seguinte: embora &lt;code class=&quot;highlighter-rouge&quot;&gt;Maybe/Option&lt;/code&gt; sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.&lt;/p&gt;
+&lt;p&gt;Mas a triste realidade é a seguinte: embora &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Maybe/Option&lt;/code&gt; sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.&lt;/p&gt;
 
 &lt;p&gt;Portanto, mesmo sendo grandes abordagens, elas ainda sofrem com o problema de serem mais um tipo de nulo para os desenvolvedores lidarem.&lt;/p&gt;
 
@@ -1116,7 +1116,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;p&gt;Você talvez esteja se perguntando se eu divaguei demais aqui, mas é tudo de propósito. Tudo isso serve apenas para ilustrar a diferença crucial entre entidades e value objects. Com as entidades, nós nos importamos com a  sua identidade, não com o valor de seus atributos. Com value objects, é exatamente o oposto.&lt;/p&gt;
 
-&lt;p&gt;A implicação disso, em termos de programação, é que value objects tipicamente apresentam igualidade estrutural. Faz sentido compará-los pelos seus valores, não suas referências ou identidades. Então, quando for implementar um value object, sempre faça &lt;em&gt;override&lt;/em&gt; dos métodos &lt;code class=&quot;highlighter-rouge&quot;&gt;Equals&lt;/code&gt; e &lt;code class=&quot;highlighter-rouge&quot;&gt;GetHashCode&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;A implicação disso, em termos de programação, é que value objects tipicamente apresentam igualidade estrutural. Faz sentido compará-los pelos seus valores, não suas referências ou identidades. Então, quando for implementar um value object, sempre faça &lt;em&gt;override&lt;/em&gt; dos métodos &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Equals&lt;/code&gt; e &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GetHashCode&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;o-que-você-ganha-com-isso&quot;&gt;O que Você Ganha Com Isso?&lt;/h2&gt;
 &lt;p&gt;A essa altura você já deve ter uma boa ideia do que value objects são. O que ainda não está claro é: por que você deveria usá-los? Para responder isso, vamos dar uma olhada na linha de código a seguir:&lt;/p&gt;
@@ -1145,7 +1145,7 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance2&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;FromKilometers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 	&lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;distance2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Você poderia ainda sobrecarregar o operador “+” (ou criar um método &lt;code class=&quot;highlighter-rouge&quot;&gt;Plus&lt;/code&gt;). Dessa forma seria possível somar duas distâncias que se originaram de diferentes unidades de medida já que a representação interna é a mesma.&lt;/p&gt;
+&lt;p&gt;Você poderia ainda sobrecarregar o operador “+” (ou criar um método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Plus&lt;/code&gt;). Dessa forma seria possível somar duas distâncias que se originaram de diferentes unidades de medida já que a representação interna é a mesma.&lt;/p&gt;
 
 &lt;h3 id=&quot;value-objects-apresentam-segurança-de-tipo&quot;&gt;Value Objects Apresentam Segurança de Tipo&lt;/h3&gt;
 
@@ -1163,15 +1163,15 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 
 &lt;h3 id=&quot;value-objects-evitam-duplicação-de-lógica-de-domínio&quot;&gt;Value Objects Evitam Duplicação de Lógica de Domínio&lt;/h3&gt;
 
-&lt;p&gt;Quando você usa tipos primitivos para modelar conceitos de domínio, a tendência é você ter um monte de código relacionado a esses conceitos espalhados por toda a aplicação. Imagine que você está criando um programa que tem o conceito de uma placa de carro, e você está usando &lt;code class=&quot;highlighter-rouge&quot;&gt;strings&lt;/code&gt; para representá-las. É claro que nem todas as strings válidas são placas válidas. Então o seu código acaba entupido de validações de placas de carro por todo lugar.&lt;/p&gt;
+&lt;p&gt;Quando você usa tipos primitivos para modelar conceitos de domínio, a tendência é você ter um monte de código relacionado a esses conceitos espalhados por toda a aplicação. Imagine que você está criando um programa que tem o conceito de uma placa de carro, e você está usando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strings&lt;/code&gt; para representá-las. É claro que nem todas as strings válidas são placas válidas. Então o seu código acaba entupido de validações de placas de carro por todo lugar.&lt;/p&gt;
 
-&lt;p&gt;Isso seria evitado criando uma classe chamada &lt;code class=&quot;highlighter-rouge&quot;&gt;LicensePlate&lt;/code&gt; e fazendo todas as validações necessárias em seu construtor. Dessa forma você consolidaria todo o código de validação em apenas um lugar; se esse código precisar mudar no futuro, você tem que mudar em apenas um lugar.&lt;/p&gt;
+&lt;p&gt;Isso seria evitado criando uma classe chamada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LicensePlate&lt;/code&gt; e fazendo todas as validações necessárias em seu construtor. Dessa forma você consolidaria todo o código de validação em apenas um lugar; se esse código precisar mudar no futuro, você tem que mudar em apenas um lugar.&lt;/p&gt;
 
 &lt;h2 id=&quot;value-objects-e-tipos-de-valor-não-são-sinônimos&quot;&gt;Value Objects e Tipos de Valor Não São Sinônimos&lt;/h2&gt;
 
 &lt;p&gt;Essa seção é necessária para clarificar um erro comum, que é confundir  value objects com o conceito de value types (tipos de valor) que existe no C#. É assim: na linguagem C# nós temos &lt;a href=&quot;https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;duas categorias de tipos: tipos de referência e tipos de valor.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Sim, não há nada que impeça você de usar structs (tipos de valor) para implementar value objects - exemplos na Base Class Library (BCL) seriam o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; ou os tipos numéricos primitivos. Mas você também pode usar classes tranquilamente.&lt;/p&gt;
+&lt;p&gt;Sim, não há nada que impeça você de usar structs (tipos de valor) para implementar value objects - exemplos na Base Class Library (BCL) seriam o tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; ou os tipos numéricos primitivos. Mas você também pode usar classes tranquilamente.&lt;/p&gt;
 
 &lt;p&gt;Por outro lado, structs não podem ser considerados value objects automaticamente. Por exemplo, embora manter structs imutáveis seja uma prática recomendada, eles não são imutáveis por padrão.&lt;/p&gt;
 
@@ -1354,49 +1354,49 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Ele funciona corretamente? Depende de onde e quando ele será executado.&lt;/p&gt;
 
-&lt;p&gt;Quando você usa &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.Now&lt;/code&gt;, o valor que você obtém representa a data e hora locais em relação à máquina atual (ou seja, a propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; está configurada para &lt;code class=&quot;highlighter-rouge&quot;&gt;Local&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Quando você usa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime.Now&lt;/code&gt;, o valor que você obtém representa a data e hora locais em relação à máquina atual (ou seja, a propriedade &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kind&lt;/code&gt; está configurada para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local&lt;/code&gt;).&lt;/p&gt;
 
 &lt;p&gt;Se o lugar que você mora observa Horário de Verão, então você sabe que existe um dia do ano no qual você deve adiantar os relógios em uma certa medida (geralmente 1 hora, embora existam lugares que ajustam por outras quantidades). E é claro, existe também um dia no qual o oposto acontece.&lt;/p&gt;
 
-&lt;p&gt;Agora imagine o que seguinte: hoje é 12 de março de 2017, e você more na cidade de Nova York. Você começa a usar o programa acima. O método &lt;code class=&quot;highlighter-rouge&quot;&gt;StartMatch()&lt;/code&gt; é executado exatamente às 13h. Uma hora e quinze minutos mais tarde, o método &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; é executado. O cálculo é realizado e o texto abaixo é exibido:&lt;/p&gt;
+&lt;p&gt;Agora imagine o que seguinte: hoje é 12 de março de 2017, e você more na cidade de Nova York. Você começa a usar o programa acima. O método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StartMatch()&lt;/code&gt; é executado exatamente às 13h. Uma hora e quinze minutos mais tarde, o método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; é executado. O cálculo é realizado e o texto abaixo é exibido:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Duration of the match: 00:02:15&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;Eu imagino que você compreendeu o que aconteceu aqui: quando os relógios estavam prestes a marcar 14h, o Horário de Verão entrou em efeito, movendo-os diretamente para 15h. Então o método &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; recuperou o horário atual, somando uma hora adicional ao cálculo. Se o experimento tivesse acontecido no fim do Horário de Verão, o resultado seria apenas 15 minutos!&lt;/p&gt;
+&lt;p&gt;Eu imagino que você compreendeu o que aconteceu aqui: quando os relógios estavam prestes a marcar 14h, o Horário de Verão entrou em efeito, movendo-os diretamente para 15h. Então o método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; recuperou o horário atual, somando uma hora adicional ao cálculo. Se o experimento tivesse acontecido no fim do Horário de Verão, o resultado seria apenas 15 minutos!&lt;/p&gt;
 
 &lt;p&gt;Sim, o código mostrado é apenas um exemplo, uma brincadeira. Mas e se fosse algo mais sério? Uma aplicação de folha de pagamento, digamos. Você gostaria de pagar o valor errado a um funcionário?&lt;/p&gt;
 
 &lt;h3 id=&quot;o-que-fazer&quot;&gt;O que fazer?&lt;/h3&gt;
 
-&lt;p&gt;Quando precisar calcular a duração de atividades humanas, use UTC para os tempos de início e fim. Dessa forma, você será capaz de &lt;strong&gt;referenciar de maneira não ambígua um ponto específico no tempo&lt;/strong&gt;. Ao invés de usar a propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Now&lt;/code&gt;, use &lt;code class=&quot;highlighter-rouge&quot;&gt;UtcNow&lt;/code&gt; para recuperar a data e hora já em formato UTC para realizar os cálculos:&lt;/p&gt;
+&lt;p&gt;Quando precisar calcular a duração de atividades humanas, use UTC para os tempos de início e fim. Dessa forma, você será capaz de &lt;strong&gt;referenciar de maneira não ambígua um ponto específico no tempo&lt;/strong&gt;. Ao invés de usar a propriedade &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Now&lt;/code&gt;, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UtcNow&lt;/code&gt; para recuperar a data e hora já em formato UTC para realizar os cálculos:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/82492845edaa8f8fc16c646ed2bbcf2a.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;Mas e se os valores &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; que você tem já são do tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;Local&lt;/code&gt;? Nesse caso, você deve usar o método &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; para convertê-los para UTC:&lt;/p&gt;
+&lt;p&gt;Mas e se os valores &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; que você tem já são do tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local&lt;/code&gt;? Nesse caso, você deve usar o método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; para convertê-los para UTC:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js&quot;&gt;&lt;/script&gt;
 
-&lt;h3 id=&quot;uma-rápida-advertência-sobre-touniversaltime&quot;&gt;Uma Rápida Advertência Sobre &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&quot;uma-rápida-advertência-sobre-touniversaltime&quot;&gt;Uma Rápida Advertência Sobre &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;&lt;/h3&gt;
 
-&lt;p&gt;O uso do método &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; - e seu irmão, &lt;code class=&quot;highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt; - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; do objeto datetime que você tem, o que pode trazer resultados inesperados.&lt;/p&gt;
+&lt;p&gt;O uso do método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; - e seu irmão, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt; - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kind&lt;/code&gt; do objeto datetime que você tem, o que pode trazer resultados inesperados.&lt;/p&gt;
 
-&lt;p&gt;Ao chamar &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;, uma das seguintes coisas vai acontecer:&lt;/p&gt;
+&lt;p&gt;Ao chamar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;, uma das seguintes coisas vai acontecer:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Se &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; estiver configurado como UTC, o mesmo valor é retornado.&lt;/li&gt;
-  &lt;li&gt;Por outro lado, se estiver configurado como &lt;code class=&quot;highlighter-rouge&quot;&gt;Local&lt;/code&gt;, então o valor correspondente em UTC é retornado.&lt;/li&gt;
-  &lt;li&gt;Finalmente, se &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; estiver como &lt;code class=&quot;highlighter-rouge&quot;&gt;Unspecified&lt;/code&gt;, &lt;strong&gt;então é assumido que o objeto sempre teve a intenção de ser local,&lt;/strong&gt;, e você recebe o valor correspondente à conversão para UTC.&lt;/li&gt;
+  &lt;li&gt;Se &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kind&lt;/code&gt; estiver configurado como UTC, o mesmo valor é retornado.&lt;/li&gt;
+  &lt;li&gt;Por outro lado, se estiver configurado como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local&lt;/code&gt;, então o valor correspondente em UTC é retornado.&lt;/li&gt;
+  &lt;li&gt;Finalmente, se &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kind&lt;/code&gt; estiver como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Unspecified&lt;/code&gt;, &lt;strong&gt;então é assumido que o objeto sempre teve a intenção de ser local,&lt;/strong&gt;, e você recebe o valor correspondente à conversão para UTC.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;O problema aqui é que &lt;a href=&quot;https://codeofmatt.com/2013/04/25/the-case-against-datetime-now/#localkindsdontroundtrip&quot;&gt;valores de data/hora locais não não “transportáveis”&lt;/a&gt;. Como assim? Eles são locais enquanto eles permanecerem no contexto da máquina atual. Se você salva um datetime local para um banco de dados e depois o recupera de lá, a informação de que ele é local se perde: agora ele é &lt;code class=&quot;highlighter-rouge&quot;&gt;Unspecified&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O problema aqui é que &lt;a href=&quot;https://codeofmatt.com/2013/04/25/the-case-against-datetime-now/#localkindsdontroundtrip&quot;&gt;valores de data/hora locais não não “transportáveis”&lt;/a&gt;. Como assim? Eles são locais enquanto eles permanecerem no contexto da máquina atual. Se você salva um datetime local para um banco de dados e depois o recupera de lá, a informação de que ele é local se perde: agora ele é &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Unspecified&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Assim, o seguinte cenário pode acontecer:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Você recupera a data e hora atuais usando &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.UtcNow&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Você recupera a data e hora atuais usando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime.UtcNow&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;Você salva esse valor no banco de dados.&lt;/li&gt;
-  &lt;li&gt;Outra parte do código recupera esse valor. Sem estar ciente de que o valor já está em UTC, chama o método &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; na instância.&lt;/li&gt;
-  &lt;li&gt;Como o valor recuperado do banco possui o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;Unspecified&lt;/code&gt;, o método vai tratá-lo como local e realizar uma conversão desnecessária, gerando um valor errado.&lt;/li&gt;
+  &lt;li&gt;Outra parte do código recupera esse valor. Sem estar ciente de que o valor já está em UTC, chama o método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; na instância.&lt;/li&gt;
+  &lt;li&gt;Como o valor recuperado do banco possui o tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Unspecified&lt;/code&gt;, o método vai tratá-lo como local e realizar uma conversão desnecessária, gerando um valor errado.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Como evitar que isso aconteça? Uma prática recomendada é usar UTC para armazenar o tempo em que um evento aconteceu. Minha sugestão é seguir esse conselho e também esse fato bem explícito. Coloque o sufixo “UTC” em cada coluna de tabela no banco de dados e também em nomes de propriedades que se referem a um valor em UTC. Ao invés de “Inclusao”, use “InclusaoUTC” e assim por diante. Não é tão bonito, mas com certeza é mais claro.&lt;/p&gt;
@@ -1409,7 +1409,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Digamos que você precisa ser capaz de reconstruir o tempo local - na perspectiva do usuário - de quando algo aconteceu, e a única informação que você tem é um &lt;em&gt;timestamp&lt;/em&gt; em UTC. Mal dia.&lt;/p&gt;
 
-&lt;p&gt;Em casos assim, faria mais sentido (a) registrar o momento em UTC e gravar também o fuso horário do usuário ou (b) usar o tipo &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTimeOffset&lt;/code&gt;, que armazena a data/hora local junto com o deslocamento, ou &lt;em&gt;offset&lt;/em&gt;, para UTC, permitindo que você reconstrua o valor em UTC quando precisar.&lt;/p&gt;
+&lt;p&gt;Em casos assim, faria mais sentido (a) registrar o momento em UTC e gravar também o fuso horário do usuário ou (b) usar o tipo &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTimeOffset&lt;/code&gt;, que armazena a data/hora local junto com o deslocamento, ou &lt;em&gt;offset&lt;/em&gt;, para UTC, permitindo que você reconstrua o valor em UTC quando precisar.&lt;/p&gt;
 
 &lt;p&gt;Outro caso de uso comum para o qual UTC não é a solução correta é  &lt;a href=&quot;https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;amp;lq=1&quot;&gt;o agendamento de eventos locais no futuro&lt;/a&gt;. Você não quer que seu alarme acorde você uma hora mais cedo ou uma hora mais tarde nos dias de transição do Horário de Verão, certo? Pois é exatamente isso que aconteceria se você configurasse o seu alarme pelo horário UTC.&lt;/p&gt;
 
@@ -1427,7 +1427,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h3 id=&quot;qual-é-a-solução&quot;&gt;Qual É A Solução?&lt;/h3&gt;
 
-&lt;p&gt;Como lidar com esse tipo de problema no C#? A classe &lt;code class=&quot;highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; é válido:&lt;/p&gt;
+&lt;p&gt;Como lidar com esse tipo de problema no C#? A classe &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; é válido:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/2b94d57390b3518294730c01003f159c.js&quot;&gt;&lt;/script&gt;
 
@@ -1460,7 +1460,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Esta lista não é de forma alguma exausitiva. Eu apenas quis oferecer a vocês uma introdução ao fascinante e meio bizarro mundo dos problemas com hora e data em programação. Há muitos recursos valiosos por aí, como&lt;a href=&quot;https://stackoverflow.com/tags/timezone/info&quot;&gt;a tag time zone no Stack Overflow&lt;/a&gt; ou blogs como &lt;a href=&quot;https://codeblog.jonskeet.uk/&quot;&gt;o de Jon Skeet&lt;/a&gt; e &lt;a href=&quot;https://codeofmatt.com/&quot;&gt;o de Matt Johnson&lt;/a&gt; que são autores da popular biblioteca NodaTime.&lt;/p&gt;
 
-&lt;p&gt;E finalmente, sempre use as ferramentas que estão à sua disposição. Por exemplo, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;o produto da SubMain chamado CodeIt.Right&lt;/a&gt; tem uma regra que você a especificar um &lt;code class=&quot;highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; em situações nas quais é opcional, o que pode acabar salvando você de bugs difíceis ao fazer tratamento de datas.&lt;/p&gt;
+&lt;p&gt;E finalmente, sempre use as ferramentas que estão à sua disposição. Por exemplo, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;o produto da SubMain chamado CodeIt.Right&lt;/a&gt; tem uma regra que você a especificar um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; em situações nas quais é opcional, o que pode acabar salvando você de bugs difíceis ao fazer tratamento de datas.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Jul 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/pt/4-erros-comuns-datetime-csharp/</link>
@@ -1708,7 +1708,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Bom, pra começo de conversa, eu me preocuparia com uma empresa de desenvolvimento cujo único critério de qualidade é “roda sem quebrar”. Mas o problema de verdade aqui é que esse tipo de código demonstra uma falta de entendimento sobre características fundamentais da linguagem e da plataforma que podem lhe causar problemas no futuro.&lt;/p&gt;
 
-&lt;h3 id=&quot;uso-desnecessário-de-tolist-em-consultas-do-linq-to-object&quot;&gt;Uso Desnecessário de &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; em consultas do LINQ to Object&lt;/h3&gt;
+&lt;h3 id=&quot;uso-desnecessário-de-tolist-em-consultas-do-linq-to-object&quot;&gt;Uso Desnecessário de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; em consultas do LINQ to Object&lt;/h3&gt;
 &lt;p&gt;Assim como o problema anterior, o item atual é algo que eu rotineiramente vejo em código de produção. Considere o código abaixo:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
@@ -1717,11 +1717,11 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;O problema que temos aqui é que as chamadas ao método &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; são totalmente desnecessárias (exceto talvez a última, caso você realmente precisasse que o resultado fosse um lista e não apenas um &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;O problema que temos aqui é que as chamadas ao método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; são totalmente desnecessárias (exceto talvez a última, caso você realmente precisasse que o resultado fosse um lista e não apenas um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;Em minha experiência, isso acontece quando quem escreveu o código não entende bem a natureza do LINQ; eles erroneamente acham que os métodos do LINQ pertencem ao tipo concreto &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; ao invés de serem métodos de extensão que podem ser usados com qualquer implementação de &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Em minha experiência, isso acontece quando quem escreveu o código não entende bem a natureza do LINQ; eles erroneamente acham que os métodos do LINQ pertencem ao tipo concreto &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; ao invés de serem métodos de extensão que podem ser usados com qualquer implementação de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;Ao chamar &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; diversas vezes dessa forma, o desenvolvedor na verdade cria diversas listas novas, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
+&lt;p&gt;Ao chamar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; diversas vezes dessa forma, o desenvolvedor na verdade cria diversas listas novas, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
 
 &lt;p&gt;O código acima pode ser reescrito da seguinte forma:&lt;/p&gt;
 
@@ -1732,27 +1732,27 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Aqui temos não apenas uma mas duas conversões desnecessárias. Primeiro, criamos uma nova string e então a “parseamos” para &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; quando um simples &lt;em&gt;cast&lt;/em&gt; seria suficiente:&lt;/p&gt;
+&lt;p&gt;Aqui temos não apenas uma mas duas conversões desnecessárias. Primeiro, criamos uma nova string e então a “parseamos” para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; quando um simples &lt;em&gt;cast&lt;/em&gt; seria suficiente:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Esse exemplo assume que o tipo no banco de dados é um tipo específico para lidar com datas (como &lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt; ou &lt;code class=&quot;highlighter-rouge&quot;&gt;datetime&lt;/code&gt; no SQL Server). É claro que se você estivesse usando um tipo inadequado (como &lt;code class=&quot;highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) então isso já seria um outro problema.&lt;/p&gt;
+&lt;p&gt;Esse exemplo assume que o tipo no banco de dados é um tipo específico para lidar com datas (como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date&lt;/code&gt; ou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime&lt;/code&gt; no SQL Server). É claro que se você estivesse usando um tipo inadequado (como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) então isso já seria um outro problema.&lt;/p&gt;
 
-&lt;h3 id=&quot;try-catch-em-todo-lugar&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Try-Catch&lt;/code&gt; em todo lugar&lt;/h3&gt;
-&lt;p&gt;Também conhecido como síndrome Pokémon (“Gotta catch’em all!”), o &lt;em&gt;anti-pattern&lt;/em&gt; aqui é adicionar um bloco &lt;code class=&quot;highlighter-rouge&quot;&gt;try-catch&lt;/code&gt; em cada linha em que exista a remota possibilidade de uma exceção ser disparada.&lt;/p&gt;
+&lt;h3 id=&quot;try-catch-em-todo-lugar&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Try-Catch&lt;/code&gt; em todo lugar&lt;/h3&gt;
+&lt;p&gt;Também conhecido como síndrome Pokémon (“Gotta catch’em all!”), o &lt;em&gt;anti-pattern&lt;/em&gt; aqui é adicionar um bloco &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;try-catch&lt;/code&gt; em cada linha em que exista a remota possibilidade de uma exceção ser disparada.&lt;/p&gt;
 
-&lt;p&gt;Pontos bônus se o código estiver tentando capturar &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; ao invés de uma exceção mais específica, acabando com a distinção entre erros esperados e não esperados.&lt;/p&gt;
+&lt;p&gt;Pontos bônus se o código estiver tentando capturar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; ao invés de uma exceção mais específica, acabando com a distinção entre erros esperados e não esperados.&lt;/p&gt;
 
-&lt;p&gt;Mais pontos se o bloco do &lt;code class=&quot;highlighter-rouge&quot;&gt;catch&lt;/code&gt; não conter código nenhum!&lt;/p&gt;
+&lt;p&gt;Mais pontos se o bloco do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;catch&lt;/code&gt; não conter código nenhum!&lt;/p&gt;
 
 &lt;p&gt;A dica geral aqui é: jamais capture uma exceção a não ser que você tenha uma razão muito específica para fazê-lo. Do contrário, deixe que a exceção suba até que o gerenciador de exceções geral no nível mais alto lide com ela.&lt;/p&gt;
 
 &lt;p&gt;Se esse conselho parece vago (“Como vou saber se eu tenho uma boa razão para capturar a exceção?”), é porque de fato é. Explorar esse tema mais a fundo iria além do escopo desse post, , mas &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;ler o excelente artigo do Eric Lippert chamado “Vexing Exceptions”&lt;/a&gt; vai aumentar e muito o seu entendimento sobre exceções.&lt;/p&gt;
 
-&lt;h3 id=&quot;usar-stringbuilder-demais&quot;&gt;Usar &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; Demais&lt;/h3&gt;
-&lt;p&gt;Você já deve ter visto o filme: depois de ler em algum lugar que concatenar strings usando &lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; é ineficiente, nosso intrépido desenvolvedor resolve tomar pra si a tarefa hercúlea de mudar cada concatenação de string no projeto para o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&quot;usar-stringbuilder-demais&quot;&gt;Usar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; Demais&lt;/h3&gt;
+&lt;p&gt;Você já deve ter visto o filme: depois de ler em algum lugar que concatenar strings usando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; é ineficiente, nosso intrépido desenvolvedor resolve tomar pra si a tarefa hercúlea de mudar cada concatenação de string no projeto para o uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;A justificativa para isso, claro, é que &lt;code class=&quot;highlighter-rouge&quot;&gt;System.String&lt;/code&gt; é imutável. Então, cada vez que você “muda” a string, você na verdade está criando uma instância nova na memória, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
+&lt;p&gt;A justificativa para isso, claro, é que &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.String&lt;/code&gt; é imutável. Então, cada vez que você “muda” a string, você na verdade está criando uma instância nova na memória, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
 
 &lt;p&gt;Mas adivinha só. O compilador é bem esperto. Digamos que você tenha a seguinte linha:&lt;/p&gt;
 
@@ -1762,7 +1762,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;o uso de &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; provavelmente faz mais sentido&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;o uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; provavelmente faz mais sentido&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Lógico, alguns cenários não são tão claros assim. O único conselho que faz sentido dar aqui é: faça seu dever de casa. Quando estiver com dúvida, pesquise e faça &lt;em&gt;benchmark&lt;/em&gt; sem dó.&lt;/p&gt;
 

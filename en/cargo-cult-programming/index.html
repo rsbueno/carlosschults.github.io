@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Cargo Cult Programming Is The Art of Programming by Coincidence</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Editorial note: I originally wrote this post for the NDepend blog.  You can check out the original here, at their site. While you’re there, download NDepend ...">
   
   <!-- Twitter card -->
@@ -173,11 +190,11 @@
 	<span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">})</span>
 	<span class="p">.</span><span class="nf">ToList</span><span class="p">();</span></code></pre></figure>
 
-<p>The problem we have here is that these calls to <code class="highlighter-rouge">ToList()</code> are completely unnecessary (except maybe the last one, if you really needed the result to be a <code class="highlighter-rouge">List</code> and not only an <code class="highlighter-rouge">IEnumerable</code>).</p>
+<p>The problem we have here is that these calls to <code class="language-plaintext highlighter-rouge">ToList()</code> are completely unnecessary (except maybe the last one, if you really needed the result to be a <code class="language-plaintext highlighter-rouge">List</code> and not only an <code class="language-plaintext highlighter-rouge">IEnumerable</code>).</p>
 
-<p>In my experience, this happens when the developer doesn’t understand the nature of LINQ; they erroneously think that the LINQ methods belong to the concrete type <code class="highlighter-rouge">List&lt;T&gt;</code> instead of being extension methods that can be used with any <code class="highlighter-rouge">IEnumerable&lt;T&gt;</code> implementation.</p>
+<p>In my experience, this happens when the developer doesn’t understand the nature of LINQ; they erroneously think that the LINQ methods belong to the concrete type <code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code> instead of being extension methods that can be used with any <code class="language-plaintext highlighter-rouge">IEnumerable&lt;T&gt;</code> implementation.</p>
 
-<p>By calling <code class="highlighter-rouge">ToList()</code> several times like this, the developer creates several new lists, which can be detrimental to the performance of the application.</p>
+<p>By calling <code class="language-plaintext highlighter-rouge">ToList()</code> several times like this, the developer creates several new lists, which can be detrimental to the performance of the application.</p>
 
 <p>You could rewrite the code above like this:</p>
 
@@ -188,16 +205,16 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">DateTime</span> <span class="n">creationDate</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"creation_date"</span><span class="p">].</span><span class="nf">ToString</span><span class="p">());</span></code></pre></figure>
 
-<p>Here we have not only one but two unnecessary conversions. First, the developer creates a new string and then parses it to <code class="highlighter-rouge">DateTime</code> when a simple cast would have sufficed:</p>
+<p>Here we have not only one but two unnecessary conversions. First, the developer creates a new string and then parses it to <code class="language-plaintext highlighter-rouge">DateTime</code> when a simple cast would have sufficed:</p>
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">DateTime</span> <span class="n">creationDate</span> <span class="p">=</span> <span class="p">(</span><span class="n">DateTime</span><span class="p">)</span><span class="n">row</span><span class="p">[</span><span class="s">"creation_date"</span><span class="p">];</span></code></pre></figure>
 
-<p>This example assumes that the underlying database type is some specific type for dealing with dates (for instance, <code class="highlighter-rouge">date</code> or <code class="highlighter-rouge">datetime</code> in SQL Server). Of course, if you were using an inadequate type (such as <code class="highlighter-rouge">varchar</code>) then this would be a problem of its own.</p>
+<p>This example assumes that the underlying database type is some specific type for dealing with dates (for instance, <code class="language-plaintext highlighter-rouge">date</code> or <code class="language-plaintext highlighter-rouge">datetime</code> in SQL Server). Of course, if you were using an inadequate type (such as <code class="language-plaintext highlighter-rouge">varchar</code>) then this would be a problem of its own.</p>
 
 <h3 id="try-catch-everywhere">Try-Catch Everywhere</h3>
 <p>Also known as Pokémon syndrome (“Gotta catch ’em all!”), the anti-pattern here is to add a try-catch block to every single line that could possibly throw an exception.</p>
 
-<p>Bonus points if the code is attempting to catch <code class="highlighter-rouge">System.Exception</code> instead of a more specific exception, thus blurring the distinction between expected and unexpected errors.</p>
+<p>Bonus points if the code is attempting to catch <code class="language-plaintext highlighter-rouge">System.Exception</code> instead of a more specific exception, thus blurring the distinction between expected and unexpected errors.</p>
 
 <p>More bonus points if the catch block doesn’t contain any code at all!</p>
 
@@ -206,9 +223,9 @@
 <p>If this advice seems vague (“How would I know if I have the right reason for catching an exception?”), that’s because it is vague. It’s beyond the scope of this post to go deeper into this matter, but <a href="https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/">Eric Lippert’s excellent article called “Vexing Exceptions”</a> will greatly improve your understanding of exception handling.</p>
 
 <h3 id="using-stringbuilder-everywhere">Using StringBuilder Everywhere</h3>
-<p>It’s the stuff of superhero movies: after reading somewhere that concatenating strings by using the ‘+’ operator is incredibly inefficient, the well-meaning developer takes upon themselves the Herculean task of updating every single concatenation in the codebase to <code class="highlighter-rouge">StringBuilder</code>.</p>
+<p>It’s the stuff of superhero movies: after reading somewhere that concatenating strings by using the ‘+’ operator is incredibly inefficient, the well-meaning developer takes upon themselves the Herculean task of updating every single concatenation in the codebase to <code class="language-plaintext highlighter-rouge">StringBuilder</code>.</p>
 
-<p>The reasoning for this is, of course, that <code class="highlighter-rouge">System.String</code> is immutable. So every time you “modify” a string, you’re in fact creating a new instance in memory, which can hurt performance pretty badly.</p>
+<p>The reasoning for this is, of course, that <code class="language-plaintext highlighter-rouge">System.String</code> is immutable. So every time you “modify” a string, you’re in fact creating a new instance in memory, which can hurt performance pretty badly.</p>
 
 <p>Well, guess what? The compiler is pretty smart. Let’s say you have the following line:</p>
 
@@ -218,7 +235,7 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">string</span> <span class="n">a</span> <span class="p">=</span> <span class="s">"Hello World"</span><span class="p">;</span></code></pre></figure>
 
-<p>The fast rule of thumb is it’s fine to use the simple concatenation when you know the number of strings to append in compile time. Otherwise, a <a href="https://stackoverflow.com/a/21644889"><code class="highlighter-rouge">StringBuilder</code> probably makes more sense</a>.</p>
+<p>The fast rule of thumb is it’s fine to use the simple concatenation when you know the number of strings to append in compile time. Otherwise, a <a href="https://stackoverflow.com/a/21644889"><code class="language-plaintext highlighter-rouge">StringBuilder</code> probably makes more sense</a>.</p>
 
 <p>Of course, some scenarios aren’t that clear-cut. The only advice worth giving here is to do your homework. When in doubt, research and benchmark to your heart’s content.</p>
 

@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Funcionalidades do C# 7 que vale a pena conhecer - Parte 1</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="C# 7 está finalmente entre nós. Hora de conhecer algumas de suas features.">
   
   <!-- Twitter card -->
@@ -118,13 +135,13 @@
 
 <p>Para que servem os underscores? <strong>Legibilidade</strong>, essa é a resposta.</p>
 
-<p>Números compridos podem ficar bem difíceis de serem lidos. Para lidar com esse problema, C# 7 permite que você use o <code class="highlighter-rouge">_</code> como separador de dígito.</p>
+<p>Números compridos podem ficar bem difíceis de serem lidos. Para lidar com esse problema, C# 7 permite que você use o <code class="language-plaintext highlighter-rouge">_</code> como separador de dígito.</p>
 
 <p>Os separadores não fazem nenhuma diferença no valor do número. Você pode colocá-los em qualquer lugar no número, e em qualquer quantidade.</p>
 
 <p>E caso você esteja se perguntando, você não está restrito a usar os separadores com números inteiros apenas; eles também funcionam com os outros tipos numéricos.</p>
 
-<p>A nova versão do C# também introduz literais binários, como visto na terceira linha do exemplo anterior. Se você precisar escrever um valor binário, basta colocar <code class="highlighter-rouge">0b</code> no começo do número, e é isso!</p>
+<p>A nova versão do C# também introduz literais binários, como visto na terceira linha do exemplo anterior. Se você precisar escrever um valor binário, basta colocar <code class="language-plaintext highlighter-rouge">0b</code> no começo do número, e é isso!</p>
 
 <h2 id="variáveis-out">Variáveis ‘Out’</h2>
 
@@ -137,8 +154,8 @@
 <p>Algumas coisas importantes para se ter em mente:</p>
 
 <ul>
-  <li>Apesar de eu ter explicitamente escrito o nome do tipo na declaração, isso não é sempre necessário. Eu poderia ter usado <code class="highlighter-rouge">var</code> e funcionaria do mesmo jeito.</li>
-  <li>Você talvez tenha pensado que a variável iria sair de escopo depois do bloco do <code class="highlighter-rouge">if</code>. Este não é o caso. A variável continua sendo acessada normalmente até que saia do seu escopo normal.</li>
+  <li>Apesar de eu ter explicitamente escrito o nome do tipo na declaração, isso não é sempre necessário. Eu poderia ter usado <code class="language-plaintext highlighter-rouge">var</code> e funcionaria do mesmo jeito.</li>
+  <li>Você talvez tenha pensado que a variável iria sair de escopo depois do bloco do <code class="language-plaintext highlighter-rouge">if</code>. Este não é o caso. A variável continua sendo acessada normalmente até que saia do seu escopo normal.</li>
 </ul>
 
 <script src="https://gist.github.com/carlosschults/a23411376a6610e0e9081674faf1b0a5.js"></script>
@@ -165,7 +182,7 @@
 
 <p>Agora tem.</p>
 
-<p>Nas versões anteriores, <code class="highlighter-rouge">throw</code> era uma declaração. Agora, é uma <strong>expressão</strong>, o que nos permite disparar exceções em lugares como a segunda parte do operador “Null Coalescing” e em expressões condicionais.</p>
+<p>Nas versões anteriores, <code class="language-plaintext highlighter-rouge">throw</code> era uma declaração. Agora, é uma <strong>expressão</strong>, o que nos permite disparar exceções em lugares como a segunda parte do operador “Null Coalescing” e em expressões condicionais.</p>
 
 <p>Usando a <em>throw expression</em>, o exemplo acima fica simples assim:</p>
 

@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>4 Erros Comuns Com Data e Hora no C# — E como evitá-los</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="NOTA: Eu escrevi este post originalmente para o blog da SubMain.  Você pode conferir o original no site deles, em inglês. Enquanto estiver por lá, dê uma con...">
   
   <!-- Twitter card -->
@@ -126,49 +143,49 @@
 
 <p>Ele funciona corretamente? Depende de onde e quando ele será executado.</p>
 
-<p>Quando você usa <code class="highlighter-rouge">DateTime.Now</code>, o valor que você obtém representa a data e hora locais em relação à máquina atual (ou seja, a propriedade <code class="highlighter-rouge">Kind</code> está configurada para <code class="highlighter-rouge">Local</code>).</p>
+<p>Quando você usa <code class="language-plaintext highlighter-rouge">DateTime.Now</code>, o valor que você obtém representa a data e hora locais em relação à máquina atual (ou seja, a propriedade <code class="language-plaintext highlighter-rouge">Kind</code> está configurada para <code class="language-plaintext highlighter-rouge">Local</code>).</p>
 
 <p>Se o lugar que você mora observa Horário de Verão, então você sabe que existe um dia do ano no qual você deve adiantar os relógios em uma certa medida (geralmente 1 hora, embora existam lugares que ajustam por outras quantidades). E é claro, existe também um dia no qual o oposto acontece.</p>
 
-<p>Agora imagine o que seguinte: hoje é 12 de março de 2017, e você more na cidade de Nova York. Você começa a usar o programa acima. O método <code class="highlighter-rouge">StartMatch()</code> é executado exatamente às 13h. Uma hora e quinze minutos mais tarde, o método <code class="highlighter-rouge">EndMatch</code> é executado. O cálculo é realizado e o texto abaixo é exibido:</p>
+<p>Agora imagine o que seguinte: hoje é 12 de março de 2017, e você more na cidade de Nova York. Você começa a usar o programa acima. O método <code class="language-plaintext highlighter-rouge">StartMatch()</code> é executado exatamente às 13h. Uma hora e quinze minutos mais tarde, o método <code class="language-plaintext highlighter-rouge">EndMatch</code> é executado. O cálculo é realizado e o texto abaixo é exibido:</p>
 
 <p><em>Duration of the match: 00:02:15</em></p>
 
-<p>Eu imagino que você compreendeu o que aconteceu aqui: quando os relógios estavam prestes a marcar 14h, o Horário de Verão entrou em efeito, movendo-os diretamente para 15h. Então o método <code class="highlighter-rouge">EndMatch</code> recuperou o horário atual, somando uma hora adicional ao cálculo. Se o experimento tivesse acontecido no fim do Horário de Verão, o resultado seria apenas 15 minutos!</p>
+<p>Eu imagino que você compreendeu o que aconteceu aqui: quando os relógios estavam prestes a marcar 14h, o Horário de Verão entrou em efeito, movendo-os diretamente para 15h. Então o método <code class="language-plaintext highlighter-rouge">EndMatch</code> recuperou o horário atual, somando uma hora adicional ao cálculo. Se o experimento tivesse acontecido no fim do Horário de Verão, o resultado seria apenas 15 minutos!</p>
 
 <p>Sim, o código mostrado é apenas um exemplo, uma brincadeira. Mas e se fosse algo mais sério? Uma aplicação de folha de pagamento, digamos. Você gostaria de pagar o valor errado a um funcionário?</p>
 
 <h3 id="o-que-fazer">O que fazer?</h3>
 
-<p>Quando precisar calcular a duração de atividades humanas, use UTC para os tempos de início e fim. Dessa forma, você será capaz de <strong>referenciar de maneira não ambígua um ponto específico no tempo</strong>. Ao invés de usar a propriedade <code class="highlighter-rouge">Now</code>, use <code class="highlighter-rouge">UtcNow</code> para recuperar a data e hora já em formato UTC para realizar os cálculos:</p>
+<p>Quando precisar calcular a duração de atividades humanas, use UTC para os tempos de início e fim. Dessa forma, você será capaz de <strong>referenciar de maneira não ambígua um ponto específico no tempo</strong>. Ao invés de usar a propriedade <code class="language-plaintext highlighter-rouge">Now</code>, use <code class="language-plaintext highlighter-rouge">UtcNow</code> para recuperar a data e hora já em formato UTC para realizar os cálculos:</p>
 
 <script src="https://gist.github.com/carlosschults/82492845edaa8f8fc16c646ed2bbcf2a.js"></script>
 
-<p>Mas e se os valores <code class="highlighter-rouge">DateTime</code> que você tem já são do tipo <code class="highlighter-rouge">Local</code>? Nesse caso, você deve usar o método <code class="highlighter-rouge">ToUniversalTime()</code> para convertê-los para UTC:</p>
+<p>Mas e se os valores <code class="language-plaintext highlighter-rouge">DateTime</code> que você tem já são do tipo <code class="language-plaintext highlighter-rouge">Local</code>? Nesse caso, você deve usar o método <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code> para convertê-los para UTC:</p>
 
 <script src="https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js"></script>
 
-<h3 id="uma-rápida-advertência-sobre-touniversaltime">Uma Rápida Advertência Sobre <code class="highlighter-rouge">ToUniversalTime()</code></h3>
+<h3 id="uma-rápida-advertência-sobre-touniversaltime">Uma Rápida Advertência Sobre <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code></h3>
 
-<p>O uso do método <code class="highlighter-rouge">ToUniversalTime()</code> - e seu irmão, <code class="highlighter-rouge">ToLocalTime()</code> - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade <code class="highlighter-rouge">Kind</code> do objeto datetime que você tem, o que pode trazer resultados inesperados.</p>
+<p>O uso do método <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code> - e seu irmão, <code class="language-plaintext highlighter-rouge">ToLocalTime()</code> - pode ser um pouco chato. O problema é que esses métodos fazem suposições sobre o que você quer baseados no valor da propriedade <code class="language-plaintext highlighter-rouge">Kind</code> do objeto datetime que você tem, o que pode trazer resultados inesperados.</p>
 
-<p>Ao chamar <code class="highlighter-rouge">ToUniversalTime()</code>, uma das seguintes coisas vai acontecer:</p>
+<p>Ao chamar <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code>, uma das seguintes coisas vai acontecer:</p>
 
 <ul>
-  <li>Se <code class="highlighter-rouge">Kind</code> estiver configurado como UTC, o mesmo valor é retornado.</li>
-  <li>Por outro lado, se estiver configurado como <code class="highlighter-rouge">Local</code>, então o valor correspondente em UTC é retornado.</li>
-  <li>Finalmente, se <code class="highlighter-rouge">Kind</code> estiver como <code class="highlighter-rouge">Unspecified</code>, <strong>então é assumido que o objeto sempre teve a intenção de ser local,</strong>, e você recebe o valor correspondente à conversão para UTC.</li>
+  <li>Se <code class="language-plaintext highlighter-rouge">Kind</code> estiver configurado como UTC, o mesmo valor é retornado.</li>
+  <li>Por outro lado, se estiver configurado como <code class="language-plaintext highlighter-rouge">Local</code>, então o valor correspondente em UTC é retornado.</li>
+  <li>Finalmente, se <code class="language-plaintext highlighter-rouge">Kind</code> estiver como <code class="language-plaintext highlighter-rouge">Unspecified</code>, <strong>então é assumido que o objeto sempre teve a intenção de ser local,</strong>, e você recebe o valor correspondente à conversão para UTC.</li>
 </ul>
 
-<p>O problema aqui é que <a href="https://codeofmatt.com/2013/04/25/the-case-against-datetime-now/#localkindsdontroundtrip">valores de data/hora locais não não “transportáveis”</a>. Como assim? Eles são locais enquanto eles permanecerem no contexto da máquina atual. Se você salva um datetime local para um banco de dados e depois o recupera de lá, a informação de que ele é local se perde: agora ele é <code class="highlighter-rouge">Unspecified</code>.</p>
+<p>O problema aqui é que <a href="https://codeofmatt.com/2013/04/25/the-case-against-datetime-now/#localkindsdontroundtrip">valores de data/hora locais não não “transportáveis”</a>. Como assim? Eles são locais enquanto eles permanecerem no contexto da máquina atual. Se você salva um datetime local para um banco de dados e depois o recupera de lá, a informação de que ele é local se perde: agora ele é <code class="language-plaintext highlighter-rouge">Unspecified</code>.</p>
 
 <p>Assim, o seguinte cenário pode acontecer:</p>
 
 <ul>
-  <li>Você recupera a data e hora atuais usando <code class="highlighter-rouge">DateTime.UtcNow</code>.</li>
+  <li>Você recupera a data e hora atuais usando <code class="language-plaintext highlighter-rouge">DateTime.UtcNow</code>.</li>
   <li>Você salva esse valor no banco de dados.</li>
-  <li>Outra parte do código recupera esse valor. Sem estar ciente de que o valor já está em UTC, chama o método <code class="highlighter-rouge">ToUniversalTime()</code> na instância.</li>
-  <li>Como o valor recuperado do banco possui o tipo <code class="highlighter-rouge">Unspecified</code>, o método vai tratá-lo como local e realizar uma conversão desnecessária, gerando um valor errado.</li>
+  <li>Outra parte do código recupera esse valor. Sem estar ciente de que o valor já está em UTC, chama o método <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code> na instância.</li>
+  <li>Como o valor recuperado do banco possui o tipo <code class="language-plaintext highlighter-rouge">Unspecified</code>, o método vai tratá-lo como local e realizar uma conversão desnecessária, gerando um valor errado.</li>
 </ul>
 
 <p>Como evitar que isso aconteça? Uma prática recomendada é usar UTC para armazenar o tempo em que um evento aconteceu. Minha sugestão é seguir esse conselho e também esse fato bem explícito. Coloque o sufixo “UTC” em cada coluna de tabela no banco de dados e também em nomes de propriedades que se referem a um valor em UTC. Ao invés de “Inclusao”, use “InclusaoUTC” e assim por diante. Não é tão bonito, mas com certeza é mais claro.</p>
@@ -181,7 +198,7 @@
 
 <p>Digamos que você precisa ser capaz de reconstruir o tempo local - na perspectiva do usuário - de quando algo aconteceu, e a única informação que você tem é um <em>timestamp</em> em UTC. Mal dia.</p>
 
-<p>Em casos assim, faria mais sentido (a) registrar o momento em UTC e gravar também o fuso horário do usuário ou (b) usar o tipo <code class="highlighter-rouge">DateTimeOffset</code>, que armazena a data/hora local junto com o deslocamento, ou <em>offset</em>, para UTC, permitindo que você reconstrua o valor em UTC quando precisar.</p>
+<p>Em casos assim, faria mais sentido (a) registrar o momento em UTC e gravar também o fuso horário do usuário ou (b) usar o tipo <code class="language-plaintext highlighter-rouge">DateTimeOffset</code>, que armazena a data/hora local junto com o deslocamento, ou <em>offset</em>, para UTC, permitindo que você reconstrua o valor em UTC quando precisar.</p>
 
 <p>Outro caso de uso comum para o qual UTC não é a solução correta é  <a href="https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;lq=1">o agendamento de eventos locais no futuro</a>. Você não quer que seu alarme acorde você uma hora mais cedo ou uma hora mais tarde nos dias de transição do Horário de Verão, certo? Pois é exatamente isso que aconteceria se você configurasse o seu alarme pelo horário UTC.</p>
 
@@ -199,7 +216,7 @@
 
 <h3 id="qual-é-a-solução">Qual É A Solução?</h3>
 
-<p>Como lidar com esse tipo de problema no C#? A classe <code class="highlighter-rouge">TimeZoneInfo</code> pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto <code class="highlighter-rouge">DateTime</code> é válido:</p>
+<p>Como lidar com esse tipo de problema no C#? A classe <code class="language-plaintext highlighter-rouge">TimeZoneInfo</code> pode lhe salvar. Ela serve para representar um fuso horário e também oferece métodos para verificar se um determinado objeto <code class="language-plaintext highlighter-rouge">DateTime</code> é válido:</p>
 
 <script src="https://gist.github.com/carlosschults/2b94d57390b3518294730c01003f159c.js"></script>
 
@@ -232,7 +249,7 @@
 
 <p>Esta lista não é de forma alguma exausitiva. Eu apenas quis oferecer a vocês uma introdução ao fascinante e meio bizarro mundo dos problemas com hora e data em programação. Há muitos recursos valiosos por aí, como<a href="https://stackoverflow.com/tags/timezone/info">a tag time zone no Stack Overflow</a> ou blogs como <a href="https://codeblog.jonskeet.uk/">o de Jon Skeet</a> e <a href="https://codeofmatt.com/">o de Matt Johnson</a> que são autores da popular biblioteca NodaTime.</p>
 
-<p>E finalmente, sempre use as ferramentas que estão à sua disposição. Por exemplo, <a href="https://blog.submain.com/codeit-right-rules-explained-part-2/">o produto da SubMain chamado CodeIt.Right</a> tem uma regra que você a especificar um <code class="highlighter-rouge">IFormatProvider</code> em situações nas quais é opcional, o que pode acabar salvando você de bugs difíceis ao fazer tratamento de datas.</p>
+<p>E finalmente, sempre use as ferramentas que estão à sua disposição. Por exemplo, <a href="https://blog.submain.com/codeit-right-rules-explained-part-2/">o produto da SubMain chamado CodeIt.Right</a> tem uma regra que você a especificar um <code class="language-plaintext highlighter-rouge">IFormatProvider</code> em situações nas quais é opcional, o que pode acabar salvando você de bugs difíceis ao fazer tratamento de datas.</p>
 
     
     

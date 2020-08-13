@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Null É Ruim. Qual A Melhor Alternativa? Null.</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Foto por Ben Hershey on UnsplashNota editorial: Eu escrevi originalmente este post para o blog da NDepend. Você pode conferir o original aqui, em inglês, no ...">
   
   <!-- Twitter card -->
@@ -140,11 +157,11 @@
 <figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="kt">var</span> <span class="n">contract</span> <span class="p">=</span> <span class="n">repository</span><span class="p">.</span><span class="nf">Find</span><span class="p">(</span><span class="m">42</span><span class="p">);</span>
 <span class="n">contract</span><span class="p">.</span><span class="nf">Extend</span><span class="p">(</span><span class="m">12</span><span class="p">);</span></code></pre></figure>
 
-<p>O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável <code class="highlighter-rouge">NullReferenceException</code>. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.</p>
+<p>O que deveria acontecer se não houvesse um contrato com ID igual a 42? Se o método “Find” retornar null, então você vai ganhar uma desagradável <code class="language-plaintext highlighter-rouge">NullReferenceException</code>. Como eu disse anteriormente, a nulidade faz seu código mentir. Se fossemos realmente pedantes sobre isso, o método “Find” deveria ser renomeado para “FindOrReturnNull”. Muito verboso, mas mais honesto.</p>
 
 <p>De qualquer forma, o <a href="https://en.wikipedia.org/wiki/Null_object_pattern">padrão de objeto nulo</a> é uma tentativa de resolver este problema. E como ele faz isso? Criando seu próprio tipo de nulo.</p>
 
-<p>Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa <code class="highlighter-rouge">IContract</code>, nossa classe NullContract poderia ser algo parecido com isto:</p>
+<p>Para implementar o padrão, criamos uma nova classe (vamos chamá-la de “NullContract”) que representa o caso quando um contrato está faltando. Fazemos esta nova classe cumprir o mesmo contrato que a classe original, mas não fazemos nada nos métodos. Assim, se imaginarmos que “Contrato” implementa <code class="language-plaintext highlighter-rouge">IContract</code>, nossa classe NullContract poderia ser algo parecido com isto:</p>
 
 <figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">NullContract</span> <span class="p">:</span> <span class="n">IContract</span>
 <span class="p">{</span>
@@ -240,7 +257,7 @@
 
 <p>Por último, mas não menos importante, e quanto aos tipos Maybe/Option? Esta é uma alternativa ao mesmo tempo elegante e robusta, especialmente em linguagens como o F#, onde você é forçado, de certa forma, a lidar com ambos os casos usando <em>pattern matching.</em></p>
 
-<p>Mas a triste realidade é a seguinte: embora <code class="highlighter-rouge">Maybe/Option</code> sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.</p>
+<p>Mas a triste realidade é a seguinte: embora <code class="language-plaintext highlighter-rouge">Maybe/Option</code> sejam abordagens surpreendentes, elas não podem mudar o fato de que o nulo existe e continuará a existir. Você não pode realmente impedir as pessoas de usá-lo, nem pode removê-lo de todas as linhas de código que as pessoas têm escrito desde o início da história do C#.</p>
 
 <p>Portanto, mesmo sendo grandes abordagens, elas ainda sofrem com o problema de serem mais um tipo de nulo para os desenvolvedores lidarem.</p>
 

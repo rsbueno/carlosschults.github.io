@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>C# 7 Features Worth Knowing - Part 1</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="C# 7 is finally among us. Time to check out some of its features.">
   
   <!-- Twitter card -->
@@ -118,13 +135,13 @@
 
 <p>What are those underscores for? <strong>Readability</strong>, that’s what.</p>
 
-<p>Large numbers can become quite hard to read. To address this issue, C# 7 lets you to use the <code class="highlighter-rouge">_</code> as a digit separator.</p>
+<p>Large numbers can become quite hard to read. To address this issue, C# 7 lets you to use the <code class="language-plaintext highlighter-rouge">_</code> as a digit separator.</p>
 
 <p>The separators make no difference on the value. You can place them wherever you like in the number, and in any quantity.</p>
 
 <p>And in case you’re wondering, you’re not restricted to using them with integers only; they also work with the other numeric types as well.</p>
 
-<p>The new version of C# also introduces binary literals, as seen in the third line of the example shown above. If you need to write a binary value, just put <code class="highlighter-rouge">0b</code> at the beginning of the number, and that’s it!</p>
+<p>The new version of C# also introduces binary literals, as seen in the third line of the example shown above. If you need to write a binary value, just put <code class="language-plaintext highlighter-rouge">0b</code> at the beginning of the number, and that’s it!</p>
 
 <h2 id="out-variables">Out variables</h2>
 
@@ -137,8 +154,8 @@
 <p>Some important things to bear in mind:</p>
 
 <ul>
-  <li>Even though I’ve explicitly written the type name in the declaration, this is not always required. I could have used <code class="highlighter-rouge">var</code> and it would’ve worked just the same.</li>
-  <li>You may think that the declared variable will go out of scope after we leave the <code class="highlighter-rouge">if/else</code> block. That is <strong>not</strong> the case. The variable continues to be accessible until going out of its normal scope.</li>
+  <li>Even though I’ve explicitly written the type name in the declaration, this is not always required. I could have used <code class="language-plaintext highlighter-rouge">var</code> and it would’ve worked just the same.</li>
+  <li>You may think that the declared variable will go out of scope after we leave the <code class="language-plaintext highlighter-rouge">if/else</code> block. That is <strong>not</strong> the case. The variable continues to be accessible until going out of its normal scope.</li>
 </ul>
 
 <script src="https://gist.github.com/carlosschults/a23411376a6610e0e9081674faf1b0a5.js"></script>
@@ -165,7 +182,7 @@
 
 <p>Now there is.</p>
 
-<p>In the previous versions of C#, <code class="highlighter-rouge">throw</code> was a statement. Now, it is an <strong>expression</strong>, which allows us to throw exceptions in places like the second hand of the Null Coalescing Operator and in conditional expressions.</p>
+<p>In the previous versions of C#, <code class="language-plaintext highlighter-rouge">throw</code> was a statement. Now, it is an <strong>expression</strong>, which allows us to throw exceptions in places like the second hand of the Null Coalescing Operator and in conditional expressions.</p>
 
 <p>Using a <em>throw expression</em>, the example shown above becomes as simple as this:</p>
 

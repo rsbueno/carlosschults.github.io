@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>C# Unit Testing: Getting Started With TDD</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="This post is part of a series. See all the articles in the series.Today I bring you another post to help you get started with C# unit testing. I’ve already c...">
   
   <!-- Twitter card -->
@@ -218,9 +235,9 @@
     <span class="p">}</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>Let’s do a few things. First, get rid of the <code class="highlighter-rouge">Setup()</code> method. We won’t need it. Then, add a new method with the code below:</p>
+<p>Let’s do a few things. First, get rid of the <code class="language-plaintext highlighter-rouge">Setup()</code> method. We won’t need it. Then, add a new method with the code below:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="n">Test</span><span class="p">]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Test2</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">Fail</span><span class="p">();</span>
@@ -248,7 +265,7 @@
 
 <p>Now, we’re ready to write our first failing test. So, open the StringCalculatorTest class and add the following method to it:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="n">Test</span><span class="p">]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Add_EmptyStringAsParam_ReturnsZero</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">));</span>
@@ -329,7 +346,7 @@ Add_EmptyStringAsParam_ReturnsZero
 
 <p>The requirements say that passing a single number should return the number itself. That’s sound like a useful thing to test:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="n">Test</span><span class="p">]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Add_StringContainingSingleNumber_ReturnsTheNumberItself</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="n">Assert</span><span class="p">.</span><span class="nf">AreEqual</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="s">"5"</span><span class="p">));</span>
@@ -362,7 +379,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 <p>Since we’ve already tested the Add method by passing zero numbers (an empty string) and a single number, it feels like the next natural step for us now would be to write a test for the scenario of adding two numbers. So, let’s do just that.</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="n">Test</span><span class="p">]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Add_TwoNumbersSeparatedByComma_ReturnsTheirSum</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">var</span> <span class="n">numbers</span> <span class="p">=</span> <span class="s">"7,8"</span><span class="p">;</span>
@@ -391,7 +408,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 <p>Let’s see if we can do that by testing the scenario with three numbers:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[Test]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="n">Test</span><span class="p">]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Add_ThreeNumbersSeparatedByComma_ReturnsTheirSum</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="kt">var</span> <span class="n">numbers</span> <span class="p">=</span> <span class="s">"1, 2, 3"</span><span class="p">;</span>
@@ -429,7 +446,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
     <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>By leveraging the <code class="highlighter-rouge">TryParse</code> method from the <code class="highlighter-rouge">System.Int32</code> type, I’ve managed to get rid of the first if instruction. We’ve also used a feature introduced in <a href="https://carlosschults.net/en/csharp-7-features/">C# 7</a> called “out variables.” This feature allows us to use out parameters without having to declare them beforehand.</p>
+<p>By leveraging the <code class="language-plaintext highlighter-rouge">TryParse</code> method from the <code class="language-plaintext highlighter-rouge">System.Int32</code> type, I’ve managed to get rid of the first if instruction. We’ve also used a feature introduced in <a href="https://carlosschults.net/en/csharp-7-features/">C# 7</a> called “out variables.” This feature allows us to use out parameters without having to declare them beforehand.</p>
 
 <p>All tests still pass, so I can’t write more production code. What should the next test be?</p>
 
@@ -439,11 +456,11 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 <p>To do this without having to create a lot of test methods, we’re going to leverage NUnit’s <a href="https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html">parametrized tests</a> feature, adding a single method with several test cases:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[TestCase("1,2,3,4", 10)]</span>
-<span class="na">[TestCase("8,7,20", 35)]</span>
-<span class="na">[TestCase("5,0,4,1001", 9)]</span>
-<span class="na">[TestCase("5,0,4,1000", 1009)]</span>
-<span class="na">[TestCase("26,6,90", 122)]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"1,2,3,4"</span><span class="p">,</span> <span class="m">10</span><span class="p">)]</span>
+<span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"8,7,20"</span><span class="p">,</span> <span class="m">35</span><span class="p">)]</span>
+<span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"5,0,4,1001"</span><span class="p">,</span> <span class="m">9</span><span class="p">)]</span>
+<span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"5,0,4,1000"</span><span class="p">,</span> <span class="m">1009</span><span class="p">)]</span>
+<span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"26,6,90"</span><span class="p">,</span> <span class="m">122</span><span class="p">)]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Add_MoreThanThreeNumbersSeparatedByComma_ReturnsTheirSum</span><span class="p">(</span>
     <span class="kt">string</span> <span class="n">input</span><span class="p">,</span> <span class="kt">int</span> <span class="n">result</span><span class="p">)</span>
 <span class="p">{</span>
@@ -476,9 +493,9 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 <p>The requirements say that negative numbers shouldn’t be allowed. Let’s add a test for that! For brevity’s sake, we’ll add a single test method with several test cases, so we’re forced to go for the correct implementation right away:</p>
 
-<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="na">[TestCase("1,2,3,4,5,-5")]</span>
-<span class="na">[TestCase("-1,1,2,9")]</span>
-<span class="na">[TestCase("5,6,8,-5")]</span>
+<figure class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"1,2,3,4,5,-5"</span><span class="p">)]</span>
+<span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"-1,1,2,9"</span><span class="p">)]</span>
+<span class="p">[</span><span class="nf">TestCase</span><span class="p">(</span><span class="s">"5,6,8,-5"</span><span class="p">)]</span>
 <span class="k">public</span> <span class="k">void</span> <span class="nf">Add_StringContainingNegativeNumbers_Throws</span><span class="p">(</span><span class="kt">string</span> <span class="n">numbers</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">Assert</span><span class="p">.</span><span class="n">Throws</span><span class="p">&lt;</span><span class="n">ArgumentException</span><span class="p">&gt;(()</span> <span class="p">=&gt;</span> <span class="n">StringCalculator</span><span class="p">.</span><span class="nf">Add</span><span class="p">(</span><span class="n">numbers</span><span class="p">));</span>
@@ -514,7 +531,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
     <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>As you can see, right at the beginning, we define a <code class="highlighter-rouge">List&lt;int&gt;</code> to store the negatives we find while iterating over all the numbers. Inside the loop, we verify whether the current number is negative. If it is, we add it to the list. If it isn’t, we verify whether it’s less than or equals to 1000, in which we case we add it to the result variable.</p>
+<p>As you can see, right at the beginning, we define a <code class="language-plaintext highlighter-rouge">List&lt;int&gt;</code> to store the negatives we find while iterating over all the numbers. Inside the loop, we verify whether the current number is negative. If it is, we add it to the list. If it isn’t, we verify whether it’s less than or equals to 1000, in which we case we add it to the result variable.</p>
 
 <p>After the loop, we verify whether the negatives list has any elements. If it has, we create an exception message that includes the specified negatives and then throw a new ArgumentException. Otherwise, we return the result.</p>
 
@@ -528,7 +545,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 <p>You’ll see that I created one commit for each step in the TDD cycle. That way, it becomes easier for future readers to visualize all the steps in the process by going through the project’s history, one commit at a time.</p>
 
-<p>There are improvements that can be made to the code I shared today. For instance, the final <code class="highlighter-rouge">Add</code> method could be written in a shorter, clearer, more efficient way, using <a href="https://carlosschults.net/en/functional-programming-csharp/">LINQ</a>. You could add more test cases. Also, the kata requirements ask for a specific exception message in the case of negative numbers. Even though we’ve implemented the message as specified, we didn’t write a test for it. We could do that as part of your practice.</p>
+<p>There are improvements that can be made to the code I shared today. For instance, the final <code class="language-plaintext highlighter-rouge">Add</code> method could be written in a shorter, clearer, more efficient way, using <a href="https://carlosschults.net/en/functional-programming-csharp/">LINQ</a>. You could add more test cases. Also, the kata requirements ask for a specific exception message in the case of negative numbers. Even though we’ve implemented the message as specified, we didn’t write a test for it. We could do that as part of your practice.</p>
 
 <p>Finally, stay tuned to this blog. This post is part of a series, to which I intend to add more parts.</p>
 

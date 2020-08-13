@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Git basics for TFS/TFVC users</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Learning Git can be a bit challenging for developers with a background in centralized version control systems. But it doesn’t have to be that way.">
   
   <!-- Twitter card -->
@@ -209,7 +226,7 @@
 
 <h2 id="some-commands">Some commands</h2>
 
-<p>OK, now you’ve got your repository, time to learn some commands. Let’s starting with one that you’ll probably use a lot: <code class="highlighter-rouge">git status</code>. This command allow you to visualize the current status of your repo.</p>
+<p>OK, now you’ve got your repository, time to learn some commands. Let’s starting with one that you’ll probably use a lot: <code class="language-plaintext highlighter-rouge">git status</code>. This command allow you to visualize the current status of your repo.</p>
 
 <p>When you run it you should see the following message:</p>
 
@@ -233,7 +250,7 @@
   <li>it shows what will go in the commit - which in this case is nothing, since we haven’t made any changes.</li>
 </ul>
 
-<p>Git even tell us what the next possible step is, i.e. create or copy files and the use <code class="highlighter-rouge">git add</code> to track them (don’t worry for now about what this “tracking” thing means).</p>
+<p>Git even tell us what the next possible step is, i.e. create or copy files and the use <code class="language-plaintext highlighter-rouge">git add</code> to track them (don’t worry for now about what this “tracking” thing means).</p>
 
 <p>Let’s create a file.</p>
 
@@ -241,7 +258,7 @@
   <p>echo test &gt; arq1.txt</p>
 </blockquote>
 
-<p>Run <code class="highlighter-rouge">git status</code> again and you’ll see that this time the message is different:</p>
+<p>Run <code class="language-plaintext highlighter-rouge">git status</code> again and you’ll see that this time the message is different:</p>
 
 <blockquote>
   <p>Untracked files:
@@ -260,7 +277,7 @@
   <p>git add arq1.txt</p>
 </blockquote>
 
-<p>Run <code class="highlighter-rouge">git status</code> again and look at the response:</p>
+<p>Run <code class="language-plaintext highlighter-rouge">git status</code> again and look at the response:</p>
 
 <blockquote>
   <p>Changes to be committed:</p>
@@ -281,9 +298,9 @@
   <p>git commit -m “First commit”</p>
 </blockquote>
 
-<p>The command below creates our first commit. The <code class="highlighter-rouge">-m</code> parameter is used to specify a commit message, which is essential for understanding the history of the project.</p>
+<p>The command below creates our first commit. The <code class="language-plaintext highlighter-rouge">-m</code> parameter is used to specify a commit message, which is essential for understanding the history of the project.</p>
 
-<p><code class="highlighter-rouge">git status</code> again:</p>
+<p><code class="language-plaintext highlighter-rouge">git status</code> again:</p>
 
 <blockquote>
   <p>On branch master</p>
@@ -297,7 +314,7 @@
   <p>adding a new line</p>
 </blockquote>
 
-<p><code class="highlighter-rouge">git status</code> again:</p>
+<p><code class="language-plaintext highlighter-rouge">git status</code> again:</p>
 
 <blockquote>
   <p>On branch master
@@ -316,9 +333,9 @@ Changes not staged for commit:
   <p>git add arq1.txt</p>
 </blockquote>
 
-<p>As you can see, this is the same <code class="highlighter-rouge">add</code> command we’ve already used, when the file was still in the “untracked” phase. Even tough the command is the same, its meaning is slightly different here. We’ll cover this difference in the future as well.</p>
+<p>As you can see, this is the same <code class="language-plaintext highlighter-rouge">add</code> command we’ve already used, when the file was still in the “untracked” phase. Even tough the command is the same, its meaning is slightly different here. We’ll cover this difference in the future as well.</p>
 
-<p>Run <code class="highlighter-rouge">git status</code> again, message, you should know the drill by now:</p>
+<p>Run <code class="language-plaintext highlighter-rouge">git status</code> again, message, you should know the drill by now:</p>
 
 <blockquote>
   <p>Changes to be committed:
@@ -335,7 +352,7 @@ Changes not staged for commit:
   <p>git commit -m “Second commit: add second line”</p>
 </blockquote>
 
-<p>To wrap things up, run <code class="highlighter-rouge">git status</code> and you’ll see a familiar message: working directory clean, nothing to commit.</p>
+<p>To wrap things up, run <code class="language-plaintext highlighter-rouge">git status</code> and you’ll see a familiar message: working directory clean, nothing to commit.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
@@ -353,7 +370,7 @@ Changes not staged for commit:
   <li>and son on</li>
 </ul>
 
-<p>Where I’ve wrote “add it”, you know I’m talking about the <code class="highlighter-rouge">git add</code> command. You might have noticed that this particular command has two different usages, which is clearly evidenced by the different messages that <code class="highlighter-rouge">git status</code> shows us after running it.</p>
+<p>Where I’ve wrote “add it”, you know I’m talking about the <code class="language-plaintext highlighter-rouge">git add</code> command. You might have noticed that this particular command has two different usages, which is clearly evidenced by the different messages that <code class="language-plaintext highlighter-rouge">git status</code> shows us after running it.</p>
 
 <p>You’ve probably also noticed the different stags that a file can be in: “untracked”, “new file”, “modified”. they progress from one stage to the next one, like in a pipeline.</p>
 

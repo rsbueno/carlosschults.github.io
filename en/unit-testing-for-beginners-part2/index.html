@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Unit testing for beginners - Part 2</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Better late than later! Time to continue our series on unit testing for beginners. Today you’re going to write your first unit test.">
   
   <!-- Twitter card -->
@@ -126,7 +143,7 @@ Feel free to try other frameworks later on.</p>
 
 <p>Create a new solution of the <strong>Class Library</strong> type, with the name <strong>LearningUnitTesting</strong>.</p>
 
-<p>Whenever I create a new solution on Visual Studio I delete the <code class="highlighter-rouge">Class1</code> class that is created by default. You could rename it, of course, it makes no difference.</p>
+<p>Whenever I create a new solution on Visual Studio I delete the <code class="language-plaintext highlighter-rouge">Class1</code> class that is created by default. You could rename it, of course, it makes no difference.</p>
 
 <p>Now, let’s rename the default project to <strong>Application</strong>. This project will store the <em>production code</em> in our solution.</p>
 
@@ -171,17 +188,17 @@ After creating the project, I delete the default class, same as before.</p>
 
 <h2 id="creating-and-running-the-first-test">Creating and running the first test</h2>
 
-<p>Let’s create some tests. First, let’s add a new class to our production project. The class’s name will be <code class="highlighter-rouge">Employee</code> and its code will look like this:</p>
+<p>Let’s create some tests. First, let’s add a new class to our production project. The class’s name will be <code class="language-plaintext highlighter-rouge">Employee</code> and its code will look like this:</p>
 
 <script src="https://gist.github.com/carlosschults/3f42e324b10ceb42b360382686d314de.js"></script>
 
-<p>I think the class is simple enough to not require additional explanation. Now, it’s time to create our test class. Add a new class called <code class="highlighter-rouge">EmployeeTest</code> to the <strong>ApplicationTest</strong> project.</p>
+<p>I think the class is simple enough to not require additional explanation. Now, it’s time to create our test class. Add a new class called <code class="language-plaintext highlighter-rouge">EmployeeTest</code> to the <strong>ApplicationTest</strong> project.</p>
 
 <blockquote>
   <p>This is another naming convention I like to use: to name the test class after the production class, adding the word <em>Test</em> at the end.</p>
 </blockquote>
 
-<p>After the class is created, add the <em>NUnit.Framework</em> namespace to its using declarations. Then, create a new void returning public method called <strong>MyFirstTestMethod</strong> and add the <code class="highlighter-rouge">[Test]</code> attribute to it.</p>
+<p>After the class is created, add the <em>NUnit.Framework</em> namespace to its using declarations. Then, create a new void returning public method called <strong>MyFirstTestMethod</strong> and add the <code class="language-plaintext highlighter-rouge">[Test]</code> attribute to it.</p>
 
 <p>By now, your code should look like this:</p>
 
@@ -189,7 +206,7 @@ After creating the project, I delete the default class, same as before.</p>
 
 <p>The skeleton for the test is ready. It’s time for you to write your first <strong>assertion</strong>. In the context of unit testing, an assertion is an affirmation about how a unit of your system should behave. If the affirmation turns out to be true, we say the test has <em>passed</em>. In case it proves to be false, we say the test has <em>failed</em>.</p>
 
-<p>In NUnit we use the <code class="highlighter-rouge">Assert</code> class to write our assertions. This class has a large number of methods that allow us to express our expectations about the behavior of our units.</p>
+<p>In NUnit we use the <code class="language-plaintext highlighter-rouge">Assert</code> class to write our assertions. This class has a large number of methods that allow us to express our expectations about the behavior of our units.</p>
 
 <p>Add the following line of code to the test method:</p>
 
@@ -197,7 +214,7 @@ After creating the project, I delete the default class, same as before.</p>
   <p>Assert.Pass();</p>
 </blockquote>
 
-<p>The <code class="highlighter-rouge">Pass</code> method, not surprisingly, just forces the test to pass. Now you’re going to run this test in order to see it passing. First of all, open the <strong>Test Explorer</strong>. Use the menu bar: <strong>Test</strong> &gt; <strong>Windows</strong> &gt; <strong>Test Explorer</strong>.</p>
+<p>The <code class="language-plaintext highlighter-rouge">Pass</code> method, not surprisingly, just forces the test to pass. Now you’re going to run this test in order to see it passing. First of all, open the <strong>Test Explorer</strong>. Use the menu bar: <strong>Test</strong> &gt; <strong>Windows</strong> &gt; <strong>Test Explorer</strong>.</p>
 
 <p>When the window is show, click on <em>Run All</em>. If everything goes right, you’ll see this:</p>
 
@@ -219,9 +236,9 @@ After creating the project, I delete the default class, same as before.</p>
 
 <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1498508371/myfirsttestfail_xwuo5u.png" alt="" /></p>
 
-<p>Now that you’re getting the hang of it, we’re start testing our <code class="highlighter-rouge">Employee</code> class. Don’t forget to switch the test method back to <code class="highlighter-rouge">Assert.Pass()</code>, otherwise it will continue to fail.</p>
+<p>Now that you’re getting the hang of it, we’re start testing our <code class="language-plaintext highlighter-rouge">Employee</code> class. Don’t forget to switch the test method back to <code class="language-plaintext highlighter-rouge">Assert.Pass()</code>, otherwise it will continue to fail.</p>
 
-<p>Now add a new method called <code class="highlighter-rouge">IntroduceMethodShouldWorkCorrectly</code>. In this method we’ll create a new instance of <code class="highlighter-rouge">Employee</code> and verify that the <code class="highlighter-rouge">Introduce</code> method is working properly.</p>
+<p>Now add a new method called <code class="language-plaintext highlighter-rouge">IntroduceMethodShouldWorkCorrectly</code>. In this method we’ll create a new instance of <code class="language-plaintext highlighter-rouge">Employee</code> and verify that the <code class="language-plaintext highlighter-rouge">Introduce</code> method is working properly.</p>
 
 <p>Before we do that, though, we must add a reference from the production project to our test project. Otherwise, our test class won’t be able to see the classes it is supposed to test!</p>
 
@@ -235,19 +252,19 @@ After creating the project, I delete the default class, same as before.</p>
 
 <script src="https://gist.github.com/carlosschults/c840590dab95a023d4530962fca048db.js"></script>
 
-<p>You will notice that <code class="highlighter-rouge">Employee</code> is marked as an error. If you hover over it, you’ll see a message saying that the name <code class="highlighter-rouge">Employee</code> couldn’t be found and asking if there is some reference or <em>using</em> directive missing.</p>
+<p>You will notice that <code class="language-plaintext highlighter-rouge">Employee</code> is marked as an error. If you hover over it, you’ll see a message saying that the name <code class="language-plaintext highlighter-rouge">Employee</code> couldn’t be found and asking if there is some reference or <em>using</em> directive missing.</p>
 
-<p>Of course there is a using directive missing, related to the reference we’ve just added. To fix this problem, just add the line <code class="highlighter-rouge">using Application;</code> to the namespace declarations, right at the start of the file.</p>
+<p>Of course there is a using directive missing, related to the reference we’ve just added. To fix this problem, just add the line <code class="language-plaintext highlighter-rouge">using Application;</code> to the namespace declarations, right at the start of the file.</p>
 
 <p>Now that our code compiles, let’s go through this method, line by line.</p>
 
-<p>In the first line, we create a new instance of <code class="highlighter-rouge">Employee</code>, specifying name, profession and salary. In the following line, we assign to a variable the value we <strong>expect</strong> the method to return. Then we assign to another variable the obtained result from the method.</p>
+<p>In the first line, we create a new instance of <code class="language-plaintext highlighter-rouge">Employee</code>, specifying name, profession and salary. In the following line, we assign to a variable the value we <strong>expect</strong> the method to return. Then we assign to another variable the obtained result from the method.</p>
 
-<p>Finally, we use the <code class="highlighter-rouge">AreEqual</code> method from the <code class="highlighter-rouge">Assert</code> class to verify the equality of the two values. This method is, probably, the one you’ll use the most during your tests.</p>
+<p>Finally, we use the <code class="language-plaintext highlighter-rouge">AreEqual</code> method from the <code class="language-plaintext highlighter-rouge">Assert</code> class to verify the equality of the two values. This method is, probably, the one you’ll use the most during your tests.</p>
 
 <p>Now it’s time to run the test. Use the shortcut <strong>CTRL + R, A</strong> or click on <strong>Run All</strong> in the Test Explorer window. If everything goes smoothly, you should see the green bar and the message indicating that both tests have passed.</p>
 
-<p>Time to test our test! We’re going to deliberately ruin the <code class="highlighter-rouge">Introduce</code> method to see if the test fails as expected. Back to the production class, edit the method like this:</p>
+<p>Time to test our test! We’re going to deliberately ruin the <code class="language-plaintext highlighter-rouge">Introduce</code> method to see if the test fails as expected. Back to the production class, edit the method like this:</p>
 
 <script src="https://gist.github.com/carlosschults/02554ca9b8dd69f8c904dbbcc271c99e.js"></script>
 
@@ -262,10 +279,10 @@ But was:  “Hi! My name is Alice and I work as a JobTitle.”
 ————————————————^</p>
 </blockquote>
 
-<p>As you can see, the message is very detailed. It not only lets us know that the strings differed, but it also tells us exactly where they differ. It also shows the expected string and what we really got. It is important to notice that the parameter’s orders in the <code class="highlighter-rouge">AreEqual</code> matters a lot, since it is used in the failure message.</p>
+<p>As you can see, the message is very detailed. It not only lets us know that the strings differed, but it also tells us exactly where they differ. It also shows the expected string and what we really got. It is important to notice that the parameter’s orders in the <code class="language-plaintext highlighter-rouge">AreEqual</code> matters a lot, since it is used in the failure message.</p>
 
 <blockquote>
-  <p><strong>The parameters’ order in the <code class="highlighter-rouge">AreEqual</code> is very important. First specify the expected value, and then the actual result.</strong></p>
+  <p><strong>The parameters’ order in the <code class="language-plaintext highlighter-rouge">AreEqual</code> is very important. First specify the expected value, and then the actual result.</strong></p>
 </blockquote>
 
 <p>Great. Now you can switch the method back to the correct implementation and run the tests again, so the test can be green again.</p>
@@ -292,13 +309,13 @@ But was:  “Hi! My name is Alice and I work as a JobTitle.”
 
 <p>Even though it isn’t really need, I suggest you use comments like the ones above to indicate the test phases, at least in the beginning of your learning.</p>
 
-<h2 id="testing-the-giveraise-method">Testing the <code class="highlighter-rouge">GiveRaise</code> method</h2>
+<h2 id="testing-the-giveraise-method">Testing the <code class="language-plaintext highlighter-rouge">GiveRaise</code> method</h2>
 
-<p>A salary raise is always welcome, wouldn’t you agree? Let’s test the <code class="highlighter-rouge">GiveRaise</code> method to see if it’s working properly. Add the following method to your test class:</p>
+<p>A salary raise is always welcome, wouldn’t you agree? Let’s test the <code class="language-plaintext highlighter-rouge">GiveRaise</code> method to see if it’s working properly. Add the following method to your test class:</p>
 
 <script src="https://gist.github.com/carlosschults/2ce153c1da6f83e80342fa7f83ea4786.js"></script>
 
-<p>Run the test and you should see the familiar green bar. Did it work? Great. Time to <strong>test the test</strong>: we’re going to sabotage the implementation of <code class="highlighter-rouge">GiveRaise</code> and hope our test catches the error.</p>
+<p>Run the test and you should see the familiar green bar. Did it work? Great. Time to <strong>test the test</strong>: we’re going to sabotage the implementation of <code class="language-plaintext highlighter-rouge">GiveRaise</code> and hope our test catches the error.</p>
 
 <p>In the production class, edit the method this way:</p>
 
@@ -315,7 +332,7 @@ But was:  “Hi! My name is Alice and I work as a JobTitle.”
 
 <h2 id="one-last-test">One last test</h2>
 
-<p>Let’s say the Product Owner just showed up with a new requirement: the <code class="highlighter-rouge">GiveRaise</code> method should ignore negative raise rates. First, let’s edit the <code class="highlighter-rouge">GiveRaise</code> method to deal with this scenario:</p>
+<p>Let’s say the Product Owner just showed up with a new requirement: the <code class="language-plaintext highlighter-rouge">GiveRaise</code> method should ignore negative raise rates. First, let’s edit the <code class="language-plaintext highlighter-rouge">GiveRaise</code> method to deal with this scenario:</p>
 
 <script src="https://gist.github.com/carlosschults/3f09a8043a1e58753adf9bfdee37350a.js"></script>
 
@@ -341,7 +358,7 @@ Run the test to be sure that all of them are passing.</p>
 <ul>
   <li>Installation of <strong>NUnit</strong> and <strong>NUnit Test Adapter</strong>;</li>
   <li>Creation of a test;</li>
-  <li>Introduction to the <code class="highlighter-rouge">Assert</code> class;</li>
+  <li>Introduction to the <code class="language-plaintext highlighter-rouge">Assert</code> class;</li>
   <li>Test execution, via <em>Test Explorer</em> and keyboard shortcuts;</li>
   <li>Reading and interpretation of test results;</li>
   <li>Phases of a unit test (<em>Arrange-Act-Assert</em>).</li>

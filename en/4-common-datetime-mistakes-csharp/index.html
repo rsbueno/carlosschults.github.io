@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>4 Common Datetime Mistakes in C# — And How to Avoid Them</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Editorial note: I originally wrote this post for the SubMain blog.  You can check out the original here, at their site. While you’re there, have a look at Co...">
   
   <!-- Twitter card -->
@@ -126,36 +143,36 @@
 
 <p>Will this code work? It depends on where and when it’s going to run.</p>
 
-<p>When you use <code class="highlighter-rouge">DateTime.Now</code>, the <code class="highlighter-rouge">DateTime</code> you get represents the current date and time local to your machine (i.e., it has the <code class="highlighter-rouge">Kind</code> property set to <code class="highlighter-rouge">Local</code>).</p>
+<p>When you use <code class="language-plaintext highlighter-rouge">DateTime.Now</code>, the <code class="language-plaintext highlighter-rouge">DateTime</code> you get represents the current date and time local to your machine (i.e., it has the <code class="language-plaintext highlighter-rouge">Kind</code> property set to <code class="language-plaintext highlighter-rouge">Local</code>).</p>
 
 <p>If you live in an area that observes DST (Daylight Saving Time), you know there’s one day in the year when all clocks must be moved forward a certain amount of time (generally one hour, but there are places that adjust by other offsets). Of course, there’s also the day when the opposite happens.</p>
 
-<p>Now picture this: today is March 12th, 2017, and you live in New York City. You start using the program above. The <code class="highlighter-rouge">StartMatch()</code> method runs at exactly 01:00 AM.  One hour and 15 minutes later, the <code class="highlighter-rouge">EndMatch()</code> method runs. The calculation is performed, and the following text is shown:</p>
+<p>Now picture this: today is March 12th, 2017, and you live in New York City. You start using the program above. The <code class="language-plaintext highlighter-rouge">StartMatch()</code> method runs at exactly 01:00 AM.  One hour and 15 minutes later, the <code class="language-plaintext highlighter-rouge">EndMatch()</code> method runs. The calculation is performed, and the following text is shown:</p>
 
 <p><em>Duration of the match: 00:02:15</em></p>
 
-<p>I bet you’ve correctly guessed what just happened here: when clocks were about to hit 2 AM, DST just kicked in and moved them straight to 3 AM. Then <code class="highlighter-rouge">EndMatch</code> got back the current time, effectively adding a whole hour to the calculation. If the same had happened at the end of DST, the result would’ve been just 15 minutes!</p>
+<p>I bet you’ve correctly guessed what just happened here: when clocks were about to hit 2 AM, DST just kicked in and moved them straight to 3 AM. Then <code class="language-plaintext highlighter-rouge">EndMatch</code> got back the current time, effectively adding a whole hour to the calculation. If the same had happened at the end of DST, the result would’ve been just 15 minutes!</p>
 
 <p>Sure, the code above is just a toy example, but what if it were a payroll application? Would you like to pay an employee the wrong amount?</p>
 
 <h3 id="what-to-do">What to Do?</h3>
 
-<p>When calculating the duration of human activities, use UTC for the start and end dates. That way, you’ll be able to** unambiguously point to an instant in time**. Instead of using the <code class="highlighter-rouge">Now</code> property on <code class="highlighter-rouge">DateTime</code>, use `UtcNow to retrieve the date time already in UTC to perform the calculations:</p>
+<p>When calculating the duration of human activities, use UTC for the start and end dates. That way, you’ll be able to** unambiguously point to an instant in time**. Instead of using the <code class="language-plaintext highlighter-rouge">Now</code> property on <code class="language-plaintext highlighter-rouge">DateTime</code>, use `UtcNow to retrieve the date time already in UTC to perform the calculations:</p>
 
 <script src="https://gist.github.com/carlosschults/82492845edaa8f8fc16c646ed2bbcf2a.js"></script>
 
-<p>What if the <code class="highlighter-rouge">DateTime</code> objects you already have are set to Local? In that case, you should use the ToUniversalTime() method to convert them to UTC:</p>
+<p>What if the <code class="language-plaintext highlighter-rouge">DateTime</code> objects you already have are set to Local? In that case, you should use the ToUniversalTime() method to convert them to UTC:</p>
 
 <script src="https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js"></script>
 
 <h3 id="a-little-warning-about-touniversaltime">A Little Warning About ToUniversalTime()</h3>
 
-<p>The usage of <code class="highlighter-rouge">ToUniversalTime()</code> — and its sibling, <code class="highlighter-rouge">ToLocalTime()</code>— can be a little tricky. The problem is that these methods make assumptions about what you want based on the value of the Kind property of your date, and that can cause unexpected results.</p>
+<p>The usage of <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code> — and its sibling, <code class="language-plaintext highlighter-rouge">ToLocalTime()</code>— can be a little tricky. The problem is that these methods make assumptions about what you want based on the value of the Kind property of your date, and that can cause unexpected results.</p>
 
-<p>When calling <code class="highlighter-rouge">ToUniversalTime()</code>, one of the following things will happen:</p>
+<p>When calling <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code>, one of the following things will happen:</p>
 
 <ul>
-  <li>If <code class="highlighter-rouge">Kind</code> is set to UTC, then the same value is returned.</li>
+  <li>If <code class="language-plaintext highlighter-rouge">Kind</code> is set to UTC, then the same value is returned.</li>
   <li>On the other hand, if it’s set to Local, the corresponding value in UTC is returned.</li>
   <li>Finally, if Kind is set to Unspecified,** then it’s assumed the datetime is meant to be local, **and the corresponding UTC datetime is returned.</li>
 </ul>
@@ -165,9 +182,9 @@
 <p>So, the following scenario can happen:</p>
 
 <ul>
-  <li>You retrieve the current date and time using <code class="highlighter-rouge">DateTime.UtcNow</code>.</li>
+  <li>You retrieve the current date and time using <code class="language-plaintext highlighter-rouge">DateTime.UtcNow</code>.</li>
   <li>You save it to the database.</li>
-  <li>Another part of the code retrieves this value and, unaware that it’s supposed to already be in UTC, calls <code class="highlighter-rouge">ToUniversalTime()</code> on it.</li>
+  <li>Another part of the code retrieves this value and, unaware that it’s supposed to already be in UTC, calls <code class="language-plaintext highlighter-rouge">ToUniversalTime()</code> on it.</li>
   <li>Since the datetime is unspecified, the method will treat it as Local and perform an unnecessary conversion, generating a wrong value.</li>
 </ul>
 
@@ -181,7 +198,7 @@
 
 <p>Let’s say you need to be able to reconstruct the local datetime — to the user’s perspective — of when something happened, and the only information you have is a timestamp in UTC. That’s a piece of bad luck.</p>
 
-<p>In cases like this, it’d make more sense to either (a) store the datetime in UTC along with the user’s time zone or (b) use the <code class="highlighter-rouge">DateTimeOffset</code> type, which will record the local date along with the UTC offset, enabling you to reconstruct the UTC date from it when you need it.</p>
+<p>In cases like this, it’d make more sense to either (a) store the datetime in UTC along with the user’s time zone or (b) use the <code class="language-plaintext highlighter-rouge">DateTimeOffset</code> type, which will record the local date along with the UTC offset, enabling you to reconstruct the UTC date from it when you need it.</p>
 
 <p>Another common use case where UTC is not the right solution is <a href="https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;lq=1">scheduling future local events</a>. You wouldn’t want to wake up one hour later or earlier in the days of DST transitions, right? That’s exactly what would happen if you’d set your alarm clock by UTC.</p>
 
@@ -199,7 +216,7 @@
 
 <h3 id="what-is-the-remedy">What Is the Remedy?</h3>
 
-<p>How do you deal with those issues as a C# developer? The <code class="highlighter-rouge">TimeZoneInfo</code> class has got you covered. It not only represents a time zone but it also provides methods to check for a datetime validity:</p>
+<p>How do you deal with those issues as a C# developer? The <code class="language-plaintext highlighter-rouge">TimeZoneInfo</code> class has got you covered. It not only represents a time zone but it also provides methods to check for a datetime validity:</p>
 
 <script src="https://gist.github.com/carlosschults/2b94d57390b3518294730c01003f159c.js"></script>
 
@@ -232,7 +249,7 @@
 
 <p>This list is by no means exhaustive. I only wanted to give you a quick start in the fascinating and somewhat bizarre world of datetime issues. There are plenty of valuable resources out there for you to learn from, such as the <a href="https://stackoverflow.com/tags/timezone/info">time zone tag on Stack Overflow</a> or blogs such as <a href="https://codeblog.jonskeet.uk/">Jon Skeet’s</a> and <a href="https://codeofmatt.com/">Matt Johnson’s,</a> who are authors of the popular NodaTime library.</p>
 
-<p>And of course, always use the tools at your disposal. For instance, <a href="https://blog.submain.com/codeit-right-rules-explained-part-2/">SubMain’s CodeIt.Right</a> has a rule to force you to specify a <code class="highlighter-rouge">IFormatProvider</code> in situations where it’s optional, which can save you from nasty bugs when parsing dates.</p>
+<p>And of course, always use the tools at your disposal. For instance, <a href="https://blog.submain.com/codeit-right-rules-explained-part-2/">SubMain’s CodeIt.Right</a> has a rule to force you to specify a <code class="language-plaintext highlighter-rouge">IFormatProvider</code> in situations where it’s optional, which can save you from nasty bugs when parsing dates.</p>
 
     
     

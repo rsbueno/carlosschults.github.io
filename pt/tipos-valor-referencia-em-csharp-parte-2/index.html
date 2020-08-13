@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Tipos de valor e referência em C#, Parte 2 - Por que DateTime não pode ser nulo?</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="“Por que uma variável DateTime não pode receber null?” Esta é uma pergunta que vive aparecendo no StackOverflow e site similares. Às vezes escrita de modo um...">
   
   <!-- Twitter card -->
@@ -101,26 +118,26 @@
   <div class="post-content" itemprop="articleBody">
     <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1466341001/csharp-min_buiizq.png" alt="" /></p>
 
-<p>“Por que uma variável DateTime não pode receber <code class="highlighter-rouge">null</code>?” Esta é uma pergunta que vive aparecendo no <em>StackOverflow</em> e site similares. Às vezes escrita de modo um pouco diferente, às vezes com um tipo diferente, mas no fundo é a mesma dúvida. O que é natural, se você considerar que provavelmente milhares de pessoas entram na área a cada ano.
+<p>“Por que uma variável DateTime não pode receber <code class="language-plaintext highlighter-rouge">null</code>?” Esta é uma pergunta que vive aparecendo no <em>StackOverflow</em> e site similares. Às vezes escrita de modo um pouco diferente, às vezes com um tipo diferente, mas no fundo é a mesma dúvida. O que é natural, se você considerar que provavelmente milhares de pessoas entram na área a cada ano.
 <!--more--></p>
 
-<p>A resposta curta é: porque DateTime/int/float/etc é um <strong>tipo de valor</strong>, e tipos de valor não podem nunca receber <code class="highlighter-rouge">null</code>. Apenas tipos de referência podem.</p>
+<p>A resposta curta é: porque DateTime/int/float/etc é um <strong>tipo de valor</strong>, e tipos de valor não podem nunca receber <code class="language-plaintext highlighter-rouge">null</code>. Apenas tipos de referência podem.</p>
 
 <p>Legal, mas…por quê?</p>
 
-<p>Em algum momento os projetistas do C# tiveram que tomar essa decisão. Eles deliberadamente decidiram que tipos de valor não poderiam receber <code class="highlighter-rouge">null</code>. Será que tem alguma coisa que naturalmente impede isso? Talvez tenha algo a ver com a pilha e a heap?</p>
+<p>Em algum momento os projetistas do C# tiveram que tomar essa decisão. Eles deliberadamente decidiram que tipos de valor não poderiam receber <code class="language-plaintext highlighter-rouge">null</code>. Será que tem alguma coisa que naturalmente impede isso? Talvez tenha algo a ver com a pilha e a heap?</p>
 
 <p>Eu acho que antes de tentarmos responder essas questões, seria interessar voltar um passo e pensar um pouco sobre outra questão.</p>
 
 <h2 id="o-que-exatamente-é-null">O que exatamente é null?</h2>
 
-<p>Você provavelmente pensa em <code class="highlighter-rouge">null</code> como uma maneira de representar uma informação que está faltando. Algo desconhecido, ausente ou irrelevante. Talvez um dado que não está onde deveria <em>ainda</em>, mas talvez esteja no futuro.</p>
+<p>Você provavelmente pensa em <code class="language-plaintext highlighter-rouge">null</code> como uma maneira de representar uma informação que está faltando. Algo desconhecido, ausente ou irrelevante. Talvez um dado que não está onde deveria <em>ainda</em>, mas talvez esteja no futuro.</p>
 
 <p>Lembra do meu <a href="https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/">post anterior sobre tipos de valor e referência</a>? Nele nós vimos que uma variável de um tipo de referência <strong>contém uma referência que aponta para uma instância daquele tipo específico</strong>. Mas quando a variável recebe <em>null</em>, seu conteúdo passa a ser o quê? Nada?</p>
 
-<p>Não exatamente. Ainda que <code class="highlighter-rouge">null</code> essencialmente signifique nada, esse “nada” precisa ser representado de alguma forma na memória do computador.</p>
+<p>Não exatamente. Ainda que <code class="language-plaintext highlighter-rouge">null</code> essencialmente signifique nada, esse “nada” precisa ser representado de alguma forma na memória do computador.</p>
 
-<p>No C#, a palavra reservada <code class="highlighter-rouge">null</code> representa uma <strong>referência nula</strong>, que é uma referência que não aponta para nenhum objeto. Na prática, essa referência é representada como um número (de 32 ou 64 bits, dependendo do sistema operacional) com todos os bits zerados.</p>
+<p>No C#, a palavra reservada <code class="language-plaintext highlighter-rouge">null</code> representa uma <strong>referência nula</strong>, que é uma referência que não aponta para nenhum objeto. Na prática, essa referência é representada como um número (de 32 ou 64 bits, dependendo do sistema operacional) com todos os bits zerados.</p>
 
 <p>É claro, tudo isso são detalhes de implementação. Isso poderia ter sido implementado de maneiras diferentes, ou seja, não é tão relevante assim pra gente agora. O que você realmente precisa entender é que você <strong>precisa de algo para representar nada</strong>. É necessário algum tipo de valor especial que significa “esse valor está faltando” ou “esse valor é desconhecido”.</p>
 
@@ -134,7 +151,7 @@
 
 <p>Esse tipo representa um número inteiro sem sinal de 8 bits. Como 2 elevado a 8 é 256, é possível representar 256 valores. Como é um tipo “sem sinal”, ele só pode representar valores maiores ou igual a zero. Portanto, o range de valores possíveis para esse tipo é <strong>de 0 a 255</strong>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00000000 =&gt; 0
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>00000000 =&gt; 0
 00000001 =&gt; 1
 00000010 =&gt; 2
     .        .
@@ -171,9 +188,9 @@ are horrible, not to mention the fact that you’d have to check the flag every 
 
 <h2 id="mas-eu-realmente-preciso-de-um-tipo-de-valor-nulável-e-agora">Mas eu realmente preciso de um tipo de valor nulável. E agora?</h2>
 
-<p>Agora você entende as complicações envolvidas em representar <code class="highlighter-rouge">null</code> para um tipo de valor, e porque os projetistas do C# decidiram contra permitir isso. Mas, e se você realmente precisa fazer isso? Um cenário comum é quando você busca dados de um banco de dados relacional. O que é possível ser feito?</p>
+<p>Agora você entende as complicações envolvidas em representar <code class="language-plaintext highlighter-rouge">null</code> para um tipo de valor, e porque os projetistas do C# decidiram contra permitir isso. Mas, e se você realmente precisa fazer isso? Um cenário comum é quando você busca dados de um banco de dados relacional. O que é possível ser feito?</p>
 
-<p>Felizmente há uma solução fácil. Ainda que tipos de valor “normais” não são nuláveis, a versão 2 do C# introduziu a estrutura <code class="highlighter-rouge">Nullable&lt;T&gt;</code>, que permite atribuir <code class="highlighter-rouge">null</code> a praticamente qualquer coisa.</p>
+<p>Felizmente há uma solução fácil. Ainda que tipos de valor “normais” não são nuláveis, a versão 2 do C# introduziu a estrutura <code class="language-plaintext highlighter-rouge">Nullable&lt;T&gt;</code>, que permite atribuir <code class="language-plaintext highlighter-rouge">null</code> a praticamente qualquer coisa.</p>
 
 <p>Falarei sobre isso no próximo artigo da série. Como bônus, você vai aprender um pouco sobre outra feature interessante chamada <strong>generics</strong>.</p>
 

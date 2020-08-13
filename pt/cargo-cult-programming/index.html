@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Programação Cargo Cult É A Arte de Programar Por Coincidência</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode clicar aqui para ler o artigo original no site deles, em inglês. Enquanto estiver ...">
   
   <!-- Twitter card -->
@@ -180,7 +197,7 @@
 
 <p>Bom, pra começo de conversa, eu me preocuparia com uma empresa de desenvolvimento cujo único critério de qualidade é “roda sem quebrar”. Mas o problema de verdade aqui é que esse tipo de código demonstra uma falta de entendimento sobre características fundamentais da linguagem e da plataforma que podem lhe causar problemas no futuro.</p>
 
-<h3 id="uso-desnecessário-de-tolist-em-consultas-do-linq-to-object">Uso Desnecessário de <code class="highlighter-rouge">ToList()</code> em consultas do LINQ to Object</h3>
+<h3 id="uso-desnecessário-de-tolist-em-consultas-do-linq-to-object">Uso Desnecessário de <code class="language-plaintext highlighter-rouge">ToList()</code> em consultas do LINQ to Object</h3>
 <p>Assim como o problema anterior, o item atual é algo que eu rotineiramente vejo em código de produção. Considere o código abaixo:</p>
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">var</span> <span class="n">result</span> <span class="p">=</span> <span class="n">users</span><span class="p">.</span><span class="nf">ToList</span><span class="p">()</span>
@@ -189,11 +206,11 @@
 	<span class="p">.</span><span class="nf">Select</span><span class="p">(</span><span class="n">x</span> <span class="p">=&gt;</span> <span class="k">new</span> <span class="p">{</span> <span class="n">Name</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">Name</span><span class="p">,</span> <span class="n">Birth</span> <span class="p">=</span> <span class="n">x</span><span class="p">.</span><span class="n">DateOfBirth</span> <span class="p">})</span>
 	<span class="p">.</span><span class="nf">ToList</span><span class="p">();</span></code></pre></figure>
 
-<p>O problema que temos aqui é que as chamadas ao método <code class="highlighter-rouge">ToList()</code> são totalmente desnecessárias (exceto talvez a última, caso você realmente precisasse que o resultado fosse um lista e não apenas um <code class="highlighter-rouge">IEnumerable</code>).</p>
+<p>O problema que temos aqui é que as chamadas ao método <code class="language-plaintext highlighter-rouge">ToList()</code> são totalmente desnecessárias (exceto talvez a última, caso você realmente precisasse que o resultado fosse um lista e não apenas um <code class="language-plaintext highlighter-rouge">IEnumerable</code>).</p>
 
-<p>Em minha experiência, isso acontece quando quem escreveu o código não entende bem a natureza do LINQ; eles erroneamente acham que os métodos do LINQ pertencem ao tipo concreto <code class="highlighter-rouge">List&lt;T&gt;</code> ao invés de serem métodos de extensão que podem ser usados com qualquer implementação de <code class="highlighter-rouge">IEnumerable&lt;T&gt;</code>.</p>
+<p>Em minha experiência, isso acontece quando quem escreveu o código não entende bem a natureza do LINQ; eles erroneamente acham que os métodos do LINQ pertencem ao tipo concreto <code class="language-plaintext highlighter-rouge">List&lt;T&gt;</code> ao invés de serem métodos de extensão que podem ser usados com qualquer implementação de <code class="language-plaintext highlighter-rouge">IEnumerable&lt;T&gt;</code>.</p>
 
-<p>Ao chamar <code class="highlighter-rouge">ToList()</code> diversas vezes dessa forma, o desenvolvedor na verdade cria diversas listas novas, o que pode prejudicar o desempenho da aplicação.</p>
+<p>Ao chamar <code class="language-plaintext highlighter-rouge">ToList()</code> diversas vezes dessa forma, o desenvolvedor na verdade cria diversas listas novas, o que pode prejudicar o desempenho da aplicação.</p>
 
 <p>O código acima pode ser reescrito da seguinte forma:</p>
 
@@ -204,27 +221,27 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">DateTime</span> <span class="n">creationDate</span> <span class="p">=</span> <span class="n">DateTime</span><span class="p">.</span><span class="nf">Parse</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s">"creation_date"</span><span class="p">].</span><span class="nf">ToString</span><span class="p">());</span></code></pre></figure>
 
-<p>Aqui temos não apenas uma mas duas conversões desnecessárias. Primeiro, criamos uma nova string e então a “parseamos” para <code class="highlighter-rouge">DateTime</code> quando um simples <em>cast</em> seria suficiente:</p>
+<p>Aqui temos não apenas uma mas duas conversões desnecessárias. Primeiro, criamos uma nova string e então a “parseamos” para <code class="language-plaintext highlighter-rouge">DateTime</code> quando um simples <em>cast</em> seria suficiente:</p>
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="n">DateTime</span> <span class="n">creationDate</span> <span class="p">=</span> <span class="p">(</span><span class="n">DateTime</span><span class="p">)</span><span class="n">row</span><span class="p">[</span><span class="s">"creation_date"</span><span class="p">];</span></code></pre></figure>
 
-<p>Esse exemplo assume que o tipo no banco de dados é um tipo específico para lidar com datas (como <code class="highlighter-rouge">date</code> ou <code class="highlighter-rouge">datetime</code> no SQL Server). É claro que se você estivesse usando um tipo inadequado (como <code class="highlighter-rouge">varchar</code>) então isso já seria um outro problema.</p>
+<p>Esse exemplo assume que o tipo no banco de dados é um tipo específico para lidar com datas (como <code class="language-plaintext highlighter-rouge">date</code> ou <code class="language-plaintext highlighter-rouge">datetime</code> no SQL Server). É claro que se você estivesse usando um tipo inadequado (como <code class="language-plaintext highlighter-rouge">varchar</code>) então isso já seria um outro problema.</p>
 
-<h3 id="try-catch-em-todo-lugar"><code class="highlighter-rouge">Try-Catch</code> em todo lugar</h3>
-<p>Também conhecido como síndrome Pokémon (“Gotta catch’em all!”), o <em>anti-pattern</em> aqui é adicionar um bloco <code class="highlighter-rouge">try-catch</code> em cada linha em que exista a remota possibilidade de uma exceção ser disparada.</p>
+<h3 id="try-catch-em-todo-lugar"><code class="language-plaintext highlighter-rouge">Try-Catch</code> em todo lugar</h3>
+<p>Também conhecido como síndrome Pokémon (“Gotta catch’em all!”), o <em>anti-pattern</em> aqui é adicionar um bloco <code class="language-plaintext highlighter-rouge">try-catch</code> em cada linha em que exista a remota possibilidade de uma exceção ser disparada.</p>
 
-<p>Pontos bônus se o código estiver tentando capturar <code class="highlighter-rouge">System.Exception</code> ao invés de uma exceção mais específica, acabando com a distinção entre erros esperados e não esperados.</p>
+<p>Pontos bônus se o código estiver tentando capturar <code class="language-plaintext highlighter-rouge">System.Exception</code> ao invés de uma exceção mais específica, acabando com a distinção entre erros esperados e não esperados.</p>
 
-<p>Mais pontos se o bloco do <code class="highlighter-rouge">catch</code> não conter código nenhum!</p>
+<p>Mais pontos se o bloco do <code class="language-plaintext highlighter-rouge">catch</code> não conter código nenhum!</p>
 
 <p>A dica geral aqui é: jamais capture uma exceção a não ser que você tenha uma razão muito específica para fazê-lo. Do contrário, deixe que a exceção suba até que o gerenciador de exceções geral no nível mais alto lide com ela.</p>
 
 <p>Se esse conselho parece vago (“Como vou saber se eu tenho uma boa razão para capturar a exceção?”), é porque de fato é. Explorar esse tema mais a fundo iria além do escopo desse post, , mas <a href="https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/">ler o excelente artigo do Eric Lippert chamado “Vexing Exceptions”</a> vai aumentar e muito o seu entendimento sobre exceções.</p>
 
-<h3 id="usar-stringbuilder-demais">Usar <code class="highlighter-rouge">StringBuilder</code> Demais</h3>
-<p>Você já deve ter visto o filme: depois de ler em algum lugar que concatenar strings usando <code class="highlighter-rouge">+</code> é ineficiente, nosso intrépido desenvolvedor resolve tomar pra si a tarefa hercúlea de mudar cada concatenação de string no projeto para o uso de <code class="highlighter-rouge">StringBuilder</code>.</p>
+<h3 id="usar-stringbuilder-demais">Usar <code class="language-plaintext highlighter-rouge">StringBuilder</code> Demais</h3>
+<p>Você já deve ter visto o filme: depois de ler em algum lugar que concatenar strings usando <code class="language-plaintext highlighter-rouge">+</code> é ineficiente, nosso intrépido desenvolvedor resolve tomar pra si a tarefa hercúlea de mudar cada concatenação de string no projeto para o uso de <code class="language-plaintext highlighter-rouge">StringBuilder</code>.</p>
 
-<p>A justificativa para isso, claro, é que <code class="highlighter-rouge">System.String</code> é imutável. Então, cada vez que você “muda” a string, você na verdade está criando uma instância nova na memória, o que pode prejudicar o desempenho da aplicação.</p>
+<p>A justificativa para isso, claro, é que <code class="language-plaintext highlighter-rouge">System.String</code> é imutável. Então, cada vez que você “muda” a string, você na verdade está criando uma instância nova na memória, o que pode prejudicar o desempenho da aplicação.</p>
 
 <p>Mas adivinha só. O compilador é bem esperto. Digamos que você tenha a seguinte linha:</p>
 
@@ -234,7 +251,7 @@
 
 <figure class="highlight"><pre><code class="language-c#" data-lang="c#">	<span class="kt">string</span> <span class="n">a</span> <span class="p">=</span> <span class="s">"Hello World"</span><span class="p">;</span></code></pre></figure>
 
-<p>A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, <a href="https://stackoverflow.com/a/21644889">o uso de <code class="highlighter-rouge">StringBuilder</code> provavelmente faz mais sentido</a>.</p>
+<p>A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, <a href="https://stackoverflow.com/a/21644889">o uso de <code class="language-plaintext highlighter-rouge">StringBuilder</code> provavelmente faz mais sentido</a>.</p>
 
 <p>Lógico, alguns cenários não são tão claros assim. O único conselho que faz sentido dar aqui é: faça seu dever de casa. Quando estiver com dúvida, pesquise e faça <em>benchmark</em> sem dó.</p>
 

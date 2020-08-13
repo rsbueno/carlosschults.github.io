@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Métodos privados são um &#39;Code Smell&#39;?</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Algumas pessoas acham que métodos privados devem ser evitados. Será que elas estão certas?">
   
   <!-- Twitter card -->
@@ -193,9 +210,9 @@
 
 <p>Eu não penso que esse seja o caso. Pelo menos, não sempre. Isso depende do que exatamente o método privado faz.</p>
 
-<p>Você provavelmente não deveria adicionar um método chamado <code class="highlighter-rouge">ValidarEnderecoDeEmail</code> à sua classe <code class="highlighter-rouge">Cliente</code>, sendo o método privado ou não. Afinal de contas, um cliente não é a única entidade que pode ter um endereço de e-mail. Ao invés disso, crie uma classe <code class="highlighter-rouge">Email</code> e coloque todas as validações pertinentes nela.</p>
+<p>Você provavelmente não deveria adicionar um método chamado <code class="language-plaintext highlighter-rouge">ValidarEnderecoDeEmail</code> à sua classe <code class="language-plaintext highlighter-rouge">Cliente</code>, sendo o método privado ou não. Afinal de contas, um cliente não é a única entidade que pode ter um endereço de e-mail. Ao invés disso, crie uma classe <code class="language-plaintext highlighter-rouge">Email</code> e coloque todas as validações pertinentes nela.</p>
 
-<p>Por outro lado, digamos que você esteja criando um método <code class="highlighter-rouge">Ordenar</code> em uma estrutura de dados customizada. Nesse caso, faria todo o sentido manter o método <code class="highlighter-rouge">Ordenar</code> público, e ter alguns métodos privados auxiliares, como <code class="highlighter-rouge">CompararItens</code> e <code class="highlighter-rouge">Trocar</code>.</p>
+<p>Por outro lado, digamos que você esteja criando um método <code class="language-plaintext highlighter-rouge">Ordenar</code> em uma estrutura de dados customizada. Nesse caso, faria todo o sentido manter o método <code class="language-plaintext highlighter-rouge">Ordenar</code> público, e ter alguns métodos privados auxiliares, como <code class="language-plaintext highlighter-rouge">CompararItens</code> e <code class="language-plaintext highlighter-rouge">Trocar</code>.</p>
 
 <blockquote>
   <p><em>Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.</em></p>

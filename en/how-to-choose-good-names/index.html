@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Ten tips to help you choose good names</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="  There are only two hard things in Computer Science: cache invalidation and naming things.  Phil KarltonDo you want to write great code? Clean, understandab...">
   
   <!-- Twitter card -->
@@ -162,19 +179,19 @@
   <p><a href="https://en.wikipedia.org/wiki/Hungarian_notation">Wikipedia: Hungarian Notation</a></p>
 </blockquote>
 
-<p>So, in a nutshell, Hungarian notation is encoding the type of the variable in its name. So, if I have an int variable meant to store the age of a student, I’d call it <code class="highlighter-rouge">iStudentAge</code> or <code class="highlighter-rouge">intStudentAge</code>. Similarly, a string variable supposed to store a product’s description would be called <code class="highlighter-rouge">sProductDescription</code>, or even <code class="highlighter-rouge">strProductDescription</code>.</p>
+<p>So, in a nutshell, Hungarian notation is encoding the type of the variable in its name. So, if I have an int variable meant to store the age of a student, I’d call it <code class="language-plaintext highlighter-rouge">iStudentAge</code> or <code class="language-plaintext highlighter-rouge">intStudentAge</code>. Similarly, a string variable supposed to store a product’s description would be called <code class="language-plaintext highlighter-rouge">sProductDescription</code>, or even <code class="language-plaintext highlighter-rouge">strProductDescription</code>.</p>
 
 <p>And why is this bad? Here are a few reasons:</p>
 
 <ul>
-  <li>First of all, it’s useless. If your variable has a self-explaining name (see item #0), it will give you a decent clue about its type. If you spot a variable called <code class="highlighter-rouge">productName</code>, would you think it’s a floating-point number? Besides, most modern IDEs can tell you not only the variable’s type, but also if it’s a local variable,instance member or a method parameter, and even how many times it’s been referenced.</li>
+  <li>First of all, it’s useless. If your variable has a self-explaining name (see item #0), it will give you a decent clue about its type. If you spot a variable called <code class="language-plaintext highlighter-rouge">productName</code>, would you think it’s a floating-point number? Besides, most modern IDEs can tell you not only the variable’s type, but also if it’s a local variable,instance member or a method parameter, and even how many times it’s been referenced.</li>
   <li>It can be misleading. People make mistakes, and it’s perfectly possible to change the variable’s type but forget to also change its name to reflect the new type. So now you have a variable prefixed with “int” but it’s actually a long.</li>
   <li>It makes the names more difficult to pronounce, and this may complicate discussion about the code and the architecture of your application.</li>
 </ul>
 
 <h2 id="5-stick-to-the-languageframeworkprojects-coding-style">5. Stick to the language/framework/project’s coding style</h2>
 
-<p>Most C# developers tend to use CamelCase to name local variables, instance variables and methods parameters, as in <code class="highlighter-rouge">productName</code>. In Ruby, for instance, the recommended style is <code class="highlighter-rouge">snake_case</code>, as in <code class="highlighter-rouge">product_name</code>.</p>
+<p>Most C# developers tend to use CamelCase to name local variables, instance variables and methods parameters, as in <code class="language-plaintext highlighter-rouge">productName</code>. In Ruby, for instance, the recommended style is <code class="language-plaintext highlighter-rouge">snake_case</code>, as in <code class="language-plaintext highlighter-rouge">product_name</code>.</p>
 
 <p>Development frameworks and open-source projects might have their own guidelines and standards as well.</p>
 
@@ -184,15 +201,15 @@
 
 <h2 id="6-method-names-should-start-with-a-verb">6. Method names should start with a verb</h2>
 
-<p>This one is really short. Methods are usually actions that an object can perform. As such, their names should start with a verb that indicates the action to be performed, e.g. <code class="highlighter-rouge">PrintReport()</code>, <code class="highlighter-rouge">DrawShape(IShape shape)</code>.</p>
+<p>This one is really short. Methods are usually actions that an object can perform. As such, their names should start with a verb that indicates the action to be performed, e.g. <code class="language-plaintext highlighter-rouge">PrintReport()</code>, <code class="language-plaintext highlighter-rouge">DrawShape(IShape shape)</code>.</p>
 
 <h2 id="7-class-names-should-be-nouns">7. Class names should be nouns</h2>
 
-<p>Likewise, class names should be nouns, like <code class="highlighter-rouge">Product</code>, <code class="highlighter-rouge">Customer</code>, <code class="highlighter-rouge">Student</code>. Avoid using the words like <code class="highlighter-rouge">Manager</code>, <code class="highlighter-rouge">Data</code>, because they add little or no value.</p>
+<p>Likewise, class names should be nouns, like <code class="language-plaintext highlighter-rouge">Product</code>, <code class="language-plaintext highlighter-rouge">Customer</code>, <code class="language-plaintext highlighter-rouge">Student</code>. Avoid using the words like <code class="language-plaintext highlighter-rouge">Manager</code>, <code class="language-plaintext highlighter-rouge">Data</code>, because they add little or no value.</p>
 
 <h2 id="8-property-names-should-be-nouns-or-adjective-phrases-c-specific">8. Property names should be nouns or adjective phrases (C# specific)</h2>
 
-<p>Properties should be names with nouns, noun phrases or adjectives. When naming boolean properties, you may add the prefixes <code class="highlighter-rouge">Can</code>, <code class="highlighter-rouge">Is</code> or <code class="highlighter-rouge">Has</code>, when doing so provides value to the caller.</p>
+<p>Properties should be names with nouns, noun phrases or adjectives. When naming boolean properties, you may add the prefixes <code class="language-plaintext highlighter-rouge">Can</code>, <code class="language-plaintext highlighter-rouge">Is</code> or <code class="language-plaintext highlighter-rouge">Has</code>, when doing so provides value to the caller.</p>
 
 <h2 id="9-use-pronounceablesearchable-names">9. Use pronounceable/searchable names</h2>
 

@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Are private methods a code smell?</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="Some people believe private methods should be avoided. Are they right?">
   
   <!-- Twitter card -->
@@ -163,9 +180,9 @@
 
 <p>I don’t think that’s the case. At least, not always. It depends on what the private method is doing.</p>
 
-<p>You probably shouldn’t add a method called <code class="highlighter-rouge">ValidateEmailAddress</code> to your <code class="highlighter-rouge">Customer</code> class, whether private or not. After all, a customer is not the only entity that can have an email address. Instead, create an <code class="highlighter-rouge">Email</code> class and put all the pertinent validations in it.</p>
+<p>You probably shouldn’t add a method called <code class="language-plaintext highlighter-rouge">ValidateEmailAddress</code> to your <code class="language-plaintext highlighter-rouge">Customer</code> class, whether private or not. After all, a customer is not the only entity that can have an email address. Instead, create an <code class="language-plaintext highlighter-rouge">Email</code> class and put all the pertinent validations in it.</p>
 
-<p>On the other hand, let’s say you’re creating a <code class="highlighter-rouge">Sort</code> method for a custom data structure. In this case, it’d make a lot of sense to keep the <code class="highlighter-rouge">Sort</code> method public, and have some auxiliary private methods, such as <code class="highlighter-rouge">CompareItems</code> and <code class="highlighter-rouge">Swap</code>.</p>
+<p>On the other hand, let’s say you’re creating a <code class="language-plaintext highlighter-rouge">Sort</code> method for a custom data structure. In this case, it’d make a lot of sense to keep the <code class="language-plaintext highlighter-rouge">Sort</code> method public, and have some auxiliary private methods, such as <code class="language-plaintext highlighter-rouge">CompareItems</code> and <code class="language-plaintext highlighter-rouge">Swap</code>.</p>
 
 <blockquote>
   <p><em>Moving private helper methods to different classes, including creating new classes if necessary, splits the original responsibilities across multiple classes leading to simpler, better designs.</em></p>

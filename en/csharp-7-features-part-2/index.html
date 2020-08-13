@@ -6,6 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>C# 7 Features Worth Knowing - Part 2</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
   <meta name="description" content="In this post we’ll see some more new features from C# 7.0.">
   
   <!-- Twitter card -->
@@ -114,25 +131,25 @@
 
 <script src="https://gist.github.com/carlosschults/37689aeb84ed4fdff067eab72690a035.js"></script>
 
-<p>You’re probably familiar with the <code class="highlighter-rouge">TryXXX</code> pattern, used, for instance, in the <code class="highlighter-rouge">System.Int32</code> BCL type. These sort of methods generally use an out parameter to return the resulting value (or the type default value, in case the parsing operation does not succeed).</p>
+<p>You’re probably familiar with the <code class="language-plaintext highlighter-rouge">TryXXX</code> pattern, used, for instance, in the <code class="language-plaintext highlighter-rouge">System.Int32</code> BCL type. These sort of methods generally use an out parameter to return the resulting value (or the type default value, in case the parsing operation does not succeed).</p>
 
-<p>The method above contains a <code class="highlighter-rouge">TryParse</code> method in the <code class="highlighter-rouge">ZipCode</code> class. Take a look at the method’s signature.</p>
+<p>The method above contains a <code class="language-plaintext highlighter-rouge">TryParse</code> method in the <code class="language-plaintext highlighter-rouge">ZipCode</code> class. Take a look at the method’s signature.</p>
 
 <p>When you write more than one type in the method’s return, you’re using a <em>tuple type</em>.  Don’t worry, you’re going to get used to it.</p>
 
 <p>Right at the start of the method, we pass the specified text for a private method that actually performs the validation and returns a boolean value.</p>
 
-<p>After the validation, we return a <em>tuple literal</em>, which consists in a new instance of the <code class="highlighter-rouge">ZipCode</code> class and a boolean flag indicating whether the parsing operation succeeded.</p>
+<p>After the validation, we return a <em>tuple literal</em>, which consists in a new instance of the <code class="language-plaintext highlighter-rouge">ZipCode</code> class and a boolean flag indicating whether the parsing operation succeeded.</p>
 
 <p>Nice, but what about the other side? How the function caller deals with this sort of return value? Let’s see:</p>
 
 <script src="https://gist.github.com/carlosschults/81b46fd01a187d866a41c0a74c8fc430.js"></script>
 
-<p>If you hover over the variable name, you’ll see its type described, unsurprisingly, as <code class="highlighter-rouge">(ZipCode, bool)</code>.</p>
+<p>If you hover over the variable name, you’ll see its type described, unsurprisingly, as <code class="language-plaintext highlighter-rouge">(ZipCode, bool)</code>.</p>
 
 <p><img src="https://res.cloudinary.com/dz5ppacuo/image/upload/v1495494940/csharp7-part2-fig1_pnmlx5.png" alt="" /></p>
 
-<p>You can access each tuple element by using <code class="highlighter-rouge">zipParsingResult.Item1</code>, <code class="highlighter-rouge">zipParsingResult.Item2</code>, and son on.</p>
+<p>You can access each tuple element by using <code class="language-plaintext highlighter-rouge">zipParsingResult.Item1</code>, <code class="language-plaintext highlighter-rouge">zipParsingResult.Item2</code>, and son on.</p>
 
 <script src="https://gist.github.com/carlosschults/f4a1cf2fea5808474fb126888c436f55.js"></script>
 
@@ -150,7 +167,7 @@
 
 <script src="https://gist.github.com/carlosschults/cccbc00f7b154bb897c332e4f8ed614c.js"></script>
 
-<p>Type inference also works here, and you have two options: you can use the <code class="highlighter-rouge">var</code> keyword for each variable, or to use it just once for all variables, placing it outside the parenthesis.</p>
+<p>Type inference also works here, and you have two options: you can use the <code class="language-plaintext highlighter-rouge">var</code> keyword for each variable, or to use it just once for all variables, placing it outside the parenthesis.</p>
 
 <script src="https://gist.github.com/carlosschults/225e608c7b844df46084b6a7af5b6ac2.js"></script>
 
@@ -158,7 +175,7 @@
 
 <h3 id="some-notes">Some notes</h3>
 
-<p>Tuples are <a href="https://carlosschults.net/en/value-reference-types-in-csharp//"><em>Value Types</em></a>. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same <code class="highlighter-rouge">HashCode</code>. The names of the items are not relevant</p>
+<p>Tuples are <a href="https://carlosschults.net/en/value-reference-types-in-csharp//"><em>Value Types</em></a>. Equality for tuples works in the way you’d probably expect: two tuples are considered equals if their items have the same values and they return the same <code class="language-plaintext highlighter-rouge">HashCode</code>. The names of the items are not relevant</p>
 
 <script src="https://gist.github.com/carlosschults/c8200f265b19c59a117d8ad5c347805b.js"></script>
 
@@ -166,19 +183,19 @@
 
 <script src="https://gist.github.com/carlosschults/feb631d45a4d8b067c502a14eb4730ea.js"></script>
 
-<p>Currently, for this feature to work, you must install a nuget package called <code class="highlighter-rouge">System.ValueTuple</code>. In Visual Studio, go to <strong>Tools</strong> &gt; <strong>NuGet Package Manager</strong> &gt; <strong>Package Manager Console.</strong>.</p>
+<p>Currently, for this feature to work, you must install a nuget package called <code class="language-plaintext highlighter-rouge">System.ValueTuple</code>. In Visual Studio, go to <strong>Tools</strong> &gt; <strong>NuGet Package Manager</strong> &gt; <strong>Package Manager Console.</strong>.</p>
 
-<p>The Package Manager Console Windows will be shown. Type <code class="highlighter-rouge">Install-Package System.ValueTuple</code> and press <code class="highlighter-rouge">ENTER</code>.</p>
+<p>The Package Manager Console Windows will be shown. Type <code class="language-plaintext highlighter-rouge">Install-Package System.ValueTuple</code> and press <code class="language-plaintext highlighter-rouge">ENTER</code>.</p>
 
-<h3 id="but-what-about-systemtuple">But what about <code class="highlighter-rouge">System.Tuple</code>?</h3>
+<h3 id="but-what-about-systemtuple">But what about <code class="language-plaintext highlighter-rouge">System.Tuple</code>?</h3>
 
-<p>Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the <code class="highlighter-rouge">System.Tuple</code> reference type since its 4.0 version? Why don’t we just stick to the older type?</p>
+<p>Maybe you’re wondering: why so much noise about tuples, if the .Net Framework has had the <code class="language-plaintext highlighter-rouge">System.Tuple</code> reference type since its 4.0 version? Why don’t we just stick to the older type?</p>
 
 <p>Well, <a href="https://stackoverflow.com/questions/41084411/whats-the-difference-between-system-valuetuple-and-system-tuple">this Stack Overflow answers it pretty well</a>, but I’ll try to summarize it here.</p>
 
 <p>Firstly, as already mentioned, the older type is a <em>reference type</em>, and the new one is a <em>value type</em>, with all the usual implications.</p>
 
-<p>But the really important differences have to do with convenience and readability. If you use <code class="highlighter-rouge">System.Tuple</code> there is no deconstruction; you can only access the items by using the default names, which makes the code harder to read and understand.</p>
+<p>But the really important differences have to do with convenience and readability. If you use <code class="language-plaintext highlighter-rouge">System.Tuple</code> there is no deconstruction; you can only access the items by using the default names, which makes the code harder to read and understand.</p>
 
 <h2 id="local-functions">Local Functions</h2>
 
@@ -188,9 +205,9 @@
 
 <p>As you’ve noticed, the inner function can access the values available for the outer function.</p>
 
-<p>Of course, the example shown above is deliberately simple; in production, you’d probably just write the code in <code class="highlighter-rouge">Log()</code> in the external methods and be done with it.</p>
+<p>Of course, the example shown above is deliberately simple; in production, you’d probably just write the code in <code class="language-plaintext highlighter-rouge">Log()</code> in the external methods and be done with it.</p>
 
-<p>It’d also be possible to use a <code class="highlighter-rouge">delegate</code> for that:</p>
+<p>It’d also be possible to use a <code class="language-plaintext highlighter-rouge">delegate</code> for that:</p>
 
 <script src="https://gist.github.com/carlosschults/045204806458c6563cd3a8b20a63133f.js"></script>
 
@@ -234,7 +251,7 @@
 
 <script src="https://gist.github.com/carlosschults/34b77038c058f261f615e739c7f9ea2a.js"></script>
 
-<p>You could turn <code class="highlighter-rouge">Iterator()</code> into a private method, sure, but that would be: 1) redundant and not very elegant, since it would require you to repeat the same signature from the outer function; and 2) less safe, because another part of the code could call the method without performing the validation.</p>
+<p>You could turn <code class="language-plaintext highlighter-rouge">Iterator()</code> into a private method, sure, but that would be: 1) redundant and not very elegant, since it would require you to repeat the same signature from the outer function; and 2) less safe, because another part of the code could call the method without performing the validation.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 

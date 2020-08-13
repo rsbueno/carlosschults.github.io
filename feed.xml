@@ -5,9 +5,9 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 30 Jul 2020 10:39:16 -0300</pubDate>
-    <lastBuildDate>Thu, 30 Jul 2020 10:39:16 -0300</lastBuildDate>
-    <generator>Jekyll v3.8.4</generator>
+    <pubDate>Thu, 13 Aug 2020 14:24:31 -0300</pubDate>
+    <lastBuildDate>Thu, 13 Aug 2020 14:24:31 -0300</lastBuildDate>
+    <generator>Jekyll v4.1.1</generator>
     
     
       <item>
@@ -222,9 +222,9 @@
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Let’s do a few things. First, get rid of the &lt;code class=&quot;highlighter-rouge&quot;&gt;Setup()&lt;/code&gt; method. We won’t need it. Then, add a new method with the code below:&lt;/p&gt;
+&lt;p&gt;Let’s do a few things. First, get rid of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Setup()&lt;/code&gt; method. We won’t need it. Then, add a new method with the code below:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Test2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -252,7 +252,7 @@
 
 &lt;p&gt;Now, we’re ready to write our first failing test. So, open the StringCalculatorTest class and add the following method to it:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_EmptyStringAsParam_ReturnsZero&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -333,7 +333,7 @@ Add_EmptyStringAsParam_ReturnsZero
 
 &lt;p&gt;The requirements say that passing a single number should return the number itself. That’s sound like a useful thing to test:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingSingleNumber_ReturnsTheNumberItself&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AreEqual&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -366,7 +366,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Since we’ve already tested the Add method by passing zero numbers (an empty string) and a single number, it feels like the next natural step for us now would be to write a test for the scenario of adding two numbers. So, let’s do just that.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_TwoNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;7,8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -395,7 +395,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;Let’s see if we can do that by testing the scenario with three numbers:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[Test]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_ThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;1, 2, 3&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -433,7 +433,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;By leveraging the &lt;code class=&quot;highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; method from the &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt; type, I’ve managed to get rid of the first if instruction. We’ve also used a feature introduced in &lt;a href=&quot;https://carlosschults.net/en/csharp-7-features/&quot;&gt;C# 7&lt;/a&gt; called “out variables.” This feature allows us to use out parameters without having to declare them beforehand.&lt;/p&gt;
+&lt;p&gt;By leveraging the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TryParse&lt;/code&gt; method from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Int32&lt;/code&gt; type, I’ve managed to get rid of the first if instruction. We’ve also used a feature introduced in &lt;a href=&quot;https://carlosschults.net/en/csharp-7-features/&quot;&gt;C# 7&lt;/a&gt; called “out variables.” This feature allows us to use out parameters without having to declare them beforehand.&lt;/p&gt;
 
 &lt;p&gt;All tests still pass, so I can’t write more production code. What should the next test be?&lt;/p&gt;
 
@@ -443,11 +443,11 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;To do this without having to create a lot of test methods, we’re going to leverage NUnit’s &lt;a href=&quot;https://docs.nunit.org/articles/nunit/writing-tests/attributes/testcase.html&quot;&gt;parametrized tests&lt;/a&gt; feature, adding a single method with several test cases:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4&quot;, 10)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;8,7,20&quot;, 35)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1001&quot;, 9)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,0,4,1000&quot;, 1009)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;26,6,90&quot;, 122)]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1,2,3,4&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;8,7,20&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;35&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5,0,4,1001&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;9&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5,0,4,1000&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1009&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;26,6,90&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;122&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_MoreThanThreeNumbersSeparatedByComma_ReturnsTheirSum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
     &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -480,9 +480,9 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;The requirements say that negative numbers shouldn’t be allowed. Let’s add a test for that! For brevity’s sake, we’ll add a single test method with several test cases, so we’re forced to go for the correct implementation right away:&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;1,2,3,4,5,-5&quot;)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;-1,1,2,9&quot;)]&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;[TestCase(&quot;5,6,8,-5&quot;)]&lt;/span&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-csharp&quot; data-lang=&quot;csharp&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;1,2,3,4,5,-5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-1,1,2,9&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;TestCase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;5,6,8,-5&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Add_StringContainingNegativeNumbers_Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;Assert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Throws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ArgumentException&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;(()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;StringCalculator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
@@ -518,7 +518,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
     &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;As you can see, right at the beginning, we define a &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;int&amp;gt;&lt;/code&gt; to store the negatives we find while iterating over all the numbers. Inside the loop, we verify whether the current number is negative. If it is, we add it to the list. If it isn’t, we verify whether it’s less than or equals to 1000, in which we case we add it to the result variable.&lt;/p&gt;
+&lt;p&gt;As you can see, right at the beginning, we define a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;int&amp;gt;&lt;/code&gt; to store the negatives we find while iterating over all the numbers. Inside the loop, we verify whether the current number is negative. If it is, we add it to the list. If it isn’t, we verify whether it’s less than or equals to 1000, in which we case we add it to the result variable.&lt;/p&gt;
 
 &lt;p&gt;After the loop, we verify whether the negatives list has any elements. If it has, we create an exception message that includes the specified negatives and then throw a new ArgumentException. Otherwise, we return the result.&lt;/p&gt;
 
@@ -532,7 +532,7 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 
 &lt;p&gt;You’ll see that I created one commit for each step in the TDD cycle. That way, it becomes easier for future readers to visualize all the steps in the process by going through the project’s history, one commit at a time.&lt;/p&gt;
 
-&lt;p&gt;There are improvements that can be made to the code I shared today. For instance, the final &lt;code class=&quot;highlighter-rouge&quot;&gt;Add&lt;/code&gt; method could be written in a shorter, clearer, more efficient way, using &lt;a href=&quot;https://carlosschults.net/en/functional-programming-csharp/&quot;&gt;LINQ&lt;/a&gt;. You could add more test cases. Also, the kata requirements ask for a specific exception message in the case of negative numbers. Even though we’ve implemented the message as specified, we didn’t write a test for it. We could do that as part of your practice.&lt;/p&gt;
+&lt;p&gt;There are improvements that can be made to the code I shared today. For instance, the final &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Add&lt;/code&gt; method could be written in a shorter, clearer, more efficient way, using &lt;a href=&quot;https://carlosschults.net/en/functional-programming-csharp/&quot;&gt;LINQ&lt;/a&gt;. You could add more test cases. Also, the kata requirements ask for a specific exception message in the case of negative numbers. Even though we’ve implemented the message as specified, we didn’t write a test for it. We could do that as part of your practice.&lt;/p&gt;
 
 &lt;p&gt;Finally, stay tuned to this blog. This post is part of a series, to which I intend to add more parts.&lt;/p&gt;
 
@@ -1343,36 +1343,36 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Will this code work? It depends on where and when it’s going to run.&lt;/p&gt;
 
-&lt;p&gt;When you use &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.Now&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; you get represents the current date and time local to your machine (i.e., it has the &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; property set to &lt;code class=&quot;highlighter-rouge&quot;&gt;Local&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;When you use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime.Now&lt;/code&gt;, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; you get represents the current date and time local to your machine (i.e., it has the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kind&lt;/code&gt; property set to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Local&lt;/code&gt;).&lt;/p&gt;
 
 &lt;p&gt;If you live in an area that observes DST (Daylight Saving Time), you know there’s one day in the year when all clocks must be moved forward a certain amount of time (generally one hour, but there are places that adjust by other offsets). Of course, there’s also the day when the opposite happens.&lt;/p&gt;
 
-&lt;p&gt;Now picture this: today is March 12th, 2017, and you live in New York City. You start using the program above. The &lt;code class=&quot;highlighter-rouge&quot;&gt;StartMatch()&lt;/code&gt; method runs at exactly 01:00 AM.  One hour and 15 minutes later, the &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch()&lt;/code&gt; method runs. The calculation is performed, and the following text is shown:&lt;/p&gt;
+&lt;p&gt;Now picture this: today is March 12th, 2017, and you live in New York City. You start using the program above. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StartMatch()&lt;/code&gt; method runs at exactly 01:00 AM.  One hour and 15 minutes later, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EndMatch()&lt;/code&gt; method runs. The calculation is performed, and the following text is shown:&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Duration of the match: 00:02:15&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;I bet you’ve correctly guessed what just happened here: when clocks were about to hit 2 AM, DST just kicked in and moved them straight to 3 AM. Then &lt;code class=&quot;highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; got back the current time, effectively adding a whole hour to the calculation. If the same had happened at the end of DST, the result would’ve been just 15 minutes!&lt;/p&gt;
+&lt;p&gt;I bet you’ve correctly guessed what just happened here: when clocks were about to hit 2 AM, DST just kicked in and moved them straight to 3 AM. Then &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;EndMatch&lt;/code&gt; got back the current time, effectively adding a whole hour to the calculation. If the same had happened at the end of DST, the result would’ve been just 15 minutes!&lt;/p&gt;
 
 &lt;p&gt;Sure, the code above is just a toy example, but what if it were a payroll application? Would you like to pay an employee the wrong amount?&lt;/p&gt;
 
 &lt;h3 id=&quot;what-to-do&quot;&gt;What to Do?&lt;/h3&gt;
 
-&lt;p&gt;When calculating the duration of human activities, use UTC for the start and end dates. That way, you’ll be able to** unambiguously point to an instant in time**. Instead of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;Now&lt;/code&gt; property on &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt;, use `UtcNow to retrieve the date time already in UTC to perform the calculations:&lt;/p&gt;
+&lt;p&gt;When calculating the duration of human activities, use UTC for the start and end dates. That way, you’ll be able to** unambiguously point to an instant in time**. Instead of using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Now&lt;/code&gt; property on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt;, use `UtcNow to retrieve the date time already in UTC to perform the calculations:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/82492845edaa8f8fc16c646ed2bbcf2a.js&quot;&gt;&lt;/script&gt;
 
-&lt;p&gt;What if the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; objects you already have are set to Local? In that case, you should use the ToUniversalTime() method to convert them to UTC:&lt;/p&gt;
+&lt;p&gt;What if the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; objects you already have are set to Local? In that case, you should use the ToUniversalTime() method to convert them to UTC:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/58837695af07386836753ef6541233aa.js&quot;&gt;&lt;/script&gt;
 
 &lt;h3 id=&quot;a-little-warning-about-touniversaltime&quot;&gt;A Little Warning About ToUniversalTime()&lt;/h3&gt;
 
-&lt;p&gt;The usage of &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; — and its sibling, &lt;code class=&quot;highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt;— can be a little tricky. The problem is that these methods make assumptions about what you want based on the value of the Kind property of your date, and that can cause unexpected results.&lt;/p&gt;
+&lt;p&gt;The usage of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; — and its sibling, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToLocalTime()&lt;/code&gt;— can be a little tricky. The problem is that these methods make assumptions about what you want based on the value of the Kind property of your date, and that can cause unexpected results.&lt;/p&gt;
 
-&lt;p&gt;When calling &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;, one of the following things will happen:&lt;/p&gt;
+&lt;p&gt;When calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt;, one of the following things will happen:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;If &lt;code class=&quot;highlighter-rouge&quot;&gt;Kind&lt;/code&gt; is set to UTC, then the same value is returned.&lt;/li&gt;
+  &lt;li&gt;If &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Kind&lt;/code&gt; is set to UTC, then the same value is returned.&lt;/li&gt;
   &lt;li&gt;On the other hand, if it’s set to Local, the corresponding value in UTC is returned.&lt;/li&gt;
   &lt;li&gt;Finally, if Kind is set to Unspecified,** then it’s assumed the datetime is meant to be local, **and the corresponding UTC datetime is returned.&lt;/li&gt;
 &lt;/ul&gt;
@@ -1382,9 +1382,9 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;So, the following scenario can happen:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;You retrieve the current date and time using &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime.UtcNow&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;You retrieve the current date and time using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime.UtcNow&lt;/code&gt;.&lt;/li&gt;
   &lt;li&gt;You save it to the database.&lt;/li&gt;
-  &lt;li&gt;Another part of the code retrieves this value and, unaware that it’s supposed to already be in UTC, calls &lt;code class=&quot;highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; on it.&lt;/li&gt;
+  &lt;li&gt;Another part of the code retrieves this value and, unaware that it’s supposed to already be in UTC, calls &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToUniversalTime()&lt;/code&gt; on it.&lt;/li&gt;
   &lt;li&gt;Since the datetime is unspecified, the method will treat it as Local and perform an unnecessary conversion, generating a wrong value.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -1398,7 +1398,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;Let’s say you need to be able to reconstruct the local datetime — to the user’s perspective — of when something happened, and the only information you have is a timestamp in UTC. That’s a piece of bad luck.&lt;/p&gt;
 
-&lt;p&gt;In cases like this, it’d make more sense to either (a) store the datetime in UTC along with the user’s time zone or (b) use the &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTimeOffset&lt;/code&gt; type, which will record the local date along with the UTC offset, enabling you to reconstruct the UTC date from it when you need it.&lt;/p&gt;
+&lt;p&gt;In cases like this, it’d make more sense to either (a) store the datetime in UTC along with the user’s time zone or (b) use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTimeOffset&lt;/code&gt; type, which will record the local date along with the UTC offset, enabling you to reconstruct the UTC date from it when you need it.&lt;/p&gt;
 
 &lt;p&gt;Another common use case where UTC is not the right solution is &lt;a href=&quot;https://stackoverflow.com/questions/19626177/how-to-store-repeating-dates-keeping-in-mind-daylight-savings-time?noredirect=1&amp;amp;lq=1&quot;&gt;scheduling future local events&lt;/a&gt;. You wouldn’t want to wake up one hour later or earlier in the days of DST transitions, right? That’s exactly what would happen if you’d set your alarm clock by UTC.&lt;/p&gt;
 
@@ -1416,7 +1416,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;h3 id=&quot;what-is-the-remedy&quot;&gt;What Is the Remedy?&lt;/h3&gt;
 
-&lt;p&gt;How do you deal with those issues as a C# developer? The &lt;code class=&quot;highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; class has got you covered. It not only represents a time zone but it also provides methods to check for a datetime validity:&lt;/p&gt;
+&lt;p&gt;How do you deal with those issues as a C# developer? The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; class has got you covered. It not only represents a time zone but it also provides methods to check for a datetime validity:&lt;/p&gt;
 
 &lt;script src=&quot;https://gist.github.com/carlosschults/2b94d57390b3518294730c01003f159c.js&quot;&gt;&lt;/script&gt;
 
@@ -1449,7 +1449,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;p&gt;This list is by no means exhaustive. I only wanted to give you a quick start in the fascinating and somewhat bizarre world of datetime issues. There are plenty of valuable resources out there for you to learn from, such as the &lt;a href=&quot;https://stackoverflow.com/tags/timezone/info&quot;&gt;time zone tag on Stack Overflow&lt;/a&gt; or blogs such as &lt;a href=&quot;https://codeblog.jonskeet.uk/&quot;&gt;Jon Skeet’s&lt;/a&gt; and &lt;a href=&quot;https://codeofmatt.com/&quot;&gt;Matt Johnson’s,&lt;/a&gt; who are authors of the popular NodaTime library.&lt;/p&gt;
 
-&lt;p&gt;And of course, always use the tools at your disposal. For instance, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; has a rule to force you to specify a &lt;code class=&quot;highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; in situations where it’s optional, which can save you from nasty bugs when parsing dates.&lt;/p&gt;
+&lt;p&gt;And of course, always use the tools at your disposal. For instance, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; has a rule to force you to specify a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; in situations where it’s optional, which can save you from nasty bugs when parsing dates.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Jul 2018 00:00:00 -0300</pubDate>
         <link>http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</link>
@@ -1685,11 +1685,11 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The problem we have here is that these calls to &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; are completely unnecessary (except maybe the last one, if you really needed the result to be a &lt;code class=&quot;highlighter-rouge&quot;&gt;List&lt;/code&gt; and not only an &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;The problem we have here is that these calls to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; are completely unnecessary (except maybe the last one, if you really needed the result to be a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&lt;/code&gt; and not only an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;In my experience, this happens when the developer doesn’t understand the nature of LINQ; they erroneously think that the LINQ methods belong to the concrete type &lt;code class=&quot;highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; instead of being extension methods that can be used with any &lt;code class=&quot;highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt; implementation.&lt;/p&gt;
+&lt;p&gt;In my experience, this happens when the developer doesn’t understand the nature of LINQ; they erroneously think that the LINQ methods belong to the concrete type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; instead of being extension methods that can be used with any &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt; implementation.&lt;/p&gt;
 
-&lt;p&gt;By calling &lt;code class=&quot;highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; several times like this, the developer creates several new lists, which can be detrimental to the performance of the application.&lt;/p&gt;
+&lt;p&gt;By calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; several times like this, the developer creates several new lists, which can be detrimental to the performance of the application.&lt;/p&gt;
 
 &lt;p&gt;You could rewrite the code above like this:&lt;/p&gt;
 
@@ -1700,16 +1700,16 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Here we have not only one but two unnecessary conversions. First, the developer creates a new string and then parses it to &lt;code class=&quot;highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; when a simple cast would have sufficed:&lt;/p&gt;
+&lt;p&gt;Here we have not only one but two unnecessary conversions. First, the developer creates a new string and then parses it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; when a simple cast would have sufficed:&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;This example assumes that the underlying database type is some specific type for dealing with dates (for instance, &lt;code class=&quot;highlighter-rouge&quot;&gt;date&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;datetime&lt;/code&gt; in SQL Server). Of course, if you were using an inadequate type (such as &lt;code class=&quot;highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) then this would be a problem of its own.&lt;/p&gt;
+&lt;p&gt;This example assumes that the underlying database type is some specific type for dealing with dates (for instance, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime&lt;/code&gt; in SQL Server). Of course, if you were using an inadequate type (such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) then this would be a problem of its own.&lt;/p&gt;
 
 &lt;h3 id=&quot;try-catch-everywhere&quot;&gt;Try-Catch Everywhere&lt;/h3&gt;
 &lt;p&gt;Also known as Pokémon syndrome (“Gotta catch ’em all!”), the anti-pattern here is to add a try-catch block to every single line that could possibly throw an exception.&lt;/p&gt;
 
-&lt;p&gt;Bonus points if the code is attempting to catch &lt;code class=&quot;highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; instead of a more specific exception, thus blurring the distinction between expected and unexpected errors.&lt;/p&gt;
+&lt;p&gt;Bonus points if the code is attempting to catch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; instead of a more specific exception, thus blurring the distinction between expected and unexpected errors.&lt;/p&gt;
 
 &lt;p&gt;More bonus points if the catch block doesn’t contain any code at all!&lt;/p&gt;
 
@@ -1718,9 +1718,9 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;If this advice seems vague (“How would I know if I have the right reason for catching an exception?”), that’s because it is vague. It’s beyond the scope of this post to go deeper into this matter, but &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;Eric Lippert’s excellent article called “Vexing Exceptions”&lt;/a&gt; will greatly improve your understanding of exception handling.&lt;/p&gt;
 
 &lt;h3 id=&quot;using-stringbuilder-everywhere&quot;&gt;Using StringBuilder Everywhere&lt;/h3&gt;
-&lt;p&gt;It’s the stuff of superhero movies: after reading somewhere that concatenating strings by using the ‘+’ operator is incredibly inefficient, the well-meaning developer takes upon themselves the Herculean task of updating every single concatenation in the codebase to &lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It’s the stuff of superhero movies: after reading somewhere that concatenating strings by using the ‘+’ operator is incredibly inefficient, the well-meaning developer takes upon themselves the Herculean task of updating every single concatenation in the codebase to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;The reasoning for this is, of course, that &lt;code class=&quot;highlighter-rouge&quot;&gt;System.String&lt;/code&gt; is immutable. So every time you “modify” a string, you’re in fact creating a new instance in memory, which can hurt performance pretty badly.&lt;/p&gt;
+&lt;p&gt;The reasoning for this is, of course, that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.String&lt;/code&gt; is immutable. So every time you “modify” a string, you’re in fact creating a new instance in memory, which can hurt performance pretty badly.&lt;/p&gt;
 
 &lt;p&gt;Well, guess what? The compiler is pretty smart. Let’s say you have the following line:&lt;/p&gt;
 
@@ -1730,7 +1730,7 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;The fast rule of thumb is it’s fine to use the simple concatenation when you know the number of strings to append in compile time. Otherwise, a &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; probably makes more sense&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The fast rule of thumb is it’s fine to use the simple concatenation when you know the number of strings to append in compile time. Otherwise, a &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; probably makes more sense&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Of course, some scenarios aren’t that clear-cut. The only advice worth giving here is to do your homework. When in doubt, research and benchmark to your heart’s content.&lt;/p&gt;
 
