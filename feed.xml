@@ -5,10 +5,162 @@
     <description>Articles on software development, databases and several tech related subjects.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Aug 2020 14:24:31 -0300</pubDate>
-    <lastBuildDate>Thu, 13 Aug 2020 14:24:31 -0300</lastBuildDate>
+    <pubDate>Mon, 05 Apr 2021 16:11:28 -0300</pubDate>
+    <lastBuildDate>Mon, 05 Apr 2021 16:11:28 -0300</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
+    
+      <item>
+        <title>How To Reduce Cyclomatic Complexity: A Complete Guide</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1617641333/reduce-cyclomatic-complexity/reduce-cyclomatic-complexity-1038x437.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the LinearB blog.  You can &lt;a href=&quot;https://linearb.io/blog/reduce-cyclomatic-complexity/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, take a look at their product, a software intelligence solution that uses Git and project statistics to help dev teams improve their productivity.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Software engineers worth their salt are always searching for ways to improve their code. Fortunately for them, there’s a reliable way to evaluate the health of a codebase and project, and that’s through the use of &lt;a href=&quot;https://linearb.io/metrics-modern-dev-leaders/&quot;&gt;metrics&lt;/a&gt;. Today’s post is all about a specific metric. You’ll learn how to reduce cyclomatic complexity and, more importantly, why you would want to do it.&lt;/p&gt;
+
+&lt;p&gt;We’ll start by defining cyclomatic complexity. After that, you’ll learn what the problem with having a high cyclomatic complexity value is and why you would need to reduce it. After the “what” and “why,” we’ll finally get to the “how”: We’ll show you tactics you can adopt to reduce the cyclomatic complexity of your code. Let’s get to it.&lt;/p&gt;
+
+&lt;h2 id=&quot;cyclomatic-complexity-a-brief-definition&quot;&gt;Cyclomatic Complexity: A Brief Definition&lt;/h2&gt;
+
+&lt;p&gt;Cyclomatic complexity is an important software metric. It refers to the number of possible execution paths inside a given piece of code—for instance, a function. The more decision structures you use, the more possible branches there are for your code.&lt;/p&gt;
+
+&lt;p&gt;Cyclomatic complexity is especially important when it comes to testing. By calculating the cyclomatic complexity of a function, for instance, you know the minimum number of test cases you’ll need to achieve full &lt;a href=&quot;https://linearb.io/blog/what-is-branch-coverage/&quot;&gt;branch coverage&lt;/a&gt; of that function. So, we can say that cyclomatic complexity can be a predictor of how hard it is to test a given piece of code.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-dead-simple-cyclomatic-complexity-example&quot;&gt;A Dead Simple Cyclomatic Complexity Example&lt;/h2&gt;
+
+&lt;p&gt;Consider the following function written in pseudocode:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, ${name}!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Since it has a single statement, it’s easy to see its cyclomatic complexity is 1. Now, let’s change things a little bit:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sayGoodbye&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, ${name}!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sayGoodbye&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Goodbye, ${name}!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;The second version of the function has a branch in it. The caller to the function might pass &lt;strong&gt;true&lt;/strong&gt; as the value for the &lt;strong&gt;sayGoodbye&lt;/strong&gt; parameter, even though the default value is &lt;strong&gt;false&lt;/strong&gt;. If that does happen, the function will print a goodbye message after saying hello. On the other hand, if the caller doesn’t supply a value for the parameter or chooses &lt;strong&gt;false&lt;/strong&gt;, the goodbye message won’t be displayed.&lt;/p&gt;
+
+&lt;p&gt;So, the function has two possible execution branches, which is the same as saying that its cyclomatic complexity has a value of 2.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-is-cyclomatic-complexity-bad&quot;&gt;Why Is Cyclomatic Complexity Bad?&lt;/h2&gt;
+
+&lt;p&gt;Cyclomatic complexity isn’t intrinsically bad. For instance, you can have a piece of code with a somewhat high cyclomatic complex value that’s super easy to read and understand. However, generally speaking, we can say that having a high cyclomatic complexity is either a symptom of problems with the codebase or a potential cause of future problems. Let’s cover some of the reasons why you’d want to reduce it in more detail.&lt;/p&gt;
+
+&lt;h3 id=&quot;cyclomatic-complexity-might-contribute-to-cognitive-complexity&quot;&gt;Cyclomatic Complexity Might Contribute to Cognitive Complexity&lt;/h3&gt;
+
+&lt;p&gt;Cognitive complexity refers to how difficult it is to understand a given piece of code. Though that’s not always the case, cyclomatic complexity can be one of the factors driving up cognitive complexity. The higher the cognitive complexity of a piece of code, the harder it is to navigate and maintain.&lt;/p&gt;
+
+&lt;h3 id=&quot;cyclomatic-complexity-makes-code-harder-to-test&quot;&gt;Cyclomatic Complexity Makes Code Harder to Test&lt;/h3&gt;
+
+&lt;p&gt;As we’ve already mentioned, higher values of cyclomatic complexity result in the need for a higher number of test cases to comprehensively test a block of code—e.g., a function. So, if you want to make your life easier when writing tests, you probably want to reduce the cyclomatic complexity of your code.&lt;/p&gt;
+
+&lt;h3 id=&quot;cyclomatic-complexity-contributes-to-higher-risk-of-defects&quot;&gt;Cyclomatic Complexity Contributes to Higher Risk of Defects&lt;/h3&gt;
+
+&lt;p&gt;You’re likelier to introduce defects to an area of the codebase that you change a lot than to one you rarely touch. In addition, the more complex a given piece of code is, the more likely you are to misunderstand it and introduce a defect to it.&lt;/p&gt;
+
+&lt;p&gt;So, complex code that suffers a lot of &lt;a href=&quot;https://linearb.io/blog/what-is-code-churn/&quot;&gt;churn&lt;/a&gt;—frequent changes by the team—represents more risk of defects. By reducing the cyclomatic complexity—and, ideally, the code churn as well—you’ll be mitigating those risks.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-reduce-cyclomatic-complexity-6-practical-ways&quot;&gt;How to Reduce Cyclomatic Complexity: 6 Practical Ways&lt;/h2&gt;
+
+&lt;p&gt;We’ll now go over a few practical tips you can use to ensure the cyclomatic complexity of your code is as low as possible.&lt;/p&gt;
+
+&lt;h3 id=&quot;1prefer-smaller-functions&quot;&gt;1.Prefer Smaller Functions&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-to-do&quot;&gt;What to Do?&lt;/h4&gt;
+
+&lt;p&gt;All else being equal, smaller functions are easier to read and understand. They’re also less likely to contain bugs by virtue of their length. If you don’t have a lot of code, you don’t have lots of opportunities for buggy code. The same reasoning applies for cyclomatic complexity: You’re less likely to have complex code if you have less code period. So, the advice here is to prefer smaller functions.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-do-it&quot;&gt;How to Do It?&lt;/h4&gt;
+
+&lt;p&gt;For each function, identify their core responsibility. Extract what’s left to their own functions and modules. Doing that also makes it easier to reuse code, which is a point we’ll revisit soon.&lt;/p&gt;
+
+&lt;h3 id=&quot;2avoid-flag-arguments-in-functions&quot;&gt;2.Avoid Flag Arguments in Functions&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-to-do-1&quot;&gt;What to Do?&lt;/h4&gt;
+
+&lt;p&gt;Flag arguments are boolean parameters you add to a function. People usually use them when they need to change how a function works while at the same time preserving the old behavior.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-do-it-1&quot;&gt;How to Do It?&lt;/h4&gt;
+
+&lt;p&gt;What to use instead of flag parameters? In a nutshell, you can use strategies that accomplish the same result without incurring high complexity. For instance, you could create a new function, maintaining the old one as it is and extracting the common parts into its own private function.&lt;/p&gt;
+
+&lt;p&gt;If the flag parameter is being used to enhance or improve the behavior of the original function somehow, you might want to leverage the &lt;a href=&quot;https://en.wikipedia.org/wiki/Decorator_pattern&quot;&gt;decorator pattern&lt;/a&gt; to reach the same end.&lt;/p&gt;
+
+&lt;h3 id=&quot;3reduce-the-number-of-decision-structures&quot;&gt;3.Reduce the Number of Decision Structures&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-to-do-2&quot;&gt;What to Do?&lt;/h4&gt;
+
+&lt;p&gt;You might consider this one a no-brainer. If the decision structures—especially &lt;strong&gt;if-else&lt;/strong&gt; and switch case—are what cause more branches in the code, it stands to reason that you should reduce them if you want to keep cyclomatic complexity at bay.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-do-it-2&quot;&gt;How to Do It?&lt;/h4&gt;
+
+&lt;p&gt;Some of the tactics we’ve just seen can contribute to reducing the number of &lt;strong&gt;if&lt;/strong&gt; statements in your code. For instance, instead of using flag arguments and then using an &lt;strong&gt;if&lt;/strong&gt; statement to check, you can use the decorator pattern. Instead of using a switch case to go over many possibilities and decide which one the code will execute, you can leverage the &lt;a href=&quot;https://en.wikipedia.org/wiki/Strategy_pattern&quot;&gt;strategy pattern&lt;/a&gt;. Sure, at some point in the code, you’ll still need a switch case. After all, &lt;em&gt;someone&lt;/em&gt; has to decide which actual implementation to use. However, that point becomes the only point in the code that needs that decision structure.&lt;/p&gt;
+
+&lt;h3 id=&quot;4get-rid-of-duplicated-code&quot;&gt;4.Get Rid of Duplicated Code&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-to-do-3&quot;&gt;What to Do?&lt;/h4&gt;
+
+&lt;p&gt;Sometimes, you have functions/methods that do almost the same thing. Keeping both increases the total cyclomatic complexity of your class or module. If you can limit your duplicates, you can limit complexity.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-do-it-3&quot;&gt;How to Do It?&lt;/h4&gt;
+
+&lt;p&gt;Remove duplicated code by:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;extracting the common bits of code to their own dedicated methods/functions.&lt;/li&gt;
+  &lt;li&gt;leveraging design patterns—such as &lt;a href=&quot;https://en.wikipedia.org/wiki/Template_method_pattern&quot;&gt;template pattern&lt;/a&gt;—that encourage code reuse.&lt;/li&gt;
+  &lt;li&gt;extracting generic utility functions into packages—gems, npm modules, NuGet packages, etc.—that can be reused through the whole organization.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5remove-obsolete-code&quot;&gt;5.Remove Obsolete Code&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-to-do-4&quot;&gt;What to Do?&lt;/h4&gt;
+
+&lt;p&gt;There are many reasons why it’s a good idea to remove obsolete—i.e., dead—code from your application. For our context, it suffices to say that that’s a “free” way to bring code coverage up and cyclomatic complexity down.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-do-it-4&quot;&gt;How to Do It?&lt;/h4&gt;
+
+&lt;p&gt;Just use a tool that lets you identify dead code—even your IDE might be able to do it—and then delete it mercilessly.&lt;/p&gt;
+
+&lt;h3 id=&quot;6dont-reinvent-the-wheel&quot;&gt;6.Don’t Reinvent the Wheel&lt;/h3&gt;
+
+&lt;h4 id=&quot;what-to-do-5&quot;&gt;What to Do?&lt;/h4&gt;
+
+&lt;p&gt;Let the developer who never wrote a function—or even a couple of them—to perform date formatting cast the first stone! It’s almost like a rite of passage.&lt;/p&gt;
+
+&lt;p&gt;Writing code that simply duplicates functionality that your language’s standard library or your framework already provides is a sure way to increase complexity unnecessarily. If &lt;a href=&quot;https://wiki.c2.com/?SoftwareAsLiability&quot;&gt;code is a liability&lt;/a&gt;, you want to write only the strictly necessary amount of it.&lt;/p&gt;
+
+&lt;h4 id=&quot;how-to-do-it-5&quot;&gt;How to Do It?&lt;/h4&gt;
+
+&lt;p&gt;Implement a sound code review strategy that’s able to identify and get rid of such wheel reinventions.&lt;/p&gt;
+
+&lt;h2 id=&quot;reduce-cyclomatic-complexity-increase-code-clarity&quot;&gt;Reduce Cyclomatic Complexity, Increase Code Clarity&lt;/h2&gt;
+
+&lt;p&gt;Cyclomatic complexity is one of the most valuable metrics in software engineering. It has important implications for code quality and maintainability, not to mention testing. High cyclomatic complexity might be both a signal of existing problems and a predictor of future ones. So, keeping the value of this metric under control is certainly something you want to do if you want to achieve a healthy codebase. Keeping it under control is exactly what you’ve learned with our post.&lt;/p&gt;
+
+&lt;p&gt;Before parting ways, a final caveat. Keep in mind that no metric is a panacea when used in isolation. Often, what you’d really want to do is to track and improve a &lt;a href=&quot;https://linearb.io/5-key-metrics-fix-your-software-teams-quality/&quot;&gt;group of metrics&lt;/a&gt; that, together, can give you the big picture view of the health of your team and project. Thanks for reading.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Apr 2021 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/en/reduce-cyclomatic-complexity/</link>
+        <guid isPermaLink="true">http://carlosschults.net/en/reduce-cyclomatic-complexity/</guid>
+        
+        <category>best-practices</category>
+        
+        <category>software-testing</category>
+        
+        <category>automated-testing</category>
+        
+        <category>unit-testing</category>
+        
+        <category>software-engineering</category>
+        
+        
+      </item>
     
       <item>
         <title>Mutation Testing: What It Is and How It Makes Code Coverage Matter</title>
@@ -1604,179 +1756,6 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
         <category>code review</category>
         
         <category>agile</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Cargo Cult Programming Is The Art of Programming by Coincidence</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;Editorial note: I originally wrote this post for the NDepend blog.  You can &lt;a href=&quot;https://blog.ndepend.com/cargo-cult-programming/&quot;&gt;check out the original here, at their site&lt;/a&gt;. While you’re there, download NDepend and give it a try.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;I first learned about cargo cult programming a few years ago. I remember thinking back then, “What a strange name for a programming-related concept.”&lt;/p&gt;
-
-&lt;p&gt;If you share my past self’s astonishment, then today’s post is for you!&lt;/p&gt;
-
-&lt;p&gt;First, you’ll see what cargo cult programming is and why you should care. Then, we’re going to look at some practical examples, using the C# language. Finally, we’ll close with advice about what you can do, as a developer, to avoid falling into this trap.&lt;/p&gt;
-
-&lt;h2 id=&quot;cargo-cult-programming-doing-stuff-just-because&quot;&gt;Cargo Cult Programming: Doing Stuff Just Because&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;According to Wikipedia&lt;/a&gt;, “Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose.”&lt;/p&gt;
-
-&lt;p&gt;In other words, it’s when a developer writes code without really understanding it. The developer may use a very trial-and-error approach—maybe copy and paste some code from somewhere else and then tweak it and test it until works, or sort of works. Then the developer will stop tweaking the code, for fear it will stop working. In the process, maybe they leave some lines of code that don’t do anything.&lt;/p&gt;
-
-&lt;p&gt;Or maybe they tried to use an idiom they picked up from another developer while failing to understand that the contexts are different and it’s useless in the current situation.&lt;/p&gt;
-
-&lt;p&gt;Finally, it might just be lack of education: maybe the developer has a poor mental model of how the tools they’re using really work.&lt;/p&gt;
-
-&lt;h2 id=&quot;why-is-cargo-cult-programming-a-problem&quot;&gt;Why is Cargo Cult Programming a Problem?&lt;/h2&gt;
-&lt;p&gt;As Eric Lippert puts it, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/&quot;&gt;cargo cult programmers struggle to make meaningful changes to a program&lt;/a&gt; and end up using a trial-and-error approach since they don’t understand the inner workings of the code they’re about to change.&lt;/p&gt;
-
-&lt;p&gt;This is not so different from what the &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;Pragmatic Bookshelf calls “programming by coincidence”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Fred doesn’t know why the code is failing because he didn’t know why it worked in the first place. It seemed to work, given the limited “testing” that Fred did, but that was just a coincidence.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;That single sentence pretty much sums it up for me: if you don’t know how or why your code works, neither will you understand what happened when it no longer works.&lt;/p&gt;
-
-&lt;h2 id=&quot;origin-of-the-term&quot;&gt;Origin of the Term&lt;/h2&gt;
-&lt;p&gt;Although practices that are considered cargo cult today &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult#First_occurrences&quot;&gt;have been recorded as early as the late 19th century&lt;/a&gt;, the term itself dates from 1945, when it was first used to describe practices that emerged during and after World War II between Melanesian islanders.&lt;/p&gt;
-
-&lt;p&gt;These islanders would mimic the soldiers’ behavior, such as dressing up as flight controllers and waving sticks, hoping that airplanes would descend from the skies with a lot of cargo.&lt;/p&gt;
-
-&lt;p&gt;Since then, the term cargo cult has been used in a variety of contexts to mean &lt;strong&gt;to imitate form without content&lt;/strong&gt;—to perfectly copy the superficial elements while failing to understand the deeper meanings and workings of whatever one’s trying to emulate.&lt;/p&gt;
-
-&lt;h2 id=&quot;talk-is-cheap-show-me-the-code&quot;&gt;Talk is Cheap; Show Me the Code!&lt;/h2&gt;
-&lt;p&gt;Enough with the history lesson. Time to see some code! I’m going to show you five examples of cargo cult programming in the C# language.&lt;/p&gt;
-
-&lt;h3 id=&quot;checking-a-non-nullable-value-type-for-null&quot;&gt;Checking a Non-Nullable Value Type for Null&lt;/h3&gt;
-&lt;p&gt;This one is a pet peeve of mine since I see it a lot in production code. It goes like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// this check is useless&lt;/span&gt;
-	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	       &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;This line will always get reached.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Here we have a developer that probably doesn’t grok the &lt;a href=&quot;https://carlosschults.net/en/value-reference-types-in-csharp/&quot;&gt;difference between value and reference types&lt;/a&gt;. It would be completely forgivable, in the case of a junior developer, except for the fact that the compiler warns you about that.&lt;/p&gt;
-
-&lt;p&gt;You could argue that I’m nitpicking. After all, the code will run fine in spite of this. In fact, the check won’t even be included in the resulting IL, as you can see from this print of a decompiling tool:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;An image depicting a code excerpt that does not contain the null check.&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You can see in this code snippet that the compiler has optimized the null check out.&lt;/p&gt;
-
-&lt;p&gt;There are plenty of worse problems, granted. Yes, the application won’t &lt;em&gt;crash&lt;/em&gt; because of this. So what’s the big deal?&lt;/p&gt;
-
-&lt;p&gt;Well, for starters, I’d be worried about a development shop where the sole quality measure was “it runs without crashing.” But the real problem is that this type of code shows a lack of understanding of some fundamental characteristics of the language and platform that can bite you in the future.&lt;/p&gt;
-
-&lt;h3 id=&quot;unnecessary-use-of-tolist-in-linq-to-object-queries&quot;&gt;Unnecessary Use of ToList() in LINQ to Object Queries&lt;/h3&gt;
-&lt;p&gt;Like the previous one, this is something I routinely see in production code. Consider the code below:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The problem we have here is that these calls to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; are completely unnecessary (except maybe the last one, if you really needed the result to be a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&lt;/code&gt; and not only an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;In my experience, this happens when the developer doesn’t understand the nature of LINQ; they erroneously think that the LINQ methods belong to the concrete type &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; instead of being extension methods that can be used with any &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt; implementation.&lt;/p&gt;
-
-&lt;p&gt;By calling &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; several times like this, the developer creates several new lists, which can be detrimental to the performance of the application.&lt;/p&gt;
-
-&lt;p&gt;You could rewrite the code above like this:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;unnecessary-conversions&quot;&gt;Unnecessary Conversions&lt;/h3&gt;
-&lt;p&gt;Consider the following line:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Here we have not only one but two unnecessary conversions. First, the developer creates a new string and then parses it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; when a simple cast would have sufficed:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;This example assumes that the underlying database type is some specific type for dealing with dates (for instance, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime&lt;/code&gt; in SQL Server). Of course, if you were using an inadequate type (such as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) then this would be a problem of its own.&lt;/p&gt;
-
-&lt;h3 id=&quot;try-catch-everywhere&quot;&gt;Try-Catch Everywhere&lt;/h3&gt;
-&lt;p&gt;Also known as Pokémon syndrome (“Gotta catch ’em all!”), the anti-pattern here is to add a try-catch block to every single line that could possibly throw an exception.&lt;/p&gt;
-
-&lt;p&gt;Bonus points if the code is attempting to catch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; instead of a more specific exception, thus blurring the distinction between expected and unexpected errors.&lt;/p&gt;
-
-&lt;p&gt;More bonus points if the catch block doesn’t contain any code at all!&lt;/p&gt;
-
-&lt;p&gt;The general advice here is this: never catch unless you have a very specific reason for doing so. Otherwise, just the let the exception bubble up until it’s dealt with by the top-level exception handler.&lt;/p&gt;
-
-&lt;p&gt;If this advice seems vague (“How would I know if I have the right reason for catching an exception?”), that’s because it is vague. It’s beyond the scope of this post to go deeper into this matter, but &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;Eric Lippert’s excellent article called “Vexing Exceptions”&lt;/a&gt; will greatly improve your understanding of exception handling.&lt;/p&gt;
-
-&lt;h3 id=&quot;using-stringbuilder-everywhere&quot;&gt;Using StringBuilder Everywhere&lt;/h3&gt;
-&lt;p&gt;It’s the stuff of superhero movies: after reading somewhere that concatenating strings by using the ‘+’ operator is incredibly inefficient, the well-meaning developer takes upon themselves the Herculean task of updating every single concatenation in the codebase to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;The reasoning for this is, of course, that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.String&lt;/code&gt; is immutable. So every time you “modify” a string, you’re in fact creating a new instance in memory, which can hurt performance pretty badly.&lt;/p&gt;
-
-&lt;p&gt;Well, guess what? The compiler is pretty smart. Let’s say you have the following line:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;This, in fact, gets translated to&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The fast rule of thumb is it’s fine to use the simple concatenation when you know the number of strings to append in compile time. Otherwise, a &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; probably makes more sense&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Of course, some scenarios aren’t that clear-cut. The only advice worth giving here is to do your homework. When in doubt, research and benchmark to your heart’s content.&lt;/p&gt;
-
-&lt;p&gt;I’ll leave you with more sound advice from Eric Lippert:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Unnecessary code changes are expensive and dangerous; &lt;strong&gt;don’t make performance-based changes unless you’ve identified a performance problem.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;is-there-a-remedy&quot;&gt;Is There a Remedy?&lt;/h2&gt;
-&lt;p&gt;I’d say it’s fair to assume that more inexperienced developers are more prone to commit mistakes due to cargo cult programming. But no developer is really immune to it, independent of their knowledge or experience.&lt;/p&gt;
-
-&lt;p&gt;We’re only human after all. Tiredness, deadlines, cognitive biases, and (to be really honest) the eventual laziness can turn even the best developer into a cargo cult programmer.&lt;/p&gt;
-
-&lt;p&gt;Unfortunately, there’s no 100%  guaranteed way of preventing this from happening. Yet there are some measures you could take to, at least, decrease the odds.&lt;/p&gt;
-
-&lt;p&gt;Let’s take a look at some of them.&lt;/p&gt;
-
-&lt;h3 id=&quot;use-code-reviewpair-programming&quot;&gt;Use Code Review/Pair Programming&lt;/h3&gt;
-&lt;p&gt;The first measure you could take to avoid cargo cult programming is to simply get a second pair of eyes on your code. The benefits of having a second person reviewing each line of code before it goes to production can’t be overstated. And while code review and pair programming aren’t perfect equivalents, both of these practices will bring you this benefit.&lt;/p&gt;
-
-&lt;h3 id=&quot;always-test-your-hypothesis&quot;&gt;Always Test Your Hypothesis&lt;/h3&gt;
-&lt;p&gt;Write unit tests (and other types of tests as well). Monitor your application in production. If something doesn’t perform well, benchmark the heck out of it. Don’t just assume things. Testing your hypothesis can bring valuable insights and save you when your intuition gets it wrong.&lt;/p&gt;
-
-&lt;h3 id=&quot;read-other-peoples-code&quot;&gt;Read Other People’s Code&lt;/h3&gt;
-&lt;p&gt;Reading other people’s code is a great way to learn. It’s a perfect tool to compare your own ideas and assumptions against what other developers are doing, exposing you to novel concepts that can force you to gain a deeper understanding of the issues at hand.&lt;/p&gt;
-
-&lt;p&gt;In the era of &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;, there isn’t much of an excuse for not doing that.&lt;/p&gt;
-
-&lt;h3 id=&quot;learn-from-your-tools&quot;&gt;Learn From Your Tools&lt;/h3&gt;
-&lt;p&gt;There are currently a plethora of tools that can help &lt;a href=&quot;https://www.ndepend.com/&quot;&gt;your team improve the quality of their code&lt;/a&gt;. Here’s the thing, though: you shouldn’t just use these tools. You should also learn from them. If you use NDepend, &lt;a href=&quot;https://www.ndepend.com/default-rules/webframe.html&quot;&gt;read about its rules&lt;/a&gt;. Try and understand the rationale behind them. What are the principles and best practices that guided its authors when coming up with the rules?&lt;/p&gt;
-
-&lt;p&gt;The same goes for other types of tools—and even the warnings the compiler gives you.&lt;/p&gt;
-
-&lt;h2 id=&quot;computer-science-not-computer-superstition&quot;&gt;Computer Science, Not Computer &lt;em&gt;Superstition&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Even though no one is immune to cargo cult programming, we should strive to overcome it. There’s hard-earned industry wisdom at our disposal, slowly generated over more than seven decades. Let’s use it. Let’s understand our tools and our craft and write better software.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 17 Jan 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/cargo-cult-programming/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/cargo-cult-programming/</guid>
-        
-        <category>csharp</category>
-        
-        <category>best practices</category>
-        
-        <category>cargo cult programming</category>
         
         
       </item>

@@ -3,6 +3,34 @@
   
     
       <url>
+        <loc>/pt/reduzir-complexidade-ciclomatica/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/reduzir-complexidade-ciclomatica/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/reduce-cyclomatic-complexity/" />
+        
+        <lastmod>2021-04-05T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
+        <loc>/en/reduce-cyclomatic-complexity/</loc>
+        
+        
+          <xhtml:link rel="alternate" hreflang="pt" href="/pt/reduzir-complexidade-ciclomatica/" />
+        
+          <xhtml:link rel="alternate" hreflang="en" href="/en/reduce-cyclomatic-complexity/" />
+        
+        <lastmod>2021-04-05T00:00:00-03:00</lastmod>
+        <changefreq>weekly</changefreq>
+      </url>
+    
+  
+    
+      <url>
         <loc>/pt/testes-de-mutacao/</loc>
         
         

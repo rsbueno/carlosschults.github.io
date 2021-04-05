@@ -5,10 +5,163 @@
     <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
     <link>http://carlosschults.net/</link>
     <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 13 Aug 2020 14:24:31 -0300</pubDate>
-    <lastBuildDate>Thu, 13 Aug 2020 14:24:31 -0300</lastBuildDate>
+    <pubDate>Mon, 05 Apr 2021 16:11:28 -0300</pubDate>
+    <lastBuildDate>Mon, 05 Apr 2021 16:11:28 -0300</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
+    
+      <item>
+        <title>Como Reduzir a Complexidade Ciclomática: Um Guia Completo</title>
+        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1617641333/reduce-cyclomatic-complexity/reduce-cyclomatic-complexity-1038x437.jpg&quot; alt=&quot;&quot; /&gt;
+&lt;span&gt;Foto por &lt;a href=&quot;https://unsplash.com/@hishahadat?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Shahadat Rahman&lt;/a&gt; no &lt;a href=&quot;https://unsplash.com/s/photos/complexity?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Nota editorial: Escrevi originalmente este post para o blog da LinearB.  Você pode &lt;a href=&quot;https://linearb.io/blog/reduce-cyclomatic-complexity/&quot;&gt;conferir o original em inglês no site deles&lt;/a&gt;. Enquanto estiver lá, dê uma olhada no produto deles, uma solução de inteligência de software que usa Git e estatísticas de projetos para ajudar as equipes de desenvolvimento a melhorar sua produtividade.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Engenheiros(as) de software dignos do nome estão sempre em busca de maneiras de melhorar seu código. A boa notícia é que existe uma maneira confiável de avaliar a saúde de uma base de código e de um projeto, e isso é através do uso de &lt;a href=&quot;https://linearb.io/metrics-modern-dev-leaders/&quot;&gt;métricas&lt;/a&gt;. O post de hoje é sobre uma métrica específica. Você aprenderá como reduzir a complexidade ciclomática e, mais importante, por que você gostaria de fazê-lo.&lt;/p&gt;
+
+&lt;p&gt;Vamos começar definindo a complexidade ciclomática. Depois disso, você aprenderá qual é o problema de ter um alto valor de complexidade ciclomática e por que você precisaria reduzi-la. Depois do “o quê” e do “porquê”, finalmente chegaremos ao “como”: mostraremos as táticas que você pode adotar para reduzir a complexidade ciclomática de seu código. Vamos lá.&lt;/p&gt;
+
+&lt;h2 id=&quot;complexidade-ciclomática-uma-breve-definição&quot;&gt;Complexidade Ciclomática: Uma breve definição&lt;/h2&gt;
+
+&lt;p&gt;A complexidade ciclomática é uma importante métrica de software. Refere-se ao número de caminhos de execução possíveis dentro de um determinado código - por exemplo, uma função. Quanto mais estruturas de decisão você usar, mais ramificações possíveis existem para seu código.&lt;/p&gt;
+
+&lt;p&gt;A complexidade ciclomática é especialmente importante quando se trata de testes. Ao calcular a complexidade ciclomática de uma função, por exemplo, você sabe o número mínimo de casos de teste que você precisará para alcançar a &lt;a href=&quot;https://linearb.io/blog/what-is-branch-coverage/&quot;&gt;cobertura de ramificação&lt;/a&gt; completa dessa função. Portanto, podemos dizer que a complexidade ciclomática pode ser um preditor de quão difícil é testar um determinado código.&lt;/p&gt;
+
+&lt;h2 id=&quot;um-exemplo-de-complexidade-ciclomática-super-simples&quot;&gt;Um Exemplo de Complexidade Ciclomática Super Simples&lt;/h2&gt;
+
+&lt;p&gt;Considere a seguinte função escrita em pseudocódigo:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, ${name}!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Como tem uma única declaração, é fácil ver sua complexidade ciclomática é 1. Agora, vamos mudar um pouco as coisas:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;sayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sayGoodbye&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello, ${name}!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sayGoodbye&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Goodbye, ${name}!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;A segunda versão da função tem um ramo nela. O chamador da função pode passar &lt;strong&gt;true&lt;/strong&gt; como o valor do parâmetro &lt;strong&gt;sayGoodbye&lt;/strong&gt;, mesmo que o valor padrão seja &lt;strong&gt;false&lt;/strong&gt;&lt;em&gt;. Se isso acontecer, a função imprimirá uma mensagem de adeus após dizer olá. Por outro lado, se o interlocutor não fornecer um valor para o parâmetro ou escolher &lt;strong&gt;false&lt;/strong&gt;&lt;/em&gt;, a mensagem de adeus não será exibida.&lt;/p&gt;
+
+&lt;p&gt;Portanto, a função tem dois ramos de execução possíveis, o que é o mesmo que dizer que sua complexidade ciclomática tem um valor de 2.&lt;/p&gt;
+
+&lt;h2 id=&quot;por-que-a-complexidade-ciclomática-é-ruim&quot;&gt;Por que a Complexidade Ciclomática é Ruim?&lt;/h2&gt;
+
+&lt;p&gt;A complexidade ciclomática não é intrinsecamente ruim. Por exemplo, você pode ter um pedaço de código com um valor complexo ciclomático um pouco alto que é super fácil de ler e entender. Entretanto, de modo geral, podemos dizer que ter uma alta complexidade ciclomática é ou um sintoma de problemas com a base de código ou uma causa potencial de problemas futuros. Vamos cobrir algumas das razões pelas quais você gostaria de reduzi-la com mais detalhes.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-complexidade-ciclomática-pode-contribuir-para-a-complexidade-cognitiva&quot;&gt;A Complexidade Ciclomática Pode Contribuir para a Complexidade Cognitiva&lt;/h3&gt;
+
+&lt;p&gt;A complexidade cognitiva refere-se ao quanto é difícil entender um determinado código. Embora nem sempre seja esse o caso, a complexidade ciclomática pode ser um dos fatores que impulsionam a complexidade cognitiva. Quanto maior a complexidade cognitiva de um pedaço de código, mais difícil é navegar e manter.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-complexidade-ciclomática-torna-o-código-mais-difícil-de-ser-testado&quot;&gt;A Complexidade Ciclomática torna o código mais difícil de ser testado&lt;/h3&gt;
+
+&lt;p&gt;Como já mencionamos, valores mais altos de complexidade ciclomática resultam na necessidade de um maior número de casos de teste para testar de forma abrangente um bloco de código - e.g., uma função. Portanto, se você quer facilitar sua vida ao escrever testes, provavelmente quer reduzir a complexidade ciclomática de seu código.&lt;/p&gt;
+
+&lt;h3 id=&quot;a-complexidade-ciclomática-contribui-para-maior-risco-de-defeitos&quot;&gt;A Complexidade Ciclomática Contribui para Maior Risco de Defeitos&lt;/h3&gt;
+
+&lt;p&gt;Você é mais gostoso de introduzir defeitos em uma área da base de código que você muda muito do que a uma que você raramente toca. Além disso, quanto mais complexo for um determinado pedaço de código, mais provável é que você o entenda mal e introduza um defeito a ele.&lt;/p&gt;
+
+&lt;p&gt;Portanto, código complexo que sofre muito &lt;a href=&quot;https://linearb.io/blog/what-is-code-churn/&quot;&gt;churn&lt;/a&gt;- mudanças freqüentes pela equipe - representa mais risco de defeitos. Ao reduzir a complexidade ciclomática - e, idealmente, também a rotatividade do código - você estará mitigando esses riscos.&lt;/p&gt;
+
+&lt;h2 id=&quot;como-reduzir-a-complexidade-ciclomática-6-maneiras-práticas&quot;&gt;Como Reduzir a Complexidade Ciclomática: 6 Maneiras Práticas&lt;/h2&gt;
+
+&lt;p&gt;Agora vamos rever algumas dicas práticas que você pode usar para garantir que a complexidade ciclomática de seu código seja a mais baixa possível.&lt;/p&gt;
+
+&lt;h3 id=&quot;1preferir-funções-menores&quot;&gt;1.Preferir funções menores&lt;/h3&gt;
+
+&lt;h4 id=&quot;o-que-fazer&quot;&gt;O que fazer?&lt;/h4&gt;
+
+&lt;p&gt;Sendo todas as outras iguais, funções menores são mais fáceis de ler e entender. Elas também são menos propensas a conter bugs em virtude de seu comprimento. Se você não tem muito código, você não tem muitas oportunidades para o código de bugs. O mesmo raciocínio se aplica à complexidade ciclomática: é menos provável que você tenha um código complexo se tiver menos período de código. Portanto, o conselho aqui é preferir funções menores.&lt;/p&gt;
+
+&lt;h4 id=&quot;como-fazer-isso&quot;&gt;Como fazer isso?&lt;/h4&gt;
+
+&lt;p&gt;Para cada função, identifique sua principal responsabilidade. Extraia o que sobra para suas próprias funções e módulos. Fazer isso também facilita a reutilização do código, o que é um ponto que revisaremos em breve.&lt;/p&gt;
+
+&lt;h3 id=&quot;2evitar-argumentos-de-bandeira-em-funções&quot;&gt;2.Evitar Argumentos de Bandeira em Funções&lt;/h3&gt;
+
+&lt;h4 id=&quot;o-que-fazer-1&quot;&gt;O que fazer?&lt;/h4&gt;
+
+&lt;p&gt;Os argumentos da bandeira são parâmetros booleanos que você acrescenta a uma função. As pessoas normalmente os utilizam quando precisam mudar o funcionamento de uma função, preservando ao mesmo tempo o antigo comportamento.&lt;/p&gt;
+
+&lt;h4 id=&quot;como-fazer&quot;&gt;Como fazer?&lt;/h4&gt;
+
+&lt;p&gt;O que usar ao invés de parâmetros de bandeira? Em poucas palavras, você pode usar estratégias que alcançam o mesmo resultado sem incorrer em alta complexidade. Por exemplo, você poderia criar uma nova função, mantendo a antiga como está e extraindo as partes comuns em sua própria função privada.&lt;/p&gt;
+
+&lt;p&gt;Se o parâmetro da bandeira estiver sendo usado para melhorar ou melhorar de alguma forma o comportamento da função original, você pode querer aproveitar o [padrão decorator] (https://en.wikipedia.org/wiki/Decorator_pattern) para alcançar o mesmo fim.&lt;/p&gt;
+
+&lt;h3 id=&quot;3reduzir-o-número-de-estruturas-de-decisão&quot;&gt;3.Reduzir o número de estruturas de decisão&lt;/h3&gt;
+
+&lt;h4 id=&quot;o-que-fazer-2&quot;&gt;O que fazer?&lt;/h4&gt;
+
+&lt;p&gt;Você pode considerar este um “não-cérebro”. Se as estruturas de decisão - especialmente &lt;strong&gt;se-else&lt;/strong&gt; e mudar de caso são o que causa mais ramos no código, é lógico que você deve reduzi-los se quiser manter a complexidade ciclomática à distância.&lt;/p&gt;
+
+&lt;h4 id=&quot;como-fazer-isso-1&quot;&gt;Como fazer isso?&lt;/h4&gt;
+
+&lt;p&gt;Algumas das táticas que acabamos de ver podem contribuir para reduzir o número de &lt;strong&gt;se&lt;/strong&gt; declarações em seu código. Por exemplo, em vez de usar argumentos de bandeira e depois usar uma declaração &lt;strong&gt;if&lt;/strong&gt;* para verificar, você pode usar o padrão decorador. Em vez de usar um caso de troca para rever muitas possibilidades e decidir qual delas o código executará, você pode aproveitar o &lt;a href=&quot;https://en.wikipedia.org/wiki/Strategy_pattern&quot;&gt;design pattern strategy&lt;/a&gt;. Claro que, em algum ponto do código, você ainda precisará de um estojo de troca. Afinal de contas, &lt;em&gt;alguém&lt;/em&gt; tem que decidir qual a implementação real a ser usada. Entretanto, esse ponto se torna o único ponto no código que precisa dessa estrutura de decisão.&lt;/p&gt;
+
+&lt;h3 id=&quot;4get-rid-of-duplicated-code-livre-se-do-código-duplicado&quot;&gt;4.Get Rid of Duplicated Code (Livre-se do código duplicado)&lt;/h3&gt;
+
+&lt;h4 id=&quot;o-que-fazer-3&quot;&gt;O que fazer?&lt;/h4&gt;
+
+&lt;p&gt;Às vezes, você tem funções/métodos que fazem quase a mesma coisa. Manter ambos aumentam a complexidade ciclomática total de sua classe ou módulo. Se você pode limitar suas duplicatas, você pode limitar a complexidade.&lt;/p&gt;
+
+&lt;h4 id=&quot;como-fazer-1&quot;&gt;Como fazer?&lt;/h4&gt;
+
+&lt;p&gt;Remova as duplicatas de código por:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;extraindo os bits de código comuns para seus próprios métodos/funções dedicados.&lt;/li&gt;
+  &lt;li&gt;alavancando padrões de projeto - tais como &lt;a href=&quot;https://en.wikipedia.org/wiki/Template_method_pattern&quot;&gt;o design pattern template&lt;/a&gt;- que incentivam a reutilização do código.&lt;/li&gt;
+  &lt;li&gt;extraindo funções utilitárias genéricas em pacotes-gems, módulos npm, pacotes NuGet, etc. - que podem ser reutilizados por toda a organização.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5remover-código-obsoleto&quot;&gt;5.Remover Código Obsoleto&lt;/h3&gt;
+
+&lt;h4 id=&quot;o-que-fazer-4&quot;&gt;O que fazer?&lt;/h4&gt;
+
+&lt;p&gt;Há muitas razões pelas quais é uma boa idéia remover o código obsoleto, ou seja, o código morto de sua aplicação. Para nosso contexto, basta dizer que essa é uma forma “gratuita” de aumentar a cobertura de código e diminuir a complexidade ciclomática.&lt;/p&gt;
+
+&lt;h4 id=&quot;como-fazer-isso-2&quot;&gt;Como fazer isso?&lt;/h4&gt;
+
+&lt;p&gt;Basta usar uma ferramenta que lhe permita identificar o código morto - até mesmo sua IDE pode ser capaz de fazê-lo - e depois apagá-lo impiedosamente.&lt;/p&gt;
+
+&lt;h3 id=&quot;6não-reinvente-a-roda&quot;&gt;6.Não Reinvente a Roda&lt;/h3&gt;
+
+&lt;h4 id=&quot;o-que-fazer-5&quot;&gt;O que fazer?&lt;/h4&gt;
+
+&lt;p&gt;Deixe o desenvolvedor que nunca escreveu uma função - ou mesmo alguns deles - realizar a formatação da data lançar a primeira pedra! É quase como um rito de passagem.&lt;/p&gt;
+
+&lt;p&gt;Escrever código que simplesmente duplica a funcionalidade que a biblioteca padrão de seu idioma ou sua estrutura já oferece é uma maneira segura de aumentar desnecessariamente a complexidade. Se &lt;a href=&quot;https://wiki.c2.com/?SoftwareAsLiability&quot;&gt;código é uma responsabilidade&lt;/a&gt;, você quer escrever apenas a quantidade estritamente necessária.&lt;/p&gt;
+
+&lt;h4 id=&quot;como-fazer-isso-3&quot;&gt;Como fazer isso?&lt;/h4&gt;
+
+&lt;p&gt;Implemente uma sólida estratégia de revisão de código que seja capaz de identificar e se livrar de tais reinvenções de roda.&lt;/p&gt;
+
+&lt;h2 id=&quot;reduzir-a-complexidade-ciclomática-aumentar-a-clareza-do-código&quot;&gt;Reduzir a Complexidade Ciclomática, Aumentar a Clareza do Código&lt;/h2&gt;
+
+&lt;p&gt;A complexidade ciclomática é uma das métricas mais valiosas na engenharia de software. Ela tem implicações importantes para a qualidade do código e a capacidade de manutenção, sem mencionar os testes. A alta complexidade ciclomática pode ser tanto um sinal de problemas existentes como um preditor de problemas futuros. Portanto, manter o valor desta métrica sob controle é certamente algo que você quer fazer se quiser alcançar uma base de código saudável. Mantê-lo sob controle é exatamente o que você aprendeu com nosso posto.&lt;/p&gt;
+
+&lt;p&gt;Antes de separar os caminhos, uma última advertência. Tenha em mente que nenhuma métrica é uma panacéia quando usada isoladamente. Muitas vezes, o que você realmente gostaria de fazer é rastrear e melhorar um &lt;a href=&quot;https://linearb.io/5-key-metrics-fix-your-software-teams-quality/&quot;&gt;grupo de métricas&lt;/a&gt; que, juntos, podem lhe dar uma visão geral da saúde de sua equipe e de seu projeto. Obrigado pela leitura.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 05 Apr 2021 00:00:00 -0300</pubDate>
+        <link>http://carlosschults.net/pt/reduzir-complexidade-ciclomatica/</link>
+        <guid isPermaLink="true">http://carlosschults.net/pt/reduzir-complexidade-ciclomatica/</guid>
+        
+        <category>boas-praticas</category>
+        
+        <category>testes-automatizados</category>
+        
+        <category>testes-unitarios</category>
+        
+        <category>testes-de-software</category>
+        
+        <category>engenharia-de-software</category>
+        
+        
+      </item>
     
       <item>
         <title>Testes de Mutação: O Que São e Como Tornam A Cobertura de Código Relevante</title>
@@ -1620,195 +1773,6 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
         <category>revisao de codigo</category>
         
         <category>metodologias ageis</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>Programação Cargo Cult É A Arte de Programar Por Coincidência</title>
-        <description>&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1516152067/cargo-cult-programming-1037x438_spoxet.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;em&gt;NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode &lt;a href=&quot;https://blog.ndepend.com/cargo-cult-programming/&quot;&gt;clicar aqui para ler o artigo original no site deles, em inglês&lt;/a&gt;. Enquanto estiver por lá, baixe e experimente o NDepend.&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;Eu ouvi falar em programação cargo cult a primeira vez há alguns anos. Eu me lembro de ter pensado na época: “Que nome estranho para um conceito relacionado com programação”.&lt;/p&gt;
-
-&lt;p&gt;Se você compartilha do estranhamento do meu “eu” do passado, o post de hoje é para você.&lt;/p&gt;
-
-&lt;p&gt;Primeiramente, você verá o que programação cargo cult é e por que você deve se importar. Então, vamos dar uma olhada em alguns exemplos práticos, usando a linguagem C#. Finalmente, nós encerraremos com conselhos sobre o que você pode fazer para não cair nessa armadilha.&lt;/p&gt;
-
-&lt;h2 id=&quot;programação-cargo-cult-fazendo-as-coisas-porque-sim&quot;&gt;Programação Cargo Cult: Fazendo as coisas porque sim.&lt;/h2&gt;
-
-&lt;p&gt;Segundo a versão em inglês da &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult_programming&quot;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Cargo cult programming is a style of computer programming characterized by the ritual inclusion of code or program structures that serve no real purpose.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Programação &lt;em&gt;cargo cult&lt;/em&gt; é um estilo de programação de computadores caracterizado pela inclusão ritualística de código ou estruturas de programação que não servem nenhum propósito real.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em outras palavras, é quando um(a) desenvolvedor(a) escreve código sem entender realmente o que aquele código faz. Talvez uma abordagem por tentativa e erro tenha sido usada - copia o código de um lugar, cola em outro, e vai mexendo e testando até que funciona, mais ou menos. Quando chega nesse ponto a pessoa geralmente para de mexer no código, por medo de fazer parar de funcionar. No processo, talvez sobrem resquícios de código que não servem realmente para nada.&lt;/p&gt;
-
-&lt;p&gt;Ou talvez a pessoa tenha tentado usar uma técnica aprendida com um colega, mas falhou em compreender que os conceitos são diferentes e que a tal técnica é inútil na situação atual.&lt;/p&gt;
-
-&lt;p&gt;Por fim, também é possível que o problema seja simplesmente educação insuficiente: talvez o desenvolvedor tenha um entendimento pobre a respeito de como as ferramentas usadas funcionam.&lt;/p&gt;
-
-&lt;h2 id=&quot;por-que-a-programação-cargo-cult-é-um-problema&quot;&gt;Por que a programação &lt;em&gt;cargo cult&lt;/em&gt; é um problema?&lt;/h2&gt;
-&lt;p&gt;Como Eric Lippert diz, &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2004/03/01/syntax-semantics-micronesian-cults-and-novice-programmers/&quot;&gt;programadores cargo cult sofrem para fazer alterações significativas em um programa&lt;/a&gt; e acabam usando uma abordagem de tentativa e erro já que eles não entendem o funcionamento interno do código que estão prestes a alterar.&lt;/p&gt;
-
-&lt;p&gt;Isso não é tão diferente do que os &lt;a href=&quot;https://pragprog.com/the-pragmatic-programmer/extracts/coincidence&quot;&gt;programadores pragmáticos chamam de “programação por coincidência”&lt;/a&gt;:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Fred doesn’t know why the code is failing because he didn’t know why it worked in the first place. It seemed to work, given the limited “testing” that Fred did, but that was just a coincidence.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Em tradução livre:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Fred não sabe porque o código está falhando porque ele não sabe porque ele funcionou da primeira vez. Parecia estar funcionando, com o “teste” limitado que Fred fez, mas era apenas uma coincidência.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A frase acima resume tudo para mim: se você não sabe como ou por que seu código funciona, você também não vai entender o que aconteceu quando ele parar de funcionar.&lt;/p&gt;
-
-&lt;h2 id=&quot;origem-do-termo&quot;&gt;Origem do termo&lt;/h2&gt;
-&lt;p&gt;Embora práticas que são consideradas “culto à carga” (&lt;em&gt;cargo cult&lt;/em&gt;) atualmente &lt;a href=&quot;https://en.wikipedia.org/wiki/Cargo_cult#First_occurrences&quot;&gt;tenham sido registradas tão cedo quanto o final do século XIX&lt;/a&gt;, o termo em si data de 1945, quando foi usado pela primeira vez para descrever práticas que surgiram durante e depois da Segunda Guerra Mundial entre habitantes da Melanésia.&lt;/p&gt;
-
-&lt;p&gt;Os nativos começaram a imitar o comportamento dos soldados, vestindo-se como controladores de voo e balançando gravetos, na esperança de que isso faria com que aviões carregados de suprimentos descessem dos céus.&lt;/p&gt;
-
-&lt;p&gt;Desde então, o termo culto à carga tem sido usado em uma variedade de contextos para significar &lt;strong&gt;imitar forma sem conteúdo&lt;/strong&gt; - copiar perfeitamente os elementos superficiais mas ao mesmo tempo falhando em entender de maneira mais profunda o significado e funcionamento do que se está tentando emular.&lt;/p&gt;
-
-&lt;h2 id=&quot;falar-é-fácil-me-mostre-o-código&quot;&gt;Falar é fácil; me mostre o código!&lt;/h2&gt;
-&lt;p&gt;Chega da aula de História por hoje. Hora de ver código! Eu vou mostrar cinco exemplos de programação cargo cult usando a linguagem C#. Vamos lá.&lt;/p&gt;
-
-&lt;h3 id=&quot;checar-um-tipo-de-valor-não-nulável-for-null&quot;&gt;Checar um tipo de valor não-nulável for &lt;em&gt;Null&lt;/em&gt;&lt;/h3&gt;
-&lt;p&gt;O primeiro item é algo que me incomoda já que eu vejo isso bastante em código de produção. É algo assim:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Product&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-   	   &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// essa verificação é inútil&lt;/span&gt;
-	   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	       &lt;span class=&quot;n&quot;&gt;Console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteLine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Esta linha sempre será executada.&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-	   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	
-	   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Aqui nós temos o caso de um(a) desenvolvedor(a) que provavelmente não entende a &lt;a href=&quot;https://carlosschults.net/pt/tipos-valor-referencia-em-csharp/&quot;&gt;diferença entre tipos de valor e referência&lt;/a&gt;. Seria completamente perdoável, no caso de um profissional iniciante, se não fosse pelo fato de que o compilador te avisa disso.&lt;/p&gt;
-
-&lt;p&gt;Você pode achar isso um exagero da minha parte. Afinal de contas, o código vai rodar perfeitamente mesmo assim. Na verdade, a verificação não será nem ao mesma incluída no IL resultante, como você pode ver nesse print de uma ferramenta de descompilação:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://res.cloudinary.com/dz5ppacuo/image/upload/v1515684957/just-decompile1_qk69k2.png&quot; alt=&quot;Uma imagem mostrando um trecho de código que não contem a checagem de nulo.&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Você pode ver no trecho de código acima que o compilador otimizou o código, removendo a checagem por nulo.&lt;/p&gt;
-
-&lt;p&gt;Tem problemas muito piores, claro. Sim, a aplicação não vai &lt;em&gt;quebrar&lt;/em&gt; por causa disso. Então, qual é o ponto?&lt;/p&gt;
-
-&lt;p&gt;Bom, pra começo de conversa, eu me preocuparia com uma empresa de desenvolvimento cujo único critério de qualidade é “roda sem quebrar”. Mas o problema de verdade aqui é que esse tipo de código demonstra uma falta de entendimento sobre características fundamentais da linguagem e da plataforma que podem lhe causar problemas no futuro.&lt;/p&gt;
-
-&lt;h3 id=&quot;uso-desnecessário-de-tolist-em-consultas-do-linq-to-object&quot;&gt;Uso Desnecessário de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; em consultas do LINQ to Object&lt;/h3&gt;
-&lt;p&gt;Assim como o problema anterior, o item atual é algo que eu rotineiramente vejo em código de produção. Considere o código abaixo:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToList&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;O problema que temos aqui é que as chamadas ao método &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; são totalmente desnecessárias (exceto talvez a última, caso você realmente precisasse que o resultado fosse um lista e não apenas um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&lt;/code&gt;).&lt;/p&gt;
-
-&lt;p&gt;Em minha experiência, isso acontece quando quem escreveu o código não entende bem a natureza do LINQ; eles erroneamente acham que os métodos do LINQ pertencem ao tipo concreto &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; ao invés de serem métodos de extensão que podem ser usados com qualquer implementação de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IEnumerable&amp;lt;T&amp;gt;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Ao chamar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ToList()&lt;/code&gt; diversas vezes dessa forma, o desenvolvedor na verdade cria diversas listas novas, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
-
-&lt;p&gt;O código acima pode ser reescrito da seguinte forma:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Where&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PremiumUser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Birth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateOfBirth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;conversões-desnecessárias&quot;&gt;Conversões Desnecessárias&lt;/h3&gt;
-&lt;p&gt;Considere a linha seguinte:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Parse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Aqui temos não apenas uma mas duas conversões desnecessárias. Primeiro, criamos uma nova string e então a “parseamos” para &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DateTime&lt;/code&gt; quando um simples &lt;em&gt;cast&lt;/em&gt; seria suficiente:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;creationDate&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateTime&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;row&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;creation_date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Esse exemplo assume que o tipo no banco de dados é um tipo específico para lidar com datas (como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;date&lt;/code&gt; ou &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;datetime&lt;/code&gt; no SQL Server). É claro que se você estivesse usando um tipo inadequado (como &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;varchar&lt;/code&gt;) então isso já seria um outro problema.&lt;/p&gt;
-
-&lt;h3 id=&quot;try-catch-em-todo-lugar&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Try-Catch&lt;/code&gt; em todo lugar&lt;/h3&gt;
-&lt;p&gt;Também conhecido como síndrome Pokémon (“Gotta catch’em all!”), o &lt;em&gt;anti-pattern&lt;/em&gt; aqui é adicionar um bloco &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;try-catch&lt;/code&gt; em cada linha em que exista a remota possibilidade de uma exceção ser disparada.&lt;/p&gt;
-
-&lt;p&gt;Pontos bônus se o código estiver tentando capturar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.Exception&lt;/code&gt; ao invés de uma exceção mais específica, acabando com a distinção entre erros esperados e não esperados.&lt;/p&gt;
-
-&lt;p&gt;Mais pontos se o bloco do &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;catch&lt;/code&gt; não conter código nenhum!&lt;/p&gt;
-
-&lt;p&gt;A dica geral aqui é: jamais capture uma exceção a não ser que você tenha uma razão muito específica para fazê-lo. Do contrário, deixe que a exceção suba até que o gerenciador de exceções geral no nível mais alto lide com ela.&lt;/p&gt;
-
-&lt;p&gt;Se esse conselho parece vago (“Como vou saber se eu tenho uma boa razão para capturar a exceção?”), é porque de fato é. Explorar esse tema mais a fundo iria além do escopo desse post, , mas &lt;a href=&quot;https://blogs.msdn.microsoft.com/ericlippert/2008/09/10/vexing-exceptions/&quot;&gt;ler o excelente artigo do Eric Lippert chamado “Vexing Exceptions”&lt;/a&gt; vai aumentar e muito o seu entendimento sobre exceções.&lt;/p&gt;
-
-&lt;h3 id=&quot;usar-stringbuilder-demais&quot;&gt;Usar &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; Demais&lt;/h3&gt;
-&lt;p&gt;Você já deve ter visto o filme: depois de ler em algum lugar que concatenar strings usando &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+&lt;/code&gt; é ineficiente, nosso intrépido desenvolvedor resolve tomar pra si a tarefa hercúlea de mudar cada concatenação de string no projeto para o uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;A justificativa para isso, claro, é que &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;System.String&lt;/code&gt; é imutável. Então, cada vez que você “muda” a string, você na verdade está criando uma instância nova na memória, o que pode prejudicar o desempenho da aplicação.&lt;/p&gt;
-
-&lt;p&gt;Mas adivinha só. O compilador é bem esperto. Digamos que você tenha a seguinte linha:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello &quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Isso vai ser no fim das contas traduzido para:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;	&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;A regra geral é: tudo bem usar concatenação simples se você sabe o número de strings a anexar em tempo de compilação. Do contrário, &lt;a href=&quot;https://stackoverflow.com/a/21644889&quot;&gt;o uso de &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;StringBuilder&lt;/code&gt; provavelmente faz mais sentido&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Lógico, alguns cenários não são tão claros assim. O único conselho que faz sentido dar aqui é: faça seu dever de casa. Quando estiver com dúvida, pesquise e faça &lt;em&gt;benchmark&lt;/em&gt; sem dó.&lt;/p&gt;
-
-&lt;p&gt;Eu termino com mais uma dica sensata do Eric Lippert:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Unnecessary code changes are expensive and dangerous; &lt;strong&gt;don’t make performance-based changes unless you’ve identified a performance problem.&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;existe-solução&quot;&gt;Existe Solução?&lt;/h2&gt;
-&lt;p&gt;Eu diria que é justo supor que pessoas com menos experiência são mais propensas a cometer erros devido à programação cargo cult. Mas desenvolvedor nenhum está realmente a salvo, independentemente de seu nível de conhecimento ou experiência.&lt;/p&gt;
-
-&lt;p&gt;Nós somos apenas humanos no fim das contas. Cansaço, prazos, vieses cognitivos e (para ser realmente honesto) a preguiça eventual pode transformar até o melhor de nós em um programador cargo cult.&lt;/p&gt;
-
-&lt;p&gt;Infelizmente, não há uma maneira 100% garantida de impedir isso de acontecer. Mesmo assim, aqui vão algumas medidas que você pode tomar para, ao menos, diminuir as chances.&lt;/p&gt;
-
-&lt;p&gt;Vamos ver algumas delas.&lt;/p&gt;
-
-&lt;h3 id=&quot;use-revisão-de-códigoprogramação-em-par&quot;&gt;Use Revisão de Código/Programação em Par&lt;/h3&gt;
-&lt;p&gt;A primeira medida que você pode tomar para evitar o cargo cult é simplesmente ter uma segunda pessoa olhando seu código. Os benefícios de ter uma outra pessoa revisando cada linha de código antes que ela chegue em produção não podem ser subestimados. E embora &lt;a href=&quot;https://blog.submain.com/code-review-vs-pair-programming-2/&quot;&gt;revisão de código e programação em par não são exatamente equivalentes&lt;/a&gt;, ambas as práticas podem lhe trazer esse benefício.&lt;/p&gt;
-
-&lt;h3 id=&quot;sempre-teste-suas-hipóteses&quot;&gt;Sempre Teste Suas Hipóteses&lt;/h3&gt;
-&lt;p&gt;Escreva &lt;a href=&quot;https://carlosschults.net/pt/testes-unitarios-iniciantes-parte1&quot;&gt;testes de unidade&lt;/a&gt; (e outros tipos de testes também). Monitore sua aplicação em produção. Se algo não está tendo um bom desempenho, faça &lt;em&gt;benchmarks&lt;/em&gt; exaustivos. Não faça só suposições. Testar as suas hipóteses pode trazer &lt;em&gt;insights&lt;/em&gt; valiosos e salvar a sua pele naqueles momentos em que a sua intuição não for certeira.&lt;/p&gt;
-
-&lt;h3 id=&quot;leia-código-de-outras-pessoas&quot;&gt;Leia Código de Outras Pessoas&lt;/h3&gt;
-&lt;p&gt;Ler código escrito por outras pessoas é uma ótima maneira de aprender. É uma ferramenta perfeita para comparar suas ideias e suposições contra o que outros desenvolvedores estão fazendo, expondo você a novos conceitos que podem lhe forçar a ganhar um entendimento maior dos problemas que está tentando resolver.&lt;/p&gt;
-
-&lt;p&gt;Na era do &lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;, não tem muita desculpa para não fazer isso.&lt;/p&gt;
-
-&lt;h3 id=&quot;aprenda-com-suas-ferramentas&quot;&gt;Aprenda Com Suas Ferramentas&lt;/h3&gt;
-&lt;p&gt;Existe um número enorme de ferramentas que podem ajudar &lt;a href=&quot;https://www.ndepend.com/&quot;&gt;sua equipe com a qualidade do seu código&lt;/a&gt;. Aqui vai a dica principal: você não deve só usar essas ferramentas. Você deve também aprender com elas. Se você usa NDepend, &lt;a href=&quot;https://www.ndepend.com/default-rules/webframe.html&quot;&gt;leia sobre suas regras&lt;/a&gt;. Tente entender a justificativa por trás de cada uma delas. Quais são os princípios e boas práticas que guiaram seus autores durante a criação delas?&lt;/p&gt;
-
-&lt;p&gt;A mesma dica vale para outros tipos de ferramentas, e até para os warnings que o compilador lhe mostra.&lt;/p&gt;
-
-&lt;h2 id=&quot;ciência-da-computação-não-superstição-da-computação&quot;&gt;Ciência da Computação, Não &lt;em&gt;Superstição&lt;/em&gt; da Computação&lt;/h2&gt;
-&lt;p&gt;Embora ninguém seja imune à programação cargo cult, nós devemos nos esforçar para superá-la. Há sabedoria na nossa área à nossa disposição, acumulada lentamente ao longo de mais de 7 década. Vamos usá-la. Vamos entender melhor nossas ferramentas e nossa profissão e escrever software de qualidade.&lt;/p&gt;
-</description>
-        <pubDate>Wed, 17 Jan 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/cargo-cult-programming/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/cargo-cult-programming/</guid>
-        
-        <category>csharp</category>
-        
-        <category>boas praticas</category>
-        
-        <category>programacao cargo cult</category>
         
         
       </item>
