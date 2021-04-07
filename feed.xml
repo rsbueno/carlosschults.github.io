@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>carlos schults / blog</title>
-    <description>Articles on software development, databases and several tech related subjects.</description>
-    <link>http://carlosschults.net/</link>
-    <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Apr 2021 16:11:28 -0300</pubDate>
-    <lastBuildDate>Mon, 05 Apr 2021 16:11:28 -0300</lastBuildDate>
+    <description>Articles on software development and technology.</description>
+    <link>https://carlosschults.net/</link>
+    <atom:link href="https://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 07 Apr 2021 20:08:25 -0300</pubDate>
+    <lastBuildDate>Wed, 07 Apr 2021 20:08:25 -0300</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
     
@@ -146,8 +146,8 @@
 &lt;p&gt;Before parting ways, a final caveat. Keep in mind that no metric is a panacea when used in isolation. Often, what you’d really want to do is to track and improve a &lt;a href=&quot;https://linearb.io/5-key-metrics-fix-your-software-teams-quality/&quot;&gt;group of metrics&lt;/a&gt; that, together, can give you the big picture view of the health of your team and project. Thanks for reading.&lt;/p&gt;
 </description>
         <pubDate>Mon, 05 Apr 2021 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/reduce-cyclomatic-complexity/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/reduce-cyclomatic-complexity/</guid>
+        <link>https://carlosschults.net/en/reduce-cyclomatic-complexity/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/reduce-cyclomatic-complexity/</guid>
         
         <category>best-practices</category>
         
@@ -238,8 +238,8 @@
 
 </description>
         <pubDate>Thu, 23 Jul 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/mutation-testing/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/mutation-testing/</guid>
+        <link>https://carlosschults.net/en/mutation-testing/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/mutation-testing/</guid>
         
         <category>software-testing</category>
         
@@ -691,8 +691,8 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 &lt;p&gt;Thanks for reading, and until the next time!&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Jul 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/csharp-unit-testing-intro-tdd/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/csharp-unit-testing-intro-tdd/</guid>
+        <link>https://carlosschults.net/en/csharp-unit-testing-intro-tdd/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/csharp-unit-testing-intro-tdd/</guid>
         
         <category>software-testing</category>
         
@@ -867,8 +867,8 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 &lt;p&gt;The alternative for null is null itself… &lt;strong&gt;when done properly&lt;/strong&gt;.&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jul 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/null-is-evil</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/null-is-evil</guid>
+        <link>https://carlosschults.net/en/null-is-evil</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/null-is-evil</guid>
         
         <category>software-engineering</category>
         
@@ -994,8 +994,8 @@ Photo by Sven Brandsma on Unsplash&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 16 Jun 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/sharpen-the-saw/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/sharpen-the-saw/</guid>
+        <link>https://carlosschults.net/en/sharpen-the-saw/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/sharpen-the-saw/</guid>
         
         <category>software-engineering</category>
         
@@ -1194,8 +1194,8 @@ Photo by Sven Brandsma on Unsplash&lt;/p&gt;
 &lt;p&gt;Instead, what I wanted here is to give you a little taste of what a functional style can do for your code, which is to make it more expressive, concise, and declarative. Now it’s up to you to try to apply the functional mindset to the code you write.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Jan 2019 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/functional-programming-csharp/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/functional-programming-csharp/</guid>
+        <link>https://carlosschults.net/en/functional-programming-csharp/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/functional-programming-csharp/</guid>
         
         <category>csharp</category>
         
@@ -1325,8 +1325,8 @@ Photo by Sven Brandsma on Unsplash&lt;/p&gt;
 &lt;p&gt;Value objects are a relatively low-cost technique that can greatly enhance the manageability and clarity of your code. By employing value objects, you can make your code easier to reason about, crafting APIs that are self-documenting, easy to understand, hard to use incorrectly, and inherently type-safe.&lt;/p&gt;
 </description>
         <pubDate>Wed, 24 Oct 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/value-objects-tool/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/value-objects-tool/</guid>
+        <link>https://carlosschults.net/en/value-objects-tool/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/value-objects-tool/</guid>
         
         <category>csharp</category>
         
@@ -1455,8 +1455,8 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;You know what they say. “When in a hole, stop digging.” And that’s exactly the type of help I wanted to offer with this post: a quick and easy fix, meant to give you and your teammates just enough sanity that you can focus and regain control of your application, ensuring its long-term health.&lt;/p&gt;
 </description>
         <pubDate>Tue, 16 Oct 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/coding-best-practices-short-time/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/coding-best-practices-short-time/</guid>
+        <link>https://carlosschults.net/en/coding-best-practices-short-time/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/coding-best-practices-short-time/</guid>
         
         <category>csharp</category>
         
@@ -1604,8 +1604,8 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;And of course, always use the tools at your disposal. For instance, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;SubMain’s CodeIt.Right&lt;/a&gt; has a rule to force you to specify a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; in situations where it’s optional, which can save you from nasty bugs when parsing dates.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Jul 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/4-common-datetime-mistakes-csharp/</guid>
+        <link>https://carlosschults.net/en/4-common-datetime-mistakes-csharp/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/4-common-datetime-mistakes-csharp/</guid>
         
         <category>csharp</category>
         
@@ -1746,8 +1746,8 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 24 Jan 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/en/code-review-vs-pair-programming/</link>
-        <guid isPermaLink="true">http://carlosschults.net/en/code-review-vs-pair-programming/</guid>
+        <link>https://carlosschults.net/en/code-review-vs-pair-programming/</link>
+        <guid isPermaLink="true">https://carlosschults.net/en/code-review-vs-pair-programming/</guid>
         
         <category>pair programming</category>
         

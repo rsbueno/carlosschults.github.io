@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>carlos schults / blog</title>
-    <description>Artigos sobre desenvolvimento de software, banco de dados e vários assuntos ligados à tecnologia.</description>
-    <link>http://carlosschults.net/</link>
-    <atom:link href="http://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 05 Apr 2021 16:11:28 -0300</pubDate>
-    <lastBuildDate>Mon, 05 Apr 2021 16:11:28 -0300</lastBuildDate>
+    <description>Artigos sobre desenvolvimento de software e tecnologia.</description>
+    <link>https://carlosschults.net/</link>
+    <atom:link href="https://carlosschults.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 07 Apr 2021 20:08:25 -0300</pubDate>
+    <lastBuildDate>Wed, 07 Apr 2021 20:08:25 -0300</lastBuildDate>
     <generator>Jekyll v4.1.1</generator>
     
     
@@ -62,7 +62,7 @@
 
 &lt;h3 id=&quot;a-complexidade-ciclomática-contribui-para-maior-risco-de-defeitos&quot;&gt;A Complexidade Ciclomática Contribui para Maior Risco de Defeitos&lt;/h3&gt;
 
-&lt;p&gt;Você é mais gostoso de introduzir defeitos em uma área da base de código que você muda muito do que a uma que você raramente toca. Além disso, quanto mais complexo for um determinado pedaço de código, mais provável é que você o entenda mal e introduza um defeito a ele.&lt;/p&gt;
+&lt;p&gt;É mais provável que você introduza defeitos em uma área da base de código que você muda muito do que a uma que você raramente toca. Além disso, quanto mais complexo for um determinado pedaço de código, mais provável é que você o entenda mal e introduza um defeito a ele.&lt;/p&gt;
 
 &lt;p&gt;Portanto, código complexo que sofre muito &lt;a href=&quot;https://linearb.io/blog/what-is-code-churn/&quot;&gt;churn&lt;/a&gt;- mudanças freqüentes pela equipe - representa mais risco de defeitos. Ao reduzir a complexidade ciclomática - e, idealmente, também a rotatividade do código - você estará mitigando esses riscos.&lt;/p&gt;
 
@@ -147,8 +147,8 @@
 &lt;p&gt;Antes de separar os caminhos, uma última advertência. Tenha em mente que nenhuma métrica é uma panacéia quando usada isoladamente. Muitas vezes, o que você realmente gostaria de fazer é rastrear e melhorar um &lt;a href=&quot;https://linearb.io/5-key-metrics-fix-your-software-teams-quality/&quot;&gt;grupo de métricas&lt;/a&gt; que, juntos, podem lhe dar uma visão geral da saúde de sua equipe e de seu projeto. Obrigado pela leitura.&lt;/p&gt;
 </description>
         <pubDate>Mon, 05 Apr 2021 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/reduzir-complexidade-ciclomatica/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/reduzir-complexidade-ciclomatica/</guid>
+        <link>https://carlosschults.net/pt/reduzir-complexidade-ciclomatica/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/reduzir-complexidade-ciclomatica/</guid>
         
         <category>boas-praticas</category>
         
@@ -241,8 +241,8 @@
 
 </description>
         <pubDate>Thu, 23 Jul 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/testes-de-mutacao/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/testes-de-mutacao/</guid>
+        <link>https://carlosschults.net/pt/testes-de-mutacao/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/testes-de-mutacao/</guid>
         
         <category>testes-de-software</category>
         
@@ -694,8 +694,8 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 &lt;p&gt;Obrigado pela leitura, e até a próxima!&lt;/p&gt;
 </description>
         <pubDate>Wed, 08 Jul 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/</guid>
+        <link>https://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/testes-unitarios-csharp-intro-tdd/</guid>
         
         <category>csharp</category>
         
@@ -874,8 +874,8 @@ Add_StringContainingSingleNumber_ReturnsTheNumberItself
 &lt;p&gt;A alternativa para o nulo é o próprio nulo… &lt;strong&gt;quando feito corretamente&lt;/strong&gt;.&lt;/p&gt;
 </description>
         <pubDate>Thu, 02 Jul 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/null-problematico</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/null-problematico</guid>
+        <link>https://carlosschults.net/pt/null-problematico</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/null-problematico</guid>
         
         <category>engenharia-de-software</category>
         
@@ -1001,8 +1001,8 @@ Photo de Sven Brandsma no Unsplash&lt;/p&gt;
 
 </description>
         <pubDate>Tue, 16 Jun 2020 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/afiando-a-serra/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/afiando-a-serra/</guid>
+        <link>https://carlosschults.net/pt/afiando-a-serra/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/afiando-a-serra/</guid>
         
         <category>engenharia-de-software</category>
         
@@ -1208,8 +1208,8 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 &lt;p&gt;Ao contrário, o que eu queria fazer aqui era mostrar um pouco do que um estilo funcional pode fazer com seu código: torná-lo mais expressivo, conciso e declarativo. Agora depende de você aplicar o estilo funcional ao código que você escreve.&lt;/p&gt;
 </description>
         <pubDate>Tue, 22 Jan 2019 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/programacao-funcional-csharp/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/programacao-funcional-csharp/</guid>
+        <link>https://carlosschults.net/pt/programacao-funcional-csharp/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/programacao-funcional-csharp/</guid>
         
         <category>csharp</category>
         
@@ -1335,8 +1335,8 @@ Sendo esse um caso de uso tão comum, o framework disponibiliza um método dedic
 &lt;p&gt;O uso de value objects é uma técnica com um custo relativamente baixo que pode aumentar bastante a manutenibilidade e claridade do seu código. Colocando value objects em prática, você pode tornar seu código mais fácil de ser compreendido, criando interfaces que são auto-documentáveis, difíceis de serem usadas da maneira errada, e intrinsecamente &lt;em&gt;type-safe&lt;/em&gt;.&lt;/p&gt;
 </description>
         <pubDate>Wed, 24 Oct 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/value-objects-ferramenta/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/value-objects-ferramenta/</guid>
+        <link>https://carlosschults.net/pt/value-objects-ferramenta/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/value-objects-ferramenta/</guid>
         
         <category>csharp</category>
         
@@ -1467,8 +1467,8 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;Você já deve ter ouvido o ditado. “Quando estiver em um buraco, para de cavar.” E é exatamente esse o tipo de ajuda que eu quis oferecer com esse post: correções rápidas e fáceis, para que você e as demais pessoas em seu tipo possam recuperar o suficiente de sanidade para poderem focar e recuperar o controle de sua aplicação, garantido sua saúde a longo prazo.&lt;/p&gt;
 </description>
         <pubDate>Tue, 16 Oct 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/boas-praticas-sem-tempo/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/boas-praticas-sem-tempo/</guid>
+        <link>https://carlosschults.net/pt/boas-praticas-sem-tempo/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/boas-praticas-sem-tempo/</guid>
         
         <category>csharp</category>
         
@@ -1616,8 +1616,8 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 &lt;p&gt;E finalmente, sempre use as ferramentas que estão à sua disposição. Por exemplo, &lt;a href=&quot;https://blog.submain.com/codeit-right-rules-explained-part-2/&quot;&gt;o produto da SubMain chamado CodeIt.Right&lt;/a&gt; tem uma regra que você a especificar um &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;IFormatProvider&lt;/code&gt; em situações nas quais é opcional, o que pode acabar salvando você de bugs difíceis ao fazer tratamento de datas.&lt;/p&gt;
 </description>
         <pubDate>Wed, 11 Jul 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/4-erros-comuns-datetime-csharp/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/4-erros-comuns-datetime-csharp/</guid>
+        <link>https://carlosschults.net/pt/4-erros-comuns-datetime-csharp/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/4-erros-comuns-datetime-csharp/</guid>
         
         <category>csharp</category>
         
@@ -1763,8 +1763,8 @@ Photo by Ales Nesetril on Unsplash&lt;/p&gt;
 
 </description>
         <pubDate>Wed, 24 Jan 2018 00:00:00 -0300</pubDate>
-        <link>http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</link>
-        <guid isPermaLink="true">http://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</guid>
+        <link>https://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</link>
+        <guid isPermaLink="true">https://carlosschults.net/pt/revisao-codigo-vs-programacao-em-par/</guid>
         
         <category>programacao em par</category>
         
