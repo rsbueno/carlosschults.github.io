@@ -24,7 +24,7 @@ Software engineers worth their salt are always searching for ways to improve the
 
 We’ll start by defining cyclomatic complexity. After that, you’ll learn what the problem with having a high cyclomatic complexity value is and why you would need to reduce it. After the “what” and “why,” we’ll finally get to the “how”: We’ll show you tactics you can adopt to reduce the cyclomatic complexity of your code. Let’s get to it.
 
-## Cyclomatic Complexity: A Brief Definition
+## Cyclomatic Complexity: A Very Brief Definition
 
 Cyclomatic complexity is an important software metric. It refers to the number of possible execution paths inside a given piece of code—for instance, a function. The more decision structures you use, the more possible branches there are for your code.
 
