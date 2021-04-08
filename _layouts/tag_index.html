@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h2 class="post_title">{{page.excerpt }}</h2>
+<ul>
+  {% assign posts=site.posts | where:"lang", "en" %}
+  {% for post in posts %}
+  {% for tag in post.tags %}
+  {% if tag == page.tag %}
+    <li>
+          <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </li>  
+  {% endif %}
+  {% endfor %}
+  {% endfor %} 
+</ul>
