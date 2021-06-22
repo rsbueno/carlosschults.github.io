@@ -18,8 +18,6 @@ tags:
 
 *Esta é a primeira parte de uma série de dois posts. Veja [a segunda parte](https://carlosschults.net/pt/como-aprender-ingles-parte-2).*
 
-**UPDATE 2020: Em breve estarei lançando meu curso *Inglês Para Desenvolvedores.* [Acesse o site](https://ingles4devs.com/) e assine a newsletter para ser avisado(a) assim que as incrições forem abertas.**
-
 Há quase dois anos, publiquei um post sobre um tema que costuma gerar discussões acaloradas na comunidade de desenvolvimento brasileira: [usar português ou inglês para nomear classes, variáveis, e demais artefatos no código](https://carlosschults.net/pt/programar-portugues-ou-ingles/). Aliás, este artigo continua sendo o que eu mais gostei de escrever até hoje.
 
 Minha opinião atual continua praticamente a mesma da época. Prefiro que você [leia o post completo](https://carlosschults.net/pt/programar-portugues-ou-ingles/), mas aqui vai a versão resumida: tente usar inglês o máximo possível, porém vão existir situações nas quais o português faz mais sentido. Decida de acordo com as características do seu projeto e equipe.

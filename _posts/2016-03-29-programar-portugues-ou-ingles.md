@@ -14,8 +14,6 @@ tags:
 
 ![](https://res.cloudinary.com/dz5ppacuo/image/upload/v1458429920/portugues-ou-ingles-1038x437_izhi3i.png)
 
-**UPDATE 2020: Em breve estarei lançando meu curso *Inglês Para Desenvolvedores.* [Acesse o site](https://ingles4devs.com/) e assine a newsletter para ser avisado(a) assim que as incrições forem abertas.**
-
 No contexto de boas práticas de desenvolvimento, um ponto que gera controvérsia é a escolha do idioma no qual codificar. Uma rápida busca no Google por "programar em português ou inglês" retorna 535 mil resultados, o que mostra que o tema realmente causa bastante discussão.
 
 Recentemente conversei com um colega de trabalho e também com meu chefe a respeito desse assunto. Esse post é consequência dessas conversas e das pesquisas que fiz depois.

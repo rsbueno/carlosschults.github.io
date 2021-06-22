@@ -18,7 +18,7 @@ tags:
 ![](https://res.cloudinary.com/dz5ppacuo/image/upload/v1540385528/value-object-tool/value-object-tool-1038x437.jpg)
 
 
-*NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode [conferir o artigo original, em inglês, no site deles](https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/). Ainda não consegue ler em inglês? Então, o meu novo curso [Inglês Para Desenvolvedores](https://ingles4devs.com) pode ser o que você precisa. Acesse o site, cadastre-se na newsletter e fique por dentro das novidades!*
+*NOTA: Eu escrevi este post originalmente para o blog da NDepend. Você pode [conferir o artigo original, em inglês, no site deles](https://blog.ndepend.com/value-objects-tool-self-documented-code-fewer-errors/). *
 
 Você já ouviu falar de *value objects*? Eu imagino que sim. Apesar de não se falar tanto a respeito deles como eu gostaria, eles ainda são mencionados o bastante para que muitos desenvolvedores tenham no mínimo alguma familiaridade com o termo.
 
@@ -97,7 +97,7 @@ Usando value objects, você pode eliminar esse problema facilmente. Você teria 
 	var  distance2  =  Distance.FromKilometers(4);
 	Assert.AreEqual(distance,  distance2);
 {% endhighlight %}
- 
+
 Você poderia ainda sobrecarregar o operador "+" (ou criar um método `Plus`). Dessa forma seria possível somar duas distâncias que se originaram de diferentes unidades de medida já que a representação interna é a mesma.
 
 ### Value Objects Apresentam Segurança de Tipo
@@ -115,7 +115,7 @@ Pois acontece que esse é o tipo de problema que value objects são ótimos em e
 {% highlight c# %}
 	double  PerformSomeImportantCalculation(Distance distance,  Temperature temperature);
 {% endhighlight %}
- 
+
 Dessa forma, se torna impossível passar os parâmetros na ordem errada: o compilador simplesmente não deixa!
 
 ### Value Objects Evitam Duplicação de Lógica de Domínio

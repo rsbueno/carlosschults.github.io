@@ -23,8 +23,6 @@ tags:
 
 *NOTA: Este post foi originalmente escrito para o blog da NCrunch. Você pode ler o [artigo original, em inglês, no site deles]({{ page.original }}).*
 
-*NOTA #2: Ainda não consegue ler em inglês? Meu curso [Inglês Para Desenvolvedores](https://ingles4devs.com) foi feito para você. Vai lá, cadastre seu e-mail e garanta a sua vaga assim que as inscrições forem abertas ;)*
-
 Sou fascinado com o conceito de testes de mutação desde que os conheci. Pensei finalmente ter encontrado a resposta para tantos problemas que tive ao escrever testes. Com os testes de mutação, agora eu tinha uma maneira de realmente confiar em meus testes. Finalmente, a cobertura de código tinha significado novamente.
 
 Então, fiquei atônito ao perceber que muito poucos desenvolvedores compartilhavam meu interesse em testes de mutação. Na verdade, ouso dizer que a maioria dos desenvolvedores ainda nem sequer ouviu falar sobre isso. E isso é uma pena porque eles - e nós, como uma indústria - estamos perdendo tantos benefícios.

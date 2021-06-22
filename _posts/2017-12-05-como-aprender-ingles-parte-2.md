@@ -16,8 +16,6 @@ tags:
 *Parte 2: Pratique diariamente. Áudio em primeiro lugar.*
 <!--more-->
 
-**UPDATE 2020: Em breve estarei lançando meu curso *Inglês Para Desenvolvedores.* [Acesse o site](https://ingles4devs.com/) e assine a newsletter para ser avisado(a) assim que as incrições forem abertas.**
-
 No [post anterior](https://carlosschults.net/pt/como-aprender-ingles-parte-1) eu expliquei quais são, na minha opinião, os principais erros que as pessoas cometem ao tentar aprender inglês.
 
 Agora chegou a hora de fazer o oposto: vou detalhar o que você *deve* fazer para aprender inglês da forma correta, gastando pouco e se divertindo no processo.
@@ -183,18 +181,18 @@ Aqui vão algumas estratégias para deixá-las em dia:
 Favoreça o inglês na leitura de qualquer material. Favoreça sempre a Wikipédia em inglês, assim como documentação de linguagens ou frameworks. Siga pessoas influentes da área no Twitter; leia seus blogs e quaisquer outras publicações. Além de praticar o seu inglês, você vai estar antenado(a) com o que acontece de importante na área.
 
 #### *Writing*
- 
+
 Invente oportunidades para escrever em inglês. Crie um blog. Comece um diário. Encontre algum projeto Open Source que você ache interessante (de preferência, algo que você usa) e se envolva! Entre no [chat do projeto no Gitter](); procure as issues no GitHub e participe das discussões; puxe assunto no Twitter com alguma daquelas pessoas influentes que você seguiu no passo anterior. Talvez você se surpreenda com a frequência com que elas respondem!
- 
+
  #### *Speaking*
 Fale sozinho. Sim, estou falando sério. Experimente gravar todo dia um vídeo (ou áudio) curto, de até um minuto, no qual você fala sobre seu dia (ou qualquer assunto).
- 
+
 Outra dica interessante é ler em voz alta. Encontre um texto, de preferência sobre um assunto que ache interessante, e leia em voz alta. Melhor ainda é gravar a sua leitura e depois pedir a opinião de uma pessoa que saiba inglês.
- 
+
  **DICA IMPORTANTE**: jamais tente adivinhar a pronúncia de uma palavra. Quando encontrar uma palavra que você jamais ouviu, ao invés de tentar pronunciá-la, ouça sua pronúncia correta antes. Uma ótima ferramenta para isso [é o site Forvo](https://pt.forvo.com/).
- 
+
 Falar sozinho e ler em voz alta sejam técnicas úteis, mas têm uma limitação importante e óbvia: a falta de interação com outra pessoa. Para resolver isso, temos sites de language exchange, [como o italki](https://www.italki.com/home?hl=pt).
- 
+
 Finalmente, aulas com professores nativos sempre é uma opção, caso esteja dentro das suas possibilidades. 
 
 ## Aprender inglês é possível. O que você está esperando?
