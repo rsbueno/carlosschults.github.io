@@ -10,9 +10,9 @@ lang: pt
 
 Meu nome é Carlos Schults, e este é meu blog profissional (não que eu tenho um pessoal.) Eu sou um desenvolvedor de software, consultor, professor e autor técnico. Como programador, tenho mais experiência com C# e .NET, embora também trabalhado com PHP, Java, Python, Ruby, Kotlin e outras linguagens.
 
-Como escritor técnico, a maior parte do meu trabalho foi feita em parceria com a empresa americana [Hit Subscribe](https://hitsubscribe.com), para a qual eu trabalho como autor freelancer. Desde dezembro de 2017, já escrevi quase 200 artigos para uma variedade de clientes, como NDepend, NCrunch, Submain, Testim.io, TechBeacon, e muitos outros. Também sou o colunista de tecnologia do portal de notícias [Siga Mais](https://sigamais.com).
+Como escritor técnico, a maior parte do meu trabalho foi feita em parceria com a empresa americana [Hit Subscribe](https://hitsubscribe.com), para a qual eu trabalho como autor freelancer. Desde dezembro de 2017, já escrevi quase 200 artigos para uma variedade de clientes, como NDepend, NCrunch, Submain, Testim.io, TechBeacon, e muitos outros. Também atuei como colunista de tecnologia do portal de notícias [Siga Mais](https://sigamais.com).
 
-Como professor, eu ministrei aulas para a empresa americana [ASPE Training](https://aspetraining.com/). Meu mais novo projeto é o curso *Inglês Para Desenvolvedores*, que nasce da minha convicção de que dominar o inglês tem o potencial de transformar a vida de profissionais da tecnologia. Para saber mais, [acesse o site do curso](https://ingles4devs.com) e cadastre-se na newsletter.
+Como professor, eu ministrei aulas para a empresa americana ASPE Training, hoje [Cprime Learning](https://www.cprime.com/learning/instructors/carlos-schults/).
 
 ## Mantenha Contato
 
