@@ -24,6 +24,12 @@ layout: default
 	  {% endif %}
     {% endfor %}  
     
+    {% if page.lang == "en" %}
+        Found a typo or mistake in the post? <a href="http://github.com/carlosschults/carlosschults.github.io/edit/master/{{ page.path }}">Suggest edit</a>
+        {% else %}
+        Encontrou algum erro no post? <a href="http://github.com/carlosschults/carlosschults.github.io/edit/master/{{ page.path }}">Sugira uma edição</a>      
+    {% endif %}
+    
     {% for post in posts reversed %}     
         
         {% capture current_post_index %}{{ forloop.index0 }}{% endcapture %}
